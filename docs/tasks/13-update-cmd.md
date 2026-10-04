@@ -2,7 +2,7 @@
 
 Implement `src/wowforever/update.py` and the `update` subcommand in `src/wowforever/__main__.py` so `tests/test_update.py` passes. Do not edit tests or fixtures. Standard library only, type hints, short docstrings.
 
-Also add `SKILL_LINES = (6, 8, 237)` (Frost, Fire, Arcane) to `src/wowforever/classes/mage.py`.
+`wowforever.classes.mage.SKILL_LINES` lists the mage skill lines.
 
 ## `check_for_updates(http_get, *, data_dir: Path, delay: float = 1.0, now: str | None = None) -> UpdateSummary`
 Mage only for now. `now` defaults to the current UTC time (ISO 8601); use it for every timestamp.
