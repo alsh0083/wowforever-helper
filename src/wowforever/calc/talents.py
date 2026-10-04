@@ -24,6 +24,8 @@ def modifiers_for(spell: SpellRank, cls: ClassData, ranks: Mapping[int, int],
     """Sum each taken talent's rank value onto the Modifiers fields its effects drive."""
     totals: dict[str, float] = {}
     for talent_id, rank in ranks.items():
+        if rank <= 0:  # values[rank - 1] would wrap around to the max-rank value
+            continue
         talent = cls.talent(talent_id)
         for effect in talent.effects:
             field = _KIND_TO_FIELD.get(effect.kind)

@@ -9,14 +9,14 @@ from __future__ import annotations
 
 from collections import Counter
 from collections.abc import Sequence
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from typing import Any
 
 from wowforever.assumptions import Assumptions
 from wowforever.builds import Build
 from wowforever.optimizer import optimize_order
 from wowforever.rules import check_order, points_available
-from wowforever.scenarios import Character, aoe_curve, default_params, questing, raid
+from wowforever.scenarios import Character, aoe_curve, best_rank, default_params, questing, raid
 from wowforever.schema import ClassData, SpellRank
 from wowforever.stats import StatTable
 
@@ -29,14 +29,23 @@ def ranks_at(order: Sequence[int], level: int, cls: ClassData) -> dict[int, int]
 
 
 def leveling_value(cls: ClassData, spells: tuple[SpellRank, ...], stats: StatTable,
-                   assumptions: Assumptions):
-    """Optimizer value function: questing kills/hour of a partial build at a level."""
-    params = {lvl: default_params("questing", lvl) for lvl in range(cls.rules.first_talent_level,
-                                                                   cls.rules.max_level + 1)}
+                   assumptions: Assumptions, primary_spell: str = ""):
+    """Optimizer value function: questing kills/hour of a partial build at a level.
+
+    With a primary spell, questing uses it whenever it's learned, so talents that improve it
+    count from the start instead of only once it beats the other fillers. Ties (talents that
+    don't change kills/hour now) break toward the talent worth more at max level."""
+    top = cls.rules.max_level
+    params = {lvl: default_params("questing", lvl) for lvl in range(cls.rules.first_talent_level, top + 1)}
+    if primary_spell:
+        params = {lvl: replace(p, fillers=(primary_spell,)) if best_rank(spells, primary_spell, lvl)
+                  else p for lvl, p in params.items()}
+
+    def kills(ranks: dict[int, int], level: int) -> float:
+        return questing(Character(level, stats.at(level), spells, cls, ranks), params[level], assumptions).score
 
     def value(ranks: dict[int, int], level: int) -> float:
-        char = Character(level, stats.at(level), spells, cls, ranks)
-        return questing(char, params[level], assumptions).score
+        return kills(ranks, level) + 1e-3 * kills(ranks, top)
 
     return value
 
@@ -46,7 +55,8 @@ def build_order(build: Build, cls: ClassData, spells, stats, assumptions) -> tup
     if build.order:
         return build.order_ids(cls), "hand-written"
     must = {cls.talent_named(n).talent_id: lvl for n, lvl in build.must_have_by.items()}
-    order = optimize_order(cls, build.final_ids(cls), must, leveling_value(cls, spells, stats, assumptions))
+    order = optimize_order(cls, build.final_ids(cls), must,
+                           leveling_value(cls, spells, stats, assumptions, build.primary_spell))
     return order, "optimized for questing kills/hour"
 
 
@@ -143,3 +153,18 @@ def build_report(cls: ClassData, spells: tuple[SpellRank, ...], builds: Sequence
             "Stats, mob HP and mana budgets are rough Classic-era defaults (low confidence).",
         ],
     }
+
+
+def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any]:
+    """Load a saved dataset (from `python -m wowforever update`) and build the report payload."""
+    from pathlib import Path
+
+    from wowforever.builds import load_builds
+    from wowforever.schema import Dataset
+
+    ds = Dataset.load(Path(dataset_path))
+    cls = ds.class_data(class_name)
+    meta = {"version": ds.version, "game_build": ds.game_build,
+            "sources": [{"source": p.source, "game_build": p.game_build, "data_version": p.data_version,
+                         "fetched_at": p.fetched_at} for p in ds.provenance]}
+    return build_report(cls, cls.spells, load_builds(), StatTable.load(class_name), Assumptions.load(), meta)

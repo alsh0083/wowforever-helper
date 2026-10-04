@@ -70,3 +70,14 @@ def test_talents_and_milestones_for_the_dashboard(payload):
     ignite = next(t for t in report["talents"].values() if t["name"] == "Ignite")
     assert ignite["icon"] == "spell_fire_incinerate" and len(ignite["rank_text"]) == 5
     assert {"level": 40, "spell": "Frostfire Bolt", "rank": 1} in report["spell_milestones"]
+
+
+def test_report_cli_from_a_saved_dataset(payload, tmp_path, capsys):
+    from wowforever.__main__ import main
+    from wowforever.schema import Dataset, Provenance
+    cls, _ = payload
+    prov = Provenance("wago.tools", "1.60.1.70205", "1.60.1.70205", "2026-10-04T00:00:00Z", "0" * 64)
+    Dataset("1.60.1.70205", "1.60.1.70205", (cls,), (prov,)).save(tmp_path / "ds.json")
+    assert main(["report", "--dataset", str(tmp_path / "ds.json"), "--out", str(tmp_path / "r.json")]) == 0
+    report = json.loads((tmp_path / "r.json").read_text(encoding="utf-8"))
+    assert report["dataset"]["game_build"] == "1.60.1.70205" and len(report["builds"]) == 4

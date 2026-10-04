@@ -90,6 +90,11 @@ def test_modifiers_for_frostbolt_in_deep_frost():
     assert modifiers_for(FROSTBOLT, CLS, ranks("deep-frost"), conditions={"frozen"}).crit_chance_bonus == 50
 
 
+def test_untaken_talents_with_rank_zero_add_nothing():
+    zeros = {t: 0 for t in ranks("deep-frost")}
+    assert modifiers_for(FROSTBOLT, CLS, zeros) == Modifiers()
+
+
 def test_incineration_applies_to_ice_lance_by_name():
     m = modifiers_for(ICE_LANCE, CLS, ranks("deep-frost"))
     assert m.crit_chance_bonus == 6 and m.crit_damage_bonus_pct == 100
