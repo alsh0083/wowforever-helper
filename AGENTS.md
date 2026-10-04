@@ -18,16 +18,16 @@ For every piece of work:
 
 ## Editing files as a local-model agent (Codex on Windows)
 
-The shell `apply_patch` command mangles multi-line patches. Write the patch into a PowerShell here-string and call Codex directly:
+The shell `apply_patch` command mangles multi-line patches. Put the patch in a PowerShell here-string and pipe it to the helper:
 
 ```powershell
-$patch = @'
+$OutputEncoding = [Text.UTF8Encoding]::new($false)
+@'
 *** Begin Patch
 *** Add File: src/example.py
 +print("hello")
 *** End Patch
-'@
-& $env:CODEX_EXE --codex-run-as-apply-patch $patch
+'@ | .venv/Scripts/python tools/apply_patch.py
 ```
 
 Use `*** Update File:` with `@@` hunks to edit and `*** Delete File: path` (no body lines) to delete. Run tests with `.venv/Scripts/python -m pytest`.
