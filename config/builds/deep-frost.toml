@@ -1,0 +1,31 @@
+# Reference archetype: deep Frost to Ice Barrier, Ice Lance crit from Incineration. A seed for
+# comparison, not a recommendation; the optimizer (#21) finds its point order.
+id = "deep-frost"
+name = "Deep Frost (control + Ice Barrier)"
+summary = "Maximum Frost control and defensives: Ice Block, Cold Snap, Ice Barrier, Shatter + Fingers of Frost burst; Incineration adds crit to Ice Lance."
+gives_up = ["Impact", "Ignite", "Burning Soul", "Heating Up", "Blast Wave"]
+
+[final]
+"Improved Frostbolt" = 5
+"Elemental Precision" = 5
+"Ice Shards" = 5
+"Permafrost" = 3
+"Improved Frost Nova" = 2
+"Frostbite" = 3
+"Piercing Ice" = 3
+"Ice Lance" = 1
+"Frost Channeling" = 3
+"Arctic Reach" = 2
+"Ice Block" = 1
+"Shatter" = 3
+"Improved Cone of Cold" = 3
+"Cold Snap" = 1
+"Fingers of Frost" = 2
+"Winter's Chill" = 5
+"Ice Barrier" = 1
+"Incineration" = 3
+
+[must_have_by]
+"Ice Block" = 25
+"Cold Snap" = 30
+"Ice Barrier" = 40

@@ -1,0 +1,30 @@
+# Reference archetype: Classic-style Presence of Mind + Pyroblast, adapted to Forever's trees.
+# Included so the comparison shows what the Fire/Frost builds give up.
+id = "arcane-pom-pyro"
+name = "Arcane PoM-Pyro (reference)"
+summary = "Arcane Power + Presence of Mind into an instant Pyroblast, with Arcane Concentration and Arcane Meditation for mana; Ignite and Burning Soul from Fire."
+gives_up = ["Ice Block", "Cold Snap", "Ice Barrier", "Impact", "Heating Up"]
+
+[final]
+"Arcane Focus" = 3
+"Wand Specialization" = 2
+"Arcane Concentration" = 5
+"Arcane Subtlety" = 2
+"Magic Absorption" = 2
+"Arcane Impact" = 3
+"Arcane Geometry" = 2
+"Improved Counterspell" = 2
+"Arcane Meditation" = 3
+"Presence of Mind" = 1
+"Arcane Mind" = 5
+"Arcane Instability" = 3
+"Arcane Power" = 1
+"Incineration" = 3
+"Improved Fireball" = 5
+"Ignite" = 5
+"Pyroblast" = 1
+"Burning Soul" = 3
+
+[must_have_by]
+"Presence of Mind" = 32
+"Pyroblast" = 50

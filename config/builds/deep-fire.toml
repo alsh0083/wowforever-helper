@@ -1,0 +1,29 @@
+# Reference archetype: deep Fire to Combustion with a Frost splash for hit and Nova control.
+id = "deep-fire"
+name = "Deep Fire (Combustion)"
+summary = "Maximum Fire burst and sustained damage: Ignite, Heating Up, Critical Mass, Fire Power, Combustion; Elemental Precision for hit, Permafrost and Improved Frost Nova for kiting."
+gives_up = ["Ice Block", "Cold Snap", "Ice Barrier", "Shatter"]
+
+[final]
+"Wake of Fire" = 2
+"Incineration" = 3
+"Improved Fireball" = 5
+"Ignite" = 5
+"Impact" = 3
+"Flame Throwing" = 2
+"Burning Soul" = 3
+"Pyroblast" = 1
+"Improved Scorch" = 3
+"Heating Up" = 1
+"Master of Elements" = 3
+"Critical Mass" = 3
+"Blast Wave" = 1
+"Fire Power" = 5
+"Combustion" = 1
+"Elemental Precision" = 5
+"Permafrost" = 3
+"Improved Frost Nova" = 2
+
+[must_have_by]
+"Pyroblast" = 30
+"Heating Up" = 36
