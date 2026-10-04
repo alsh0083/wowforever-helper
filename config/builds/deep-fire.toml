@@ -1,5 +1,6 @@
 # Reference archetype: deep Fire to Combustion with a Frost splash for hit and Nova control.
 id = "deep-fire"
+primary_spell = "Fireball"  # the spell its leveling order is optimized around
 name = "Deep Fire (Combustion)"
 summary = "Maximum Fire burst and sustained damage: Ignite, Heating Up, Critical Mass, Fire Power, Combustion; Elemental Precision for hit, Permafrost and Improved Frost Nova for kiting."
 gives_up = ["Ice Block", "Cold Snap", "Ice Barrier", "Shatter"]
