@@ -1,0 +1,20 @@
+# Parameters for the v0 PvE scenarios (#19). Anchor rows are interpolated linearly by level.
+# Confidence: LOW. Mob HP and drink rates are rough Classic-era figures, not Forever data;
+# replace them as Forever numbers become known. Rankings should be checked for sensitivity.
+
+fillers = ["Frostbolt", "Fireball", "Frostfire Bolt", "Arcane Missiles"]
+aoe_spells = ["Blizzard", "Arcane Explosion", "Flamestrike", "Cone of Cold", "Blast Wave"]
+
+[questing]
+travel_seconds = 15
+# level = [mob_hp, drink_mana_per_second]
+anchors = { 10 = [200, 5], 20 = [600, 10], 30 = [1100, 20], 40 = [1700, 50], 50 = [2600, 100], 60 = [3800, 140] }
+
+[aoe]
+pack_sizes = [1, 2, 3, 4, 5, 6]
+
+[raid]
+fight_seconds = 180
+target_level_offset = 3
+# combat mana regen (spirit outside the 5-second rule, mana gear, potions), mana per second
+mana_per_second = 15
