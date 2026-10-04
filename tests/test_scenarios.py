@@ -95,6 +95,39 @@ def test_raid_sustained_dps_with_regen():
     assert r.score == pytest.approx(332 * (4000 / 60) / 180)
 
 
+def test_raid_extra_mana_extends_time_to_oom():
+    # (4000 + 2000) / (400 / 2.5) = 37.5 s
+    p = RaidParams(fight_seconds=180, mana_per_second=0, fillers=("Fireball",), extra_mana=2000)
+    assert raid(CHAR60, p, A).details["time_to_oom"] == pytest.approx(37.5)
+
+
+def test_channeled_aoe_occupies_its_duration():
+    # 8 s channel dealing 80 per target: 0.96 * 80 / 8 = 9.6 DPS per mob, not 0.96 * 80 / 1.5
+    chan = SpellRank(9, "Blizzard", 1, 20, ("frost",), 0.0, mana_cost=100, periodic_damage=80,
+                     duration=8.0, tick_period=1.0, channeled=True)
+    char = Character(level=20, stats=stats(20, 1000), spells=(BOLT, chan), cls=EMPTY, ranks={})
+    p = AoeParams(mob_hp=300, pack_sizes=(1,), aoe_spells=("Blizzard",), fillers=("Frostbolt",))
+    assert aoe_curve(char, p, A).details["aoe_time"][1] == pytest.approx(300 / 9.6)
+
+
+def test_cooldown_limits_how_often_a_spell_repeats():
+    # Arcane Explosion with a 10 s cooldown: 48 per mob every 10 s = 4.8 DPS per mob
+    slow = SpellRank(2, "Arcane Explosion", 1, 20, ("arcane",), 0.0, cooldown=10.0, mana_cost=100,
+                     min_damage=50, max_damage=50)
+    char = Character(level=20, stats=stats(20, 1000), spells=(BOLT, slow), cls=EMPTY, ranks={})
+    p = AoeParams(mob_hp=300, pack_sizes=(1,), aoe_spells=("Arcane Explosion",), fillers=("Frostbolt",))
+    assert aoe_curve(char, p, A).details["aoe_time"][1] == pytest.approx(300 / 4.8)
+
+
+def test_repeated_dot_only_counts_ticks_before_the_next_cast():
+    # 3 s cast, 100 direct + 80 over 8 s: each repeat gains 0.96 * (100 + 80 * 3 / 8) = 124.8
+    burn = SpellRank(7, "Flamestrike", 1, 20, ("fire",), 3.0, mana_cost=100, min_damage=100,
+                     max_damage=100, periodic_damage=80, duration=8.0, tick_period=2.0)
+    char = Character(level=20, stats=stats(20, 1000), spells=(BOLT, burn), cls=EMPTY, ranks={})
+    p = AoeParams(mob_hp=300, pack_sizes=(1,), aoe_spells=("Flamestrike",), fillers=("Frostbolt",))
+    assert aoe_curve(char, p, A).details["aoe_time"][1] == pytest.approx(300 / (124.8 / 3.0))
+
+
 def test_raid_never_oom_caps_at_full_dps():
     r = raid(CHAR60, RaidParams(fight_seconds=180, mana_per_second=500, fillers=("Fireball",)), A)
     assert r.score == pytest.approx(332)
