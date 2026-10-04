@@ -43,9 +43,11 @@ def find_codex() -> Path:
     sys.exit("codex not found: install the Codex app or put the Codex CLI on PATH")
 
 
-def sandbox_env() -> dict[str, str]:
-    """Current environment minus WindowsApps on PATH (see module docstring)."""
+def sandbox_env(codex: Path) -> dict[str, str]:
+    """Current environment minus WindowsApps on PATH (see module docstring), plus CODEX_EXE so the
+    agent can call apply_patch directly (AGENTS.md has the recipe)."""
     env = dict(os.environ)
+    env["CODEX_EXE"] = str(codex)
     env["PATH"] = os.pathsep.join(
         p for p in env.get("PATH", "").split(os.pathsep) if "windowsapps" not in p.lower()
     )
@@ -85,10 +87,11 @@ def main() -> int:
     last_message = log_dir / "final.md"
 
     with open(log_dir / "events.jsonl", "w", encoding="utf-8") as events:
+        codex = find_codex()
         result = subprocess.run(
-            build_command(find_codex(), args.model, last_message),
+            build_command(codex, args.model, last_message),
             input=spec, stdout=events, stderr=subprocess.STDOUT, text=True, encoding="utf-8",
-            env=sandbox_env(),
+            env=sandbox_env(codex),
         )
 
     print(f"log: {log_dir.relative_to(REPO)}  exit: {result.returncode}")

@@ -16,6 +16,22 @@ For every piece of work:
 
 `gh issue list -R alsh0083/wowforever-helper --milestone v0` shows the current frontier.
 
+## Editing files as a local-model agent (Codex on Windows)
+
+The shell `apply_patch` command mangles multi-line patches. Write the patch into a PowerShell here-string and call Codex directly:
+
+```powershell
+$patch = @'
+*** Begin Patch
+*** Add File: src/example.py
++print("hello")
+*** End Patch
+'@
+& $env:CODEX_EXE --codex-run-as-apply-patch $patch
+```
+
+Use `*** Update File:` with `@@` hunks to edit and `*** Delete File: path` (no body lines) to delete. Run tests with `.venv/Scripts/python -m pytest`.
+
 ## Guardrails
 
 - Every spell and talent value comes from Forever data. Classic/TBC values serve only as comparison and as consensus evidence for unchanged talents: Forever reworked a lot, mage AoE included.
