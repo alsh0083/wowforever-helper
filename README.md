@@ -2,6 +2,10 @@
 
 Theorycrafting and leveling tools for WoW Forever. Starting with mage (Elementalist: Fire/Frost), built to extend to other classes.
 
+## Progress
+
+Work is tracked in [GitHub issues](https://github.com/alsh0083/wowforever-helper/issues) by [milestone](https://github.com/alsh0083/wowforever-helper/milestones) (`v0` -> `v1` -> `later`). Agent instructions live in `AGENTS.md` / `CLAUDE.md`.
+
 ## Contents
 
 - `dashboard/`: offline talent-leveling dashboard (open `dashboard/index.html` in a browser)
