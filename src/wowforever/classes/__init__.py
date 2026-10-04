@@ -24,3 +24,13 @@ class TraitLayout:
     trees: tuple[TreeBand, ...]  # ordered by min_x
     first_row_y: int             # PosY of row 0
     grid: int                    # PosX/PosY distance between adjacent rows/columns
+
+
+@dataclass(frozen=True)
+class EffectRule:
+    """One numeric effect to parse out of a talent's rank text (#51)."""
+
+    kind: str
+    pattern: str                 # regex with one capture group for the number
+    applies_to: tuple[str, ...]  # school names, spell names, "all", or "@condition" tokens
+    sign: int = 1                # -1 for reductions (cast time, mana cost)

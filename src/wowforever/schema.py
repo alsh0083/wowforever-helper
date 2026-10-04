@@ -115,6 +115,7 @@ class SpellRank:
     scaling_max_level: int = 0         # ...up to this level (0 = no scaling)
     slow_pct: float = 0.0              # movement slow applied, %
     max_targets: int = 0               # AoE target cap; 0 = no cap in client data
+    channeled: bool = False            # casting occupies the full `duration`
 
 
 @dataclass(frozen=True)

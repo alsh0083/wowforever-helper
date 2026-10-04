@@ -77,6 +77,11 @@ def test_flamestrike_direct_plus_area_burn():
     assert s.periodic_coefficient == pytest.approx(0.032 * 4, abs=1e-3)
 
 
+def test_channeled_flag_from_spell_attributes():
+    assert rank("Blizzard", 6).channeled and rank("Arcane Missiles", 1).channeled
+    assert not rank("Fireball", 1).channeled and not rank("Flamestrike", 1).channeled
+
+
 def test_cooldowns_take_the_longer_of_spell_and_category_recovery():
     assert rank("Ice Block", 1).cooldown == pytest.approx(300.0)
     assert rank("Cold Snap", 1).cooldown == pytest.approx(600.0)
