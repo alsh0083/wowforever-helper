@@ -1,0 +1,2006 @@
+{
+ "dataset": {
+  "version": "1.60.1.70205",
+  "game_build": "1.60.1.70205",
+  "sources": [
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-04T19:24:07Z"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261003-adadac42",
+    "fetched_at": "2026-10-04T19:24:08Z"
+   }
+  ]
+ },
+ "rules": {
+  "first_talent_level": 10,
+  "max_level": 60,
+  "points_per_row": 5
+ },
+ "trees": [
+  {
+   "id": 1,
+   "name": "Arcane"
+  },
+  {
+   "id": 2,
+   "name": "Fire"
+  },
+  {
+   "id": 3,
+   "name": "Frost"
+  }
+ ],
+ "talents": {
+  "105815": {
+   "name": "Wand Specialization",
+   "tree": "Arcane",
+   "row": 0,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "inv_wand_01",
+   "rank_text": [
+    "Increases your damage with Wands by 13%.",
+    "Increases your damage with Wands by 25%."
+   ],
+   "classic_status": "moved",
+   "prerequisite": null
+  },
+  "105814": {
+   "name": "Arcane Focus",
+   "tree": "Arcane",
+   "row": 0,
+   "col": 1,
+   "max_rank": 5,
+   "icon": "spell_holy_devotion",
+   "rank_text": [
+    "Improves your chance to hit with Arcane spells by 1%.",
+    "Improves your chance to hit with Arcane spells by 2%.",
+    "Improves your chance to hit with Arcane spells by 3%.",
+    "Improves your chance to hit with Arcane spells by 4%.",
+    "Improves your chance to hit with Arcane spells by 5%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105813": {
+   "name": "Improved Channeling",
+   "tree": "Arcane",
+   "row": 0,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_nature_starfall",
+   "rank_text": [
+    "Gives you a 20% chance to avoid interruption caused by damage while channeling Arcane Missiles and a 14% chance while casting Arcane Blast.",
+    "Gives you a 40% chance to avoid interruption caused by damage while channeling Arcane Missiles and a 28% chance while casting Arcane Blast.",
+    "Gives you a 60% chance to avoid interruption caused by damage while channeling Arcane Missiles and a 42% chance while casting Arcane Blast.",
+    "Gives you a 80% chance to avoid interruption caused by damage while channeling Arcane Missiles and a 56% chance while casting Arcane Blast.",
+    "Gives you a 100% chance to avoid interruption caused by damage while channeling Arcane Missiles and a 70% chance while casting Arcane Blast."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105812": {
+   "name": "Arcane Subtlety",
+   "tree": "Arcane",
+   "row": 1,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_holy_dispelmagic",
+   "rank_text": [
+    "Reduces your target's resistance to all your spells by 8 and reduces the threat caused by your Arcane spells by 15%.",
+    "Reduces your target's resistance to all your spells by 15 and reduces the threat caused by your Arcane spells by 30%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105811": {
+   "name": "Magic Absorption",
+   "tree": "Arcane",
+   "row": 1,
+   "col": 1,
+   "max_rank": 2,
+   "icon": "spell_nature_astralrecalgroup",
+   "rank_text": [
+    "Increases all your resistances by 5 and causes all spells you fully resist to restore 1% of your total mana. Cannot trigger more often than 1 time per sec.",
+    "Increases all your resistances by 10 and causes all spells you fully resist to restore 2% of your total mana. Cannot trigger more often than 1 time per sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105810": {
+   "name": "Arcane Concentration",
+   "tree": "Arcane",
+   "row": 1,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_shadow_manaburn",
+   "rank_text": [
+    "Gives you a 2% chance of entering a Clearcasting state after any damage spell hits a target. The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+    "Gives you a 4% chance of entering a Clearcasting state after any damage spell hits a target. The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+    "Gives you a 6% chance of entering a Clearcasting state after any damage spell hits a target. The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+    "Gives you a 8% chance of entering a Clearcasting state after any damage spell hits a target. The Clearcasting state reduces the mana cost of your next damage spell by 100%.",
+    "Gives you a 10% chance of entering a Clearcasting state after any damage spell hits a target. The Clearcasting state reduces the mana cost of your next damage spell by 100%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105809": {
+   "name": "Arcane Resilience",
+   "tree": "Arcane",
+   "row": 1,
+   "col": 3,
+   "max_rank": 2,
+   "icon": "spell_arcane_arcaneresilience",
+   "rank_text": [
+    "Increases your Armor by an amount equal to 25% of your Intellect.",
+    "Increases your Armor by an amount equal to 50% of your Intellect."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105808": {
+   "name": "Arcane Geometry",
+   "tree": "Arcane",
+   "row": 2,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "inv_ability_mage_radiantspark",
+   "rank_text": [
+    "Increases the range of your Arcane spells by 3 yards.",
+    "Increases the range of your Arcane spells by 6 yards."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105807": {
+   "name": "Arcane Impact",
+   "tree": "Arcane",
+   "row": 2,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_nature_wispsplode",
+   "rank_text": [
+    "Increases the critical strike chance of your Arcane spells by 2%.",
+    "Increases the critical strike chance of your Arcane spells by 4%.",
+    "Increases the critical strike chance of your Arcane spells by 6%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105806": {
+   "name": "Arcane Blast",
+   "tree": "Arcane",
+   "row": 2,
+   "col": 3,
+   "max_rank": 1,
+   "icon": "spell_arcane_blast",
+   "rank_text": [
+    "Blasts the target with energy, dealing 57 to 65 Arcane damage. Each time you cast Arcane Blast, the damage of all your other spells is increased by 10% and the mana cost of Arcane Blast is increased by 175%. Effect stacks up to 4 times and lasts 8 sec or until any other damage spell is cast."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105805": {
+   "name": "Arcane Shielding",
+   "tree": "Arcane",
+   "row": 3,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_shadow_detectlesserinvisibility",
+   "rank_text": [
+    "Decreases the Mana lost per point of damage taken when your Mana Shield spell is active by 17% and increases the resistances granted by your Mage Armor spell by 25%.",
+    "Decreases the Mana lost per point of damage taken when your Mana Shield spell is active by 33% and increases the resistances granted by your Mage Armor spell by 50%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105804": {
+   "name": "Improved Counterspell",
+   "tree": "Arcane",
+   "row": 3,
+   "col": 1,
+   "max_rank": 2,
+   "icon": "spell_frost_iceshock",
+   "rank_text": [
+    "Your Counterspell also Silences the target for 2 sec.",
+    "Your Counterspell also Silences the target for 4 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105803": {
+   "name": "Arcane Meditation",
+   "tree": "Arcane",
+   "row": 3,
+   "col": 2,
+   "max_rank": 3,
+   "icon": "spell_shadow_siphonmana",
+   "rank_text": [
+    "Allows 17% of your Mana regeneration to continue while casting.",
+    "Allows 33% of your Mana regeneration to continue while casting.",
+    "Allows 50% of your Mana regeneration to continue while casting."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 105810
+  },
+  "105802": {
+   "name": "Missile Barrage",
+   "tree": "Arcane",
+   "row": 3,
+   "col": 3,
+   "max_rank": 1,
+   "icon": "ability_mage_missilebarrage",
+   "rank_text": [
+    "Gives your Arcane Blast spell a 40% chance, and your Fireball, Frostbolt, and Frostfire Bolt spells a 20% chance to reduce the channeled duration of your next Arcane Missiles spell by 50%, reduce the Mana cost by 100%, and missiles fire every 0.5 sec."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105801": {
+   "name": "Presence of Mind",
+   "tree": "Arcane",
+   "row": 4,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_nature_enchantarmor",
+   "rank_text": [
+    "When activated, your next Mage spell with a casting time less than 10 sec becomes an instant cast spell."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105800": {
+   "name": "Arcane Mind",
+   "tree": "Arcane",
+   "row": 4,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_shadow_charm",
+   "rank_text": [
+    "Increases your Intellect by 2% and increases the critical strike damage bonus of your Arcane spells by 20%.",
+    "Increases your Intellect by 4% and increases the critical strike damage bonus of your Arcane spells by 40%.",
+    "Increases your Intellect by 6% and increases the critical strike damage bonus of your Arcane spells by 60%.",
+    "Increases your Intellect by 8% and increases the critical strike damage bonus of your Arcane spells by 80%.",
+    "Increases your Intellect by 10% and increases the critical strike damage bonus of your Arcane spells by 100%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105799": {
+   "name": "Arcane Instability",
+   "tree": "Arcane",
+   "row": 5,
+   "col": 2,
+   "max_rank": 3,
+   "icon": "spell_shadow_teleport",
+   "rank_text": [
+    "Increases the damage done by your spells by 1% and your critical strike chance by 1%.",
+    "Increases the damage done by your spells by 2% and your critical strike chance by 2%.",
+    "Increases the damage done by your spells by 3% and your critical strike chance by 3%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105798": {
+   "name": "Arcane Power",
+   "tree": "Arcane",
+   "row": 6,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_nature_lightning",
+   "rank_text": [
+    "For the next 15 sec, your spells deal 30% more damage while costing 30% more mana to cast."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 105801
+  },
+  "105797": {
+   "name": "Wake of Fire",
+   "tree": "Fire",
+   "row": 0,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_fire_lavaspawn",
+   "rank_text": [
+    "Reduces the cooldown of your Fire Blast spell by 1 sec. Killing a non-trivial target increases the critical strike chance of your next Fire Blast cast within 30 sec by 25%.",
+    "Reduces the cooldown of your Fire Blast spell by 2 sec. Killing a non-trivial target increases the critical strike chance of your next Fire Blast cast within 30 sec by 50%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105796": {
+   "name": "Incineration",
+   "tree": "Fire",
+   "row": 0,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_fire_flameshock",
+   "rank_text": [
+    "Increases the critical strike chance of your Fire Blast, Ice Lance, Arcane Blast, and Scorch spells by 2%.",
+    "Increases the critical strike chance of your Fire Blast, Ice Lance, Arcane Blast, and Scorch spells by 4%.",
+    "Increases the critical strike chance of your Fire Blast, Ice Lance, Arcane Blast, and Scorch spells by 6%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105795": {
+   "name": "Improved Fireball",
+   "tree": "Fire",
+   "row": 0,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_fire_flamebolt",
+   "rank_text": [
+    "Reduces the casting time of your Fireball and Frostfire Bolt spells by 0.1 sec.",
+    "Reduces the casting time of your Fireball and Frostfire Bolt spells by 0.2 sec.",
+    "Reduces the casting time of your Fireball and Frostfire Bolt spells by 0.3 sec.",
+    "Reduces the casting time of your Fireball and Frostfire Bolt spells by 0.4 sec.",
+    "Reduces the casting time of your Fireball and Frostfire Bolt spells by 0.5 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105794": {
+   "name": "Ignite",
+   "tree": "Fire",
+   "row": 1,
+   "col": 0,
+   "max_rank": 5,
+   "icon": "spell_fire_incinerate",
+   "rank_text": [
+    "Your critical strikes from Fire damage spells cause the target to burn for an additional 8% of your spell's damage over 4 sec.",
+    "Your critical strikes from Fire damage spells cause the target to burn for an additional 16% of your spell's damage over 4 sec.",
+    "Your critical strikes from Fire damage spells cause the target to burn for an additional 24% of your spell's damage over 4 sec.",
+    "Your critical strikes from Fire damage spells cause the target to burn for an additional 32% of your spell's damage over 4 sec.",
+    "Your critical strikes from Fire damage spells cause the target to burn for an additional 40% of your spell's damage over 4 sec."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105793": {
+   "name": "Flame Throwing",
+   "tree": "Fire",
+   "row": 1,
+   "col": 1,
+   "max_rank": 2,
+   "icon": "spell_fire_flare",
+   "rank_text": [
+    "Increases the range of your Fire spells by 3 yards.",
+    "Increases the range of your Fire spells by 6 yards."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105792": {
+   "name": "Impact",
+   "tree": "Fire",
+   "row": 1,
+   "col": 2,
+   "max_rank": 3,
+   "icon": "spell_fire_meteorstorm",
+   "rank_text": [
+    "Gives your Fire spells a 3% chance to stun the target for 2 sec.",
+    "Gives your Fire spells a 7% chance to stun the target for 2 sec.",
+    "Gives your Fire spells a 10% chance to stun the target for 2 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105789": {
+   "name": "Burning Soul",
+   "tree": "Fire",
+   "row": 2,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "spell_fire_fire",
+   "rank_text": [
+    "Gives your Fire spells a 23% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by 10%.",
+    "Gives your Fire spells a 47% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by 20%.",
+    "Gives your Fire spells a 70% chance to not lose casting time when you take damage and reduces the threat caused by your Fire spells by 30%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105791": {
+   "name": "Improved Flamestrike",
+   "tree": "Fire",
+   "row": 2,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_fire_selfdestruct",
+   "rank_text": [
+    "Increases the critical strike chance of your Flamestrike spell by 5%.",
+    "Increases the critical strike chance of your Flamestrike spell by 10%.",
+    "Increases the critical strike chance of your Flamestrike spell by 15%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105790": {
+   "name": "Pyroblast",
+   "tree": "Fire",
+   "row": 2,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_fire_fireball02",
+   "rank_text": [
+    "Hurls an immense fiery boulder that causes 101 to 131 Fire damage and an additional 44 Fire damage over 12 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105788": {
+   "name": "Improved Scorch",
+   "tree": "Fire",
+   "row": 3,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "spell_fire_windsofwoe",
+   "rank_text": [
+    "Your Scorch spell has a 33% chance to cause your target to be vulnerable to Fire damage. This vulnerability increases all Fire damage you deal to your target by 3% and lasts 30 sec, stacking up to 5 times.",
+    "Your Scorch spell has a 67% chance to cause your target to be vulnerable to Fire damage. This vulnerability increases all Fire damage you deal to your target by 3% and lasts 30 sec, stacking up to 5 times.",
+    "Your Scorch spell has a 100% chance to cause your target to be vulnerable to Fire damage. This vulnerability increases all Fire damage you deal to your target by 3% and lasts 30 sec, stacking up to 5 times."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105787": {
+   "name": "Improved Fire Ward",
+   "tree": "Fire",
+   "row": 3,
+   "col": 1,
+   "max_rank": 2,
+   "icon": "spell_fire_firearmor",
+   "rank_text": [
+    "Causes your Fire Ward to have a 10% chance to reflect Fire spells while active.",
+    "Causes your Fire Ward to have a 20% chance to reflect Fire spells while active."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105786": {
+   "name": "Heating Up",
+   "tree": "Fire",
+   "row": 3,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_fire_firebolt",
+   "rank_text": [
+    "Non-periodic critical strikes with Fireball, Frostfire Bolt, Fire Blast, and Scorch reduce the cast time of your next Pyroblast cast within 20 sec by 25%, stacking up to 3 times."
+   ],
+   "classic_status": "new",
+   "prerequisite": 105790
+  },
+  "105785": {
+   "name": "Master of Elements",
+   "tree": "Fire",
+   "row": 3,
+   "col": 3,
+   "max_rank": 3,
+   "icon": "spell_fire_masterofelements",
+   "rank_text": [
+    "Your Fire and Frost critical strikes will refund 10% of their base mana cost.",
+    "Your Fire and Frost critical strikes will refund 20% of their base mana cost.",
+    "Your Fire and Frost critical strikes will refund 30% of their base mana cost."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105784": {
+   "name": "Critical Mass",
+   "tree": "Fire",
+   "row": 4,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_nature_wispheal",
+   "rank_text": [
+    "Increases the critical strike chance of your Fire spells by 2%.",
+    "Increases the critical strike chance of your Fire spells by 4%.",
+    "Increases the critical strike chance of your Fire spells by 6%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105783": {
+   "name": "Blast Wave",
+   "tree": "Fire",
+   "row": 4,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_holy_excorcism_02",
+   "rank_text": [
+    "A wave of flame radiates outward from the caster, damaging all enemies caught within the blast for 154 to 184 Fire damage, and Dazing them for 50% reduced movement speed for 6 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105782": {
+   "name": "Fire Power",
+   "tree": "Fire",
+   "row": 5,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_fire_immolation",
+   "rank_text": [
+    "Increases the damage done by your Fire spells by 2%.",
+    "Increases the damage done by your Fire spells by 4%.",
+    "Increases the damage done by your Fire spells by 6%.",
+    "Increases the damage done by your Fire spells by 8%.",
+    "Increases the damage done by your Fire spells by 10%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105781": {
+   "name": "Combustion",
+   "tree": "Fire",
+   "row": 6,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_fire_sealoffire",
+   "rank_text": [
+    "When activated, this spell causes each of your Fire damage spell hits to increase your critical strike chance with Fire damage spells by 10%. This effect lasts until you have caused 3 non-periodic critical strikes with Fire spells."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 105784
+  },
+  "105780": {
+   "name": "Frost Warding",
+   "tree": "Frost",
+   "row": 0,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_frost_frostward",
+   "rank_text": [
+    "Increases the Armor and resistance given by your Frost Armor and Ice Armor spells by 15%. In addition, gives your Frost Ward a 10% chance to reflect Frost spells and effects while active.",
+    "Increases the Armor and resistance given by your Frost Armor and Ice Armor spells by 30%. In addition, gives your Frost Ward a 20% chance to reflect Frost spells and effects while active."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105779": {
+   "name": "Improved Frostbolt",
+   "tree": "Frost",
+   "row": 0,
+   "col": 1,
+   "max_rank": 5,
+   "icon": "spell_frost_frostbolt02",
+   "rank_text": [
+    "Reduces the casting time of your Frostbolt spell by 0.1 sec.",
+    "Reduces the casting time of your Frostbolt spell by 0.2 sec.",
+    "Reduces the casting time of your Frostbolt spell by 0.3 sec.",
+    "Reduces the casting time of your Frostbolt spell by 0.4 sec.",
+    "Reduces the casting time of your Frostbolt spell by 0.5 sec."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105778": {
+   "name": "Elemental Precision",
+   "tree": "Frost",
+   "row": 0,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_ice_magicdamage",
+   "rank_text": [
+    "Improves your chance to hit with Frost and Fire spells by 1%.",
+    "Improves your chance to hit with Frost and Fire spells by 2%.",
+    "Improves your chance to hit with Frost and Fire spells by 3%.",
+    "Improves your chance to hit with Frost and Fire spells by 4%.",
+    "Improves your chance to hit with Frost and Fire spells by 5%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105777": {
+   "name": "Ice Shards",
+   "tree": "Frost",
+   "row": 1,
+   "col": 0,
+   "max_rank": 5,
+   "icon": "spell_frost_iceshard",
+   "rank_text": [
+    "Increases the critical strike damage bonus of your Frost spells by 20%.",
+    "Increases the critical strike damage bonus of your Frost spells by 40%.",
+    "Increases the critical strike damage bonus of your Frost spells by 60%.",
+    "Increases the critical strike damage bonus of your Frost spells by 80%.",
+    "Increases the critical strike damage bonus of your Frost spells by 100%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105776": {
+   "name": "Permafrost",
+   "tree": "Frost",
+   "row": 1,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_frost_wisp",
+   "rank_text": [
+    "Increases the duration of your Chill effects by 11% and reduces the target's speed by an additional 3%.",
+    "Increases the duration of your Chill effects by 22% and reduces the target's speed by an additional 7%.",
+    "Increases the duration of your Chill effects by 33% and reduces the target's speed by an additional 10%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105775": {
+   "name": "Improved Frost Nova",
+   "tree": "Frost",
+   "row": 1,
+   "col": 2,
+   "max_rank": 2,
+   "icon": "spell_frost_freezingbreath",
+   "rank_text": [
+    "Reduces the cooldown of your Frost Nova spell by 2 sec.",
+    "Reduces the cooldown of your Frost Nova spell by 4 sec."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105774": {
+   "name": "Frostbite",
+   "tree": "Frost",
+   "row": 1,
+   "col": 3,
+   "max_rank": 3,
+   "icon": "spell_frost_frostarmor",
+   "rank_text": [
+    "Gives your Chill effects a 5% chance to Freeze the target for 5 sec.",
+    "Gives your Chill effects a 10% chance to Freeze the target for 5 sec.",
+    "Gives your Chill effects a 15% chance to Freeze the target for 5 sec."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105773": {
+   "name": "Piercing Ice",
+   "tree": "Frost",
+   "row": 2,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "spell_frost_frostbolt",
+   "rank_text": [
+    "Increases the damage done by your Frost spells by 2%.",
+    "Increases the damage done by your Frost spells by 4%.",
+    "Increases the damage done by your Frost spells by 6%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105772": {
+   "name": "Frost Channeling",
+   "tree": "Frost",
+   "row": 2,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_frost_stun",
+   "rank_text": [
+    "Reduces the mana cost of your Frost spells by 5% and reduces the threat caused by your Frost spells by 10%.",
+    "Reduces the mana cost of your Frost spells by 10% and reduces the threat caused by your Frost spells by 20%.",
+    "Reduces the mana cost of your Frost spells by 15% and reduces the threat caused by your Frost spells by 30%."
+   ],
+   "classic_status": "moved",
+   "prerequisite": null
+  },
+  "105767": {
+   "name": "Ice Lance",
+   "tree": "Frost",
+   "row": 2,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_frost_frostblast",
+   "rank_text": [
+    "Deals 28 to 32 Frost damage to an enemy target. Deals 300% increased damage to Frozen targets."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105771": {
+   "name": "Improved Blizzard",
+   "tree": "Frost",
+   "row": 2,
+   "col": 3,
+   "max_rank": 3,
+   "icon": "spell_frost_icestorm",
+   "rank_text": [
+    "Adds a Chill effect to your Blizzard spell. This effect lowers the target's movement speed by 15% for 1.5 sec.",
+    "Adds a Chill effect to your Blizzard spell. This effect lowers the target's movement speed by 25% for 1.5 sec.",
+    "Adds a Chill effect to your Blizzard spell. This effect lowers the target's movement speed by 40% for 1.5 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105770": {
+   "name": "Arctic Reach",
+   "tree": "Frost",
+   "row": 3,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_shadow_darkritual",
+   "rank_text": [
+    "Increases the range of your Frostbolt and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by 10%.",
+    "Increases the range of your Frostbolt and Blizzard spells and the radius of your Frost Nova and Cone of Cold spells by 20%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105769": {
+   "name": "Ice Block",
+   "tree": "Frost",
+   "row": 3,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_frost_frost",
+   "rank_text": [
+    "You become encased in a block of ice, protecting you from all physical attacks and spells for 10 sec, but during that time you cannot attack, move, or cast spells."
+   ],
+   "classic_status": "moved",
+   "prerequisite": null
+  },
+  "105768": {
+   "name": "Shatter",
+   "tree": "Frost",
+   "row": 3,
+   "col": 3,
+   "max_rank": 3,
+   "icon": "spell_frost_frostshock",
+   "rank_text": [
+    "Increases the critical strike chance of all your spells against Frozen targets by 17%.",
+    "Increases the critical strike chance of all your spells against Frozen targets by 33%.",
+    "Increases the critical strike chance of all your spells against Frozen targets by 50%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105765": {
+   "name": "Improved Cone of Cold",
+   "tree": "Frost",
+   "row": 4,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "spell_frost_glacier",
+   "rank_text": [
+    "Increases the damage dealt by your Cone of Cold spell by 12%.",
+    "Increases the damage dealt by your Cone of Cold spell by 23%.",
+    "Increases the damage dealt by your Cone of Cold spell by 35%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105766": {
+   "name": "Cold Snap",
+   "tree": "Frost",
+   "row": 4,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_frost_wizardmark",
+   "rank_text": [
+    "Finishes the remaining cooldown on all your other Frost spells."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105764": {
+   "name": "Fingers of Frost",
+   "tree": "Frost",
+   "row": 4,
+   "col": 2,
+   "max_rank": 2,
+   "icon": "ability_mage_wintersgrasp",
+   "rank_text": [
+    "Gives your Chill effects a 15% chance to grant you the Fingers of Frost effect, which treats your next 1 spell cast as if the target were Frozen. Lasts 15 sec.",
+    "Gives your Chill effects a 15% chance to grant you the Fingers of Frost effect, which treats your next 2 spells cast as if the target were Frozen. Lasts 15 sec."
+   ],
+   "classic_status": "new",
+   "prerequisite": 105767
+  },
+  "105763": {
+   "name": "Winter's Chill",
+   "tree": "Frost",
+   "row": 5,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_frost_chillingblast",
+   "rank_text": [
+    "Gives your Frost damage spells a 20% chance to apply the Winter's Chill effect, which increases the chance your Ice Lance and Frostbolt spells will critically hit the target by 2% for 15 sec. Stacks up to 1 times.",
+    "Gives your Frost damage spells a 40% chance to apply the Winter's Chill effect, which increases the chance your Ice Lance and Frostbolt spells will critically hit the target by 2% for 15 sec. Stacks up to 2 times.",
+    "Gives your Frost damage spells a 60% chance to apply the Winter's Chill effect, which increases the chance your Ice Lance and Frostbolt spells will critically hit the target by 2% for 15 sec. Stacks up to 3 times.",
+    "Gives your Frost damage spells a 80% chance to apply the Winter's Chill effect, which increases the chance your Ice Lance and Frostbolt spells will critically hit the target by 2% for 15 sec. Stacks up to 4 times.",
+    "Gives your Frost damage spells a 100% chance to apply the Winter's Chill effect, which increases the chance your Ice Lance and Frostbolt spells will critically hit the target by 2% for 15 sec. Stacks up to 5 times."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105762": {
+   "name": "Ice Barrier",
+   "tree": "Frost",
+   "row": 6,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_ice_lament",
+   "rank_text": [
+    "Instantly shields you, absorbing 447 damage. Lasts 1 min. While the shield holds, your spellcasts will not be interrupted or delayed from taking damage."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 105766
+  }
+ },
+ "builds": [
+  {
+   "id": "arcane-pom-pyro",
+   "name": "Arcane PoM-Pyro (reference)",
+   "summary": "Arcane Power + Presence of Mind into an instant Pyroblast, with Arcane Concentration and Arcane Meditation for mana; Ignite and Burning Soul from Fire.",
+   "gives_up": [
+    "Ice Block",
+    "Cold Snap",
+    "Ice Barrier",
+    "Impact",
+    "Heating Up"
+   ],
+   "must_have_by": {
+    "Presence of Mind": 32,
+    "Pyroblast": 50
+   },
+   "order": [
+    105795,
+    105795,
+    105815,
+    105815,
+    105814,
+    105814,
+    105814,
+    105812,
+    105812,
+    105811,
+    105811,
+    105810,
+    105810,
+    105810,
+    105810,
+    105810,
+    105808,
+    105808,
+    105807,
+    105807,
+    105807,
+    105804,
+    105801,
+    105795,
+    105795,
+    105795,
+    105794,
+    105794,
+    105794,
+    105794,
+    105794,
+    105796,
+    105796,
+    105796,
+    105789,
+    105789,
+    105789,
+    105790,
+    105804,
+    105803,
+    105803,
+    105803,
+    105799,
+    105799,
+    105799,
+    105800,
+    105800,
+    105800,
+    105800,
+    105800,
+    105798
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 34.4,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "30": {
+      "score": 38.0,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "40": {
+      "score": 53.2,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "50": {
+      "score": 65.3,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "60": {
+      "score": 78.7,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     }
+    },
+    "aoe": {
+     "20": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "30": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Arcane Explosion",
+      "break_even": 1
+     },
+     "40": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 1
+     },
+     "50": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 1
+     },
+     "60": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 78.4,
+      "unit": "dps",
+      "spell": "Fireball",
+      "time_to_oom": 66.57534246575344
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
+   "id": "deep-fire",
+   "name": "Deep Fire (Combustion)",
+   "summary": "Maximum Fire burst and sustained damage: Ignite, Heating Up, Critical Mass, Fire Power, Combustion; Elemental Precision for hit, Permafrost and Improved Frost Nova for kiting.",
+   "gives_up": [
+    "Ice Block",
+    "Cold Snap",
+    "Ice Barrier",
+    "Shatter"
+   ],
+   "must_have_by": {
+    "Pyroblast": 30,
+    "Heating Up": 36
+   },
+   "order": [
+    105778,
+    105778,
+    105778,
+    105795,
+    105795,
+    105795,
+    105795,
+    105795,
+    105794,
+    105794,
+    105794,
+    105794,
+    105794,
+    105797,
+    105797,
+    105796,
+    105796,
+    105796,
+    105778,
+    105778,
+    105790,
+    105776,
+    105776,
+    105776,
+    105793,
+    105793,
+    105786,
+    105775,
+    105775,
+    105792,
+    105784,
+    105784,
+    105784,
+    105792,
+    105792,
+    105782,
+    105782,
+    105782,
+    105782,
+    105782,
+    105789,
+    105789,
+    105789,
+    105788,
+    105788,
+    105788,
+    105785,
+    105785,
+    105785,
+    105783,
+    105781
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 36.1,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "30": {
+      "score": 40.2,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "40": {
+      "score": 55.4,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "50": {
+      "score": 74.5,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "60": {
+      "score": 83.7,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     }
+    },
+    "aoe": {
+     "20": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "30": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Arcane Explosion",
+      "break_even": 1
+     },
+     "40": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 1
+     },
+     "50": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 1
+     },
+     "60": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 91.2,
+      "unit": "dps",
+      "spell": "Fireball",
+      "time_to_oom": 66.57534246575344
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
+   "id": "deep-frost",
+   "name": "Deep Frost (control + Ice Barrier)",
+   "summary": "Maximum Frost control and defensives: Ice Block, Cold Snap, Ice Barrier, Shatter + Fingers of Frost burst; Incineration adds crit to Ice Lance.",
+   "gives_up": [
+    "Impact",
+    "Ignite",
+    "Burning Soul",
+    "Heating Up",
+    "Blast Wave"
+   ],
+   "must_have_by": {
+    "Ice Block": 25,
+    "Cold Snap": 30,
+    "Ice Barrier": 40
+   },
+   "order": [
+    105779,
+    105779,
+    105779,
+    105778,
+    105779,
+    105779,
+    105778,
+    105778,
+    105777,
+    105777,
+    105772,
+    105772,
+    105772,
+    105773,
+    105773,
+    105769,
+    105773,
+    105777,
+    105777,
+    105777,
+    105766,
+    105778,
+    105778,
+    105776,
+    105776,
+    105776,
+    105775,
+    105775,
+    105774,
+    105774,
+    105762,
+    105796,
+    105796,
+    105796,
+    105774,
+    105767,
+    105770,
+    105770,
+    105768,
+    105768,
+    105768,
+    105765,
+    105765,
+    105765,
+    105764,
+    105764,
+    105763,
+    105763,
+    105763,
+    105763,
+    105763
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 38.9,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "30": {
+      "score": 38.6,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "40": {
+      "score": 67.6,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "50": {
+      "score": 82.4,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "60": {
+      "score": 91.4,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     }
+    },
+    "aoe": {
+     "20": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "30": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Arcane Explosion",
+      "break_even": 1
+     },
+     "40": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 1
+     },
+     "50": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "60": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 131.5,
+      "unit": "dps",
+      "spell": "Frostbolt",
+      "time_to_oom": 96.88995215311006
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
+   "id": "elementalist-v4",
+   "name": "Offensive Elementalist (current route)",
+   "summary": "Frost foundation 10-32 for control and defensives (Ice Block 25, Cold Snap 30), then Fire 33-59 for Impact/Hot Streak burst. Level-60 point open.",
+   "gives_up": [
+    "Ice Barrier",
+    "Master of Elements",
+    "Piercing Ice"
+   ],
+   "must_have_by": {
+    "Ice Block": 25,
+    "Cold Snap": 30
+   },
+   "order": [
+    105779,
+    105779,
+    105779,
+    105779,
+    105779,
+    105778,
+    105778,
+    105774,
+    105774,
+    105774,
+    105767,
+    105777,
+    105777,
+    105777,
+    105777,
+    105769,
+    105768,
+    105768,
+    105768,
+    105777,
+    105766,
+    105764,
+    105764,
+    105796,
+    105796,
+    105796,
+    105795,
+    105795,
+    105792,
+    105792,
+    105792,
+    105795,
+    105795,
+    105795,
+    105789,
+    105789,
+    105789,
+    105790,
+    105786,
+    105794,
+    105794,
+    105794,
+    105794,
+    105783,
+    105794,
+    105784,
+    105784,
+    105784,
+    105797,
+    105797
+   ],
+   "order_source": "hand-written",
+   "open_points": 1,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 37.2,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "30": {
+      "score": 38.3,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "40": {
+      "score": 60.3,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "50": {
+      "score": 74.9,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "60": {
+      "score": 84.3,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     }
+    },
+    "aoe": {
+     "20": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "30": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Arcane Explosion",
+      "break_even": 1
+     },
+     "40": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 1
+     },
+     "50": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "60": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 99.3,
+      "unit": "dps",
+      "spell": "Frostbolt",
+      "time_to_oom": 80.1980198019802
+     }
+    }
+   },
+   "sensitivity": []
+  }
+ ],
+ "spell_milestones": [
+  {
+   "level": 1,
+   "spell": "Arcane Power",
+   "rank": 1
+  },
+  {
+   "level": 1,
+   "spell": "Cold Snap",
+   "rank": 1
+  },
+  {
+   "level": 1,
+   "spell": "Fireball",
+   "rank": 1
+  },
+  {
+   "level": 1,
+   "spell": "Presence of Mind",
+   "rank": 1
+  },
+  {
+   "level": 4,
+   "spell": "Frostbolt",
+   "rank": 1
+  },
+  {
+   "level": 4,
+   "spell": "Ice Block",
+   "rank": 1
+  },
+  {
+   "level": 6,
+   "spell": "Fire Blast",
+   "rank": 1
+  },
+  {
+   "level": 6,
+   "spell": "Fireball",
+   "rank": 2
+  },
+  {
+   "level": 8,
+   "spell": "Frostbolt",
+   "rank": 2
+  },
+  {
+   "level": 8,
+   "spell": "Polymorph",
+   "rank": 1
+  },
+  {
+   "level": 10,
+   "spell": "Frost Nova",
+   "rank": 1
+  },
+  {
+   "level": 12,
+   "spell": "Fireball",
+   "rank": 3
+  },
+  {
+   "level": 14,
+   "spell": "Arcane Explosion",
+   "rank": 1
+  },
+  {
+   "level": 14,
+   "spell": "Fire Blast",
+   "rank": 2
+  },
+  {
+   "level": 14,
+   "spell": "Frostbolt",
+   "rank": 3
+  },
+  {
+   "level": 16,
+   "spell": "Flamestrike",
+   "rank": 1
+  },
+  {
+   "level": 18,
+   "spell": "Fireball",
+   "rank": 4
+  },
+  {
+   "level": 20,
+   "spell": "Arcane Blast",
+   "rank": 1
+  },
+  {
+   "level": 20,
+   "spell": "Blink",
+   "rank": 1
+  },
+  {
+   "level": 20,
+   "spell": "Blizzard",
+   "rank": 1
+  },
+  {
+   "level": 20,
+   "spell": "Evocation",
+   "rank": 1
+  },
+  {
+   "level": 20,
+   "spell": "Frostbolt",
+   "rank": 4
+  },
+  {
+   "level": 20,
+   "spell": "Ice Lance",
+   "rank": 1
+  },
+  {
+   "level": 20,
+   "spell": "Mana Shield",
+   "rank": 1
+  },
+  {
+   "level": 20,
+   "spell": "Polymorph",
+   "rank": 2
+  },
+  {
+   "level": 20,
+   "spell": "Pyroblast",
+   "rank": 1
+  },
+  {
+   "level": 22,
+   "spell": "Arcane Explosion",
+   "rank": 2
+  },
+  {
+   "level": 22,
+   "spell": "Fire Blast",
+   "rank": 3
+  },
+  {
+   "level": 22,
+   "spell": "Scorch",
+   "rank": 1
+  },
+  {
+   "level": 24,
+   "spell": "Counterspell",
+   "rank": 1
+  },
+  {
+   "level": 24,
+   "spell": "Fireball",
+   "rank": 5
+  },
+  {
+   "level": 24,
+   "spell": "Flamestrike",
+   "rank": 2
+  },
+  {
+   "level": 24,
+   "spell": "Pyroblast",
+   "rank": 2
+  },
+  {
+   "level": 26,
+   "spell": "Cone of Cold",
+   "rank": 1
+  },
+  {
+   "level": 26,
+   "spell": "Frost Nova",
+   "rank": 2
+  },
+  {
+   "level": 26,
+   "spell": "Frostbolt",
+   "rank": 5
+  },
+  {
+   "level": 28,
+   "spell": "Blizzard",
+   "rank": 2
+  },
+  {
+   "level": 28,
+   "spell": "Ice Lance",
+   "rank": 2
+  },
+  {
+   "level": 28,
+   "spell": "Mana Shield",
+   "rank": 2
+  },
+  {
+   "level": 28,
+   "spell": "Scorch",
+   "rank": 2
+  },
+  {
+   "level": 30,
+   "spell": "Arcane Blast",
+   "rank": 2
+  },
+  {
+   "level": 30,
+   "spell": "Arcane Explosion",
+   "rank": 3
+  },
+  {
+   "level": 30,
+   "spell": "Blast Wave",
+   "rank": 1
+  },
+  {
+   "level": 30,
+   "spell": "Fire Blast",
+   "rank": 4
+  },
+  {
+   "level": 30,
+   "spell": "Fireball",
+   "rank": 6
+  },
+  {
+   "level": 30,
+   "spell": "Pyroblast",
+   "rank": 3
+  },
+  {
+   "level": 32,
+   "spell": "Flamestrike",
+   "rank": 3
+  },
+  {
+   "level": 32,
+   "spell": "Frostbolt",
+   "rank": 6
+  },
+  {
+   "level": 34,
+   "spell": "Cone of Cold",
+   "rank": 2
+  },
+  {
+   "level": 34,
+   "spell": "Ice Lance",
+   "rank": 3
+  },
+  {
+   "level": 34,
+   "spell": "Scorch",
+   "rank": 3
+  },
+  {
+   "level": 36,
+   "spell": "Blast Wave",
+   "rank": 2
+  },
+  {
+   "level": 36,
+   "spell": "Blizzard",
+   "rank": 3
+  },
+  {
+   "level": 36,
+   "spell": "Fireball",
+   "rank": 7
+  },
+  {
+   "level": 36,
+   "spell": "Mana Shield",
+   "rank": 3
+  },
+  {
+   "level": 36,
+   "spell": "Pyroblast",
+   "rank": 4
+  },
+  {
+   "level": 38,
+   "spell": "Arcane Explosion",
+   "rank": 4
+  },
+  {
+   "level": 38,
+   "spell": "Fire Blast",
+   "rank": 5
+  },
+  {
+   "level": 38,
+   "spell": "Frostbolt",
+   "rank": 7
+  },
+  {
+   "level": 40,
+   "spell": "Arcane Blast",
+   "rank": 3
+  },
+  {
+   "level": 40,
+   "spell": "Flamestrike",
+   "rank": 4
+  },
+  {
+   "level": 40,
+   "spell": "Frost Nova",
+   "rank": 3
+  },
+  {
+   "level": 40,
+   "spell": "Frostfire Bolt",
+   "rank": 1
+  },
+  {
+   "level": 40,
+   "spell": "Ice Barrier",
+   "rank": 1
+  },
+  {
+   "level": 40,
+   "spell": "Polymorph",
+   "rank": 3
+  },
+  {
+   "level": 40,
+   "spell": "Scorch",
+   "rank": 4
+  },
+  {
+   "level": 42,
+   "spell": "Cone of Cold",
+   "rank": 3
+  },
+  {
+   "level": 42,
+   "spell": "Fireball",
+   "rank": 8
+  },
+  {
+   "level": 42,
+   "spell": "Ice Lance",
+   "rank": 4
+  },
+  {
+   "level": 42,
+   "spell": "Pyroblast",
+   "rank": 5
+  },
+  {
+   "level": 44,
+   "spell": "Blast Wave",
+   "rank": 3
+  },
+  {
+   "level": 44,
+   "spell": "Blizzard",
+   "rank": 4
+  },
+  {
+   "level": 44,
+   "spell": "Frostbolt",
+   "rank": 8
+  },
+  {
+   "level": 44,
+   "spell": "Mana Shield",
+   "rank": 4
+  },
+  {
+   "level": 46,
+   "spell": "Arcane Explosion",
+   "rank": 5
+  },
+  {
+   "level": 46,
+   "spell": "Fire Blast",
+   "rank": 6
+  },
+  {
+   "level": 46,
+   "spell": "Ice Barrier",
+   "rank": 2
+  },
+  {
+   "level": 46,
+   "spell": "Scorch",
+   "rank": 5
+  },
+  {
+   "level": 48,
+   "spell": "Fireball",
+   "rank": 9
+  },
+  {
+   "level": 48,
+   "spell": "Flamestrike",
+   "rank": 5
+  },
+  {
+   "level": 48,
+   "spell": "Ice Lance",
+   "rank": 5
+  },
+  {
+   "level": 48,
+   "spell": "Pyroblast",
+   "rank": 6
+  },
+  {
+   "level": 50,
+   "spell": "Arcane Blast",
+   "rank": 4
+  },
+  {
+   "level": 50,
+   "spell": "Cone of Cold",
+   "rank": 4
+  },
+  {
+   "level": 50,
+   "spell": "Frostbolt",
+   "rank": 9
+  },
+  {
+   "level": 50,
+   "spell": "Frostfire Bolt",
+   "rank": 2
+  },
+  {
+   "level": 52,
+   "spell": "Blast Wave",
+   "rank": 4
+  },
+  {
+   "level": 52,
+   "spell": "Blizzard",
+   "rank": 5
+  },
+  {
+   "level": 52,
+   "spell": "Ice Barrier",
+   "rank": 3
+  },
+  {
+   "level": 52,
+   "spell": "Mana Shield",
+   "rank": 5
+  },
+  {
+   "level": 52,
+   "spell": "Scorch",
+   "rank": 6
+  },
+  {
+   "level": 54,
+   "spell": "Arcane Explosion",
+   "rank": 6
+  },
+  {
+   "level": 54,
+   "spell": "Fire Blast",
+   "rank": 7
+  },
+  {
+   "level": 54,
+   "spell": "Fireball",
+   "rank": 10
+  },
+  {
+   "level": 54,
+   "spell": "Frost Nova",
+   "rank": 4
+  },
+  {
+   "level": 54,
+   "spell": "Pyroblast",
+   "rank": 7
+  },
+  {
+   "level": 56,
+   "spell": "Flamestrike",
+   "rank": 6
+  },
+  {
+   "level": 56,
+   "spell": "Frostbolt",
+   "rank": 10
+  },
+  {
+   "level": 56,
+   "spell": "Ice Lance",
+   "rank": 6
+  },
+  {
+   "level": 58,
+   "spell": "Cone of Cold",
+   "rank": 5
+  },
+  {
+   "level": 58,
+   "spell": "Ice Barrier",
+   "rank": 4
+  },
+  {
+   "level": 58,
+   "spell": "Scorch",
+   "rank": 7
+  },
+  {
+   "level": 60,
+   "spell": "Arcane Blast",
+   "rank": 5
+  },
+  {
+   "level": 60,
+   "spell": "Blast Wave",
+   "rank": 5
+  },
+  {
+   "level": 60,
+   "spell": "Blizzard",
+   "rank": 6
+  },
+  {
+   "level": 60,
+   "spell": "Fireball",
+   "rank": 11
+  },
+  {
+   "level": 60,
+   "spell": "Fireball",
+   "rank": 12
+  },
+  {
+   "level": 60,
+   "spell": "Frostbolt",
+   "rank": 11
+  },
+  {
+   "level": 60,
+   "spell": "Frostfire Bolt",
+   "rank": 3
+  },
+  {
+   "level": 60,
+   "spell": "Mana Shield",
+   "rank": 6
+  },
+  {
+   "level": 60,
+   "spell": "Polymorph",
+   "rank": 4
+  },
+  {
+   "level": 60,
+   "spell": "Polymorph",
+   "rank": 5
+  },
+  {
+   "level": 60,
+   "spell": "Polymorph",
+   "rank": 6
+  },
+  {
+   "level": 60,
+   "spell": "Pyroblast",
+   "rank": 8
+  }
+ ],
+ "assumptions": {
+  "frostfire_periodic_can_crit": {
+   "value": true,
+   "why": "Client spell data flags Frostfire Bolt's periodic part as able to crit.",
+   "tested": ""
+  },
+  "frostfire_ticks_trigger_impact": {
+   "value": false,
+   "why": "Unknown whether each Frostfire Bolt tick, or only the direct hit, can roll Impact's stun.",
+   "tested": ""
+  },
+  "burning_soul_protects_frostfire": {
+   "value": true,
+   "why": "Burning Soul names Fire spells; Frostfire Bolt counts as both schools, so it probably applies.",
+   "tested": ""
+  },
+  "frostfire_interrupt_lockout": {
+   "value": "both",
+   "why": "Which school(s) an interrupt locks when it lands on a Frostfire Bolt cast.",
+   "tested": ""
+  },
+  "fingers_of_frost_applies_to_frostfire": {
+   "value": false,
+   "why": "Unknown whether Fingers of Frost charges count Frostfire Bolt as a Frost spell.",
+   "tested": ""
+  },
+  "aoe_target_cap": {
+   "value": "none",
+   "why": "Client data has no MaxTargets on mage AoE; players report damage falling off past 4 targets.",
+   "tested": ""
+  }
+ },
+ "caveats": [
+  "v0 scenarios repeat one spell; rotations and proc/stack talents (Improved Scorch, Combustion, Winter's Chill, Heating Up, ...) are not modeled yet (#57).",
+  "Stats, mob HP and mana budgets are rough Classic-era defaults (low confidence)."
+ ]
+}
