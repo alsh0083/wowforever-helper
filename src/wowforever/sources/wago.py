@@ -32,6 +32,16 @@ TABLES: tuple[str, ...] = (
     "SpellTargetRestrictions",
     "SkillLineAbility",
     "SpellClassOptions",
+    # Forever's talent trees are built on the Trait system; the legacy Talent table is stale.
+    "TraitTree",
+    "TraitNode",
+    "TraitNodeEntry",
+    "TraitNodeXTraitNodeEntry",
+    "TraitDefinition",
+    "TraitEdge",
+    "TraitCond",
+    "TraitNodeXTraitCond",
+    "SkillLineXTraitTree",
 )
 
 

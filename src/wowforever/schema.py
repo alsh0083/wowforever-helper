@@ -38,7 +38,7 @@ EFFECT_KINDS = frozenset({
     "grants_spell",     # talent teaches a spell (value unused)
     "other",            # understood by a human, not modeled yet
 })
-CLASSIC_STATUS = frozenset({"same", "changed", "new"})
+CLASSIC_STATUS = frozenset({"same", "changed", "moved", "new"})  # moved = same effect, new position
 
 
 class SchemaError(ValueError):
@@ -80,8 +80,9 @@ class Talent:
     rank_text: tuple[str, ...]
     prerequisite: Prerequisite | None = None
     effects: tuple[Effect, ...] = ()
-    classic_status: str | None = None  # same/changed/new vs Classic; None = unknown
+    classic_status: str | None = None  # same/changed/moved/new vs Classic; None = unknown
     icon: str = ""
+    spell_id: int = 0                  # talent's spell when all ranks share one (trait-based trees)
 
 
 @dataclass(frozen=True)

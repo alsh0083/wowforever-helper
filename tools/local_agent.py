@@ -80,6 +80,10 @@ def main() -> int:
     if not spec.strip():
         sys.exit("empty task spec")
 
+    # pytest's --basetemp must be created by the sandboxed agent: a folder created outside the
+    # sandbox can't be cleaned up from inside it, which breaks every test that uses tmp_path.
+    shutil.rmtree(REPO / ".pytest-tmp", ignore_errors=True)
+
     stamp = dt.datetime.now().strftime("%Y%m%d-%H%M%S")
     log_dir = REPO / ".agent-logs" / f"{stamp}-{args.model}"
     log_dir.mkdir(parents=True)
