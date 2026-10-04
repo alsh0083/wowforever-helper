@@ -8,6 +8,8 @@ The user's ~/.codex/config.toml is ignored; the provider, model and sandbox are 
 overrides so the Codex app's own settings stay untouched. Codex may write only inside the repo.
 The Windows sandbox is "unelevated" (restricted token as the current user): the "elevated" mode runs
 as a separate sandbox user that can't read Python under %LOCALAPPDATA%, so agents couldn't run tests.
+WindowsApps is dropped from PATH so Codex uses System32 powershell.exe: the Store pwsh.exe alias there
+fails about half the time under the sandbox token (CreateProcessAsUserW: access denied).
 Each run is logged to .agent-logs/<timestamp>-<model>/ (gitignored): the task spec, the JSONL
 event stream, and the agent's final message, which goes into the PR body.
 """
@@ -39,6 +41,17 @@ def find_codex() -> Path:
     if on_path:
         return Path(on_path)
     sys.exit("codex not found: install the Codex app or put the Codex CLI on PATH")
+
+
+def sandbox_env(codex: Path) -> dict[str, str]:
+    """Current environment minus WindowsApps on PATH (see module docstring), plus CODEX_EXE so the
+    agent can call apply_patch directly (AGENTS.md has the recipe)."""
+    env = dict(os.environ)
+    env["CODEX_EXE"] = str(codex)
+    env["PATH"] = os.pathsep.join(
+        p for p in env.get("PATH", "").split(os.pathsep) if "windowsapps" not in p.lower()
+    )
+    return env
 
 
 def build_command(codex: Path, model: str, last_message: Path) -> list[str]:
@@ -74,9 +87,11 @@ def main() -> int:
     last_message = log_dir / "final.md"
 
     with open(log_dir / "events.jsonl", "w", encoding="utf-8") as events:
+        codex = find_codex()
         result = subprocess.run(
-            build_command(find_codex(), args.model, last_message),
+            build_command(codex, args.model, last_message),
             input=spec, stdout=events, stderr=subprocess.STDOUT, text=True, encoding="utf-8",
+            env=sandbox_env(codex),
         )
 
     print(f"log: {log_dir.relative_to(REPO)}  exit: {result.returncode}")
