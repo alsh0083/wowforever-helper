@@ -21,8 +21,7 @@ def main(argv: list[str] | None = None) -> int:
 
         out = Path(args.out)
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(json.dumps(report_from_dataset(args.dataset), indent=1), encoding="utf-8", newline="
-")
+        out.write_text(json.dumps(report_from_dataset(args.dataset), indent=1), encoding="utf-8", newline="\n")
         print(f"wrote {out}")
         return 0
     if args.command is None:
