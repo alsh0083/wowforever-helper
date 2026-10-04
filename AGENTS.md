@@ -9,7 +9,7 @@ Issues on `alsh0083/wowforever-helper` are the single source of truth for what i
 For every piece of work:
 
 1. **Start from an issue.** Pick an open issue whose dependencies are closed, or open one first. Read its acceptance criteria before writing code.
-2. **Branch and PR per issue.** The PR body says `Closes #N`, the task spec, and which model did the work.
+2. **Branch and PR per issue.** The PR body says `Closes #N`, the task spec, and which model did the work. Local-model tasks follow `docs/workflow.md` (spec format, running `tools/local_agent.py`, review rules).
 3. **Log as you go.** Anything discovered that falls outside the current issue becomes its own issue: a bug (label `bug`), a next step, a changed assumption, a source-data change from an update check. Give it an area label and milestone and link it from the current issue or PR.
 4. **Done means:** tests pass, every acceptance box ticked, PR merged, issue closed. If scope changed, edit the issue body so it describes what was actually built.
 5. **Decisions the owner must make** go in an issue labelled `needs-decision`; work waits until it's answered.
@@ -18,6 +18,7 @@ For every piece of work:
 
 ## Guardrails
 
+- Every spell and talent value comes from Forever data. Classic/TBC values serve only as comparison and as consensus evidence for unchanged talents: Forever reworked a lot, mage AoE included.
 - Calculation code is accepted only against tests written before the implementation, with hand-worked golden values.
 - Fetch data only from sources whose robots.txt allows it (wago.tools, wowforevertalent.com). Wowhead disallows AI agents: read it only when the owner points to something there.
 - wowforevertalent.com data is CC-BY: keep attribution in the README and dashboard footer.
