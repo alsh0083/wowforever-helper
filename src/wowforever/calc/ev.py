@@ -27,6 +27,7 @@ class Modifiers:
     ignite_pct: float = 0.0
     cast_time_delta: float = 0.0
     mana_cost_pct: float = 0.0
+    hit_bonus: float = 0.0
 
 
 def _base_miss_pct(level_diff: int) -> float:
@@ -69,7 +70,7 @@ def expected_damage(
     damage_factor = 1.0 + mods.damage_pct / 100.0
     avg = ((spell.min_damage + spell.max_damage) / 2.0 + spell.coefficient * spell_power) * damage_factor
     crit = min(100.0, crit_pct + mods.crit_chance_bonus) / 100.0
-    hit = 1.0 - miss_chance(caster_level, target_level, hit_pct) / 100.0
+    hit = 1.0 - miss_chance(caster_level, target_level, hit_pct + mods.hit_bonus) / 100.0
     crit_bonus = (BASE_CRIT_BONUS_PCT / 100.0) * (1.0 + mods.crit_damage_bonus_pct / 100.0)
     crit_factor = 1.0 + crit * crit_bonus
 
