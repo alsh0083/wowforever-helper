@@ -26,6 +26,7 @@ class Build:
     order: tuple[str, ...] | None = None       # talent name per point, or None
     must_have_by: dict[str, int] = field(default_factory=dict)  # talent name -> level
     gives_up: tuple[str, ...] = ()
+    primary_spell: str = ""                    # main nuke; leveling orders are optimized around it
 
     @classmethod
     def load(cls, path: Path) -> Build:
@@ -33,7 +34,8 @@ class Build:
         order = tuple(raw["order"]) if "order" in raw else None
         final = dict(Counter(order)) if order else dict(raw["final"])
         return cls(raw["id"], raw["name"], raw["summary"], final, order,
-                   dict(raw.get("must_have_by", {})), tuple(raw.get("gives_up", ())))
+                   dict(raw.get("must_have_by", {})), tuple(raw.get("gives_up", ())),
+                   raw.get("primary_spell", ""))
 
     def unknown_talents(self, cls: ClassData) -> list[str]:
         """Talent names in this build that the class doesn't have (e.g. renamed by a patch)."""

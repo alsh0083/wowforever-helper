@@ -134,3 +134,6 @@ UNMODELED: dict[str, str] = {
     "Wake of Fire": "cooldown + conditional crit proc, v1",
     "Winter's Chill": "proc/stack mechanic, v1",
 }
+
+# Mage skill lines in SkillLineAbility: Frost, Fire, Arcane.
+SKILL_LINES = (6, 8, 237)

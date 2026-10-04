@@ -1,6 +1,7 @@
 # Reference archetype: deep Frost to Ice Barrier, Ice Lance crit from Incineration. A seed for
 # comparison, not a recommendation; the optimizer (#21) finds its point order.
 id = "deep-frost"
+primary_spell = "Frostbolt"  # the spell its leveling order is optimized around
 name = "Deep Frost (control + Ice Barrier)"
 summary = "Maximum Frost control and defensives: Ice Block, Cold Snap, Ice Barrier, Shatter + Fingers of Frost burst; Incineration adds crit to Ice Lance."
 gives_up = ["Impact", "Ignite", "Burning Soul", "Heating Up", "Blast Wave"]
