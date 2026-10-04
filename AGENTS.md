@@ -30,7 +30,9 @@ $OutputEncoding = [Text.UTF8Encoding]::new($false)
 '@ | .venv/Scripts/python tools/apply_patch.py
 ```
 
-Use `*** Update File:` with `@@` hunks to edit and `*** Delete File: path` (no body lines) to delete. Run tests with `.venv/Scripts/python -m pytest`.
+Use `*** Update File:` with `@@` hunks to edit and `*** Delete File: path` (no body lines) to delete.
+
+The environment is ready: the package is installed in `.venv`. Run Python only as `.venv/Scripts/python` (tests: `.venv/Scripts/python -m pytest`). Stay inside the repo: install nothing, and leave files outside it alone. If the environment itself seems broken, stop and report it instead of repairing it.
 
 ## Guardrails
 
