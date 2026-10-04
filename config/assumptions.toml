@@ -1,0 +1,45 @@
+# Unknown mechanics, modeled as explicit switches until in-game testing settles them.
+# Each entry: the current default, the allowed values, why, and where the uncertainty comes from.
+# When an in-game test settles one, set `tested` to "YYYY-MM-DD on <build>: <result>" and fix `value`.
+
+[frostfire_periodic_can_crit]
+value = true
+options = [true, false]
+why = "Client spell data flags Frostfire Bolt's periodic part as able to crit."
+source = "docs/research/notes/mechanics.md (Wowhead client record for spell 401502)"
+tested = ""
+
+[frostfire_ticks_trigger_impact]
+value = false
+options = [true, false]
+why = "Unknown whether each Frostfire Bolt tick, or only the direct hit, can roll Impact's stun."
+source = "docs/research/mage-pvp-leveling-report.md: open question"
+tested = ""
+
+[burning_soul_protects_frostfire]
+value = true
+options = [true, false]
+why = "Burning Soul names Fire spells; Frostfire Bolt counts as both schools, so it probably applies."
+source = "docs/research/mage-pvp-leveling-report.md: open question"
+tested = ""
+
+[frostfire_interrupt_lockout]
+value = "both"
+options = ["both", "fire", "frost"]
+why = "Which school(s) an interrupt locks when it lands on a Frostfire Bolt cast."
+source = "docs/research/mage-pvp-leveling-report.md: open question"
+tested = ""
+
+[fingers_of_frost_applies_to_frostfire]
+value = false
+options = [true, false]
+why = "Unknown whether Fingers of Frost charges count Frostfire Bolt as a Frost spell."
+source = "docs/research/mage-pvp-leveling-report.md: open question"
+tested = ""
+
+[aoe_target_cap]
+value = "none"
+options = ["none", "soft_4"]
+why = "Client data has no MaxTargets on mage AoE; players report damage falling off past 4 targets."
+source = "docs/research/forever-facts.md; issue #19"
+tested = ""
