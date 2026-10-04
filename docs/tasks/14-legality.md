@@ -11,7 +11,7 @@ Reads everything from `wowforever.schema` (`ClassData`, `Talent`, `Rules`, `Prer
   - row gate: a talent in row r needs at least `r * points_per_row` points in rows `< r` of the **same tree** (message names the talent and the required number)
   - prerequisite talent must have at least the required rank (message names both talents)
   - total points ≤ `points_available(level)` (message contains the total and the available number)
-- `check_order(cls: ClassData, order: Sequence[int]) -> list[str]`: one talent id per point; point i (1-based) is spent at level `first_talent_level + i - 1`. Simulate in order. Each bad point produces exactly one message starting `point {i} (level {L}):`, is **not applied**, and the simulation continues. Checks per point, in this order: past max level (message contains `max level {max_level}`), unknown id, already at max rank, row gate against points currently spent, prerequisite rank currently met.
+- `check_order(cls: ClassData, order: Sequence[int]) -> list[str]`: one talent id per point; point i (1-based) is spent at level `first_talent_level + i - 1`. Simulate in order. Each bad point produces exactly one message starting `point {i} (level {L}):`, is **not applied**, and the simulation continues. Checks per point, in this order: past max level (message contains `max level {max_level}`), unknown id, already at max rank, prerequisite rank currently met, row gate against points currently spent. (The model swapped the last two: the prerequisite test can only fail on the prerequisite if it is checked first.)
 
 Messages use talent names, not ids, except for unknown ids. Standard library only, type hints, short docstrings.
 
