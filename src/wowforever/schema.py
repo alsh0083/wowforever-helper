@@ -110,6 +110,11 @@ class SpellRank:
     duration: float = 0.0
     range: float = 0.0
     note: str = ""
+    tick_period: float = 0.0           # seconds between periodic ticks; 0 = no periodic part
+    damage_per_level: float = 0.0      # base damage gained per caster level above `level`...
+    scaling_max_level: int = 0         # ...up to this level (0 = no scaling)
+    slow_pct: float = 0.0              # movement slow applied, %
+    max_targets: int = 0               # AoE target cap; 0 = no cap in client data
 
 
 @dataclass(frozen=True)
