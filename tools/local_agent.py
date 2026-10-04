@@ -6,6 +6,8 @@ Usage:
 
 The user's ~/.codex/config.toml is ignored; the provider, model and sandbox are passed as
 overrides so the Codex app's own settings stay untouched. Codex may write only inside the repo.
+The Windows sandbox is "unelevated" (restricted token as the current user): the "elevated" mode runs
+as a separate sandbox user that can't read Python under %LOCALAPPDATA%, so agents couldn't run tests.
 Each run is logged to .agent-logs/<timestamp>-<model>/ (gitignored): the task spec, the JSONL
 event stream, and the agent's final message, which goes into the PR body.
 """
@@ -48,7 +50,7 @@ def build_command(codex: Path, model: str, last_message: Path) -> list[str]:
         "-C", str(REPO),
         "-s", "workspace-write",
         "-m", model,
-        "-c", 'windows.sandbox="elevated"',
+        "-c", 'windows.sandbox="unelevated"',
         "-c", 'model_provider="llamaswap"',
         "-c", f'model_providers.llamaswap={{name="llama-swap", base_url="{LLAMA_SWAP}", wire_api="responses"}}',
         "-",  # task spec on stdin
