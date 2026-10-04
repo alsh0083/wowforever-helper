@@ -1,0 +1,230 @@
+"""Normalize wago.tools spell tables into trainable SpellRank rows for a class.
+
+`class_spells` keeps the SkillLineAbility rows of the class's skill lines (no Season
+of Discovery runes, no level-0 NPC versions) and fills one SpellRank per spell from
+the joined spell tables. Area-triggered periodics (Blizzard, Flamestrike) borrow
+their tick damage from the matching tick spell, which is itself not trainable.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Sequence
+
+from wowforever.normalize import Tables
+from wowforever.schema import SpellRank
+
+SCHOOL_BITS = (
+    (1, "physical"), (2, "holy"), (4, "fire"), (8, "nature"),
+    (16, "frost"), (32, "shadow"), (64, "arcane"),
+)
+
+EFFECT_DAMAGE = 2            # school damage
+EFFECT_AURA = 6              # apply aura (DoT, slow, area-periodic marker)
+EFFECT_AREA_TRIGGER = 179    # triggers an area effect
+AURA_DOT = 3                 # periodic damage over time
+AURA_SLOW = 33               # movement speed mod (negative base points = slow)
+AURA_AREA_PERIODIC = 226     # marker for an area-triggered periodic
+
+_ACQUIRE_RUNE = 3            # SkillLineAbility.AcquireMethod: Season of Discovery rune
+
+
+def class_spells(tables: Tables, *, skill_lines: Sequence[int]) -> tuple[SpellRank, ...]:
+    """Every trainable spell rank of the class, sorted by (name, rank)."""
+    lines = {int(line) for line in skill_lines}
+    sla_spells = {int(row["Spell"]) for row in tables["SkillLineAbility"]}
+    names = {int(row["ID"]): row["Name_lang"] for row in tables["SpellName"]}
+    levels = _by_spell(tables["SpellLevels"])
+
+    trainable: list[tuple[str, int, int]] = []
+    seen: set[int] = set()
+    for row in tables["SkillLineAbility"]:
+        if int(row["SkillLine"]) not in lines or int(row["AcquireMethod"]) == _ACQUIRE_RUNE:
+            continue
+        spell_id = int(row["Spell"])
+        if spell_id in seen:
+            continue
+        seen.add(spell_id)
+        level_row = levels.get(spell_id)
+        if level_row is None:
+            continue
+        level = int(_f(level_row["BaseLevel"]))
+        if level <= 0:
+            continue
+        name = names.get(spell_id)
+        if name is None:
+            raise ValueError(f"skill line {row['SkillLine']}: no SpellName for spell {spell_id}")
+        trainable.append((name, level, spell_id))
+
+    trainable.sort()
+    indexes = _index_tables(tables)
+    tick_damage = _tick_damage_index(tables, sla_spells, names, levels)
+
+    ranks: list[SpellRank] = []
+    rank_of_name: dict[str, int] = {}
+    for name, level, spell_id in trainable:
+        rank_of_name[name] = rank_of_name.get(name, 0) + 1
+        ranks.append(_build_rank(spell_id, name, rank_of_name[name], level, indexes, tick_damage))
+    return tuple(ranks)
+
+
+def ranks_of(spells: Sequence[SpellRank], name: str) -> list[SpellRank]:
+    """The ranks with `name`, in rank order (input is (name, rank)-sorted)."""
+    return [spell for spell in spells if spell.name == name]
+
+
+@dataclass(frozen=True)
+class _Indexes:
+    """Spell tables narrowed to DifficultyID 0 rows and indexed for O(1) lookups."""
+
+    levels: dict[int, dict[str, str]]
+    misc: dict[int, dict[str, str]]
+    effects: dict[int, list[dict[str, str]]]
+    cast_times: dict[int, dict[str, str]]
+    durations: dict[int, dict[str, str]]
+    ranges: dict[int, dict[str, str]]
+    powers: dict[int, dict[str, str]]
+    cooldowns: dict[int, dict[str, str]]
+    targets: dict[int, dict[str, str]]
+
+
+def _index_tables(tables: Tables) -> _Indexes:
+    """Index every join table `class_spells` needs (DifficultyID 0 rows only)."""
+    effects: dict[int, list[dict[str, str]]] = {}
+    for row in tables["SpellEffect"]:
+        if _is_base_difficulty(row):
+            effects.setdefault(int(row["SpellID"]), []).append(row)
+    return _Indexes(
+        levels=_by_spell(tables["SpellLevels"]),
+        misc=_by_spell(tables["SpellMisc"]),
+        effects=effects,
+        cast_times={int(row["ID"]): row for row in tables["SpellCastTimes"]},
+        durations={int(row["ID"]): row for row in tables["SpellDuration"]},
+        ranges={int(row["ID"]): row for row in tables["SpellRange"]},
+        powers=_by_spell(tables["SpellPower"]),
+        cooldowns=_by_spell(tables["SpellCooldowns"]),
+        targets=_by_spell(tables["SpellTargetRestrictions"]),
+    )
+
+
+def _by_spell(rows: list[dict[str, str]]) -> dict[int, dict[str, str]]:
+    """Rows with DifficultyID 0, keyed by SpellID (the fixtures hold one row per spell)."""
+    return {int(row["SpellID"]): row for row in rows if _is_base_difficulty(row)}
+
+
+def _tick_damage_index(tables: Tables, sla_spells: set[int], names: dict[int, str],
+                       levels: dict[int, dict[str, str]]) -> dict[tuple[str, int], tuple[float, float]]:
+    """(name, BaseLevel) -> (base points, coefficient) of a tick spell's damage effect.
+
+    A tick spell carries the tick damage of an area-triggered periodic: it shares the
+    parent spell's name and BaseLevel, has an Effect == 2 row, and is not trainable.
+    """
+    best: dict[tuple[str, int], tuple[int, float, float]] = {}
+    for row in tables["SpellEffect"]:
+        if not _is_base_difficulty(row) or row["Effect"] != str(EFFECT_DAMAGE):
+            continue
+        spell_id = int(row["SpellID"])
+        if spell_id in sla_spells:
+            continue
+        level_row = levels.get(spell_id)
+        name = names.get(spell_id)
+        if level_row is None or name is None:
+            continue
+        key = (name, int(_f(level_row["BaseLevel"])))
+        candidate = (spell_id, _f(row["EffectBasePointsF"]), _f(row["EffectBonusCoefficient"]))
+        current = best.get(key)
+        if current is None or candidate[0] < current[0]:
+            best[key] = candidate
+    return {key: (base_points, coefficient) for key, (_, base_points, coefficient) in best.items()}
+
+
+def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Indexes,
+                tick_damage: dict[tuple[str, int], tuple[float, float]]) -> SpellRank:
+    """Fill one SpellRank from the joined rows of a single spell."""
+    level_row = indexes.levels[spell_id]
+    misc_row = indexes.misc.get(spell_id) or {}
+    effects = indexes.effects.get(spell_id, [])
+
+    damage = next((e for e in effects if e["Effect"] == str(EFFECT_DAMAGE)), None)
+    min_damage = max_damage = coefficient = damage_per_level = 0.0
+    scaling_max_level = 0
+    if damage is not None:
+        base_points = _f(damage["EffectBasePointsF"])
+        variance = _f(damage["Variance"])
+        min_damage = base_points * (1 - variance / 2)
+        max_damage = base_points * (1 + variance / 2)
+        coefficient = _f(damage["EffectBonusCoefficient"])
+        damage_per_level = _f(damage["EffectRealPointsPerLevel"])
+        if damage_per_level > 0:
+            scaling_max_level = int(_f(level_row["MaxLevel"]))
+
+    mask = int(_f(misc_row.get("SchoolMask", "0")))
+    schools = tuple(school for bit, school in SCHOOL_BITS if mask & bit)
+
+    cast_time = _f(indexes.cast_times.get(int(_f(misc_row.get("CastingTimeIndex", "0"))), {}).get("Base")) / 1000.0
+    duration = _f(indexes.durations.get(int(_f(misc_row.get("DurationIndex", "0"))), {}).get("Duration")) / 1000.0
+    range_max = _f(indexes.ranges.get(int(_f(misc_row.get("RangeIndex", "0"))), {}).get("RangeMax_0"))
+
+    power = indexes.powers.get(spell_id)
+    mana_cost = int(_f(power["ManaCost"])) if power is not None and power["PowerType"] == "0" else 0
+
+    cooldown_row = indexes.cooldowns.get(spell_id)
+    cooldown = 0.0
+    if cooldown_row is not None:
+        cooldown = max(int(_f(cooldown_row["RecoveryTime"])),
+                       int(_f(cooldown_row["CategoryRecoveryTime"]))) / 1000.0
+
+    target_row = indexes.targets.get(spell_id)
+    max_targets = int(_f(target_row["MaxTargets"])) if target_row is not None else 0
+
+    slow_pct = 0.0
+    for effect in effects:
+        if effect["Effect"] == str(EFFECT_AURA) and effect["EffectAura"] == str(AURA_SLOW):
+            slow_pct = -_f(effect["EffectBasePointsF"])
+            break
+
+    periodic_damage = periodic_coefficient = tick_period = 0.0
+    dot = next((e for e in effects
+                if e["Effect"] == str(EFFECT_AURA) and e["EffectAura"] == str(AURA_DOT)), None)
+    if dot is not None:
+        tick_period = _f(dot["EffectAuraPeriod"]) / 1000.0
+        ticks = _ticks(duration, tick_period)
+        periodic_damage = _f(dot["EffectBasePointsF"]) * ticks
+        periodic_coefficient = _f(dot["EffectBonusCoefficient"]) * ticks
+    else:
+        area = next((e for e in effects
+                     if e["Effect"] == str(EFFECT_AURA) and e["EffectAura"] == str(AURA_AREA_PERIODIC)), None)
+        has_area_trigger = any(e["Effect"] == str(EFFECT_AREA_TRIGGER) for e in effects)
+        tick = tick_damage.get((name, level)) if area is not None and has_area_trigger else None
+        if tick is not None:
+            tick_period = _f(area["EffectAuraPeriod"]) / 1000.0
+            ticks = _ticks(duration, tick_period)
+            periodic_damage = tick[0] * ticks
+            periodic_coefficient = tick[1] * ticks
+
+    return SpellRank(
+        spell_id=spell_id, name=name, rank=rank, level=level, schools=schools,
+        cast_time=cast_time, cooldown=cooldown, mana_cost=mana_cost,
+        min_damage=min_damage, max_damage=max_damage, coefficient=coefficient,
+        periodic_damage=periodic_damage, periodic_coefficient=periodic_coefficient,
+        duration=duration, range=range_max, tick_period=tick_period,
+        damage_per_level=damage_per_level, scaling_max_level=scaling_max_level,
+        slow_pct=slow_pct, max_targets=max_targets,
+    )
+
+
+def _ticks(duration: float, tick_period: float) -> float:
+    """Whole ticks that fit in `duration` at `tick_period` seconds apart."""
+    if duration <= 0 or tick_period <= 0:
+        return 0.0
+    return float(duration // tick_period)
+
+
+def _is_base_difficulty(row: dict[str, str]) -> bool:
+    """True for DifficultyID 0 rows (or tables without a DifficultyID column)."""
+    return row.get("DifficultyID", "0") == "0"
+
+
+def _f(value: str | None) -> float:
+    """Parse a CSV cell as a float; missing or empty cells read as 0."""
+    return float(value) if value else 0.0
