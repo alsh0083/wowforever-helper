@@ -31,3 +31,8 @@ python -m venv .venv
 - Deterministic calculator scoring builds on kill power, endurance, survival, and control, then shortlisting by scenario (PvE leveling, world PvP)
 - Scenario weights backed by sourced community consensus, recorded as ranges with confidence levels
 - Unknown mechanics (e.g. Frostfire Bolt proc interactions) as toggleable assumptions, replaced by dated in-game test results
+
+## Data sources and attribution
+
+- Talent trees, rank text and Classic comparisons: [wowforevertalent.com](https://wowforevertalent.com/), licensed under Creative Commons Attribution. Raw page snapshots are kept unmodified under `data/raw/wowforevertalent/`.
+- Game data tables: [wago.tools](https://wago.tools/) DB2 exports of the WoW Forever client, per build.

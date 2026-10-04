@@ -22,8 +22,8 @@ Claude plans and audits; local models implement through `tools/local_agent.py`. 
 
 | Model | Use for |
 |---|---|
-| `qwen3.8-27b` | default: modules with logic |
-| `qwen3-coder-30b` | bulk or mechanical: parsers, data mapping, boilerplate |
+| `qwen3.8-27b` | default for everything so far: it handles the Codex tooling on Windows far better |
+| `qwen3-coder-30b` | only very small mechanical edits; on #7 it couldn't get files written and fell back to system Python |
 | `gpt-oss-20b` | second opinion on a calculation or review |
 
 Run tasks for the same model back to back; switching models reloads the GPU server. Logs go to `.agent-logs/` (gitignored).
@@ -32,5 +32,6 @@ Run tasks for the same model back to back; switching models reloads the GPU serv
 
 - Run the full suite: `.venv/Scripts/python -m pytest`.
 - Read the diff for: changed or deleted tests (reject), files outside the spec, hidden network calls, swallowed errors, copied magic numbers that belong in data or config.
+- Stop a run that starts repairing the environment or touching files outside the repo; fix the environment yourself.
 - Not done: re-run the agent with specific feedback appended to the spec, up to two times. After that Claude finishes the work and notes it in the PR.
 - Done: commit as the agent's work with the model named in the PR body, mark the PR ready, squash-merge with `Closes #N`, and tick the issue's acceptance boxes.

@@ -16,6 +16,24 @@ For every piece of work:
 
 `gh issue list -R alsh0083/wowforever-helper --milestone v0` shows the current frontier.
 
+## Editing files as a local-model agent (Codex on Windows)
+
+The shell `apply_patch` command mangles multi-line patches. Put the patch in a PowerShell here-string and pipe it to the helper:
+
+```powershell
+$OutputEncoding = [Text.UTF8Encoding]::new($false)
+@'
+*** Begin Patch
+*** Add File: src/example.py
++print("hello")
+*** End Patch
+'@ | .venv/Scripts/python tools/apply_patch.py
+```
+
+Use `*** Update File:` with `@@` hunks to edit and `*** Delete File: path` (no body lines) to delete.
+
+The environment is ready: the package is installed in `.venv`. Run Python only as `.venv/Scripts/python` (tests: `.venv/Scripts/python -m pytest`). Stay inside the repo: install nothing, and leave files outside it alone. If the environment itself seems broken, stop and report it instead of repairing it.
+
 ## Guardrails
 
 - Every spell and talent value comes from Forever data. Classic/TBC values serve only as comparison and as consensus evidence for unchanged talents: Forever reworked a lot, mage AoE included.
