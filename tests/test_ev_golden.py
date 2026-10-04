@@ -47,12 +47,13 @@ def test_plain_hit_with_base_crit():
 def test_fire_vs_boss_with_talents_and_ignite():
     # damage +10%: avg = 160 * 1.1 = 176; crit 10+6 = 16%; miss 17-3 = 14% -> hit 0.86
     # direct: 0.86 * 176 * (1 + 0.16*0.5) = 0.86 * 176 * 1.08 = 163.4688
-    # ignite: 0.86 * 0.16 * (176*1.5) * 0.40 = 0.86 * 0.16 * 264 * 0.4 = 14.53248
-    # total 178.00128
+    # ignite: 0.86 * 0.16 * (176*1.5) * 0.40 = 0.1376 * 264 * 0.4 = 36.3264 * 0.4 = 14.53056
+    # total 177.99936  (Ignite uses the already-modified crit; no second damage_pct multiply,
+    # matching Forever's 2026-09-24 "Ignite no longer double dips" change)
     mods = Modifiers(damage_pct=10, crit_chance_bonus=6, ignite_pct=40)
     ev = expected_damage(FIRE, spell_power=100, crit_pct=10, hit_pct=3,
                          caster_level=60, target_level=63, mods=mods)
-    assert ev == pytest.approx(178.00128)
+    assert ev == pytest.approx(177.99936)
 
 
 def test_ignite_ignored_for_non_fire_spells():
