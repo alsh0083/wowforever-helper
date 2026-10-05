@@ -2,6 +2,8 @@
 
 ## 1.60.1.70205 (2026-10-05)
 
+> Not a game change: same build, but the tool started recording survival/control spell fields (absorb, root, stun, immunity, incapacitate, interrupt lockout; #71), so they show up as 0 -> value. Affected-build flags from this entry can be ignored.
+
 - Counterspell rank 1: interrupt_lockout 0.0 -> 10.0
 - Fire Ward rank 1: absorb 0.0 -> 162.0
 - Fire Ward rank 2: absorb 0.0 -> 285.0
