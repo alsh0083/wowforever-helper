@@ -20,3 +20,10 @@ target_level_offset = 3
 mana_per_second = 15
 # one-off mana over a fight: Evocation + mana gem + major mana potion (rough Classic-era figure)
 extra_mana = 4500
+
+[dungeon]
+# a dungeon pull: about a minute of sustained casting on level+2 mobs, no Evocation/potion budget
+fight_seconds = 60
+target_level_offset = 2
+mana_per_second = 15
+extra_mana = 0
