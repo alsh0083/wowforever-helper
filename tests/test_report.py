@@ -62,6 +62,8 @@ def test_scores_at_each_checkpoint(payload):
         assert set(b["scores"]["questing"]) == set(CHECKPOINTS)
         assert all(v["score"] > 0 for v in b["scores"]["questing"].values())
         assert set(b["scores"]["raid"]) == {60}
+        assert set(b["scores"]["survival"]) == set(CHECKPOINTS) == set(b["scores"]["control"])
+        assert all(0 <= v["score"] <= 1 for v in b["scores"]["survival"].values())
 
 
 def test_talents_and_milestones_for_the_dashboard(payload):

@@ -14,6 +14,7 @@ from typing import Any
 
 from wowforever.assumptions import Assumptions
 from wowforever.builds import Build
+from wowforever.calc.pvp_axes import control, survival
 from wowforever.optimizer import optimize_order
 from wowforever.rules import check_order, points_available
 from wowforever.scenarios import Character, aoe_curve, best_rank, default_params, questing, raid
@@ -63,7 +64,8 @@ def build_order(build: Build, cls: ClassData, spells, stats, assumptions) -> tup
 def score_build(order: Sequence[int], cls: ClassData, spells, stats: StatTable,
                 assumptions: Assumptions) -> dict[str, dict[int, dict[str, Any]]]:
     """Scenario results at each checkpoint level (raid at max level only)."""
-    scores: dict[str, dict[int, dict[str, Any]]] = {"questing": {}, "aoe": {}, "raid": {}}
+    scores: dict[str, dict[int, dict[str, Any]]] = {"questing": {}, "aoe": {}, "raid": {},
+                                                    "survival": {}, "control": {}}
     for level in CHECKPOINTS:
         char = Character(level, stats.at(level), spells, cls, ranks_at(order, level, cls))
         q = questing(char, default_params("questing", level), assumptions)
@@ -71,6 +73,11 @@ def score_build(order: Sequence[int], cls: ClassData, spells, stats: StatTable,
         scores["questing"][level] = {"score": round(q.score, 1), "unit": q.unit, "spell": q.details["spell"]}
         scores["aoe"][level] = {"score": a.score, "unit": a.unit, "spell": a.details["aoe_spell"],
                                 "break_even": a.details["break_even"]}
+        filler = best_rank(spells, q.details["spell"], level)
+        for name, axis in (("survival", survival), ("control", control)):
+            result = axis(char, filler)
+            scores[name][level] = {"score": round(result.score, 3), "unit": "0-1",
+                                   "components": {k: round(v, 3) for k, v in result.components.items()}}
         if level == cls.rules.max_level:
             r = raid(char, default_params("raid", level), assumptions)
             scores["raid"][level] = {"score": round(r.score, 1), "unit": r.unit, "spell": r.details["spell"],
@@ -168,8 +175,13 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
     from wowforever.builds import load_builds
     from wowforever.schema import Dataset
 
+    from wowforever.classes import mage
+    from wowforever.effects import attach_effects
+
     ds = Dataset.load(Path(dataset_path))
-    cls = ds.class_data(class_name)
+    # effects are the tool's reading of the rank text: re-derive them with the current rules,
+    # so rule changes apply without refetching the game data
+    cls, _ = attach_effects(ds.class_data(class_name), mage.TALENT_EFFECTS, mage.UNMODELED)
     meta = {"version": ds.version, "game_build": ds.game_build,
             "sources": [{"source": p.source, "game_build": p.game_build, "data_version": p.data_version,
                          "fetched_at": p.fetched_at} for p in ds.provenance]}

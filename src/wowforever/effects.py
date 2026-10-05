@@ -43,9 +43,7 @@ def _with_effects(talent: Talent, rules: Mapping[str, tuple[EffectRule, ...]],
         effect = _parse_rule(talent, rule, report)
         if effect is not None:
             effects.append(effect)
-    if not effects:
-        return talent
-    return replace(talent, effects=tuple(effects))
+    return replace(talent, effects=tuple(effects))  # also clears effects from older rules
 
 
 def _parse_rule(talent: Talent, rule: EffectRule, report: list[str]) -> Effect | None:
