@@ -20,10 +20,11 @@ from wowforever.consensus import Consensus
 from wowforever.focus import pve_score_fn, pvp_score_fn
 from wowforever.optimizer import optimize_order
 from wowforever.shortlist import build_shortlist
-from wowforever.pvp.battleground import battleground
-from wowforever.pvp.duel import load_kits, mage_side, scenario_scores
+from wowforever.pvp.battleground import best_battleground
+from wowforever.pvp.duel import best_scenario_scores, load_kits
 from wowforever.rules import check_order, points_available
-from wowforever.scenarios import Character, aoe_curve, best_rank, default_params, questing, raid
+from wowforever.scenarios import (Character, aoe_curve, best_rank, default_params, questing, raid,
+                                  usable_fillers)
 from wowforever.schema import ClassData, SpellRank
 from wowforever.stats import StatTable
 
@@ -86,16 +87,17 @@ def score_build(order: Sequence[int], cls: ClassData, spells, stats: StatTable,
             result = axis(char, filler)
             scores[name][level] = {"score": round(result.score, 3), "unit": "0-1",
                                    "components": {k: round(v, 3) for k, v in result.components.items()}}
-        for name, result in scenario_scores(mage_side(char, filler), kits).items():
+        fillers = usable_fillers(char, default_params("questing", level).fillers, level, assumptions)
+        for name, result in best_scenario_scores(char, fillers, kits).items():
             scores.setdefault(name, {})[level] = {
-                "score": round(result["score"], 3), "unit": "duel 0-1",
+                "score": round(result["score"], 3), "unit": "duel 0-1", "spell": result["spell"],
                 "matchups": {k: round(v, 3) for k, v in result["matchups"].items()}}
         d = raid(char, default_params("dungeon", level), assumptions)
         scores.setdefault("dungeon", {})[level] = {"score": round(d.score, 1), "unit": "dps",
                                                    "spell": d.details["spell"]}
-        bg = battleground(char, filler, assumptions)
+        bg = best_battleground(char, fillers, assumptions)
         scores.setdefault("battleground", {})[level] = {
-            "score": round(bg["score"], 3), "unit": "0-1",
+            "score": round(bg["score"], 3), "unit": "0-1", "spell": bg["spell"],
             "components": {k: round(v, 3) for k, v in bg["components"].items()}}
         if level == cls.rules.max_level:
             r = raid(char, default_params("raid", level), assumptions)

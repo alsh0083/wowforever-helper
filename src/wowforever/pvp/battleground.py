@@ -32,3 +32,17 @@ def battleground(char: Character, filler: SpellRank, assumptions: Assumptions,
     components = {"kill": kill, "endurance": endurance,
                   "survival": survival(char, filler).score, "control": control(char, filler).score}
     return {"score": sum(weights[k] * v for k, v in components.items()), "components": components}
+
+
+def best_battleground(char: Character, fillers, assumptions: Assumptions,
+                      consensus: Consensus | None = None) -> dict:
+    """The battleground result of the filler that scores best in it (ties: the earlier filler),
+    with that filler's name under "spell" (#97)."""
+    best: dict | None = None
+    for filler in fillers:
+        result = battleground(char, filler, assumptions, consensus)
+        if best is None or result["score"] > best["score"]:
+            best = {**result, "spell": filler.name}
+    if best is None:
+        raise ValueError(f"no filler available at level {char.level}")
+    return best
