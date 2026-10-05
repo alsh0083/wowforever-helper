@@ -122,6 +122,8 @@ class SpellRank:
     immunity: float = 0.0              # seconds of immunity for the caster (Ice Block)
     incapacitate: float = 0.0          # seconds the target is incapacitated (Polymorph)
     interrupt_lockout: float = 0.0     # seconds a school is locked out on interrupt (Counterspell)
+    fear: float = 0.0                  # seconds the target is feared (Fear, Psychic Scream)
+    disorient: float = 0.0             # seconds the target is disoriented (Scatter Shot, Blind)
 
 
 @dataclass(frozen=True)
