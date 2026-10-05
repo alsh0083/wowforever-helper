@@ -71,3 +71,17 @@ def test_warrior_spells_load():
             "Intimidating Shout", "Disarm", "Berserker Rage", "Overpower", "Execute", "Whirlwind",
             "Rend", "Thunder Clap", "Piercing Howl"} <= set(spells)
     assert (spells["Charge"].cooldown, spells["Intercept"].cooldown, spells["Pummel"].cooldown) == (15, 30, 10)
+
+
+def test_warrior_arms_kit_matches_the_spell_data():
+    # the opponent kit (#34) uses the client's cooldowns and durations; Charge/Intercept stun
+    # through triggered spells, so only their cooldowns are checked
+    import tomllib
+
+    kit = tomllib.loads((Path(__file__).parents[1] / "config" / "opponents" / "warrior-arms.toml")
+                        .read_text(encoding="utf-8"))
+    spells = {s.name: s for s in class_spells(TABLES, skill_lines=WARRIOR.SKILL_LINES)}
+    for c in kit["controls"]:
+        assert spells[c["name"]].cooldown == c["cooldown"], c["name"]
+        if c["name"] not in ("Charge", "Intercept"):
+            assert spells[c["name"]].duration == c["duration"], c["name"]
