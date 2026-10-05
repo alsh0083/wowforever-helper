@@ -16,3 +16,10 @@ dispel_barrier_factor = 0.5
 min_uptime = 0.2
 # Cap for "never dies" (seconds).
 max_fight = 600.0
+
+# Diminishing returns (Classic): a chain of same-category controls lands at 100%, 50%, 25%,
+# then the target is immune for 15 s. dr_chain is the chain's total in full durations.
+dr_chain = 1.75
+dr_immune_seconds = 15.0
+# A rogue spends at most this share of its energy on controls; the rest goes to damage.
+max_control_energy_share = 0.5

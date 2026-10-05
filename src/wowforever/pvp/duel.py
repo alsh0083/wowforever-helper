@@ -2,8 +2,8 @@
 opponent kit (docs/design/pvp-duel-model.md).
 
 The score is a ratio of expected times - 0 the mage always loses, 0.5 even, 1 always wins -
-not a win probability. Formulas are pinned by tests/test_duel.py; constants come from
-config/duel.toml and opponent kits from config/opponents/*.toml.
+not a win probability. Formulas are pinned by tests/test_duel.py and tests/test_duel_dr.py;
+constants come from config/duel.toml and opponent kits from config/opponents/*.toml.
 """
 
 from __future__ import annotations
@@ -26,6 +26,8 @@ OPPONENTS = Path(__file__).resolve().parents[3] / "config" / "opponents"
 # Kit control kinds that stop the mage from casting. Slows and roots do not stop casting;
 # they enter the duel through the mage's root/stun/slow components as kiting time.
 CAST_LOCKS = frozenset({"stun", "incapacitate", "disorient", "fear", "silence", "interrupt"})
+# CAST_LOCKS kinds that stack diminishing returns, one DR category each (Classic DR, #121).
+DR_KINDS = frozenset({"stun", "incapacitate", "disorient", "fear"})
 
 _CONFIG: dict[str, Any] | None = None
 
@@ -45,6 +47,7 @@ class Control:
     kind: str
     duration: float
     cooldown: float
+    energy: float = 0.0  # energy per use; 0 = not energy-limited
 
 
 @dataclass(frozen=True)
@@ -62,6 +65,7 @@ class Kit:
     controls: tuple[Control, ...]
     removes: tuple[tuple[str, float], ...]  # (comma-separated kinds removed, cooldown)
     immunity: tuple[float, float] | None  # (duration, cooldown) seconds
+    energy_per_minute: float = 0.0  # energy per minute; 0 = no energy budget
 
 
 @dataclass(frozen=True)
@@ -108,11 +112,12 @@ def load_kits(directory: Path = OPPONENTS) -> list[Kit]:
             opener_stun=float(at_60["opener_stun"]),
             controls=tuple(
                 Control(kind=c["kind"], duration=float(c["duration"]),
-                        cooldown=float(c["cooldown"]))
+                        cooldown=float(c["cooldown"]), energy=float(c.get("energy", 0.0)))
                 for c in raw.get("controls", ())
             ),
             removes=tuple((r["removes"], float(r["cooldown"])) for r in raw.get("removes", ())),
             immunity=(float(immunity["duration"]), float(immunity["cooldown"])) if immunity else None,
+            energy_per_minute=float(at_60.get("energy_per_minute", 0.0)),
         ))
     return sorted(kits, key=lambda kit: kit.id)
 
@@ -143,9 +148,29 @@ def duel(mage: MageSide, kit: Kit, variant: str) -> DuelResult:
     c = _config()
     max_fight = c["max_fight"]
 
-    lockout = sum(ctrl.duration * 60 / ctrl.cooldown
-                  for ctrl in kit.controls
-                  if ctrl.cooldown > 0 and ctrl.kind in CAST_LOCKS)
+    # Energy budget (#121): a kit with one spends at most max_control_energy_share of its
+    # energy on controls; f scales every control's rate before the DR caps.
+    spend = sum(ctrl.energy * 60 / ctrl.cooldown
+                for ctrl in kit.controls if ctrl.cooldown > 0)
+    if kit.energy_per_minute > 0 and spend > 0:
+        f = min(1.0, kit.energy_per_minute * c["max_control_energy_share"] / spend)
+    else:
+        f = 1.0
+    categories: dict[str, float] = {}
+    uncapped = 0.0
+    for ctrl in kit.controls:
+        if ctrl.cooldown <= 0 or ctrl.kind not in CAST_LOCKS:
+            continue
+        rate = ctrl.duration * 60 / ctrl.cooldown * f
+        if ctrl.kind in DR_KINDS:
+            categories[ctrl.kind] = categories.get(ctrl.kind, 0.0) + rate
+        else:  # interrupts and silences have no diminishing returns
+            uncapped += rate
+    lockout = uncapped
+    for kind, total in categories.items():
+        longest = max(ctrl.duration for ctrl in kit.controls if ctrl.kind == kind)
+        cap = 60 * c["dr_chain"] * longest / (c["dr_chain"] * longest + c["dr_immune_seconds"])
+        lockout += min(total, cap)
     mage_uptime = max(c["min_uptime"], 1 - lockout / 60)
     opponent_uptime = max(c["min_uptime"], 1 - _kiting_seconds(mage, kit, c) / 60)
 
