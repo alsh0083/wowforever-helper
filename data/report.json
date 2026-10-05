@@ -959,10 +959,12 @@
     },
     "raid": {
      "60": {
-      "score": 161.1,
+      "score": 281.4,
       "unit": "dps",
       "spell": "Fireball",
-      "time_to_oom": 76.43642804489224
+      "time_to_oom": 133.24384267532776,
+      "raw_dps": 379.5,
+      "fallback_spell": "Fireball rank 5"
      }
     },
     "survival": {
@@ -1314,27 +1316,27 @@
     },
     "dungeon": {
      "20": {
-      "score": 50.5,
+      "score": 32.6,
       "unit": "dps",
       "spell": "Fireball"
      },
      "30": {
-      "score": 71.6,
+      "score": 55.1,
       "unit": "dps",
       "spell": "Fireball"
      },
      "40": {
-      "score": 110.7,
+      "score": 89.5,
       "unit": "dps",
       "spell": "Fireball"
      },
      "50": {
-      "score": 167.6,
+      "score": 143.5,
       "unit": "dps",
       "spell": "Fireball"
      },
      "60": {
-      "score": 288.9,
+      "score": 295.4,
       "unit": "dps",
       "spell": "Fireball"
      }
@@ -1520,10 +1522,12 @@
     },
     "raid": {
      "60": {
-      "score": 166.9,
+      "score": 223.0,
       "unit": "dps",
       "spell": "Frostbolt",
-      "time_to_oom": 128.53303471444568
+      "time_to_oom": null,
+      "raw_dps": 233.7,
+      "fallback_spell": "Frostbolt rank 4"
      }
     },
     "survival": {
@@ -1875,12 +1879,12 @@
     },
     "dungeon": {
      "20": {
-      "score": 42.8,
+      "score": 32.6,
       "unit": "dps",
       "spell": "Fireball"
      },
      "30": {
-      "score": 66.6,
+      "score": 50.6,
       "unit": "dps",
       "spell": "Fireball"
      },
@@ -1890,7 +1894,7 @@
       "spell": "Frostbolt"
      },
      "50": {
-      "score": 153.2,
+      "score": 143.3,
       "unit": "dps",
       "spell": "Frostbolt"
      },
@@ -2081,10 +2085,12 @@
     },
     "raid": {
      "60": {
-      "score": 182.5,
+      "score": 291.0,
       "unit": "dps",
       "spell": "Fireball",
-      "time_to_oom": 77.08290642322629
+      "time_to_oom": 123.25917884646584,
+      "raw_dps": 426.2,
+      "fallback_spell": "Fireball rank 5"
      }
     },
     "survival": {
@@ -2436,27 +2442,27 @@
     },
     "dungeon": {
      "20": {
-      "score": 50.8,
+      "score": 32.8,
       "unit": "dps",
       "spell": "Fireball"
      },
      "30": {
-      "score": 66.1,
+      "score": 52.1,
       "unit": "dps",
       "spell": "Fireball"
      },
      "40": {
-      "score": 110.2,
+      "score": 90.0,
       "unit": "dps",
       "spell": "Fireball"
      },
      "50": {
-      "score": 164.3,
+      "score": 141.2,
       "unit": "dps",
       "spell": "Fireball"
      },
      "60": {
-      "score": 321.1,
+      "score": 286.4,
       "unit": "dps",
       "spell": "Fireball"
      }
@@ -2642,10 +2648,12 @@
     },
     "raid": {
      "60": {
-      "score": 249.2,
+      "score": 347.0,
       "unit": "dps",
       "spell": "Frostbolt",
-      "time_to_oom": 116.40218079151049
+      "time_to_oom": 177.4365944466873,
+      "raw_dps": 385.3,
+      "fallback_spell": "Frostbolt rank 4"
      }
     },
     "survival": {
@@ -2997,7 +3005,7 @@
     },
     "dungeon": {
      "20": {
-      "score": 42.9,
+      "score": 37.9,
       "unit": "dps",
       "spell": "Frostbolt"
      },
@@ -3007,17 +3015,17 @@
       "spell": "Frostbolt"
      },
      "40": {
-      "score": 131.7,
+      "score": 128.0,
       "unit": "dps",
       "spell": "Frostbolt"
      },
      "50": {
-      "score": 240.6,
+      "score": 202.7,
       "unit": "dps",
       "spell": "Frostbolt"
      },
      "60": {
-      "score": 423.5,
+      "score": 367.9,
       "unit": "dps",
       "spell": "Frostbolt"
      }
@@ -3210,10 +3218,12 @@
     },
     "raid": {
      "60": {
-      "score": 180.9,
+      "score": 265.6,
       "unit": "dps",
       "spell": "Frostbolt",
-      "time_to_oom": 96.30487313733387
+      "time_to_oom": 150.10872836719338,
+      "raw_dps": 338.1,
+      "fallback_spell": "Frostbolt rank 4"
      }
     },
     "survival": {
@@ -3565,27 +3575,27 @@
     },
     "dungeon": {
      "20": {
-      "score": 42.1,
+      "score": 35.4,
       "unit": "dps",
       "spell": "Frostbolt"
      },
      "30": {
-      "score": 64.7,
+      "score": 49.5,
       "unit": "dps",
       "spell": "Fireball"
      },
      "40": {
-      "score": 132.4,
+      "score": 112.2,
       "unit": "dps",
       "spell": "Frostbolt"
      },
      "50": {
-      "score": 193.9,
+      "score": 160.9,
       "unit": "dps",
       "spell": "Frostbolt"
      },
      "60": {
-      "score": 323.0,
+      "score": 280.6,
       "unit": "dps",
       "spell": "Frostbolt"
      }
@@ -3778,10 +3788,12 @@
     },
     "raid": {
      "60": {
-      "score": 178.8,
+      "score": 262.6,
       "unit": "dps",
       "spell": "Frostbolt",
-      "time_to_oom": 96.30487313733387
+      "time_to_oom": 150.10872836719338,
+      "raw_dps": 334.2,
+      "fallback_spell": "Frostbolt rank 4"
      }
     },
     "survival": {
@@ -4133,27 +4145,27 @@
     },
     "dungeon": {
      "20": {
-      "score": 42.1,
+      "score": 35.4,
       "unit": "dps",
       "spell": "Frostbolt"
      },
      "30": {
-      "score": 64.7,
+      "score": 49.5,
       "unit": "dps",
       "spell": "Fireball"
      },
      "40": {
-      "score": 132.4,
+      "score": 112.2,
       "unit": "dps",
       "spell": "Frostbolt"
      },
      "50": {
-      "score": 193.9,
+      "score": 160.9,
       "unit": "dps",
       "spell": "Frostbolt"
      },
      "60": {
-      "score": 320.0,
+      "score": 278.0,
       "unit": "dps",
       "spell": "Frostbolt"
      }
@@ -4339,10 +4351,12 @@
     },
     "raid": {
      "60": {
-      "score": 164.6,
+      "score": 271.8,
       "unit": "dps",
       "spell": "Fireball",
-      "time_to_oom": 71.68129167712333
+      "time_to_oom": 115.58492933125574,
+      "raw_dps": 413.3,
+      "fallback_spell": "Frostbolt rank 11"
      }
     },
     "survival": {
@@ -4694,27 +4708,27 @@
     },
     "dungeon": {
      "20": {
-      "score": 50.8,
+      "score": 32.8,
       "unit": "dps",
       "spell": "Fireball"
      },
      "30": {
-      "score": 66.4,
+      "score": 52.3,
       "unit": "dps",
       "spell": "Fireball"
      },
      "40": {
-      "score": 100.4,
+      "score": 83.1,
       "unit": "dps",
       "spell": "Fireball"
      },
      "50": {
-      "score": 157.6,
+      "score": 136.6,
       "unit": "dps",
       "spell": "Fireball"
      },
      "60": {
-      "score": 289.4,
+      "score": 260.1,
       "unit": "dps",
       "spell": "Fireball"
      }
@@ -4902,14 +4916,14 @@
    "archetype": "deep Arcane",
    "focus": "PvE",
    "standard": "deep-arcane",
-   "standard_score": 1.1893315395577888,
+   "standard_score": 1.2828139432099284,
    "model_pick": {
     "Frost Channeling": 3,
+    "Piercing Ice": 1,
     "Ice Shards": 5,
     "Improved Frostbolt": 5,
-    "Arcane Instability": 1,
-    "Missile Barrage": 1,
-    "Arcane Meditation": 3,
+    "Arcane Instability": 3,
+    "Arcane Meditation": 1,
     "Improved Counterspell": 2,
     "Arcane Shielding": 2,
     "Arcane Blast": 1,
@@ -4923,9 +4937,9 @@
     "Arcane Focus": 5,
     "Wand Specialization": 2
    },
-   "model_pick_score": 1.352497169084805,
+   "model_pick_score": 1.5177045139288636,
    "candidates": {
-    "deep-arcane": 1.1893315395577888
+    "deep-arcane": 1.2828139432099284
    },
    "qualifying": [
     "deep-arcane"
@@ -4935,6 +4949,11 @@
      "talent": "Frost Channeling",
      "from": 0,
      "to": 3
+    },
+    {
+     "talent": "Piercing Ice",
+     "from": 0,
+     "to": 1
     },
     {
      "talent": "Ice Shards",
@@ -4962,11 +4981,6 @@
      "to": 0
     },
     {
-     "talent": "Arcane Instability",
-     "from": 3,
-     "to": 1
-    },
-    {
      "talent": "Arcane Mind",
      "from": 5,
      "to": 0
@@ -4975,6 +4989,16 @@
      "talent": "Presence of Mind",
      "from": 1,
      "to": 0
+    },
+    {
+     "talent": "Missile Barrage",
+     "from": 1,
+     "to": 0
+    },
+    {
+     "talent": "Arcane Meditation",
+     "from": 3,
+     "to": 1
     }
    ],
    "model_pick_seed": "deep-arcane"
@@ -5105,66 +5129,15 @@
    "archetype": "deep Fire",
    "focus": "PvE",
    "standard": "deep-fire",
-   "standard_score": 1.3571956086421955,
-   "model_pick": {
-    "Frostbite": 2,
-    "Elemental Precision": 5,
-    "Fire Power": 5,
-    "Critical Mass": 3,
-    "Master of Elements": 3,
-    "Heating Up": 1,
-    "Improved Scorch": 1,
-    "Burning Soul": 1,
-    "Pyroblast": 1,
-    "Improved Flamestrike": 3,
-    "Ignite": 5,
-    "Improved Fireball": 5,
-    "Incineration": 3,
-    "Arcane Blast": 1,
-    "Arcane Concentration": 5,
-    "Arcane Subtlety": 2,
-    "Arcane Focus": 5
-   },
-   "model_pick_score": 1.440074590938941,
+   "standard_score": 1.4800808404943517,
+   "model_pick": null,
+   "model_pick_score": null,
    "candidates": {
-    "deep-fire": 1.3571956086421955
+    "deep-fire": 1.4800808404943517
    },
    "qualifying": [
     "deep-fire"
-   ],
-   "model_pick_changes": [
-    {
-     "talent": "Frostbite",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Ice Shards",
-     "from": 4,
-     "to": 0
-    },
-    {
-     "talent": "Combustion",
-     "from": 1,
-     "to": 0
-    },
-    {
-     "talent": "Improved Scorch",
-     "from": 3,
-     "to": 1
-    },
-    {
-     "talent": "Improved Flamestrike",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Arcane Concentration",
-     "from": 3,
-     "to": 5
-    }
-   ],
-   "model_pick_seed": "deep-fire"
+   ]
   },
   {
    "archetype": "deep Frost",
@@ -5205,7 +5178,7 @@
     "Improved Frostbolt": 5,
     "Incineration": 3
    },
-   "model_pick_score": 1.6315291002179007,
+   "model_pick_score": 1.7026543069312936,
    "candidates": {},
    "qualifying": [],
    "model_pick_changes": [
@@ -5361,12 +5334,12 @@
    "archetype": "Fire/Frost",
    "focus": "PvE",
    "standard": "fire-frost-shatter",
-   "standard_score": 1.2604190805922697,
+   "standard_score": 1.390199030604433,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "elementalist-pve": 1.3403178885595652,
-    "fire-frost-shatter": 1.2604190805922697
+    "elementalist-pve": 1.4108166050289463,
+    "fire-frost-shatter": 1.390199030604433
    },
    "qualifying": [
     "elementalist-pve",
@@ -5397,9 +5370,9 @@
     "Critical Mass": 3,
     "Master of Elements": 3,
     "Heating Up": 1,
-    "Improved Scorch": 1,
+    "Improved Scorch": 2,
     "Pyroblast": 1,
-    "Improved Flamestrike": 2,
+    "Improved Flamestrike": 1,
     "Impact": 2,
     "Flame Throwing": 2,
     "Ignite": 5,
@@ -5413,7 +5386,7 @@
     "Arcane Subtlety": 2,
     "Arcane Focus": 5
    },
-   "model_pick_score": 1.3714254063835951,
+   "model_pick_score": 1.5754332714525114,
    "candidates": {},
    "qualifying": [],
    "model_pick_changes": [
@@ -5440,7 +5413,7 @@
     {
      "talent": "Improved Scorch",
      "from": 0,
-     "to": 1
+     "to": 2
     },
     {
      "talent": "Pyroblast",
@@ -5450,7 +5423,7 @@
     {
      "talent": "Improved Flamestrike",
      "from": 0,
-     "to": 2
+     "to": 1
     },
     {
      "talent": "Impact",
