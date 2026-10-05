@@ -11,4 +11,6 @@ import pytest
 @pytest.hookimpl(tryfirst=True)
 def pytest_configure(config):
     if config.option.basetemp:
-        config.option.basetemp = os.path.join(str(config.option.basetemp), f"run-{os.getpid()}")
+        parent = str(config.option.basetemp)
+        os.makedirs(parent, exist_ok=True)   # pytest creates only the last path segment
+        config.option.basetemp = os.path.join(parent, f"run-{os.getpid()}")
