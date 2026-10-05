@@ -82,5 +82,8 @@ UNMODELED: dict[str, str] = {
     "Thousand Cuts": "resource: Rupture ticks reduce Hemorrhage/Backstab Energy cost",
 }
 
+# Two-tree builds the community actually plays (#104): Subtlety Preparation is 16/12/23.
+HYBRIDS = ("Assassination/Subtlety",)
+
 # Rogue skill lines in SkillLineAbility: Assassination, Combat, Subtlety, Poisons.
 SKILL_LINES = (253, 38, 39, 40)
