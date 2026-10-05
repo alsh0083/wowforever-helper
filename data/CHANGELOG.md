@@ -2,6 +2,250 @@
 
 ## 1.60.1.70205 (2026-10-05)
 
+> Not a game change: same build, but the tool started recording weapon-damage abilities (weapon bonus and percent, normalized strikes, triggered hits, combo points, damage per combo point, melee haste; #131), so they show up as 0 -> value.
+
+- Aimed Shot rank 1: weapon_bonus 0.0 -> 20.0
+- Aimed Shot rank 1: weapon_hits 0 -> 1
+- Aimed Shot rank 1: weapon_normalized False -> True
+- Aimed Shot rank 2: weapon_bonus 0.0 -> 34.0
+- Aimed Shot rank 2: weapon_hits 0 -> 1
+- Aimed Shot rank 2: weapon_normalized False -> True
+- Aimed Shot rank 3: weapon_bonus 0.0 -> 55.0
+- Aimed Shot rank 3: weapon_hits 0 -> 1
+- Aimed Shot rank 3: weapon_normalized False -> True
+- Aimed Shot rank 4: weapon_bonus 0.0 -> 89.0
+- Aimed Shot rank 4: weapon_hits 0 -> 1
+- Aimed Shot rank 4: weapon_normalized False -> True
+- Aimed Shot rank 5: weapon_bonus 0.0 -> 125.0
+- Aimed Shot rank 5: weapon_hits 0 -> 1
+- Aimed Shot rank 5: weapon_normalized False -> True
+- Aimed Shot rank 6: weapon_bonus 0.0 -> 166.0
+- Aimed Shot rank 6: weapon_hits 0 -> 1
+- Aimed Shot rank 6: weapon_normalized False -> True
+- Auto Shot rank 1: weapon_hits 0 -> 1
+- Counterattack rank 1: weapon_bonus 0.0 -> 26.0
+- Counterattack rank 1: weapon_hits 0 -> 1
+- Counterattack rank 1: weapon_normalized False -> True
+- Counterattack rank 1: weapon_pct 0.0 -> 50.0
+- Counterattack rank 2: weapon_bonus 0.0 -> 40.0
+- Counterattack rank 2: weapon_hits 0 -> 1
+- Counterattack rank 2: weapon_normalized False -> True
+- Counterattack rank 2: weapon_pct 0.0 -> 50.0
+- Counterattack rank 3: weapon_bonus 0.0 -> 70.0
+- Counterattack rank 3: weapon_hits 0 -> 1
+- Counterattack rank 3: weapon_normalized False -> True
+- Counterattack rank 3: weapon_pct 0.0 -> 50.0
+- Counterattack rank 4: weapon_bonus 0.0 -> 110.0
+- Counterattack rank 4: weapon_hits 0 -> 1
+- Counterattack rank 4: weapon_normalized False -> True
+- Counterattack rank 4: weapon_pct 0.0 -> 50.0
+- Mongoose Bite rank 1: weapon_bonus 0.0 -> 15.0
+- Mongoose Bite rank 1: weapon_hits 0 -> 1
+- Mongoose Bite rank 1: weapon_normalized False -> True
+- Mongoose Bite rank 2: weapon_bonus 0.0 -> 22.0
+- Mongoose Bite rank 2: weapon_hits 0 -> 1
+- Mongoose Bite rank 2: weapon_normalized False -> True
+- Mongoose Bite rank 3: weapon_bonus 0.0 -> 37.0
+- Mongoose Bite rank 3: weapon_hits 0 -> 1
+- Mongoose Bite rank 3: weapon_normalized False -> True
+- Mongoose Bite rank 4: weapon_bonus 0.0 -> 57.0
+- Mongoose Bite rank 4: weapon_hits 0 -> 1
+- Mongoose Bite rank 4: weapon_normalized False -> True
+- Multi-Shot rank 1: weapon_hits 0 -> 1
+- Multi-Shot rank 1: weapon_normalized False -> True
+- Rapid Fire rank 1: haste_pct 0.0 -> 40.0
+- Raptor Strike rank 1: weapon_bonus 0.0 -> 5.0
+- Raptor Strike rank 1: weapon_hits 0 -> 1
+- Raptor Strike rank 2: weapon_bonus 0.0 -> 11.0
+- Raptor Strike rank 2: weapon_hits 0 -> 1
+- Raptor Strike rank 3: weapon_bonus 0.0 -> 21.0
+- Raptor Strike rank 3: weapon_hits 0 -> 1
+- Raptor Strike rank 4: weapon_bonus 0.0 -> 30.0
+- Raptor Strike rank 4: weapon_hits 0 -> 1
+- Raptor Strike rank 5: weapon_bonus 0.0 -> 35.0
+- Raptor Strike rank 5: weapon_hits 0 -> 1
+- Raptor Strike rank 6: weapon_bonus 0.0 -> 40.0
+- Raptor Strike rank 6: weapon_hits 0 -> 1
+- Raptor Strike rank 7: weapon_bonus 0.0 -> 55.0
+- Raptor Strike rank 7: weapon_hits 0 -> 1
+- Raptor Strike rank 8: weapon_bonus 0.0 -> 70.0
+- Raptor Strike rank 8: weapon_hits 0 -> 1
+- Sniper Shot rank 1: weapon_bonus 0.0 -> 160.0
+- Sniper Shot rank 1: weapon_hits 0 -> 1
+- Sniper Shot rank 1: weapon_normalized False -> True
+- Sniper Shot rank 2: weapon_bonus 0.0 -> 225.0
+- Sniper Shot rank 2: weapon_hits 0 -> 1
+- Sniper Shot rank 2: weapon_normalized False -> True
+- Sniper Shot rank 3: weapon_bonus 0.0 -> 295.0
+- Sniper Shot rank 3: weapon_hits 0 -> 1
+- Sniper Shot rank 3: weapon_normalized False -> True
+- Strider Kick rank 1: weapon_hits 0 -> 1
+- Strider Kick rank 1: weapon_normalized False -> True
+- Strider Kick rank 1: weapon_pct 0.0 -> 100.0
+
+## 1.60.1.70205 (2026-10-05)
+
+> Not a game change: same build, but the tool started recording weapon-damage abilities (weapon bonus and percent, normalized strikes, triggered hits, combo points, damage per combo point, melee haste; #131), so they show up as 0 -> value.
+
+- Ambush rank 1: combo_points 0 -> 1
+- Ambush rank 1: weapon_bonus 0.0 -> 28.0
+- Ambush rank 1: weapon_hits 0 -> 1
+- Ambush rank 1: weapon_normalized False -> True
+- Ambush rank 1: weapon_pct 0.0 -> 250.0
+- Ambush rank 2: combo_points 0 -> 1
+- Ambush rank 2: weapon_bonus 0.0 -> 40.0
+- Ambush rank 2: weapon_hits 0 -> 1
+- Ambush rank 2: weapon_normalized False -> True
+- Ambush rank 2: weapon_pct 0.0 -> 250.0
+- Ambush rank 3: combo_points 0 -> 1
+- Ambush rank 3: weapon_bonus 0.0 -> 50.0
+- Ambush rank 3: weapon_hits 0 -> 1
+- Ambush rank 3: weapon_normalized False -> True
+- Ambush rank 3: weapon_pct 0.0 -> 250.0
+- Ambush rank 4: combo_points 0 -> 1
+- Ambush rank 4: weapon_bonus 0.0 -> 74.0
+- Ambush rank 4: weapon_hits 0 -> 1
+- Ambush rank 4: weapon_normalized False -> True
+- Ambush rank 4: weapon_pct 0.0 -> 250.0
+- Ambush rank 5: combo_points 0 -> 1
+- Ambush rank 5: weapon_bonus 0.0 -> 92.0
+- Ambush rank 5: weapon_hits 0 -> 1
+- Ambush rank 5: weapon_normalized False -> True
+- Ambush rank 5: weapon_pct 0.0 -> 250.0
+- Ambush rank 6: combo_points 0 -> 1
+- Ambush rank 6: weapon_bonus 0.0 -> 116.0
+- Ambush rank 6: weapon_hits 0 -> 1
+- Ambush rank 6: weapon_normalized False -> True
+- Ambush rank 6: weapon_pct 0.0 -> 250.0
+- Backstab rank 1: combo_points 0 -> 1
+- Backstab rank 1: weapon_bonus 0.0 -> 10.0
+- Backstab rank 1: weapon_hits 0 -> 1
+- Backstab rank 1: weapon_normalized False -> True
+- Backstab rank 1: weapon_pct 0.0 -> 150.0
+- Backstab rank 2: combo_points 0 -> 1
+- Backstab rank 2: weapon_bonus 0.0 -> 20.0
+- Backstab rank 2: weapon_hits 0 -> 1
+- Backstab rank 2: weapon_normalized False -> True
+- Backstab rank 2: weapon_pct 0.0 -> 150.0
+- Backstab rank 3: combo_points 0 -> 1
+- Backstab rank 3: weapon_bonus 0.0 -> 32.0
+- Backstab rank 3: weapon_hits 0 -> 1
+- Backstab rank 3: weapon_normalized False -> True
+- Backstab rank 3: weapon_pct 0.0 -> 150.0
+- Backstab rank 4: combo_points 0 -> 1
+- Backstab rank 4: weapon_bonus 0.0 -> 46.0
+- Backstab rank 4: weapon_hits 0 -> 1
+- Backstab rank 4: weapon_normalized False -> True
+- Backstab rank 4: weapon_pct 0.0 -> 150.0
+- Backstab rank 5: combo_points 0 -> 1
+- Backstab rank 5: weapon_bonus 0.0 -> 60.0
+- Backstab rank 5: weapon_hits 0 -> 1
+- Backstab rank 5: weapon_normalized False -> True
+- Backstab rank 5: weapon_pct 0.0 -> 150.0
+- Backstab rank 6: combo_points 0 -> 1
+- Backstab rank 6: weapon_bonus 0.0 -> 90.0
+- Backstab rank 6: weapon_hits 0 -> 1
+- Backstab rank 6: weapon_normalized False -> True
+- Backstab rank 6: weapon_pct 0.0 -> 150.0
+- Backstab rank 7: combo_points 0 -> 1
+- Backstab rank 7: weapon_bonus 0.0 -> 110.0
+- Backstab rank 7: weapon_hits 0 -> 1
+- Backstab rank 7: weapon_normalized False -> True
+- Backstab rank 7: weapon_pct 0.0 -> 150.0
+- Backstab rank 8: combo_points 0 -> 1
+- Backstab rank 8: weapon_bonus 0.0 -> 140.0
+- Backstab rank 8: weapon_hits 0 -> 1
+- Backstab rank 8: weapon_normalized False -> True
+- Backstab rank 8: weapon_pct 0.0 -> 150.0
+- Backstab rank 9: combo_points 0 -> 1
+- Backstab rank 9: weapon_bonus 0.0 -> 150.0
+- Backstab rank 9: weapon_hits 0 -> 1
+- Backstab rank 9: weapon_normalized False -> True
+- Backstab rank 9: weapon_pct 0.0 -> 150.0
+- Blade Flurry rank 1: haste_pct 0.0 -> 20.0
+- Cheap Shot rank 1: combo_points 0 -> 2
+- Eviscerate rank 1: per_combo_point 0.0 -> 5.0
+- Eviscerate rank 2: per_combo_point 0.0 -> 11.0
+- Eviscerate rank 3: per_combo_point 0.0 -> 19.0
+- Eviscerate rank 4: per_combo_point 0.0 -> 31.0
+- Eviscerate rank 5: per_combo_point 0.0 -> 45.0
+- Eviscerate rank 6: per_combo_point 0.0 -> 71.0
+- Eviscerate rank 7: per_combo_point 0.0 -> 110.0
+- Eviscerate rank 8: per_combo_point 0.0 -> 151.0
+- Eviscerate rank 9: per_combo_point 0.0 -> 170.0
+- Garrote rank 1: combo_points 0 -> 1
+- Garrote rank 2: combo_points 0 -> 1
+- Garrote rank 3: combo_points 0 -> 1
+- Garrote rank 4: combo_points 0 -> 1
+- Garrote rank 5: combo_points 0 -> 1
+- Garrote rank 6: combo_points 0 -> 1
+- Gouge rank 1: combo_points 0 -> 1
+- Gouge rank 2: combo_points 0 -> 1
+- Gouge rank 3: combo_points 0 -> 1
+- Gouge rank 4: combo_points 0 -> 1
+- Gouge rank 5: combo_points 0 -> 1
+- Hemorrhage rank 1: combo_points 0 -> 1
+- Hemorrhage rank 1: weapon_hits 0 -> 1
+- Hemorrhage rank 1: weapon_normalized False -> True
+- Hemorrhage rank 1: weapon_pct 0.0 -> 100.0
+- Mutilate rank 1: combo_points 0 -> 2
+- Mutilate rank 1: weapon_bonus 0.0 -> 23.0
+- Mutilate rank 1: weapon_hits 0 -> 2
+- Mutilate rank 1: weapon_normalized False -> True
+- Mutilate rank 1: weapon_pct 0.0 -> 75.0
+- Mutilate rank 2: combo_points 0 -> 2
+- Mutilate rank 2: weapon_bonus 0.0 -> 33.0
+- Mutilate rank 2: weapon_hits 0 -> 2
+- Mutilate rank 2: weapon_normalized False -> True
+- Mutilate rank 2: weapon_pct 0.0 -> 75.0
+- Mutilate rank 3: combo_points 0 -> 2
+- Mutilate rank 3: weapon_bonus 0.0 -> 48.0
+- Mutilate rank 3: weapon_hits 0 -> 2
+- Mutilate rank 3: weapon_normalized False -> True
+- Mutilate rank 3: weapon_pct 0.0 -> 75.0
+- Mutilate rank 4: combo_points 0 -> 2
+- Mutilate rank 4: weapon_bonus 0.0 -> 67.0
+- Mutilate rank 4: weapon_hits 0 -> 2
+- Mutilate rank 4: weapon_normalized False -> True
+- Mutilate rank 4: weapon_pct 0.0 -> 75.0
+- Premeditation rank 1: combo_points 0 -> 2
+- Sinister Strike rank 1: combo_points 0 -> 1
+- Sinister Strike rank 1: weapon_bonus 0.0 -> 3.0
+- Sinister Strike rank 1: weapon_hits 0 -> 1
+- Sinister Strike rank 1: weapon_normalized False -> True
+- Sinister Strike rank 2: combo_points 0 -> 1
+- Sinister Strike rank 2: weapon_bonus 0.0 -> 6.0
+- Sinister Strike rank 2: weapon_hits 0 -> 1
+- Sinister Strike rank 2: weapon_normalized False -> True
+- Sinister Strike rank 3: combo_points 0 -> 1
+- Sinister Strike rank 3: weapon_bonus 0.0 -> 10.0
+- Sinister Strike rank 3: weapon_hits 0 -> 1
+- Sinister Strike rank 3: weapon_normalized False -> True
+- Sinister Strike rank 4: combo_points 0 -> 1
+- Sinister Strike rank 4: weapon_bonus 0.0 -> 15.0
+- Sinister Strike rank 4: weapon_hits 0 -> 1
+- Sinister Strike rank 4: weapon_normalized False -> True
+- Sinister Strike rank 5: combo_points 0 -> 1
+- Sinister Strike rank 5: weapon_bonus 0.0 -> 22.0
+- Sinister Strike rank 5: weapon_hits 0 -> 1
+- Sinister Strike rank 5: weapon_normalized False -> True
+- Sinister Strike rank 6: combo_points 0 -> 1
+- Sinister Strike rank 6: weapon_bonus 0.0 -> 33.0
+- Sinister Strike rank 6: weapon_hits 0 -> 1
+- Sinister Strike rank 6: weapon_normalized False -> True
+- Sinister Strike rank 7: combo_points 0 -> 1
+- Sinister Strike rank 7: weapon_bonus 0.0 -> 52.0
+- Sinister Strike rank 7: weapon_hits 0 -> 1
+- Sinister Strike rank 7: weapon_normalized False -> True
+- Sinister Strike rank 8: combo_points 0 -> 1
+- Sinister Strike rank 8: weapon_bonus 0.0 -> 68.0
+- Sinister Strike rank 8: weapon_hits 0 -> 1
+- Sinister Strike rank 8: weapon_normalized False -> True
+- Slice and Dice rank 1: haste_pct 0.0 -> 20.0
+- Slice and Dice rank 2: haste_pct 0.0 -> 30.0
+
+## 1.60.1.70205 (2026-10-05)
+
 > Not a game change: same build, but the tool started recording rogue energy costs (SpellPower PowerType 3, #121), so they show up as 0 -> value.
 
 - Ambush rank 1: energy_cost 0 -> 60

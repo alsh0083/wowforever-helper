@@ -21,7 +21,7 @@ def top(name):
     ("Sinister Strike", 68, 0, 1, True, 1),     # normalized weapon damage + 68, 1 combo point
     ("Backstab", 150, 150, 1, True, 1),         # (weapon + 150) x 150%
     ("Ambush", 116, 250, 1, True, 1),           # (weapon + 116) x 250%
-    ("Mutilate", 23, 75, 2, True, 2),           # two triggered hits (main and off hand), 2 combo points
+    ("Mutilate", 67, 75, 2, True, 2),           # rank 4 (level 60): two triggered hits, each +67, 2 combo points
 ])
 def test_weapon_strikes(name, bonus, pct, hits, normalized, combo):
     s = top(name)
