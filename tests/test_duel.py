@@ -118,7 +118,7 @@ def test_deep_frost_out_duels_deep_fire_against_melee():
                              wago_build="1.60.1.70205")
     cls, _ = attach_effects(cls, TALENT_EFFECTS, UNMODELED)
     spells = class_spells(read_tables(fix / "wago-1.60.1.70205-spells"), skill_lines=SKILL_LINES)
-    builds = {b.id: b for b in load_builds()}
+    builds = {b.id: b for b in load_builds(class_name="mage")}
     stats = StatTable.load("mage").at(60)
 
     def side(build_id, filler):

@@ -2,6 +2,10 @@
 
 ## 1.60.1.70205 (2026-10-05)
 
+- rogue/(class): class added
+
+## 1.60.1.70205 (2026-10-05)
+
 > Not a game change: same build, but this dataset predates #57, which reads Arcane Missiles' damage from its periodic-trigger aura (the missile spell). Reports before this entry had Arcane Missiles at 0 damage, so it never competed as a filler (#100).
 
 - Arcane Missiles rank 1: periodic_coefficient 0.0 -> 0.8580000400500001

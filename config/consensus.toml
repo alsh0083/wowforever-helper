@@ -8,6 +8,7 @@
 
 [sources]
 wft_popular = { url = "https://wowforevertalent.com/mage/", kind = "popularity", era = "forever", date = "2026-10-04", note = "Calculator popularity data since the Oct 1 patch (build 70170): 40,615 mage builds; tree split 22/43/35 Arcane/Fire/Frost; top complete builds with shares/saves. Popularity of beta theorycraft, not proof of viability." }
+wft_popular_rogue = { url = "https://wowforevertalent.com/rogue/", kind = "popularity", era = "forever", date = "2026-10-05", note = "Rogue calculator popularity data (Sep 13 to Oct 4, 2026): 46,144 builds, tree split 29/28/43 Assassination/Combat/Subtlety; source for the rogue community builds (#104)." }
 wt_forever_mage ={ url = "https://www.warcrafttavern.com/forever/guides/mage/", kind = "guide", era = "forever", date = "2026-09", note = "Nevermore; builds to level 30 (beta cap); Frost/Arcane/Fire leveling and dungeons" }
 method_forever_leveling = { url = "https://www.method.gg/wow-forever/wow-forever-mage-leveling-guide-and-talents", kind = "guide", era = "forever", date = "2026-09-29", note = "Celz; Frost for leveling: survivability, kiting; Elemental Precision for hit" }
 bnet_forever_mage_pvp = { url = "https://us.forums.blizzard.com/en/wow/t/im-worried-about-mage-pvp/2355422", kind = "forum", era = "forever", date = "2026-09", note = "Players: Frost for PvP; Ice Barrier needed vs rogue openers and burst; one poster claims beta duels" }
