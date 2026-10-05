@@ -24,6 +24,11 @@ SCHOOL_BITS = (
 EFFECT_DAMAGE = 2            # school damage
 EFFECT_AURA = 6              # apply aura (DoT, slow, area-periodic marker)
 EFFECT_AREA_TRIGGER = 179    # triggers an area effect
+EFFECT_COMBO_POINTS = 30     # grant combo points (EffectMiscValue_0 4)
+EFFECT_WEAPON_PCT = 31       # percent weapon damage (base points = percent)
+EFFECT_TRIGGER_SPELL = 64    # trigger a spell
+EFFECT_WEAPON_DAMAGE = 58    # weapon damage
+EFFECT_NORMALIZED_WEAPON = 121  # normalized weapon damage (speed set by weapon type)
 AURA_DOT = 3                 # periodic damage over time
 AURA_PERIODIC_TRIGGER = 23   # periodic trigger: fires EffectTriggerSpell every EffectAuraPeriod
 AURA_SLOW = 33               # movement speed mod (negative base points = slow)
@@ -36,6 +41,7 @@ AURA_IMMUNITY = 39           # school immunity (Ice Block)
 AURA_TRANSFORM = 56          # transform / incapacitate (Polymorph)
 AURA_ABSORB = 69             # school damage absorb (Ice Barrier, Fire/Frost Ward)
 AURA_MANA_SHIELD = 97        # absorb paid with mana (Mana Shield)
+AURA_MELEE_HASTE = 319       # melee haste (Slice and Dice)
 EFFECT_INTERRUPT = 68        # interrupt + school lockout (Counterspell)
 
 _ACQUIRE_RUNE = 3            # SkillLineAbility.AcquireMethod: Season of Discovery rune
@@ -225,6 +231,15 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
     disorient = duration if AURA_CONFUSE in auras and not incapacitate else 0.0
     interrupt_lockout = duration if any(e["Effect"] == str(EFFECT_INTERRUPT) for e in effects) else 0.0
 
+    combo_row = next((e for e in effects
+                      if e["Effect"] == str(EFFECT_COMBO_POINTS) and e["EffectMiscValue_0"] == "4"), None)
+    combo_points = int(_f(combo_row["EffectBasePointsF"])) if combo_row is not None else 0
+    per_combo_point = _f(damage["EffectPointsPerResource"]) if damage is not None else 0.0
+    haste_row = next((e for e in effects
+                      if e["Effect"] == str(EFFECT_AURA) and int(e["EffectAura"]) == AURA_MELEE_HASTE), None)
+    haste_pct = _f(haste_row["EffectBasePointsF"]) if haste_row is not None else 0.0
+    weapon_hits, weapon_bonus, weapon_normalized, weapon_pct = _weapon_strike(indexes, effects)
+
     periodic_damage = periodic_coefficient = tick_period = 0.0
     dot = next((e for e in effects
                 if e["Effect"] == str(EFFECT_AURA) and e["EffectAura"] == str(AURA_DOT)), None)
@@ -265,6 +280,9 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
         slow_pct=slow_pct, max_targets=max_targets, channeled=channeled,
         absorb=absorb, root=root, stun=stun, immunity=immunity, incapacitate=incapacitate,
         interrupt_lockout=interrupt_lockout, fear=fear, disorient=disorient,
+        per_combo_point=per_combo_point, combo_points=combo_points, haste_pct=haste_pct,
+        weapon_bonus=weapon_bonus, weapon_normalized=weapon_normalized, weapon_pct=weapon_pct,
+        weapon_hits=weapon_hits,
     )
 
 
@@ -286,6 +304,38 @@ def _triggered_damage(indexes: _Indexes, trigger: dict[str, str]) -> tuple[float
         if effect["Effect"] == str(EFFECT_DAMAGE):
             return _f(effect["EffectBasePointsF"]), _f(effect["EffectBonusCoefficient"])
     return None
+
+
+def _weapon_strike(indexes: _Indexes, effects: list[dict[str, str]]) -> tuple[int, float, bool, float]:
+    """(hits, bonus, normalized, pct) of the spell's weapon strikes.
+
+    A direct strike is an Effect 121 (normalized) or 58 row of the spell itself;
+    triggered strikes are Effect 64 rows whose trigger spell carries such a row
+    (Mutilate strikes with main and off hand). The bonus and the Effect 31
+    percentage come from the strike, or from the first triggered spell.
+    """
+    strike = next((e for e in effects
+                   if e["Effect"] in (str(EFFECT_NORMALIZED_WEAPON), str(EFFECT_WEAPON_DAMAGE))), None)
+    if strike is not None:
+        strike_rows, hits = effects, 1
+    else:
+        strike_rows, hits = (), 0
+        for effect in effects:
+            if effect["Effect"] != str(EFFECT_TRIGGER_SPELL):
+                continue
+            rows = indexes.effects.get(int(_f(effect["EffectTriggerSpell"])), [])
+            if not any(r["Effect"] in (str(EFFECT_NORMALIZED_WEAPON), str(EFFECT_WEAPON_DAMAGE)) for r in rows):
+                continue
+            hits += 1
+            if strike is None:
+                strike_rows = rows
+                strike = next(r for r in rows
+                              if r["Effect"] in (str(EFFECT_NORMALIZED_WEAPON), str(EFFECT_WEAPON_DAMAGE)))
+    if strike is None:
+        return 0, 0.0, False, 0.0
+    pct_row = next((e for e in strike_rows if e["Effect"] == str(EFFECT_WEAPON_PCT)), None)
+    return (hits, _f(strike["EffectBasePointsF"]), strike["Effect"] == str(EFFECT_NORMALIZED_WEAPON),
+            _f(pct_row["EffectBasePointsF"]) if pct_row is not None else 0.0)
 
 
 def _is_base_difficulty(row: dict[str, str]) -> bool:
