@@ -7,6 +7,7 @@ come from `config/scenarios.toml`.
 
 from __future__ import annotations
 
+import math
 import tomllib
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, replace
@@ -57,7 +58,14 @@ class RaidParams:
     mana_per_second: float
     fillers: tuple[str, ...]
     target_level_offset: int = 3
-    extra_mana: float = 0.0  # Evocation, mana gems, potions over the fight
+    extra_mana: float = 0.0  # one-off mana per fight (mana gem)
+    fight_lengths: tuple[tuple[float, float], ...] = ()  # (seconds, weight); empty -> fight_seconds only
+    consumables: tuple[tuple[float, float], ...] = ()    # (mana, cooldown seconds), used ceil(T / cooldown) times
+    spirit_regen: bool = False      # spirit regen while casting (Arcane Meditation share) and Evocation's refill
+    evocation: bool = False
+    evocation_seconds: float = 8.0
+    evocation_regen_pct: float = 1500.0
+    fallback: bool = False          # after OOM keep casting at the mana-limited rate instead of 0 DPS
 
 
 @dataclass(frozen=True)
@@ -184,25 +192,95 @@ def aoe_curve(char: Character, p: AoeParams, assumptions: Assumptions) -> Scenar
     )
 
 
+def spirit_regen(stats: Stats) -> float:
+    """Mana per second outside the five-second rule: Classic mage formula (13 + spirit/4) per 2 s tick."""
+    return (13 + stats.spirit / 4) / 2
+
+
+def combat_regen(char: Character, p: RaidParams) -> float:
+    """Mana per second while casting: flat income plus the talented share of spirit regen."""
+    regen = p.mana_per_second
+    if p.spirit_regen:
+        share = 0.0
+        for talent in char.cls.talents:
+            rank = char.ranks.get(talent.talent_id, 0)
+            if rank <= 0:
+                continue
+            for effect in talent.effects:
+                if effect.kind == "regen_while_casting":
+                    share += effect.values[rank - 1]
+        regen += spirit_regen(char.stats) * share / 100
+    return regen
+
+
+def _fallback(char: Character, p: RaidParams, filler: SpellRank, target: int,
+              assumptions: Assumptions, income: float) -> tuple[float, SpellRank | None]:
+    """Best mana-limited DPS once dry: every learned rank of the filler plus the best rank of each
+    other filler, each throttled to what `income` can pay for."""
+    # Ranks learned below level 20 are left out: Classic cuts their spell power coefficient
+    # (the sub-20 penalty), which the calculator does not model yet, so they would look too efficient.
+    candidates = [s for s in char.spells
+                  if s.name == filler.name and s.level <= char.level and (s.level >= 20 or s is filler)]
+    for name in p.fillers:
+        if name != filler.name:
+            other = best_rank(char.spells, name, char.level)
+            if other is not None:
+                candidates.append(other)
+    best, best_dps = None, 0.0
+    for spell in candidates:
+        rot = _rotation(char, spell, target, assumptions, sustained=True)
+        if rot.dps <= 0:
+            continue
+        dps = rot.dps * (min(1.0, income / rot.mana_per_second) if rot.mana_per_second > 0 else 1.0)
+        if dps > best_dps:
+            best, best_dps = spell, dps
+    return best_dps, best
+
+
 def raid(char: Character, p: RaidParams, assumptions: Assumptions) -> ScenarioResult:
-    """Sustained DPS in a raid fight, cut short if the character runs out of mana."""
+    """Sustained DPS over a mix of fight lengths with a mana budget (#78).
+
+    Budget per fight: mana pool + one-off mana + consumables once per cooldown + Evocation when the
+    build would otherwise run dry (it costs its channel time). Once dry, the mage keeps casting at
+    the rate combat regen pays for (fallback), or stops when fallback is off."""
     target = char.level + p.target_level_offset
     spell = _best_of(char, p.fillers, target, assumptions, "filler")
     rot = _rotation(char, spell, target, assumptions, sustained=True)
     dps = rot.dps
-    drain = rot.mana_per_second - p.mana_per_second
-    if drain <= 0:
-        time_to_oom: float | None = None
-        score = dps
-    else:
-        time_to_oom = (char.stats.mana + p.extra_mana) / drain
-        score = dps * min(1, time_to_oom / p.fight_seconds)
+    income = combat_regen(char, p)
+    drain = rot.mana_per_second - income
+    fallback_dps, fallback_spell = (_fallback(char, p, spell, target, assumptions, income)
+                                    if p.fallback and drain > 0 else (0.0, None))
+
+    def one_fight(seconds: float) -> tuple[float, float | None, bool]:
+        """(score, time to OOM incl. Evocation channel or None, Evocation used)."""
+        if drain <= 0:
+            return dps, None, False
+        budget = char.stats.mana + p.extra_mana + sum(
+            mana * math.ceil(seconds / cooldown) for mana, cooldown in p.consumables)
+        active, evocation = seconds, False
+        if p.evocation and budget / drain < seconds:
+            budget += spirit_regen(char.stats) * (1 + p.evocation_regen_pct / 100) * p.evocation_seconds
+            active, evocation = seconds - p.evocation_seconds, True
+        dry = budget / drain
+        t_full = min(active, dry)
+        score = (dps * t_full + fallback_dps * (active - t_full)) / seconds
+        oom = dry + (p.evocation_seconds if evocation else 0.0) if dry < active else None
+        return score, oom, evocation
+
+    lengths = p.fight_lengths or ((p.fight_seconds, 1.0),)
+    by_length = {seconds: one_fight(seconds)[0] for seconds, _ in lengths}
+    score = sum(by_length[s] * w for s, w in lengths) / sum(w for _, w in lengths)
+    _, time_to_oom, evocation_used = one_fight(p.fight_seconds)
     return ScenarioResult(
         scenario="raid",
         level=char.level,
         score=score,
         unit="dps",
-        details={"spell": spell.name, "dps": rot.dps, "time_to_oom": time_to_oom},
+        details={"spell": spell.name, "dps": dps, "time_to_oom": time_to_oom,
+                 "evocation_used": evocation_used,
+                 "fallback_spell": f"{fallback_spell.name} rank {fallback_spell.rank}" if fallback_spell else None,
+                 "by_length": by_length},
         assumptions=assumptions.describe(),
     )
 
@@ -235,7 +313,12 @@ def default_params(scenario: str, level: int) -> QuestingParams | AoeParams | Ra
                           mana_per_second=section["mana_per_second"],
                           fillers=fillers,
                           target_level_offset=section.get("target_level_offset", 3),
-                          extra_mana=section.get("extra_mana", 0.0))
+                          extra_mana=section.get("extra_mana", 0.0),
+                          fight_lengths=tuple(tuple(x) for x in section.get("fight_lengths", ())),
+                          consumables=tuple(tuple(x) for x in section.get("consumables", ())),
+                          spirit_regen=section.get("spirit_regen", False),
+                          evocation=section.get("evocation", False),
+                          fallback=section.get("fallback", False))
     raise ValueError(f"unknown scenario {scenario!r}")
 
 

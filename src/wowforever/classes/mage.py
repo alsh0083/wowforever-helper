@@ -21,6 +21,9 @@ LAYOUT = TraitLayout(
 # `sign` flips reductions. UNMODELED explains every talent not in TALENT_EFFECTS.
 TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     # Arcane
+    "Arcane Meditation": (
+        EffectRule("regen_while_casting", r"Allows (\d+(?:\.\d+)?)% of your Mana regeneration", ("all",)),
+    ),
     "Arcane Focus": (
         EffectRule("hit_chance", r"chance to hit with Arcane spells by (\d+(?:\.\d+)?)%", ("arcane",)),
     ),
@@ -143,7 +146,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
 UNMODELED: dict[str, str] = {
     "Arcane Blast": "grants_spell",
     "Arcane Geometry": "utility: range",
-    "Arcane Meditation": "resource: mana regen while casting",
     "Arcane Power": "handled in mage_rotation",
     "Arcane Resilience": "defensive: armor from intellect",
     "Arcane Shielding": "defensive: mana shield / armor",

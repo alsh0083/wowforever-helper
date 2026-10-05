@@ -99,7 +99,9 @@ def score_build(order: Sequence[int], cls: ClassData, spells, stats: StatTable,
         if level == cls.rules.max_level:
             r = raid(char, default_params("raid", level), assumptions)
             scores["raid"][level] = {"score": round(r.score, 1), "unit": r.unit, "spell": r.details["spell"],
-                                     "time_to_oom": r.details["time_to_oom"]}
+                                     "time_to_oom": r.details["time_to_oom"],
+                                     "raw_dps": round(r.details["dps"], 1),
+                                     "fallback_spell": r.details["fallback_spell"]}
     return scores
 
 

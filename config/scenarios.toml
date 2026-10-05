@@ -14,16 +14,28 @@ anchors = { 10 = [200, 5], 20 = [600, 10], 30 = [1100, 20], 40 = [1700, 50], 50 
 pack_sizes = [1, 2, 3, 4, 5, 6]
 
 [raid]
+# Mana budget from Forever client data, build 1.60.1.70205 (#78, docs/tasks/78-raid-mana.md).
+# fight_seconds is the representative length for time_to_oom; the score averages fight_lengths.
 fight_seconds = 180
+fight_lengths = [[90, 1], [180, 2], [300, 1]]
 target_level_offset = 3
-# combat mana regen (spirit outside the 5-second rule, mana gear, potions), mana per second
-mana_per_second = 15
-# one-off mana over a fight: Evocation + mana gem + major mana potion (rough Classic-era figure)
-extra_mana = 4500
+# Blessing of Wisdom (spell 25290): 40 mana per 5 s. Gear MP5 is not tracked yet.
+mana_per_second = 8
+# Mana Ruby (spell 10058): 1100 mana on average, one per fight
+extra_mana = 1100
+# [mana, cooldown]: Major Mana Potion (17531) 1800, Demonic Rune (16666) 1200, separate 2 min cooldowns
+consumables = [[1800, 120], [1200, 120]]
+# Arcane Meditation share of spirit regen while casting; Evocation (12051): +1500% regen for 8 s
+spirit_regen = true
+evocation = true
+# after running dry, keep casting at the rate regen pays for (downrank or cheaper filler)
+fallback = true
 
 [dungeon]
 # a dungeon pull: about a minute of sustained casting on level+2 mobs, no Evocation/potion budget
 fight_seconds = 60
 target_level_offset = 2
-mana_per_second = 15
+mana_per_second = 0
 extra_mana = 0
+spirit_regen = true
+fallback = true
