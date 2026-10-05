@@ -5,17 +5,21 @@ from pathlib import Path
 
 from wowforever.builds import load_builds
 from wowforever.classes import class_module
+from wowforever.effects import attach_effects
 from wowforever.report import report_from_dataset, route_report
 from wowforever.rules import check_order
 from wowforever.schema import Dataset
 
 DATASET = Path(__file__).resolve().parents[1] / "data" / "datasets" / "1.60.1.70205.json"
-REPORT = report_from_dataset(DATASET, "rogue")
+_ROGUE = class_module("rogue")
+_CLS, _ = attach_effects(Dataset.load(DATASET).class_data("rogue"), _ROGUE.TALENT_EFFECTS, _ROGUE.UNMODELED)
+# routes-only reports stay available for classes without an engine; the rogue is a stand-in here
+REPORT = {"class": "rogue", **route_report(_CLS, load_builds(class_name="rogue"), {}, hybrids=_ROGUE.HYBRIDS)}
 
 
-def test_only_the_mage_has_a_scoring_engine():
+def test_engines():
     assert class_module("mage").ENGINE is True
-    assert getattr(class_module("rogue"), "ENGINE", False) is False
+    assert class_module("rogue").ENGINE == "melee" and class_module("hunter").ENGINE == "melee"
 
 
 def test_rogue_report_is_routes_only():
@@ -38,6 +42,7 @@ def test_route_orders_are_legal_and_spend_the_build():
 
 
 def test_matrix_slots_cover_every_tree_and_recognized_hybrid():
+    # route reports leave scores empty; the scored rogue report (#133) is checked in test_melee_report.py
     slots = [(s["archetype"], s["focus"]) for s in REPORT["shortlist"]]
     archetypes = list(dict.fromkeys(a for a, _ in slots))
     assert archetypes == ["deep Assassination", "deep Combat", "deep Subtlety", "Assassination/Subtlety"]

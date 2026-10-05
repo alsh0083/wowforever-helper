@@ -8,7 +8,7 @@ partial build by questing kills/hour at that level (the order matters while leve
 from __future__ import annotations
 
 from collections import Counter
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
 from dataclasses import asdict, replace
 from typing import Any
 
@@ -294,6 +294,79 @@ def route_report(cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any
     }
 
 
+MELEE_CAVEAT = ("Melee and ranged model (#111): expected-value rotations against Classic combat-table "
+                "rules; poisons, Backstab, Hack and Slash and hunter pet details aren't modeled yet, base "
+                "stats are estimates, and PvP scores for this class come with #134.")
+
+
+def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any], *,
+                 hybrids: Sequence[str] = ()) -> dict[str, Any]:
+    """Scored report for rogue and hunter (#133): leveling orders optimized for questing kills/hour,
+    questing/dungeon/raid scores per checkpoint, and PvE model picks in the shortlist."""
+    from wowforever import melee_scenarios as ms
+    from wowforever.consensus import Consensus
+    from wowforever.optimizer import optimize_order
+    from wowforever.rules import points_available
+    from wowforever.shortlist import build_shortlist
+
+    payload = route_report(cls, builds, dataset, hybrids=hybrids)
+    table = ms.MeleeStatTable.load(class_name)
+    top = cls.rules.max_level
+    spells = cls.spells
+
+    def kills(ranks: Mapping[int, int], level: int) -> float:
+        return ms.questing(class_name, table.at(level), spells, cls, ranks)
+
+    def value(ranks: dict[int, int], level: int) -> float:
+        return kills(ranks, level) + 1e-3 * kills(ranks, top)
+
+    by_id = {b.id: b for b in builds}
+    for entry in payload["builds"]:
+        build = by_id[entry["id"]]
+        if not build.order:
+            must = {cls.talent_named(n).talent_id: lvl for n, lvl in build.must_have_by.items()}
+            entry["order"] = optimize_order(cls, build.final_ids(cls), must, value)
+            entry["order_source"] = "optimized for questing kills/hour"
+            entry["open_points"] = points_available(top, cls.rules) - len(entry["order"])
+        order = entry["order"]
+        scores: dict[str, dict[int, dict[str, Any]]] = {"questing": {}, "dungeon": {}, "raid": {}}
+        for level in CHECKPOINTS:
+            ranks = ranks_at(order, level, cls)
+            stats = table.at(level)
+            scores["questing"][level] = {"score": round(kills(ranks, level), 1), "unit": "kills/hour"}
+            scores["dungeon"][level] = {"score": round(ms.dungeon(class_name, stats, spells, cls, ranks), 1),
+                                        "unit": "dps"}
+            if level == top:
+                scores["raid"][level] = {"score": round(ms.raid(class_name, stats, spells, cls, ranks), 1),
+                                         "unit": "dps"}
+        entry["scores"] = scores
+
+    arch = Consensus.load().archetypes
+    stats_top = table.at(top)
+    fns = {"PvE": lambda ranks: ms.pve_score(class_name, stats_top, spells, cls, ranks),
+           "PvP": lambda ranks: 0.0}      # PvP scores come with #134
+    slots = build_shortlist(cls, list(builds), fns, margin=SHORTLIST_MARGIN, deep=arch["deep"],
+                            hybrid=arch["hybrid"], recognized=tuple(hybrids))
+    names = {t.talent_id: t.name for t in cls.talents}
+    finals = {b.id: b.final_ids(cls) for b in builds}
+    shortlist = []
+    for slot in slots:
+        d = slot.as_dict()
+        if slot.focus == "PvP":
+            d.update(standard_score=None, model_pick=None, model_pick_score=None, candidates={})
+        elif slot.model_pick is not None:
+            seed_id = slot.standard or (slot.qualifying[0] if slot.qualifying else None)
+            seed = finals.get(seed_id, {})
+            d["model_pick"] = {names[t]: r for t, r in sorted(slot.model_pick.items())}
+            d["model_pick_changes"] = [{"talent": names[t], "from": seed.get(t, 0), "to": slot.model_pick.get(t, 0)}
+                                       for t in sorted(set(seed) | set(slot.model_pick))
+                                       if seed.get(t, 0) != slot.model_pick.get(t, 0)]
+            d["model_pick_seed"] = seed_id
+        shortlist.append(d)
+    payload.update(engine=True, shortlist=shortlist, caveats=[MELEE_CAVEAT])
+    return payload
+
+
 def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any]:
     """Load a saved dataset (from `python -m wowforever update`) and build the report payload."""
     from pathlib import Path
@@ -313,6 +386,8 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
             "sources": [{"source": p.source, "game_build": p.game_build, "data_version": p.data_version,
                          "fetched_at": p.fetched_at} for p in ds.provenance]}
     builds = load_builds(class_name=class_name)
+    if getattr(module, "ENGINE", False) == "melee":
+        return melee_report(class_name, cls, builds, meta, hybrids=getattr(module, "HYBRIDS", ()))
     if not getattr(module, "ENGINE", False):
         return route_report(cls, builds, meta, hybrids=getattr(module, "HYBRIDS", ()))
     return {"class": class_name, "engine": True,

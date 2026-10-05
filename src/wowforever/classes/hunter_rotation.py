@@ -33,6 +33,7 @@ class HunterRotation:
     pet_dps: float
     mode: str                 # "ranged" or "melee", whichever is higher
     mana_per_second: float    # of the chosen mode
+    auto_dps: float = 0.0     # Auto Shot alone (costs no mana), the fallback once out of mana
 
 
 def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
@@ -68,7 +69,7 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
     efficiency = 1 + total("mana_cost_pct", "@shot") / 100
 
     # ranged
-    ranged = mana_r = 0.0
+    ranged = mana_r = auto = 0.0
     if stats.ranged is not None:
         rap = stats.ranged_attack_power + int_ap + 2 * extra_agi + (c["trueshot_aura_rap"] if taken("Trueshot Aura") else 0)
         a_r = Attacker(level, rap, stats.ranged_crit_pct + crit_all, hit)
@@ -150,4 +151,4 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
     mode = "ranged" if ranged >= melee else "melee"
     best = max(ranged, melee)
     return HunterRotation(dps=best + pet_dps, ranged_dps=ranged, melee_dps=melee, pet_dps=pet_dps, mode=mode,
-                          mana_per_second=mana_r if mode == "ranged" else mana_m)
+                          mana_per_second=mana_r if mode == "ranged" else mana_m, auto_dps=auto)
