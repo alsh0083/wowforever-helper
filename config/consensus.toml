@@ -1,0 +1,119 @@
+# Consensus-backed scenario weights (#24). Owner rules (#23): reputable guides and forums only,
+# no gold/boost/carry sellers, robots.txt-permitted sources only (no Wowhead, no Reddit).
+# Classic-era evidence counts at full confidence only for talents Forever left unchanged.
+#
+# axes: kill (damage/time to kill), endurance (mana/downtime), survival, control.
+# Each axis weight is [low, mid, high]; the mids of a scenario sum to 1.
+# confidence: low | medium | high.
+
+[sources]
+wt_forever_mage = { url = "https://www.warcrafttavern.com/forever/guides/mage/", kind = "guide", era = "forever", date = "2026-09", note = "Nevermore; builds to level 30 (beta cap); Frost/Arcane/Fire leveling and dungeons" }
+method_forever_leveling = { url = "https://www.method.gg/wow-forever/wow-forever-mage-leveling-guide-and-talents", kind = "guide", era = "forever", date = "2026-09-29", note = "Celz; Frost for leveling: survivability, kiting; Elemental Precision for hit" }
+bnet_forever_mage_pvp = { url = "https://us.forums.blizzard.com/en/wow/t/im-worried-about-mage-pvp/2355422", kind = "forum", era = "forever", date = "2026-09", note = "Players: Frost for PvP; Ice Barrier needed vs rogue openers and burst; one poster claims beta duels" }
+bnet_forever_talent_tree = { url = "https://eu.forums.blizzard.com/en/wow/t/mage-talent-tree-issue/628860", kind = "forum", era = "forever", date = "2026-09", note = "Players: little cross-tree synergy; Frost/Arcane Missile Barrage + Fingers of Frost hybrid suggested for PvP; no beta data" }
+barrens_pvp_builds = { url = "https://barrens.chat/viewtopic.php?f=3&t=1475", kind = "forum", era = "classic", note = "Deep Frost (utility, Ice Barrier uptime, Ice Block + Cold Snap), Arcane/Frost (damage), Elementalist (close range: Blast Wave, Cone of Cold; good vs hunters)" }
+barrens_specs_60 = { url = "https://barrens.chat/viewtopic.php?t=2657", kind = "forum", era = "classic", note = "Frost for PvE farming and raiding up to AQ/Naxx; respec freely" }
+wt_tbc_frost_pvp = { url = "https://www.warcrafttavern.com/tbc/guides/pvp-frost-mage/", kind = "guide", era = "tbc", note = "Permafrost core vs melee; Ice Barrier and Ice Block central" }
+prior_research = { url = "docs/research/mage-pvp-leveling-report.md", kind = "research", era = "mixed", note = "Earlier report: Elementalist vs deep Frost trade-off, Burning Soul vs pushback, Impact/Scorch openings" }
+
+# ---- scenario axis weights ------------------------------------------------------------------
+
+[scenario.questing]
+kill = [0.35, 0.45, 0.55]
+endurance = [0.25, 0.35, 0.45]
+survival = [0.10, 0.15, 0.25]
+control = [0.0, 0.05, 0.10]
+sources = ["method_forever_leveling", "wt_forever_mage"]
+confidence = "medium"
+note = "Forever guides stress survivability and kiting while leveling; downtime drives kills/hour."
+
+[scenario.aoe]
+kill = [0.30, 0.40, 0.50]
+endurance = [0.20, 0.30, 0.40]
+survival = [0.05, 0.10, 0.20]
+control = [0.10, 0.20, 0.30]
+sources = ["wt_forever_mage", "method_forever_leveling", "bnet_forever_mage_pvp"]
+confidence = "low"
+note = "AoE was tuned down in Forever (guides and forums agree); kiting slows matter more than in Classic. How much is unknown."
+
+[scenario.dungeon]
+kill = [0.45, 0.55, 0.65]
+endurance = [0.20, 0.30, 0.40]
+survival = [0.05, 0.10, 0.15]
+control = [0.0, 0.05, 0.10]
+sources = ["wt_forever_mage"]
+confidence = "low"
+note = "One Forever source (dungeon Arcane builds to 30); weights mostly by analogy to raids."
+
+[scenario.raid]
+kill = [0.60, 0.70, 0.80]
+endurance = [0.20, 0.30, 0.40]
+survival = [0.0, 0.0, 0.05]
+control = [0.0, 0.0, 0.05]
+sources = ["barrens_specs_60"]
+confidence = "medium"
+note = "Classic consensus: raid value is sustained damage limited by mana."
+
+[scenario.wpvp_melee]
+kill = [0.20, 0.30, 0.40]
+endurance = [0.0, 0.05, 0.10]
+survival = [0.25, 0.30, 0.40]
+control = [0.25, 0.35, 0.45]
+sources = ["bnet_forever_mage_pvp", "barrens_pvp_builds", "wt_tbc_frost_pvp"]
+confidence = "medium"
+note = "Kiting (slows, roots, Frost Nova) and defensives decide melee fights; Forever players expect Frost."
+
+[scenario.wpvp_caster]
+kill = [0.30, 0.40, 0.50]
+endurance = [0.0, 0.05, 0.10]
+survival = [0.30, 0.40, 0.50]
+control = [0.10, 0.15, 0.25]
+sources = ["bnet_forever_mage_pvp", "prior_research"]
+confidence = "low"
+note = "Casting through damage (Ice Barrier, Burning Soul) and burst matter most; little direct evidence."
+
+[scenario.stealth_ambush]
+kill = [0.10, 0.20, 0.30]
+endurance = [0.0, 0.0, 0.05]
+survival = [0.40, 0.50, 0.60]
+control = [0.20, 0.30, 0.40]
+sources = ["bnet_forever_mage_pvp", "barrens_pvp_builds"]
+confidence = "medium"
+note = "Forever forum: without Ice Barrier mages die to rogue openers; Ice Block + Cold Snap as emergency buttons."
+
+[scenario.battleground]
+kill = [0.25, 0.35, 0.45]
+endurance = [0.0, 0.05, 0.10]
+survival = [0.25, 0.30, 0.40]
+control = [0.20, 0.30, 0.40]
+sources = ["barrens_pvp_builds", "bnet_forever_mage_pvp"]
+confidence = "low"
+note = "Group fights: AoE control and survival under focus; Forever AoE nerfs make Classic evidence weaker."
+
+# ---- talent tiers per scenario (core > strong) ------------------------------------------------
+# Talents named here get a consensus bonus on top of modeled value in v1 scoring (#25/#28).
+
+[tiers.wpvp_melee]
+core = ["Ice Barrier", "Ice Block", "Cold Snap", "Permafrost", "Improved Frost Nova"]
+strong = ["Frostbite", "Shatter", "Arctic Reach", "Improved Cone of Cold", "Blast Wave"]
+sources = ["barrens_pvp_builds", "wt_tbc_frost_pvp", "bnet_forever_mage_pvp"]
+
+[tiers.wpvp_caster]
+core = ["Ice Barrier", "Ice Block", "Cold Snap"]
+strong = ["Burning Soul", "Improved Counterspell", "Impact", "Shatter"]
+sources = ["bnet_forever_mage_pvp", "prior_research"]
+
+[tiers.stealth_ambush]
+core = ["Ice Barrier", "Ice Block", "Cold Snap", "Improved Frost Nova"]
+strong = ["Permafrost", "Frostbite", "Blast Wave", "Impact"]
+sources = ["bnet_forever_mage_pvp", "barrens_pvp_builds"]
+
+[tiers.battleground]
+core = ["Ice Block", "Cold Snap", "Ice Barrier"]
+strong = ["Improved Frost Nova", "Permafrost", "Blast Wave", "Improved Blizzard"]
+sources = ["barrens_pvp_builds"]
+
+[tiers.questing]
+core = ["Improved Frostbolt", "Elemental Precision"]
+strong = ["Ice Shards", "Shatter", "Frostbite", "Permafrost"]
+sources = ["method_forever_leveling", "wt_forever_mage"]
