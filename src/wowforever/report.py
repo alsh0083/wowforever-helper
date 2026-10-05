@@ -221,6 +221,74 @@ def build_report(cls: ClassData, spells: tuple[SpellRank, ...], builds: Sequence
     }
 
 
+ROUTE_CAVEAT = ("Routes only: this class's builds are community standards in a legal point order "
+                "(top rows first). Scores, model picks and optimized orders wait on the melee and "
+                "ranged damage engine (#111).")
+
+
+def route_report(cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any], *,
+                 hybrids: Sequence[str] = ()) -> dict[str, Any]:
+    """Dashboard payload for a class the calculator can't score yet (#105): each build as a legal
+    point order, placed in the archetype x focus matrix without scores."""
+    from wowforever.consensus import Consensus
+    from wowforever.optimizer import optimize_order
+    from wowforever.shortlist import classify
+
+    trees = {t.tree_id: t.name for t in cls.trees}
+    deep = Consensus.load().archetypes["deep"]
+    hybrid = Consensus.load().archetypes["hybrid"]
+    payload_builds, placed = [], {}
+    for b in builds:
+        if b.order:
+            order, how = b.order_ids(cls), "hand-written"
+        else:
+            must = {cls.talent_named(n).talent_id: lvl for n, lvl in b.must_have_by.items()}
+            order = optimize_order(cls, b.final_ids(cls), must, lambda ranks, level: 0.0)
+            how = "legal order (top rows first), not optimized until #111"
+        problems = check_order(cls, order)
+        if problems:
+            raise ValueError(f"{b.id}: illegal order: {problems}")
+        payload_builds.append({
+            "id": b.id, "name": b.name, "pair": b.pair, "variant": b.variant, "origin": b.origin,
+            "summary": b.summary, "gives_up": list(b.gives_up), "must_have_by": b.must_have_by,
+            "order": order, "order_source": how,
+            "open_points": points_available(cls.rules.max_level, cls.rules) - len(order),
+            "scores": {}, "sensitivity": [],
+        })
+        label = classify(cls, b.final_ids(cls), deep=deep, hybrid=hybrid, recognized=tuple(hybrids))
+        if label:
+            placed.setdefault((label, b.variant), []).append(b.id)
+    archetypes = [f"deep {t.name}" for t in sorted(cls.trees, key=lambda t: t.tree_id)] + list(hybrids)
+    shortlist = [{
+        "archetype": a, "focus": focus,
+        "standard": (placed.get((a, focus)) or [None])[0], "standard_score": None,
+        "model_pick": None, "model_pick_score": None, "candidates": {},
+        "qualifying": placed.get((a, focus), []),
+    } for a in archetypes for focus in ("PvP", "PvE")]
+    return {
+        "class": cls.class_name, "engine": False,
+        "dataset": dataset,
+        "rules": asdict(cls.rules),
+        "trees": [{"id": t.tree_id, "name": t.name} for t in cls.trees],
+        "talents": {
+            str(t.talent_id): {
+                "name": t.name, "tree": trees[t.tree_id], "row": t.row, "col": t.col,
+                "max_rank": t.max_rank, "icon": t.icon, "rank_text": list(t.rank_text),
+                "classic_status": t.classic_status,
+                "prerequisite": t.prerequisite.talent_id if t.prerequisite else None,
+            }
+            for t in cls.talents
+        },
+        "builds": payload_builds,
+        "shortlist": shortlist,
+        "spell_milestones": spell_milestones(cls.spells, cls.rules.max_level,
+                                             frozenset(t.spell_id for t in cls.talents)),
+        "assumptions": {},
+        "checklist": [],
+        "caveats": [ROUTE_CAVEAT],
+    }
+
+
 def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any]:
     """Load a saved dataset (from `python -m wowforever update`) and build the report payload."""
     from pathlib import Path
@@ -239,5 +307,8 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
     meta = {"version": ds.version, "game_build": ds.game_build,
             "sources": [{"source": p.source, "game_build": p.game_build, "data_version": p.data_version,
                          "fetched_at": p.fetched_at} for p in ds.provenance]}
-    return build_report(cls, cls.spells, load_builds(class_name=class_name), StatTable.load(class_name),
-                        Assumptions.load(), meta)
+    builds = load_builds(class_name=class_name)
+    if not getattr(module, "ENGINE", False):
+        return route_report(cls, builds, meta, hybrids=getattr(module, "HYBRIDS", ()))
+    return {"class": class_name, "engine": True,
+            **build_report(cls, cls.spells, builds, StatTable.load(class_name), Assumptions.load(), meta)}
