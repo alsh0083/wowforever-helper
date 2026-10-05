@@ -835,7 +835,9 @@
  "builds": [
   {
    "id": "arcane-pom-pyro",
-   "name": "Arcane PoM-Pyro (reference)",
+   "name": "Arcane PoM-Pyro (PvP reference)",
+   "pair": "arcane-pom-pyro",
+   "variant": "PvP",
    "summary": "Arcane Power + Presence of Mind into an instant Pyroblast, with Arcane Concentration and Arcane Meditation for mana; Ignite and Burning Soul from Fire.",
    "gives_up": [
     "Ice Block",
@@ -976,7 +978,9 @@
   },
   {
    "id": "deep-fire",
-   "name": "Deep Fire (Combustion)",
+   "name": "Deep Fire (PvE)",
+   "pair": "deep-fire",
+   "variant": "PvE",
    "summary": "Maximum Fire burst and sustained damage: Ignite, Heating Up, Critical Mass, Fire Power, Combustion; Elemental Precision for hit, Permafrost and Improved Frost Nova for kiting.",
    "gives_up": [
     "Ice Block",
@@ -1116,7 +1120,9 @@
   },
   {
    "id": "deep-frost",
-   "name": "Deep Frost (control + Ice Barrier)",
+   "name": "Deep Frost (PvP)",
+   "pair": "deep-frost",
+   "variant": "PvP",
    "summary": "Maximum Frost control and defensives: Ice Block, Cold Snap, Ice Barrier, Shatter + Fingers of Frost burst; Incineration adds crit to Ice Lance.",
    "gives_up": [
     "Impact",
@@ -1257,9 +1263,11 @@
    "sensitivity": []
   },
   {
-   "id": "elementalist-v4",
-   "name": "Offensive Elementalist (current route)",
-   "summary": "Frost foundation 10-32 for control and defensives (Ice Block 25, Cold Snap 30), then Fire 33-59 for Impact/Hot Streak burst. Level-60 point open.",
+   "id": "elementalist-pve",
+   "name": "Offensive Elementalist (PvE)",
+   "pair": "offensive-elementalist",
+   "variant": "PvE",
+   "summary": "Frost foundation 10-32 for control and defensives (Ice Block 25, Cold Snap 30), then Fire 33-59 for Impact/Heating Up burst. Level 60: Elemental Precision 3/3, +1% hit on every Fire and Frost spell, which never goes to waste against level-63 bosses and helps whichever nuke you use. (The v0 model favours Frost Channeling 1/3 only because it still casts Frostbolt at 60; see #57.)",
    "gives_up": [
     "Ice Barrier",
     "Master of Elements",
@@ -1319,10 +1327,152 @@
     105784,
     105784,
     105797,
-    105797
+    105797,
+    105778
    ],
    "order_source": "hand-written",
-   "open_points": 1,
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 37.2,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "30": {
+      "score": 38.3,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "40": {
+      "score": 60.3,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "50": {
+      "score": 74.9,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "60": {
+      "score": 84.3,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     }
+    },
+    "aoe": {
+     "20": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "30": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Arcane Explosion",
+      "break_even": 1
+     },
+     "40": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 1
+     },
+     "50": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "60": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 100.4,
+      "unit": "dps",
+      "spell": "Frostbolt",
+      "time_to_oom": 80.1980198019802
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
+   "id": "elementalist-v4",
+   "name": "Offensive Elementalist (PvP)",
+   "pair": "offensive-elementalist",
+   "variant": "PvP",
+   "summary": "Frost foundation 10-32 for control and defensives (Ice Block 25, Cold Snap 30), then Fire 33-59 for Impact/Heating Up burst. Level 60: Permafrost 1/3, rated core against melee by the consensus sources (longer, stronger chills for kiting); Improved Frost Nova 1/2 is the close alternative.",
+   "gives_up": [
+    "Ice Barrier",
+    "Master of Elements",
+    "Piercing Ice"
+   ],
+   "must_have_by": {
+    "Ice Block": 25,
+    "Cold Snap": 30
+   },
+   "order": [
+    105779,
+    105779,
+    105779,
+    105779,
+    105779,
+    105778,
+    105778,
+    105774,
+    105774,
+    105774,
+    105767,
+    105777,
+    105777,
+    105777,
+    105777,
+    105769,
+    105768,
+    105768,
+    105768,
+    105777,
+    105766,
+    105764,
+    105764,
+    105796,
+    105796,
+    105796,
+    105795,
+    105795,
+    105792,
+    105792,
+    105792,
+    105795,
+    105795,
+    105795,
+    105789,
+    105789,
+    105789,
+    105790,
+    105786,
+    105794,
+    105794,
+    105794,
+    105794,
+    105783,
+    105794,
+    105784,
+    105784,
+    105784,
+    105797,
+    105797,
+    105776
+   ],
+   "order_source": "hand-written",
+   "open_points": 0,
    "scores": {
     "questing": {
      "20": {

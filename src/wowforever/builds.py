@@ -27,6 +27,8 @@ class Build:
     must_have_by: dict[str, int] = field(default_factory=dict)  # talent name -> level
     gives_up: tuple[str, ...] = ()
     primary_spell: str = ""                    # main nuke; leveling orders are optimized around it
+    pair: str = ""                             # builds sharing a pair id are PvP/PvE variants (dual spec, #41)
+    variant: str = ""                          # "PvP" or "PvE"
 
     @classmethod
     def load(cls, path: Path) -> Build:
@@ -35,7 +37,7 @@ class Build:
         final = dict(Counter(order)) if order else dict(raw["final"])
         return cls(raw["id"], raw["name"], raw["summary"], final, order,
                    dict(raw.get("must_have_by", {})), tuple(raw.get("gives_up", ())),
-                   raw.get("primary_spell", ""))
+                   raw.get("primary_spell", ""), raw.get("pair", raw["id"]), raw.get("variant", ""))
 
     def unknown_talents(self, cls: ClassData) -> list[str]:
         """Talent names in this build that the class doesn't have (e.g. renamed by a patch)."""

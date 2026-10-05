@@ -128,7 +128,8 @@ def build_report(cls: ClassData, spells: tuple[SpellRank, ...], builds: Sequence
         if problems:
             raise ValueError(f"{b.id}: illegal order: {problems}")
         payload_builds.append({
-            "id": b.id, "name": b.name, "summary": b.summary, "gives_up": list(b.gives_up),
+            "id": b.id, "name": b.name, "pair": b.pair, "variant": b.variant,
+            "summary": b.summary, "gives_up": list(b.gives_up),
             "must_have_by": b.must_have_by, "order": order, "order_source": how,
             "open_points": points_available(cls.rules.max_level, cls.rules) - len(order),
             "scores": score_build(order, cls, spells, stats, assumptions),
