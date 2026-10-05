@@ -15,6 +15,9 @@ def main(argv: list[str] | None = None) -> int:
     dash = sub.add_parser("dashboard", help="render the offline dashboard page from a report payload")
     dash.add_argument("--report", default="data/report.json", help="report JSON written by `report`")
     dash.add_argument("--out", default="dashboard/index.html")
+    upd = sub.add_parser("update", help="fetch both sources, diff against the last saved dataset, record the check")
+    upd.add_argument("--data-dir", default="data")
+    upd.add_argument("--delay", type=float, default=1.0, help="seconds between table downloads")
     args = parser.parse_args(argv)
     if args.command == "report":
         import json
@@ -44,6 +47,16 @@ def main(argv: list[str] | None = None) -> int:
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(render(report, icons), encoding="utf-8", newline="\n")
         print(f"wrote {out}")
+        return 0
+    if args.command == "update":
+        from pathlib import Path
+
+        from wowforever import update
+
+        summary = update.check_for_updates(
+            update.default_http_get, data_dir=Path(args.data_dir), delay=args.delay
+        )
+        print(summary.text())
         return 0
     if args.command is None:
         parser.print_help()
