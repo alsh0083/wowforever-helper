@@ -49,6 +49,7 @@ CLASSES: dict[str, str] = {
     "mage": "wowforever.classes.mage",
     "rogue": "wowforever.classes.rogue",
     "hunter": "wowforever.classes.hunter",
+    "warrior": "wowforever.classes.warrior",
 }
 
 
