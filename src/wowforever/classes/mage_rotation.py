@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, replace
 
-from wowforever.assumptions import Assumptions, periodic_can_crit
+from wowforever.assumptions import Assumptions, periodic_can_crit, sub20_penalized
 from wowforever.calc.ev import (
     GCD_SECONDS, Modifiers, effective_cast_time, expected_damage, miss_chance,
 )
@@ -70,7 +70,7 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
 
     def ev_of(spell: SpellRank, mods: Modifiers) -> float:
         return expected_damage(
-            scaled(spell, char.level),
+            sub20_penalized(scaled(spell, char.level), assumptions),
             spell_power=stats.spell_power,
             crit_pct=stats.crit_pct,
             hit_pct=stats.hit_pct,
