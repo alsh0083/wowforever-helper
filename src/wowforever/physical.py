@@ -52,34 +52,51 @@ def armor_factor(attacker_level: int, armor: float) -> float:
 
 
 def white_swing(weapon: tuple[float, float, float], attacker: Attacker, target: Target, *,
-                dual_wield: bool = False, off_hand: bool = False, damage_pct: float = 0.0) -> float:
+                dual_wield: bool = False, off_hand: bool = False, damage_pct: float = 0.0,
+                dodge_reduction: float = 0.0) -> float:
     """Expected damage of one auto-attack swing with a (min, max, speed) weapon."""
     c, i = _config(), _row(target)
     low, high, speed = weapon
     base = (((low + high) / 2 + attacker.attack_power / c["ap_per_dps"] * speed)
             * (c["off_hand_factor"] if off_hand else 1) * (1 + damage_pct / 100))
     miss = max(0.0, c["miss"][i] + (c["dual_wield_miss"] if dual_wield else 0) - _effective_hit(attacker, i))
-    dodge, glance = c["dodge"][i], c["glancing"][i]
+    dodge, glance = max(0.0, c["dodge"][i] - dodge_reduction), c["glancing"][i]
     crit = max(0.0, min(attacker.crit_pct - c["crit_suppression"][i], 100 - miss - dodge - glance))
     hit = max(0.0, 100 - miss - dodge - glance - crit)
     share = (hit + glance * c["glancing_damage"] + crit * c["crit_multiplier"]) / 100
     return base * share * armor_factor(attacker.level, target.armor)
 
 
-def yellow_attack(base_damage: float, attacker: Attacker, target: Target, *,
-                  crit_bonus: float = 0.0, damage_pct: float = 0.0, can_dodge: bool = True) -> float:
-    """Expected damage of an ability hit: does it land, then does it crit."""
+def land_chance(attacker: Attacker, target: Target, *, can_dodge: bool = True,
+                dodge_reduction: float = 0.0) -> float:
+    """Probability (0-1) that a yellow attack lands: not missed, not dodged."""
     c, i = _config(), _row(target)
     miss = max(0.0, c["miss"][i] - _effective_hit(attacker, i))
-    dodge = c["dodge"][i] if can_dodge else 0.0
-    landed = (100 - miss - dodge) / 100
-    crit = min(100.0, max(0.0, attacker.crit_pct + crit_bonus - c["crit_suppression"][i])) / 100
-    return (base_damage * (1 + damage_pct / 100) * landed * (1 + crit * (c["crit_multiplier"] - 1))
+    dodge = max(0.0, c["dodge"][i] - dodge_reduction) if can_dodge else 0.0
+    return (100 - miss - dodge) / 100
+
+
+def yellow_crit_chance(attacker: Attacker, target: Target, crit_bonus: float = 0.0) -> float:
+    """Probability (0-1) that a landed yellow attack crits."""
+    c, i = _config(), _row(target)
+    return min(100.0, max(0.0, attacker.crit_pct + crit_bonus - c["crit_suppression"][i])) / 100
+
+
+def yellow_attack(base_damage: float, attacker: Attacker, target: Target, *,
+                  crit_bonus: float = 0.0, damage_pct: float = 0.0, can_dodge: bool = True,
+                  dodge_reduction: float = 0.0, crit_damage_pct: float = 0.0) -> float:
+    """Expected damage of an ability hit: does it land, then does it crit. `crit_damage_pct` raises
+    the crit bonus (Lethality +30% turns a 2.0 crit into 2.3)."""
+    c = _config()
+    landed = land_chance(attacker, target, can_dodge=can_dodge, dodge_reduction=dodge_reduction)
+    crit = yellow_crit_chance(attacker, target, crit_bonus)
+    multiplier = 1 + (c["crit_multiplier"] - 1) * (1 + crit_damage_pct / 100)
+    return (base_damage * (1 + damage_pct / 100) * landed * (1 + crit * (multiplier - 1))
             * armor_factor(attacker.level, target.armor))
 
 
 def ranged_shot(base_damage: float, attacker: Attacker, target: Target, *,
-                crit_bonus: float = 0.0, damage_pct: float = 0.0) -> float:
+                crit_bonus: float = 0.0, damage_pct: float = 0.0, crit_damage_pct: float = 0.0) -> float:
     """A yellow attack that can't be dodged."""
     return yellow_attack(base_damage, attacker, target, crit_bonus=crit_bonus, damage_pct=damage_pct,
-                         can_dodge=False)
+                         can_dodge=False, crit_damage_pct=crit_damage_pct)
