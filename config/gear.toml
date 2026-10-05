@@ -1,0 +1,33 @@
+# Gear-based placeholder stats (#68). Confidence: LOW for weights and base stats; item stats are
+# real Forever client data (build 1.60.1.70205). Replaced by the owner's character at launch (#33).
+
+# Forever expresses Classic's "+1% spell crit" as 14 crit rating at level 60 (Robe of the Archmage).
+# Hit rating is assumed to convert the same way (no Forever item found yet to confirm).
+# Below 60 ratings scale by (level - 8) / 52 (TBC-style rule; an inference).
+rating_per_pct_at_60 = 14.0
+
+# Pre-raid only: epics above this item level are raid drops (Molten Core starts at 66;
+# Robe of the Archmage is 62). The client also ships QA test items, excluded by name.
+max_epic_item_level = 63
+exclude_name_words = ["qatest", "test"]
+# Items whose item level is far above their required level (e.g. required 1, item level 54) carry
+# Forever's item-level scaling fields; their listed stats overstate them early on, so skip them.
+# Normal quest/dungeon gear sits 5-10 above its required level.
+max_item_level_over_required = 12
+
+# Classic rules for derived stats: 15 mana per Intellect, 10 health per Stamina,
+# mage spell crit = 0.2% + Intellect / 59.5 at 60; Intellect per 1% scales by level / 60 below 60 (an inference).
+mana_per_int = 15.0
+health_per_stamina = 10.0
+base_crit_pct = 0.2
+int_per_crit_pct_at_60 = 59.5
+
+# value of one point of each stat when choosing the best item per slot (caster damage focus)
+[weights]
+spell_power = 1.0
+crit_rating = 0.8
+hit_rating = 0.9
+intellect = 0.4
+spirit = 0.1
+stamina = 0.15
+mp5 = 0.5
