@@ -36,6 +36,7 @@ class Consensus:
     sources: dict[str, dict]
     scenarios: dict[str, ScenarioWeights]
     tiers: dict[str, dict[str, tuple[str, ...]]]  # scenario -> {"core": (...), "strong": (...), "sources": (...)}
+    archetypes: dict = None  # shortlist thresholds and recognized hybrids (#28)
 
     @classmethod
     def load(cls, path: Path = CONFIG) -> Consensus:
@@ -46,7 +47,7 @@ class Consensus:
             for name, s in raw["scenario"].items()
         }
         tiers = {name: {k: tuple(v) for k, v in t.items()} for name, t in raw.get("tiers", {}).items()}
-        return cls(raw["sources"], scenarios, tiers)
+        return cls(raw["sources"], scenarios, tiers, raw.get("archetypes", {}))
 
     def problems(self, mage: ClassData | None = None) -> list[str]:
         """Structural problems; with class data, also tier names that aren't talents."""
