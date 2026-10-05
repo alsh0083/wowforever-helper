@@ -1,0 +1,35 @@
+# Community standard build from wowforevertalent.com's popularity data: #4 of the most
+# popular complete mage builds since the Oct 1 patch (build 70170), as of 2026-10-04.
+# shared 32, saved 90, opened 555, 25 close variants. Focus label is Claude's judgment.
+
+id = "deep-arcane"
+name = "Deep Arcane (PvE)"
+pair = "deep-arcane"
+variant = "PvE"
+primary_spell = "Arcane Blast"  # Arcane Missiles once its missile damage is modeled (#57)
+origin = "community"
+summary = "Deep Arcane to Arcane Power with Presence of Mind and Missile Barrage; focus is unclear in the data, labelled PvE-leaning (low confidence)."
+sources = ["wft_popular"]
+confidence = "medium"
+
+[final]
+"Wand Specialization" = 2
+"Arcane Focus" = 5
+"Improved Channeling" = 5
+"Arcane Subtlety" = 2
+"Magic Absorption" = 2
+"Arcane Concentration" = 5
+"Arcane Resilience" = 2
+"Arcane Geometry" = 2
+"Arcane Impact" = 3
+"Arcane Blast" = 1
+"Arcane Shielding" = 2
+"Improved Counterspell" = 2
+"Arcane Meditation" = 3
+"Missile Barrage" = 1
+"Presence of Mind" = 1
+"Arcane Mind" = 5
+"Arcane Instability" = 3
+"Arcane Power" = 1
+"Wake of Fire" = 1
+"Incineration" = 3
