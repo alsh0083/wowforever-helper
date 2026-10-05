@@ -226,14 +226,16 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
     from wowforever.builds import load_builds
     from wowforever.schema import Dataset
 
-    from wowforever.classes import mage
+    from wowforever.classes import class_module
     from wowforever.effects import attach_effects
 
     ds = Dataset.load(Path(dataset_path))
     # effects are the tool's reading of the rank text: re-derive them with the current rules,
     # so rule changes apply without refetching the game data
-    cls, _ = attach_effects(ds.class_data(class_name), mage.TALENT_EFFECTS, mage.UNMODELED)
+    module = class_module(class_name)
+    cls, _ = attach_effects(ds.class_data(class_name), module.TALENT_EFFECTS, module.UNMODELED)
     meta = {"version": ds.version, "game_build": ds.game_build,
             "sources": [{"source": p.source, "game_build": p.game_build, "data_version": p.data_version,
                          "fetched_at": p.fetched_at} for p in ds.provenance]}
-    return build_report(cls, cls.spells, load_builds(), StatTable.load(class_name), Assumptions.load(), meta)
+    return build_report(cls, cls.spells, load_builds(class_name=class_name), StatTable.load(class_name),
+                        Assumptions.load(), meta)

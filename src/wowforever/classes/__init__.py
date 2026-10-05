@@ -38,3 +38,17 @@ class EffectRule:
     applies_to: tuple[str, ...]  # school names, spell names, "all", or "@condition" tokens
     sign: int = 1                # -1 for reductions (cast time, mana cost)
     combine: Callable[[Match[str]], float] | None = None  # several numbers, e.g. % x stacks
+
+
+# Registered classes: name (also the wowforevertalent.com page slug) -> module with LAYOUT,
+# TALENT_EFFECTS, UNMODELED and SKILL_LINES. Add a class here once its module exists.
+CLASSES: dict[str, str] = {
+    "mage": "wowforever.classes.mage",
+}
+
+
+def class_module(name: str):
+    """The per-class module registered under `name`; KeyError for an unknown class."""
+    import importlib
+
+    return importlib.import_module(CLASSES[name])
