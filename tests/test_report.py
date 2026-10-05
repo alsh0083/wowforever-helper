@@ -70,6 +70,9 @@ def test_talents_and_milestones_for_the_dashboard(payload):
     ignite = next(t for t in report["talents"].values() if t["name"] == "Ignite")
     assert ignite["icon"] == "spell_fire_incinerate" and len(ignite["rank_text"]) == 5
     assert {"level": 40, "spell": "Frostfire Bolt", "rank": 1} in report["spell_milestones"]
+    taught = {(m["spell"], m["rank"]) for m in report["spell_milestones"]}
+    assert not {s for s, _ in taught} & {"Ice Block", "Presence of Mind", "Arcane Power", "Cold Snap"}
+    assert ("Ice Lance", 2) in taught and ("Ice Lance", 1) not in taught     # talent grants rank 1
 
 
 def test_report_cli_from_a_saved_dataset(payload, tmp_path, capsys):
