@@ -147,13 +147,19 @@ def _best_of(char: Character, names: Sequence[str], target_level: int,
     return best
 
 
+def usable_fillers(char: Character, names: Sequence[str], target_level: int,
+                   assumptions: Assumptions) -> list[SpellRank]:
+    """The best learned rank of each of `names` that has modeled damage, in `names` order."""
+    return [spell for name in names
+            if (spell := best_rank(char.spells, name, char.level)) is not None
+            and _cast(char, spell, target_level, assumptions)[0] > 0]
+
+
 def _best_result(char: Character, names: Sequence[str], target_level: int,
                  assumptions: Assumptions, run) -> ScenarioResult:
     """The scenario result of the filler that scores best in it: `run(spell)` scores one filler,
     so weaves, procs, freezes and mana all count toward the choice."""
-    results = [run(spell) for name in names
-               if (spell := best_rank(char.spells, name, char.level)) is not None
-               and _cast(char, spell, target_level, assumptions)[0] > 0]
+    results = [run(spell) for spell in usable_fillers(char, names, target_level, assumptions)]
     if not results:
         raise ValueError(f"no filler available at level {char.level}")
     return max(results, key=lambda r: r.score)

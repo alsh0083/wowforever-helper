@@ -16,9 +16,9 @@ from typing import Any
 
 from wowforever.assumptions import Assumptions
 from wowforever.calc.pvp_axes import control, survival
-from wowforever.classes.mage_rotation import rotation
+from wowforever.classes.mage_rotation import frozen_hit_gain, rotation
 from wowforever.schema import SpellRank
-from wowforever.scenarios import Character
+from wowforever.scenarios import Character, best_rank
 
 CONFIG = Path(__file__).resolve().parents[3] / "config" / "duel.toml"
 OPPONENTS = Path(__file__).resolve().parents[3] / "config" / "opponents"
@@ -76,6 +76,7 @@ class MageSide:
     stun: float
     slow: float  # uptime x strength, 0-1
     interrupt: float
+    nova_dps: float = 0.0  # extra DPS against melee: one frozen hit per Frost Nova (#97)
 
 
 @dataclass(frozen=True)
@@ -149,7 +150,8 @@ def duel(mage: MageSide, kit: Kit, variant: str) -> DuelResult:
     opponent_uptime = max(c["min_uptime"], 1 - _kiting_seconds(mage, kit, c) / 60)
 
     immune_share = kit.immunity[0] / kit.immunity[1] if kit.immunity else 0.0
-    t_mage = kit.health / (mage.dps * mage_uptime * (1 - immune_share))
+    dps = mage.dps + (mage.nova_dps if kit.role == "melee" else 0.0)  # Nova needs them in melee
+    t_mage = kit.health / (dps * mage_uptime * (1 - immune_share))
 
     barrier = mage.barrier_per_min / 60
     if kit.dispels_buffs:
@@ -185,20 +187,44 @@ def scenario_scores(mage: MageSide, kits: Sequence[Kit]) -> dict[str, dict[str, 
     return scores
 
 
+def best_scenario_scores(char: Character, fillers: Sequence[SpellRank],
+                         kits: Sequence[Kit]) -> dict[str, dict[str, Any]]:
+    """Per scenario, the result of the filler that scores best in it (ties: the earlier filler),
+    with that filler's name under "spell" (#97)."""
+    best: dict[str, dict[str, Any]] = {}
+    for filler in fillers:
+        for name, result in scenario_scores(mage_side(char, filler), kits).items():
+            if name not in best or result["score"] > best[name]["score"]:
+                best[name] = {**result, "spell": filler.name}
+    return best
+
+
 def mage_side(char: Character, filler: SpellRank) -> MageSide:
     """The mage's duel side from a build: short-fight rotation DPS (no sustained buffs)
     plus the survival and control components."""
     s = survival(char, filler)
     c = control(char, filler)
     health = char.stats.health
+    assumptions = Assumptions.load()
+    nova = best_rank(char.spells, "Frost Nova", char.level)
+    nova_dps = 0.0
+    if nova is not None:
+        improved = next((t for t in char.cls.talents if t.name == "Improved Frost Nova"), None)
+        rank = char.ranks.get(improved.talent_id, 0) if improved else 0
+        cut = next((e.values[rank - 1] for e in improved.effects if e.kind == "cooldown"), 0.0) if rank else 0.0
+        cooldown = nova.cooldown + cut  # Improved Frost Nova's value is negative
+        if cooldown > 0:
+            nova_dps = frozen_hit_gain(char, filler, target_level=char.level,
+                                       assumptions=assumptions) / cooldown
     return MageSide(
         health=health,
         dps=rotation(char, filler, target_level=char.level,
-                     assumptions=Assumptions.load(), sustained=False).dps,
+                     assumptions=assumptions, sustained=False).dps,
         barrier_per_min=s.components["barrier"] * health,
         immunity_share=s.components["immunity"],
         root=c.components["root"],
         stun=c.components["stun"],
         slow=c.components["slow"],
         interrupt=c.components["interrupt"],
+        nova_dps=nova_dps,
     )
