@@ -2,7 +2,9 @@
 # Included so the comparison shows what the Fire/Frost builds give up.
 id = "arcane-pom-pyro"
 primary_spell = "Fireball"  # the spell its leveling order is optimized around
-name = "Arcane PoM-Pyro (reference)"
+name = "Arcane PoM-Pyro (PvP reference)"
+pair = "arcane-pom-pyro"
+variant = "PvP"
 summary = "Arcane Power + Presence of Mind into an instant Pyroblast, with Arcane Concentration and Arcane Meditation for mana; Ignite and Burning Soul from Fire."
 gives_up = ["Ice Block", "Cold Snap", "Ice Barrier", "Impact", "Heating Up"]
 
