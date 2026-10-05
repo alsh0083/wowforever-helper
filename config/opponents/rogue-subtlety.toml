@@ -1,0 +1,65 @@
+# Rogue Subtlety (Preparation/Premeditation): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
+# Spec chosen from wowforevertalent.com Forever popularity data plus PvP judgment.
+# source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
+# can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
+
+id = "rogue-subtlety"
+class = "Rogue"
+spec = "Subtlety (Preparation/Premeditation)"
+points = "16/12/23"
+role = "melee"  # melee | ranged | caster
+stealth = true
+dispels_buffs = false  # can strip Ice Barrier
+confidence = "low"
+sources = ["wft_popular"]
+
+[at_60]
+health = 3600
+dps = 200  # sustained vs cloth when in range
+opener_damage = 900
+opener_stun = 4.0
+opener_source = "data (Cheap Shot 4 s); Ambush damage estimate"
+
+[[controls]]
+name = "Cheap Shot"
+kind = "stun"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 4.0
+cooldown = 0
+source = "data"
+
+[[controls]]
+name = "Kidney Shot"
+kind = "stun"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 6.0
+cooldown = 20
+source = "classic (data shows 1 s per combo point)"
+
+[[controls]]
+name = "Gouge"
+kind = "stun"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 4.0
+cooldown = 10
+source = "data"
+
+[[controls]]
+name = "Kick"
+kind = "interrupt"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 5.0
+cooldown = 10
+source = "data"
+
+[[controls]]
+name = "Blind"
+kind = "slow"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 10.0
+cooldown = 300
+source = "data (Forever Blind is a 60% slow)"
+
+[[gap_closers]]
+name = "Sprint"
+cooldown = 300
+
+[[removes]]
+name = "Vanish"
+removes = "slow,root"
+cooldown = 300

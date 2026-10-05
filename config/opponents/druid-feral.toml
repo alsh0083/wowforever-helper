@@ -1,0 +1,51 @@
+# Druid Feral: PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
+# Spec chosen from wowforevertalent.com Forever popularity data plus PvP judgment.
+# source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
+# can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
+
+id = "druid-feral"
+class = "Druid"
+spec = "Feral"
+points = "9/34/5"
+role = "melee"  # melee | ranged | caster
+stealth = true
+dispels_buffs = false  # can strip Ice Barrier
+confidence = "low"
+sources = ["wft_popular"]
+
+[at_60]
+health = 4200
+dps = 190  # sustained vs cloth when in range
+opener_damage = 500
+opener_stun = 2.0
+opener_source = "data (Pounce 2 s); Ravage damage estimate"
+
+[[controls]]
+name = "Pounce"
+kind = "stun"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 2.0
+cooldown = 0
+source = "data"
+
+[[controls]]
+name = "Bash"
+kind = "stun"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 4.0
+cooldown = 60
+source = "data"
+
+[[controls]]
+name = "Feral Charge"
+kind = "root"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 4.0
+cooldown = 15
+source = "classic (immobilize + interrupt)"
+
+[[gap_closers]]
+name = "Feral Charge"
+cooldown = 15
+
+[[removes]]
+name = "Shapeshift"
+removes = "slow,root"
+cooldown = 0
