@@ -14,6 +14,7 @@ Add to `TALENT_EFFECTS` (and remove from `UNMODELED`):
 | Master of Elements | `resource` | `("fire", "frost")` | refund % (10, 20, 30) |
 | Improved Scorch | `proc_chance` | `("Scorch",)` | the % chance (33, 67, 100) |
 | Fingers of Frost | `proc_chance` | `("@chill",)` | 15 per rank text; frozen casts = rank |
+| Wake of Fire | `cooldown` (sign −1) | `("Fire Blast",)` | "by N sec": −1, −2 |
 Winter's Chill's value combines two numbers; a small parse helper or a special-case rule is fine. Heating Up, Arcane Power and Combustion stay in `UNMODELED` with the reason "handled in mage_rotation" (Combustion: "not modeled yet"). `modifiers_for` gains nothing new: `@sustained` works like `@frozen` (only when `"sustained"` is in `conditions`).
 
 ## 3. `src/wowforever/classes/mage_rotation.py`
