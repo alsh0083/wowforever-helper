@@ -48,3 +48,6 @@ With the rotation `dps` and `mps` (mana per second) as now, `i = combat_regen(ch
 
 ## Done when
 `.venv/Scripts/python -m pytest` passes in full.
+
+## Environment note
+The package is already installed in `.venv` (editable). Before you start, `tests/test_raid_mana.py` fails with `ImportError: cannot import name 'combat_regen'`: that is the expected failure, because implementing those names is the task. Install nothing and request no elevation. Start by editing `src/wowforever/scenarios.py`; iterate with `.venv/Scripts/python -m pytest tests/test_raid_mana.py tests/test_scenarios.py`, then run the full suite once at the end.
