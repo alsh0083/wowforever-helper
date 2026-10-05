@@ -37,6 +37,7 @@ class NormalizeReport:
     unmatched_wago: list[str] = field(default_factory=list)  # wago talents with no page talent
     unmatched_wft: list[str] = field(default_factory=list)   # page talents with no wago talent
     name_mismatches: list[str] = field(default_factory=list)  # same position, different names
+    ignored_edges: list[str] = field(default_factory=list)    # client edges that point upward
 
     @property
     def ok(self) -> bool:
@@ -105,6 +106,8 @@ def normalize_class(tables: Tables, layout: TraitLayout, page: WftPage, *,
         if row["TraitTreeID"] != str(layout.trait_tree_id):
             continue
         node_id = int(row["ID"])
+        if node_id in layout.hidden_nodes:
+            continue
         pos_x, pos_y = int(row["PosX"]), int(row["PosY"])
         band = _band_for(layout, pos_x)
         if band is None:
@@ -119,10 +122,16 @@ def normalize_class(tables: Tables, layout: TraitLayout, page: WftPage, *,
 
     # Edges: the right node requires the left node at the left node's max rank.
     max_rank_by_id = {p.talent_id: p.max_rank for p in placed}
+    by_id = {p.talent_id: p for p in placed}
     prerequisites: dict[int, Prerequisite] = {}
     for edge in tables["TraitEdge"]:
         left_id, right_id = int(edge["LeftTraitNodeID"]), int(edge["RightTraitNodeID"])
         if left_id not in max_rank_by_id or right_id not in max_rank_by_id:
+            continue
+        if by_id[left_id].row >= by_id[right_id].row:
+            # a prerequisite always sits above what it unlocks; e.g. the hunter tree also has
+            # Bestial Wrath -> Intimidation besides the real Intimidation -> Bestial Wrath
+            report.ignored_edges.append(f"{by_id[left_id].name} -> {by_id[right_id].name}")
             continue
         if right_id in prerequisites:
             raise ValueError(f"trait node {right_id}: multiple prerequisite edges")
