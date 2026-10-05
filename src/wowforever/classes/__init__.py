@@ -27,6 +27,9 @@ class TraitLayout:
     trees: tuple[TreeBand, ...]  # ordered by min_x
     first_row_y: int             # PosY of row 0
     grid: int                    # PosX/PosY distance between adjacent rows/columns
+    # Trait nodes left in the client but not in the game's talent UI: Forever parks replaced
+    # Classic nodes far off the grid. Skipped; each id is explained in the class module.
+    hidden_nodes: frozenset[int] = frozenset()
 
 
 @dataclass(frozen=True)
@@ -45,6 +48,7 @@ class EffectRule:
 CLASSES: dict[str, str] = {
     "mage": "wowforever.classes.mage",
     "rogue": "wowforever.classes.rogue",
+    "hunter": "wowforever.classes.hunter",
 }
 
 
