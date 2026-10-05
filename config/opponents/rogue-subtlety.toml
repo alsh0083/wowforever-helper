@@ -2,7 +2,7 @@
 # Spec chosen from wowforevertalent.com Forever popularity data plus PvP judgment.
 # source per value: data = Forever client 1.60.1.70205 rogue spells and the talents of the rogue
 # community build (#106, config/builds/rogue-*.toml); classic = Classic value the data doesn't carry;
-# estimate = judgment. Health and DPS: level-60 estimates vs cloth until the melee engine (#111).
+# estimate = judgment. Health and DPS: level-60 values vs cloth from the melee engine (#147).
 
 id = "rogue-subtlety"
 class = "Rogue"
@@ -15,8 +15,8 @@ confidence = "low"
 sources = ["wft_popular", "wft_popular_rogue"]
 
 [at_60]
-health = 3600
-dps = 200  # sustained vs cloth when in range
+health = 3280  # melee engine (#147), build rogue-subtlety
+dps = 190  # melee engine (#147), build rogue-subtlety
 opener_damage = 900
 opener_stun = 4.0
 opener_source = "data (Cheap Shot 4 s); Ambush damage estimate"
