@@ -160,3 +160,62 @@ def test_weaves_never_exceed_the_minute():
 def test_arcane_missiles_damage_comes_from_its_missile_spell():
     am = spell("Arcane Missiles")
     assert am.channeled and am.periodic_damage > 0
+
+
+# Frostbite freezes open Shatter windows on normal mobs (#96). A landed Chill (hit 0.86 vs 63)
+# freezes with Frostbite's chance for 5 s; the next floor(5 / cast) filler casts land frozen.
+def test_frostbite_freezes_give_shatter_crit_to_the_casts_inside_them():
+    fb = spell("Frostbolt")                                   # 3.0 s: one cast fits in 5 s
+    ranks = {tid("Frostbite"): 3, tid("Shatter"): 3}
+    r = rotation(char(ranks), fb, target_level=TARGET, assumptions=A, sustained=False)
+    p = 0.15 * 0.86
+    frozen_share = 1 - (1 - p) ** 1
+    expected = ((1 - frozen_share) * ev(fb, Modifiers())
+                + frozen_share * ev(fb, Modifiers(crit_chance_bonus=50))) / fb.cast_time
+    assert r.dps == pytest.approx(expected)
+
+
+def test_faster_casts_fit_more_shatter_casts_in_a_freeze():
+    fb = spell("Frostbolt")
+    ranks = {tid("Frostbite"): 3, tid("Shatter"): 3, tid("Improved Frostbolt"): 5}
+    r = rotation(char(ranks), fb, target_level=TARGET, assumptions=A, sustained=False)
+    cast = fb.cast_time - 0.5                                  # 2.5 s: two casts fit in 5 s
+    p = 0.15 * 0.86
+    frozen_share = 1 - (1 - p) ** 2
+    expected = ((1 - frozen_share) * ev(fb, Modifiers())
+                + frozen_share * ev(fb, Modifiers(crit_chance_bonus=50))) / cast
+    assert r.dps == pytest.approx(expected)
+
+
+def test_each_frostbite_freeze_gets_a_frozen_ice_lance():
+    fb, lance = spell("Frostbolt"), spell("Ice Lance")
+    ranks = {tid("Frostbite"): 3, tid("Ice Lance"): 1}
+    r = rotation(char(ranks), fb, target_level=TARGET, assumptions=A, sustained=False)
+    procs = 60 / fb.cast_time * 0.15 * 0.86
+    filler_dps = ev(fb, Modifiers()) / fb.cast_time            # no Shatter: freezes add no crit
+    frozen = replace(lance, min_damage=lance.min_damage * 4, max_damage=lance.max_damage * 4,
+                     coefficient=lance.coefficient * 4)
+    assert r.weaves["Ice Lance"] == pytest.approx(procs)
+    assert r.dps == pytest.approx(filler_dps + procs * (ev(frozen, Modifiers()) - filler_dps * 1.5) / 60)
+
+
+def test_bosses_cannot_be_frozen():
+    # sustained = raid/dungeon bosses, immune to freezes: Frostbite and Shatter add nothing
+    fb = spell("Frostbolt")
+    ranks = {tid("Frostbite"): 3, tid("Shatter"): 3, tid("Ice Lance"): 1}
+    r = rotation(char(ranks), fb, target_level=TARGET, assumptions=A, sustained=True)
+    assert r.dps == pytest.approx(ev(fb, Modifiers()) / fb.cast_time)
+    assert "Ice Lance" not in r.weaves
+
+
+def test_questing_picks_the_filler_with_the_best_kills_per_hour():
+    # the choice counts weaves, freezes and drinking, not only the filler's own damage per cast
+    from wowforever.scenarios import QuestingParams, _questing_with, questing
+    ranks = {tid("Frostbite"): 3, tid("Shatter"): 3, tid("Ice Lance"): 1}
+    c = char(ranks)
+    p = QuestingParams(mob_hp=3000, travel_seconds=15, drink_mana_per_second=100,
+                       fillers=("Frostbolt", "Fireball"))
+    scores = {name: _questing_with(c, spell(name), p, A).score for name in p.fillers}
+    r = questing(c, p, A)
+    assert r.details["spell"] == max(scores, key=scores.get)
+    assert r.score == pytest.approx(max(scores.values()))

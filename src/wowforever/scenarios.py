@@ -147,9 +147,27 @@ def _best_of(char: Character, names: Sequence[str], target_level: int,
     return best
 
 
+def _best_result(char: Character, names: Sequence[str], target_level: int,
+                 assumptions: Assumptions, run) -> ScenarioResult:
+    """The scenario result of the filler that scores best in it: `run(spell)` scores one filler,
+    so weaves, procs, freezes and mana all count toward the choice."""
+    results = [run(spell) for name in names
+               if (spell := best_rank(char.spells, name, char.level)) is not None
+               and _cast(char, spell, target_level, assumptions)[0] > 0]
+    if not results:
+        raise ValueError(f"no filler available at level {char.level}")
+    return max(results, key=lambda r: r.score)
+
+
 def questing(char: Character, p: QuestingParams, assumptions: Assumptions) -> ScenarioResult:
-    """Kills/hour while questing: kill time + drink downtime + travel, per kill."""
-    spell = _best_of(char, p.fillers, char.level, assumptions, "filler")
+    """Kills/hour while questing with the filler that kills fastest overall."""
+    return _best_result(char, p.fillers, char.level, assumptions,
+                        lambda spell: _questing_with(char, spell, p, assumptions))
+
+
+def _questing_with(char: Character, spell: SpellRank, p: QuestingParams,
+                   assumptions: Assumptions) -> ScenarioResult:
+    """Kills/hour with one filler: kill time + drink downtime + travel, per kill."""
     rot = _rotation(char, spell, char.level, assumptions, sustained=False)
     time_to_kill = p.mob_hp / rot.dps
     mana_per_kill = p.mob_hp / rot.dps * rot.mana_per_second
@@ -240,9 +258,17 @@ def raid(char: Character, p: RaidParams, assumptions: Assumptions) -> ScenarioRe
 
     Budget per fight: mana pool + one-off mana + consumables once per cooldown + Evocation when the
     build would otherwise run dry (it costs its channel time). Once dry, the mage keeps casting at
-    the rate combat regen pays for (fallback), or stops when fallback is off."""
+    the rate combat regen pays for (fallback), or stops when fallback is off. The filler is the one
+    with the best sustained score, so a cheaper spell can beat a hungrier one."""
     target = char.level + p.target_level_offset
-    spell = _best_of(char, p.fillers, target, assumptions, "filler")
+    return _best_result(char, p.fillers, target, assumptions,
+                        lambda spell: _raid_with(char, spell, p, assumptions))
+
+
+def _raid_with(char: Character, spell: SpellRank, p: RaidParams,
+               assumptions: Assumptions) -> ScenarioResult:
+    """Sustained raid score with one filler."""
+    target = char.level + p.target_level_offset
     rot = _rotation(char, spell, target, assumptions, sustained=True)
     dps = rot.dps
     income = combat_regen(char, p)
