@@ -18,8 +18,9 @@ def main(argv: list[str] | None = None) -> int:
                       help="report JSON written by `report`; repeat for several classes (default: "
                            "data/report.json plus data/report-<class>.json files)")
     dash.add_argument("--out", default="dashboard/index.html")
-    gs = sub.add_parser("gear-stats", help="rebuild config/stats/mage.csv from real Forever gear")
+    gs = sub.add_parser("gear-stats", help="rebuild config/stats/<class>.csv from real Forever gear")
     gs.add_argument("--tables", required=True, help="folder with ItemSparse/Item/RandPropPoints CSVs")
+    gs.add_argument("--class", dest="class_name", default="mage", choices=("mage", "rogue", "hunter"))
     upd = sub.add_parser("update", help="fetch both sources, diff against the last saved dataset, record the check")
     upd.add_argument("--data-dir", default="data")
     upd.add_argument("--delay", type=float, default=1.0, help="seconds between table downloads")
@@ -63,7 +64,17 @@ def main(argv: list[str] | None = None) -> int:
         from wowforever.normalize import read_tables
         from wowforever.stats import CONFIG_DIR
 
-        rows = gear_stat_table(load_items(read_tables(Path(args.tables))), levels=(10, 20, 30, 40, 50, 60))
+        tables = read_tables(Path(args.tables))
+        levels = (10, 20, 30, 40, 50, 60)
+        if args.class_name != "mage":
+            from wowforever.melee_stats import melee_stat_table, write_melee_csv
+            from wowforever.weapons import load_weapons
+
+            out = CONFIG_DIR / f"{args.class_name}.csv"
+            write_melee_csv(melee_stat_table(args.class_name, load_items(tables), load_weapons(tables), levels), out)
+            print(f"wrote {out}")
+            return 0
+        rows = gear_stat_table(load_items(tables), levels=levels)
         out = CONFIG_DIR / "mage.csv"
         with out.open("w", encoding="utf-8", newline="") as handle:
             writer = csv.DictWriter(handle, list(asdict(rows[0])), lineterminator="\n")
