@@ -1,0 +1,29 @@
+# A rogue's or hunter's own controls in the duel model (#134): what it does to its opponent.
+# Same fields as an opponent kit's [[controls]]; `requires` names a talent the build must take.
+# Confidence: LOW (Classic durations and energy estimates, Forever data where noted).
+
+# armor the class's own physical damage meets on a player opponent (estimate: leather/mail average)
+player_armor = 2500
+# opponent kit DPS assumes a cloth target; physical kits hit these classes by the armor ratio
+cloth_armor = 1000
+own_armor = { rogue = 2500, hunter = 3500 }
+
+[rogue]
+energy_per_minute = 600
+controls = [
+  { name = "Kidney Shot", kind = "stun", duration = 6.0, cooldown = 20, energy = 125 },
+  { name = "Gouge", kind = "stun", duration = 4.0, cooldown = 10, energy = 45 },
+  { name = "Kick", kind = "interrupt", duration = 5.0, cooldown = 10, energy = 25 },
+  { name = "Blind", kind = "disorient", duration = 10.0, cooldown = 300, energy = 30 },
+]
+
+[hunter]
+energy_per_minute = 0
+controls = [
+  { name = "Scatter Shot", kind = "disorient", duration = 4.0, cooldown = 30, requires = "Scatter Shot" },
+  { name = "Intimidation", kind = "stun", duration = 3.0, cooldown = 60, requires = "Intimidation" },
+  { name = "Freezing Trap", kind = "incapacitate", duration = 5.0, cooldown = 30 },
+]
+# slows as uptime x strength (0-1): Concussive Shot 50% for 4 s every 12 s; Wing Clip 60% kept up in melee
+slow_ranged = 0.167
+slow_melee = 0.6

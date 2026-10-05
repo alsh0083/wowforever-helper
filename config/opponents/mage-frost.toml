@@ -1,0 +1,58 @@
+# Mage Frost (Deep Frost Control): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md),
+# so rogues and hunters face mages (#134). From the mage community PvP build (config/builds/deep-frost.toml)
+# and the Forever mage spells (build 1.60.1.70205).
+# source per value: data = Forever client data; estimate = judgment.
+
+id = "mage-frost"
+class = "Mage"
+spec = "Frost (Deep Frost Control)"
+points = "0/0/51"
+role = "caster"  # melee | ranged | caster
+stealth = false
+dispels_buffs = false  # can strip Ice Barrier
+confidence = "low"
+sources = ["wft_popular"]
+
+[at_60]
+health = 2230  # data: config/stats/mage.csv at 60
+dps = 260  # estimate: the Deep Frost build's duel rotation is ~270 against cloth; spells ignore armor
+opener_damage = 0
+opener_stun = 0.0
+opener_source = "none"
+
+[[controls]]
+name = "Frost Nova"
+kind = "root"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
+duration = 8.0
+cooldown = 21
+source = "data: 8 s root, 25 s cooldown, Improved Frost Nova 2/2 -4 s"
+
+[[controls]]
+name = "Counterspell"
+kind = "interrupt"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
+duration = 10.0
+cooldown = 30
+source = "data: 10 s school lockout, 30 s cooldown"
+
+[[controls]]
+name = "Polymorph"
+kind = "incapacitate"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
+duration = 8.0
+cooldown = 30
+source = "data 50 s against mobs; estimate 8 s against players (breaks on damage, used once per reset)"
+
+[[controls]]
+name = "Frostbolt"
+kind = "slow"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
+duration = 9.0
+cooldown = 0
+source = "data: 40% slow for 9 s on every Frostbolt"
+
+[[removes]]
+name = "Blink"
+removes = "stun,root"
+cooldown = 15  # data
+
+[immunity]
+duration = 10.0
+cooldown = 150  # data: Ice Block 10 s, 5 min; Cold Snap resets it once
