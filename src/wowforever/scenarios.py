@@ -229,8 +229,8 @@ def default_params(scenario: str, level: int) -> QuestingParams | AoeParams | Ra
         mob_hp, _ = _anchor_at(raw["questing"]["anchors"], level)
         return AoeParams(mob_hp=mob_hp, pack_sizes=tuple(raw["aoe"]["pack_sizes"]),
                          aoe_spells=tuple(raw["aoe_spells"]), fillers=fillers)
-    if scenario == "raid":
-        section = raw["raid"]
+    if scenario in ("raid", "dungeon"):
+        section = raw[scenario]
         return RaidParams(fight_seconds=section["fight_seconds"],
                           mana_per_second=section["mana_per_second"],
                           fillers=fillers,
