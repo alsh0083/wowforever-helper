@@ -14,7 +14,7 @@ from wowforever.calc.talents import modifiers_for
 from wowforever.classes.mage import LAYOUT, TALENT_EFFECTS, UNMODELED
 from wowforever.effects import attach_effects
 from wowforever.normalize import normalize_class, read_tables
-from wowforever.schema import Dataset, Provenance, SpellRank
+from wowforever.schema import Dataset, Effect, Provenance, SpellRank
 from wowforever.sources.wowforevertalent import parse_page
 
 FIX = Path(__file__).parent / "fixtures"
@@ -121,3 +121,11 @@ def test_effects_survive_a_dataset_round_trip(tmp_path):
     ds.validate()
     ds.save(tmp_path / "ds.json")
     assert Dataset.load(tmp_path / "ds.json") == ds
+
+
+def test_reattaching_clears_effects_from_older_rules():
+    from dataclasses import replace as dc_replace
+    stale = dc_replace(CLS, talents=tuple(dc_replace(t, effects=(Effect("other", (1,) * t.max_rank),))
+                                           for t in CLS.talents))
+    again, _ = attach_effects(stale, TALENT_EFFECTS, UNMODELED)
+    assert all(e.kind != "other" for t in again.talents for e in t.effects)
