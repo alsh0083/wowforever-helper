@@ -128,5 +128,6 @@ def fetch_build(
     if to_fetch:
         build_raw.mkdir(parents=True, exist_ok=True)
         manifest["fetched_at"] = datetime.now(timezone.utc).isoformat()
-        manifest_path.write_text(json.dumps(manifest, indent=1, sort_keys=True), encoding="utf-8")
+        manifest_path.write_text(json.dumps(manifest, indent=1, sort_keys=True), encoding="utf-8",
+                                 newline="\n")
     return manifest_path

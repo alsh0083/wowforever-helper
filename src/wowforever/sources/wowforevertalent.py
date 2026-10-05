@@ -113,7 +113,7 @@ def snapshot(page_html: str, raw_dir: Path, *, url: str) -> Path:
         "sha256": hashlib.sha256(page_html.encode("utf-8")).hexdigest(),
     }
     (path.parent / "manifest.json").write_text(
-        json.dumps(manifest, indent=1, sort_keys=True), encoding="utf-8"
+        json.dumps(manifest, indent=1, sort_keys=True), encoding="utf-8", newline="\n"
     )
     return path
 
