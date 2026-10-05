@@ -89,3 +89,14 @@ def test_report_cli_from_a_saved_dataset(payload, tmp_path, capsys):
     assert main(["report", "--dataset", str(tmp_path / "ds.json"), "--out", str(tmp_path / "r.json")]) == 0
     report = json.loads((tmp_path / "r.json").read_text(encoding="utf-8"))
     assert report["dataset"]["game_build"] == "1.60.1.70205" and len(report["builds"]) == len(load_builds())
+
+
+def test_shortlist_in_payload(payload):
+    _, report = payload
+    slots = {(s["archetype"], s["focus"]): s for s in report["shortlist"]}
+    assert len(slots) == 10                                  # 3 deep + 2 hybrids, x PvP/PvE
+    ff = slots[("Fire/Frost", "PvE")]
+    assert ff["standard"] == "fire-frost-shatter" and "elementalist-pve" in ff["candidates"]
+    for s in report["shortlist"]:
+        if s["model_pick"]:
+            assert s["model_pick_changes"] and sum(s["model_pick"].values()) == 51
