@@ -145,6 +145,9 @@ def record_check(path: Path | str, build: str, *, changed: bool, dataset: str | 
     entry = {"build": build, "changed": changed, "dataset": dataset, "checked_at": checked_at}
     for index, existing in enumerate(entries):
         if existing["build"] == build:
+            if existing["checked_at"] == checked_at:   # another class in the same run
+                entry["changed"] = existing["changed"] or changed
+                entry["dataset"] = dataset or existing["dataset"]
             entries[index] = entry
             break
     else:

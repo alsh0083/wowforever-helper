@@ -1,5 +1,6 @@
-"""On-demand update check (#13): fetch both sources, normalize the mage class,
-diff it against the last saved dataset, and record the check.
+"""On-demand update check (#13): fetch both sources, normalize one class, diff it against the
+last saved dataset, and record the check. Each class is checked on its own and merged into the
+build's dataset (#103), so a dataset holds every registered class.
 """
 
 from __future__ import annotations
@@ -20,10 +21,10 @@ from wowforever import normalize_spells as normalize_spells_module
 from wowforever import revisions as revisions_module
 from wowforever.assumptions import Assumptions
 from wowforever.checklist import retest_names
-from wowforever.classes import mage
+from wowforever.classes import class_module
 from wowforever.crosscheck import CrosscheckResult
 from wowforever.revisions import Change
-from wowforever.schema import Dataset, Provenance
+from wowforever.schema import ClassData, Dataset, Provenance
 from wowforever.sources import wago, wowforevertalent
 from wowforever.sources.http import http_get as default_http_get
 
@@ -93,14 +94,25 @@ class UpdateSummary:
         return "\n".join(lines)
 
 
+def merge_class(dataset: Dataset, cls: ClassData, provenance: tuple[Provenance, ...]) -> Dataset:
+    """`dataset` with `cls` added, or replacing the class of the same name, and `provenance`
+    appended without duplicates."""
+    classes = [c for c in dataset.classes if c.class_name != cls.class_name]
+    index = next((i for i, c in enumerate(dataset.classes) if c.class_name == cls.class_name), len(classes))
+    classes.insert(index, cls)
+    merged = tuple(dict.fromkeys(dataset.provenance + tuple(provenance)))
+    return dataclasses.replace(dataset, classes=tuple(classes), provenance=merged)
+
+
 def check_for_updates(
     http_get: Callable[[str], str],
     *,
     data_dir: Path,
     delay: float = 1.0,
     now: str | None = None,
+    class_name: str = "mage",
 ) -> UpdateSummary:
-    """Fetch both sources, normalize the mage class, and diff it against the last dataset.
+    """Fetch both sources, normalize `class_name`, and diff it against the last dataset.
 
     Saves a new dataset and changelog entry when anything changed, then records the
     check in `data_dir/builds.json`. `now` (ISO 8601, defaults to current UTC) is used
@@ -117,16 +129,17 @@ def check_for_updates(
         manifest_dir=data_dir / "raw" / "wago",
         delay=delay,
     )
+    module = class_module(class_name)
     page_path = wowforevertalent.fetch(
-        "mage", http_get=http_get, raw_dir=data_dir / "raw" / "wowforevertalent"
+        class_name, http_get=http_get, raw_dir=data_dir / "raw" / "wowforevertalent"
     )
     page = wowforevertalent.parse_page(page_path.read_text(encoding="utf-8"))
 
     tables = normalize_module.read_tables(data_dir / "cache" / "wago" / build)
-    cls, report = normalize_module.normalize_class(tables, mage.LAYOUT, page, wago_build=build)
-    cls, effect_problems = effects_module.attach_effects(cls, mage.TALENT_EFFECTS, mage.UNMODELED)
+    cls, report = normalize_module.normalize_class(tables, module.LAYOUT, page, wago_build=build)
+    cls, effect_problems = effects_module.attach_effects(cls, module.TALENT_EFFECTS, module.UNMODELED)
     cls = dataclasses.replace(
-        cls, spells=normalize_spells_module.class_spells(tables, skill_lines=mage.SKILL_LINES)
+        cls, spells=normalize_spells_module.class_spells(tables, skill_lines=module.SKILL_LINES)
     )
 
     wft_manifest = json.loads((page_path.parent / "manifest.json").read_text(encoding="utf-8"))
@@ -160,10 +173,13 @@ def check_for_updates(
     # re-checking a build already saved compares against that dataset (a source may have
     # changed under the same game build); otherwise against the newest older build
     baseline_path = current_path if current_path.exists() else older_path
-    if baseline_path is None:
+    baseline_ds = Dataset.load(baseline_path) if baseline_path is not None else None
+    if baseline_ds is None:
         changes: list[Change] = []
+    elif class_name not in {c.class_name for c in baseline_ds.classes}:
+        changes = [Change(scope=class_name, talent="(class)", kind="added", text="class added")]
     else:
-        baseline = Dataset.load(baseline_path).class_data(mage.LAYOUT.class_name)
+        baseline = baseline_ds.class_data(class_name)
         changes = (
             revisions_module.diff_class(baseline, cls)
             + revisions_module.diff_spells(baseline.spells, cls.spells)
@@ -173,10 +189,15 @@ def check_for_updates(
     dataset_rel: str | None = f"datasets/{build}.json" if current_path.exists() else None
     if changed:
         dataset_rel = f"datasets/{build}.json"
+        if baseline_ds is not None:
+            # keep the other classes: those saved for this build, or carried over unchanged
+            base = dataclasses.replace(baseline_ds, version=build, game_build=build)
+            dataset = merge_class(base, cls, dataset.provenance)
+            dataset.validate()
         dataset.save(current_path)
         revisions_module.append_changelog(data_dir / "CHANGELOG.md", build, changes, date=now[:10])
 
-    affected = revisions_module.affected_builds(changes, builds_module.load_builds())
+    affected = revisions_module.affected_builds(changes, builds_module.load_builds(class_name=class_name))
     result = crosscheck_module.crosscheck(cls, page, report, wago_build=build)
 
     # community popularity data rides along in the wowforevertalent.com snapshot
