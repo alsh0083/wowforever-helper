@@ -37,6 +37,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
                    r"critical strike damage bonus of your Arcane spells by (\d+(?:\.\d+)?)%",
                    ("arcane",)),
     ),
+    "Improved Counterspell": (
+        EffectRule("control", r"Silences the target for (\d+(?:\.\d+)?) sec", ("Counterspell",)),
+    ),
     # Fire
     "Critical Mass": (
         EffectRule("crit_chance", r"critical strike chance of your Fire spells by (\d+(?:\.\d+)?)%",
@@ -80,6 +83,14 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("cast_time", r"casting time of your Frostbolt spell by (\d+(?:\.\d+)?) sec",
                    ("Frostbolt",), sign=-1),
     ),
+    "Improved Frost Nova": (
+        EffectRule("cooldown", r"cooldown of your Frost Nova spell by (\d+(?:\.\d+)?) sec",
+                   ("Frost Nova",), sign=-1),
+    ),
+    "Permafrost": (
+        EffectRule("duration", r"duration of your Chill effects by (\d+(?:\.\d+)?)%", ("@chill",)),
+        EffectRule("slow_pct", r"speed by an additional (\d+(?:\.\d+)?)%", ("@chill",)),
+    ),
     "Improved Cone of Cold": (
         EffectRule("damage_pct", r"damage dealt by your Cone of Cold spell by (\d+(?:\.\d+)?)%",
                    ("Cone of Cold",)),
@@ -91,6 +102,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Frost Channeling": (
         EffectRule("mana_cost_pct", r"mana cost of your Frost spells by (\d+(?:\.\d+)?)%",
                    ("frost",), sign=-1),
+    ),
+    "Frostbite": (
+        EffectRule("proc_chance", r"a (\d+(?:\.\d+)?)% chance to Freeze", ("@chill",)),
     ),
     "Shatter": (
         EffectRule("crit_chance", r"against Frozen targets by (\d+(?:\.\d+)?)%", ("all", "@frozen")),
@@ -107,7 +121,6 @@ UNMODELED: dict[str, str] = {
     "Arcane Shielding": "defensive: mana shield / armor",
     "Arcane Subtlety": "resistance reduction + threat, v1",
     "Improved Channeling": "proc/stack mechanic, v1",
-    "Improved Counterspell": "utility: silence duration",
     "Magic Absorption": "defensive: resistances / mana restore",
     "Missile Barrage": "proc/stack mechanic, v1",
     "Presence of Mind": "conditional instant cast, v1",
@@ -119,17 +132,14 @@ UNMODELED: dict[str, str] = {
     "Fingers of Frost": "proc/stack mechanic, v1",
     "Flame Throwing": "utility: range",
     "Frost Warding": "defensive: ward / armor",
-    "Frostbite": "control: freeze chance",
     "Heating Up": "proc/stack mechanic, v1",
     "Ice Barrier": "defensive: absorb shield",
     "Ice Block": "defensive: immunity",
     "Ice Lance": "grants_spell",
     "Improved Blizzard": "slow effect, v1",
     "Improved Fire Ward": "defensive: reflect",
-    "Improved Frost Nova": "cooldown reduction",
     "Improved Scorch": "proc/stack mechanic, v1",
     "Master of Elements": "resource: mana refund on crit",
-    "Permafrost": "slow/duration, v1",
     "Pyroblast": "grants_spell",
     "Wake of Fire": "cooldown + conditional crit proc, v1",
     "Winter's Chill": "proc/stack mechanic, v1",

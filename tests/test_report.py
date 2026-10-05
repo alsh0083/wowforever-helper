@@ -62,6 +62,8 @@ def test_scores_at_each_checkpoint(payload):
         assert set(b["scores"]["questing"]) == set(CHECKPOINTS)
         assert all(v["score"] > 0 for v in b["scores"]["questing"].values())
         assert set(b["scores"]["raid"]) == {60}
+        assert set(b["scores"]["survival"]) == set(CHECKPOINTS) == set(b["scores"]["control"])
+        assert all(0 <= v["score"] <= 1 for v in b["scores"]["survival"].values())
 
 
 def test_talents_and_milestones_for_the_dashboard(payload):
@@ -83,4 +85,4 @@ def test_report_cli_from_a_saved_dataset(payload, tmp_path, capsys):
     Dataset("1.60.1.70205", "1.60.1.70205", (cls,), (prov,)).save(tmp_path / "ds.json")
     assert main(["report", "--dataset", str(tmp_path / "ds.json"), "--out", str(tmp_path / "r.json")]) == 0
     report = json.loads((tmp_path / "r.json").read_text(encoding="utf-8"))
-    assert report["dataset"]["game_build"] == "1.60.1.70205" and len(report["builds"]) == 5
+    assert report["dataset"]["game_build"] == "1.60.1.70205" and len(report["builds"]) == len(load_builds())

@@ -118,3 +118,17 @@ def test_cli_entry_point(data, capsys, monkeypatch):
     monkeypatch.setattr(update, "default_http_get", FakeHttp())
     assert main(["update", "--data-dir", str(data), "--delay", "0"]) == 0
     assert "1.60.1.70205" in capsys.readouterr().out
+
+
+def test_popularity_saved_and_changes_reported(data):
+    s = run(data)
+    saved = json.loads((data / "popularity" / "mage.json").read_text(encoding="utf-8"))
+    assert saved["counts"]["builds"] == 40615 and len(saved["top"]) == 5
+    assert s.popular_top and not s.popular_changed
+    assert "Popular community builds (unchanged)" in s.text()
+    # the site reorders its top builds: the next check reports it
+    swapped = HTML.replace("beta-20261003-adadac42", "beta-20261006-pop00001")
+    saved["top"] = list(reversed(saved["top"]))
+    (data / "popularity" / "mage.json").write_text(json.dumps(saved), encoding="utf-8")
+    s2 = run(data, FakeHttp(html=swapped))
+    assert s2.popular_changed and "changed since last check" in s2.text()

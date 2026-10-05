@@ -78,3 +78,15 @@ def test_fetch_uses_injected_http_get(tmp_path):
     path = fetch("mage", http_get=http_get, raw_dir=tmp_path)
     assert calls == ["https://wowforevertalent.com/mage/"]
     assert path.exists()
+
+
+def test_popular_builds_with_talent_names():
+    from wowforever.sources.wowforevertalent import popular_builds
+    page = parse_page(HTML)
+    assert page.popular["counts"]["builds"] == 40615
+    top = popular_builds(page)
+    assert len(top) == 5
+    first = top[0]
+    assert first["points"] == [0, 29, 22] and first["saved"] == 172
+    assert first["final"]["Heating Up"] == 1 and first["final"]["Fingers of Frost"] == 2
+    assert sum(first["final"].values()) == 51

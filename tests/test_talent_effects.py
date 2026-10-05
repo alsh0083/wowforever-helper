@@ -14,7 +14,7 @@ from wowforever.calc.talents import modifiers_for
 from wowforever.classes.mage import LAYOUT, TALENT_EFFECTS, UNMODELED
 from wowforever.effects import attach_effects
 from wowforever.normalize import normalize_class, read_tables
-from wowforever.schema import Dataset, Provenance, SpellRank
+from wowforever.schema import Dataset, Effect, Provenance, SpellRank
 from wowforever.sources.wowforevertalent import parse_page
 
 FIX = Path(__file__).parent / "fixtures"
@@ -96,13 +96,14 @@ def test_untaken_talents_with_rank_zero_add_nothing():
 
 
 def test_incineration_applies_to_ice_lance_by_name():
-    m = modifiers_for(ICE_LANCE, CLS, ranks("deep-frost"))
+    # the Elementalist has Incineration 3/3 and Ice Shards 5/5
+    m = modifiers_for(ICE_LANCE, CLS, ranks("elementalist-v4"))
     assert m.crit_chance_bonus == 6 and m.crit_damage_bonus_pct == 100
 
 
 def test_damage_pct_stacks_additively():
-    # Arcane PoM-Pyro has Arcane Instability 3/3 only: +3% damage and +3 crit on everything
-    m = modifiers_for(FIREBALL, CLS, ranks("arcane-pom-pyro"))
+    # Deep Arcane has Arcane Instability 3/3 and no Fire damage talents: +3% damage, +3 crit
+    m = modifiers_for(FIREBALL, CLS, ranks("deep-arcane"))
     assert (m.damage_pct, m.crit_chance_bonus) == (3, 3)
 
 
@@ -120,3 +121,11 @@ def test_effects_survive_a_dataset_round_trip(tmp_path):
     ds.validate()
     ds.save(tmp_path / "ds.json")
     assert Dataset.load(tmp_path / "ds.json") == ds
+
+
+def test_reattaching_clears_effects_from_older_rules():
+    from dataclasses import replace as dc_replace
+    stale = dc_replace(CLS, talents=tuple(dc_replace(t, effects=(Effect("other", (1,) * t.max_rank),))
+                                           for t in CLS.talents))
+    again, _ = attach_effects(stale, TALENT_EFFECTS, UNMODELED)
+    assert all(e.kind != "other" for t in again.talents for e in t.effects)

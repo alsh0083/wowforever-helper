@@ -1,33 +1,35 @@
-# Reference archetype: Classic-style Presence of Mind + Pyroblast, adapted to Forever's trees.
-# Included so the comparison shows what the Fire/Frost builds give up.
+# Community standard build from wowforevertalent.com's popularity data: #5 of the most
+# popular complete mage builds since the Oct 1 patch (build 70170), as of 2026-10-04.
+# shared 5, saved 3, opened 1165, 4 close variants. Focus label is Claude's judgment.
+
 id = "arcane-pom-pyro"
-primary_spell = "Fireball"  # the spell its leveling order is optimized around
-name = "Arcane PoM-Pyro (PvP reference)"
+name = "Arcane/Fire PoM-Pyro (PvP)"
 pair = "arcane-pom-pyro"
 variant = "PvP"
-summary = "Arcane Power + Presence of Mind into an instant Pyroblast, with Arcane Concentration and Arcane Meditation for mana; Ignite and Burning Soul from Fire."
-gives_up = ["Ice Block", "Cold Snap", "Ice Barrier", "Impact", "Heating Up"]
+primary_spell = "Fireball"
+origin = "community"
+summary = "Presence of Mind into Pyroblast with Impact, Blast Wave and Improved Counterspell; the classic burst-PvP hybrid."
+sources = ["wft_popular"]
+confidence = "medium"
 
 [final]
-"Arcane Focus" = 3
-"Wand Specialization" = 2
-"Arcane Concentration" = 5
+"Arcane Focus" = 5
 "Arcane Subtlety" = 2
-"Magic Absorption" = 2
-"Arcane Impact" = 3
-"Arcane Geometry" = 2
+"Arcane Concentration" = 5
+"Arcane Resilience" = 2
+"Arcane Blast" = 1
 "Improved Counterspell" = 2
 "Arcane Meditation" = 3
 "Presence of Mind" = 1
-"Arcane Mind" = 5
-"Arcane Instability" = 3
-"Arcane Power" = 1
-"Incineration" = 3
 "Improved Fireball" = 5
 "Ignite" = 5
-"Pyroblast" = 1
+"Flame Throwing" = 2
+"Impact" = 3
 "Burning Soul" = 3
-
-[must_have_by]
-"Presence of Mind" = 32
-"Pyroblast" = 50
+"Pyroblast" = 1
+"Improved Scorch" = 3
+"Heating Up" = 1
+"Critical Mass" = 3
+"Blast Wave" = 1
+"Fire Power" = 1
+"Elemental Precision" = 2
