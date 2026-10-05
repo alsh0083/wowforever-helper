@@ -100,12 +100,16 @@ def sensitivity(order: Sequence[int], cls: ClassData, spells, stats: StatTable,
     return notes
 
 
-def spell_milestones(spells: Sequence[SpellRank], max_level: int) -> list[dict[str, Any]]:
-    """Trainable ranks of damage and key utility spells, by level."""
+def spell_milestones(spells: Sequence[SpellRank], max_level: int,
+                     talent_spell_ids: frozenset[int] = frozenset()) -> list[dict[str, Any]]:
+    """Trainer-taught ranks of damage and key utility spells, by level. A talent grants its own
+    spell (rank 1 of Ice Lance, Pyroblast, ...; all of Ice Block, Cold Snap, ...), so those exact
+    spell ids are skipped; higher ranks of talent spells are trained and stay."""
     return [
         {"level": s.level, "spell": s.name, "rank": s.rank}
         for s in sorted(spells, key=lambda s: (s.level, s.name, s.rank))
-        if s.level <= max_level and (s.min_damage or s.periodic_damage or s.name in KEY_UTILITY)
+        if s.level <= max_level and s.spell_id not in talent_spell_ids
+        and (s.min_damage or s.periodic_damage or s.name in KEY_UTILITY)
     ]
 
 
@@ -144,7 +148,8 @@ def build_report(cls: ClassData, spells: tuple[SpellRank, ...], builds: Sequence
             for t in cls.talents
         },
         "builds": payload_builds,
-        "spell_milestones": spell_milestones(spells, cls.rules.max_level),
+        "spell_milestones": spell_milestones(spells, cls.rules.max_level,
+                                             frozenset(t.spell_id for t in cls.talents)),
         "assumptions": {n: {"value": a.value, "why": a.why, "tested": a.tested}
                         for n, a in assumptions.entries.items()},
         "caveats": [
