@@ -37,3 +37,21 @@ def test_pairs_and_save_versioning_are_present():
 def test_no_all_caps_eyebrows_in_new_sections():
     matrix = HTML[HTML.index('id="spec-matrix"'):HTML.index('id="spec-matrix"') + 4000]
     assert "text-transform:uppercase" not in matrix.replace(" ", "")
+
+
+def test_best_pair_takes_the_top_build_of_each_column():
+    from wowforever.dashboard import best_pair
+    scores = {}
+    for s in PAYLOAD["shortlist"]:
+        cands = s["candidates"] if isinstance(s["candidates"], dict) else {}
+        for bid, score in cands.items():
+            scores[(s["focus"], bid)] = score
+    pvp, pve = best_pair(PAYLOAD)
+    assert pvp == max((sc, b) for (f, b), sc in scores.items() if f == "PvP")[::-1]
+    assert pve == max((sc, b) for (f, b), sc in scores.items() if f == "PvE")[::-1]
+    assert "Highest-scoring pair" in HTML
+
+
+def test_pair_divergence_is_described():
+    assert "Orders match until level" in HTML     # pair mates show where their orders split
+    assert "within one cell only" not in HTML      # scores compare across a whole column
