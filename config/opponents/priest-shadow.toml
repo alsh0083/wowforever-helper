@@ -22,21 +22,21 @@ opener_source = "none"
 
 [[controls]]
 name = "Psychic Scream"
-kind = "fear"  # stun | incapacitate | fear | root | slow | interrupt | silence
+kind = "fear"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 8.0
 cooldown = 30
 source = "classic (data reader misses fear)"
 
 [[controls]]
 name = "Silence"
-kind = "silence"  # stun | incapacitate | fear | root | slow | interrupt | silence
+kind = "silence"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 5.0
 cooldown = 45
 source = "classic (talent spell)"
 
 [[controls]]
 name = "Mind Flay"
-kind = "slow"  # stun | incapacitate | fear | root | slow | interrupt | silence
+kind = "slow"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 3.0
 cooldown = 0
 source = "data"

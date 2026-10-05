@@ -22,35 +22,35 @@ opener_source = "classic (Charge stun; not in data reader)"
 
 [[controls]]
 name = "Charge"
-kind = "stun"  # stun | incapacitate | fear | root | slow | interrupt | silence
+kind = "stun"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 1.0
 cooldown = 15
 source = "classic"
 
 [[controls]]
 name = "Intercept"
-kind = "stun"  # stun | incapacitate | fear | root | slow | interrupt | silence
+kind = "stun"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 3.0
 cooldown = 30
 source = "classic"
 
 [[controls]]
 name = "Hamstring"
-kind = "slow"  # stun | incapacitate | fear | root | slow | interrupt | silence
+kind = "slow"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 15.0
 cooldown = 0
 source = "data"
 
 [[controls]]
 name = "Pummel"
-kind = "interrupt"  # stun | incapacitate | fear | root | slow | interrupt | silence
+kind = "interrupt"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 4.0
 cooldown = 10
 source = "data"
 
 [[controls]]
 name = "Intimidating Shout"
-kind = "fear"  # stun | incapacitate | fear | root | slow | interrupt | silence
+kind = "fear"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 8.0
 cooldown = 180
 source = "classic"
