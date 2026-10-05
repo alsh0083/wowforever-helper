@@ -28,6 +28,8 @@ AURA_DOT = 3                 # periodic damage over time
 AURA_PERIODIC_TRIGGER = 23   # periodic trigger: fires EffectTriggerSpell every EffectAuraPeriod
 AURA_SLOW = 33               # movement speed mod (negative base points = slow)
 AURA_AREA_PERIODIC = 226     # marker for an area-triggered periodic
+AURA_CONFUSE = 5             # disorient (Scatter Shot, Blind; Polymorph also has it)
+AURA_FEAR = 7                # fear (Fear, Psychic Scream, Intimidating Shout, Death Coil)
 AURA_STUN = 12               # stun (Impact's proc; Ice Block also self-stuns, see AURA_IMMUNITY)
 AURA_ROOT = 26               # root (Frost Nova, Frostbite's freeze)
 AURA_IMMUNITY = 39           # school immunity (Ice Block)
@@ -203,6 +205,8 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
     stun = duration if AURA_STUN in auras and not immunity else 0.0
     root = duration if AURA_ROOT in auras else 0.0
     incapacitate = duration if AURA_TRANSFORM in auras else 0.0
+    fear = duration if AURA_FEAR in auras and not incapacitate else 0.0
+    disorient = duration if AURA_CONFUSE in auras and not incapacitate else 0.0
     interrupt_lockout = duration if any(e["Effect"] == str(EFFECT_INTERRUPT) for e in effects) else 0.0
 
     periodic_damage = periodic_coefficient = tick_period = 0.0
@@ -244,7 +248,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
         damage_per_level=damage_per_level, scaling_max_level=scaling_max_level,
         slow_pct=slow_pct, max_targets=max_targets, channeled=channeled,
         absorb=absorb, root=root, stun=stun, immunity=immunity, incapacitate=incapacitate,
-        interrupt_lockout=interrupt_lockout,
+        interrupt_lockout=interrupt_lockout, fear=fear, disorient=disorient,
     )
 
 
