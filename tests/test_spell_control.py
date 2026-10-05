@@ -36,3 +36,8 @@ def test_root_immunity_incapacitate_interrupt():
 def test_damage_spells_carry_no_control_fields_by_accident():
     fb = first("Fireball")
     assert (fb.root, fb.stun, fb.immunity, fb.incapacitate, fb.interrupt_lockout) == (0, 0, 0, 0, 0)
+
+
+def test_polymorph_counts_as_incapacitate_not_fear_or_disorient():
+    poly = ranks_of(SPELLS, "Polymorph")[3]
+    assert poly.incapacitate > 0 and poly.fear == 0 and poly.disorient == 0
