@@ -1,0 +1,51 @@
+# Melee and ranged stat rules per class (#129). Confidence: LOW. Classic rules, not yet checked
+# against Forever; item stats come from the client, base stats from config/stats/<class>_base.csv.
+# Replaced by the owner's characters at launch (#33).
+
+[rogue]
+# armor subclasses (Item.SubclassID, ClassID 4) wearable from a level: 1 cloth, 2 leather, 3 mail
+armor = [[1, [1, 2]]]
+# weapon subclasses (Item.SubclassID, ClassID 2): 4 mace, 7 sword, 13 fist, 15 dagger
+one_hand = [4, 7, 13, 15]
+# 2 bow, 3 gun, 16 thrown, 18 crossbow
+ranged = [2, 3, 16, 18]
+# attack power = ap_level * level + strength + agility - ap_const + gear attack power
+ap_level = 2
+ap_const = 20
+# ranged attack power = rap_level * level + rap_agi * agility - rap_const + gear (ranged) attack power
+rap_level = 1
+rap_agi = 1
+rap_const = 10
+# Agility per 1% crit at 60 (scales by level / 60 below 60)
+agi_per_crit_at_60 = 29.0
+uses_mana = false
+# value per point when choosing gear; weapon_dps values one point of weapon DPS
+[rogue.weights]
+agility = 1.0
+strength = 0.5
+attack_power = 0.5
+crit_rating = 1.0
+hit_rating = 1.2
+stamina = 0.3
+weapon_dps = 3.0
+
+[hunter]
+armor = [[1, [1, 2]], [40, [1, 2, 3]]]
+# 0 axe, 7 sword, 13 fist, 15 dagger (dual wield for Lone Wolf Survival)
+one_hand = [0, 7, 13, 15]
+ranged = [2, 3, 18]
+ap_level = 2
+ap_const = 20
+rap_level = 2
+rap_agi = 2
+rap_const = 10
+agi_per_crit_at_60 = 53.0
+uses_mana = true
+[hunter.weights]
+agility = 1.0
+attack_power = 0.5
+crit_rating = 1.0
+hit_rating = 1.2
+stamina = 0.3
+intellect = 0.3
+weapon_dps = 3.0
