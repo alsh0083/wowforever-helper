@@ -7,7 +7,8 @@
 # confidence: low | medium | high.
 
 [sources]
-wt_forever_mage = { url = "https://www.warcrafttavern.com/forever/guides/mage/", kind = "guide", era = "forever", date = "2026-09", note = "Nevermore; builds to level 30 (beta cap); Frost/Arcane/Fire leveling and dungeons" }
+wft_popular = { url = "https://wowforevertalent.com/mage/", kind = "popularity", era = "forever", date = "2026-10-04", note = "Calculator popularity data since the Oct 1 patch (build 70170): 40,615 mage builds; tree split 22/43/35 Arcane/Fire/Frost; top complete builds with shares/saves. Popularity of beta theorycraft, not proof of viability." }
+wt_forever_mage ={ url = "https://www.warcrafttavern.com/forever/guides/mage/", kind = "guide", era = "forever", date = "2026-09", note = "Nevermore; builds to level 30 (beta cap); Frost/Arcane/Fire leveling and dungeons" }
 method_forever_leveling = { url = "https://www.method.gg/wow-forever/wow-forever-mage-leveling-guide-and-talents", kind = "guide", era = "forever", date = "2026-09-29", note = "Celz; Frost for leveling: survivability, kiting; Elemental Precision for hit" }
 bnet_forever_mage_pvp = { url = "https://us.forums.blizzard.com/en/wow/t/im-worried-about-mage-pvp/2355422", kind = "forum", era = "forever", date = "2026-09", note = "Players: Frost for PvP; Ice Barrier needed vs rogue openers and burst; one poster claims beta duels" }
 bnet_forever_talent_tree = { url = "https://eu.forums.blizzard.com/en/wow/t/mage-talent-tree-issue/628860", kind = "forum", era = "forever", date = "2026-09", note = "Players: little cross-tree synergy; Frost/Arcane Missile Barrage + Fingers of Frost hybrid suggested for PvP; no beta data" }
