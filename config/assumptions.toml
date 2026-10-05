@@ -8,6 +8,7 @@ options = [true, false]
 why = "Client spell data flags Frostfire Bolt's periodic part as able to crit."
 source = "docs/research/notes/mechanics.md (Wowhead client record for spell 401502)"
 tested = ""
+talents = ["Frostfire Bolt"]
 
 [frostfire_ticks_trigger_impact]
 value = false
@@ -15,6 +16,7 @@ options = [true, false]
 why = "Unknown whether each Frostfire Bolt tick, or only the direct hit, can roll Impact's stun."
 source = "docs/research/mage-pvp-leveling-report.md: open question"
 tested = ""
+talents = ["Frostfire Bolt", "Impact"]
 
 [burning_soul_protects_frostfire]
 value = true
@@ -22,6 +24,7 @@ options = [true, false]
 why = "Burning Soul names Fire spells; Frostfire Bolt counts as both schools, so it probably applies."
 source = "docs/research/mage-pvp-leveling-report.md: open question"
 tested = ""
+talents = ["Frostfire Bolt", "Burning Soul"]
 
 [frostfire_interrupt_lockout]
 value = "both"
@@ -29,6 +32,7 @@ options = ["both", "fire", "frost"]
 why = "Which school(s) an interrupt locks when it lands on a Frostfire Bolt cast."
 source = "docs/research/mage-pvp-leveling-report.md: open question"
 tested = ""
+talents = ["Frostfire Bolt"]
 
 [fingers_of_frost_applies_to_frostfire]
 value = false
@@ -36,6 +40,7 @@ options = [true, false]
 why = "Unknown whether Fingers of Frost charges count Frostfire Bolt as a Frost spell."
 source = "docs/research/mage-pvp-leveling-report.md: open question"
 tested = ""
+talents = ["Frostfire Bolt", "Fingers of Frost"]
 
 [aoe_target_cap]
 value = "none"
@@ -43,6 +48,7 @@ options = ["none", "soft_4"]
 why = "Client data has no MaxTargets on mage AoE; players report damage falling off past 4 targets."
 source = "docs/research/forever-facts.md; issue #19"
 tested = ""
+talents = ["Blizzard", "Flamestrike", "Arcane Explosion", "Cone of Cold", "Blast Wave"]
 
 [sub20_spell_penalty]
 value = true
@@ -50,3 +56,4 @@ options = [true, false]
 why = "Classic cuts the spell power coefficient of spells learned below level 20 by 3.75% per level under 20; Forever client coefficients don't carry it (it's server-side)."
 source = "warcraft.wiki.gg/wiki/downranking; issue #91"
 tested = ""
+talents = ["Frostbolt", "Fireball"]

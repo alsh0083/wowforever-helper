@@ -18,6 +18,8 @@ from wowforever import effects as effects_module
 from wowforever import normalize as normalize_module
 from wowforever import normalize_spells as normalize_spells_module
 from wowforever import revisions as revisions_module
+from wowforever.assumptions import Assumptions
+from wowforever.checklist import retest_names
 from wowforever.classes import mage
 from wowforever.crosscheck import CrosscheckResult
 from wowforever.revisions import Change
@@ -63,6 +65,7 @@ class UpdateSummary:
     effect_problems: list[str] = field(default_factory=list)
     popular_changed: bool = False                               # top community builds differ from last check
     popular_top: list[str] = field(default_factory=list)       # "points 0/29/22 (172 saves)" per top build
+    retest: list[str] = field(default_factory=list)             # assumptions a patch change flags for retest
 
     def text(self) -> str:
         """Short chat-ready summary of the check."""
@@ -85,6 +88,8 @@ class UpdateSummary:
         if self.popular_top:
             state = "changed since last check" if self.popular_changed else "unchanged"
             lines.append(f"Popular community builds ({state}): " + "; ".join(self.popular_top))
+        if self.retest:
+            lines.append("Retest in game: " + ", ".join(self.retest))
         return "\n".join(lines)
 
 
@@ -200,4 +205,5 @@ def check_for_updates(
         effect_problems=effect_problems,
         popular_changed=popular_changed,
         popular_top=popular_top,
+        retest=retest_names(Assumptions.load(), changes),
     )
