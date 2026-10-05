@@ -103,6 +103,35 @@ def _slot_cell(slot: Mapping, by_id: Mapping[str, Mapping]) -> str:
     return f'<div class="slot" data-slot="{e(key)}">{"".join(parts)}</div>'
 
 
+def best_pair(payload: Mapping) -> tuple[tuple[str, float] | None, tuple[str, float] | None]:
+    """Highest-scoring real build in each focus column, as (build id, score).
+
+    Every slot in a column uses the same focus score, so builds compare across archetypes."""
+    best: dict[str, tuple[str, float]] = {}
+    for slot in payload.get("shortlist", []):
+        cands = slot.get("candidates") if isinstance(slot.get("candidates"), Mapping) else {}
+        for bid, score in cands.items():
+            if bid in {b["id"] for b in payload["builds"]} and (
+                    slot["focus"] not in best or score > best[slot["focus"]][1]):
+                best[slot["focus"]] = (bid, score)
+    return best.get("PvP"), best.get("PvE")
+
+
+def _pair_line(payload: Mapping) -> str:
+    """One line suggesting the dual-spec pair (from level 40) with the best score in each column."""
+    pvp, pve = best_pair(payload)
+    if not (pvp and pve):
+        return ""
+    names = {b["id"]: b["name"] for b in payload["builds"]}
+    e = html.escape
+    return (f'<p class="pair-line">Highest-scoring pair for dual spec from level 40: '
+            f'<button class="build-btn" data-build="{e(pvp[0])}">{e(names[pvp[0]])}</button> '
+            f'<span class="score-num">{pvp[1]:.2f}</span> with '
+            f'<button class="build-btn" data-build="{e(pve[0])}">{e(names[pve[0]])}</button> '
+            f'<span class="score-num">{pve[1]:.2f}</span>'
+            f'<span class="caption">Scores only; community standing and playstyle still decide.</span></p>')
+
+
 def spec_matrix(payload: Mapping) -> str:
     """The archetype x PvP/PvE matrix (#28): one row per archetype, cells in shortlist order.
 
@@ -121,6 +150,7 @@ def spec_matrix(payload: Mapping) -> str:
         out.append(f'<div class="mx-row" role="row"><div class="arch" data-archetype="{e(archetype)}" '
                    f'style="{_school_style(archetype)}">{e(archetype[:1].upper() + archetype[1:])}</div>{cells}</div>')
     out.append("</div>")
+    out.append(_pair_line(payload))
     rest = [b for b in payload["builds"] if b["id"] not in placed]
     if rest:
         out.append('<div class="unplaced"><span class="caption">Not in a slot yet</span>'
