@@ -20,12 +20,14 @@ dps = 200  # sustained vs cloth when in range
 opener_damage = 900
 opener_stun = 4.0
 opener_source = "data (Cheap Shot 4 s); Ambush damage estimate"
+energy_per_minute = 600  # Classic energy regen 20 per 2 s
 
 [[controls]]
 name = "Cheap Shot"
 kind = "stun"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 4.0
 cooldown = 0
+energy = 60  # data
 source = "data"
 
 [[controls]]
@@ -33,6 +35,7 @@ name = "Kidney Shot"
 kind = "stun"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 6.0
 cooldown = 20
+energy = 125  # data 25 + estimate 100 for the combo points
 source = "data: 1 s + 1 s per combo point, 5 combo points"
 
 [[controls]]
@@ -40,6 +43,7 @@ name = "Gouge"
 kind = "stun"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 5.5
 cooldown = 10
+energy = 45  # data
 source = "data: 4 s + Improved Gouge 3/3 1.5 s"
 
 [[controls]]
@@ -47,6 +51,7 @@ name = "Kick"
 kind = "interrupt"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 5.0
 cooldown = 10
+energy = 25  # data
 source = "data"
 
 [[controls]]
@@ -54,6 +59,7 @@ name = "Blind"
 kind = "disorient"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 10.0
 cooldown = 200
+energy = 30  # data
 source = "data: 10 s disorient with a 60% slow, 5 min; Preparation resets it (classic 10 min cooldown) -> 3 per 10 min"
 
 [[gap_closers]]
