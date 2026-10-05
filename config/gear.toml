@@ -1,0 +1,24 @@
+# Gear-based placeholder stats (#68). Confidence: LOW for weights and base stats; item stats are
+# real Forever client data (build 1.60.1.70205). Replaced by the owner's character at launch (#33).
+
+# value of one point of each stat when choosing the best item per slot (caster damage focus)
+[weights]
+spell_power = 1.0
+crit_rating = 0.8
+hit_rating = 0.9
+intellect = 0.4
+spirit = 0.1
+stamina = 0.15
+mp5 = 0.5
+
+# Forever expresses Classic's "+1% spell crit" as 14 crit rating at level 60 (Robe of the Archmage).
+# Hit rating is assumed to convert the same way (no Forever item found yet to confirm).
+# Below 60 ratings scale by (level - 8) / 52 (TBC-style rule; an inference).
+rating_per_pct_at_60 = 14.0
+
+# Classic rules for derived stats: 15 mana per Intellect, 10 health per Stamina,
+# mage spell crit = 0.2% + Intellect / 59.5 at 60 (same (level - 8)/52 scaling below 60).
+mana_per_int = 15.0
+health_per_stamina = 10.0
+base_crit_pct = 0.2
+int_per_crit_pct_at_60 = 59.5
