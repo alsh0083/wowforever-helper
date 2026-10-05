@@ -53,7 +53,7 @@ def armor_factor(attacker_level: int, armor: float) -> float:
 
 def white_swing(weapon: tuple[float, float, float], attacker: Attacker, target: Target, *,
                 dual_wield: bool = False, off_hand: bool = False, damage_pct: float = 0.0,
-                dodge_reduction: float = 0.0) -> float:
+                dodge_reduction: float = 0.0, crit_damage_pct: float = 0.0) -> float:
     """Expected damage of one auto-attack swing with a (min, max, speed) weapon."""
     c, i = _config(), _row(target)
     low, high, speed = weapon
@@ -63,7 +63,8 @@ def white_swing(weapon: tuple[float, float, float], attacker: Attacker, target: 
     dodge, glance = max(0.0, c["dodge"][i] - dodge_reduction), c["glancing"][i]
     crit = max(0.0, min(attacker.crit_pct - c["crit_suppression"][i], 100 - miss - dodge - glance))
     hit = max(0.0, 100 - miss - dodge - glance - crit)
-    share = (hit + glance * c["glancing_damage"] + crit * c["crit_multiplier"]) / 100
+    multiplier = 1 + (c["crit_multiplier"] - 1) * (1 + crit_damage_pct / 100)
+    share = (hit + glance * c["glancing_damage"] + crit * multiplier) / 100
     return base * share * armor_factor(attacker.level, target.armor)
 
 
