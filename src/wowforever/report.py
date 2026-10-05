@@ -243,8 +243,13 @@ def route_report(cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any
             order, how = b.order_ids(cls), "hand-written"
         else:
             must = {cls.talent_named(n).talent_id: lvl for n, lvl in b.must_have_by.items()}
-            order = optimize_order(cls, b.final_ids(cls), must, lambda ranks, level: 0.0)
-            how = "legal order (top rows first), not optimized until #111"
+            final = b.final_ids(cls)
+            tree_of = {tid: t.tree_id for t in cls.trees for tid in t.talent_ids}
+            weight = {tree: sum(r for tid, r in final.items() if tree_of[tid] == tree) for tree in set(tree_of.values())}
+            # the build's biggest tree first, top rows first within it, while every point stays legal
+            order = optimize_order(cls, final, must,
+                                   lambda ranks, level: sum(weight[tree_of[t]] * r for t, r in ranks.items()))
+            how = "legal order (main tree first), not optimized until #111"
         problems = check_order(cls, order)
         if problems:
             raise ValueError(f"{b.id}: illegal order: {problems}")
