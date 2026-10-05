@@ -15,7 +15,10 @@ from typing import Any
 from wowforever.assumptions import Assumptions
 from wowforever.builds import Build
 from wowforever.calc.pvp_axes import control, survival
+from wowforever.consensus import Consensus
+from wowforever.focus import pve_score_fn, pvp_score_fn
 from wowforever.optimizer import optimize_order
+from wowforever.shortlist import build_shortlist
 from wowforever.pvp.duel import load_kits, mage_side, scenario_scores
 from wowforever.rules import check_order, points_available
 from wowforever.scenarios import Character, aoe_curve, best_rank, default_params, questing, raid
@@ -23,6 +26,7 @@ from wowforever.schema import ClassData, SpellRank
 from wowforever.stats import StatTable
 
 CHECKPOINTS = (20, 30, 40, 50, 60)
+SHORTLIST_MARGIN = 0.05  # owner decision (#28): model picks must beat the standard by more than 5%
 
 
 def ranks_at(order: Sequence[int], level: int, cls: ClassData) -> dict[int, int]:
@@ -130,6 +134,30 @@ KEY_UTILITY = frozenset({"Frost Nova", "Blink", "Counterspell", "Polymorph", "Ic
                          "Mana Shield", "Evocation", "Cold Snap", "Presence of Mind", "Arcane Power"})
 
 
+def shortlist_payload(cls: ClassData, builds: Sequence[Build], stats_60, assumptions: Assumptions) -> list[dict]:
+    """Archetype x focus slots (#28) with model picks as talent-name changes against their seed."""
+    consensus = Consensus.load()
+    arch = consensus.archetypes
+    fns = {"PvP": pvp_score_fn(cls, stats_60, assumptions, load_kits(), consensus),
+           "PvE": pve_score_fn(cls, stats_60, assumptions)}
+    slots = build_shortlist(cls, list(builds), fns, margin=SHORTLIST_MARGIN, deep=arch["deep"],
+                            hybrid=arch["hybrid"], recognized=tuple(arch["recognized"]))
+    names = {t.talent_id: t.name for t in cls.talents}
+    by_id = {b.id: b.final_ids(cls) for b in builds}
+    out = []
+    for s in slots:
+        d = s.as_dict()
+        if s.model_pick is not None:
+            seed = by_id.get(s.standard) or (by_id.get(s.qualifying[0]) if s.qualifying else {}) or {}
+            d["model_pick"] = {names[t]: r for t, r in sorted(s.model_pick.items())}
+            d["model_pick_changes"] = [
+                {"talent": names[t], "from": seed.get(t, 0), "to": s.model_pick.get(t, 0)}
+                for t in sorted(set(seed) | set(s.model_pick)) if seed.get(t, 0) != s.model_pick.get(t, 0)]
+            d["model_pick_seed"] = s.standard or (s.qualifying[0] if s.qualifying else None)
+        out.append(d)
+    return out
+
+
 def build_report(cls: ClassData, spells: tuple[SpellRank, ...], builds: Sequence[Build],
                  stats: StatTable, assumptions: Assumptions, dataset: dict[str, Any]) -> dict[str, Any]:
     """JSON-ready payload for the dashboard."""
@@ -162,6 +190,7 @@ def build_report(cls: ClassData, spells: tuple[SpellRank, ...], builds: Sequence
             for t in cls.talents
         },
         "builds": payload_builds,
+        "shortlist": shortlist_payload(cls, builds, stats.at(cls.rules.max_level), assumptions),
         "spell_milestones": spell_milestones(spells, cls.rules.max_level,
                                              frozenset(t.spell_id for t in cls.talents)),
         "assumptions": {n: {"value": a.value, "why": a.why, "tested": a.tested}
