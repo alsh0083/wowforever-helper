@@ -1,12 +1,16 @@
-# Reference archetype: deep Frost to Ice Barrier, Ice Lance crit from Incineration. A seed for
-# comparison, not a recommendation; the optimizer (#21) finds its point order.
+# Community standard build from wowforevertalent.com's popularity data: #3 of the most
+# popular complete mage builds since the Oct 1 patch (build 70170), as of 2026-10-04.
+# shared 14, saved 53, opened 524, 20 close variants. Focus label is Claude's judgment.
+
 id = "deep-frost"
-primary_spell = "Frostbolt"  # the spell its leveling order is optimized around
-name = "Deep Frost (PvP)"
+name = "Deep Frost Control (PvP)"
 pair = "deep-frost"
 variant = "PvP"
-summary = "Maximum Frost control and defensives: Ice Block, Cold Snap, Ice Barrier, Shatter + Fingers of Frost burst; Incineration adds crit to Ice Lance."
-gives_up = ["Impact", "Ignite", "Burning Soul", "Heating Up", "Blast Wave"]
+primary_spell = "Frostbolt"
+origin = "community"
+summary = "Full Frost: Ice Barrier, Ice Block, Cold Snap, Permafrost, Improved Frost Nova, Arctic Reach; the control and survival build."
+sources = ["wft_popular"]
+confidence = "medium"
 
 [final]
 "Improved Frostbolt" = 5
@@ -16,8 +20,9 @@ gives_up = ["Impact", "Ignite", "Burning Soul", "Heating Up", "Blast Wave"]
 "Improved Frost Nova" = 2
 "Frostbite" = 3
 "Piercing Ice" = 3
-"Ice Lance" = 1
 "Frost Channeling" = 3
+"Ice Lance" = 1
+"Improved Blizzard" = 3
 "Arctic Reach" = 2
 "Ice Block" = 1
 "Shatter" = 3
@@ -26,9 +31,3 @@ gives_up = ["Impact", "Ignite", "Burning Soul", "Heating Up", "Blast Wave"]
 "Fingers of Frost" = 2
 "Winter's Chill" = 5
 "Ice Barrier" = 1
-"Incineration" = 3
-
-[must_have_by]
-"Ice Block" = 25
-"Cold Snap" = 30
-"Ice Barrier" = 40

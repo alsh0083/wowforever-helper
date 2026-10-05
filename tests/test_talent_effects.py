@@ -96,13 +96,14 @@ def test_untaken_talents_with_rank_zero_add_nothing():
 
 
 def test_incineration_applies_to_ice_lance_by_name():
-    m = modifiers_for(ICE_LANCE, CLS, ranks("deep-frost"))
+    # the Elementalist has Incineration 3/3 and Ice Shards 5/5
+    m = modifiers_for(ICE_LANCE, CLS, ranks("elementalist-v4"))
     assert m.crit_chance_bonus == 6 and m.crit_damage_bonus_pct == 100
 
 
 def test_damage_pct_stacks_additively():
-    # Arcane PoM-Pyro has Arcane Instability 3/3 only: +3% damage and +3 crit on everything
-    m = modifiers_for(FIREBALL, CLS, ranks("arcane-pom-pyro"))
+    # Deep Arcane has Arcane Instability 3/3 and no Fire damage talents: +3% damage, +3 crit
+    m = modifiers_for(FIREBALL, CLS, ranks("deep-arcane"))
     assert (m.damage_pct, m.crit_chance_bonus) == (3, 3)
 
 

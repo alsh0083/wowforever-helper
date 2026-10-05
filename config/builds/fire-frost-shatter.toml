@@ -1,0 +1,32 @@
+# Community standard build from wowforevertalent.com's popularity data: #1 of the most
+# popular complete mage builds since the Oct 1 patch (build 70170), as of 2026-10-04.
+# shared 128, saved 172, opened 1946, 35 close variants. Focus label is Claude's judgment.
+
+id = "fire-frost-shatter"
+name = "Fire/Frost Shatter (PvE)"
+pair = "fire-frost-shatter"
+variant = "PvE"
+primary_spell = "Fireball"
+origin = "community"
+summary = "Most popular complete Forever build: Fire burst and mana talents (Improved Scorch, Master of Elements, Fire Power, Heating Up) with Frost's Shatter, Ice Lance and Fingers of Frost; no Ice Block or Cold Snap, so PvE-leaning."
+sources = ["wft_popular"]
+confidence = "medium"
+
+[final]
+"Improved Fireball" = 5
+"Ignite" = 5
+"Flame Throwing" = 1
+"Burning Soul" = 3
+"Pyroblast" = 1
+"Improved Scorch" = 3
+"Heating Up" = 1
+"Master of Elements" = 3
+"Critical Mass" = 3
+"Fire Power" = 4
+"Elemental Precision" = 5
+"Ice Shards" = 5
+"Piercing Ice" = 3
+"Frost Channeling" = 3
+"Ice Lance" = 1
+"Shatter" = 3
+"Fingers of Frost" = 2
