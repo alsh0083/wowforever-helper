@@ -74,7 +74,8 @@ def _slot_cell(slot: Mapping, by_id: Mapping[str, Mapping]) -> str:
         b = by_id.get(bid)
         if b is None:
             return ""
-        yours = '<span class="tag">Yours</span>' if b.get("origin") == "hand" else ""
+        yours = ('<span class="tag">Yours</span>' if b.get("origin") == "hand"
+                 else '<span class="tag">Model, unproven</span>' if b.get("origin") == "model" else "")
         num = f'<span class="score-num">{score:.2f}</span>' if score is not None else ""
         cap = f'<span class="caption">{caption}</span>' if caption else ""
         return (f'<div class="pick"><button class="build-btn" data-build="{e(bid)}">{e(b["name"])}</button>'
@@ -153,7 +154,7 @@ def spec_matrix(payload: Mapping) -> str:
     out.append(_pair_line(payload))
     rest = [b for b in payload["builds"] if b["id"] not in placed]
     if rest:
-        out.append('<div class="unplaced"><span class="caption">Not in a slot yet</span>'
+        out.append('<div class="unplaced"><span class="caption">Other builds</span>'
                    + build_buttons(rest) + "</div>")
     return "\n".join(out)
 
