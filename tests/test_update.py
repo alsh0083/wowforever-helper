@@ -116,6 +116,7 @@ def test_cli_entry_point(data, capsys, monkeypatch):
     import wowforever.update as update
     from wowforever.__main__ import main
     monkeypatch.setattr(update, "default_http_get", FakeHttp())
+    monkeypatch.setattr("wowforever.classes.CLASSES", {"mage": "wowforever.classes.mage"})  # fake serves mage only
     assert main(["update", "--data-dir", str(data), "--delay", "0"]) == 0
     assert "1.60.1.70205" in capsys.readouterr().out
 
