@@ -74,6 +74,21 @@ def impact_rolls_per_cast(spell_name: str, ticks: int, assumptions: Assumptions)
     return 1
 
 
+SUB20_PENALTY_PER_LEVEL = 0.0375
+
+
+def sub20_penalized(spell, assumptions: Assumptions):
+    """`spell` with its spell power coefficients cut for being learned below level 20, when
+    `sub20_spell_penalty` is on: x (1 - 0.0375 per level under 20), so a level-4 rank keeps 40%."""
+    from dataclasses import replace
+
+    if not assumptions["sub20_spell_penalty"] or spell.level >= 20:
+        return spell
+    factor = 1.0 - SUB20_PENALTY_PER_LEVEL * (20 - spell.level)
+    return replace(spell, coefficient=spell.coefficient * factor,
+                   periodic_coefficient=spell.periodic_coefficient * factor)
+
+
 def periodic_can_crit(spell_name: str, assumptions: Assumptions) -> bool:
     """Whether a spell's periodic part can crit under the current assumptions."""
     return spell_name == "Frostfire Bolt" and bool(assumptions["frostfire_periodic_can_crit"])

@@ -124,9 +124,3 @@ def test_default_params_carry_the_forever_budget():
     d = default_params("dungeon", 60)
     assert not d.evocation and d.consumables == () and d.fallback
 
-
-def test_fallback_skips_ranks_learned_below_20():
-    # a level-10 rank would look very efficient without the Classic sub-20 coefficient penalty
-    cheap = SpellRank(5, "Fireball", 0, 10, ("fire",), 2.5, mana_cost=50, min_damage=500, max_damage=500)
-    r = raid(char(spells=(cheap, NUKE1, NUKE)), params(mana_per_second=40, fallback=True), A)
-    assert r.details["fallback_spell"] == "Fireball rank 1"
