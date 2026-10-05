@@ -60,3 +60,10 @@ def test_rogue_spells_load():
     names = {s.name for s in spells}
     assert {"Sinister Strike", "Eviscerate", "Backstab", "Kidney Shot", "Cheap Shot", "Gouge",
             "Blind", "Vanish", "Sprint", "Evasion", "Kick", "Sap"} <= names
+
+
+def test_rogue_abilities_carry_their_energy_costs():
+    # SpellPower rows with PowerType 3 (energy); Kidney Shot's second row is combo points (#121)
+    spells = {s.name: s for s in class_spells(TABLES, skill_lines=ROGUE.SKILL_LINES)}
+    assert (spells["Kick"].energy_cost, spells["Gouge"].energy_cost, spells["Cheap Shot"].energy_cost) == (25, 45, 60)
+    assert spells["Kidney Shot"].energy_cost == 25 and spells["Kick"].mana_cost == 0

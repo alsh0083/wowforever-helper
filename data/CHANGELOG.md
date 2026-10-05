@@ -2,6 +2,91 @@
 
 ## 1.60.1.70205 (2026-10-05)
 
+> Not a game change: same build, but the tool started recording rogue energy costs (SpellPower PowerType 3, #121), so they show up as 0 -> value.
+
+- Ambush rank 1: energy_cost 0 -> 60
+- Ambush rank 2: energy_cost 0 -> 60
+- Ambush rank 3: energy_cost 0 -> 60
+- Ambush rank 4: energy_cost 0 -> 60
+- Ambush rank 5: energy_cost 0 -> 60
+- Ambush rank 6: energy_cost 0 -> 60
+- Backstab rank 1: energy_cost 0 -> 60
+- Backstab rank 2: energy_cost 0 -> 60
+- Backstab rank 3: energy_cost 0 -> 60
+- Backstab rank 4: energy_cost 0 -> 60
+- Backstab rank 5: energy_cost 0 -> 60
+- Backstab rank 6: energy_cost 0 -> 60
+- Backstab rank 7: energy_cost 0 -> 60
+- Backstab rank 8: energy_cost 0 -> 60
+- Backstab rank 9: energy_cost 0 -> 60
+- Blade Flurry rank 1: energy_cost 0 -> 25
+- Blind rank 1: energy_cost 0 -> 30
+- Cheap Shot rank 1: energy_cost 0 -> 60
+- Distract rank 1: energy_cost 0 -> 30
+- Eviscerate rank 1: energy_cost 0 -> 35
+- Eviscerate rank 2: energy_cost 0 -> 35
+- Eviscerate rank 3: energy_cost 0 -> 35
+- Eviscerate rank 4: energy_cost 0 -> 35
+- Eviscerate rank 5: energy_cost 0 -> 35
+- Eviscerate rank 6: energy_cost 0 -> 35
+- Eviscerate rank 7: energy_cost 0 -> 35
+- Eviscerate rank 8: energy_cost 0 -> 35
+- Eviscerate rank 9: energy_cost 0 -> 35
+- Expose Armor rank 1: energy_cost 0 -> 25
+- Expose Armor rank 2: energy_cost 0 -> 25
+- Expose Armor rank 3: energy_cost 0 -> 25
+- Expose Armor rank 4: energy_cost 0 -> 25
+- Expose Armor rank 5: energy_cost 0 -> 25
+- Feint rank 1: energy_cost 0 -> 20
+- Feint rank 2: energy_cost 0 -> 20
+- Feint rank 3: energy_cost 0 -> 20
+- Feint rank 4: energy_cost 0 -> 20
+- Feint rank 5: energy_cost 0 -> 20
+- Garrote rank 1: energy_cost 0 -> 50
+- Garrote rank 2: energy_cost 0 -> 50
+- Garrote rank 3: energy_cost 0 -> 50
+- Garrote rank 4: energy_cost 0 -> 50
+- Garrote rank 5: energy_cost 0 -> 50
+- Garrote rank 6: energy_cost 0 -> 50
+- Gouge rank 1: energy_cost 0 -> 45
+- Gouge rank 2: energy_cost 0 -> 45
+- Gouge rank 3: energy_cost 0 -> 45
+- Gouge rank 4: energy_cost 0 -> 45
+- Gouge rank 5: energy_cost 0 -> 45
+- Hemorrhage rank 1: energy_cost 0 -> 35
+- Kick rank 1: energy_cost 0 -> 25
+- Kick rank 2: energy_cost 0 -> 25
+- Kick rank 3: energy_cost 0 -> 25
+- Kick rank 4: energy_cost 0 -> 25
+- Kidney Shot rank 1: energy_cost 0 -> 25
+- Kidney Shot rank 2: energy_cost 0 -> 25
+- Mutilate rank 1: energy_cost 0 -> 60
+- Mutilate rank 2: energy_cost 0 -> 60
+- Mutilate rank 3: energy_cost 0 -> 60
+- Mutilate rank 4: energy_cost 0 -> 60
+- Rupture rank 1: energy_cost 0 -> 25
+- Rupture rank 2: energy_cost 0 -> 25
+- Rupture rank 3: energy_cost 0 -> 25
+- Rupture rank 4: energy_cost 0 -> 25
+- Rupture rank 5: energy_cost 0 -> 25
+- Rupture rank 6: energy_cost 0 -> 25
+- Sap rank 1: energy_cost 0 -> 65
+- Sap rank 2: energy_cost 0 -> 65
+- Sap rank 3: energy_cost 0 -> 65
+- Sinister Strike rank 1: energy_cost 0 -> 45
+- Sinister Strike rank 2: energy_cost 0 -> 45
+- Sinister Strike rank 3: energy_cost 0 -> 45
+- Sinister Strike rank 4: energy_cost 0 -> 45
+- Sinister Strike rank 5: energy_cost 0 -> 45
+- Sinister Strike rank 6: energy_cost 0 -> 45
+- Sinister Strike rank 7: energy_cost 0 -> 45
+- Sinister Strike rank 8: energy_cost 0 -> 45
+- Slice and Dice rank 1: energy_cost 0 -> 25
+- Slice and Dice rank 2: energy_cost 0 -> 25
+- Venom rank 1: energy_cost 0 -> 25
+
+## 1.60.1.70205 (2026-10-05)
+
 - hunter/(class): class added
 
 ## 1.60.1.70205 (2026-10-05)

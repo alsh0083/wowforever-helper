@@ -96,7 +96,7 @@ class _Indexes:
     cast_times: dict[int, dict[str, str]]
     durations: dict[int, dict[str, str]]
     ranges: dict[int, dict[str, str]]
-    powers: dict[int, dict[str, str]]
+    powers: dict[int, list[dict[str, str]]]        # every cost row: mana, energy, combo points
     cooldowns: dict[int, dict[str, str]]
     targets: dict[int, dict[str, str]]
 
@@ -114,10 +114,22 @@ def _index_tables(tables: Tables) -> _Indexes:
         cast_times={int(row["ID"]): row for row in tables["SpellCastTimes"]},
         durations={int(row["ID"]): row for row in tables["SpellDuration"]},
         ranges={int(row["ID"]): row for row in tables["SpellRange"]},
-        powers=_by_spell(tables["SpellPower"]),
+        powers=_all_by_spell(tables["SpellPower"]),
         cooldowns=_by_spell(tables["SpellCooldowns"]),
         targets=_by_spell(tables["SpellTargetRestrictions"]),
     )
+
+
+_POWER_MANA, _POWER_ENERGY = "0", "3"   # SpellPower.PowerType (4 = combo points)
+
+
+def _all_by_spell(rows: list[dict[str, str]]) -> dict[int, list[dict[str, str]]]:
+    """Every base-difficulty row per SpellID (a spell can cost energy and combo points)."""
+    out: dict[int, list[dict[str, str]]] = {}
+    for row in rows:
+        if _is_base_difficulty(row):
+            out.setdefault(int(row["SpellID"]), []).append(row)
+    return out
 
 
 def _by_spell(rows: list[dict[str, str]]) -> dict[int, dict[str, str]]:
@@ -182,8 +194,9 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
     duration = _f(indexes.durations.get(int(_f(misc_row.get("DurationIndex", "0"))), {}).get("Duration")) / 1000.0
     range_max = _f(indexes.ranges.get(int(_f(misc_row.get("RangeIndex", "0"))), {}).get("RangeMax_0"))
 
-    power = indexes.powers.get(spell_id)
-    mana_cost = int(_f(power["ManaCost"])) if power is not None and power["PowerType"] == "0" else 0
+    costs = {row["PowerType"]: int(_f(row["ManaCost"])) for row in indexes.powers.get(spell_id, ())}
+    mana_cost = costs.get(_POWER_MANA, 0)
+    energy_cost = costs.get(_POWER_ENERGY, 0)
 
     cooldown_row = indexes.cooldowns.get(spell_id)
     cooldown = 0.0
@@ -244,7 +257,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
 
     return SpellRank(
         spell_id=spell_id, name=name, rank=rank, level=level, schools=schools,
-        cast_time=cast_time, cooldown=cooldown, mana_cost=mana_cost,
+        cast_time=cast_time, cooldown=cooldown, mana_cost=mana_cost, energy_cost=energy_cost,
         min_damage=min_damage, max_damage=max_damage, coefficient=coefficient,
         periodic_damage=periodic_damage, periodic_coefficient=periodic_coefficient,
         duration=duration, range=range_max, tick_period=tick_period,
