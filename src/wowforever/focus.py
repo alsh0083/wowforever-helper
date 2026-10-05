@@ -13,10 +13,11 @@ from collections.abc import Callable, Mapping
 
 from wowforever.assumptions import Assumptions
 from wowforever.consensus import Consensus
-from wowforever.pvp.battleground import battleground
-from wowforever.pvp.duel import Kit, mage_side, scenario_scores
-from wowforever.scenarios import Character, aoe_curve, best_rank, default_params, questing, raid
-from wowforever.schema import ClassData, SpellRank
+from wowforever.pvp.battleground import best_battleground
+from wowforever.pvp.duel import Kit, best_scenario_scores
+from wowforever.scenarios import (Character, aoe_curve, default_params, questing, raid,
+                                  usable_fillers)
+from wowforever.schema import ClassData
 from wowforever.stats import Stats
 
 PVP_SCENARIOS = ("wpvp_melee", "wpvp_melee_they_open", "wpvp_caster", "stealth_ambush")
@@ -32,11 +33,6 @@ def pvp_core_talents(consensus: Consensus) -> set[str]:
             for name in consensus.tiers.get(scenario, {}).get("core", ())}
 
 
-def _filler(char: Character, assumptions: Assumptions) -> SpellRank:
-    q = questing(char, default_params("questing", char.level), assumptions)
-    return best_rank(char.spells, q.details["spell"], char.level)
-
-
 def pvp_score_fn(cls: ClassData, stats: Stats, assumptions: Assumptions, kits: list[Kit],
                  consensus: Consensus) -> ScoreFn:
     """Score = mean duel score over the PvP scenarios + share of core talents x CONSENSUS_BONUS."""
@@ -46,10 +42,10 @@ def pvp_score_fn(cls: ClassData, stats: Stats, assumptions: Assumptions, kits: l
 
     def score(ranks: Mapping[int, int]) -> float:
         char = Character(level, stats, cls.spells, cls, dict(ranks))
-        duels = scenario_scores(mage_side(char, _filler(char, assumptions)), kits)  # duels
-        filler = _filler(char, assumptions)
+        fillers = usable_fillers(char, default_params("questing", level).fillers, level, assumptions)
+        duels = best_scenario_scores(char, fillers, kits)  # each duel with its best filler (#97)
         scenario_values = [duels[s]["score"] for s in PVP_SCENARIOS]
-        scenario_values.append(battleground(char, filler, assumptions)["score"])
+        scenario_values.append(best_battleground(char, fillers, assumptions)["score"])
         mean = sum(scenario_values) / len(scenario_values)
         taken = sum(1 for tid in core if ranks.get(tid, 0) > 0)
         return mean + CONSENSUS_BONUS * taken / max(1, len(core))
