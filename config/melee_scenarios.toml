@@ -1,0 +1,26 @@
+# PvE scenarios for rogue and hunter (#133). Confidence: LOW. Classic-era estimates, not Forever data;
+# mob HP, drink rates and travel come from config/scenarios.toml [questing] like the mage's.
+
+[questing]
+# level = [mob_armor, mob_dps_vs_the_player, food_health_per_second]
+# armor: Classic normal mobs ~ 55 per level; food: Classic food of that level restores its health
+# over 30 s (e.g. Roasted Quail 2148 at 55 -> ~72/s).
+anchors = { 10 = [400, 5, 4], 20 = [800, 12, 10], 30 = [1300, 20, 20], 40 = [1900, 30, 35], 50 = [2600, 42, 50], 60 = [3300, 55, 72] }
+
+[raid]
+# a level-63 boss: 3731 armor, minus Sunder Armor x5 (2250) and Faerie Fire (505)
+armor = 976
+target_level_offset = 3
+# hunters only: the mage's raid mana budget (config/scenarios.toml [raid]) also applies to them;
+# once dry they keep Auto Shot going, which costs no mana
+
+[dungeon]
+# a dungeon pull: level+2 mobs with Sunder Armor from the tank, ~1500 armor
+armor = 1500
+target_level_offset = 2
+
+[references]
+# divisors that put the PvE parts on a common scale (as the mage's PVE_REFERENCES)
+questing = 100.0
+raid = 150.0
+dungeon = 150.0
