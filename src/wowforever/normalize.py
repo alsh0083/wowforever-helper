@@ -78,6 +78,16 @@ def _entry_details(node_id: str, tables: Tables) -> tuple[str, int, int]:
     return name, int(entry["MaxRanks"]), spell_id
 
 
+def _snapped(pos: int, origin: int, layout: TraitLayout) -> int:
+    """`pos` moved onto the nearest grid line from `origin` when within `layout.snap` of it."""
+    offset = (pos - origin) % layout.grid
+    if offset <= layout.snap:
+        return pos - offset
+    if layout.grid - offset <= layout.snap:
+        return pos + layout.grid - offset
+    return pos
+
+
 def normalize_class(tables: Tables, layout: TraitLayout, page: WftPage, *,
                     wago_build: str) -> tuple[ClassData, NormalizeReport]:
     """Cut `layout`'s trait tree into Classic-style trees and join it with `page`."""
@@ -109,9 +119,11 @@ def normalize_class(tables: Tables, layout: TraitLayout, page: WftPage, *,
         if node_id in layout.hidden_nodes:
             continue
         pos_x, pos_y = int(row["PosX"]), int(row["PosY"])
-        band = _band_for(layout, pos_x)
+        band = _band_for(layout, pos_x + layout.snap)
         if band is None:
             raise ValueError(f"trait node {node_id}: PosX {pos_x} is left of every tree band")
+        pos_x = _snapped(pos_x, band.min_x, layout)
+        pos_y = _snapped(pos_y, layout.first_row_y, layout)
         if (pos_x - band.min_x) % layout.grid or (pos_y - layout.first_row_y) % layout.grid:
             raise ValueError(f"trait node {node_id}: position ({pos_x}, {pos_y}) is off the grid")
         name, max_rank, spell_id = _entry_details(row["ID"], tables)
