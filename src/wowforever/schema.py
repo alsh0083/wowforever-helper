@@ -35,6 +35,7 @@ EFFECT_KINDS = frozenset({
     "control",          # root/stun/freeze/interrupt effect (value = duration or chance)
     "defensive",        # absorb/immunity/damage reduction
     "resource",         # mana regen / return
+    "regen_while_casting",  # share of spirit regen that continues while casting (Arcane Meditation)
     "grants_spell",     # talent teaches a spell (value unused)
     "other",            # understood by a human, not modeled yet
 })
