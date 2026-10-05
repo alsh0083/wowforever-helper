@@ -42,6 +42,64 @@ CLASS_THEMES: dict[str, dict] = {
                   'fill="#aad372"/><path d="M22 50l-6-5M22 50l-6 5" stroke="#aad372" stroke-width="3"/></svg>'),
         "crest_bg": "linear-gradient(135deg,#2a3a1c,#191d17 50%,#3a2617)",
     },
+    "warrior": {
+        "label": "Warrior", "accent": "#C69B6D",
+        "trees": {"Arms": "warrior-arms", "Fury": "warrior-fury", "Protection": "warrior-protection"},
+        "crest": ('<svg viewBox="0 0 100 100" fill="none"><path d="M50 16l26 10v22c0 18-12 30-26 36-14-6-26-18-26-36V26z" '
+                  'fill="#5a6470" stroke="#e3d2b8" stroke-width="2.5"/><path d="M50 26v50" stroke="#c69b6d" '
+                  'stroke-width="3"/><path d="M20 80L78 22M76 20l6 6M24 74l6 6" stroke="#dfe3e8" stroke-width="5" '
+                  'stroke-linecap="round"/></svg>'),
+        "crest_bg": "linear-gradient(135deg,#3a2c1e,#1a1816 50%,#3d1d1a)",
+    },
+    "druid": {
+        "label": "Druid", "accent": "#FF7C0A",
+        "trees": {"Balance": "druid-balance", "Feral Combat": "druid-feral", "Restoration": "druid-restoration"},
+        "crest": ('<svg viewBox="0 0 100 100" fill="none"><path d="M50 86C22 70 22 36 50 14c28 22 28 56 0 72z" '
+                  'fill="#2f5a2c" stroke="#a6d98a" stroke-width="2.5"/><path d="M50 22v62" stroke="#a6d98a" '
+                  'stroke-width="2"/><circle cx="50" cy="56" r="9" fill="#ff7c0a"/><circle cx="38" cy="42" r="4.5" '
+                  'fill="#ff7c0a"/><circle cx="50" cy="37" r="4.5" fill="#ff7c0a"/><circle cx="62" cy="42" r="4.5" '
+                  'fill="#ff7c0a"/></svg>'),
+        "crest_bg": "linear-gradient(135deg,#1f3a1c,#171a15 50%,#4a2a10)",
+    },
+    "paladin": {
+        "label": "Paladin", "accent": "#F48CBA",
+        "trees": {"Holy": "paladin-holy", "Protection": "paladin-protection", "Retribution": "paladin-retribution"},
+        "crest": ('<svg viewBox="0 0 100 100" fill="none"><circle cx="50" cy="40" r="20" stroke="#f2d16b" '
+                  'stroke-width="3"/><path d="M50 8v12M50 60v4M18 40h12M70 40h12M27 17l8 8M73 17l-8 8" stroke="#f2d16b" '
+                  'stroke-width="3" stroke-linecap="round"/><path d="M50 34v54" stroke="#e8e2d0" stroke-width="5"/>'
+                  '<rect x="36" y="26" width="28" height="14" rx="2" fill="#c9ccd1" stroke="#f48cba" stroke-width="2"/>'
+                  '</svg>'),
+        "crest_bg": "linear-gradient(135deg,#4a3a1a,#1c1820 50%,#4a2238)",
+    },
+    "priest": {
+        "label": "Priest", "accent": "#FFFFFF",
+        "trees": {"Discipline": "priest-discipline", "Holy": "priest-holy", "Shadow": "priest-shadow"},
+        "crest": ('<svg viewBox="0 0 100 100" fill="none"><path d="M50 12l8 30 30 8-30 8-8 30-8-30-30-8 30-8z" '
+                  'fill="#f5efd8" stroke="#ffffff" stroke-width="2"/><circle cx="50" cy="50" r="11" fill="#7a4fb8" '
+                  'stroke="#c8a8f0" stroke-width="2"/><circle cx="50" cy="50" r="30" stroke="#f5e08a" '
+                  'stroke-width="1.5" stroke-dasharray="3 5"/></svg>'),
+        "crest_bg": "linear-gradient(135deg,#3a3628,#18171d 50%,#2c1f42)",
+    },
+    "shaman": {
+        # the class blue is too dark for text on the page background; borders keep it
+        "label": "Shaman", "accent": "#0070DD", "accent_text": "#4ea6ff",
+        "trees": {"Elemental": "shaman-elemental", "Enhancement": "shaman-enhancement",
+                  "Restoration": "shaman-restoration"},
+        "crest": ('<svg viewBox="0 0 100 100" fill="none"><path d="M56 10L30 54h18l-6 36 28-46H52z" fill="#7fc4ff" '
+                  'stroke="#e6f4ff" stroke-width="2.5" stroke-linejoin="round"/><path d="M18 74c10-8 20 8 32 0s22-8 32 0" '
+                  'stroke="#3fbfb0" stroke-width="4" stroke-linecap="round"/></svg>'),
+        "crest_bg": "linear-gradient(135deg,#123052,#151a22 50%,#4a2414)",
+    },
+    "warlock": {
+        "label": "Warlock", "accent": "#8788EE",
+        "trees": {"Affliction": "warlock-affliction", "Demonology": "warlock-demonology",
+                  "Destruction": "warlock-destruction"},
+        "crest": ('<svg viewBox="0 0 100 100" fill="none"><path d="M50 88c-20 0-30-16-24-32 4 8 10 10 12 6-4-14 4-30 '
+                  '12-40 0 12 8 16 12 12 8 10 14 22 10 34 4 2 8-2 10-8 6 16-12 28-32 28z" fill="#5b8f2e" '
+                  'stroke="#b6f07a" stroke-width="2.5"/><ellipse cx="50" cy="64" rx="11" ry="6" fill="#16131f" '
+                  'stroke="#8788ee" stroke-width="2"/><circle cx="50" cy="64" r="3" fill="#b6f07a"/></svg>'),
+        "crest_bg": "linear-gradient(135deg,#25331a,#16141d 50%,#2c1f4a)",
+    },
 }
 # main, dark card background, border; mage trees keep their original card styles in the template
 TREE_COLORS = {
@@ -54,11 +112,32 @@ TREE_COLORS = {
 }
 
 
+def _shade(color: str, keep: float) -> str:
+    """`color` mixed toward the page background (#0b1017), keeping `keep` of it."""
+    rgb = [int(color[i:i + 2], 16) for i in (1, 3, 5)]
+    bg = (0x0b, 0x10, 0x17)
+    return "#" + "".join(f"{round(c * keep + b * (1 - keep)):02x}" for c, b in zip(rgb, bg))
+
+
+# Classes added in round 2 (#155-#160): tree css names carry the class, because Holy, Protection
+# and Restoration repeat across classes. Card background and border are derived from the main color.
+for _css, _main in {
+    "warrior-arms": "#c98a4b", "warrior-fury": "#d9483b", "warrior-protection": "#7f9bb5",
+    "druid-balance": "#9a8ff0", "druid-feral": "#e0893a", "druid-restoration": "#5fbf6a",
+    "paladin-holy": "#f2d16b", "paladin-protection": "#6f9fd8", "paladin-retribution": "#e06a4a",
+    "priest-discipline": "#d8d2b8", "priest-holy": "#f5e08a", "priest-shadow": "#9a6ad8",
+    "shaman-elemental": "#e8763a", "shaman-enhancement": "#4f9fe0", "shaman-restoration": "#3fbfb0",
+    "warlock-affliction": "#7fbf4f", "warlock-demonology": "#b05ad8", "warlock-destruction": "#e85a2a",
+}.items():
+    TREE_COLORS[_css] = (_main, _shade(_main, 0.22), _shade(_main, 0.62))
+
+
 def theme_css() -> str:
     """CSS for every class: accent per body[data-class], and talent-card styles per non-mage tree."""
     out = [":root{" + "".join(f"--{css}:{main};" for css, (main, _, _) in TREE_COLORS.items()) + "}"]
     for name, theme in CLASS_THEMES.items():
-        out.append(f'body[data-class="{name}"]{{--accent:{theme["accent"]}}}'
+        text = f';--accent-text:{theme["accent_text"]}' if "accent_text" in theme else ""
+        out.append(f'body[data-class="{name}"]{{--accent:{theme["accent"]}{text}}}'
                    f'body[data-class="{name}"] .crest{{background:{theme["crest_bg"]}}}')
     for css, (main, dark, border) in TREE_COLORS.items():
         out.append(
@@ -111,21 +190,22 @@ def build_buttons(builds: Sequence[Mapping]) -> str:
     )
 
 
-SCHOOL_VAR = {tree: f"--{css}" for theme in CLASS_THEMES.values() for tree, css in theme["trees"].items()}
+SCHOOL_VAR = {tree: f"--{css}" for tree, css in CLASS_THEMES["mage"]["trees"].items()}
 # Hybrid bars run from the route's foundation school to its finisher (Frost levels the Fire/Frost route).
 HYBRID_ORDER = {"Fire/Frost": ("Frost", "Fire"), "Arcane/Fire": ("Arcane", "Fire")}
 
 
-def _school_style(archetype: str) -> str:
+def _school_style(archetype: str, class_name: str = "mage") -> str:
     """Inline custom properties for the row's school bar: one colour, or a two-school blend."""
-    if archetype in HYBRID_ORDER:
+    var = {tree: f"--{css}" for tree, css in CLASS_THEMES.get(class_name, CLASS_THEMES["mage"])["trees"].items()}
+    if archetype in HYBRID_ORDER and class_name == "mage":
         a, b = HYBRID_ORDER[archetype]
     else:
-        trees = [t for t in archetype.removeprefix("deep ").split("/") if t in SCHOOL_VAR]
-        a = b = trees[0] if trees else "Arcane"
+        trees = [t for t in archetype.removeprefix("deep ").split("/") if t in var]
+        a = b = trees[0] if trees else next(iter(var))
         if len(trees) > 1:
             b = trees[1]
-    return f"--from:var({SCHOOL_VAR[a]});--to:var({SCHOOL_VAR[b]})"
+    return f"--from:var({var[a]});--to:var({var[b]})"
 
 
 def _gain(slot: Mapping) -> float | None:
@@ -224,7 +304,7 @@ def spec_matrix(payload: Mapping) -> str:
     for archetype, slots in rows.items():
         cells = "".join(_slot_cell(s, by_id) for s in slots)
         out.append(f'<div class="mx-row" role="row"><div class="arch" data-archetype="{e(archetype)}" '
-                   f'style="{_school_style(archetype)}">{e(archetype[:1].upper() + archetype[1:]).replace("/", "/<wbr>")}</div>{cells}</div>')
+                   f'style="{_school_style(archetype, payload.get("class", "mage"))}">{e(archetype[:1].upper() + archetype[1:]).replace("/", "/<wbr>")}</div>{cells}</div>')
     out.append("</div>")
     out.append(_pair_line(payload))
     rest = [b for b in payload["builds"] if b["id"] not in placed]

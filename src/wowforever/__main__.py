@@ -43,7 +43,10 @@ def main(argv: list[str] | None = None) -> int:
         from wowforever.dashboard import fetch_icons, render
         from wowforever.sources.http import http_get_bytes
 
-        paths = args.report or ["data/report.json", *sorted(str(p) for p in Path("data").glob("report-*.json"))]
+        from wowforever.classes import CLASSES
+
+        found = {p.stem.removeprefix("report-"): str(p) for p in Path("data").glob("report-*.json")}
+        paths = args.report or ["data/report.json", *(found[c] for c in CLASSES if c in found)]
         reports = [json.loads(Path(path).read_text(encoding="utf-8")) for path in paths]
         icons = fetch_icons(
             [talent["icon"] for report in reports for talent in report["talents"].values()],

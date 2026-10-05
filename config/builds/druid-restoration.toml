@@ -1,0 +1,32 @@
+# Druid community standard (#156) from wowforevertalent.com's popularity data: #2 of the most
+# popular complete druid builds (since the Oct 1 patch (build 70170), updated daily), points 11/5/35, shared 159,
+# saved 433, opened 3518, 23 close variants. Focus label is Claude's judgment.
+
+id = "druid-restoration"
+class = "druid"
+name = "Restoration (PvE)"
+pair = "druid-restoration"
+variant = "PvE"
+origin = "community"
+sources = ["wft_popular_druid"]
+confidence = "medium"
+summary = "Restoration with Swiftmend, Nature's Swiftness, Wild Growth and Gift of Nature; Genesis and Moonglow from Balance. The most saved druid build: the community's healer standard (routes only, unscored)."
+
+[final]
+"Genesis" = 5
+"Gift of Nature" = 5
+"Gift of the Earthmother" = 1
+"Heart of the Wild" = 5
+"Improved Regrowth" = 5
+"Improved Rejuvenation" = 3
+"Improved Tranquility" = 2
+"Living Spirit" = 3
+"Moonglow" = 3
+"Naturalist" = 5
+"Nature's Focus" = 5
+"Nature's Majesty" = 2
+"Nature's Splendor" = 1
+"Nature's Swiftness" = 1
+"Reflection" = 3
+"Swiftmend" = 1
+"Wild Growth" = 1

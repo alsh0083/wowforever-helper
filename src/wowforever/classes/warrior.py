@@ -84,3 +84,6 @@ UNMODELED: dict[str, str] = {
 
 # Warrior skill lines in SkillLineAbility: Arms, Fury, Protection.
 SKILL_LINES = (26, 256, 257)
+
+# Shown on the dashboard while the class is routes-only (planning round 2, Q2/Q3).
+SCORING_NOTE = "Arms and Fury scores come with the warrior damage model (#162); Protection stays unscored."
