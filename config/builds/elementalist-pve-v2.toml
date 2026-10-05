@@ -1,0 +1,72 @@
+# Offensive Elementalist, PvE version (#101). Model-derived, unproven: levels 10-40 are the
+# PvP route (dual spec from 40 keeps the shared leveling); the 20 points from 41 to 60 were
+# chosen by hill-climbing the PvE focus score (docs/planning/2026-10-05.md, Q1/Q6).
+
+id = "elementalist-pve-v2"
+pair = "offensive-elementalist"
+variant = "PvE"
+origin = "model"
+confidence = "low"
+primary_spell = "Frostbolt"  # the spell its leveling order is optimized around
+name = "Offensive Elementalist (PvE)"
+summary = "Same Frost-then-Fire route as the PvP build to level 40 (Ice Block 25, Cold Snap 30, Impact 40). From 41 the PvE spec takes Shatter-style sustain from the Fire/Frost Shatter standard: Frost Channeling 3 and Master of Elements 3 for mana, Piercing Ice 3, Winter's Chill 1, Improved Flamestrike 3 for packs, and drops Heating Up/Pyroblast, Burning Soul and Blast Wave. Model-derived (PvE score 1.71 vs 1.62 for Fire/Frost Shatter); not yet tried in game."
+gives_up = ["Ice Barrier", "Heating Up", "Pyroblast", "Burning Soul", "Blast Wave"]
+
+# One talent name per point, starting at level 10.
+order = [
+  "Improved Frostbolt",  # 10
+  "Improved Frostbolt",  # 11
+  "Improved Frostbolt",  # 12
+  "Improved Frostbolt",  # 13
+  "Improved Frostbolt",  # 14
+  "Elemental Precision",  # 15
+  "Elemental Precision",  # 16
+  "Frostbite",  # 17
+  "Frostbite",  # 18
+  "Frostbite",  # 19
+  "Ice Lance",  # 20
+  "Ice Shards",  # 21
+  "Ice Shards",  # 22
+  "Ice Shards",  # 23
+  "Ice Shards",  # 24
+  "Ice Block",  # 25
+  "Shatter",  # 26
+  "Shatter",  # 27
+  "Shatter",  # 28
+  "Ice Shards",  # 29
+  "Cold Snap",  # 30
+  "Fingers of Frost",  # 31
+  "Fingers of Frost",  # 32
+  "Incineration",  # 33
+  "Incineration",  # 34
+  "Incineration",  # 35
+  "Improved Fireball",  # 36
+  "Improved Fireball",  # 37
+  "Impact",  # 38
+  "Impact",  # 39
+  "Impact",  # 40
+  "Frost Channeling",  # 41
+  "Frost Channeling",  # 42
+  "Frost Channeling",  # 43
+  "Piercing Ice",  # 44
+  "Piercing Ice",  # 45
+  "Piercing Ice",  # 46
+  "Winter's Chill",  # 47
+  "Ignite",  # 48
+  "Ignite",  # 49
+  "Improved Flamestrike",  # 50
+  "Improved Flamestrike",  # 51
+  "Improved Flamestrike",  # 52
+  "Improved Fireball",  # 53
+  "Improved Fireball",  # 54
+  "Master of Elements",  # 55
+  "Master of Elements",  # 56
+  "Master of Elements",  # 57
+  "Wake of Fire",  # 58
+  "Wake of Fire",  # 59
+  "Critical Mass",  # 60
+]
+
+[must_have_by]
+"Ice Block" = 25
+"Cold Snap" = 30
