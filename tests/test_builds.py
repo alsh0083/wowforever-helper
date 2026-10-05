@@ -17,8 +17,17 @@ CLS, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
 BUILDS = {b.id: b for b in load_builds()}
 
 
-def test_the_four_v0_builds_exist():
-    assert set(BUILDS) == {"elementalist-v4", "deep-frost", "deep-fire", "arcane-pom-pyro"}
+def test_the_builds_exist_and_names_end_in_their_focus():
+    assert set(BUILDS) == {"elementalist-v4", "elementalist-pve", "deep-frost", "deep-fire", "arcane-pom-pyro"}
+    for b in BUILDS.values():
+        assert b.variant in ("PvP", "PvE") and f"({b.variant}" in b.name
+
+
+def test_elementalist_pair_differs_only_at_level_60():
+    pvp, pve = BUILDS["elementalist-v4"], BUILDS["elementalist-pve"]
+    assert pvp.pair == pve.pair == "offensive-elementalist"
+    assert pvp.order[:-1] == pve.order[:-1]
+    assert (pvp.order[-1], pve.order[-1]) == ("Permafrost", "Elemental Precision")
 
 
 @pytest.mark.parametrize("build_id", sorted(BUILDS))
@@ -36,10 +45,11 @@ def test_reference_builds_spend_every_point(build_id):
     assert sum(BUILDS[build_id].final.values()) == points_available(60, CLS.rules)
 
 
-def test_elementalist_order_is_legal_point_by_point_and_leaves_60_open():
-    b = BUILDS["elementalist-v4"]
+@pytest.mark.parametrize("build_id", ["elementalist-v4", "elementalist-pve"])
+def test_elementalist_order_is_legal_point_by_point_and_spends_60(build_id):
+    b = BUILDS[build_id]
     assert check_order(CLS, b.order_ids(CLS)) == []
-    assert len(b.order) == 50                     # level-60 point deliberately open
+    assert len(b.order) == 51
     assert b.order.index("Ice Block") + 10 == 25 and b.order.index("Cold Snap") + 10 == 30
 
 

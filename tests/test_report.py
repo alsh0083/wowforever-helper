@@ -48,11 +48,11 @@ def test_every_build_has_a_legal_order_meeting_its_deadlines(payload):
             assert ranks_at(b["order"], level, cls).get(t.talent_id, 0) == t.max_rank, (b["id"], name)
 
 
-def test_elementalist_keeps_its_hand_written_order_and_open_point(payload):
+def test_elementalist_variants_keep_their_hand_written_orders(payload):
     _, report = payload
-    e = next(b for b in report["builds"] if b["id"] == "elementalist-v4")
-    assert e["order_source"] == "hand-written" and e["open_points"] == 1
-    others = [b for b in report["builds"] if b["id"] != "elementalist-v4"]
+    hand = [b for b in report["builds"] if b["id"].startswith("elementalist")]
+    assert len(hand) == 2 and all(b["order_source"] == "hand-written" and b["open_points"] == 0 for b in hand)
+    others = [b for b in report["builds"] if not b["id"].startswith("elementalist")]
     assert all(b["order_source"].startswith("optimized") and b["open_points"] == 0 for b in others)
 
 
@@ -83,4 +83,4 @@ def test_report_cli_from_a_saved_dataset(payload, tmp_path, capsys):
     Dataset("1.60.1.70205", "1.60.1.70205", (cls,), (prov,)).save(tmp_path / "ds.json")
     assert main(["report", "--dataset", str(tmp_path / "ds.json"), "--out", str(tmp_path / "r.json")]) == 0
     report = json.loads((tmp_path / "r.json").read_text(encoding="utf-8"))
-    assert report["dataset"]["game_build"] == "1.60.1.70205" and len(report["builds"]) == 4
+    assert report["dataset"]["game_build"] == "1.60.1.70205" and len(report["builds"]) == 5
