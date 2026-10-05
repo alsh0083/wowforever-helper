@@ -63,6 +63,9 @@ def test_scores_at_each_checkpoint(payload):
         assert all(v["score"] > 0 for v in b["scores"]["questing"].values())
         assert set(b["scores"]["raid"]) == {60}
         assert set(b["scores"]["survival"]) == set(CHECKPOINTS) == set(b["scores"]["control"])
+        for scenario in ("wpvp_melee", "wpvp_melee_they_open", "wpvp_caster", "stealth_ambush"):
+            assert set(b["scores"][scenario]) == set(CHECKPOINTS)
+            assert all(0 <= v["score"] <= 1 for v in b["scores"][scenario].values())
         assert all(0 <= v["score"] <= 1 for v in b["scores"]["survival"].values())
 
 

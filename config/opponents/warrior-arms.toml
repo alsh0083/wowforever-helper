@@ -1,0 +1,69 @@
+# Warrior Arms (Mortal Strike): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
+# Spec chosen from wowforevertalent.com Forever popularity data plus PvP judgment.
+# source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
+# can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
+
+id = "warrior-arms"
+class = "Warrior"
+spec = "Arms (Mortal Strike)"
+points = "37/11/0"
+role = "melee"  # melee | ranged | caster
+stealth = false
+dispels_buffs = false  # can strip Ice Barrier
+confidence = "low"
+sources = ["wft_popular"]
+
+[at_60]
+health = 4200
+dps = 220  # sustained vs cloth when in range
+opener_damage = 0
+opener_stun = 1.0
+opener_source = "classic (Charge stun; not in data reader)"
+
+[[controls]]
+name = "Charge"
+kind = "stun"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 1.0
+cooldown = 15
+source = "classic"
+
+[[controls]]
+name = "Intercept"
+kind = "stun"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 3.0
+cooldown = 30
+source = "classic"
+
+[[controls]]
+name = "Hamstring"
+kind = "slow"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 15.0
+cooldown = 0
+source = "data"
+
+[[controls]]
+name = "Pummel"
+kind = "interrupt"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 4.0
+cooldown = 10
+source = "data"
+
+[[controls]]
+name = "Intimidating Shout"
+kind = "fear"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 8.0
+cooldown = 180
+source = "classic"
+
+[[gap_closers]]
+name = "Charge"
+cooldown = 15
+
+[[gap_closers]]
+name = "Intercept"
+cooldown = 30
+
+[[removes]]
+name = "Berserker Rage"
+removes = "fear"
+cooldown = 30

@@ -16,6 +16,7 @@ from wowforever.assumptions import Assumptions
 from wowforever.builds import Build
 from wowforever.calc.pvp_axes import control, survival
 from wowforever.optimizer import optimize_order
+from wowforever.pvp.duel import load_kits, mage_side, scenario_scores
 from wowforever.rules import check_order, points_available
 from wowforever.scenarios import Character, aoe_curve, best_rank, default_params, questing, raid
 from wowforever.schema import ClassData, SpellRank
@@ -66,6 +67,7 @@ def score_build(order: Sequence[int], cls: ClassData, spells, stats: StatTable,
     """Scenario results at each checkpoint level (raid at max level only)."""
     scores: dict[str, dict[int, dict[str, Any]]] = {"questing": {}, "aoe": {}, "raid": {},
                                                     "survival": {}, "control": {}}
+    kits = load_kits()
     for level in CHECKPOINTS:
         char = Character(level, stats.at(level), spells, cls, ranks_at(order, level, cls))
         q = questing(char, default_params("questing", level), assumptions)
@@ -78,6 +80,10 @@ def score_build(order: Sequence[int], cls: ClassData, spells, stats: StatTable,
             result = axis(char, filler)
             scores[name][level] = {"score": round(result.score, 3), "unit": "0-1",
                                    "components": {k: round(v, 3) for k, v in result.components.items()}}
+        for name, result in scenario_scores(mage_side(char, filler), kits).items():
+            scores.setdefault(name, {})[level] = {
+                "score": round(result["score"], 3), "unit": "duel 0-1",
+                "matchups": {k: round(v, 3) for k, v in result["matchups"].items()}}
         if level == cls.rules.max_level:
             r = raid(char, default_params("raid", level), assumptions)
             scores["raid"][level] = {"score": round(r.score, 1), "unit": r.unit, "spell": r.details["spell"],
