@@ -12,6 +12,7 @@ def main(argv: list[str] | None = None) -> int:
     rep = sub.add_parser("report", help="score every build on a saved dataset and write the dashboard payload")
     rep.add_argument("--dataset", required=True, help="dataset JSON written by `update`")
     rep.add_argument("--out", default="data/report.json")
+    rep.add_argument("--class", dest="class_name", default="mage", help="class to report (see classes.CLASSES)")
     dash = sub.add_parser("dashboard", help="render the offline dashboard page from a report payload")
     dash.add_argument("--report", default="data/report.json", help="report JSON written by `report`")
     dash.add_argument("--out", default="dashboard/index.html")
@@ -29,7 +30,7 @@ def main(argv: list[str] | None = None) -> int:
 
         out = Path(args.out)
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(json.dumps(report_from_dataset(args.dataset), indent=1), encoding="utf-8", newline="\n")
+        out.write_text(json.dumps(report_from_dataset(args.dataset, args.class_name), indent=1), encoding="utf-8", newline="\n")
         print(f"wrote {out}")
         return 0
     if args.command == "dashboard":
@@ -73,10 +74,16 @@ def main(argv: list[str] | None = None) -> int:
 
         from wowforever import update
 
-        summary = update.check_for_updates(
-            update.default_http_get, data_dir=Path(args.data_dir), delay=args.delay
-        )
-        print(summary.text())
+        from wowforever.classes import CLASSES
+
+        now = update.datetime.now(update.timezone.utc).isoformat()
+        for class_name in CLASSES:
+            summary = update.check_for_updates(
+                update.default_http_get, data_dir=Path(args.data_dir), delay=args.delay, now=now,
+                class_name=class_name,
+            )
+            print(f"[{class_name}]")
+            print(summary.text())
         return 0
     if args.command is None:
         parser.print_help()

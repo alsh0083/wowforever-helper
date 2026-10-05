@@ -12,5 +12,10 @@ import pytest
 def pytest_configure(config):
     if config.option.basetemp:
         parent = str(config.option.basetemp)
-        os.makedirs(parent, exist_ok=True)   # pytest creates only the last path segment
+        try:
+            os.makedirs(parent, exist_ok=True)   # pytest creates only the last path segment
+        except OSError:
+            # some sandboxes can't create it; fall back to pytest's default temp location
+            config.option.basetemp = None
+            return
         config.option.basetemp = os.path.join(parent, f"run-{os.getpid()}")
