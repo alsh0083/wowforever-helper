@@ -1,56 +1,56 @@
-# Hunter Survival: PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
-# Spec chosen from wowforevertalent.com Forever popularity data plus PvP judgment.
-# source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
-# can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
+# Hunter Survival (Lone Wolf): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
+# From the hunter community PvP build (#108, config/builds/hunter-survival-pvp.toml, 5/11/35):
+# Forever's Survival is petless dual-wield melee (Lone Wolf, Predator's Edge, Strider Kick), so the
+# kit fights in melee and has no pet stun or Scatter Shot (#110).
+# source per value: data = Forever client 1.60.1.70205 hunter spells and the build's talents;
+# estimate = judgment. Health and DPS: level-60 estimates vs cloth until the melee engine (#111).
 
 id = "hunter-survival"
 class = "Hunter"
-spec = "Survival"
+spec = "Survival (Lone Wolf melee)"
 points = "5/11/35"
-role = "ranged"  # melee | ranged | caster
+role = "melee"  # melee | ranged | caster
 stealth = false
 dispels_buffs = false  # can strip Ice Barrier
 confidence = "low"
-sources = ["wft_popular"]
+sources = ["wft_popular", "wft_popular_hunter"]
 
 [at_60]
 health = 3700
-dps = 230  # sustained vs cloth when in range
-opener_damage = 600
+dps = 230  # sustained vs cloth when in range (estimate)
+opener_damage = 400
 opener_stun = 0.0
-opener_source = "estimate (Aimed Shot opener)"
-
-[[controls]]
-name = "Concussive Shot"
-kind = "slow"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
-duration = 4.0
-cooldown = 12
-source = "data"
-
-[[controls]]
-name = "Scatter Shot"
-kind = "incapacitate"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
-duration = 4.0
-cooldown = 30
-source = "data"
+opener_source = "estimate (closes to melee; no stun opener)"
 
 [[controls]]
 name = "Wing Clip"
 kind = "slow"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 10.0
 cooldown = 0
-source = "data"
+source = "data: 60% slow for 10 s, 5 yd"
 
 [[controls]]
-name = "Counterattack"
+name = "Concussive Shot"
+kind = "slow"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
+duration = 4.0
+cooldown = 12
+source = "data: 50% slow"
+
+[[controls]]
+name = "Freezing Trap"
+kind = "incapacitate"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
+duration = 5.0
+cooldown = 18
+source = "data 30 s cooldown, Survivalist's Discipline 2/2 -40%; duration estimate: breaks on damage, so ~5 s of real lockout"
+
+[[controls]]
+name = "Frost Trap (Entrapment)"
 kind = "root"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 5.0
-cooldown = 5
-source = "data"
+cooldown = 18
+source = "data: Entrapment 3/5 roots on trap trigger; trap cooldown 30 s, Survivalist's Discipline -40%"
 
-[[controls]]
-name = "Intimidation"
-kind = "stun"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
-duration = 3.0
-cooldown = 60
-source = "classic (pet stun)"
+[[removes]]
+name = "Surefooted"
+removes = "slow"
+cooldown = 0  # passive: movement impairing effects 30% shorter (Surefooted 3/3); counts as cheap removal
