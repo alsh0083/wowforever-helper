@@ -42,6 +42,10 @@ TABLES: tuple[str, ...] = (
     "TraitCond",
     "TraitNodeXTraitCond",
     "SkillLineXTraitTree",
+    # gear-based placeholder stats (#68)
+    "ItemSparse",
+    "Item",
+    "RandPropPoints",
 )
 
 

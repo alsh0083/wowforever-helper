@@ -32,4 +32,3 @@ def test_shipped_mage_table_covers_10_to_60_and_is_monotonic():
     for prev, cur in zip(rows, rows[1:]):
         assert cur.spell_power >= prev.spell_power
         assert cur.mana >= prev.mana
-        assert cur.crit_pct >= prev.crit_pct

@@ -46,7 +46,8 @@ def test_best_set_prefers_more_weighted_stats():
     chest = s["chest"]
     # among level-60 chests, nothing has more weighted value than the chosen one
     from wowforever.gear import WEIGHTS, weighted
-    rivals = [i for i in ITEMS if i.slot == "chest" and i.required_level <= 60 and i.quality <= 4]
+    from wowforever.gear import _usable
+    rivals = [i for i in ITEMS if i.slot == "chest" and i.required_level <= 60 and i.quality <= 4 and _usable(i)]
     assert weighted(chest, WEIGHTS) == max(weighted(i, WEIGHTS) for i in rivals)
 
 
@@ -57,3 +58,10 @@ def test_totals_and_stat_table_are_monotonic_by_level():
     assert [r.level for r in rows] == [20, 30, 40, 50, 60]
     for a, b in zip(rows, rows[1:]):
         assert b.spell_power >= a.spell_power and b.mana >= a.mana and b.health >= a.health
+
+
+def test_test_items_and_raid_epics_are_excluded():
+    s60 = best_set(ITEMS, 60, 4)
+    names = [i.name for i in s60.values()]
+    assert not any("test" in n.lower() for n in names)
+    assert all(i.quality < 4 or i.item_level <= 63 for i in s60.values())

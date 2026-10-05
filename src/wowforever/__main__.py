@@ -15,6 +15,8 @@ def main(argv: list[str] | None = None) -> int:
     dash = sub.add_parser("dashboard", help="render the offline dashboard page from a report payload")
     dash.add_argument("--report", default="data/report.json", help="report JSON written by `report`")
     dash.add_argument("--out", default="dashboard/index.html")
+    gs = sub.add_parser("gear-stats", help="rebuild config/stats/mage.csv from real Forever gear")
+    gs.add_argument("--tables", required=True, help="folder with ItemSparse/Item/RandPropPoints CSVs")
     upd = sub.add_parser("update", help="fetch both sources, diff against the last saved dataset, record the check")
     upd.add_argument("--data-dir", default="data")
     upd.add_argument("--delay", type=float, default=1.0, help="seconds between table downloads")
@@ -46,6 +48,24 @@ def main(argv: list[str] | None = None) -> int:
         out = Path(args.out)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(render(report, icons), encoding="utf-8", newline="\n")
+        print(f"wrote {out}")
+        return 0
+    if args.command == "gear-stats":
+        import csv
+        from dataclasses import asdict
+        from pathlib import Path
+
+        from wowforever.gear import gear_stat_table, load_items
+        from wowforever.normalize import read_tables
+        from wowforever.stats import CONFIG_DIR
+
+        rows = gear_stat_table(load_items(read_tables(Path(args.tables))), levels=(10, 20, 30, 40, 50, 60))
+        out = CONFIG_DIR / "mage.csv"
+        with out.open("w", encoding="utf-8", newline="") as handle:
+            writer = csv.DictWriter(handle, list(asdict(rows[0])), lineterminator="\n")
+            writer.writeheader()
+            writer.writerows({k: round(v, 2) if isinstance(v, float) else v for k, v in asdict(r).items()}
+                             for r in rows)
         print(f"wrote {out}")
         return 0
     if args.command == "update":
