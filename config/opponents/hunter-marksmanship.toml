@@ -1,5 +1,6 @@
 # Hunter Marksmanship (Trueshot Aura): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
-# Second PvP spec for the class (#81), from wowforevertalent.com Forever popularity data plus judgment.
+# Second PvP spec for the class (#81). Controls from the hunter community build (#108, 5/41/5),
+# which does not take Scatter Shot, so the kit drops it (#110).
 # source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
 # can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
 
@@ -11,7 +12,7 @@ role = "ranged"  # melee | ranged | caster
 stealth = false
 dispels_buffs = false  # can strip Ice Barrier
 confidence = "low"
-sources = ["wft_popular"]
+sources = ["wft_popular", "wft_popular_hunter"]
 
 [at_60]
 health = 3600
@@ -25,18 +26,18 @@ name = "Concussive Shot"
 kind = "slow"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 4.0
 cooldown = 12
-source = "data"
-
-[[controls]]
-name = "Scatter Shot"
-kind = "disorient"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
-duration = 4.0
-cooldown = 30
-source = "data"
+source = "data: 50% slow"
 
 [[controls]]
 name = "Wing Clip"
 kind = "slow"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 10.0
 cooldown = 0
-source = "data"
+source = "data: 60% slow for 10 s, 5 yd"
+
+[[controls]]
+name = "Freezing Trap"
+kind = "incapacitate"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
+duration = 5.0
+cooldown = 30
+source = "data 30 s cooldown; duration estimate: breaks on damage, so ~5 s of real lockout"

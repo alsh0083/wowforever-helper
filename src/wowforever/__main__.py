@@ -14,7 +14,9 @@ def main(argv: list[str] | None = None) -> int:
     rep.add_argument("--out", default="data/report.json")
     rep.add_argument("--class", dest="class_name", default="mage", help="class to report (see classes.CLASSES)")
     dash = sub.add_parser("dashboard", help="render the offline dashboard page from a report payload")
-    dash.add_argument("--report", default="data/report.json", help="report JSON written by `report`")
+    dash.add_argument("--report", action="append",
+                      help="report JSON written by `report`; repeat for several classes (default: "
+                           "data/report.json plus data/report-<class>.json files)")
     dash.add_argument("--out", default="dashboard/index.html")
     gs = sub.add_parser("gear-stats", help="rebuild config/stats/mage.csv from real Forever gear")
     gs.add_argument("--tables", required=True, help="folder with ItemSparse/Item/RandPropPoints CSVs")
@@ -40,15 +42,16 @@ def main(argv: list[str] | None = None) -> int:
         from wowforever.dashboard import fetch_icons, render
         from wowforever.sources.http import http_get_bytes
 
-        report = json.loads(Path(args.report).read_text(encoding="utf-8"))
+        paths = args.report or ["data/report.json", *sorted(str(p) for p in Path("data").glob("report-*.json"))]
+        reports = [json.loads(Path(path).read_text(encoding="utf-8")) for path in paths]
         icons = fetch_icons(
-            [talent["icon"] for talent in report["talents"].values()],
+            [talent["icon"] for report in reports for talent in report["talents"].values()],
             http_get_bytes=http_get_bytes,
             cache_dir=Path("data/cache/icons"),
         )
         out = Path(args.out)
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(render(report, icons), encoding="utf-8", newline="\n")
+        out.write_text(render(reports, icons), encoding="utf-8", newline="\n")
         print(f"wrote {out}")
         return 0
     if args.command == "gear-stats":
