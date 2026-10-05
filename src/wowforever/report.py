@@ -295,8 +295,9 @@ def route_report(cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any
 
 
 MELEE_CAVEAT = ("Melee and ranged model (#111): expected-value rotations against Classic combat-table "
-                "rules; poisons, Backstab, Hack and Slash and hunter pet details aren't modeled yet, base "
-                "stats are estimates, and PvP scores for this class come with #134.")
+                "rules; poisons, Backstab, Hack and Slash and hunter pet details aren't modeled yet, and "
+                "base stats are estimates. PvP scores use the mage's duel model from this class's side "
+                "(#134); stealth openers, Evasion, Vanish, Deterrence and Feign Death aren't counted yet.")
 
 
 def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any], *,
@@ -343,8 +344,12 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
 
     arch = Consensus.load().archetypes
     stats_top = table.at(top)
+    from wowforever.pvp.class_pvp import pvp_score
+    from wowforever.pvp.duel import load_kits
+
+    kits = load_kits()
     fns = {"PvE": lambda ranks: ms.pve_score(class_name, stats_top, spells, cls, ranks),
-           "PvP": lambda ranks: 0.0}      # PvP scores come with #134
+           "PvP": lambda ranks: pvp_score(class_name, stats_top, spells, cls, ranks, kits)}
     slots = build_shortlist(cls, list(builds), fns, margin=SHORTLIST_MARGIN, deep=arch["deep"],
                             hybrid=arch["hybrid"], recognized=tuple(hybrids))
     names = {t.talent_id: t.name for t in cls.talents}
@@ -352,9 +357,7 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
     shortlist = []
     for slot in slots:
         d = slot.as_dict()
-        if slot.focus == "PvP":
-            d.update(standard_score=None, model_pick=None, model_pick_score=None, candidates={})
-        elif slot.model_pick is not None:
+        if slot.model_pick is not None:
             seed_id = slot.standard or (slot.qualifying[0] if slot.qualifying else None)
             seed = finals.get(seed_id, {})
             d["model_pick"] = {names[t]: r for t, r in sorted(slot.model_pick.items())}

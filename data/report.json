@@ -64,6 +64,24 @@
     "game_build": "1.60.1.70170",
     "data_version": "beta-20261004-652acfd6",
     "fetched_at": "2026-10-05T15:40:16.643172+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
    }
   ]
  },
@@ -1267,12 +1285,13 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.056,
+      "score": 0.053,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.065,
        "hunter-marksmanship": 0.054,
+       "mage-frost": 0.036,
        "priest-discipline": 0.075,
        "priest-shadow": 0.048,
        "shaman-elemental": 0.044,
@@ -1281,12 +1300,13 @@
       }
      },
      "30": {
-      "score": 0.178,
+      "score": 0.171,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.212,
        "hunter-marksmanship": 0.129,
+       "mage-frost": 0.127,
        "priest-discipline": 0.239,
        "priest-shadow": 0.164,
        "shaman-elemental": 0.15,
@@ -1295,12 +1315,13 @@
       }
      },
      "40": {
-      "score": 0.261,
+      "score": 0.252,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.308,
        "hunter-marksmanship": 0.192,
+       "mage-frost": 0.193,
        "priest-discipline": 0.342,
        "priest-shadow": 0.245,
        "shaman-elemental": 0.225,
@@ -1309,12 +1330,13 @@
       }
      },
      "50": {
-      "score": 0.383,
+      "score": 0.372,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.44,
        "hunter-marksmanship": 0.296,
+       "mage-frost": 0.297,
        "priest-discipline": 0.479,
        "priest-shadow": 0.364,
        "shaman-elemental": 0.34,
@@ -1323,12 +1345,13 @@
       }
      },
      "60": {
-      "score": 0.609,
+      "score": 0.599,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.675,
        "hunter-marksmanship": 0.464,
+       "mage-frost": 0.528,
        "priest-discipline": 0.708,
        "priest-shadow": 0.602,
        "shaman-elemental": 0.577,
@@ -1862,12 +1885,13 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.047,
+      "score": 0.045,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.056,
        "hunter-marksmanship": 0.046,
+       "mage-frost": 0.031,
        "priest-discipline": 0.064,
        "priest-shadow": 0.041,
        "shaman-elemental": 0.037,
@@ -1876,12 +1900,13 @@
       }
      },
      "30": {
-      "score": 0.16,
+      "score": 0.154,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.192,
        "hunter-marksmanship": 0.116,
+       "mage-frost": 0.113,
        "priest-discipline": 0.217,
        "priest-shadow": 0.148,
        "shaman-elemental": 0.135,
@@ -1890,12 +1915,13 @@
       }
      },
      "40": {
-      "score": 0.24,
+      "score": 0.232,
       "unit": "duel 0-1",
       "spell": "Arcane Missiles",
       "matchups": {
        "druid-balance": 0.284,
        "hunter-marksmanship": 0.179,
+       "mage-frost": 0.176,
        "priest-discipline": 0.316,
        "priest-shadow": 0.224,
        "shaman-elemental": 0.206,
@@ -1904,12 +1930,13 @@
       }
      },
      "50": {
-      "score": 0.326,
+      "score": 0.316,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.379,
        "hunter-marksmanship": 0.252,
+       "mage-frost": 0.247,
        "priest-discipline": 0.416,
        "priest-shadow": 0.308,
        "shaman-elemental": 0.285,
@@ -1918,12 +1945,13 @@
       }
      },
      "60": {
-      "score": 0.536,
+      "score": 0.525,
       "unit": "duel 0-1",
       "spell": "Arcane Missiles",
       "matchups": {
        "druid-balance": 0.603,
        "hunter-marksmanship": 0.401,
+       "mage-frost": 0.45,
        "priest-discipline": 0.64,
        "priest-shadow": 0.525,
        "shaman-elemental": 0.499,
@@ -2457,12 +2485,13 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.056,
+      "score": 0.053,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.065,
        "hunter-marksmanship": 0.055,
+       "mage-frost": 0.036,
        "priest-discipline": 0.075,
        "priest-shadow": 0.048,
        "shaman-elemental": 0.044,
@@ -2471,12 +2500,13 @@
       }
      },
      "30": {
-      "score": 0.181,
+      "score": 0.175,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.217,
        "hunter-marksmanship": 0.132,
+       "mage-frost": 0.13,
        "priest-discipline": 0.244,
        "priest-shadow": 0.168,
        "shaman-elemental": 0.153,
@@ -2485,12 +2515,13 @@
       }
      },
      "40": {
-      "score": 0.247,
+      "score": 0.239,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.291,
        "hunter-marksmanship": 0.185,
+       "mage-frost": 0.181,
        "priest-discipline": 0.324,
        "priest-shadow": 0.23,
        "shaman-elemental": 0.212,
@@ -2499,12 +2530,13 @@
       }
      },
      "50": {
-      "score": 0.355,
+      "score": 0.345,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.41,
        "hunter-marksmanship": 0.277,
+       "mage-frost": 0.272,
        "priest-discipline": 0.448,
        "priest-shadow": 0.336,
        "shaman-elemental": 0.312,
@@ -2513,12 +2545,13 @@
       }
      },
      "60": {
-      "score": 0.555,
+      "score": 0.543,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.614,
        "hunter-marksmanship": 0.467,
+       "mage-frost": 0.461,
        "priest-discipline": 0.65,
        "priest-shadow": 0.537,
        "shaman-elemental": 0.51,
@@ -3052,12 +3085,13 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.049,
+      "score": 0.047,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
        "druid-balance": 0.057,
        "hunter-marksmanship": 0.048,
+       "mage-frost": 0.032,
        "priest-discipline": 0.066,
        "priest-shadow": 0.042,
        "shaman-elemental": 0.038,
@@ -3066,12 +3100,13 @@
       }
      },
      "30": {
-      "score": 0.161,
+      "score": 0.155,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.193,
        "hunter-marksmanship": 0.116,
+       "mage-frost": 0.114,
        "priest-discipline": 0.218,
        "priest-shadow": 0.148,
        "shaman-elemental": 0.135,
@@ -3080,12 +3115,13 @@
       }
      },
      "40": {
-      "score": 0.249,
+      "score": 0.241,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
        "druid-balance": 0.293,
        "hunter-marksmanship": 0.195,
+       "mage-frost": 0.182,
        "priest-discipline": 0.326,
        "priest-shadow": 0.232,
        "shaman-elemental": 0.213,
@@ -3094,12 +3130,13 @@
       }
      },
      "50": {
-      "score": 0.433,
+      "score": 0.422,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
        "druid-balance": 0.489,
        "hunter-marksmanship": 0.364,
+       "mage-frost": 0.34,
        "priest-discipline": 0.528,
        "priest-shadow": 0.411,
        "shaman-elemental": 0.386,
@@ -3108,12 +3145,13 @@
       }
      },
      "60": {
-      "score": 0.635,
+      "score": 0.625,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
        "druid-balance": 0.71,
        "hunter-marksmanship": 0.57,
+       "mage-frost": 0.554,
        "priest-discipline": 0.724,
        "priest-shadow": 0.61,
        "shaman-elemental": 0.582,
@@ -3656,12 +3694,13 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.052,
+      "score": 0.05,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
        "druid-balance": 0.06,
        "hunter-marksmanship": 0.054,
+       "mage-frost": 0.033,
        "priest-discipline": 0.07,
        "priest-shadow": 0.045,
        "shaman-elemental": 0.04,
@@ -3670,12 +3709,13 @@
       }
      },
      "30": {
-      "score": 0.166,
+      "score": 0.16,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.199,
        "hunter-marksmanship": 0.121,
+       "mage-frost": 0.118,
        "priest-discipline": 0.225,
        "priest-shadow": 0.153,
        "shaman-elemental": 0.14,
@@ -3684,12 +3724,13 @@
       }
      },
      "40": {
-      "score": 0.273,
+      "score": 0.264,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
        "druid-balance": 0.32,
        "hunter-marksmanship": 0.211,
+       "mage-frost": 0.202,
        "priest-discipline": 0.355,
        "priest-shadow": 0.255,
        "shaman-elemental": 0.236,
@@ -3698,12 +3739,13 @@
       }
      },
      "50": {
-      "score": 0.44,
+      "score": 0.429,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
        "druid-balance": 0.497,
        "hunter-marksmanship": 0.368,
+       "mage-frost": 0.347,
        "priest-discipline": 0.536,
        "priest-shadow": 0.419,
        "shaman-elemental": 0.393,
@@ -3712,12 +3754,13 @@
       }
      },
      "60": {
-      "score": 0.622,
+      "score": 0.61,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
        "druid-balance": 0.677,
        "hunter-marksmanship": 0.544,
+       "mage-frost": 0.53,
        "priest-discipline": 0.71,
        "priest-shadow": 0.604,
        "shaman-elemental": 0.578,
@@ -4258,12 +4301,13 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.052,
+      "score": 0.05,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
        "druid-balance": 0.06,
        "hunter-marksmanship": 0.054,
+       "mage-frost": 0.033,
        "priest-discipline": 0.07,
        "priest-shadow": 0.045,
        "shaman-elemental": 0.04,
@@ -4272,12 +4316,13 @@
       }
      },
      "30": {
-      "score": 0.166,
+      "score": 0.16,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.199,
        "hunter-marksmanship": 0.121,
+       "mage-frost": 0.118,
        "priest-discipline": 0.225,
        "priest-shadow": 0.153,
        "shaman-elemental": 0.14,
@@ -4286,12 +4331,13 @@
       }
      },
      "40": {
-      "score": 0.273,
+      "score": 0.264,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
        "druid-balance": 0.32,
        "hunter-marksmanship": 0.211,
+       "mage-frost": 0.202,
        "priest-discipline": 0.355,
        "priest-shadow": 0.255,
        "shaman-elemental": 0.236,
@@ -4300,12 +4346,13 @@
       }
      },
      "50": {
-      "score": 0.455,
+      "score": 0.443,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
        "druid-balance": 0.513,
        "hunter-marksmanship": 0.375,
+       "mage-frost": 0.362,
        "priest-discipline": 0.551,
        "priest-shadow": 0.434,
        "shaman-elemental": 0.408,
@@ -4314,12 +4361,13 @@
       }
      },
      "60": {
-      "score": 0.639,
+      "score": 0.628,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
        "druid-balance": 0.693,
        "hunter-marksmanship": 0.563,
+       "mage-frost": 0.549,
        "priest-discipline": 0.725,
        "priest-shadow": 0.622,
        "shaman-elemental": 0.597,
@@ -4860,12 +4908,13 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.052,
+      "score": 0.05,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
        "druid-balance": 0.06,
        "hunter-marksmanship": 0.054,
+       "mage-frost": 0.033,
        "priest-discipline": 0.07,
        "priest-shadow": 0.045,
        "shaman-elemental": 0.04,
@@ -4874,12 +4923,13 @@
       }
      },
      "30": {
-      "score": 0.166,
+      "score": 0.16,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.199,
        "hunter-marksmanship": 0.121,
+       "mage-frost": 0.118,
        "priest-discipline": 0.225,
        "priest-shadow": 0.153,
        "shaman-elemental": 0.14,
@@ -4888,12 +4938,13 @@
       }
      },
      "40": {
-      "score": 0.273,
+      "score": 0.264,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
        "druid-balance": 0.32,
        "hunter-marksmanship": 0.211,
+       "mage-frost": 0.202,
        "priest-discipline": 0.355,
        "priest-shadow": 0.255,
        "shaman-elemental": 0.236,
@@ -4902,12 +4953,13 @@
       }
      },
      "50": {
-      "score": 0.455,
+      "score": 0.443,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
        "druid-balance": 0.513,
        "hunter-marksmanship": 0.375,
+       "mage-frost": 0.362,
        "priest-discipline": 0.551,
        "priest-shadow": 0.434,
        "shaman-elemental": 0.408,
@@ -4916,12 +4968,13 @@
       }
      },
      "60": {
-      "score": 0.639,
+      "score": 0.628,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
        "druid-balance": 0.693,
        "hunter-marksmanship": 0.563,
+       "mage-frost": 0.549,
        "priest-discipline": 0.725,
        "priest-shadow": 0.622,
        "shaman-elemental": 0.597,
@@ -5455,12 +5508,13 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.056,
+      "score": 0.053,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.065,
        "hunter-marksmanship": 0.055,
+       "mage-frost": 0.036,
        "priest-discipline": 0.075,
        "priest-shadow": 0.048,
        "shaman-elemental": 0.044,
@@ -5469,12 +5523,13 @@
       }
      },
      "30": {
-      "score": 0.179,
+      "score": 0.173,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.214,
        "hunter-marksmanship": 0.131,
+       "mage-frost": 0.128,
        "priest-discipline": 0.241,
        "priest-shadow": 0.166,
        "shaman-elemental": 0.151,
@@ -5483,12 +5538,13 @@
       }
      },
      "40": {
-      "score": 0.244,
+      "score": 0.236,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.288,
        "hunter-marksmanship": 0.182,
+       "mage-frost": 0.179,
        "priest-discipline": 0.321,
        "priest-shadow": 0.227,
        "shaman-elemental": 0.209,
@@ -5497,12 +5553,13 @@
       }
      },
      "50": {
-      "score": 0.36,
+      "score": 0.349,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
        "druid-balance": 0.415,
        "hunter-marksmanship": 0.281,
+       "mage-frost": 0.276,
        "priest-discipline": 0.453,
        "priest-shadow": 0.341,
        "shaman-elemental": 0.317,
@@ -5511,12 +5568,13 @@
       }
      },
      "60": {
-      "score": 0.578,
+      "score": 0.566,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
        "druid-balance": 0.636,
        "hunter-marksmanship": 0.49,
+       "mage-frost": 0.485,
        "priest-discipline": 0.671,
        "priest-shadow": 0.56,
        "shaman-elemental": 0.533,
@@ -5694,7 +5752,7 @@
     "Arcane Focus": 5,
     "Wand Specialization": 2
    },
-   "model_pick_score": 0.5993297891397927,
+   "model_pick_score": 0.5971177680415686,
    "candidates": {},
    "qualifying": [],
    "model_pick_changes": [
@@ -5913,7 +5971,7 @@
     "Arcane Subtlety": 2,
     "Arcane Focus": 5
    },
-   "model_pick_score": 0.6077134486995118,
+   "model_pick_score": 0.6053993713975143,
    "candidates": {},
    "qualifying": [],
    "model_pick_changes": [
@@ -6033,11 +6091,11 @@
    "archetype": "deep Frost",
    "focus": "PvP",
    "standard": "deep-frost",
-   "standard_score": 0.8614810526118063,
+   "standard_score": 0.8594509971420293,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "deep-frost": 0.8614810526118063
+    "deep-frost": 0.8594509971420293
    },
    "qualifying": [
     "deep-frost"
@@ -6194,9 +6252,9 @@
     "Incineration": 3,
     "Wake of Fire": 2
    },
-   "model_pick_score": 0.7436111236306815,
+   "model_pick_score": 0.741335172281658,
    "candidates": {
-    "elementalist-v4": 0.7234965344822305
+    "elementalist-v4": 0.7212320903585193
    },
    "qualifying": [
     "elementalist-v4"
@@ -6246,11 +6304,11 @@
    "archetype": "Arcane/Fire",
    "focus": "PvP",
    "standard": "arcane-pom-pyro",
-   "standard_score": 0.4993073533793016,
+   "standard_score": 0.4972876996653503,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "arcane-pom-pyro": 0.4993073533793016
+    "arcane-pom-pyro": 0.4972876996653503
    },
    "qualifying": [
     "arcane-pom-pyro"

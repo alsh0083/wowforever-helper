@@ -1383,10 +1383,12 @@
    "archetype": "deep Combat",
    "focus": "PvP",
    "standard": "rogue-combat-pvp",
-   "standard_score": null,
+   "standard_score": 0.43997129565920395,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
+   "candidates": {
+    "rogue-combat-pvp": 0.43997129565920395
+   },
    "qualifying": [
     "rogue-combat-pvp"
    ]
@@ -1429,13 +1431,89 @@
    "archetype": "Assassination/Subtlety",
    "focus": "PvP",
    "standard": "rogue-subtlety",
-   "standard_score": null,
-   "model_pick": null,
-   "model_pick_score": null,
-   "candidates": {},
+   "standard_score": 0.39069995335620544,
+   "model_pick": {
+    "Improved Eviscerate": 3,
+    "Lethality": 5,
+    "Ruthlessness": 3,
+    "Malice": 5,
+    "Precision": 3,
+    "Improved Slice and Dice": 3,
+    "Improved Sinister Strike": 2,
+    "Improved Gouge": 2,
+    "Premeditation": 1,
+    "Dirty Deeds": 2,
+    "Preparation": 1,
+    "Heightened Senses": 2,
+    "Improved Ambush": 3,
+    "Serrated Blades": 3,
+    "Initiative": 2,
+    "Camouflage": 3,
+    "Dirty Tricks": 2,
+    "Relentless Strikes": 1,
+    "Opportunity": 2,
+    "Master of Deception": 3
+   },
+   "model_pick_score": 0.41523121889361564,
+   "candidates": {
+    "rogue-subtlety": 0.39069995335620544
+   },
    "qualifying": [
     "rogue-subtlety"
-   ]
+   ],
+   "model_pick_changes": [
+    {
+     "talent": "Cold Blood",
+     "from": 1,
+     "to": 0
+    },
+    {
+     "talent": "Lethality",
+     "from": 4,
+     "to": 5
+    },
+    {
+     "talent": "Puncturing Wounds",
+     "from": 3,
+     "to": 0
+    },
+    {
+     "talent": "Murder",
+     "from": 2,
+     "to": 0
+    },
+    {
+     "talent": "Ruthlessness",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Improved Sprint",
+     "from": 2,
+     "to": 0
+    },
+    {
+     "talent": "Precision",
+     "from": 2,
+     "to": 3
+    },
+    {
+     "talent": "Improved Slice and Dice",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Improved Gouge",
+     "from": 3,
+     "to": 2
+    },
+    {
+     "talent": "Serrated Blades",
+     "from": 2,
+     "to": 3
+    }
+   ],
+   "model_pick_seed": "rogue-subtlety"
   },
   {
    "archetype": "Assassination/Subtlety",
@@ -1727,6 +1805,6 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Melee and ranged model (#111): expected-value rotations against Classic combat-table rules; poisons, Backstab, Hack and Slash and hunter pet details aren't modeled yet, base stats are estimates, and PvP scores for this class come with #134."
+  "Melee and ranged model (#111): expected-value rotations against Classic combat-table rules; poisons, Backstab, Hack and Slash and hunter pet details aren't modeled yet, and base stats are estimates. PvP scores use the mage's duel model from this class's side (#134); stealth openers, Evasion, Vanish, Deterrence and Feign Death aren't counted yet."
  ]
 }
