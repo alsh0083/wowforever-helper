@@ -1,0 +1,13 @@
+# Hunter rotation constants (#132, part 2). Classic values; confidence LOW until checked in Forever.
+
+# ranged attack speed from a quiver or ammo pouch (Classic quivers: 10-15%)
+quiver_haste_pct = 15.0
+# Rapid Fire uptime: its data haste for its duration, every cooldown (data 300 s; Rapid Killing cuts it)
+# normalized weapon speed for "normalized" shots and strikes (Classic)
+normalized_speed = { ranged = 2.8, one_hand = 2.4, dagger = 1.7, two_hand = 3.3 }
+# Trueshot Aura's ranged attack power (rank text: +30)
+trueshot_aura_rap = 30.0
+# a Beast Mastery pet's damage per second by level, before talents (estimate: Classic cat ~ level * 1.2)
+pet_dps_per_level = 1.2
+# Bestial Wrath: +50% pet damage for 18 s every 2 min (rank text; cooldown Classic)
+bestial_wrath = { bonus_pct = 50.0, duration = 18.0, cooldown = 120.0 }
