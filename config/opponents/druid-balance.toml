@@ -1,0 +1,40 @@
+# Druid Balance (Moonkin): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
+# Second PvP spec for the class (#81), from wowforevertalent.com Forever popularity data plus judgment.
+# source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
+# can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
+
+id = "druid-balance"
+class = "Druid"
+spec = "Balance (Moonkin)"
+points = "36/0/15"
+role = "caster"  # melee | ranged | caster
+stealth = false
+dispels_buffs = false  # can strip Ice Barrier
+confidence = "low"
+sources = ["wft_popular"]
+
+[at_60]
+health = 3900
+dps = 200  # sustained vs cloth when in range
+opener_damage = 0
+opener_stun = 0.0
+opener_source = "none"
+
+[[controls]]
+name = "Entangling Roots"
+kind = "root"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
+duration = 27.0
+cooldown = 0
+source = "data (breaks on damage)"
+
+[[controls]]
+name = "Bash"
+kind = "stun"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
+duration = 4.0
+cooldown = 60
+source = "data (bear form)"
+
+[[removes]]
+name = "Shapeshift"
+removes = "slow,root"
+cooldown = 0
