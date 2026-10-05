@@ -24,7 +24,7 @@ CLS, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
                          wago_build="1.60.1.70205")
 CLS, _ = attach_effects(CLS, TALENT_EFFECTS, UNMODELED)
 SPELLS = class_spells(read_tables(FIX / "wago-1.60.1.70205-spells"), skill_lines=SKILL_LINES)
-BUILDS = {b.id: b for b in load_builds()}
+BUILDS = {b.id: b for b in load_builds(class_name="mage")}
 A = Assumptions.load()
 
 
