@@ -126,6 +126,13 @@ class SpellRank:
     fear: float = 0.0                  # seconds the target is feared (Fear, Psychic Scream)
     disorient: float = 0.0             # seconds the target is disoriented (Scatter Shot, Blind)
     energy_cost: int = 0               # rogue energy (SpellPower PowerType 3, #121)
+    weapon_bonus: float = 0.0          # flat damage added to the weapon hit (effect 121 or 58 base points)
+    weapon_normalized: bool = False    # effect 121: normalized weapon damage (speed set by weapon type)
+    weapon_pct: float = 0.0            # effect 31 base points, e.g. 150 for 150%; 0 = no percentage effect
+    weapon_hits: int = 0               # weapon strikes per use: 1 for a direct effect, or the triggered count
+    per_combo_point: float = 0.0       # extra damage per combo point (EffectPointsPerResource of the damage effect)
+    combo_points: int = 0              # combo points awarded (effect 30 with EffectMiscValue_0 == 4)
+    haste_pct: float = 0.0             # melee haste aura (aura 319) base points
 
 
 @dataclass(frozen=True)
