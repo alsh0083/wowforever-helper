@@ -32,6 +32,7 @@ class Build:
     origin: str = "hand"                       # "community" (consensus/popularity data), "hand", or "model"
     sources: tuple[str, ...] = ()              # keys into config/consensus.toml [sources]
     confidence: str = ""                       # low | medium | high, for community builds
+    class_name: str = "mage"                   # TOML key `class`
 
     @classmethod
     def load(cls, path: Path) -> Build:
@@ -41,7 +42,8 @@ class Build:
         return cls(raw["id"], raw["name"], raw["summary"], final, order,
                    dict(raw.get("must_have_by", {})), tuple(raw.get("gives_up", ())),
                    raw.get("primary_spell", ""), raw.get("pair", raw["id"]), raw.get("variant", ""),
-                   raw.get("origin", "hand"), tuple(raw.get("sources", ())), raw.get("confidence", ""))
+                   raw.get("origin", "hand"), tuple(raw.get("sources", ())), raw.get("confidence", ""),
+                   raw.get("class", "mage"))
 
     def unknown_talents(self, cls: ClassData) -> list[str]:
         """Talent names in this build that the class doesn't have (e.g. renamed by a patch)."""
@@ -56,5 +58,7 @@ class Build:
         return [cls.talent_named(n).talent_id for n in self.order] if self.order else None
 
 
-def load_builds(directory: Path = CONFIG_DIR) -> list[Build]:
-    return [Build.load(p) for p in sorted(directory.glob("*.toml"))]
+def load_builds(directory: Path = CONFIG_DIR, class_name: str | None = None) -> list[Build]:
+    """Every build in `directory`, or only those of `class_name`."""
+    builds = [Build.load(p) for p in sorted(directory.glob("*.toml"))]
+    return builds if class_name is None else [b for b in builds if b.class_name == class_name]
