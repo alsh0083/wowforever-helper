@@ -176,6 +176,9 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
     schools = tuple(school for bit, school in SCHOOL_BITS if mask & bit)
 
     cast_time = _f(indexes.cast_times.get(int(_f(misc_row.get("CastingTimeIndex", "0"))), {}).get("Base")) / 1000.0
+    # Negative bases mark shots timed by the ranged weapon (index 18: -1000000 ms); instant until
+    # the ranged engine models weapon timing (#111).
+    cast_time = max(0.0, cast_time)
     duration = _f(indexes.durations.get(int(_f(misc_row.get("DurationIndex", "0"))), {}).get("Duration")) / 1000.0
     range_max = _f(indexes.ranges.get(int(_f(misc_row.get("RangeIndex", "0"))), {}).get("RangeMax_0"))
 

@@ -42,8 +42,9 @@ def test_build_class_is_read_from_toml(tmp_path):
 
 
 def test_merge_class_adds_a_new_class_and_replaces_an_existing_one():
-    ds = Dataset.load(DATASET)
-    mage_cls = ds.class_data("mage")
+    full = Dataset.load(DATASET)
+    mage_cls = full.class_data("mage")
+    ds = dataclasses.replace(full, classes=(mage_cls,))      # independent of which classes are saved
     rogue = dataclasses.replace(mage_cls, class_name="rogue")
     extra = Provenance(source="wowforevertalent.com", game_build="x", data_version="rogue-page",
                        fetched_at="2026-10-05T00:00:00Z", snapshot_sha256="00")

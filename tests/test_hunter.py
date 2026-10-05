@@ -62,3 +62,10 @@ def test_hunter_spells_load():
     names = {s.name for s in spells}
     assert {"Auto Shot", "Arcane Shot", "Multi-Shot", "Aimed Shot", "Serpent Sting", "Concussive Shot",
             "Freezing Trap", "Feign Death", "Disengage", "Raptor Strike", "Wing Clip", "Rapid Fire"} <= names
+
+
+def test_weapon_timed_shots_load_as_instant():
+    # SpellCastTimes index 18 (base -1000000 ms) marks shots timed by the ranged weapon (#108)
+    spells = {(s.name, s.rank): s for s in class_spells(TABLES, skill_lines=HUNTER.SKILL_LINES)}
+    assert spells[("Arcane Shot", 1)].cast_time == 0.0
+    assert all(s.cast_time >= 0 for s in spells.values())
