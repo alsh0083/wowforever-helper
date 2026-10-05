@@ -25,6 +25,13 @@ EFFECT_AREA_TRIGGER = 179    # triggers an area effect
 AURA_DOT = 3                 # periodic damage over time
 AURA_SLOW = 33               # movement speed mod (negative base points = slow)
 AURA_AREA_PERIODIC = 226     # marker for an area-triggered periodic
+AURA_STUN = 12               # stun (Impact's proc; Ice Block also self-stuns, see AURA_IMMUNITY)
+AURA_ROOT = 26               # root (Frost Nova, Frostbite's freeze)
+AURA_IMMUNITY = 39           # school immunity (Ice Block)
+AURA_TRANSFORM = 56          # transform / incapacitate (Polymorph)
+AURA_ABSORB = 69             # school damage absorb (Ice Barrier, Fire/Frost Ward)
+AURA_MANA_SHIELD = 97        # absorb paid with mana (Mana Shield)
+EFFECT_INTERRUPT = 68        # interrupt + school lockout (Counterspell)
 
 _ACQUIRE_RUNE = 3            # SkillLineAbility.AcquireMethod: Season of Discovery rune
 _ATTR1_CHANNELED = 0x4 | 0x40  # SpellMisc.Attributes_1 channel flags (Arcane Missiles / Blizzard)
@@ -185,6 +192,16 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
             slow_pct = -_f(effect["EffectBasePointsF"])
             break
 
+    auras = {int(e["EffectAura"]) for e in effects if e["Effect"] == str(EFFECT_AURA)}
+    absorb = sum(_f(e["EffectBasePointsF"]) for e in effects
+                 if e["Effect"] == str(EFFECT_AURA) and int(e["EffectAura"]) in (AURA_ABSORB, AURA_MANA_SHIELD))
+    immunity = duration if AURA_IMMUNITY in auras else 0.0
+    # Ice Block also stuns the caster (aura 12); only count a stun on spells that aren't immunities
+    stun = duration if AURA_STUN in auras and not immunity else 0.0
+    root = duration if AURA_ROOT in auras else 0.0
+    incapacitate = duration if AURA_TRANSFORM in auras else 0.0
+    interrupt_lockout = duration if any(e["Effect"] == str(EFFECT_INTERRUPT) for e in effects) else 0.0
+
     periodic_damage = periodic_coefficient = tick_period = 0.0
     dot = next((e for e in effects
                 if e["Effect"] == str(EFFECT_AURA) and e["EffectAura"] == str(AURA_DOT)), None)
@@ -212,6 +229,8 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
         duration=duration, range=range_max, tick_period=tick_period,
         damage_per_level=damage_per_level, scaling_max_level=scaling_max_level,
         slow_pct=slow_pct, max_targets=max_targets, channeled=channeled,
+        absorb=absorb, root=root, stun=stun, immunity=immunity, incapacitate=incapacitate,
+        interrupt_lockout=interrupt_lockout,
     )
 
 
