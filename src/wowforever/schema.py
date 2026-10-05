@@ -116,6 +116,12 @@ class SpellRank:
     slow_pct: float = 0.0              # movement slow applied, %
     max_targets: int = 0               # AoE target cap; 0 = no cap in client data
     channeled: bool = False            # casting occupies the full `duration`
+    absorb: float = 0.0                # damage absorbed by a shield (Ice Barrier, Mana Shield, Wards)
+    root: float = 0.0                  # seconds the target is rooted (Frost Nova)
+    stun: float = 0.0                  # seconds the target is stunned
+    immunity: float = 0.0              # seconds of immunity for the caster (Ice Block)
+    incapacitate: float = 0.0          # seconds the target is incapacitated (Polymorph)
+    interrupt_lockout: float = 0.0     # seconds a school is locked out on interrupt (Counterspell)
 
 
 @dataclass(frozen=True)
