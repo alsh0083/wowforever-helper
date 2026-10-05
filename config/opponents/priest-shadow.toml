@@ -1,0 +1,42 @@
+# Priest Shadow: PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
+# Spec chosen from wowforevertalent.com Forever popularity data plus PvP judgment.
+# source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
+# can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
+
+id = "priest-shadow"
+class = "Priest"
+spec = "Shadow"
+points = "14/3/34"
+role = "caster"  # melee | ranged | caster
+stealth = false
+dispels_buffs = true  # can strip Ice Barrier
+confidence = "low"
+sources = ["wft_popular"]
+
+[at_60]
+health = 3400
+dps = 210  # sustained vs cloth when in range
+opener_damage = 0
+opener_stun = 0.0
+opener_source = "none"
+
+[[controls]]
+name = "Psychic Scream"
+kind = "fear"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 8.0
+cooldown = 30
+source = "classic (data reader misses fear)"
+
+[[controls]]
+name = "Silence"
+kind = "silence"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 5.0
+cooldown = 45
+source = "classic (talent spell)"
+
+[[controls]]
+name = "Mind Flay"
+kind = "slow"  # stun | incapacitate | fear | root | slow | interrupt | silence
+duration = 3.0
+cooldown = 0
+source = "data"

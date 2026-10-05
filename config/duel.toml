@@ -1,0 +1,18 @@
+# Duel model constants (#26, docs/design/pvp-duel-model.md). Confidence: LOW, judgment values.
+
+# Seconds per minute a melee opponent loses to a fully kept-up slow, per 1.0 of the mage's
+# slow component (uptime x strength). 0.5 slow kept up all fight = 15 s/min out of melee.
+slow_kite_seconds = 30.0
+# A cheap removal of slows/roots (cooldown <= 20 s: Cleanse, Blessing of Freedom, shapeshift)
+# halves the mage's kiting time against that opponent.
+removal_factor = 0.5
+removal_max_cooldown = 20.0
+# Ranged physical opponents keep hitting through roots and slows; only this share of root
+# seconds still costs them uptime (repositioning).
+ranged_root_share = 0.2
+# A dispel that can strip Ice Barrier halves its value against that opponent.
+dispel_barrier_factor = 0.5
+# Never let anyone's uptime drop below this (the model ignores line of sight and positioning).
+min_uptime = 0.2
+# Cap for "never dies" (seconds).
+max_fight = 600.0
