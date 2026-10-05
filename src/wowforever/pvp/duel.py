@@ -25,7 +25,7 @@ OPPONENTS = Path(__file__).resolve().parents[3] / "config" / "opponents"
 
 # Kit control kinds that stop the mage from casting. Slows and roots do not stop casting;
 # they enter the duel through the mage's root/stun/slow components as kiting time.
-CAST_LOCKS = frozenset({"stun", "incapacitate", "fear", "silence", "interrupt"})
+CAST_LOCKS = frozenset({"stun", "incapacitate", "disorient", "fear", "silence", "interrupt"})
 
 _CONFIG: dict[str, Any] | None = None
 

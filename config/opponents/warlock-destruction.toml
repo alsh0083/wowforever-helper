@@ -1,12 +1,12 @@
-# Warlock Affliction (Siphon Life): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
-# Spec chosen from wowforevertalent.com Forever popularity data plus PvP judgment.
+# Warlock Destruction (Shadowburn, Conflagrate): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
+# Second PvP spec for the class (#81), from wowforevertalent.com Forever popularity data plus judgment.
 # source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
 # can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
 
-id = "warlock-affliction"
+id = "warlock-destruction"
 class = "Warlock"
-spec = "Affliction (Siphon Life)"
-points = "40/11/0"
+spec = "Destruction (Shadowburn, Conflagrate)"
+points = "5/11/35"
 role = "caster"  # melee | ranged | caster
 stealth = false
 dispels_buffs = true  # can strip Ice Barrier
@@ -14,8 +14,8 @@ confidence = "low"
 sources = ["wft_popular"]
 
 [at_60]
-health = 3600
-dps = 200  # sustained vs cloth when in range
+health = 3500
+dps = 240  # sustained vs cloth when in range
 opener_damage = 0
 opener_stun = 0.0
 opener_source = "none"
@@ -25,7 +25,7 @@ name = "Fear"
 kind = "fear"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 4.0
 cooldown = 0
-source = "estimate (20 s in data, breaks on damage; DoTs break it early)"
+source = "estimate (breaks on damage)"
 
 [[controls]]
 name = "Death Coil"

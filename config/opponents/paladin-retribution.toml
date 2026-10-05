@@ -22,14 +22,14 @@ opener_source = "none"
 
 [[controls]]
 name = "Hammer of Justice"
-kind = "stun"  # stun | incapacitate | fear | root | slow | interrupt | silence
+kind = "stun"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 6.0
 cooldown = 60
 source = "data"
 
 [[controls]]
 name = "Repentance"
-kind = "stun"  # stun | incapacitate | fear | root | slow | interrupt | silence
+kind = "stun"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 6.0
 cooldown = 60
 source = "data"

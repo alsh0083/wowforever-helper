@@ -1,21 +1,21 @@
-# Shaman Enhancement (Stormstrike): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
-# Spec chosen from wowforevertalent.com Forever popularity data plus PvP judgment.
+# Shaman Elemental: PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
+# Second PvP spec for the class (#81), from wowforevertalent.com Forever popularity data plus judgment.
 # source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
 # can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
 
-id = "shaman-enhancement"
+id = "shaman-elemental"
 class = "Shaman"
-spec = "Enhancement (Stormstrike)"
-points = "18/33/0"
-role = "melee"  # melee | ranged | caster
+spec = "Elemental"
+points = "38/13/0"
+role = "caster"  # melee | ranged | caster
 stealth = false
 dispels_buffs = true  # can strip Ice Barrier
 confidence = "low"
 sources = ["wft_popular"]
 
 [at_60]
-health = 4000
-dps = 210  # sustained vs cloth when in range
+health = 3700
+dps = 230  # sustained vs cloth when in range
 opener_damage = 0
 opener_stun = 0.0
 opener_source = "none"
