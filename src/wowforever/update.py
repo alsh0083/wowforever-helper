@@ -61,6 +61,8 @@ class UpdateSummary:
     affected_builds: list[str]
     crosscheck: CrosscheckResult
     effect_problems: list[str] = field(default_factory=list)
+    popular_changed: bool = False                               # top community builds differ from last check
+    popular_top: list[str] = field(default_factory=list)       # "points 0/29/22 (172 saves)" per top build
 
     def text(self) -> str:
         """Short chat-ready summary of the check."""
@@ -80,6 +82,9 @@ class UpdateSummary:
         lines.append(self.crosscheck.summary())
         if self.effect_problems:
             lines.append("Effect problems: " + "; ".join(self.effect_problems))
+        if self.popular_top:
+            state = "changed since last check" if self.popular_changed else "unchanged"
+            lines.append(f"Popular community builds ({state}): " + "; ".join(self.popular_top))
         return "\n".join(lines)
 
 
@@ -168,6 +173,20 @@ def check_for_updates(
 
     affected = revisions_module.affected_builds(changes, builds_module.load_builds())
     result = crosscheck_module.crosscheck(cls, page, report, wago_build=build)
+
+    # community popularity data rides along in the wowforevertalent.com snapshot
+    popular = wowforevertalent.popular_builds(page)
+    popular_path = data_dir / "popularity" / f"{page.class_id}.json"
+    previous_popular = (json.loads(popular_path.read_text(encoding="utf-8"))["top"]
+                        if popular_path.exists() else None)
+    popular_changed = previous_popular is not None and [b["final"] for b in previous_popular] != [
+        b["final"] for b in popular]
+    if popular:
+        popular_path.parent.mkdir(parents=True, exist_ok=True)
+        meta = {k: page.popular.get(k) for k in ("sourceWindow", "sourceUpdatedAt", "counts", "spec")}
+        popular_path.write_text(json.dumps({**meta, "top": popular}, indent=1, sort_keys=True),
+                                encoding="utf-8", newline="\n")
+    popular_top = [f"points {'/'.join(map(str, b['points']))} ({b['saved']} saves)" for b in popular]
     revisions_module.record_check(
         data_dir / "builds.json", build, changed=changed, dataset=dataset_rel, checked_at=now
     )
@@ -179,4 +198,6 @@ def check_for_updates(
         affected_builds=affected,
         crosscheck=result,
         effect_problems=effect_problems,
+        popular_changed=popular_changed,
+        popular_top=popular_top,
     )
