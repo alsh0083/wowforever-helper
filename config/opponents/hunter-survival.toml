@@ -3,7 +3,7 @@
 # Forever's Survival is petless dual-wield melee (Lone Wolf, Predator's Edge, Strider Kick), so the
 # kit fights in melee and has no pet stun or Scatter Shot (#110).
 # source per value: data = Forever client 1.60.1.70205 hunter spells and the build's talents;
-# estimate = judgment. Health and DPS: level-60 estimates vs cloth until the melee engine (#111).
+# estimate = judgment. Health and DPS: level-60 values vs cloth from the melee engine (#147).
 
 id = "hunter-survival"
 class = "Hunter"
@@ -16,8 +16,8 @@ confidence = "low"
 sources = ["wft_popular", "wft_popular_hunter"]
 
 [at_60]
-health = 3700
-dps = 230  # sustained vs cloth when in range (estimate)
+health = 3160  # melee engine (#147), build hunter-survival-pvp
+dps = 323  # melee engine (#147), build hunter-survival-pvp
 opener_damage = 400
 opener_stun = 0.0
 opener_source = "estimate (closes to melee; no stun opener)"
