@@ -33,7 +33,7 @@ Constants from `config/duel.toml` (read once).
 - stealth_ambush: stealth kits, "they_open"
 
 ## `mage_side(char, filler) -> MageSide`
-From `wowforever.calc.pvp_axes`: `s = survival(char, filler)`, `c = control(char, filler)`. `health = char.stats.health`; `dps` = expected damage per second of the filler the same way `scenarios._cast` does it (target = same level); `barrier_per_min = s.components["barrier"] * health`; `immunity_share = s.components["immunity"]`; root/stun/slow/interrupt from `c.components`.
+From `wowforever.calc.pvp_axes`: `s = survival(char, filler)`, `c = control(char, filler)`. `health = char.stats.health`; `dps` = `rotation(char, filler, target_level=char.level, assumptions=Assumptions.load(), sustained=False).dps` (from `wowforever.classes.mage_rotation`; duels are short, so no sustained buffs); `barrier_per_min = s.components["barrier"] * health`; `immunity_share = s.components["immunity"]`; root/stun/slow/interrupt from `c.components`.
 
 ## Done when
 `.venv/Scripts/python -m pytest` passes in full.
