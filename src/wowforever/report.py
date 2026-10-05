@@ -19,6 +19,7 @@ from wowforever.consensus import Consensus
 from wowforever.focus import pve_score_fn, pvp_score_fn
 from wowforever.optimizer import optimize_order
 from wowforever.shortlist import build_shortlist
+from wowforever.pvp.battleground import battleground
 from wowforever.pvp.duel import load_kits, mage_side, scenario_scores
 from wowforever.rules import check_order, points_available
 from wowforever.scenarios import Character, aoe_curve, best_rank, default_params, questing, raid
@@ -88,6 +89,13 @@ def score_build(order: Sequence[int], cls: ClassData, spells, stats: StatTable,
             scores.setdefault(name, {})[level] = {
                 "score": round(result["score"], 3), "unit": "duel 0-1",
                 "matchups": {k: round(v, 3) for k, v in result["matchups"].items()}}
+        d = raid(char, default_params("dungeon", level), assumptions)
+        scores.setdefault("dungeon", {})[level] = {"score": round(d.score, 1), "unit": "dps",
+                                                   "spell": d.details["spell"]}
+        bg = battleground(char, filler, assumptions)
+        scores.setdefault("battleground", {})[level] = {
+            "score": round(bg["score"], 3), "unit": "0-1",
+            "components": {k: round(v, 3) for k, v in bg["components"].items()}}
         if level == cls.rules.max_level:
             r = raid(char, default_params("raid", level), assumptions)
             scores["raid"][level] = {"score": round(r.score, 1), "unit": r.unit, "spell": r.details["spell"],
@@ -169,7 +177,7 @@ def build_report(cls: ClassData, spells: tuple[SpellRank, ...], builds: Sequence
         if problems:
             raise ValueError(f"{b.id}: illegal order: {problems}")
         payload_builds.append({
-            "id": b.id, "name": b.name, "pair": b.pair, "variant": b.variant,
+            "id": b.id, "name": b.name, "pair": b.pair, "variant": b.variant, "origin": b.origin,
             "summary": b.summary, "gives_up": list(b.gives_up),
             "must_have_by": b.must_have_by, "order": order, "order_source": how,
             "open_points": points_available(cls.rules.max_level, cls.rules) - len(order),
