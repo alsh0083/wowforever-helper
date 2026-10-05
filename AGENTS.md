@@ -4,7 +4,7 @@ Theorycrafting tools for WoW Forever: versioned talent/spell data → build lega
 
 ## GitHub issues are the project's memory
 
-Issues on `alsh0083/wowforever-helper` are the single source of truth for what is planned, in progress, done, or broken. Milestones `v0` → `v1` → `later` order the work; `Depends on #N` lines order it within a milestone. Labels: one `area:*` per issue, plus `local-model` (implemented through Codex, reviewed by Claude), `claude` (design/audit done by Claude directly), and `needs-decision` (blocked on the owner).
+Issues on `alsh0083/wowforever-helper` are the single source of truth for what is planned, in progress, done, or broken. Milestones `v0` → `v1` → `v1.1` → `alts` → `alts-engine`, then `later`, order the work (decision records in `docs/planning/`); `Depends on #N` lines order it within a milestone. Labels: one `area:*` per issue, plus `local-model` (implemented through Codex, reviewed by Claude), `claude` (design/audit done by Claude directly), and `needs-decision` (blocked on the owner).
 
 For every piece of work:
 
