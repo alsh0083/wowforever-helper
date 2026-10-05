@@ -15,6 +15,7 @@ from typing import Any
 from wowforever.assumptions import Assumptions
 from wowforever.builds import Build
 from wowforever.calc.pvp_axes import control, survival
+from wowforever.checklist import checklist
 from wowforever.consensus import Consensus
 from wowforever.focus import pve_score_fn, pvp_score_fn
 from wowforever.optimizer import optimize_order
@@ -205,6 +206,7 @@ def build_report(cls: ClassData, spells: tuple[SpellRank, ...], builds: Sequence
                                              frozenset(t.spell_id for t in cls.talents)),
         "assumptions": {n: {"value": a.value, "why": a.why, "tested": a.tested}
                         for n, a in assumptions.entries.items()},
+        "checklist": [asdict(item) for item in checklist(assumptions)],
         "caveats": [
             "Questing and raid scenarios use a filler-plus-weaves rotation (Fire Blast, Scorch, "
             "Pyroblast, Ice Lance); Combustion, utility and PvP talents are not modeled yet (#57).",

@@ -6065,6 +6065,115 @@
    "tested": ""
   }
  },
+ "checklist": [
+  {
+   "name": "frostfire_periodic_can_crit",
+   "question": "Client spell data flags Frostfire Bolt's periodic part as able to crit.",
+   "assumed": true,
+   "options": [
+    true,
+    false
+   ],
+   "talents": [
+    "Frostfire Bolt"
+   ],
+   "status": "untested",
+   "result": ""
+  },
+  {
+   "name": "frostfire_ticks_trigger_impact",
+   "question": "Unknown whether each Frostfire Bolt tick, or only the direct hit, can roll Impact's stun.",
+   "assumed": false,
+   "options": [
+    true,
+    false
+   ],
+   "talents": [
+    "Frostfire Bolt",
+    "Impact"
+   ],
+   "status": "untested",
+   "result": ""
+  },
+  {
+   "name": "burning_soul_protects_frostfire",
+   "question": "Burning Soul names Fire spells; Frostfire Bolt counts as both schools, so it probably applies.",
+   "assumed": true,
+   "options": [
+    true,
+    false
+   ],
+   "talents": [
+    "Frostfire Bolt",
+    "Burning Soul"
+   ],
+   "status": "untested",
+   "result": ""
+  },
+  {
+   "name": "frostfire_interrupt_lockout",
+   "question": "Which school(s) an interrupt locks when it lands on a Frostfire Bolt cast.",
+   "assumed": "both",
+   "options": [
+    "both",
+    "fire",
+    "frost"
+   ],
+   "talents": [
+    "Frostfire Bolt"
+   ],
+   "status": "untested",
+   "result": ""
+  },
+  {
+   "name": "fingers_of_frost_applies_to_frostfire",
+   "question": "Unknown whether Fingers of Frost charges count Frostfire Bolt as a Frost spell.",
+   "assumed": false,
+   "options": [
+    true,
+    false
+   ],
+   "talents": [
+    "Frostfire Bolt",
+    "Fingers of Frost"
+   ],
+   "status": "untested",
+   "result": ""
+  },
+  {
+   "name": "aoe_target_cap",
+   "question": "Client data has no MaxTargets on mage AoE; players report damage falling off past 4 targets.",
+   "assumed": "none",
+   "options": [
+    "none",
+    "soft_4"
+   ],
+   "talents": [
+    "Blizzard",
+    "Flamestrike",
+    "Arcane Explosion",
+    "Cone of Cold",
+    "Blast Wave"
+   ],
+   "status": "untested",
+   "result": ""
+  },
+  {
+   "name": "sub20_spell_penalty",
+   "question": "Classic cuts the spell power coefficient of spells learned below level 20 by 3.75% per level under 20; Forever client coefficients don't carry it (it's server-side).",
+   "assumed": true,
+   "options": [
+    true,
+    false
+   ],
+   "talents": [
+    "Frostbolt",
+    "Fireball"
+   ],
+   "status": "untested",
+   "result": ""
+  }
+ ],
  "caveats": [
   "Questing and raid scenarios use a filler-plus-weaves rotation (Fire Blast, Scorch, Pyroblast, Ice Lance); Combustion, utility and PvP talents are not modeled yet (#57).",
   "Stats, mob HP and mana budgets are rough Classic-era defaults (low confidence).",

@@ -10,7 +10,7 @@ from wowforever.revisions import Change
 A = Assumptions.load()
 
 
-def tested(assumptions, name, text):
+def mark_tested(assumptions, name, text):
     entries = dict(assumptions.entries)
     entries[name] = replace(entries[name], tested=text)
     return Assumptions(entries)
@@ -31,14 +31,14 @@ def test_every_assumption_names_what_would_trigger_a_retest():
 
 
 def test_a_tested_item_keeps_its_result():
-    a = tested(A, "burning_soul_protects_frostfire", "2026-11-02 on 1.60.2: yes")
+    a = mark_tested(A, "burning_soul_protects_frostfire", "2026-11-02 on 1.60.2: yes")
     item = next(i for i in checklist(a) if i.name == "burning_soul_protects_frostfire")
     assert item.status == "tested" and item.result == "2026-11-02 on 1.60.2: yes"
 
 
 def test_a_change_to_an_involved_talent_flags_a_tested_item_for_retest():
-    a = tested(A, "burning_soul_protects_frostfire", "2026-11-02 on 1.60.2: yes")
-    a = tested(a, "aoe_target_cap", "2026-11-02 on 1.60.2: soft cap at 4")
+    a = mark_tested(A, "burning_soul_protects_frostfire", "2026-11-02 on 1.60.2: yes")
+    a = mark_tested(a, "aoe_target_cap", "2026-11-02 on 1.60.2: soft cap at 4")
     changes = [Change("Fire", "Burning Soul", "rank_text", "rank 1 text changed")]
     by_name = {i.name: i for i in checklist(a, changes)}
     assert by_name["burning_soul_protects_frostfire"].status == "retest"
@@ -48,7 +48,7 @@ def test_a_change_to_an_involved_talent_flags_a_tested_item_for_retest():
 
 
 def test_spell_changes_match_case_insensitively():
-    a = tested(A, "aoe_target_cap", "2026-11-02 on 1.60.2: soft cap at 4")
+    a = mark_tested(A, "aoe_target_cap", "2026-11-02 on 1.60.2: soft cap at 4")
     changes = [Change("", "blizzard", "damage", "damage changed", rank=7)]
     assert retest_names(a, changes) == ["aoe_target_cap"]
 
@@ -67,3 +67,11 @@ def test_update_summary_lists_retests():
     assert "retest" in fields
     src = __import__("inspect").getsource(UpdateSummary.text)
     assert "Retest in game" in src
+
+
+def test_dashboard_has_the_checklist_section():
+    import json
+    from pathlib import Path
+    from wowforever.dashboard import render
+    payload = json.loads((Path(__file__).parent / "fixtures" / "dashboard" / "payload.json").read_text(encoding="utf-8"))
+    assert "To test in game" in render(payload, {})
