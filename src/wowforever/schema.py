@@ -125,6 +125,7 @@ class SpellRank:
     interrupt_lockout: float = 0.0     # seconds a school is locked out on interrupt (Counterspell)
     fear: float = 0.0                  # seconds the target is feared (Fear, Psychic Scream)
     disorient: float = 0.0             # seconds the target is disoriented (Scatter Shot, Blind)
+    energy_cost: int = 0               # rogue energy (SpellPower PowerType 3, #121)
 
 
 @dataclass(frozen=True)
