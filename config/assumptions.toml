@@ -43,3 +43,10 @@ options = ["none", "soft_4"]
 why = "Client data has no MaxTargets on mage AoE; players report damage falling off past 4 targets."
 source = "docs/research/forever-facts.md; issue #19"
 tested = ""
+
+[sub20_spell_penalty]
+value = true
+options = [true, false]
+why = "Classic cuts the spell power coefficient of spells learned below level 20 by 3.75% per level under 20; Forever client coefficients don't carry it (it's server-side)."
+source = "warcraft.wiki.gg/wiki/downranking; issue #91"
+tested = ""

@@ -900,7 +900,7 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 49.0,
+      "score": 47.9,
       "unit": "kills/hour",
       "spell": "Fireball"
      },
@@ -959,12 +959,12 @@
     },
     "raid": {
      "60": {
-      "score": 281.4,
+      "score": 282.0,
       "unit": "dps",
       "spell": "Fireball",
       "time_to_oom": 133.24384267532776,
       "raw_dps": 379.5,
-      "fallback_spell": "Fireball rank 5"
+      "fallback_spell": "Fireball rank 4"
      }
     },
     "survival": {
@@ -1073,15 +1073,15 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.04,
+      "score": 0.039,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.064,
-       "paladin-retribution": 0.058,
+       "druid-feral": 0.063,
+       "paladin-retribution": 0.057,
        "rogue-combat": 0.016,
-       "rogue-subtlety": 0.02,
-       "shaman-enhancement": 0.055,
-       "warrior-arms": 0.03
+       "rogue-subtlety": 0.019,
+       "shaman-enhancement": 0.053,
+       "warrior-arms": 0.029
       }
      },
      "30": {
@@ -1135,15 +1135,15 @@
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.024,
+      "score": 0.023,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.006,
-       "paladin-retribution": 0.058,
+       "paladin-retribution": 0.057,
        "rogue-combat": 0.0,
        "rogue-subtlety": 0.0,
-       "shaman-enhancement": 0.055,
-       "warrior-arms": 0.023
+       "shaman-enhancement": 0.053,
+       "warrior-arms": 0.022
       }
      },
      "30": {
@@ -1197,17 +1197,17 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.048,
+      "score": 0.047,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.056,
-       "hunter-marksmanship": 0.048,
-       "hunter-survival": 0.048,
-       "priest-discipline": 0.065,
-       "priest-shadow": 0.041,
-       "shaman-elemental": 0.037,
-       "warlock-affliction": 0.047,
-       "warlock-destruction": 0.041
+       "druid-balance": 0.054,
+       "hunter-marksmanship": 0.047,
+       "hunter-survival": 0.047,
+       "priest-discipline": 0.063,
+       "priest-shadow": 0.04,
+       "shaman-elemental": 0.036,
+       "warlock-affliction": 0.046,
+       "warlock-destruction": 0.04
       }
      },
      "30": {
@@ -1316,7 +1316,7 @@
     },
     "dungeon": {
      "20": {
-      "score": 32.6,
+      "score": 31.7,
       "unit": "dps",
       "spell": "Fireball"
      },
@@ -1336,17 +1336,17 @@
       "spell": "Fireball"
      },
      "60": {
-      "score": 295.4,
+      "score": 295.9,
       "unit": "dps",
       "spell": "Fireball"
      }
     },
     "battleground": {
      "20": {
-      "score": 0.348,
+      "score": 0.342,
       "unit": "0-1",
       "components": {
-       "kill": 0.618,
+       "kill": 0.601,
        "endurance": 0.323,
        "survival": 0.16,
        "control": 0.224
@@ -1394,7 +1394,9 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [
+    "sub20_spell_penalty=False: raid DPS 282.0 -> 283.8"
+   ]
   },
   {
    "id": "deep-arcane",
@@ -1463,7 +1465,7 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 47.6,
+      "score": 46.4,
       "unit": "kills/hour",
       "spell": "Fireball"
      },
@@ -1636,14 +1638,14 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.035,
+      "score": 0.034,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.055,
-       "paladin-retribution": 0.05,
-       "rogue-combat": 0.014,
-       "rogue-subtlety": 0.017,
-       "shaman-enhancement": 0.047,
+       "druid-feral": 0.054,
+       "paladin-retribution": 0.048,
+       "rogue-combat": 0.013,
+       "rogue-subtlety": 0.016,
+       "shaman-enhancement": 0.045,
        "warrior-arms": 0.025
       }
      },
@@ -1702,11 +1704,11 @@
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.005,
-       "paladin-retribution": 0.05,
+       "paladin-retribution": 0.048,
        "rogue-combat": 0.0,
        "rogue-subtlety": 0.0,
-       "shaman-enhancement": 0.047,
-       "warrior-arms": 0.02
+       "shaman-enhancement": 0.045,
+       "warrior-arms": 0.019
       }
      },
      "30": {
@@ -1760,17 +1762,17 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.041,
+      "score": 0.04,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.048,
-       "hunter-marksmanship": 0.041,
-       "hunter-survival": 0.041,
-       "priest-discipline": 0.055,
-       "priest-shadow": 0.035,
-       "shaman-elemental": 0.032,
-       "warlock-affliction": 0.041,
-       "warlock-destruction": 0.035
+       "druid-balance": 0.046,
+       "hunter-marksmanship": 0.04,
+       "hunter-survival": 0.04,
+       "priest-discipline": 0.054,
+       "priest-shadow": 0.034,
+       "shaman-elemental": 0.031,
+       "warlock-affliction": 0.039,
+       "warlock-destruction": 0.034
       }
      },
      "30": {
@@ -1879,7 +1881,7 @@
     },
     "dungeon": {
      "20": {
-      "score": 32.6,
+      "score": 31.6,
       "unit": "dps",
       "spell": "Fireball"
      },
@@ -1906,10 +1908,10 @@
     },
     "battleground": {
      "20": {
-      "score": 0.318,
+      "score": 0.312,
       "unit": "0-1",
       "components": {
-       "kill": 0.524,
+       "kill": 0.509,
        "endurance": 0.38,
        "survival": 0.16,
        "control": 0.224
@@ -1957,7 +1959,9 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [
+    "sub20_spell_penalty=False: raid DPS 223.0 -> 223.3"
+   ]
   },
   {
    "id": "deep-fire",
@@ -2026,7 +2030,7 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 49.2,
+      "score": 48.1,
       "unit": "kills/hour",
       "spell": "Fireball"
      },
@@ -2085,12 +2089,12 @@
     },
     "raid": {
      "60": {
-      "score": 291.0,
+      "score": 291.3,
       "unit": "dps",
       "spell": "Fireball",
       "time_to_oom": 123.25917884646584,
       "raw_dps": 426.2,
-      "fallback_spell": "Fireball rank 5"
+      "fallback_spell": "Fireball rank 4"
      }
     },
     "survival": {
@@ -2199,15 +2203,15 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.041,
+      "score": 0.04,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.065,
-       "paladin-retribution": 0.059,
+       "druid-feral": 0.063,
+       "paladin-retribution": 0.057,
        "rogue-combat": 0.016,
-       "rogue-subtlety": 0.02,
-       "shaman-enhancement": 0.055,
-       "warrior-arms": 0.03
+       "rogue-subtlety": 0.019,
+       "shaman-enhancement": 0.053,
+       "warrior-arms": 0.029
       }
      },
      "30": {
@@ -2261,14 +2265,14 @@
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.024,
+      "score": 0.023,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.006,
-       "paladin-retribution": 0.059,
+       "paladin-retribution": 0.057,
        "rogue-combat": 0.0,
        "rogue-subtlety": 0.0,
-       "shaman-enhancement": 0.055,
+       "shaman-enhancement": 0.053,
        "warrior-arms": 0.023
       }
      },
@@ -2323,17 +2327,17 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.048,
+      "score": 0.047,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.056,
-       "hunter-marksmanship": 0.049,
-       "hunter-survival": 0.049,
-       "priest-discipline": 0.065,
-       "priest-shadow": 0.042,
-       "shaman-elemental": 0.038,
-       "warlock-affliction": 0.048,
-       "warlock-destruction": 0.041
+       "druid-balance": 0.055,
+       "hunter-marksmanship": 0.047,
+       "hunter-survival": 0.047,
+       "priest-discipline": 0.063,
+       "priest-shadow": 0.04,
+       "shaman-elemental": 0.037,
+       "warlock-affliction": 0.046,
+       "warlock-destruction": 0.04
       }
      },
      "30": {
@@ -2442,7 +2446,7 @@
     },
     "dungeon": {
      "20": {
-      "score": 32.8,
+      "score": 31.9,
       "unit": "dps",
       "spell": "Fireball"
      },
@@ -2469,10 +2473,10 @@
     },
     "battleground": {
      "20": {
-      "score": 0.349,
+      "score": 0.343,
       "unit": "0-1",
       "components": {
-       "kill": 0.622,
+       "kill": 0.605,
        "endurance": 0.323,
        "survival": 0.16,
        "control": 0.224
@@ -2520,7 +2524,9 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [
+    "sub20_spell_penalty=False: raid DPS 291.3 -> 292.2"
+   ]
   },
   {
    "id": "deep-frost",
@@ -3083,7 +3089,9 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [
+    "sub20_spell_penalty=False: raid DPS 347.0 -> 347.4"
+   ]
   },
   {
    "id": "elementalist-pve",
@@ -3653,7 +3661,9 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [
+    "sub20_spell_penalty=False: raid DPS 265.6 -> 266.6"
+   ]
   },
   {
    "id": "elementalist-v4",
@@ -4223,7 +4233,9 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [
+    "sub20_spell_penalty=False: raid DPS 262.6 -> 263.5"
+   ]
   },
   {
    "id": "fire-frost-shatter",
@@ -4292,7 +4304,7 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 49.2,
+      "score": 48.1,
       "unit": "kills/hour",
       "spell": "Fireball"
      },
@@ -4465,15 +4477,15 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.041,
+      "score": 0.04,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.065,
-       "paladin-retribution": 0.059,
+       "druid-feral": 0.063,
+       "paladin-retribution": 0.057,
        "rogue-combat": 0.016,
-       "rogue-subtlety": 0.02,
-       "shaman-enhancement": 0.055,
-       "warrior-arms": 0.03
+       "rogue-subtlety": 0.019,
+       "shaman-enhancement": 0.053,
+       "warrior-arms": 0.029
       }
      },
      "30": {
@@ -4527,14 +4539,14 @@
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.024,
+      "score": 0.023,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.006,
-       "paladin-retribution": 0.059,
+       "paladin-retribution": 0.057,
        "rogue-combat": 0.0,
        "rogue-subtlety": 0.0,
-       "shaman-enhancement": 0.055,
+       "shaman-enhancement": 0.053,
        "warrior-arms": 0.023
       }
      },
@@ -4589,17 +4601,17 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.048,
+      "score": 0.047,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.056,
-       "hunter-marksmanship": 0.049,
-       "hunter-survival": 0.049,
-       "priest-discipline": 0.065,
-       "priest-shadow": 0.042,
-       "shaman-elemental": 0.038,
-       "warlock-affliction": 0.048,
-       "warlock-destruction": 0.041
+       "druid-balance": 0.055,
+       "hunter-marksmanship": 0.047,
+       "hunter-survival": 0.047,
+       "priest-discipline": 0.063,
+       "priest-shadow": 0.04,
+       "shaman-elemental": 0.037,
+       "warlock-affliction": 0.046,
+       "warlock-destruction": 0.04
       }
      },
      "30": {
@@ -4708,7 +4720,7 @@
     },
     "dungeon": {
      "20": {
-      "score": 32.8,
+      "score": 31.9,
       "unit": "dps",
       "spell": "Fireball"
      },
@@ -4735,10 +4747,10 @@
     },
     "battleground": {
      "20": {
-      "score": 0.349,
+      "score": 0.343,
       "unit": "0-1",
       "components": {
-       "kill": 0.622,
+       "kill": 0.605,
        "endurance": 0.323,
        "survival": 0.16,
        "control": 0.224
@@ -5129,11 +5141,11 @@
    "archetype": "deep Fire",
    "focus": "PvE",
    "standard": "deep-fire",
-   "standard_score": 1.4800808404943517,
+   "standard_score": 1.480549035828006,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "deep-fire": 1.4800808404943517
+    "deep-fire": 1.480549035828006
    },
    "qualifying": [
     "deep-fire"
@@ -5386,7 +5398,7 @@
     "Arcane Subtlety": 2,
     "Arcane Focus": 5
    },
-   "model_pick_score": 1.5754332714525114,
+   "model_pick_score": 1.5769106471021,
    "candidates": {},
    "qualifying": [],
    "model_pick_changes": [
@@ -6045,6 +6057,11 @@
   "aoe_target_cap": {
    "value": "none",
    "why": "Client data has no MaxTargets on mage AoE; players report damage falling off past 4 targets.",
+   "tested": ""
+  },
+  "sub20_spell_penalty": {
+   "value": true,
+   "why": "Classic cuts the spell power coefficient of spells learned below level 20 by 3.75% per level under 20; Forever client coefficients don't carry it (it's server-side).",
    "tested": ""
   }
  },

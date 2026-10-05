@@ -14,7 +14,7 @@ from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any
 
-from wowforever.assumptions import Assumptions, periodic_can_crit
+from wowforever.assumptions import Assumptions, periodic_can_crit, sub20_penalized
 from wowforever.calc.ev import effective_cast_time, expected_damage
 from wowforever.schema import ClassData, SpellRank
 from wowforever.stats import Stats
@@ -103,7 +103,7 @@ def _cast(char: Character, spell: SpellRank, target_level: int,
 
     def ev_of(s: SpellRank) -> float:
         return expected_damage(
-            scaled(s, char.level),
+            sub20_penalized(scaled(s, char.level), assumptions),
             spell_power=char.stats.spell_power,
             crit_pct=char.stats.crit_pct,
             hit_pct=char.stats.hit_pct,
@@ -217,10 +217,8 @@ def _fallback(char: Character, p: RaidParams, filler: SpellRank, target: int,
               assumptions: Assumptions, income: float) -> tuple[float, SpellRank | None]:
     """Best mana-limited DPS once dry: every learned rank of the filler plus the best rank of each
     other filler, each throttled to what `income` can pay for."""
-    # Ranks learned below level 20 are left out: Classic cuts their spell power coefficient
-    # (the sub-20 penalty), which the calculator does not model yet, so they would look too efficient.
     candidates = [s for s in char.spells
-                  if s.name == filler.name and s.level <= char.level and (s.level >= 20 or s is filler)]
+                  if s.name == filler.name and s.level <= char.level]
     for name in p.fillers:
         if name != filler.name:
             other = best_rank(char.spells, name, char.level)
