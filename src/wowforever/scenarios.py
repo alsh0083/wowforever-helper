@@ -142,9 +142,9 @@ def _best_of(char: Character, names: Sequence[str], target_level: int,
 def questing(char: Character, p: QuestingParams, assumptions: Assumptions) -> ScenarioResult:
     """Kills/hour while questing: kill time + drink downtime + travel, per kill."""
     spell = _best_of(char, p.fillers, char.level, assumptions, "filler")
-    ev, cast, cost = _cast(char, spell, char.level, assumptions)
-    time_to_kill = p.mob_hp / (ev / cast)
-    mana_per_kill = p.mob_hp / ev * cost
+    rot = _rotation(char, spell, char.level, assumptions, sustained=False)
+    time_to_kill = p.mob_hp / rot.dps
+    mana_per_kill = p.mob_hp / rot.dps * rot.mana_per_second
     downtime = mana_per_kill / p.drink_mana_per_second
     return ScenarioResult(
         scenario="questing",
@@ -188,9 +188,9 @@ def raid(char: Character, p: RaidParams, assumptions: Assumptions) -> ScenarioRe
     """Sustained DPS in a raid fight, cut short if the character runs out of mana."""
     target = char.level + p.target_level_offset
     spell = _best_of(char, p.fillers, target, assumptions, "filler")
-    ev, cast, cost = _cast(char, spell, target, assumptions)
-    dps = ev / cast
-    drain = cost / cast - p.mana_per_second
+    rot = _rotation(char, spell, target, assumptions, sustained=True)
+    dps = rot.dps
+    drain = rot.mana_per_second - p.mana_per_second
     if drain <= 0:
         time_to_oom: float | None = None
         score = dps
@@ -202,9 +202,18 @@ def raid(char: Character, p: RaidParams, assumptions: Assumptions) -> ScenarioRe
         level=char.level,
         score=score,
         unit="dps",
-        details={"spell": spell.name, "dps": dps, "time_to_oom": time_to_oom},
+        details={"spell": spell.name, "dps": rot.dps, "time_to_oom": time_to_oom},
         assumptions=assumptions.describe(),
     )
+
+
+def _rotation(char: Character, spell: SpellRank, target_level: int,
+              assumptions: Assumptions, *, sustained: bool):
+    """The class's rotation model (#57); imported here to avoid an import cycle."""
+    from wowforever.classes.mage_rotation import rotation
+
+    return rotation(char, spell, target_level=target_level, assumptions=assumptions,
+                    sustained=sustained)
 
 
 def default_params(scenario: str, level: int) -> QuestingParams | AoeParams | RaidParams:

@@ -4,6 +4,8 @@
 of Discovery runes, no level-0 NPC versions) and fills one SpellRank per spell from
 the joined spell tables. Area-triggered periodics (Blizzard, Flamestrike) borrow
 their tick damage from the matching tick spell, which is itself not trainable.
+Channeled periodics with a periodic trigger (Arcane Missiles) borrow their per-tick
+damage from the triggered missile spell, which is likewise not trainable.
 """
 
 from __future__ import annotations
@@ -23,6 +25,7 @@ EFFECT_DAMAGE = 2            # school damage
 EFFECT_AURA = 6              # apply aura (DoT, slow, area-periodic marker)
 EFFECT_AREA_TRIGGER = 179    # triggers an area effect
 AURA_DOT = 3                 # periodic damage over time
+AURA_PERIODIC_TRIGGER = 23   # periodic trigger: fires EffectTriggerSpell every EffectAuraPeriod
 AURA_SLOW = 33               # movement speed mod (negative base points = slow)
 AURA_AREA_PERIODIC = 226     # marker for an area-triggered periodic
 AURA_STUN = 12               # stun (Impact's proc; Ice Block also self-stuns, see AURA_IMMUNITY)
@@ -211,15 +214,26 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
         periodic_damage = _f(dot["EffectBasePointsF"]) * ticks
         periodic_coefficient = _f(dot["EffectBonusCoefficient"]) * ticks
     else:
-        area = next((e for e in effects
-                     if e["Effect"] == str(EFFECT_AURA) and e["EffectAura"] == str(AURA_AREA_PERIODIC)), None)
-        has_area_trigger = any(e["Effect"] == str(EFFECT_AREA_TRIGGER) for e in effects)
-        tick = tick_damage.get((name, level)) if area is not None and has_area_trigger else None
-        if tick is not None:
-            tick_period = _f(area["EffectAuraPeriod"]) / 1000.0
+        trigger = next((e for e in effects
+                        if e["Effect"] == str(EFFECT_AURA)
+                        and e["EffectAura"] == str(AURA_PERIODIC_TRIGGER)), None)
+        if trigger is not None:
+            tick_period = _f(trigger["EffectAuraPeriod"]) / 1000.0
             ticks = _ticks(duration, tick_period)
-            periodic_damage = tick[0] * ticks
-            periodic_coefficient = tick[1] * ticks
+            missile = _triggered_damage(indexes, trigger)
+            if missile is not None:
+                periodic_damage = missile[0] * ticks
+                periodic_coefficient = missile[1] * ticks
+        else:
+            area = next((e for e in effects
+                         if e["Effect"] == str(EFFECT_AURA) and e["EffectAura"] == str(AURA_AREA_PERIODIC)), None)
+            has_area_trigger = any(e["Effect"] == str(EFFECT_AREA_TRIGGER) for e in effects)
+            tick = tick_damage.get((name, level)) if area is not None and has_area_trigger else None
+            if tick is not None:
+                tick_period = _f(area["EffectAuraPeriod"]) / 1000.0
+                ticks = _ticks(duration, tick_period)
+                periodic_damage = tick[0] * ticks
+                periodic_coefficient = tick[1] * ticks
 
     return SpellRank(
         spell_id=spell_id, name=name, rank=rank, level=level, schools=schools,
@@ -239,6 +253,19 @@ def _ticks(duration: float, tick_period: float) -> float:
     if duration <= 0 or tick_period <= 0:
         return 0.0
     return float(duration // tick_period)
+
+
+def _triggered_damage(indexes: _Indexes, trigger: dict[str, str]) -> tuple[float, float] | None:
+    """(base points, coefficient) of the Effect == 2 row of a periodic trigger's spell.
+
+    The triggered spell (e.g. Arcane Missile) is not in SkillLineAbility, but its
+    effect rows are still in the table.
+    """
+    trigger_id = int(_f(trigger.get("EffectTriggerSpell", "0")))
+    for effect in indexes.effects.get(trigger_id, []):
+        if effect["Effect"] == str(EFFECT_DAMAGE):
+            return _f(effect["EffectBasePointsF"]), _f(effect["EffectBonusCoefficient"])
+    return None
 
 
 def _is_base_difficulty(row: dict[str, str]) -> bool:
