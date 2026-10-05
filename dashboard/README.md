@@ -1,11 +1,15 @@
-# WoW Forever · Offensive Elementalist
+# WoW Forever mage dashboard
 
-Open index.html in a browser. The single file works offline with embedded talent icons.
+Open `index.html` in a browser. It works offline: talent icons and all data are embedded.
 
-This provisional world-PvP leveling candidate preserves the current level 10–32 Frost foundation, then takes Incineration 33–35, Improved Fireball 36–37, Impact 38–40, finishes Improved Fireball 41–43, Burning Soul 44–46, Pyroblast 47, Hot Streak 48, Ignite 49–52, Blast Wave 53, Ignite 54, Critical Mass 55–57, and Wake of Fire 58–59.
+**It's generated; don't edit `index.html` by hand.** Change `template.html`, the builds in `config/builds/`, or the data, then rebuild:
 
-Level 60 is intentionally unassigned: 23 Frost + 27 Fire + 1 open point. The flex card lists accuracy, range, and control options. The tracker counts 50 allocated points, not the open slot. This route forgoes Ice Barrier, Master of Elements, and Piercing Ice. It is not a tested meta build.
+```sh
+python -m wowforever update                                     # fetch + normalize the latest Forever build
+python -m wowforever report --dataset data/datasets/<build>.json
+python -m wowforever dashboard                                  # writes dashboard/index.html
+```
 
-Use the slider, milestones, or level field, then check rank buttons or the next-point panel. Descriptions explain priorities and tradeoffs. Progress is saved in localStorage when available. Old saves remain untouched; matching talent ranks migrate to the new order, while removed talent checks are not reassigned. Changing level preserves checks. Reset asks for confirmation.
-
-Talent icons match https://wowforevertalent.com/mage/ and are embedded in the HTML. Artwork belongs to its respective owners; the header crest is original SVG. The dashboard is outside the read-only project sources.
+- **Build switcher:** the current Elementalist route plus deep Frost, deep Fire and an Arcane reference build, each with its point order, scenario scores at levels 20-60, sensitivity to unknown mechanics, and caveats.
+- **Progress** is saved per build in this browser (localStorage). The Elementalist build keeps the original `wow-forever-elementalist-v4` save, including migration from older versions.
+- Talent text and icons: [wowforevertalent.com](https://wowforevertalent.com/) (Creative Commons Attribution). Game data: wago.tools. Artwork belongs to its respective owners.

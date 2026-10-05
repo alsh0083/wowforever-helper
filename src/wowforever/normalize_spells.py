@@ -27,6 +27,7 @@ AURA_SLOW = 33               # movement speed mod (negative base points = slow)
 AURA_AREA_PERIODIC = 226     # marker for an area-triggered periodic
 
 _ACQUIRE_RUNE = 3            # SkillLineAbility.AcquireMethod: Season of Discovery rune
+_ATTR1_CHANNELED = 0x4 | 0x40  # SpellMisc.Attributes_1 channel flags (Arcane Missiles / Blizzard)
 
 
 def class_spells(tables: Tables, *, skill_lines: Sequence[int]) -> tuple[SpellRank, ...]:
@@ -158,6 +159,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
         if damage_per_level > 0:
             scaling_max_level = int(_f(level_row["MaxLevel"]))
 
+    channeled = bool(int(_f(misc_row.get("Attributes_1", "0"))) & _ATTR1_CHANNELED)
     mask = int(_f(misc_row.get("SchoolMask", "0")))
     schools = tuple(school for bit, school in SCHOOL_BITS if mask & bit)
 
@@ -209,7 +211,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
         periodic_damage=periodic_damage, periodic_coefficient=periodic_coefficient,
         duration=duration, range=range_max, tick_period=tick_period,
         damage_per_level=damage_per_level, scaling_max_level=scaling_max_level,
-        slow_pct=slow_pct, max_targets=max_targets,
+        slow_pct=slow_pct, max_targets=max_targets, channeled=channeled,
     )
 
 
