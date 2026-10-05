@@ -18,6 +18,7 @@ from wowforever.schema import SpellRank
 from wowforever.scenarios import Character, best_rank, scaled
 
 ARCANE_POWER_COOLDOWN = 180.0  # seconds; Arcane Power's 15 s buff is averaged over it
+FREEZE_SECONDS = 5.0           # Frostbite: "Freeze the target for 5 sec."
 
 
 @dataclass(frozen=True)
@@ -86,7 +87,20 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
     cast = effective_cast_time(filler, filler_mods)
     if filler.channeled:
         cast = max(cast, filler.duration)
-    filler_dps = ev_of(filler, filler_mods) / cast
+    filler_ev = ev_of(filler, filler_mods)
+
+    # Frostbite (#96): on normal mobs a landed Chill can freeze the target for FREEZE_SECONDS, and
+    # the filler casts that land inside the freeze get Shatter's crit. Bosses (sustained) can't be
+    # frozen. A cast lands frozen when any of the previous floor(freeze / cast) casts procced.
+    freeze_procs = 0.0  # Frostbite freezes per filler cast
+    if not sustained and filler.slow_pct > 0:
+        freeze_procs = value("Frostbite", "proc_chance") / 100.0 * hit
+        if freeze_procs > 0:
+            inside = int(FREEZE_SECONDS // cast)
+            frozen_share = 1.0 - (1.0 - freeze_procs) ** inside
+            frozen_mods = mods_for(filler, conditions | {"frozen"})
+            filler_ev = (1.0 - frozen_share) * filler_ev + frozen_share * ev_of(filler, frozen_mods)
+    filler_dps = filler_ev / cast
 
     weaves: list[tuple[SpellRank, float, float, Modifiers]] = []
 
@@ -113,16 +127,16 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
             # one landed filler crit per Heating Up stack, three stacks per Pyroblast
             add(pyro, (60.0 / cast) * hit * crit / 3.0, pyro.cast_time * 0.25, mods_for(pyro))
     fof_rank = taken("Fingers of Frost")
-    if fof_rank > 0 and taken("Ice Lance") > 0 and filler.slow_pct > 0:
+    if (fof_rank > 0 or freeze_procs > 0) and taken("Ice Lance") > 0 and filler.slow_pct > 0:
         lance = best_rank(char.spells, "Ice Lance", char.level)
         if lance is not None:
-            # +300% damage vs a frozen target
+            # +300% damage vs a frozen target: each Fingers of Frost charge, and one per freeze
             frozen = replace(lance, min_damage=lance.min_damage * 4.0,
                              max_damage=lance.max_damage * 4.0,
                              coefficient=lance.coefficient * 4.0)
-            chance = value("Fingers of Frost", "proc_chance")
-            add(frozen, (60.0 / cast) * chance / 100.0 * fof_rank, GCD_SECONDS,
-                mods_for(lance, frozenset({"frozen"})))
+            chance = value("Fingers of Frost", "proc_chance") / 100.0 * fof_rank
+            add(frozen, (60.0 / cast) * (chance + freeze_procs), GCD_SECONDS,
+                mods_for(lance, conditions | {"frozen"}))
 
     busy = sum(n * cast_w for _, n, cast_w, _ in weaves)
     if busy > 60.0:
