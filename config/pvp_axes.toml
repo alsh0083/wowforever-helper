@@ -1,0 +1,19 @@
+# Survival and control scoring (#25). Each component becomes a 0-1 share: min(1, value / reference).
+# An axis score is the weighted sum of its components' shares; weights per axis sum to 1.
+# Confidence: LOW. References are rough "this is plenty" levels, not measured data; the
+# consensus tiers (#24) sit on top of these in the shortlist (#28).
+# Ice Barrier stops pushback while it holds; how much of a fight that covers is a judgment call.
+barrier_pushback_share = 0.5
+
+[survival]
+barrier = { weight = 0.35, reference = 0.5, unit = "absorb per minute / health" }
+immunity = { weight = 0.25, reference = 0.05, unit = "share of time immune (per 10 min)" }
+pushback = { weight = 0.20, reference = 1.0, unit = "protection from spell pushback, 0-1" }
+escapes = { weight = 0.20, reference = 8.0, unit = "escape cooldowns per minute (Blink, Frost Nova)" }
+
+[control]
+slow = { weight = 0.35, reference = 0.5, unit = "slow uptime x slow strength" }
+root = { weight = 0.35, reference = 30.0, unit = "root seconds per minute" }
+stun = { weight = 0.15, reference = 6.0, unit = "stun seconds per minute" }
+interrupt = { weight = 0.15, reference = 20.0, unit = "interrupt and silence seconds per minute" }
+
