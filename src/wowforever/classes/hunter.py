@@ -121,5 +121,8 @@ UNMODELED: dict[str, str] = {
     "Strider Kick": "grants_spell",
 }
 
+# Scored by the melee/ranged engine (#111): report_from_dataset builds a melee_report.
+ENGINE = "melee"
+
 # Hunter skill lines in SkillLineAbility: Beast Mastery, Marksmanship, Survival.
 SKILL_LINES = (50, 163, 51)

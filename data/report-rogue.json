@@ -1,6 +1,6 @@
 {
  "class": "rogue",
- "engine": false,
+ "engine": true,
  "dataset": {
   "version": "1.60.1.70205",
   "game_build": "1.60.1.70205",
@@ -64,6 +64,24 @@
     "game_build": "1.60.1.70170",
     "data_version": "beta-20261004-652acfd6",
     "fetched_at": "2026-10-05T15:40:16.643172+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
    }
   ]
  },
@@ -874,30 +892,46 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
-    105708,
-    105708,
-    105708,
     105741,
     105741,
-    105738,
-    105738,
-    105738,
+    105722,
+    105722,
+    105722,
+    105722,
+    105722,
+    105708,
+    105708,
+    105708,
     105737,
     105737,
     105737,
+    105738,
+    105738,
+    105738,
+    105739,
+    105739,
+    105739,
+    105721,
+    105721,
+    105759,
+    105721,
+    105716,
+    105716,
+    105716,
+    105716,
+    105716,
     105736,
     105736,
     105732,
     105732,
-    108100,
     105740,
     105740,
     105740,
     105740,
     105740,
     105728,
-    105727,
-    105727,
+    105715,
+    108100,
     105727,
     105727,
     105727,
@@ -907,28 +941,63 @@
     105730,
     105730,
     105724,
-    105722,
-    105722,
-    105722,
-    105722,
-    105722,
-    105721,
-    105721,
-    105721,
-    105739,
-    105739,
-    105739,
-    105759,
-    105716,
-    105716,
-    105716,
-    105716,
-    105716,
-    105715
+    105727,
+    105727
    ],
-   "order_source": "legal order (main tree first), not optimized until #111",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 87.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 76.0,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 77.6,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 72.5,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 74.6,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 36.9,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 59.0,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 98.4,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 148.5,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 235.5,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 241.0,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -941,17 +1010,34 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
-    105708,
-    105708,
-    105708,
     105741,
     105741,
-    113398,
-    113398,
-    113398,
+    105722,
+    105722,
+    105722,
+    105722,
+    105722,
+    105708,
+    105708,
+    105708,
     105737,
     105737,
     105737,
+    113398,
+    113398,
+    113398,
+    105739,
+    105739,
+    105739,
+    105721,
+    105721,
+    105759,
+    105721,
+    105716,
+    105716,
+    105716,
+    105716,
+    105716,
     105736,
     105736,
     105732,
@@ -962,7 +1048,7 @@
     105740,
     105740,
     105728,
-    105727,
+    105715,
     105727,
     105727,
     105727,
@@ -973,28 +1059,62 @@
     105730,
     105730,
     105724,
-    105722,
-    105722,
-    105722,
-    105722,
-    105722,
-    105721,
-    105721,
-    105721,
-    105739,
-    105739,
-    105739,
-    105759,
-    105716,
-    105716,
-    105716,
-    105716,
-    105716,
-    105715
+    105727
    ],
-   "order_source": "legal order (main tree first), not optimized until #111",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 1,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 87.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 76.0,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 77.6,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 72.5,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 74.6,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 36.9,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 59.0,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 98.4,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 148.5,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 235.5,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 241.0,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -1012,14 +1132,27 @@
     105722,
     105722,
     105722,
-    105721,
-    105721,
-    105721,
+    105708,
+    105708,
+    105708,
+    105760,
+    105760,
+    113398,
+    113398,
+    105737,
+    105737,
+    105737,
+    105719,
+    105719,
+    105719,
     105720,
     105739,
     105739,
     105739,
+    105721,
     105759,
+    105721,
+    105721,
     105716,
     105716,
     105716,
@@ -1027,10 +1160,16 @@
     105716,
     105714,
     105714,
+    105709,
     105714,
     105714,
     105714,
     105715,
+    105710,
+    105710,
+    105710,
+    105710,
+    105710,
     105713,
     105713,
     105713,
@@ -1038,30 +1177,62 @@
     105713,
     105718,
     105718,
-    105709,
-    105710,
-    105710,
-    105710,
-    105710,
-    105710,
-    105712,
-    105708,
-    105708,
-    105708,
-    113398,
-    113398,
-    105719,
-    105719,
-    105719,
-    105737,
-    105737,
-    105737,
-    105760,
-    105760
+    105712
    ],
-   "order_source": "legal order (main tree first), not optimized until #111",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 85.0,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 73.5,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 75.0,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 74.2,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 75.2,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 35.3,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 56.2,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 93.3,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 154.4,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 239.0,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 245.5,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -1074,6 +1245,21 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    105741,
+    105741,
+    105722,
+    105722,
+    105722,
+    105722,
+    105722,
+    105708,
+    105708,
+    105708,
+    105737,
+    105737,
+    105742,
+    105742,
+    105742,
     105756,
     105756,
     105756,
@@ -1082,29 +1268,9 @@
     105761,
     105760,
     105760,
-    105757,
-    105757,
-    105749,
-    105749,
-    105749,
-    105755,
-    105755,
-    105747,
-    105747,
-    105743,
-    105752,
-    105752,
-    105745,
-    105745,
-    105746,
-    105742,
-    105742,
-    105742,
-    105722,
-    105722,
-    105722,
-    105722,
-    105722,
+    105719,
+    105719,
+    105719,
     105720,
     105720,
     105759,
@@ -1112,23 +1278,79 @@
     105716,
     105716,
     105716,
-    105715,
-    105708,
-    105708,
-    105708,
-    105741,
-    105741,
-    105719,
-    105719,
-    105719,
-    105737,
-    105737,
+    105757,
+    105757,
+    105749,
+    105749,
+    105749,
+    105755,
+    105755,
+    105752,
+    105752,
     105732,
-    105732
+    105732,
+    105747,
+    105747,
+    105715,
+    105743,
+    105745,
+    105745,
+    105746
    ],
-   "order_source": "legal order (main tree first), not optimized until #111",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 87.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 74.4,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 73.7,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 65.6,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 64.2,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 36.9,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 57.2,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 91.1,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 128.6,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 188.1,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 190.8,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   }
  ],
@@ -1147,10 +1369,12 @@
    "archetype": "deep Assassination",
    "focus": "PvE",
    "standard": "rogue-mutilate",
-   "standard_score": null,
+   "standard_score": 1.3270949832198655,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
+   "candidates": {
+    "rogue-mutilate": 1.3270949832198655
+   },
    "qualifying": [
     "rogue-mutilate"
    ]
@@ -1171,10 +1395,12 @@
    "archetype": "deep Combat",
    "focus": "PvE",
    "standard": "rogue-combat",
-   "standard_score": null,
+   "standard_score": 1.3074367922207337,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
+   "candidates": {
+    "rogue-combat": 1.3074367922207337
+   },
    "qualifying": [
     "rogue-combat"
    ]
@@ -1216,10 +1442,134 @@
    "focus": "PvE",
    "standard": null,
    "standard_score": null,
-   "model_pick": null,
-   "model_pick_score": null,
+   "model_pick": {
+    "Improved Eviscerate": 3,
+    "Lethality": 5,
+    "Ruthlessness": 3,
+    "Malice": 5,
+    "Precision": 3,
+    "Improved Slice and Dice": 3,
+    "Improved Sinister Strike": 2,
+    "Improved Gouge": 2,
+    "Premeditation": 1,
+    "Dirty Deeds": 2,
+    "Preparation": 1,
+    "Heightened Senses": 2,
+    "Improved Ambush": 3,
+    "Serrated Blades": 3,
+    "Initiative": 2,
+    "Camouflage": 3,
+    "Dirty Tricks": 2,
+    "Relentless Strikes": 1,
+    "Opportunity": 2,
+    "Master of Deception": 3
+   },
+   "model_pick_score": 1.169446588661282,
    "candidates": {},
-   "qualifying": []
+   "qualifying": [],
+   "model_pick_changes": [
+    {
+     "talent": "Improved Eviscerate",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Lethality",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Ruthlessness",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Malice",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Precision",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Improved Slice and Dice",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Improved Sinister Strike",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Improved Gouge",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Premeditation",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Dirty Deeds",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Preparation",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Heightened Senses",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Improved Ambush",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Serrated Blades",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Initiative",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Camouflage",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Dirty Tricks",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Relentless Strikes",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Opportunity",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Master of Deception",
+     "from": 0,
+     "to": 3
+    }
+   ],
+   "model_pick_seed": null
   }
  ],
  "spell_milestones": [
@@ -1377,6 +1727,6 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Routes only: this class's builds are community standards in a legal point order (top rows first). Scores, model picks and optimized orders wait on the melee and ranged damage engine (#111)."
+  "Melee and ranged model (#111): expected-value rotations against Classic combat-table rules; poisons, Backstab, Hack and Slash and hunter pet details aren't modeled yet, base stats are estimates, and PvP scores for this class come with #134."
  ]
 }

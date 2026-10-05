@@ -1,6 +1,6 @@
 {
  "class": "hunter",
- "engine": false,
+ "engine": true,
  "dataset": {
   "version": "1.60.1.70205",
   "game_build": "1.60.1.70205",
@@ -64,6 +64,24 @@
     "game_build": "1.60.1.70170",
     "data_version": "beta-20261004-652acfd6",
     "fetched_at": "2026-10-05T15:40:16.643172+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
    }
   ]
  },
@@ -847,22 +865,42 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    105011,
+    105011,
+    105011,
+    105011,
+    105011,
+    105009,
+    105009,
+    105009,
+    105008,
+    105008,
+    105008,
+    105008,
+    105008,
     104960,
     104960,
     104960,
     104960,
     104960,
+    104975,
+    104975,
     104976,
-    104975,
-    104975,
     104972,
     104972,
+    104969,
+    104969,
+    104969,
+    104969,
+    104969,
+    105005,
+    105005,
+    105002,
+    105002,
+    105002,
+    105002,
+    105002,
     104970,
-    104969,
-    104969,
-    104969,
-    104969,
-    104969,
     104967,
     104967,
     104967,
@@ -877,31 +915,62 @@
     104962,
     104962,
     104962,
-    104961,
-    105011,
-    105011,
-    105011,
-    105011,
-    105011,
-    105009,
-    105009,
-    105009,
-    105008,
-    105008,
-    105008,
-    105008,
-    105008,
-    105005,
-    105005,
-    105002,
-    105002,
-    105002,
-    105002,
-    105002
+    104961
    ],
-   "order_source": "legal order (main tree first), not optimized until #111",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 89.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 89.5,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 101.9,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 101.3,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 101.8,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 65.6,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 113.8,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 167.5,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 224.9,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 351.0,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 308.4,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -914,17 +983,11 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
-    105013,
-    105013,
-    105013,
     105011,
     105011,
     105011,
     105011,
     105011,
-    110870,
-    110870,
-    110870,
     105009,
     105009,
     105009,
@@ -935,40 +998,97 @@
     105008,
     105008,
     105008,
-    105005,
-    105005,
-    105007,
     105004,
     105002,
     105002,
     105002,
     105002,
+    105001,
+    105001,
+    105001,
     105002,
+    110870,
+    104998,
+    104998,
+    104998,
+    104998,
+    104998,
+    110870,
+    110870,
+    105013,
+    105013,
+    105013,
+    104960,
+    104960,
+    104960,
+    104960,
+    104960,
+    104996,
+    104996,
+    104996,
+    104996,
+    104996,
+    105005,
+    105005,
     104999,
     104999,
-    105001,
-    105001,
-    105001,
-    104998,
-    104998,
-    104998,
-    104998,
-    104998,
     104997,
-    104960,
-    104960,
-    104960,
-    104960,
-    104960,
-    104996,
-    104996,
-    104996,
-    104996,
-    104996
+    105007
    ],
-   "order_source": "legal order (main tree first), not optimized until #111",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 90.8,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 93.7,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 106.0,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 104.2,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 93.1,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 64.5,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 117.1,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 173.9,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 231.3,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 338.8,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 290.9,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -981,6 +1101,21 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    105011,
+    105011,
+    105011,
+    105011,
+    105011,
+    105008,
+    105008,
+    105008,
+    105008,
+    105008,
+    104960,
+    104960,
+    104960,
+    104960,
+    104960,
     104996,
     104996,
     104996,
@@ -991,11 +1126,11 @@
     104994,
     104993,
     104993,
+    104987,
+    104987,
+    104987,
     104991,
     104991,
-    104987,
-    104987,
-    104987,
     104988,
     104988,
     110861,
@@ -1006,36 +1141,72 @@
     104983,
     104983,
     104985,
+    110859,
+    110859,
+    110859,
+    110859,
+    110859,
     104985,
+    104984,
     110860,
     110860,
     104981,
-    110859,
-    110859,
-    110859,
-    110859,
-    110859,
-    104984,
-    105011,
-    105011,
-    105011,
-    105011,
-    105011,
-    105008,
-    105008,
-    105008,
-    105008,
-    105008,
-    105007,
-    104960,
-    104960,
-    104960,
-    104960,
-    104960
+    105007
    ],
-   "order_source": "legal order (main tree first), not optimized until #111",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 86.6,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 85.1,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 96.3,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 114.1,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 86.8,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 66.7,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 111.6,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 159.8,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 212.2,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 304.2,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 247.6,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -1048,6 +1219,21 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    105011,
+    105011,
+    105011,
+    105011,
+    105011,
+    105008,
+    105008,
+    105008,
+    105008,
+    105008,
+    104960,
+    104960,
+    104960,
+    104960,
+    104960,
     104996,
     104996,
     104996,
@@ -1058,11 +1244,11 @@
     104992,
     104992,
     104992,
+    104987,
+    104987,
+    104987,
     104991,
     104991,
-    104987,
-    104987,
-    104987,
     104988,
     104988,
     110861,
@@ -1073,36 +1259,72 @@
     104983,
     104983,
     104985,
+    110859,
+    110859,
+    110859,
+    110859,
+    110859,
     104985,
+    104984,
     110860,
     110860,
     104981,
-    110859,
-    110859,
-    110859,
-    110859,
-    110859,
-    104984,
-    105011,
-    105011,
-    105011,
-    105011,
-    105011,
-    105008,
-    105008,
-    105008,
-    105008,
-    105008,
-    105007,
-    104960,
-    104960,
-    104960,
-    104960,
-    104960
+    105007
    ],
-   "order_source": "legal order (main tree first), not optimized until #111",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 86.6,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 85.1,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 96.3,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 114.1,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 86.8,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 66.7,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 111.6,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 159.8,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 212.2,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 304.2,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 247.6,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   }
  ],
@@ -1121,10 +1343,12 @@
    "archetype": "deep Beast Mastery",
    "focus": "PvE",
    "standard": "hunter-beast-mastery",
-   "standard_score": null,
+   "standard_score": 1.8046818262226303,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
+   "candidates": {
+    "hunter-beast-mastery": 1.8046818262226303
+   },
    "qualifying": [
     "hunter-beast-mastery"
    ]
@@ -1143,13 +1367,49 @@
    "archetype": "deep Marksmanship",
    "focus": "PvE",
    "standard": "hunter-marksmanship",
-   "standard_score": null,
-   "model_pick": null,
-   "model_pick_score": null,
-   "candidates": {},
+   "standard_score": 1.7094371201535061,
+   "model_pick": {
+    "Deadly Aspects": 1,
+    "Improved Tracking": 5,
+    "Sniper Shot": 1,
+    "Ranged Weapon Specialization": 5,
+    "Rapid Recuperation": 2,
+    "Barrage": 3,
+    "Mortal Shots": 5,
+    "Trueshot Aura": 1,
+    "Rapid Killing": 2,
+    "Improved Arcane Shot": 5,
+    "Careful Aim": 5,
+    "Efficiency": 5,
+    "Lethal Attacks": 5,
+    "Hawk Eye": 3,
+    "Improved Stings": 3
+   },
+   "model_pick_score": 1.865526197869766,
+   "candidates": {
+    "hunter-marksmanship": 1.7094371201535061
+   },
    "qualifying": [
     "hunter-marksmanship"
-   ]
+   ],
+   "model_pick_changes": [
+    {
+     "talent": "Deadly Aspects",
+     "from": 5,
+     "to": 1
+    },
+    {
+     "talent": "Improved Arcane Shot",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Lone Wolf",
+     "from": 1,
+     "to": 0
+    }
+   ],
+   "model_pick_seed": "hunter-marksmanship"
   },
   {
    "archetype": "deep Survival",
@@ -1167,13 +1427,70 @@
    "archetype": "deep Survival",
    "focus": "PvE",
    "standard": "hunter-survival",
-   "standard_score": null,
-   "model_pick": null,
-   "model_pick_score": null,
-   "candidates": {},
+   "standard_score": 1.515547765061215,
+   "model_pick": {
+    "Expose Prey": 2,
+    "Surefooted": 3,
+    "Survival Tactics": 2,
+    "Clever Traps": 2,
+    "Survivalist": 3,
+    "Savage Strikes": 2,
+    "Improved Tracking": 5,
+    "Mortal Shots": 4,
+    "Trueshot Aura": 1,
+    "Lone Wolf": 1,
+    "Careful Aim": 5,
+    "Efficiency": 4,
+    "Lethal Attacks": 5,
+    "Lightning Reflexes": 5,
+    "Survivalist's Discipline": 2,
+    "Predator's Edge": 5
+   },
+   "model_pick_score": 1.6151081424124392,
+   "candidates": {
+    "hunter-survival": 1.515547765061215
+   },
    "qualifying": [
     "hunter-survival"
-   ]
+   ],
+   "model_pick_changes": [
+    {
+     "talent": "Deadly Aspects",
+     "from": 5,
+     "to": 0
+    },
+    {
+     "talent": "Strider Kick",
+     "from": 1,
+     "to": 0
+    },
+    {
+     "talent": "Resourcefulness",
+     "from": 2,
+     "to": 0
+    },
+    {
+     "talent": "Lacerating Strikes",
+     "from": 1,
+     "to": 0
+    },
+    {
+     "talent": "Mortal Shots",
+     "from": 0,
+     "to": 4
+    },
+    {
+     "talent": "Trueshot Aura",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Efficiency",
+     "from": 0,
+     "to": 4
+    }
+   ],
+   "model_pick_seed": "hunter-survival"
   }
  ],
  "spell_milestones": [
@@ -1371,6 +1688,6 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Routes only: this class's builds are community standards in a legal point order (top rows first). Scores, model picks and optimized orders wait on the melee and ranged damage engine (#111)."
+  "Melee and ranged model (#111): expected-value rotations against Classic combat-table rules; poisons, Backstab, Hack and Slash and hunter pet details aren't modeled yet, base stats are estimates, and PvP scores for this class come with #134."
  ]
 }
