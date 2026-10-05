@@ -25,6 +25,7 @@ class Assumption:
     why: str
     source: str
     tested: str = ""
+    talents: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -36,7 +37,8 @@ class Assumptions:
     def load(cls, path: Path = CONFIG) -> Assumptions:
         raw = tomllib.loads(path.read_text(encoding="utf-8"))
         entries = {
-            name: Assumption(name, e["value"], tuple(e["options"]), e["why"], e["source"], e.get("tested", ""))
+            name: Assumption(name, e["value"], tuple(e["options"]), e["why"], e["source"],
+                             e.get("tested", ""), tuple(e.get("talents", ())))
             for name, e in raw.items()
         }
         for a in entries.values():
