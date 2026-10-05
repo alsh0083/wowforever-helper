@@ -1,11 +1,11 @@
-# Offensive Elementalist, PvE version. Same route as the original dashboard (plan v4) for
-# levels 10-59; differs from the PvP version only at level 60.
+# Offensive Elementalist, original PvE version (kept for comparison, #101). Same route as the
+# original dashboard (plan v4) for levels 10-59; differs from the PvP version only at level 60.
 
 id = "elementalist-pve"
-pair = "offensive-elementalist"
+pair = "elementalist-pve"
 variant = "PvE"
 primary_spell = "Frostbolt"  # the spell its leveling order is optimized around
-name = "Offensive Elementalist (PvE)"
+name = "Offensive Elementalist (PvE, original)"
 summary = "Frost foundation 10-32 for control and defensives (Ice Block 25, Cold Snap 30), then Fire 33-59 for Impact/Heating Up burst. Level 60: Elemental Precision 3/3, +1% hit on every Fire and Frost spell, which never goes to waste against level-63 bosses and helps whichever nuke you use. (The v0 model favours Frost Channeling 1/3 only because it still casts Frostbolt at 60; see #57.)"
 gives_up = ["Ice Barrier", "Master of Elements", "Piercing Ice"]
 
