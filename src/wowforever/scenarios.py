@@ -130,6 +130,8 @@ def _best_of(char: Character, names: Sequence[str], target_level: int,
         if spell is None:
             continue
         ev, cast, _ = _cast(char, spell, target_level, assumptions)
+        if ev <= 0:  # no modeled damage (e.g. a spell whose damage lives in an unmodeled trigger)
+            continue
         if ev / cast > best_dps:
             best, best_dps = spell, ev / cast
     if best is None:

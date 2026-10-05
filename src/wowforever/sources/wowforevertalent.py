@@ -59,6 +59,21 @@ class WftPage:
     page_data_version: str
     props_version: str
     trees: list[dict[str, Any]]
+    popular: dict[str, Any] | None = None  # calculator popularity data (pick rates, top builds)
+
+
+def popular_builds(page: WftPage) -> list[dict[str, Any]]:
+    """The page's most popular complete builds, with talent names instead of grid indexes:
+    [{"rank", "points", "shared", "saved", "opened", "variants", "final": {talent name: rank}}]."""
+    if not page.popular:
+        return []
+    out = []
+    for b in page.popular.get("top", []):
+        final = {page.trees[t]["talents"][i]["name"]: r
+                 for t, ranks in enumerate(b["ranks"]) for i, r in enumerate(ranks) if r}
+        out.append({k: b[k] for k in ("rank", "points", "shared", "saved", "opened", "variants")}
+                   | {"final": final})
+    return out
 
 
 def parse_page(page_html: str) -> WftPage:
@@ -84,6 +99,7 @@ def parse_page(page_html: str) -> WftPage:
         page_data_version=version_match.group(1),
         props_version=decode_astro(props["version"]),
         trees=game_class["trees"],
+        popular=decode_astro(props["initialPopular"]) if "initialPopular" in props else None,
     )
 
 

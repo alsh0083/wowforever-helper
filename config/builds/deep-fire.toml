@@ -1,32 +1,32 @@
-# Reference archetype: deep Fire to Combustion with a Frost splash for hit and Nova control.
+# Community standard build from wowforevertalent.com's popularity data: #2 of the most
+# popular complete mage builds since the Oct 1 patch (build 70170), as of 2026-10-04.
+# shared 0, saved 0, opened 194, 2 close variants. Focus label is Claude's judgment.
+
 id = "deep-fire"
-primary_spell = "Fireball"  # the spell its leveling order is optimized around
-name = "Deep Fire (PvE)"
+name = "Deep Fire Combustion (PvE)"
 pair = "deep-fire"
 variant = "PvE"
-summary = "Maximum Fire burst and sustained damage: Ignite, Heating Up, Critical Mass, Fire Power, Combustion; Elemental Precision for hit, Permafrost and Improved Frost Nova for kiting."
-gives_up = ["Ice Block", "Cold Snap", "Ice Barrier", "Shatter"]
+primary_spell = "Fireball"
+origin = "community"
+summary = "Deep Fire to Combustion with Arcane Concentration and Elemental Precision; a raid-style build."
+sources = ["wft_popular"]
+confidence = "medium"
 
 [final]
-"Wake of Fire" = 2
+"Arcane Focus" = 5
+"Arcane Subtlety" = 2
+"Arcane Concentration" = 3
+"Arcane Blast" = 1
 "Incineration" = 3
 "Improved Fireball" = 5
 "Ignite" = 5
-"Impact" = 3
-"Flame Throwing" = 2
-"Burning Soul" = 3
+"Burning Soul" = 1
 "Pyroblast" = 1
 "Improved Scorch" = 3
 "Heating Up" = 1
 "Master of Elements" = 3
 "Critical Mass" = 3
-"Blast Wave" = 1
 "Fire Power" = 5
 "Combustion" = 1
 "Elemental Precision" = 5
-"Permafrost" = 3
-"Improved Frost Nova" = 2
-
-[must_have_by]
-"Pyroblast" = 30
-"Heating Up" = 36
+"Ice Shards" = 4

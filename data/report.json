@@ -835,100 +835,91 @@
  "builds": [
   {
    "id": "arcane-pom-pyro",
-   "name": "Arcane PoM-Pyro (PvP reference)",
+   "name": "Arcane/Fire PoM-Pyro (PvP)",
    "pair": "arcane-pom-pyro",
    "variant": "PvP",
-   "summary": "Arcane Power + Presence of Mind into an instant Pyroblast, with Arcane Concentration and Arcane Meditation for mana; Ignite and Burning Soul from Fire.",
-   "gives_up": [
-    "Ice Block",
-    "Cold Snap",
-    "Ice Barrier",
-    "Impact",
-    "Heating Up"
-   ],
-   "must_have_by": {
-    "Presence of Mind": 32,
-    "Pyroblast": 50
-   },
+   "summary": "Presence of Mind into Pyroblast with Impact, Blast Wave and Improved Counterspell; the classic burst-PvP hybrid.",
+   "gives_up": [],
+   "must_have_by": {},
    "order": [
+    105778,
+    105778,
     105795,
     105795,
-    105815,
-    105815,
+    105795,
+    105795,
+    105795,
+    105794,
+    105794,
+    105794,
+    105794,
+    105794,
+    105814,
+    105814,
     105814,
     105814,
     105814,
     105812,
     105812,
-    105811,
-    105811,
+    105793,
+    105793,
+    105792,
+    105792,
+    105792,
     105810,
     105810,
     105810,
     105810,
     105810,
-    105808,
-    105808,
-    105807,
-    105807,
-    105807,
-    105804,
-    105801,
-    105795,
-    105795,
-    105795,
-    105794,
-    105794,
-    105794,
-    105794,
-    105794,
-    105796,
-    105796,
-    105796,
+    105809,
+    105809,
     105789,
     105789,
     105789,
     105790,
+    105806,
+    105788,
+    105784,
+    105784,
+    105784,
+    105788,
+    105788,
+    105782,
     105804,
+    105804,
+    105786,
     105803,
     105803,
     105803,
-    105799,
-    105799,
-    105799,
-    105800,
-    105800,
-    105800,
-    105800,
-    105800,
-    105798
+    105801,
+    105783
    ],
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 34.4,
+      "score": 35.9,
       "unit": "kills/hour",
       "spell": "Fireball"
      },
      "30": {
-      "score": 38.0,
+      "score": 39.9,
       "unit": "kills/hour",
       "spell": "Fireball"
      },
      "40": {
-      "score": 53.2,
+      "score": 54.1,
       "unit": "kills/hour",
       "spell": "Fireball"
      },
      "50": {
-      "score": 65.3,
+      "score": 69.1,
       "unit": "kills/hour",
       "spell": "Fireball"
      },
      "60": {
-      "score": 78.7,
+      "score": 79.7,
       "unit": "kills/hour",
       "spell": "Fireball"
      }
@@ -967,7 +958,7 @@
     },
     "raid": {
      "60": {
-      "score": 78.4,
+      "score": 81.8,
       "unit": "dps",
       "spell": "Fireball",
       "time_to_oom": 66.57534246575344
@@ -977,21 +968,147 @@
    "sensitivity": []
   },
   {
+   "id": "deep-arcane",
+   "name": "Deep Arcane (PvE)",
+   "pair": "deep-arcane",
+   "variant": "PvE",
+   "summary": "Deep Arcane to Arcane Power with Presence of Mind and Missile Barrage; focus is unclear in the data, labelled PvE-leaning (low confidence).",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105796,
+    105796,
+    105796,
+    105797,
+    105815,
+    105815,
+    105814,
+    105814,
+    105814,
+    105814,
+    105814,
+    105813,
+    105813,
+    105813,
+    105807,
+    105807,
+    105807,
+    105813,
+    105813,
+    105812,
+    105812,
+    105811,
+    105811,
+    105810,
+    105800,
+    105800,
+    105800,
+    105800,
+    105800,
+    105799,
+    105799,
+    105799,
+    105810,
+    105810,
+    105810,
+    105810,
+    105809,
+    105809,
+    105808,
+    105808,
+    105806,
+    105805,
+    105805,
+    105804,
+    105804,
+    105803,
+    105803,
+    105803,
+    105802,
+    105801,
+    105798
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 34.0,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "30": {
+      "score": 37.6,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "40": {
+      "score": 56.2,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "50": {
+      "score": 70.0,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "60": {
+      "score": 79.5,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     }
+    },
+    "aoe": {
+     "20": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "30": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Arcane Explosion",
+      "break_even": 1
+     },
+     "40": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 1
+     },
+     "50": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Arcane Explosion",
+      "break_even": 1
+     },
+     "60": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Arcane Explosion",
+      "break_even": 2
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 101.5,
+      "unit": "dps",
+      "spell": "Frostbolt",
+      "time_to_oom": 99.18367346938776
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
    "id": "deep-fire",
-   "name": "Deep Fire (PvE)",
+   "name": "Deep Fire Combustion (PvE)",
    "pair": "deep-fire",
    "variant": "PvE",
-   "summary": "Maximum Fire burst and sustained damage: Ignite, Heating Up, Critical Mass, Fire Power, Combustion; Elemental Precision for hit, Permafrost and Improved Frost Nova for kiting.",
-   "gives_up": [
-    "Ice Block",
-    "Cold Snap",
-    "Ice Barrier",
-    "Shatter"
-   ],
-   "must_have_by": {
-    "Pyroblast": 30,
-    "Heating Up": 36
-   },
+   "summary": "Deep Fire to Combustion with Arcane Concentration and Elemental Precision; a raid-style build.",
+   "gives_up": [],
+   "must_have_by": {},
    "order": [
     105778,
     105778,
@@ -1006,43 +1123,43 @@
     105794,
     105794,
     105794,
-    105797,
-    105797,
     105796,
     105796,
     105796,
+    105814,
+    105814,
+    105814,
+    105814,
+    105814,
     105778,
     105778,
+    105777,
+    105777,
+    105777,
+    105777,
+    105812,
+    105812,
+    105810,
+    105810,
+    105810,
+    105789,
     105790,
-    105776,
-    105776,
-    105776,
-    105793,
-    105793,
+    105806,
+    105788,
+    105788,
+    105788,
     105786,
-    105775,
-    105775,
-    105792,
+    105785,
     105784,
     105784,
     105784,
-    105792,
-    105792,
-    105782,
-    105782,
-    105782,
-    105782,
-    105782,
-    105789,
-    105789,
-    105789,
-    105788,
-    105788,
-    105788,
     105785,
     105785,
-    105785,
-    105783,
+    105782,
+    105782,
+    105782,
+    105782,
+    105782,
     105781
    ],
    "order_source": "optimized for questing kills/hour",
@@ -1060,12 +1177,12 @@
       "spell": "Fireball"
      },
      "40": {
-      "score": 55.4,
+      "score": 54.5,
       "unit": "kills/hour",
       "spell": "Fireball"
      },
      "50": {
-      "score": 74.5,
+      "score": 67.7,
       "unit": "kills/hour",
       "spell": "Fireball"
      },
@@ -1120,22 +1237,12 @@
   },
   {
    "id": "deep-frost",
-   "name": "Deep Frost (PvP)",
+   "name": "Deep Frost Control (PvP)",
    "pair": "deep-frost",
    "variant": "PvP",
-   "summary": "Maximum Frost control and defensives: Ice Block, Cold Snap, Ice Barrier, Shatter + Fingers of Frost burst; Incineration adds crit to Ice Lance.",
-   "gives_up": [
-    "Impact",
-    "Ignite",
-    "Burning Soul",
-    "Heating Up",
-    "Blast Wave"
-   ],
-   "must_have_by": {
-    "Ice Block": 25,
-    "Cold Snap": 30,
-    "Ice Barrier": 40
-   },
+   "summary": "Full Frost: Ice Barrier, Ice Block, Cold Snap, Permafrost, Improved Frost Nova, Arctic Reach; the control and survival build.",
+   "gives_up": [],
+   "must_have_by": {},
    "order": [
     105779,
     105779,
@@ -1152,12 +1259,10 @@
     105772,
     105773,
     105773,
-    105769,
     105773,
     105777,
     105777,
     105777,
-    105766,
     105778,
     105778,
     105776,
@@ -1167,27 +1272,29 @@
     105775,
     105774,
     105774,
-    105762,
-    105796,
-    105796,
-    105796,
     105774,
     105767,
+    105771,
+    105771,
+    105771,
     105770,
     105770,
+    105769,
     105768,
     105768,
     105768,
     105765,
     105765,
     105765,
+    105766,
     105764,
     105764,
     105763,
     105763,
     105763,
     105763,
-    105763
+    105763,
+    105762
    ],
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
@@ -1539,6 +1646,140 @@
       "unit": "dps",
       "spell": "Frostbolt",
       "time_to_oom": 80.1980198019802
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
+   "id": "fire-frost-shatter",
+   "name": "Fire/Frost Shatter (PvE)",
+   "pair": "fire-frost-shatter",
+   "variant": "PvE",
+   "summary": "Most popular complete Forever build: Fire burst and mana talents (Improved Scorch, Master of Elements, Fire Power, Heating Up) with Frost's Shatter, Ice Lance and Fingers of Frost; no Ice Block or Cold Snap, so PvE-leaning.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105778,
+    105778,
+    105778,
+    105795,
+    105795,
+    105795,
+    105795,
+    105795,
+    105794,
+    105794,
+    105794,
+    105794,
+    105794,
+    105778,
+    105778,
+    105777,
+    105777,
+    105777,
+    105777,
+    105777,
+    105793,
+    105773,
+    105773,
+    105773,
+    105789,
+    105789,
+    105789,
+    105772,
+    105772,
+    105772,
+    105767,
+    105790,
+    105788,
+    105788,
+    105788,
+    105786,
+    105768,
+    105768,
+    105768,
+    105785,
+    105784,
+    105784,
+    105784,
+    105785,
+    105785,
+    105782,
+    105782,
+    105782,
+    105782,
+    105764,
+    105764
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 36.1,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "30": {
+      "score": 40.2,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "40": {
+      "score": 54.5,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "50": {
+      "score": 67.7,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "60": {
+      "score": 82.7,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     }
+    },
+    "aoe": {
+     "20": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "30": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Arcane Explosion",
+      "break_even": 1
+     },
+     "40": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 1
+     },
+     "50": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 1
+     },
+     "60": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 89.5,
+      "unit": "dps",
+      "spell": "Fireball",
+      "time_to_oom": 66.57534246575344
      }
     }
    },
