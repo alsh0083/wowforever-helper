@@ -1,0 +1,26 @@
+# Physical combat table (#130). Classic values from the community's combat-table research; not yet
+# checked against Forever (confidence: medium for the table shape, low for Forever-specific tuning).
+# Index = target level minus attacker level (0..3); higher levels use the last entry.
+
+# base miss chance (%) of a single-wielded or yellow attack
+miss = [5.0, 5.5, 6.0, 8.0]
+# the first points of hit don't count against these targets (hit suppression, %)
+hit_suppression = [0.0, 0.0, 0.0, 1.0]
+# extra miss (%) for white swings while dual wielding
+dual_wield_miss = 19.0
+# target dodge chance (%); ranged attacks can't be dodged
+dodge = [5.0, 5.5, 6.0, 6.5]
+# white swings that glance (%) and the damage they deal
+glancing = [10.0, 20.0, 30.0, 40.0]
+glancing_damage = 0.65
+# crit chance (%) taken off by the level difference
+crit_suppression = [0.0, 0.6, 1.2, 1.8]
+# crits deal this multiple of a normal hit (physical)
+crit_multiplier = 2.0
+# off-hand white damage multiplier (before Dual Wield Specialization)
+off_hand_factor = 0.5
+# attack power per point of weapon DPS
+ap_per_dps = 14.0
+# armor damage reduction = armor / (armor + armor_const + armor_per_level * attacker level)
+armor_const = 400.0
+armor_per_level = 85.0
