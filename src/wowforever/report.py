@@ -161,8 +161,8 @@ def build_report(cls: ClassData, spells: tuple[SpellRank, ...], builds: Sequence
         "assumptions": {n: {"value": a.value, "why": a.why, "tested": a.tested}
                         for n, a in assumptions.entries.items()},
         "caveats": [
-            "v0 scenarios repeat one spell; rotations and proc/stack talents (Improved Scorch, "
-            "Combustion, Winter's Chill, Heating Up, ...) are not modeled yet (#57).",
+            "Questing and raid scenarios use a filler-plus-weaves rotation (Fire Blast, Scorch, "
+            "Pyroblast, Ice Lance); Combustion, utility and PvP talents are not modeled yet (#57).",
             "Stats, mob HP and mana budgets are rough Classic-era defaults (low confidence).",
         ],
     }

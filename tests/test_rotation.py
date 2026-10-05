@@ -19,7 +19,7 @@ from wowforever.classes.mage_rotation import rotation
 from wowforever.effects import attach_effects
 from wowforever.normalize import normalize_class, read_tables
 from wowforever.normalize_spells import class_spells, ranks_of
-from wowforever.scenarios import Character
+from wowforever.scenarios import Character, scaled
 from wowforever.sources.wowforevertalent import parse_page
 from wowforever.stats import Stats
 
@@ -49,7 +49,8 @@ def tid(name):
 
 
 def ev(s, mods):
-    return expected_damage(s, spell_power=150, crit_pct=6, hit_pct=3, caster_level=60,
+    # level-scaled like the scenarios: ranks learned below 60 gain damage per level above it
+    return expected_damage(scaled(s, 60), spell_power=150, crit_pct=6, hit_pct=3, caster_level=60,
                            target_level=TARGET, mods=mods)
 
 
@@ -97,8 +98,11 @@ def test_improved_scorch_stacks_and_their_upkeep():
     filler_dps = ev(fireball, vuln) / fireball.cast_time
     scorches = 2 * 1 / 1.0                                   # refresh every 30 s, 100% chance at 3/3
     gain = ev(scorch, vuln) - filler_dps * scorch.cast_time
+    blast = spell("Fire Blast")                              # always woven with a Fire filler
+    blast_gain = ev(blast, vuln) - filler_dps * 1.5
     assert r.weaves["Scorch"] == pytest.approx(scorches)
-    assert r.dps == pytest.approx(filler_dps + scorches * gain / 60)
+    assert r.dps == pytest.approx(filler_dps + scorches * gain / 60
+                                  + 60 / blast.cooldown * blast_gain / 60)
 
 
 def test_heating_up_pyroblasts():
@@ -110,8 +114,10 @@ def test_heating_up_pyroblasts():
     casts = 60 / fireball.cast_time
     pyros = casts * hit * crit / 3                          # 3 stacks per Pyroblast
     gain = ev(pyro, Modifiers()) - filler_dps * pyro.cast_time * 0.25
+    blast = spell("Fire Blast")                              # always woven with a Fire filler
+    blast_gain = ev(blast, Modifiers()) - filler_dps * 1.5
     assert r.weaves["Pyroblast"] == pytest.approx(pyros)
-    assert r.dps == pytest.approx(filler_dps + pyros * gain / 60)
+    assert r.dps == pytest.approx(filler_dps + pyros * gain / 60 + 60 / blast.cooldown * blast_gain / 60)
 
 
 def test_fingers_of_frost_frozen_ice_lances():

@@ -54,5 +54,6 @@ def _parse_rule(talent: Talent, rule: EffectRule, report: list[str]) -> Effect |
         if match is None:
             report.append(f"{talent.name}: rank {rank} text didn't match {rule.kind} pattern")
             return None
-        values.append(rule.sign * float(match.group(1)))
+        number = rule.combine(match) if rule.combine is not None else float(match.group(1))
+        values.append(rule.sign * number)
     return Effect(rule.kind, tuple(values), rule.applies_to)
