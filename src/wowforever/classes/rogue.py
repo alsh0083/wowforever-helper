@@ -1,7 +1,7 @@
 """Rogue-specific knowledge: where the Forever rogue talent trees live in the client's trait data.
 
-Stage 1 of the alts (#103): the trees and spells load, and every talent is classified. Melee
-damage is not modeled until the alts-engine milestone (#111), so no talent has effect rules yet.
+Stage 2 of the alts (#131 part 2): the damage talents carry effect rules read from the rank
+text; the rest stay classified but unmodeled until the alts-engine milestone (#111).
 """
 
 from wowforever.classes import EffectRule, TraitLayout, TreeBand
@@ -19,7 +19,87 @@ LAYOUT = TraitLayout(
     grid=600,
 )
 
-TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {}
+# Numbers are taken from the rank text with each rule's pattern, never hard-coded;
+# `sign` flips reductions. UNMODELED explains every talent not in TALENT_EFFECTS.
+TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
+    # Assassination
+    "Malice": (
+        EffectRule("crit_chance",
+                   r"critical strike chance with all attacks and Poisons by (\d+(?:\.\d+)?)%",
+                   ("all",)),
+    ),
+    "Ruthlessness": (
+        EffectRule("proc_chance", r"a (\d+(?:\.\d+)?)% chance to add a Combo Point",
+                   ("@finisher",)),
+    ),
+    "Murder": (
+        EffectRule("damage_pct", r"damage dealt by (\d+(?:\.\d+)?)%", ("@humanoid",)),
+    ),
+    "Improved Slice and Dice": (
+        EffectRule("duration",
+                   r"duration of your Slice and Dice ability by (\d+(?:\.\d+)?)%",
+                   ("Slice and Dice",)),
+    ),
+    "Relentless Strikes": (
+        EffectRule("resource", r"have a (\d+(?:\.\d+)?)% chance per Combo Point", ("@finisher",)),
+    ),
+    "Lethality": (
+        EffectRule("crit_damage_pct",
+                   r"critical strike damage bonus of your .* by (\d+(?:\.\d+)?)%",
+                   ("Sinister Strike", "Gouge", "Backstab", "Mutilate", "Ghostly Strike",
+                    "Hemorrhage")),
+    ),
+    "Vile Poisons": (
+        EffectRule("damage_pct", r"damage dealt by your poisons by (\d+(?:\.\d+)?)%",
+                   ("@poison",)),
+    ),
+    "Seal Fate": (
+        EffectRule("proc_chance",
+                   r"a (\d+(?:\.\d+)?)% chance to add an additional Combo Point",
+                   ("@builder_crit",)),
+    ),
+    # Combat
+    "Improved Eviscerate": (
+        EffectRule("damage_pct", r"Eviscerate ability by (\d+(?:\.\d+)?)%", ("Eviscerate",)),
+    ),
+    "Improved Sinister Strike": (
+        EffectRule("energy_cost",
+                   r"Energy cost of your Sinister Strike ability by (\d+(?:\.\d+)?)",
+                   ("Sinister Strike",), sign=-1),
+    ),
+    "Puncturing Wounds": (
+        EffectRule("crit_chance",
+                   r"critical strike chance of your Backstab by (\d+(?:\.\d+)?)%",
+                   ("Backstab",)),
+        EffectRule("crit_chance", r"Mutilate by (\d+(?:\.\d+)?)%", ("Mutilate",)),
+        EffectRule("proc_chance", r"gives Backstab a (\d+(?:\.\d+)?)% chance",
+                   ("@backstab_combo",)),
+    ),
+    "Precision": (
+        EffectRule("hit_chance", r"chance to hit by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
+    "Dual Wield Specialization": (
+        EffectRule("damage_pct", r"off-hand weapon by (\d+(?:\.\d+)?)%", ("@off_hand",)),
+    ),
+    "Weapon Expertise": (
+        EffectRule("dodge_reduction", r"Dodged or Parried by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
+    "Aggression": (
+        EffectRule("damage_pct", r"damage of your .* abilities by (\d+(?:\.\d+)?)%",
+                   ("Sinister Strike", "Backstab", "Eviscerate")),
+    ),
+    # Subtlety
+    "Opportunity": (
+        EffectRule("damage_pct", r"damage dealt by your .* abilities by (\d+(?:\.\d+)?)%",
+                   ("Backstab", "Garrote", "Ambush", "Mutilate")),
+    ),
+    "Improved Ambush": (
+        EffectRule("crit_chance", r"Ambush ability by (\d+(?:\.\d+)?)%", ("Ambush",)),
+    ),
+    "Serrated Blades": (
+        EffectRule("armor_pen", r"ignore (\d+(?:\.\d+)?)% of your target's Armor", ("all",)),
+    ),
+}
 
 # Every rogue talent, with why it is not modeled yet. "grants_spell" marks talents that teach an
 # activated ability; the rest get "<category>: <what it does>".
@@ -27,53 +107,35 @@ UNMODELED: dict[str, str] = {
     # Assassination
     "Improved Gouge": "control: longer Gouge duration",
     "Remorseless Attacks": "melee damage: post-kill crit buff on core abilities (#111)",
-    "Malice": "melee damage: crit chance with attacks and Poisons (#111)",
-    "Ruthlessness": "resource: finishing moves add a Combo Point on a chance",
-    "Murder": "melee damage: +4% damage vs Humanoid and Giant (#111)",
-    "Improved Slice and Dice": "melee damage: longer Slice and Dice duration (#111)",
-    "Relentless Strikes": "resource: finishing moves restore Energy",
     "Improved Expose Armor": "resource: cheaper Expose Armor, refunds Combo Points",
-    "Lethality": "melee damage: crit damage bonus on core abilities (#111)",
-    "Vile Poisons": "poison: +20% poison damage, dispel resistance",
     "Cold Blood": "grants_spell",
     "Improved Poisons": "poison: better apply chance, charge savings",
     "Vigor": "resource: +10 maximum Energy",
     "Mutilate": "grants_spell",
     "Improved Kidney Shot": "control: more damage to Kidney Shot stuns",
-    "Seal Fate": "resource: crits add an extra Combo Point",
     "Venom": "grants_spell",
     # Combat
-    "Improved Eviscerate": "melee damage: +20% Eviscerate damage (#111)",
-    "Improved Sinister Strike": "resource: cheaper Sinister Strike",
     "Lightning Reflexes": "defensive: +5% Dodge chance",
-    "Puncturing Wounds": "melee damage: Backstab/Mutilate crit, extra Combo Point chance (#111)",
     "Deflection": "defensive: +6% Parry chance",
-    "Precision": "melee damage: +3% chance to hit (#111)",
     "Endurance": "utility: shorter Sprint and Evasion cooldowns",
     "Riposte": "grants_spell",
     "Improved Sprint": "mobility: Sprint cleanses movement impairments",
     "Improved Kick": "control: Kick silences the target",
     "Flawless Execution": "resource: cheaper Eviscerate",
-    "Dual Wield Specialization": "melee damage: +25% off-hand weapon damage (#111)",
     "Blade Flurry": "grants_spell",
     "Hack and Slash": "proc: weapon-based extra attack chance",
-    "Weapon Expertise": "melee damage: attacks less Dodged or Parried (#111)",
-    "Aggression": "melee damage: +6% core ability damage (#111)",
     "Adrenaline Rush": "grants_spell",
     # Subtlety
     "Camouflage": "stealth: faster Stealth, shorter cooldown",
     "Master of Deception": "stealth: harder to detect while Stealthed",
-    "Opportunity": "melee damage: +10% Backstab/Garrote/Ambush/Mutilate damage (#111)",
     "Setup": "resource: Combo Point after dodges or resisted spells",
     "Elusiveness": "utility: shorter Vanish and Blind cooldowns",
     "Dirty Tricks": "resource: cheaper Sap and Blind",
-    "Improved Ambush": "melee damage: +45% Ambush crit (#111)",
     "Initiative": "resource: extra Combo Point from Ambush/Garrote/Cheap Shot",
     "Ghostly Strike": "grants_spell",
     "Improved Distract": "utility: larger Distract radius, less detection of distracted enemies",
     "Heightened Senses": "stealth: better Stealth detection, less hit by spells and ranged",
     "Premeditation": "grants_spell",
-    "Serrated Blades": "melee damage: armor penetration, +30% Rupture damage (#111)",
     "Dirty Deeds": "stealth: cheaper openers, Garrote works from the front",
     "Preparation": "grants_spell",
     "Hemorrhage": "grants_spell",
