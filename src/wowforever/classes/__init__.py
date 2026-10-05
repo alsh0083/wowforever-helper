@@ -44,6 +44,7 @@ class EffectRule:
 # TALENT_EFFECTS, UNMODELED and SKILL_LINES. Add a class here once its module exists.
 CLASSES: dict[str, str] = {
     "mage": "wowforever.classes.mage",
+    "rogue": "wowforever.classes.rogue",
 }
 
 
