@@ -25,11 +25,11 @@ def test_one_dr_category_is_capped_by_its_longest_control():
 
 
 def test_categories_cap_separately_and_interrupts_are_not_capped():
-    # stun 4/10 -> 24 (cap(4) = 19.09), disorient 10/300 -> 2 (cap(10) higher), kick 5/10 -> 30
+    # stun 4/10 -> 24 (cap(4) = 19.09), disorient 10/300 -> 2 (cap(10) higher), kick 5/20 -> 15
     kit = replace(BASE, controls=(Control("stun", 4, 10), Control("disorient", 10, 300),
-                                  Control("interrupt", 5, 10)))
-    lockout = cap(4) + 2 + 30
-    assert duel(MAGE, kit, "mage_sees").mage_uptime == pytest.approx(max(0.2, 1 - lockout / 60))
+                                  Control("interrupt", 5, 20)))
+    lockout = cap(4) + 2 + 15
+    assert duel(MAGE, kit, "mage_sees").mage_uptime == pytest.approx(1 - lockout / 60)
 
 
 def test_energy_budget_scales_every_control_before_the_cap():
