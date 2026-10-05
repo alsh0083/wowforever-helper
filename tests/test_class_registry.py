@@ -25,11 +25,12 @@ def test_registry_maps_names_to_class_modules():
         class_module("murloc")
 
 
-def test_builds_carry_a_class_and_default_to_mage():
+def test_builds_carry_a_class_and_filter_by_it():
     builds = load_builds()
-    assert builds and all(b.class_name == "mage" for b in builds)
-    assert load_builds(class_name="mage") == builds
-    assert load_builds(class_name="rogue") == [b for b in builds if b.class_name == "rogue"]
+    mage, rogue = load_builds(class_name="mage"), load_builds(class_name="rogue")
+    assert mage and rogue and len(mage) + len(rogue) <= len(builds)
+    assert all(b.class_name == "mage" for b in mage) and all(b.class_name == "rogue" for b in rogue)
+    assert {b.class_name for b in builds} <= set(CLASSES)
 
 
 def test_build_class_is_read_from_toml(tmp_path):

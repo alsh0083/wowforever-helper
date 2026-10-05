@@ -55,11 +55,32 @@ def test_snapshot_writes_html_and_manifest_once(tmp_path):
     path = snapshot(HTML, tmp_path, url="https://wowforevertalent.com/mage/")
     assert path == tmp_path / "beta-20261003-adadac42" / "mage.html"
     assert path.read_text(encoding="utf-8") == HTML
-    manifest = (path.parent / "manifest.json").read_text(encoding="utf-8")
+    manifest = (path.parent / "mage.manifest.json").read_text(encoding="utf-8")
     assert '"sha256"' in manifest and '"game_build": "1.60.1.70170"' in manifest
     mtime = path.stat().st_mtime_ns
     assert snapshot(HTML, tmp_path, url="https://wowforevertalent.com/mage/") == path
     assert path.stat().st_mtime_ns == mtime                      # unchanged page: no rewrite
+
+
+def test_each_class_page_keeps_its_own_manifest(tmp_path):
+    from wowforever.sources.wowforevertalent import manifest_for
+    mage = snapshot(HTML, tmp_path, url="https://wowforevertalent.com/mage/")
+    rogue_html = (Path(__file__).parent / "fixtures" / "wowforevertalent" / "rogue.html").read_text(encoding="utf-8")
+    rogue = snapshot(rogue_html, tmp_path, url="https://wowforevertalent.com/rogue/")
+    assert manifest_for(mage)["url"].endswith("/mage/") and manifest_for(rogue)["url"].endswith("/rogue/")
+
+
+def test_legacy_folder_manifest_still_reads_for_its_own_class(tmp_path):
+    import json
+    from wowforever.sources.wowforevertalent import manifest_for
+    page = tmp_path / "v" / "mage.html"
+    page.parent.mkdir()
+    page.write_text("x", encoding="utf-8")
+    (page.parent / "manifest.json").write_text(json.dumps({"url": "https://wowforevertalent.com/mage/"}),
+                                               encoding="utf-8")
+    assert manifest_for(page)["url"].endswith("/mage/")
+    with pytest.raises(FileNotFoundError):
+        manifest_for(page.with_name("rogue.html"))
 
 
 def test_snapshot_refuses_to_overwrite_different_content(tmp_path):

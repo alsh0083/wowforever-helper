@@ -29,7 +29,7 @@ def payload():
     cls, _ = attach_effects(cls, TALENT_EFFECTS, UNMODELED)
     spells = class_spells(read_tables(FIX / "wago-1.60.1.70205-spells"), skill_lines=SKILL_LINES)
     cls = replace(cls, spells=spells)
-    report = build_report(cls, spells, load_builds(), StatTable.load("mage"), Assumptions.load(),
+    report = build_report(cls, spells, load_builds(class_name="mage"), StatTable.load("mage"), Assumptions.load(),
                           {"version": "1.60.1.70205", "game_build": "1.60.1.70205"})
     return cls, report
 
@@ -88,7 +88,7 @@ def test_report_cli_from_a_saved_dataset(payload, tmp_path, capsys):
     Dataset("1.60.1.70205", "1.60.1.70205", (cls,), (prov,)).save(tmp_path / "ds.json")
     assert main(["report", "--dataset", str(tmp_path / "ds.json"), "--out", str(tmp_path / "r.json")]) == 0
     report = json.loads((tmp_path / "r.json").read_text(encoding="utf-8"))
-    assert report["dataset"]["game_build"] == "1.60.1.70205" and len(report["builds"]) == len(load_builds())
+    assert report["dataset"]["game_build"] == "1.60.1.70205" and len(report["builds"]) == len(load_builds(class_name="mage"))
 
 
 def test_shortlist_in_payload(payload):
