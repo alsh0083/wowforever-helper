@@ -81,6 +81,7 @@ class MageSide:
     slow: float  # uptime x strength, 0-1
     interrupt: float
     nova_dps: float = 0.0  # extra DPS against melee: one frozen hit per Frost Nova (#97)
+    physical_taken: float = 1.0  # physical damage taken vs the cloth that kit DPS assumes (#134)
 
 
 @dataclass(frozen=True)
@@ -140,6 +141,28 @@ def _kiting_seconds(mage: MageSide, kit: Kit, c: dict[str, Any]) -> float:
     return kiting
 
 
+def lockout_seconds(controls: Sequence[Control], energy_per_minute: float = 0.0) -> dict[str, float]:
+    """Seconds per minute each kind of cast-locking control keeps its target locked (#121).
+
+    With an energy budget, controls spend at most max_control_energy_share of it and every rate
+    scales down to fit. Each DR kind (stun, incapacitate, disorient, fear) is capped at
+    60 * dr_chain * d / (dr_chain * d + dr_immune_seconds) for its longest control d; interrupts
+    and silences aren't capped. Cooldown-0 controls (openers) don't count."""
+    c = _config()
+    spend = sum(ctrl.energy * 60 / ctrl.cooldown for ctrl in controls if ctrl.cooldown > 0)
+    f = min(1.0, energy_per_minute * c["max_control_energy_share"] / spend) if energy_per_minute > 0 and spend > 0 else 1.0
+    out: dict[str, float] = {}
+    for ctrl in controls:
+        if ctrl.cooldown <= 0 or ctrl.kind not in CAST_LOCKS:
+            continue
+        out[ctrl.kind] = out.get(ctrl.kind, 0.0) + ctrl.duration * 60 / ctrl.cooldown * f
+    for kind in DR_KINDS & set(out):
+        longest = max(ctrl.duration for ctrl in controls if ctrl.kind == kind)
+        cap = 60 * c["dr_chain"] * longest / (c["dr_chain"] * longest + c["dr_immune_seconds"])
+        out[kind] = min(out[kind], cap)
+    return out
+
+
 def duel(mage: MageSide, kit: Kit, variant: str) -> DuelResult:
     """The expected-kill race between `mage` and `kit`.
 
@@ -148,29 +171,7 @@ def duel(mage: MageSide, kit: Kit, variant: str) -> DuelResult:
     c = _config()
     max_fight = c["max_fight"]
 
-    # Energy budget (#121): a kit with one spends at most max_control_energy_share of its
-    # energy on controls; f scales every control's rate before the DR caps.
-    spend = sum(ctrl.energy * 60 / ctrl.cooldown
-                for ctrl in kit.controls if ctrl.cooldown > 0)
-    if kit.energy_per_minute > 0 and spend > 0:
-        f = min(1.0, kit.energy_per_minute * c["max_control_energy_share"] / spend)
-    else:
-        f = 1.0
-    categories: dict[str, float] = {}
-    uncapped = 0.0
-    for ctrl in kit.controls:
-        if ctrl.cooldown <= 0 or ctrl.kind not in CAST_LOCKS:
-            continue
-        rate = ctrl.duration * 60 / ctrl.cooldown * f
-        if ctrl.kind in DR_KINDS:
-            categories[ctrl.kind] = categories.get(ctrl.kind, 0.0) + rate
-        else:  # interrupts and silences have no diminishing returns
-            uncapped += rate
-    lockout = uncapped
-    for kind, total in categories.items():
-        longest = max(ctrl.duration for ctrl in kit.controls if ctrl.kind == kind)
-        cap = 60 * c["dr_chain"] * longest / (c["dr_chain"] * longest + c["dr_immune_seconds"])
-        lockout += min(total, cap)
+    lockout = sum(lockout_seconds(kit.controls, kit.energy_per_minute).values())
     mage_uptime = max(c["min_uptime"], 1 - lockout / 60)
     opponent_uptime = max(c["min_uptime"], 1 - _kiting_seconds(mage, kit, c) / 60)
 
@@ -181,7 +182,8 @@ def duel(mage: MageSide, kit: Kit, variant: str) -> DuelResult:
     barrier = mage.barrier_per_min / 60
     if kit.dispels_buffs:
         barrier *= c["dispel_barrier_factor"]
-    opponent_dps = kit.dps * opponent_uptime * (1 - mage.immunity_share)
+    physical = mage.physical_taken if kit.role in ("melee", "ranged") else 1.0
+    opponent_dps = kit.dps * physical * opponent_uptime * (1 - mage.immunity_share)
 
     opening = kit.opener_damage + kit.opener_stun * kit.dps if variant == "they_open" else 0.0
     net = opponent_dps - barrier
