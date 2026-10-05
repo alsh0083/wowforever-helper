@@ -2,7 +2,7 @@
 # Second PvP spec for the class (#81). Controls from the hunter community build (#108, 5/41/5),
 # which does not take Scatter Shot, so the kit drops it (#110).
 # source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
-# can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
+# can't see yet; estimate = judgment. Health and DPS: level-60 values vs cloth from the melee engine (#147).
 
 id = "hunter-marksmanship"
 class = "Hunter"
@@ -15,8 +15,8 @@ confidence = "low"
 sources = ["wft_popular", "wft_popular_hunter"]
 
 [at_60]
-health = 3600
-dps = 250  # sustained vs cloth when in range
+health = 3160  # melee engine (#147), build hunter-marksmanship
+dps = 355  # melee engine (#147), build hunter-marksmanship
 opener_damage = 900
 opener_stun = 0.0
 opener_source = "estimate (Aimed Shot opener)"

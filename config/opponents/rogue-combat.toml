@@ -2,7 +2,7 @@
 # Second PvP spec for the class (#81), from wowforevertalent.com Forever popularity data plus judgment.
 # source per value: data = Forever client 1.60.1.70205 rogue spells and the talents of the rogue
 # community build (#106, config/builds/rogue-*.toml); classic = Classic value the data doesn't carry;
-# estimate = judgment. Health and DPS: level-60 estimates vs cloth until the melee engine (#111).
+# estimate = judgment. Health and DPS: level-60 values vs cloth from the melee engine (#147).
 
 id = "rogue-combat"
 class = "Rogue"
@@ -15,8 +15,8 @@ confidence = "low"
 sources = ["wft_popular", "wft_popular_rogue"]
 
 [at_60]
-health = 3700
-dps = 240  # sustained vs cloth when in range
+health = 3280  # melee engine (#147), build rogue-combat-pvp
+dps = 240  # melee engine (#147), build rogue-combat-pvp
 opener_damage = 700
 opener_stun = 4.0
 opener_source = "data (Cheap Shot 4 s); Ambush/Sinister Strike damage estimate"
