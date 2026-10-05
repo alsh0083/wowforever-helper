@@ -1,0 +1,1632 @@
+{
+ "class": "priest",
+ "engine": false,
+ "scoring_note": "Shadow scores come with the caster spell engine (#163, #164); Discipline and Holy healing stay unscored.",
+ "dataset": {
+  "version": "1.60.1.70205",
+  "game_build": "1.60.1.70205",
+  "sources": [
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T03:59:05.912402+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261003-adadac42",
+    "fetched_at": "2026-10-05T03:59:05.912402+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T14:41:33.667333+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T14:41:33.667333+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T15:09:19.482259+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T15:09:19.482259+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T15:31:27.012459+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T15:31:27.012459+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T15:40:16.643172+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T15:40:16.643172+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T21:32:50.229868+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:19.310836+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:21.223473+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:23.135861+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:25.026869+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:26.957252+00:00"
+   }
+  ]
+ },
+ "rules": {
+  "first_talent_level": 10,
+  "max_level": 60,
+  "points_per_row": 5
+ },
+ "trees": [
+  {
+   "id": 1,
+   "name": "Discipline"
+  },
+  {
+   "id": 2,
+   "name": "Holy"
+  },
+  {
+   "id": 3,
+   "name": "Shadow"
+  }
+ ],
+ "talents": {
+  "110853": {
+   "name": "Power in Light",
+   "tree": "Discipline",
+   "row": 0,
+   "col": 0,
+   "max_rank": 5,
+   "icon": "spell_holy_searinglight",
+   "rank_text": [
+    "Your Smite and Penance spells deal 2% increased damage to targets afflicted with your Holy Fire.",
+    "Your Smite and Penance spells deal 4% increased damage to targets afflicted with your Holy Fire.",
+    "Your Smite and Penance spells deal 6% increased damage to targets afflicted with your Holy Fire.",
+    "Your Smite and Penance spells deal 8% increased damage to targets afflicted with your Holy Fire.",
+    "Your Smite and Penance spells deal 10% increased damage to targets afflicted with your Holy Fire."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105850": {
+   "name": "Wand Specialization",
+   "tree": "Discipline",
+   "row": 0,
+   "col": 1,
+   "max_rank": 2,
+   "icon": "inv_wand_01",
+   "rank_text": [
+    "Increases your damage with Wands by 13%.",
+    "Increases your damage with Wands by 25%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105849": {
+   "name": "Twin Disciplines",
+   "tree": "Discipline",
+   "row": 0,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_holy_sealofvengeance",
+   "rank_text": [
+    "Increases the damage and healing of your instant cast spells by 1%.",
+    "Increases the damage and healing of your instant cast spells by 2%.",
+    "Increases the damage and healing of your instant cast spells by 3%.",
+    "Increases the damage and healing of your instant cast spells by 4%.",
+    "Increases the damage and healing of your instant cast spells by 5%."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105848": {
+   "name": "Silent Resolve",
+   "tree": "Discipline",
+   "row": 1,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "spell_nature_manaregentotem",
+   "rank_text": [
+    "Reduces the threat generated by your Holy spells by 10% and reduces the duration of Stun, Fear, and Silence effects inflicted on you by 5%.",
+    "Reduces the threat generated by your Holy spells by 20% and reduces the duration of Stun, Fear, and Silence effects inflicted on you by 10%.",
+    "Reduces the threat generated by your Holy spells by 30% and reduces the duration of Stun, Fear, and Silence effects inflicted on you by 15%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "110852": {
+   "name": "Holy Precision",
+   "tree": "Discipline",
+   "row": 1,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_holy_divineillumination",
+   "rank_text": [
+    "Improves your chance to hit with Holy spells by 6%.",
+    "Improves your chance to hit with Holy spells by 12%.",
+    "Improves your chance to hit with Holy spells by 18%."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105846": {
+   "name": "Improved Power Word: Shield",
+   "tree": "Discipline",
+   "row": 1,
+   "col": 2,
+   "max_rank": 3,
+   "icon": "spell_holy_powerwordshield",
+   "rank_text": [
+    "Increases the damage absorbed by your Power Word: Shield by 7%.",
+    "Increases the damage absorbed by your Power Word: Shield by 14%.",
+    "Increases the damage absorbed by your Power Word: Shield by 20%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105845": {
+   "name": "Martyrdom",
+   "tree": "Discipline",
+   "row": 1,
+   "col": 3,
+   "max_rank": 2,
+   "icon": "spell_nature_tranquility",
+   "rank_text": [
+    "Gives you a 50% chance to gain Focused Casting for 6 sec after being the victim of a melee or ranged critical strike. The Focused Casting effect prevents you from losing casting time when taking damage and increases your resistance to Interrupt effects by 20%.",
+    "Gives you a 100% chance to gain Focused Casting for 6 sec after being the victim of a melee or ranged critical strike. The Focused Casting effect prevents you from losing casting time when taking damage and increases your resistance to Interrupt effects by 20%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105842": {
+   "name": "Mental Agility",
+   "tree": "Discipline",
+   "row": 2,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "ability_hibernation",
+   "rank_text": [
+    "Reduces the mana cost of your Smite, Holy Fire, and instant cast spells by 3%.",
+    "Reduces the mana cost of your Smite, Holy Fire, and instant cast spells by 7%.",
+    "Reduces the mana cost of your Smite, Holy Fire, and instant cast spells by 10%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105844": {
+   "name": "Inner Focus",
+   "tree": "Discipline",
+   "row": 2,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_frost_windwalkon",
+   "rank_text": [
+    "When activated, reduces the Mana cost of your next spell by 100% and increases its critical effect chance by 25% if it is a non-periodic spell and capable of a critical effect."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105843": {
+   "name": "Meditation",
+   "tree": "Discipline",
+   "row": 2,
+   "col": 3,
+   "max_rank": 3,
+   "icon": "spell_nature_sleep",
+   "rank_text": [
+    "Allows 17% of your Mana regeneration to continue while casting.",
+    "Allows 33% of your Mana regeneration to continue while casting.",
+    "Allows 50% of your Mana regeneration to continue while casting."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105841": {
+   "name": "Improved Inner Fire",
+   "tree": "Discipline",
+   "row": 3,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "spell_holy_innerfire",
+   "rank_text": [
+    "Increases the Armor bonus of your Inner Fire spell by 15% and increases its total charges by 4.",
+    "Increases the Armor bonus of your Inner Fire spell by 30% and increases its total charges by 8.",
+    "Increases the Armor bonus of your Inner Fire spell by 45% and increases its total charges by 12."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105837": {
+   "name": "Mental Strength",
+   "tree": "Discipline",
+   "row": 3,
+   "col": 1,
+   "max_rank": 5,
+   "icon": "spell_nature_enchantarmor",
+   "rank_text": [
+    "Increases your total Intellect by 3%.",
+    "Increases your total Intellect by 6%.",
+    "Increases your total Intellect by 9%.",
+    "Increases your total Intellect by 12%.",
+    "Increases your total Intellect by 15%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105839": {
+   "name": "Soul Warding",
+   "tree": "Discipline",
+   "row": 3,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_holy_pureofheart",
+   "rank_text": [
+    "Reduces the cooldown on your Power Word: Shield spell by 4 sec and reduces its mana cost by 15%."
+   ],
+   "classic_status": "new",
+   "prerequisite": 105846
+  },
+  "105838": {
+   "name": "Improved Mana Burn",
+   "tree": "Discipline",
+   "row": 3,
+   "col": 3,
+   "max_rank": 2,
+   "icon": "spell_shadow_manaburn",
+   "rank_text": [
+    "Reduces the casting time of your Mana Burn spell by 0.5 sec.",
+    "Reduces the casting time of your Mana Burn spell by 1.0 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105834": {
+   "name": "Penance",
+   "tree": "Discipline",
+   "row": 4,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_holy_penance",
+   "rank_text": [
+    "Launches a volley of holy light at the target, causing 81 Holy damage to an enemy, or 184 healing to an ally, instantly and every 1 sec for 2 sec."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105835": {
+   "name": "Renewed Hope",
+   "tree": "Discipline",
+   "row": 4,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_holy_holyprotection",
+   "rank_text": [
+    "Your heals from Flash Heal, Binding Heal, Lesser Heal, Heal, Greater Heal, and Penance gain 2% increased critical strike chance when cast on targets with Weakened Soul, and reduce the remaining duration of Weakened Soul on their target by 1 sec.",
+    "Your heals from Flash Heal, Binding Heal, Lesser Heal, Heal, Greater Heal, and Penance gain 4% increased critical strike chance when cast on targets with Weakened Soul, and reduce the remaining duration of Weakened Soul on their target by 2 sec.",
+    "Your heals from Flash Heal, Binding Heal, Lesser Heal, Heal, Greater Heal, and Penance gain 6% increased critical strike chance when cast on targets with Weakened Soul, and reduce the remaining duration of Weakened Soul on their target by 3 sec.",
+    "Your heals from Flash Heal, Binding Heal, Lesser Heal, Heal, Greater Heal, and Penance gain 8% increased critical strike chance when cast on targets with Weakened Soul, and reduce the remaining duration of Weakened Soul on their target by 4 sec.",
+    "Your heals from Flash Heal, Binding Heal, Lesser Heal, Heal, Greater Heal, and Penance gain 10% increased critical strike chance when cast on targets with Weakened Soul, and reduce the remaining duration of Weakened Soul on their target by 5 sec."
+   ],
+   "classic_status": "new",
+   "prerequisite": 105839
+  },
+  "105840": {
+   "name": "Divine Aegis",
+   "tree": "Discipline",
+   "row": 5,
+   "col": 2,
+   "max_rank": 3,
+   "icon": "spell_holy_devineaegis",
+   "rank_text": [
+    "Your critical heals create a protective shield on the target, absorbing 5% of the amount healed. Lasts 12 sec.",
+    "Your critical heals create a protective shield on the target, absorbing 10% of the amount healed. Lasts 12 sec.",
+    "Your critical heals create a protective shield on the target, absorbing 15% of the amount healed. Lasts 12 sec."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105836": {
+   "name": "Power Infusion",
+   "tree": "Discipline",
+   "row": 6,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_holy_powerinfusion",
+   "rank_text": [
+    "Infuses the target with power, increasing their spell damage and healing done by 20% for 15 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 105834
+  },
+  "105867": {
+   "name": "Twilight Focus",
+   "tree": "Holy",
+   "row": 0,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "spell_holy_healingfocus",
+   "rank_text": [
+    "Gives you a 23% chance to avoid interruption caused by damage while casting any spell.",
+    "Gives you a 47% chance to avoid interruption caused by damage while casting any spell.",
+    "Gives you a 70% chance to avoid interruption caused by damage while casting any spell."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105866": {
+   "name": "Improved Renew",
+   "tree": "Holy",
+   "row": 0,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_holy_renew",
+   "rank_text": [
+    "Increases the amount healed by your Renew spell by 5%.",
+    "Increases the amount healed by your Renew spell by 10%.",
+    "Increases the amount healed by your Renew spell by 15%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "110855": {
+   "name": "Holy Specialization",
+   "tree": "Holy",
+   "row": 0,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_holy_sealofsalvation",
+   "rank_text": [
+    "Increases the critical effect chance of your Holy spells by 1%.",
+    "Increases the critical effect chance of your Holy spells by 2%.",
+    "Increases the critical effect chance of your Holy spells by 3%.",
+    "Increases the critical effect chance of your Holy spells by 4%.",
+    "Increases the critical effect chance of your Holy spells by 5%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105864": {
+   "name": "Spell Warding",
+   "tree": "Holy",
+   "row": 1,
+   "col": 1,
+   "max_rank": 5,
+   "icon": "spell_holy_spellwarding",
+   "rank_text": [
+    "Reduces all spell damage taken by 2%.",
+    "Reduces all spell damage taken by 4%.",
+    "Reduces all spell damage taken by 6%.",
+    "Reduces all spell damage taken by 8%.",
+    "Reduces all spell damage taken by 10%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105863": {
+   "name": "Divine Fury",
+   "tree": "Holy",
+   "row": 1,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_holy_sealofwrath",
+   "rank_text": [
+    "Reduces the casting time of your Smite, Holy Fire, Heal, and Greater Heal spells by 0.1 sec.",
+    "Reduces the casting time of your Smite, Holy Fire, Heal, and Greater Heal spells by 0.2 sec.",
+    "Reduces the casting time of your Smite, Holy Fire, Heal, and Greater Heal spells by 0.3 sec.",
+    "Reduces the casting time of your Smite, Holy Fire, Heal, and Greater Heal spells by 0.4 sec.",
+    "Reduces the casting time of your Smite, Holy Fire, Heal, and Greater Heal spells by 0.5 sec."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105862": {
+   "name": "Holy Nova",
+   "tree": "Holy",
+   "row": 2,
+   "col": 0,
+   "max_rank": 1,
+   "icon": "spell_holy_holynova",
+   "rank_text": [
+    "Causes an explosion of holy light around the caster, causing 26 to 30 Holy damage to all enemy targets within 10 yards and healing all party members within 10 yards for 49 to 57. These effects cause no threat."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105861": {
+   "name": "Blessed Recovery",
+   "tree": "Holy",
+   "row": 2,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_holy_blessedrecovery",
+   "rank_text": [
+    "After being struck by a melee or ranged critical hit, or suffering more than 30% of your maximum Health from a single attack, heal 8% of the damage taken over 6 sec. Refreshing this effect carries over any remaining healing.",
+    "After being struck by a melee or ranged critical hit, or suffering more than 30% of your maximum Health from a single attack, heal 17% of the damage taken over 6 sec. Refreshing this effect carries over any remaining healing.",
+    "After being struck by a melee or ranged critical hit, or suffering more than 30% of your maximum Health from a single attack, heal 25% of the damage taken over 6 sec. Refreshing this effect carries over any remaining healing."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105860": {
+   "name": "Inspiration",
+   "tree": "Holy",
+   "row": 2,
+   "col": 3,
+   "max_rank": 3,
+   "icon": "spell_holy_layonhands",
+   "rank_text": [
+    "Your non-periodic critical heals increase your target's Armor by 8% for 15 sec.",
+    "Your non-periodic critical heals increase your target's Armor by 17% for 15 sec.",
+    "Your non-periodic critical heals increase your target's Armor by 25% for 15 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105859": {
+   "name": "Holy Reach",
+   "tree": "Holy",
+   "row": 3,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_holy_purify",
+   "rank_text": [
+    "Increases the range of your Smite and Holy Fire spells and the radius of your Prayer of Healing and Holy Nova spells by 10%.",
+    "Increases the range of your Smite and Holy Fire spells and the radius of your Prayer of Healing and Holy Nova spells by 20%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105858": {
+   "name": "Improved Healing",
+   "tree": "Holy",
+   "row": 3,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_holy_heal02",
+   "rank_text": [
+    "Reduces the Mana cost of your Lesser Heal, Heal, Greater Heal, Penance, and Prayer of Mending spells by 5%.",
+    "Reduces the Mana cost of your Lesser Heal, Heal, Greater Heal, Penance, and Prayer of Mending spells by 10%.",
+    "Reduces the Mana cost of your Lesser Heal, Heal, Greater Heal, Penance, and Prayer of Mending spells by 15%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105857": {
+   "name": "Searing Light",
+   "tree": "Holy",
+   "row": 3,
+   "col": 2,
+   "max_rank": 2,
+   "icon": "spell_holy_searinglightpriest",
+   "rank_text": [
+    "Increases your Holy damage done by 2%, and gives a 5% chance each time your Holy Fire spell deals periodic damage for your next Holy Nova to cost no Mana.",
+    "Increases your Holy damage done by 5%, and gives a 10% chance each time your Holy Fire spell deals periodic damage for your next Holy Nova to cost no Mana."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 105863
+  },
+  "105856": {
+   "name": "Binding Heal",
+   "tree": "Holy",
+   "row": 3,
+   "col": 3,
+   "max_rank": 1,
+   "icon": "spell_holy_blindingheal",
+   "rank_text": [
+    "Heals a friendly target and the caster for 236 to 284. Low threat."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105855": {
+   "name": "Litany of Light",
+   "tree": "Holy",
+   "row": 4,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "inv_scroll_07",
+   "rank_text": [
+    "When you cast a healing spell, gain Mana equal to 5% of the base cost of the spell if your previous heal was a different spell.",
+    "When you cast a healing spell, gain Mana equal to 10% of the base cost of the spell if your previous heal was a different spell."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105854": {
+   "name": "Spirit of Redemption",
+   "tree": "Holy",
+   "row": 4,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "inv_enchant_essenceeternallarge",
+   "rank_text": [
+    "Upon death, the priest becomes the Spirit of Redemption for 15 sec. The Spirit of Redemption cannot move, attack, be attacked or targeted by any spells or effects. While in this form the priest can cast any healing spell free of cost. When the effect ends, the priest dies."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105853": {
+   "name": "Spiritual Guidance",
+   "tree": "Holy",
+   "row": 4,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_holy_spiritualguidence",
+   "rank_text": [
+    "Increases your spell healing by up to 5% of your total Spirit and your spell damage by up to 1% of your total Spirit.",
+    "Increases your spell healing by up to 10% of your total Spirit and your spell damage by up to 3% of your total Spirit.",
+    "Increases your spell healing by up to 15% of your total Spirit and your spell damage by up to 5% of your total Spirit.",
+    "Increases your spell healing by up to 20% of your total Spirit and your spell damage by up to 6% of your total Spirit.",
+    "Increases your spell healing by up to 25% of your total Spirit and your spell damage by up to 8% of your total Spirit."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105852": {
+   "name": "Spiritual Healing",
+   "tree": "Holy",
+   "row": 5,
+   "col": 2,
+   "max_rank": 3,
+   "icon": "spell_nature_moonglow",
+   "rank_text": [
+    "Increases the amount healed by your spells by 3%.",
+    "Increases the amount healed by your spells by 7%.",
+    "Increases the amount healed by your spells by 10%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105851": {
+   "name": "Prayer of Mending",
+   "tree": "Holy",
+   "row": 6,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_holy_prayerofmendingtga",
+   "rank_text": [
+    "Places a spell on the target that heals them for 172 the next time they take damage or receive non-periodic healing. When the heal occurs, Prayer of Mending jumps to a party or raid member within 20 yards. Jumps up to 5 times and lasts 30 sec after each jump. This spell can only be placed on one target at a time per caster."
+   ],
+   "classic_status": "new",
+   "prerequisite": 105854
+  },
+  "110851": {
+   "name": "Shadow Focus",
+   "tree": "Shadow",
+   "row": 0,
+   "col": 0,
+   "max_rank": 5,
+   "icon": "spell_shadow_burningspirit",
+   "rank_text": [
+    "Improves your chance to hit with Shadow spells by 1%.",
+    "Improves your chance to hit with Shadow spells by 2%.",
+    "Improves your chance to hit with Shadow spells by 3%.",
+    "Improves your chance to hit with Shadow spells by 4%.",
+    "Improves your chance to hit with Shadow spells by 5%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105832": {
+   "name": "Blackout",
+   "tree": "Shadow",
+   "row": 0,
+   "col": 1,
+   "max_rank": 5,
+   "icon": "spell_shadow_gathershadows",
+   "rank_text": [
+    "Gives your Shadow damage spells a 2% chance to stun the target for 3 sec.",
+    "Gives your Shadow damage spells a 4% chance to stun the target for 3 sec.",
+    "Gives your Shadow damage spells a 6% chance to stun the target for 3 sec.",
+    "Gives your Shadow damage spells a 8% chance to stun the target for 3 sec.",
+    "Gives your Shadow damage spells a 10% chance to stun the target for 3 sec."
+   ],
+   "classic_status": "moved",
+   "prerequisite": null
+  },
+  "105833": {
+   "name": "Spirit Tap",
+   "tree": "Shadow",
+   "row": 0,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_shadow_requiem",
+   "rank_text": [
+    "Gives you a 20% chance to increase your Spirit by 100% for 15 sec after killing a non-trivial target or when an enemy afflicted by your Vampiric Embrace dies. For the duration, 50% of your Mana regeneration will continue while casting.",
+    "Gives you a 40% chance to increase your Spirit by 100% for 15 sec after killing a non-trivial target or when an enemy afflicted by your Vampiric Embrace dies. For the duration, 50% of your Mana regeneration will continue while casting.",
+    "Gives you a 60% chance to increase your Spirit by 100% for 15 sec after killing a non-trivial target or when an enemy afflicted by your Vampiric Embrace dies. For the duration, 50% of your Mana regeneration will continue while casting.",
+    "Gives you a 80% chance to increase your Spirit by 100% for 15 sec after killing a non-trivial target or when an enemy afflicted by your Vampiric Embrace dies. For the duration, 50% of your Mana regeneration will continue while casting.",
+    "Gives you a 100% chance to increase your Spirit by 100% for 15 sec after killing a non-trivial target or when an enemy afflicted by your Vampiric Embrace dies. For the duration, 50% of your Mana regeneration will continue while casting."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105831": {
+   "name": "Shadow Affinity",
+   "tree": "Shadow",
+   "row": 1,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "spell_shadow_shadowward",
+   "rank_text": [
+    "Reduces the threat generated by your Shadow spells by 10%.",
+    "Reduces the threat generated by your Shadow spells by 20%.",
+    "Reduces the threat generated by your Shadow spells by 30%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105830": {
+   "name": "Improved Shadow Word: Pain",
+   "tree": "Shadow",
+   "row": 1,
+   "col": 2,
+   "max_rank": 2,
+   "icon": "spell_shadow_shadowwordpain",
+   "rank_text": [
+    "Increases the duration of your Shadow Word: Pain spell by 3 sec.",
+    "Increases the duration of your Shadow Word: Pain spell by 6 sec."
+   ],
+   "classic_status": "moved",
+   "prerequisite": null
+  },
+  "105829": {
+   "name": "Shadow Reach",
+   "tree": "Shadow",
+   "row": 1,
+   "col": 3,
+   "max_rank": 2,
+   "icon": "spell_shadow_chilltouch",
+   "rank_text": [
+    "Increases the range of your offensive Shadow spells by 10%.",
+    "Increases the range of your offensive Shadow spells by 20%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105827": {
+   "name": "Improved Mind Blast",
+   "tree": "Shadow",
+   "row": 2,
+   "col": 0,
+   "max_rank": 5,
+   "icon": "spell_shadow_unholyfrenzy",
+   "rank_text": [
+    "Reduces the cooldown of your Mind Blast spell by 0.5 sec.",
+    "Reduces the cooldown of your Mind Blast spell by 1 sec.",
+    "Reduces the cooldown of your Mind Blast spell by 1.5 sec.",
+    "Reduces the cooldown of your Mind Blast spell by 2 sec.",
+    "Reduces the cooldown of your Mind Blast spell by 2.5 sec."
+   ],
+   "classic_status": "moved",
+   "prerequisite": null
+  },
+  "105828": {
+   "name": "Improved Psychic Scream",
+   "tree": "Shadow",
+   "row": 2,
+   "col": 1,
+   "max_rank": 2,
+   "icon": "spell_shadow_psychicscream",
+   "rank_text": [
+    "Reduces the cooldown of your Psychic Scream spell by 2 sec.",
+    "Reduces the cooldown of your Psychic Scream spell by 4 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 105832
+  },
+  "105826": {
+   "name": "Mind Flay",
+   "tree": "Shadow",
+   "row": 2,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_shadow_siphonmana",
+   "rank_text": [
+    "Assault the target's mind with Shadow energy, causing 63 Shadow damage over 3 sec and slowing their movement speed by 50%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105825": {
+   "name": "Improved Mind Flay",
+   "tree": "Shadow",
+   "row": 2,
+   "col": 3,
+   "max_rank": 2,
+   "icon": "spell_shadow_soulleech_2",
+   "rank_text": [
+    "Your Mind Flay now deals 10% more damage, gains 5 yards increased range, but slows the target's movement speed by 35%.",
+    "Your Mind Flay now deals 20% more damage, gains 10 yards increased range, but slows the target's movement speed by 20%."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105823": {
+   "name": "Improved Fade",
+   "tree": "Shadow",
+   "row": 3,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_magic_lesserinvisibilty",
+   "rank_text": [
+    "Decreases the cooldown of your Fade ability by 3 sec.",
+    "Decreases the cooldown of your Fade ability by 6 sec."
+   ],
+   "classic_status": "moved",
+   "prerequisite": null
+  },
+  "105820": {
+   "name": "Vampiric Embrace",
+   "tree": "Shadow",
+   "row": 3,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_shadow_unsummonbuilding",
+   "rank_text": [
+    "Afflicts your target with Shadow energy that causes all party members to be healed for 20% of any Shadow spell damage you deal for 30 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105821": {
+   "name": "Shadow Weaving",
+   "tree": "Shadow",
+   "row": 3,
+   "col": 2,
+   "max_rank": 3,
+   "icon": "spell_shadow_blackplague",
+   "rank_text": [
+    "Your Shadow damage spells have a 33% chance to increase the Shadow damage you deal by 2% for 15 sec, stacking up to 5 times.",
+    "Your Shadow damage spells have a 67% chance to increase the Shadow damage you deal by 2% for 15 sec, stacking up to 5 times.",
+    "Your Shadow damage spells have a 100% chance to increase the Shadow damage you deal by 2% for 15 sec, stacking up to 5 times."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105824": {
+   "name": "Silence",
+   "tree": "Shadow",
+   "row": 4,
+   "col": 0,
+   "max_rank": 1,
+   "icon": "spell_shadow_impphaseshift",
+   "rank_text": [
+    "Silences the target, preventing them from casting spells for 5 sec and interrupting their spellcasts for 3 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105819": {
+   "name": "Devouring Contagion",
+   "tree": "Shadow",
+   "row": 4,
+   "col": 2,
+   "max_rank": 2,
+   "icon": "spell_shadow_devouringplague",
+   "rank_text": [
+    "Reduces the mana cost of your Devouring Plague by 25%.\n\nTargets that die while Devouring Plague is active spreads it, jumping to a nearby enemy within 5 yds for the remaining duration.",
+    "Reduces the mana cost of your Devouring Plague by 50%.\n\nTargets that die while Devouring Plague is active spreads it, jumping to a nearby enemy within 10 yds for the remaining duration."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "110854": {
+   "name": "Early Demise",
+   "tree": "Shadow",
+   "row": 5,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_shadow_demonicfortitude",
+   "rank_text": [
+    "Increases Shadow Word: Death's critical strike chance on targets at or below 20% health by 15%.",
+    "Increases Shadow Word: Death's critical strike chance on targets at or below 20% health by 30%."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105818": {
+   "name": "Darkness",
+   "tree": "Shadow",
+   "row": 5,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_shadow_twilight",
+   "rank_text": [
+    "Increases your Shadow damage done by 2%.",
+    "Increases your Shadow damage done by 4%.",
+    "Increases your Shadow damage done by 6%.",
+    "Increases your Shadow damage done by 8%.",
+    "Increases your Shadow damage done by 10%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105817": {
+   "name": "Shadowform",
+   "tree": "Shadow",
+   "row": 6,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_shadow_shadowform",
+   "rank_text": [
+    "Assume Shadowform, increasing your Shadow damage by 10%, reducing the Mana cost of all Shadow spells by 50%, increasing the critical strike damage bonus of your Shadow spells by 100%, and reducing Physical damage taken by you by 15%. However, you may not cast healing spells while in this form."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 105820
+  }
+ },
+ "builds": [
+  {
+   "id": "priest-discipline-smite",
+   "name": "Discipline Smite (PvP)",
+   "pair": "priest-discipline-smite",
+   "variant": "PvP",
+   "origin": "community",
+   "summary": "Discipline with Penance, Power Infusion, Power in Light and Mental Strength; Holy Specialization, Divine Fury, Holy Nova and Searing Light from Holy. Holy damage with Power Infusion: the community's damage Discipline build.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    110853,
+    110853,
+    110853,
+    110853,
+    110853,
+    105850,
+    105850,
+    105849,
+    105849,
+    105849,
+    105849,
+    105849,
+    105848,
+    105848,
+    105848,
+    110852,
+    110852,
+    110852,
+    105842,
+    105842,
+    105842,
+    105844,
+    105843,
+    105843,
+    105843,
+    105837,
+    105837,
+    105837,
+    105837,
+    105837,
+    105834,
+    105836,
+    105867,
+    105867,
+    105867,
+    110855,
+    110855,
+    110855,
+    110855,
+    110855,
+    105864,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    105862,
+    105859,
+    105859,
+    105857,
+    105857
+   ],
+   "order_source": "legal order (main tree first), not optimized yet",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  },
+  {
+   "id": "priest-discipline",
+   "name": "Discipline Divine Aegis (PvE)",
+   "pair": "priest-discipline",
+   "variant": "PvE",
+   "origin": "community",
+   "summary": "Discipline with Penance, Power Infusion, Divine Aegis and Renewed Hope; Holy Specialization, Divine Fury and Inspiration from Holy. The community's shield healer (routes only, unscored).",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105849,
+    105849,
+    105849,
+    105849,
+    105849,
+    105848,
+    105848,
+    105846,
+    105846,
+    105846,
+    105842,
+    105842,
+    105842,
+    105844,
+    105843,
+    105843,
+    105843,
+    105837,
+    105837,
+    105837,
+    105837,
+    105837,
+    105839,
+    105834,
+    105835,
+    105835,
+    105835,
+    105835,
+    105835,
+    105840,
+    105840,
+    105840,
+    105836,
+    105866,
+    105866,
+    110855,
+    110855,
+    110855,
+    110855,
+    110855,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    105860,
+    105860,
+    105860,
+    105858,
+    105858,
+    105858
+   ],
+   "order_source": "legal order (main tree first), not optimized yet",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  },
+  {
+   "id": "priest-holy",
+   "name": "Holy Prayer of Mending (PvE)",
+   "pair": "priest-holy",
+   "variant": "PvE",
+   "origin": "community",
+   "summary": "Holy with Prayer of Mending, Spiritual Guidance, Spiritual Healing and Spirit of Redemption; Inner Focus and Meditation from Discipline. The community's Holy healer (routes only, unscored).",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105866,
+    105866,
+    105866,
+    110855,
+    110855,
+    110855,
+    110855,
+    110855,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    105862,
+    105860,
+    105860,
+    105860,
+    105858,
+    105858,
+    105858,
+    105855,
+    105855,
+    105854,
+    105853,
+    105853,
+    105853,
+    105853,
+    105853,
+    105852,
+    105852,
+    105852,
+    105851,
+    105849,
+    105849,
+    105849,
+    105849,
+    105849,
+    105848,
+    105848,
+    105848,
+    105846,
+    105846,
+    105846,
+    105844,
+    105843,
+    105843,
+    105843,
+    105837,
+    105837,
+    105837,
+    105839
+   ],
+   "order_source": "legal order (main tree first), not optimized yet",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  },
+  {
+   "id": "priest-shadow",
+   "name": "Shadowform (PvP)",
+   "pair": "priest-shadow",
+   "variant": "PvP",
+   "origin": "community",
+   "summary": "Shadow with Shadowform, Vampiric Embrace, Shadow Weaving, Darkness and Improved Mind Flay; Twin Disciplines, Inner Focus and Meditation from Discipline. The most saved priest build and the community's PvP and leveling standard.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    110851,
+    110851,
+    110851,
+    110851,
+    110851,
+    105831,
+    105831,
+    105831,
+    105830,
+    105830,
+    105829,
+    105829,
+    105827,
+    105827,
+    105827,
+    105827,
+    105827,
+    105826,
+    105825,
+    105825,
+    105820,
+    105821,
+    105821,
+    105821,
+    105819,
+    105819,
+    110854,
+    110854,
+    105818,
+    105818,
+    105818,
+    105818,
+    105818,
+    105817,
+    105850,
+    105850,
+    105849,
+    105849,
+    105849,
+    105849,
+    105849,
+    105846,
+    105846,
+    105846,
+    105844,
+    105843,
+    105843,
+    105843,
+    105867,
+    105867,
+    105867
+   ],
+   "order_source": "legal order (main tree first), not optimized yet",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  }
+ ],
+ "shortlist": [
+  {
+   "archetype": "deep Discipline",
+   "focus": "PvP",
+   "standard": "priest-discipline-smite",
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": [
+    "priest-discipline-smite"
+   ]
+  },
+  {
+   "archetype": "deep Discipline",
+   "focus": "PvE",
+   "standard": "priest-discipline",
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": [
+    "priest-discipline"
+   ]
+  },
+  {
+   "archetype": "deep Holy",
+   "focus": "PvP",
+   "standard": null,
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": []
+  },
+  {
+   "archetype": "deep Holy",
+   "focus": "PvE",
+   "standard": "priest-holy",
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": [
+    "priest-holy"
+   ]
+  },
+  {
+   "archetype": "deep Shadow",
+   "focus": "PvP",
+   "standard": "priest-shadow",
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": [
+    "priest-shadow"
+   ]
+  },
+  {
+   "archetype": "deep Shadow",
+   "focus": "PvE",
+   "standard": null,
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": []
+  }
+ ],
+ "spell_milestones": [
+  {
+   "level": 1,
+   "spell": "Smite",
+   "rank": 1
+  },
+  {
+   "level": 4,
+   "spell": "Shadow Word: Pain",
+   "rank": 1
+  },
+  {
+   "level": 6,
+   "spell": "Smite",
+   "rank": 2
+  },
+  {
+   "level": 10,
+   "spell": "Mind Blast",
+   "rank": 1
+  },
+  {
+   "level": 10,
+   "spell": "Shadow Word: Pain",
+   "rank": 2
+  },
+  {
+   "level": 10,
+   "spell": "Starshards",
+   "rank": 1
+  },
+  {
+   "level": 10,
+   "spell": "Touch of Weakness",
+   "rank": 2
+  },
+  {
+   "level": 14,
+   "spell": "Smite",
+   "rank": 3
+  },
+  {
+   "level": 16,
+   "spell": "Mind Blast",
+   "rank": 2
+  },
+  {
+   "level": 18,
+   "spell": "Shadow Word: Pain",
+   "rank": 3
+  },
+  {
+   "level": 18,
+   "spell": "Starshards",
+   "rank": 2
+  },
+  {
+   "level": 20,
+   "spell": "Chastise",
+   "rank": 1
+  },
+  {
+   "level": 20,
+   "spell": "Holy Fire",
+   "rank": 1
+  },
+  {
+   "level": 20,
+   "spell": "Shadowguard",
+   "rank": 2
+  },
+  {
+   "level": 20,
+   "spell": "Touch of Weakness",
+   "rank": 3
+  },
+  {
+   "level": 22,
+   "spell": "Mind Blast",
+   "rank": 3
+  },
+  {
+   "level": 22,
+   "spell": "Smite",
+   "rank": 4
+  },
+  {
+   "level": 24,
+   "spell": "Holy Fire",
+   "rank": 2
+  },
+  {
+   "level": 26,
+   "spell": "Shadow Word: Pain",
+   "rank": 4
+  },
+  {
+   "level": 26,
+   "spell": "Starshards",
+   "rank": 3
+  },
+  {
+   "level": 28,
+   "spell": "Holy Nova",
+   "rank": 3
+  },
+  {
+   "level": 28,
+   "spell": "Mind Blast",
+   "rank": 4
+  },
+  {
+   "level": 28,
+   "spell": "Mind Flay",
+   "rank": 2
+  },
+  {
+   "level": 28,
+   "spell": "Shadowguard",
+   "rank": 4
+  },
+  {
+   "level": 30,
+   "spell": "Chastise",
+   "rank": 2
+  },
+  {
+   "level": 30,
+   "spell": "Holy Fire",
+   "rank": 3
+  },
+  {
+   "level": 30,
+   "spell": "Smite",
+   "rank": 5
+  },
+  {
+   "level": 30,
+   "spell": "Touch of Weakness",
+   "rank": 5
+  },
+  {
+   "level": 32,
+   "spell": "Shadow Word: Death",
+   "rank": 1
+  },
+  {
+   "level": 34,
+   "spell": "Mind Blast",
+   "rank": 5
+  },
+  {
+   "level": 34,
+   "spell": "Shadow Word: Pain",
+   "rank": 5
+  },
+  {
+   "level": 34,
+   "spell": "Starshards",
+   "rank": 4
+  },
+  {
+   "level": 36,
+   "spell": "Holy Fire",
+   "rank": 4
+  },
+  {
+   "level": 36,
+   "spell": "Holy Nova",
+   "rank": 5
+  },
+  {
+   "level": 36,
+   "spell": "Mind Flay",
+   "rank": 3
+  },
+  {
+   "level": 36,
+   "spell": "Shadowguard",
+   "rank": 6
+  },
+  {
+   "level": 38,
+   "spell": "Smite",
+   "rank": 6
+  },
+  {
+   "level": 40,
+   "spell": "Chastise",
+   "rank": 3
+  },
+  {
+   "level": 40,
+   "spell": "Mind Blast",
+   "rank": 6
+  },
+  {
+   "level": 40,
+   "spell": "Shadow Word: Death",
+   "rank": 2
+  },
+  {
+   "level": 40,
+   "spell": "Touch of Weakness",
+   "rank": 7
+  },
+  {
+   "level": 42,
+   "spell": "Holy Fire",
+   "rank": 5
+  },
+  {
+   "level": 42,
+   "spell": "Shadow Word: Pain",
+   "rank": 6
+  },
+  {
+   "level": 42,
+   "spell": "Starshards",
+   "rank": 5
+  },
+  {
+   "level": 44,
+   "spell": "Holy Nova",
+   "rank": 7
+  },
+  {
+   "level": 44,
+   "spell": "Mind Flay",
+   "rank": 4
+  },
+  {
+   "level": 44,
+   "spell": "Shadowguard",
+   "rank": 8
+  },
+  {
+   "level": 46,
+   "spell": "Mind Blast",
+   "rank": 7
+  },
+  {
+   "level": 46,
+   "spell": "Smite",
+   "rank": 7
+  },
+  {
+   "level": 48,
+   "spell": "Holy Fire",
+   "rank": 6
+  },
+  {
+   "level": 48,
+   "spell": "Shadow Word: Death",
+   "rank": 3
+  },
+  {
+   "level": 50,
+   "spell": "Chastise",
+   "rank": 4
+  },
+  {
+   "level": 50,
+   "spell": "Shadow Word: Pain",
+   "rank": 7
+  },
+  {
+   "level": 50,
+   "spell": "Starshards",
+   "rank": 6
+  },
+  {
+   "level": 50,
+   "spell": "Touch of Weakness",
+   "rank": 9
+  },
+  {
+   "level": 52,
+   "spell": "Holy Nova",
+   "rank": 9
+  },
+  {
+   "level": 52,
+   "spell": "Mind Blast",
+   "rank": 8
+  },
+  {
+   "level": 52,
+   "spell": "Mind Flay",
+   "rank": 5
+  },
+  {
+   "level": 52,
+   "spell": "Shadowguard",
+   "rank": 10
+  },
+  {
+   "level": 54,
+   "spell": "Holy Fire",
+   "rank": 7
+  },
+  {
+   "level": 54,
+   "spell": "Smite",
+   "rank": 8
+  },
+  {
+   "level": 56,
+   "spell": "Shadow Word: Death",
+   "rank": 4
+  },
+  {
+   "level": 58,
+   "spell": "Mind Blast",
+   "rank": 9
+  },
+  {
+   "level": 58,
+   "spell": "Shadow Word: Pain",
+   "rank": 8
+  },
+  {
+   "level": 58,
+   "spell": "Starshards",
+   "rank": 7
+  },
+  {
+   "level": 60,
+   "spell": "Chastise",
+   "rank": 5
+  },
+  {
+   "level": 60,
+   "spell": "Holy Fire",
+   "rank": 8
+  },
+  {
+   "level": 60,
+   "spell": "Holy Nova",
+   "rank": 11
+  },
+  {
+   "level": 60,
+   "spell": "Mind Flay",
+   "rank": 6
+  },
+  {
+   "level": 60,
+   "spell": "Shadowguard",
+   "rank": 12
+  },
+  {
+   "level": 60,
+   "spell": "Touch of Weakness",
+   "rank": 11
+  }
+ ],
+ "assumptions": {},
+ "checklist": [],
+ "caveats": [
+  "Routes only: this class's builds are community standards in a legal point order (top rows first). Scores, model picks and optimized orders wait on the melee and ranged damage engine (#111)."
+ ]
+}

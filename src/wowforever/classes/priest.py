@@ -85,3 +85,6 @@ UNMODELED: dict[str, str] = {
 
 # Priest skill lines in SkillLineAbility: Discipline, Holy, Shadow.
 SKILL_LINES = (613, 56, 78)
+
+# Shown on the dashboard while the class is routes-only (planning round 2, Q2/Q3).
+SCORING_NOTE = "Shadow scores come with the caster spell engine (#163, #164); Discipline and Holy healing stay unscored."

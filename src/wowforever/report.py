@@ -227,7 +227,7 @@ ROUTE_CAVEAT = ("Routes only: this class's builds are community standards in a l
 
 
 def route_report(cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any], *,
-                 hybrids: Sequence[str] = ()) -> dict[str, Any]:
+                 hybrids: Sequence[str] = (), scoring_note: str = "") -> dict[str, Any]:
     """Dashboard payload for a class the calculator can't score yet (#105): each build as a legal
     point order, placed in the archetype x focus matrix without scores."""
     from wowforever.consensus import Consensus
@@ -249,7 +249,7 @@ def route_report(cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any
             # the build's biggest tree first, top rows first within it, while every point stays legal
             order = optimize_order(cls, final, must,
                                    lambda ranks, level: sum(weight[tree_of[t]] * r for t, r in ranks.items()))
-            how = "legal order (main tree first), not optimized until #111"
+            how = "legal order (main tree first), not optimized yet"
         problems = check_order(cls, order)
         if problems:
             raise ValueError(f"{b.id}: illegal order: {problems}")
@@ -271,7 +271,7 @@ def route_report(cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any
         "qualifying": placed.get((a, focus), []),
     } for a in archetypes for focus in ("PvP", "PvE")]
     return {
-        "class": cls.class_name, "engine": False,
+        "class": cls.class_name, "engine": False, "scoring_note": scoring_note,
         "dataset": dataset,
         "rules": asdict(cls.rules),
         "trees": [{"id": t.tree_id, "name": t.name} for t in cls.trees],
@@ -392,6 +392,7 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
     if getattr(module, "ENGINE", False) == "melee":
         return melee_report(class_name, cls, builds, meta, hybrids=getattr(module, "HYBRIDS", ()))
     if not getattr(module, "ENGINE", False):
-        return route_report(cls, builds, meta, hybrids=getattr(module, "HYBRIDS", ()))
+        return route_report(cls, builds, meta, hybrids=getattr(module, "HYBRIDS", ()),
+                            scoring_note=getattr(module, "SCORING_NOTE", ""))
     return {"class": class_name, "engine": True,
             **build_report(cls, cls.spells, builds, StatTable.load(class_name), Assumptions.load(), meta)}

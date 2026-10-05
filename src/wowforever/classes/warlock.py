@@ -84,3 +84,6 @@ UNMODELED: dict[str, str] = {
 
 # Warlock skill lines in SkillLineAbility: Affliction, Demonology, Destruction.
 SKILL_LINES = (355, 354, 593)
+
+# Shown on the dashboard while the class is routes-only (planning round 2, Q2/Q3).
+SCORING_NOTE = "Scores come with the caster spell engine (#163, #165)."

@@ -1,0 +1,1441 @@
+{
+ "class": "shaman",
+ "engine": false,
+ "scoring_note": "Elemental and Enhancement scores come with the caster spell engine (#163, #167); Restoration stays unscored.",
+ "dataset": {
+  "version": "1.60.1.70205",
+  "game_build": "1.60.1.70205",
+  "sources": [
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T03:59:05.912402+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261003-adadac42",
+    "fetched_at": "2026-10-05T03:59:05.912402+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T14:41:33.667333+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T14:41:33.667333+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T15:09:19.482259+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T15:09:19.482259+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T15:31:27.012459+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T15:31:27.012459+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T15:40:16.643172+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T15:40:16.643172+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T21:32:50.229868+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:19.310836+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:21.223473+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:23.135861+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:25.026869+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:26.957252+00:00"
+   }
+  ]
+ },
+ "rules": {
+  "first_talent_level": 10,
+  "max_level": 60,
+  "points_per_row": 5
+ },
+ "trees": [
+  {
+   "id": 1,
+   "name": "Elemental"
+  },
+  {
+   "id": 2,
+   "name": "Enhancement"
+  },
+  {
+   "id": 3,
+   "name": "Restoration"
+  }
+ ],
+ "talents": {
+  "104773": {
+   "name": "Convection",
+   "tree": "Elemental",
+   "row": 0,
+   "col": 1,
+   "max_rank": 5,
+   "icon": "spell_nature_wispsplode",
+   "rank_text": [
+    "Reduces the mana cost of your Shock, Lightning Bolt, Lava Burst, and Chain Lightning spells by 2%.",
+    "Reduces the mana cost of your Shock, Lightning Bolt, Lava Burst, and Chain Lightning spells by 4%.",
+    "Reduces the mana cost of your Shock, Lightning Bolt, Lava Burst, and Chain Lightning spells by 6%.",
+    "Reduces the mana cost of your Shock, Lightning Bolt, Lava Burst, and Chain Lightning spells by 8%.",
+    "Reduces the mana cost of your Shock, Lightning Bolt, Lava Burst, and Chain Lightning spells by 10%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104772": {
+   "name": "Concussion",
+   "tree": "Elemental",
+   "row": 0,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_nature_earthshock",
+   "rank_text": [
+    "Increases the damage done by your Lightning Bolt, Chain Lightning, and Earth Shock spells by 1%.",
+    "Increases the damage done by your Lightning Bolt, Chain Lightning, and Earth Shock spells by 2%.",
+    "Increases the damage done by your Lightning Bolt, Chain Lightning, and Earth Shock spells by 3%.",
+    "Increases the damage done by your Lightning Bolt, Chain Lightning, and Earth Shock spells by 4%.",
+    "Increases the damage done by your Lightning Bolt, Chain Lightning, and Earth Shock spells by 5%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104771": {
+   "name": "Elemental Warding",
+   "tree": "Elemental",
+   "row": 1,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "spell_nature_spiritarmor",
+   "rank_text": [
+    "Reduces damage taken from Fire, Frost, and Nature effects by 3%.",
+    "Reduces damage taken from Fire, Frost, and Nature effects by 7%.",
+    "Reduces damage taken from Fire, Frost, and Nature effects by 10%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104767": {
+   "name": "Reverberation",
+   "tree": "Elemental",
+   "row": 1,
+   "col": 1,
+   "max_rank": 5,
+   "icon": "spell_frost_frostward",
+   "rank_text": [
+    "Reduces the cooldown of your Shock spells by 0.2 sec.",
+    "Reduces the cooldown of your Shock spells by 0.4 sec.",
+    "Reduces the cooldown of your Shock spells by 0.6 sec.",
+    "Reduces the cooldown of your Shock spells by 0.8 sec.",
+    "Reduces the cooldown of your Shock spells by 1.0 sec."
+   ],
+   "classic_status": "moved",
+   "prerequisite": null
+  },
+  "104770": {
+   "name": "Call of Flame",
+   "tree": "Elemental",
+   "row": 1,
+   "col": 2,
+   "max_rank": 3,
+   "icon": "spell_fire_immolation",
+   "rank_text": [
+    "Increases the damage done by your Fire Totems and by your Flame Shock, Fire Nova, and Lava Burst spells by 5%.",
+    "Increases the damage done by your Fire Totems and by your Flame Shock, Fire Nova, and Lava Burst spells by 10%.",
+    "Increases the damage done by your Fire Totems and by your Flame Shock, Fire Nova, and Lava Burst spells by 15%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104769": {
+   "name": "Elemental Devastation",
+   "tree": "Elemental",
+   "row": 1,
+   "col": 3,
+   "max_rank": 3,
+   "icon": "spell_fire_elementaldevastation",
+   "rank_text": [
+    "Your offensive spell critical strikes will increase your chance to get a critical strike with melee attacks by 3% for 10 sec.",
+    "Your offensive spell critical strikes will increase your chance to get a critical strike with melee attacks by 6% for 10 sec.",
+    "Your offensive spell critical strikes will increase your chance to get a critical strike with melee attacks by 9% for 10 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104768": {
+   "name": "Elemental Focus",
+   "tree": "Elemental",
+   "row": 2,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_shadow_manaburn",
+   "rank_text": [
+    "Gives you a 10% chance to enter a Clearcasting state after casting any Fire, Frost, or Nature damage spell. The Clearcasting state reduces the mana cost of your next damage spell by 100%."
+   ],
+   "classic_status": "moved",
+   "prerequisite": null
+  },
+  "104765": {
+   "name": "Elemental Alacrity",
+   "tree": "Elemental",
+   "row": 2,
+   "col": 2,
+   "max_rank": 3,
+   "icon": "spell_lightning_lightningbolt01",
+   "rank_text": [
+    "Reduces the cast time of your Lightning Bolt, Chain Lightning, and Lava Burst spells by 0.17 sec.",
+    "Reduces the cast time of your Lightning Bolt, Chain Lightning, and Lava Burst spells by 0.33 sec.",
+    "Reduces the cast time of your Lightning Bolt, Chain Lightning, and Lava Burst spells by 0.50 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104764": {
+   "name": "Improved Fire Nova",
+   "tree": "Elemental",
+   "row": 3,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_fire_sealoffire",
+   "rank_text": [
+    "Increases the damage done by your Fire Nova spell by 10% and reduces its cooldown by 2 sec.",
+    "Increases the damage done by your Fire Nova spell by 20% and reduces its cooldown by 4 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104763": {
+   "name": "Eye of the Storm",
+   "tree": "Elemental",
+   "row": 3,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_nature_eyeofthestorm",
+   "rank_text": [
+    "Reduces the pushback suffered from damaging attacks while casting Lightning Bolt, Chain Lightning, and Lava Burst by 23%.",
+    "Reduces the pushback suffered from damaging attacks while casting Lightning Bolt, Chain Lightning, and Lava Burst by 47%.",
+    "Reduces the pushback suffered from damaging attacks while casting Lightning Bolt, Chain Lightning, and Lava Burst by 70%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104762": {
+   "name": "Call of Thunder",
+   "tree": "Elemental",
+   "row": 3,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_nature_callstorm",
+   "rank_text": [
+    "Increases the critical strike chance of your Lightning Bolt and Chain Lightning spells by 3%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 104765
+  },
+  "104761": {
+   "name": "Elemental Reach",
+   "tree": "Elemental",
+   "row": 4,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_nature_stormreach",
+   "rank_text": [
+    "Increases the range of your Lightning Bolt, Chain Lightning, Fire Nova, and Lava Burst spells by 3 yards, and increases the range of your Flame Shock spell by 8 yards.",
+    "Increases the range of your Lightning Bolt, Chain Lightning, Fire Nova, and Lava Burst spells by 6 yards, and increases the range of your Flame Shock spell by 15 yards."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104759": {
+   "name": "Lightning Overload",
+   "tree": "Elemental",
+   "row": 4,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_nature_lightningoverload",
+   "rank_text": [
+    "Gives your Lightning Bolt and Chain Lightning spells a 3% chance to cast a second, similar spell on the same target at no additional cost that causes half damage and no threat.",
+    "Gives your Lightning Bolt and Chain Lightning spells a 7% chance to cast a second, similar spell on the same target at no additional cost that causes half damage and no threat.",
+    "Gives your Lightning Bolt and Chain Lightning spells a 10% chance to cast a second, similar spell on the same target at no additional cost that causes half damage and no threat."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "104760": {
+   "name": "Earthbound",
+   "tree": "Elemental",
+   "row": 4,
+   "col": 3,
+   "max_rank": 1,
+   "icon": "spell_nature_stranglevines",
+   "rank_text": [
+    "Your Earthbind Totem Immobilizes nearby targets for 5 sec when cast."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "104766": {
+   "name": "Elemental Fury",
+   "tree": "Elemental",
+   "row": 5,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_fire_volcano",
+   "rank_text": [
+    "Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 20%.",
+    "Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 40%.",
+    "Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 60%.",
+    "Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 80%.",
+    "Increases the critical strike damage bonus of your Searing and Magma Totems and your Fire, Frost, and Nature spells by 100%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 104762
+  },
+  "104758": {
+   "name": "Lava Burst",
+   "tree": "Elemental",
+   "row": 6,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_shaman_lavaburst",
+   "rank_text": [
+    "You hurl molten lava at the target, dealing 150 to 192 Fire damage. If your Flame Shock is on the target, Lava Burst deals 20% increased damage."
+   ],
+   "classic_status": "new",
+   "prerequisite": 104759
+  },
+  "104757": {
+   "name": "Earth's Grasp",
+   "tree": "Enhancement",
+   "row": 0,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_nature_stoneclawtotem",
+   "rank_text": [
+    "Increases the health of your Stoneclaw Totem by 25% and the radius of your Earthbind Totem by 10%.",
+    "Increases the health of your Stoneclaw Totem by 50% and the radius of your Earthbind Totem by 20%."
+   ],
+   "classic_status": "moved",
+   "prerequisite": null
+  },
+  "104753": {
+   "name": "Thundering Strikes",
+   "tree": "Enhancement",
+   "row": 0,
+   "col": 1,
+   "max_rank": 5,
+   "icon": "ability_thunderbolt",
+   "rank_text": [
+    "Improves your chance to get a critical strike with all spells and attacks by 1%.",
+    "Improves your chance to get a critical strike with all spells and attacks by 2%.",
+    "Improves your chance to get a critical strike with all spells and attacks by 3%.",
+    "Improves your chance to get a critical strike with all spells and attacks by 4%.",
+    "Improves your chance to get a critical strike with all spells and attacks by 5%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104756": {
+   "name": "Ancestral Knowledge",
+   "tree": "Enhancement",
+   "row": 0,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_shadow_grimward",
+   "rank_text": [
+    "Increases your Intellect by 2%.",
+    "Increases your Intellect by 4%.",
+    "Increases your Intellect by 6%.",
+    "Increases your Intellect by 8%.",
+    "Increases your Intellect by 10%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104754": {
+   "name": "Guardian Totems",
+   "tree": "Enhancement",
+   "row": 1,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_nature_stoneskintotem",
+   "rank_text": [
+    "Increases the amount of damage reduced by your Stoneskin Totem and Windwall Totem by 10% and reduces the cooldown of your Grounding Totem by 1 sec.",
+    "Increases the amount of damage reduced by your Stoneskin Totem and Windwall Totem by 20% and reduces the cooldown of your Grounding Totem by 2 sec."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "104755": {
+   "name": "Mental Dexterity",
+   "tree": "Enhancement",
+   "row": 1,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_nature_mentalquickness",
+   "rank_text": [
+    "Increases your Attack Power by an amount equal to 33% of your Intellect.",
+    "Increases your Attack Power by an amount equal to 67% of your Intellect.",
+    "Increases your Attack Power by an amount equal to 100% of your Intellect."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "104752": {
+   "name": "Improved Ghost Wolf",
+   "tree": "Enhancement",
+   "row": 1,
+   "col": 2,
+   "max_rank": 2,
+   "icon": "spell_nature_spiritwolf",
+   "rank_text": [
+    "Reduces the cast time of your Ghost Wolf spell by 1.0 sec, and Ghost Wolf may be used indoors.",
+    "Reduces the cast time of your Ghost Wolf spell by 3.0 sec, and Ghost Wolf may be used indoors."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104751": {
+   "name": "Improved Lightning Shield",
+   "tree": "Enhancement",
+   "row": 1,
+   "col": 3,
+   "max_rank": 3,
+   "icon": "spell_nature_lightningshield",
+   "rank_text": [
+    "Increases the damage done by your Lightning Shield orbs by 5%.",
+    "Increases the damage done by your Lightning Shield orbs by 10%.",
+    "Increases the damage done by your Lightning Shield orbs by 15%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "104750": {
+   "name": "Elemental Weapons",
+   "tree": "Enhancement",
+   "row": 2,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "spell_fire_flametounge",
+   "rank_text": [
+    "Increases the melee attack power bonus of your Rockbiter Weapon by 7%, your Windfury Weapon effect by 13% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by 5%.",
+    "Increases the melee attack power bonus of your Rockbiter Weapon by 13%, your Windfury Weapon effect by 27% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by 10%.",
+    "Increases the melee attack power bonus of your Rockbiter Weapon by 20%, your Windfury Weapon effect by 40% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by 15%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104749": {
+   "name": "Shamanistic Focus",
+   "tree": "Enhancement",
+   "row": 2,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_nature_elementalabsorption",
+   "rank_text": [
+    "Reduces the mana cost of your Shock and Lightning Shield spells by 45%."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "104748": {
+   "name": "Anticipation",
+   "tree": "Enhancement",
+   "row": 2,
+   "col": 3,
+   "max_rank": 3,
+   "icon": "spell_nature_mirrorimage",
+   "rank_text": [
+    "Increases your chance to dodge by an additional 2%.",
+    "Increases your chance to dodge by an additional 4%.",
+    "Increases your chance to dodge by an additional 6%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104746": {
+   "name": "Toughness",
+   "tree": "Enhancement",
+   "row": 3,
+   "col": 0,
+   "max_rank": 5,
+   "icon": "spell_holy_devotion",
+   "rank_text": [
+    "Increases your Stamina by 2%.",
+    "Increases your Stamina by 4%.",
+    "Increases your Stamina by 6%.",
+    "Increases your Stamina by 8%.",
+    "Increases your Stamina by 10%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104747": {
+   "name": "Flurry",
+   "tree": "Enhancement",
+   "row": 3,
+   "col": 1,
+   "max_rank": 5,
+   "icon": "ability_ghoulfrenzy",
+   "rank_text": [
+    "Increases your attack speed by 5% for your next 3 swings after dealing a melee critical strike.",
+    "Increases your attack speed by 10% for your next 3 swings after dealing a melee critical strike.",
+    "Increases your attack speed by 15% for your next 3 swings after dealing a melee critical strike.",
+    "Increases your attack speed by 20% for your next 3 swings after dealing a melee critical strike.",
+    "Increases your attack speed by 25% for your next 3 swings after dealing a melee critical strike."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 104755
+  },
+  "104743": {
+   "name": "Stormstrike",
+   "tree": "Enhancement",
+   "row": 3,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "ability_shaman_stormstrike",
+   "rank_text": [
+    "Instantly strike for normal weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104745": {
+   "name": "Spirit Weapons",
+   "tree": "Enhancement",
+   "row": 4,
+   "col": 0,
+   "max_rank": 1,
+   "icon": "ability_parry",
+   "rank_text": [
+    "Gives a chance to parry enemy melee attacks, reduces all threat generated by your attacks by 30% while Rockbiter Weapon is not active, and increases all threat generated by 30% while Rockbiter Weapon is active."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104744": {
+   "name": "Mental Quickness",
+   "tree": "Enhancement",
+   "row": 4,
+   "col": 1,
+   "max_rank": 2,
+   "icon": "spell_nature_sleep",
+   "rank_text": [
+    "Increases your spell damage and healing by up to 15% of your Intellect.",
+    "Increases your spell damage and healing by up to 30% of your Intellect."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "104742": {
+   "name": "Improved Stormstrike",
+   "tree": "Enhancement",
+   "row": 4,
+   "col": 2,
+   "max_rank": 2,
+   "icon": "spell_shaman_improvedstormstrike",
+   "rank_text": [
+    "When you Stormstrike, you have a 50% chance to gain 50% mana regeneration while casting spells for 15 sec, and Stormstrike's cooldown has a 50% chance to reset each time you Dodge or Parry.",
+    "When you Stormstrike, you have a 100% chance to gain 50% mana regeneration while casting spells for 15 sec, and Stormstrike's cooldown has a 100% chance to reset each time you Dodge or Parry."
+   ],
+   "classic_status": "new",
+   "prerequisite": 104743
+  },
+  "104741": {
+   "name": "Maelstrom Weapon",
+   "tree": "Enhancement",
+   "row": 5,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_shaman_maelstromweapon",
+   "rank_text": [
+    "When you deal damage with a melee attack, you have a chance to reduce the cast time and Mana cost of your next Lightning Bolt spell by 4%. Stacks up to 5 times. Lasts 30 sec.",
+    "When you deal damage with a melee attack, you have a chance to reduce the cast time and Mana cost of your next Lightning Bolt spell by 8%. Stacks up to 5 times. Lasts 30 sec.",
+    "When you deal damage with a melee attack, you have a chance to reduce the cast time and Mana cost of your next Lightning Bolt spell by 12%. Stacks up to 5 times. Lasts 30 sec.",
+    "When you deal damage with a melee attack, you have a chance to reduce the cast time and Mana cost of your next Lightning Bolt spell by 16%. Stacks up to 5 times. Lasts 30 sec.",
+    "When you deal damage with a melee attack, you have a chance to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "104740": {
+   "name": "Rage of the Farseer",
+   "tree": "Enhancement",
+   "row": 6,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_nature_bloodlust",
+   "rank_text": [
+    "Increases your attack speed by 30% for 25 sec."
+   ],
+   "classic_status": "new",
+   "prerequisite": 104744
+  },
+  "104739": {
+   "name": "Improved Healing Wave",
+   "tree": "Restoration",
+   "row": 0,
+   "col": 1,
+   "max_rank": 5,
+   "icon": "spell_nature_magicimmunity",
+   "rank_text": [
+    "Reduces the casting time of your Healing Wave spell by 0.1 sec.",
+    "Reduces the casting time of your Healing Wave spell by 0.2 sec.",
+    "Reduces the casting time of your Healing Wave spell by 0.3 sec.",
+    "Reduces the casting time of your Healing Wave spell by 0.4 sec.",
+    "Reduces the casting time of your Healing Wave spell by 0.5 sec."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "104729": {
+   "name": "Totemic Focus",
+   "tree": "Restoration",
+   "row": 0,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_nature_moonglow",
+   "rank_text": [
+    "Reduces the Mana cost of your totems and any spells that summon or move them by 5%.",
+    "Reduces the Mana cost of your totems and any spells that summon or move them by 10%.",
+    "Reduces the Mana cost of your totems and any spells that summon or move them by 15%.",
+    "Reduces the Mana cost of your totems and any spells that summon or move them by 20%.",
+    "Reduces the Mana cost of your totems and any spells that summon or move them by 25%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104734": {
+   "name": "Mindfulness",
+   "tree": "Restoration",
+   "row": 1,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "spell_nature_sleep",
+   "rank_text": [
+    "Allows 17% of your Mana regeneration to continue while casting.",
+    "Allows 33% of your Mana regeneration to continue while casting.",
+    "Allows 50% of your Mana regeneration to continue while casting."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "104736": {
+   "name": "Natural Grace",
+   "tree": "Restoration",
+   "row": 1,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_nature_healingtouch",
+   "rank_text": [
+    "Reduces the threat generated by your spells by 5%.",
+    "Reduces the threat generated by your spells by 10%.",
+    "Reduces the threat generated by your spells by 15%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104735": {
+   "name": "Tidal Focus",
+   "tree": "Restoration",
+   "row": 1,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_frost_manarecharge",
+   "rank_text": [
+    "Reduces the Mana cost of your healing spells by 1% and improves your chance to hit by 1%.",
+    "Reduces the Mana cost of your healing spells by 2% and improves your chance to hit by 2%.",
+    "Reduces the Mana cost of your healing spells by 3% and improves your chance to hit by 3%.",
+    "Reduces the Mana cost of your healing spells by 4% and improves your chance to hit by 4%.",
+    "Reduces the Mana cost of your healing spells by 5% and improves your chance to hit by 5%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104737": {
+   "name": "Improved Reincarnation",
+   "tree": "Restoration",
+   "row": 1,
+   "col": 3,
+   "max_rank": 2,
+   "icon": "spell_nature_reincarnation",
+   "rank_text": [
+    "Reduces the cooldown of your Reincarnation spell by 10 min, increases your maximum health by 2%, and increases the amount of health and Mana you reincarnate with by an additional 10%.",
+    "Reduces the cooldown of your Reincarnation spell by 20 min, increases your maximum health by 4%, and increases the amount of health and Mana you reincarnate with by an additional 20%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104731": {
+   "name": "Ancestral Healing",
+   "tree": "Restoration",
+   "row": 2,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "spell_nature_undyingstrength",
+   "rank_text": [
+    "Increases your target's armor value by 8% for 15 sec after getting a critical effect from one of your healing spells.",
+    "Increases your target's armor value by 17% for 15 sec after getting a critical effect from one of your healing spells.",
+    "Increases your target's armor value by 25% for 15 sec after getting a critical effect from one of your healing spells."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104733": {
+   "name": "Healing Focus",
+   "tree": "Restoration",
+   "row": 2,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_nature_healingwavelesser",
+   "rank_text": [
+    "Gives you a 23% chance to avoid interruption caused by damage while casting any healing spell.",
+    "Gives you a 47% chance to avoid interruption caused by damage while casting any healing spell.",
+    "Gives you a 70% chance to avoid interruption caused by damage while casting any healing spell."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104732": {
+   "name": "Water Shield",
+   "tree": "Restoration",
+   "row": 2,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "ability_shaman_watershield",
+   "rank_text": [
+    "The caster is surrounded by 3 globes of water. When a spell, melee, or ranged attack hits the caster or when one of the caster's healing spells gets a critical result, 2% of maximum mana is restored to the caster, expending one water globe. Only one globe will activate every few seconds. Lasts 10 min.\n\nOnly one Elemental Shield can be active on the Shaman at any one time."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "104738": {
+   "name": "Tidal Mastery",
+   "tree": "Restoration",
+   "row": 3,
+   "col": 0,
+   "max_rank": 5,
+   "icon": "spell_nature_tranquility",
+   "rank_text": [
+    "Increases the critical effect chance of your healing spells by 1%.",
+    "Increases the critical effect chance of your healing spells by 2%.",
+    "Increases the critical effect chance of your healing spells by 3%.",
+    "Increases the critical effect chance of your healing spells by 4%.",
+    "Increases the critical effect chance of your healing spells by 5%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104730": {
+   "name": "Restorative Totems",
+   "tree": "Restoration",
+   "row": 3,
+   "col": 1,
+   "max_rank": 5,
+   "icon": "spell_nature_manaregentotem",
+   "rank_text": [
+    "Increases the effect of your Mana Spring Totem by 5% and increases the effect of your Healing Stream Totem by 10%.",
+    "Increases the effect of your Mana Spring Totem by 10% and increases the effect of your Healing Stream Totem by 20%.",
+    "Increases the effect of your Mana Spring Totem by 15% and increases the effect of your Healing Stream Totem by 30%.",
+    "Increases the effect of your Mana Spring Totem by 20% and increases the effect of your Healing Stream Totem by 40%.",
+    "Increases the effect of your Mana Spring Totem by 25% and increases the effect of your Healing Stream Totem by 50%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104728": {
+   "name": "Mana Tide Totem",
+   "tree": "Restoration",
+   "row": 3,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_frost_summonwaterelemental",
+   "rank_text": [
+    "Summons a Mana Tide Totem with 5 health at the feet of the caster for 12 sec that restores 88 mana every 3 seconds to group members within 30 yards."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104727": {
+   "name": "Healing Way",
+   "tree": "Restoration",
+   "row": 4,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_nature_healingway",
+   "rank_text": [
+    "Increases the amount healed by your Healing Wave spell by 8%.",
+    "Increases the amount healed by your Healing Wave spell by 17%.",
+    "Increases the amount healed by your Healing Wave spell by 25%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "104726": {
+   "name": "Nature's Swiftness",
+   "tree": "Restoration",
+   "row": 4,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_nature_ravenform",
+   "rank_text": [
+    "When activated, your next Nature spell with a casting time less than 10 sec. becomes an instant cast spell."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "104725": {
+   "name": "Purification",
+   "tree": "Restoration",
+   "row": 5,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_frost_wizardmark",
+   "rank_text": [
+    "Increases the effectiveness of your healing spells by 2%.",
+    "Increases the effectiveness of your healing spells by 4%.",
+    "Increases the effectiveness of your healing spells by 6%.",
+    "Increases the effectiveness of your healing spells by 8%.",
+    "Increases the effectiveness of your healing spells by 10%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "104724": {
+   "name": "Riptide",
+   "tree": "Restoration",
+   "row": 6,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_nature_riptide",
+   "rank_text": [
+    "Heals a friendly target for 485 to 533, an additional 445 over 15 sec, and increases the effectiveness of your Chain Heal casts directly on that target by 25%."
+   ],
+   "classic_status": "new",
+   "prerequisite": 104727
+  }
+ },
+ "builds": [
+  {
+   "id": "shaman-elemental",
+   "name": "Elemental Lava Burst (PvP)",
+   "pair": "shaman-elemental",
+   "variant": "PvP",
+   "origin": "community",
+   "summary": "Elemental with Lava Burst, Lightning Overload, Elemental Fury, Earthbound and Eye of the Storm; Thundering Strikes and Ancestral Knowledge from Enhancement. The community's caster standard.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    104773,
+    104773,
+    104773,
+    104773,
+    104773,
+    104772,
+    104772,
+    104772,
+    104772,
+    104772,
+    104767,
+    104767,
+    104767,
+    104767,
+    104767,
+    104770,
+    104770,
+    104770,
+    104768,
+    104765,
+    104765,
+    104765,
+    104763,
+    104763,
+    104763,
+    104762,
+    104761,
+    104761,
+    104759,
+    104759,
+    104759,
+    104760,
+    104766,
+    104766,
+    104766,
+    104766,
+    104766,
+    104758,
+    104753,
+    104753,
+    104753,
+    104753,
+    104753,
+    104756,
+    104756,
+    104756,
+    104756,
+    104756,
+    104752,
+    104752,
+    104749
+   ],
+   "order_source": "legal order (main tree first), not optimized yet",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  },
+  {
+   "id": "shaman-enhancement-pve",
+   "name": "Enhancement (PvE)",
+   "pair": "shaman-enhancement",
+   "variant": "PvE",
+   "origin": "community",
+   "summary": "Enhancement build #1's Stormstrike core with Totemic Focus and Tidal Focus from Restoration in place of Call of Flame, Reverberation and Improved Fire Nova: cheaper totems and heals for leveling.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    104753,
+    104753,
+    104753,
+    104753,
+    104753,
+    104756,
+    104756,
+    104755,
+    104755,
+    104755,
+    104752,
+    104752,
+    104750,
+    104750,
+    104750,
+    104749,
+    104747,
+    104747,
+    104747,
+    104747,
+    104747,
+    104743,
+    104745,
+    104744,
+    104744,
+    104742,
+    104742,
+    104741,
+    104741,
+    104741,
+    104741,
+    104741,
+    104740,
+    104729,
+    104729,
+    104729,
+    104729,
+    104729,
+    104735,
+    104735,
+    104735,
+    104735,
+    104735,
+    104772,
+    104772,
+    104772,
+    104772,
+    104772,
+    104769,
+    104769,
+    104769
+   ],
+   "order_source": "legal order (main tree first), not optimized yet",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  },
+  {
+   "id": "shaman-enhancement",
+   "name": "Enhancement Stormstrike (PvP)",
+   "pair": "shaman-enhancement",
+   "variant": "PvP",
+   "origin": "community",
+   "summary": "Enhancement with Stormstrike, Maelstrom Weapon, Flurry, Spirit Weapons and Rage of the Farseer; Concussion, Call of Flame and Reverberation from Elemental for shock burst. The community's PvP standard.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    104753,
+    104753,
+    104753,
+    104753,
+    104753,
+    104756,
+    104756,
+    104755,
+    104755,
+    104755,
+    104752,
+    104752,
+    104750,
+    104750,
+    104750,
+    104749,
+    104747,
+    104747,
+    104747,
+    104747,
+    104747,
+    104743,
+    104745,
+    104744,
+    104744,
+    104742,
+    104742,
+    104741,
+    104741,
+    104741,
+    104741,
+    104741,
+    104740,
+    104772,
+    104772,
+    104772,
+    104772,
+    104772,
+    104767,
+    104767,
+    104767,
+    104767,
+    104767,
+    104770,
+    104770,
+    104770,
+    104769,
+    104769,
+    104769,
+    104764,
+    104764
+   ],
+   "order_source": "legal order (main tree first), not optimized yet",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  },
+  {
+   "id": "shaman-restoration",
+   "name": "Restoration Riptide (PvE)",
+   "pair": "shaman-restoration",
+   "variant": "PvE",
+   "origin": "community",
+   "summary": "Restoration with Riptide, Mana Tide Totem, Nature's Swiftness and Purification; Thundering Strikes and Ancestral Knowledge from Enhancement. The most saved shaman build: the community's healer standard (routes only, unscored).",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    104739,
+    104739,
+    104739,
+    104739,
+    104739,
+    104734,
+    104734,
+    104734,
+    104735,
+    104735,
+    104735,
+    104735,
+    104735,
+    104731,
+    104731,
+    104731,
+    104733,
+    104733,
+    104733,
+    104732,
+    104738,
+    104738,
+    104738,
+    104738,
+    104738,
+    104730,
+    104730,
+    104730,
+    104730,
+    104730,
+    104728,
+    104727,
+    104727,
+    104727,
+    104726,
+    104725,
+    104725,
+    104725,
+    104725,
+    104725,
+    104724,
+    104753,
+    104753,
+    104753,
+    104753,
+    104753,
+    104756,
+    104756,
+    104756,
+    104756,
+    104756
+   ],
+   "order_source": "legal order (main tree first), not optimized yet",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  }
+ ],
+ "shortlist": [
+  {
+   "archetype": "deep Elemental",
+   "focus": "PvP",
+   "standard": "shaman-elemental",
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": [
+    "shaman-elemental"
+   ]
+  },
+  {
+   "archetype": "deep Elemental",
+   "focus": "PvE",
+   "standard": null,
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": []
+  },
+  {
+   "archetype": "deep Enhancement",
+   "focus": "PvP",
+   "standard": "shaman-enhancement",
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": [
+    "shaman-enhancement"
+   ]
+  },
+  {
+   "archetype": "deep Enhancement",
+   "focus": "PvE",
+   "standard": "shaman-enhancement-pve",
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": [
+    "shaman-enhancement-pve"
+   ]
+  },
+  {
+   "archetype": "deep Restoration",
+   "focus": "PvP",
+   "standard": null,
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": []
+  },
+  {
+   "archetype": "deep Restoration",
+   "focus": "PvE",
+   "standard": "shaman-restoration",
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": [
+    "shaman-restoration"
+   ]
+  }
+ ],
+ "spell_milestones": [
+  {
+   "level": 1,
+   "spell": "Lightning Bolt",
+   "rank": 1
+  },
+  {
+   "level": 4,
+   "spell": "Earth Shock",
+   "rank": 1
+  },
+  {
+   "level": 8,
+   "spell": "Earth Shock",
+   "rank": 2
+  },
+  {
+   "level": 8,
+   "spell": "Lightning Bolt",
+   "rank": 2
+  },
+  {
+   "level": 8,
+   "spell": "Lightning Shield",
+   "rank": 2
+  },
+  {
+   "level": 10,
+   "spell": "Flame Shock",
+   "rank": 1
+  },
+  {
+   "level": 14,
+   "spell": "Earth Shock",
+   "rank": 3
+  },
+  {
+   "level": 14,
+   "spell": "Lightning Bolt",
+   "rank": 3
+  },
+  {
+   "level": 16,
+   "spell": "Lightning Shield",
+   "rank": 4
+  },
+  {
+   "level": 18,
+   "spell": "Flame Shock",
+   "rank": 2
+  },
+  {
+   "level": 20,
+   "spell": "Frost Shock",
+   "rank": 1
+  },
+  {
+   "level": 20,
+   "spell": "Lightning Bolt",
+   "rank": 4
+  },
+  {
+   "level": 24,
+   "spell": "Earth Shock",
+   "rank": 4
+  },
+  {
+   "level": 24,
+   "spell": "Lightning Shield",
+   "rank": 6
+  },
+  {
+   "level": 26,
+   "spell": "Lightning Bolt",
+   "rank": 5
+  },
+  {
+   "level": 28,
+   "spell": "Flame Shock",
+   "rank": 3
+  },
+  {
+   "level": 32,
+   "spell": "Chain Lightning",
+   "rank": 1
+  },
+  {
+   "level": 32,
+   "spell": "Lightning Bolt",
+   "rank": 6
+  },
+  {
+   "level": 32,
+   "spell": "Lightning Shield",
+   "rank": 8
+  },
+  {
+   "level": 34,
+   "spell": "Frost Shock",
+   "rank": 2
+  },
+  {
+   "level": 36,
+   "spell": "Earth Shock",
+   "rank": 5
+  },
+  {
+   "level": 38,
+   "spell": "Lightning Bolt",
+   "rank": 7
+  },
+  {
+   "level": 40,
+   "spell": "Chain Lightning",
+   "rank": 2
+  },
+  {
+   "level": 40,
+   "spell": "Flame Shock",
+   "rank": 4
+  },
+  {
+   "level": 40,
+   "spell": "Lightning Shield",
+   "rank": 10
+  },
+  {
+   "level": 44,
+   "spell": "Lightning Bolt",
+   "rank": 8
+  },
+  {
+   "level": 46,
+   "spell": "Frost Shock",
+   "rank": 3
+  },
+  {
+   "level": 48,
+   "spell": "Chain Lightning",
+   "rank": 3
+  },
+  {
+   "level": 48,
+   "spell": "Earth Shock",
+   "rank": 6
+  },
+  {
+   "level": 48,
+   "spell": "Lightning Shield",
+   "rank": 12
+  },
+  {
+   "level": 50,
+   "spell": "Lava Burst",
+   "rank": 2
+  },
+  {
+   "level": 50,
+   "spell": "Lightning Bolt",
+   "rank": 9
+  },
+  {
+   "level": 52,
+   "spell": "Flame Shock",
+   "rank": 5
+  },
+  {
+   "level": 56,
+   "spell": "Chain Lightning",
+   "rank": 4
+  },
+  {
+   "level": 56,
+   "spell": "Lightning Bolt",
+   "rank": 10
+  },
+  {
+   "level": 56,
+   "spell": "Lightning Shield",
+   "rank": 14
+  },
+  {
+   "level": 58,
+   "spell": "Frost Shock",
+   "rank": 4
+  },
+  {
+   "level": 60,
+   "spell": "Earth Shock",
+   "rank": 7
+  },
+  {
+   "level": 60,
+   "spell": "Flame Shock",
+   "rank": 6
+  },
+  {
+   "level": 60,
+   "spell": "Lava Burst",
+   "rank": 3
+  }
+ ],
+ "assumptions": {},
+ "checklist": [],
+ "caveats": [
+  "Routes only: this class's builds are community standards in a legal point order (top rows first). Scores, model picks and optimized orders wait on the melee and ranged damage engine (#111)."
+ ]
+}

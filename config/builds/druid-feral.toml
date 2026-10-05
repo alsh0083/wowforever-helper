@@ -1,0 +1,32 @@
+# Druid community standard (#156) from wowforevertalent.com's popularity data: #1 of the most
+# popular complete druid builds (since the Oct 1 patch (build 70170), updated daily), points 9/34/5, shared 124,
+# saved 258, opened 2052, 64 close variants. Focus label is Claude's judgment.
+
+id = "druid-feral"
+class = "druid"
+name = "Feral Cat (PvP)"
+pair = "druid-feral"
+variant = "PvP"
+origin = "community"
+sources = ["wft_popular_druid"]
+confidence = "medium"
+summary = "Feral cat with Feral Charge, Feral Swiftness, Shredding Attacks, Berserk and Rend and Tear; Genesis and Nature's Majesty from Balance and Furor from Restoration. Mobility and burst from stealth: the community's most saved Feral build."
+
+[final]
+"Berserk" = 1
+"Blood Frenzy" = 2
+"Feral Charge" = 1
+"Feral Swiftness" = 2
+"Ferocity" = 5
+"Furor" = 5
+"Genesis" = 5
+"Heart of the Wild" = 5
+"Leader of the Pack" = 1
+"Nature's Majesty" = 2
+"Nature's Reach" = 2
+"Predatory Instincts" = 2
+"Predatory Strikes" = 3
+"Rend and Tear" = 5
+"Savage Fury" = 2
+"Sharpened Claws" = 2
+"Shredding Attacks" = 3
