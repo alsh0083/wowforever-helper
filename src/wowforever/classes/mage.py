@@ -24,6 +24,11 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Arcane Focus": (
         EffectRule("hit_chance", r"chance to hit with Arcane spells by (\d+(?:\.\d+)?)%", ("arcane",)),
     ),
+    "Arcane Concentration": (
+        EffectRule("mana_cost_pct",
+                   r"a (\d+(?:\.\d+)?)% chance of entering a Clearcasting state",
+                   ("all",), sign=-1),
+    ),
     "Arcane Impact": (
         EffectRule("crit_chance", r"critical strike chance of your Arcane spells by (\d+(?:\.\d+)?)%",
                    ("arcane",)),
@@ -70,6 +75,19 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Burning Soul": (
         EffectRule("pushback_pct", r"(\d+(?:\.\d+)?)% chance to not lose casting time", ("fire",)),
     ),
+    "Improved Scorch": (
+        EffectRule("proc_chance",
+                   r"has a (\d+(?:\.\d+)?)% chance to cause your target to be vulnerable",
+                   ("Scorch",)),
+    ),
+    "Master of Elements": (
+        EffectRule("resource", r"refund (\d+(?:\.\d+)?)% of their base mana cost",
+                   ("fire", "frost")),
+    ),
+    "Wake of Fire": (
+        EffectRule("cooldown", r"cooldown of your Fire Blast spell by (\d+(?:\.\d+)?) sec",
+                   ("Fire Blast",), sign=-1),
+    ),
     # Frost
     "Ice Shards": (
         EffectRule("crit_damage_pct",
@@ -106,17 +124,27 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Frostbite": (
         EffectRule("proc_chance", r"a (\d+(?:\.\d+)?)% chance to Freeze", ("@chill",)),
     ),
+    "Fingers of Frost": (
+        EffectRule("proc_chance",
+                   r"effects a (\d+(?:\.\d+)?)% chance to grant you the Fingers of Frost",
+                   ("@chill",)),
+    ),
     "Shatter": (
         EffectRule("crit_chance", r"against Frozen targets by (\d+(?:\.\d+)?)%", ("all", "@frozen")),
+    ),
+    "Winter's Chill": (
+        EffectRule("crit_chance",
+                   r"critically hit the target by (\d+(?:\.\d+)?)% for \d+ sec\. Stacks up to (\d+) times",
+                   ("Frostbolt", "Ice Lance", "@sustained"),
+                   combine=lambda match: float(match.group(1)) * float(match.group(2))),
     ),
 }
 
 UNMODELED: dict[str, str] = {
     "Arcane Blast": "grants_spell",
-    "Arcane Concentration": "proc/stack mechanic, v1",
     "Arcane Geometry": "utility: range",
     "Arcane Meditation": "resource: mana regen while casting",
-    "Arcane Power": "conditional damage/mana buff, v1",
+    "Arcane Power": "handled in mage_rotation",
     "Arcane Resilience": "defensive: armor from intellect",
     "Arcane Shielding": "defensive: mana shield / armor",
     "Arcane Subtlety": "resistance reduction + threat, v1",
@@ -128,21 +156,16 @@ UNMODELED: dict[str, str] = {
     "Arctic Reach": "utility: range",
     "Blast Wave": "grants_spell",
     "Cold Snap": "cooldown utility",
-    "Combustion": "self-buff, v1",
-    "Fingers of Frost": "proc/stack mechanic, v1",
+    "Combustion": "not modeled yet",
     "Flame Throwing": "utility: range",
     "Frost Warding": "defensive: ward / armor",
-    "Heating Up": "proc/stack mechanic, v1",
+    "Heating Up": "handled in mage_rotation",
     "Ice Barrier": "defensive: absorb shield",
     "Ice Block": "defensive: immunity",
     "Ice Lance": "grants_spell",
     "Improved Blizzard": "slow effect, v1",
     "Improved Fire Ward": "defensive: reflect",
-    "Improved Scorch": "proc/stack mechanic, v1",
-    "Master of Elements": "resource: mana refund on crit",
     "Pyroblast": "grants_spell",
-    "Wake of Fire": "cooldown + conditional crit proc, v1",
-    "Winter's Chill": "proc/stack mechanic, v1",
 }
 
 # Mage skill lines in SkillLineAbility: Frost, Fire, Arcane.

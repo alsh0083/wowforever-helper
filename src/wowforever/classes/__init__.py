@@ -3,7 +3,10 @@
 Everything outside this package is class-agnostic.
 """
 
+from collections.abc import Callable
 from dataclasses import dataclass
+from typing import Match
+
 
 
 @dataclass(frozen=True)
@@ -34,3 +37,4 @@ class EffectRule:
     pattern: str                 # regex with one capture group for the number
     applies_to: tuple[str, ...]  # school names, spell names, "all", or "@condition" tokens
     sign: int = 1                # -1 for reductions (cast time, mana cost)
+    combine: Callable[[Match[str]], float] | None = None  # several numbers, e.g. % x stacks
