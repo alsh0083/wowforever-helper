@@ -46,6 +46,7 @@ SLOT_NAMES = {
 
 # bonusStat id -> stat name; everything else is ignored
 STAT_NAMES = {
+    3: "agility", 4: "strength", 38: "attack_power", 39: "ranged_attack_power",
     5: "intellect", 6: "spirit", 7: "stamina", 45: "spell_power",
     32: "crit_rating", 31: "hit_rating", 43: "mp5",
 }
@@ -85,11 +86,14 @@ class Item:
     quality: int
     slot: str
     stats: dict[str, int]
+    armor_type: int | None = None   # Item.SubclassID for armor (1 cloth, 2 leather, 3 mail, 4 plate)
 
 
 def load_items(tables: Tables) -> list[Item]:
     """Items with a known quality, slot, and stats, from the wago item tables."""
     rand_points = {row["ID"]: row for row in tables["RandPropPoints"]}
+    armor_types = {row["ID"]: int(row["SubclassID"]) for row in tables.get("Item", ())
+                   if row["ClassID"] == "4"}
     items: list[Item] = []
     for row in tables["ItemSparse"]:
         quality = int(row["OverallQualityID"])
@@ -110,6 +114,7 @@ def load_items(tables: Tables) -> list[Item]:
             item_id=int(row["ID"]), name=row["Display_lang"],
             item_level=int(row["ItemLevel"]), required_level=int(row["RequiredLevel"]),
             quality=quality, slot=SLOT_NAMES[inventory_type], stats=stats,
+            armor_type=armor_types.get(row["ID"]),
         ))
     return items
 
@@ -127,19 +132,32 @@ def weighted(item: Item, weights: Mapping[str, float]) -> float:
     return sum(weights.get(stat, 0.0) * value for stat, value in item.stats.items())
 
 
-def best_set(items: list[Item], level: int, max_quality: int) -> dict[str, Item]:
+ANY_ARMOR_SLOTS = frozenset({"back", "neck", "finger", "trinket"})
+
+
+def _wearable(item: Item, armor: frozenset[int] | None) -> bool:
+    """Whether a class wearing armor subclasses `armor` can use `item` (None: no restriction)."""
+    return (armor is None or item.armor_type in (None, 0) or item.armor_type in armor
+            or item.slot in ANY_ARMOR_SLOTS)
+
+
+def best_set(items: list[Item], level: int, max_quality: int, *,
+             weights: Mapping[str, float] = WEIGHTS,
+             armor: frozenset[int] | None = None) -> dict[str, Item]:
     """The best item per slot for a `level` character wearing quality <= max_quality.
 
-    The two best different items fill finger1/finger2 and trinket1/trinket2;
-    weapons keep only the better of two_hand and main_hand + off_hand.
+    `armor` limits armor to those subclasses (cloaks, necks, rings and trinkets stay open). The two
+    best different items fill finger1/finger2 and trinket1/trinket2; weapons keep only the better of
+    two_hand and main_hand + off_hand.
     """
     by_slot: dict[str, list[Item]] = {}
     for item in items:
-        if item.required_level <= level and item.quality <= max_quality and _usable(item):
+        if (item.required_level <= level and item.quality <= max_quality and _usable(item)
+                and _wearable(item, armor)):
             by_slot.setdefault(item.slot, []).append(item)
 
     def rank(group: list[Item]) -> list[Item]:
-        return sorted(group, key=lambda item: (-weighted(item, WEIGHTS), item.item_id))
+        return sorted(group, key=lambda item: (-weighted(item, weights), item.item_id))
 
     result: dict[str, Item] = {}
     for slot, group in by_slot.items():
@@ -153,7 +171,7 @@ def best_set(items: list[Item], level: int, max_quality: int) -> dict[str, Item]
     main_hand, off_hand = result.get("main_hand"), result.get("off_hand")
     pair = main_hand is not None and off_hand is not None
     use_two = two_hand is not None and (
-        not pair or weighted(two_hand, WEIGHTS) >= weighted(main_hand, WEIGHTS) + weighted(off_hand, WEIGHTS))
+        not pair or weighted(two_hand, weights) >= weighted(main_hand, weights) + weighted(off_hand, weights))
     if use_two:
         result.pop("main_hand", None)
         result.pop("off_hand", None)
@@ -194,7 +212,7 @@ def gear_stat_table(items: list[Item], levels: Iterable[int]) -> list[Stats]:
     rows: list[Stats] = []
     for level in levels:
         base = _interpolate_base(base_rows, level)
-        totals = set_totals(best_set(items, level, 3 if level < 60 else 4))
+        totals = set_totals(best_set(items, level, 3 if level < 60 else 4, armor=frozenset({1})))
         intellect = base["intellect"] + totals.get("intellect", 0)
         spirit = base["spirit"] + totals.get("spirit", 0)
         stamina = base["stamina"] + totals.get("stamina", 0)
@@ -214,9 +232,9 @@ def gear_stat_table(items: list[Item], levels: Iterable[int]) -> list[Stats]:
     return rows
 
 
-def _read_base_rows() -> list[dict[str, float]]:
-    """The mage base stat anchors from `config/stats/mage_base.csv`."""
-    with MAGE_BASE.open(newline="", encoding="utf-8") as handle:
+def _read_base_rows(path: Path = MAGE_BASE) -> list[dict[str, float]]:
+    """Base stat anchors from a `config/stats/<class>_base.csv` file (the mage's by default)."""
+    with path.open(newline="", encoding="utf-8") as handle:
         return [
             {key: (int(value) if key == "level" else float(value)) for key, value in row.items()}
             for row in csv.DictReader(handle)
