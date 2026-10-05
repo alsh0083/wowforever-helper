@@ -22,3 +22,6 @@ In the selected-build panel, if another build shares its `pair` id, show "Pairs 
 
 ## Done when
 `.venv/Scripts/python -m pytest` passes in full. Claude will review the page visually.
+
+## Environment note
+The test temp-folder setup is already fixed (`conftest.py`). Work on the template only: iterate with `.venv/Scripts/python -m pytest tests/test_dashboard_matrix.py tests/test_dashboard.py`, then run the full suite once at the end. If any test that uses `tmp_path` errors with a permission or path error, that comes from the sandbox: report it in your final message and keep going rather than investigating it.
