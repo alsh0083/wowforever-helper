@@ -127,6 +127,7 @@ def _index_tables(tables: Tables) -> _Indexes:
 
 
 _POWER_MANA, _POWER_ENERGY = "0", "3"   # SpellPower.PowerType (4 = combo points)
+_POWER_RAGE = "1"                      # SpellPower.PowerType: warrior rage (stored in tenths)
 
 
 def _all_by_spell(rows: list[dict[str, str]]) -> dict[int, list[dict[str, str]]]:
@@ -203,6 +204,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
     costs = {row["PowerType"]: int(_f(row["ManaCost"])) for row in indexes.powers.get(spell_id, ())}
     mana_cost = costs.get(_POWER_MANA, 0)
     energy_cost = costs.get(_POWER_ENERGY, 0)
+    rage_cost = costs.get(_POWER_RAGE, 0) // 10
 
     cooldown_row = indexes.cooldowns.get(spell_id)
     cooldown = 0.0
@@ -273,6 +275,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
     return SpellRank(
         spell_id=spell_id, name=name, rank=rank, level=level, schools=schools,
         cast_time=cast_time, cooldown=cooldown, mana_cost=mana_cost, energy_cost=energy_cost,
+        rage_cost=rage_cost,
         min_damage=min_damage, max_damage=max_damage, coefficient=coefficient,
         periodic_damage=periodic_damage, periodic_coefficient=periodic_coefficient,
         duration=duration, range=range_max, tick_period=tick_period,
