@@ -18,17 +18,24 @@ BUILDS = {b.id: b for b in load_builds()}
 
 
 def test_the_builds_exist_and_names_end_in_their_focus():
-    assert set(BUILDS) == {"elementalist-v4", "elementalist-pve", "deep-frost", "deep-fire", "arcane-pom-pyro",
-                           "fire-frost-shatter", "deep-arcane"}
+    assert set(BUILDS) == {"elementalist-v4", "elementalist-pve", "elementalist-pve-v2", "deep-frost",
+                           "deep-fire", "arcane-pom-pyro", "fire-frost-shatter", "deep-arcane"}
     for b in BUILDS.values():
         assert b.variant in ("PvP", "PvE") and f"({b.variant}" in b.name
 
 
-def test_elementalist_pair_differs_only_at_level_60():
-    pvp, pve = BUILDS["elementalist-v4"], BUILDS["elementalist-pve"]
+def test_elementalist_pair_shares_the_route_to_40():
+    # #101: the revised PvE variant is the PvP build's pair; dual spec from 40 keeps levels 10-40
+    pvp, pve = BUILDS["elementalist-v4"], BUILDS["elementalist-pve-v2"]
     assert pvp.pair == pve.pair == "offensive-elementalist"
-    assert pvp.order[:-1] == pve.order[:-1]
-    assert (pvp.order[-1], pve.order[-1]) == ("Permafrost", "Elemental Precision")
+    assert pve.origin == "model" and pve.name == "Offensive Elementalist (PvE)"
+    assert pvp.order[:31] == pve.order[:31] and pvp.order[31:] != pve.order[31:]
+
+
+def test_original_elementalist_pve_is_kept_for_comparison():
+    old = BUILDS["elementalist-pve"]
+    assert old.name == "Offensive Elementalist (PvE, original)" and old.pair == "elementalist-pve"
+    assert old.order[:-1] == BUILDS["elementalist-v4"].order[:-1] and old.order[-1] == "Elemental Precision"
 
 
 @pytest.mark.parametrize("build_id", sorted(BUILDS))

@@ -51,7 +51,7 @@ def test_every_build_has_a_legal_order_meeting_its_deadlines(payload):
 def test_elementalist_variants_keep_their_hand_written_orders(payload):
     _, report = payload
     hand = [b for b in report["builds"] if b["id"].startswith("elementalist")]
-    assert len(hand) == 2 and all(b["order_source"] == "hand-written" and b["open_points"] == 0 for b in hand)
+    assert len(hand) == 3 and all(b["order_source"] == "hand-written" and b["open_points"] == 0 for b in hand)
     others = [b for b in report["builds"] if not b["id"].startswith("elementalist")]
     assert all(b["order_source"].startswith("optimized") and b["open_points"] == 0 for b in others)
 

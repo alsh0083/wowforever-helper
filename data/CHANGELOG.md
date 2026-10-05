@@ -2,6 +2,35 @@
 
 ## 1.60.1.70205 (2026-10-05)
 
+> Not a game change: same build, but this dataset predates #57, which reads Arcane Missiles' damage from its periodic-trigger aura (the missile spell). Reports before this entry had Arcane Missiles at 0 damage, so it never competed as a filler (#100).
+
+- Arcane Missiles rank 1: periodic_coefficient 0.0 -> 0.8580000400500001
+- Arcane Missiles rank 1: periodic_damage 0.0 -> 72.0
+- Arcane Missiles rank 1: tick_period 0.0 -> 1.0
+- Arcane Missiles rank 2: periodic_coefficient 0.0 -> 1.1440000534
+- Arcane Missiles rank 2: periodic_damage 0.0 -> 124.0
+- Arcane Missiles rank 2: tick_period 0.0 -> 1.0
+- Arcane Missiles rank 3: periodic_coefficient 0.0 -> 1.4300000667500001
+- Arcane Missiles rank 3: periodic_damage 0.0 -> 220.0
+- Arcane Missiles rank 3: tick_period 0.0 -> 1.0
+- Arcane Missiles rank 4: periodic_coefficient 0.0 -> 1.4300000667500001
+- Arcane Missiles rank 4: periodic_damage 0.0 -> 330.0
+- Arcane Missiles rank 4: tick_period 0.0 -> 1.0
+- Arcane Missiles rank 5: periodic_coefficient 0.0 -> 1.4300000667500001
+- Arcane Missiles rank 5: periodic_damage 0.0 -> 475.0
+- Arcane Missiles rank 5: tick_period 0.0 -> 1.0
+- Arcane Missiles rank 6: periodic_coefficient 0.0 -> 1.4300000667500001
+- Arcane Missiles rank 6: periodic_damage 0.0 -> 650.0
+- Arcane Missiles rank 6: tick_period 0.0 -> 1.0
+- Arcane Missiles rank 7: periodic_coefficient 0.0 -> 1.4300000667500001
+- Arcane Missiles rank 7: periodic_damage 0.0 -> 855.0
+- Arcane Missiles rank 7: tick_period 0.0 -> 1.0
+- Arcane Missiles rank 8: periodic_coefficient 0.0 -> 1.4300000667500001
+- Arcane Missiles rank 8: periodic_damage 0.0 -> 1045.0
+- Arcane Missiles rank 8: tick_period 0.0 -> 1.0
+
+## 1.60.1.70205 (2026-10-05)
+
 > Not a game change: same build, but the tool started recording survival/control spell fields (absorb, root, stun, immunity, incapacitate, interrupt lockout; #71), so they show up as 0 -> value. Affected-build flags from this entry can be ignored.
 
 - Counterspell rank 1: interrupt_lockout 0.0 -> 10.0
