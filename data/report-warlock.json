@@ -1,0 +1,1547 @@
+{
+ "class": "warlock",
+ "engine": false,
+ "scoring_note": "Scores come with the caster spell engine (#163, #165).",
+ "dataset": {
+  "version": "1.60.1.70205",
+  "game_build": "1.60.1.70205",
+  "sources": [
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T03:59:05.912402+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261003-adadac42",
+    "fetched_at": "2026-10-05T03:59:05.912402+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T14:41:33.667333+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T14:41:33.667333+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T15:09:19.482259+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T15:09:19.482259+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T15:31:27.012459+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T15:31:27.012459+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T15:40:16.643172+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T15:40:16.643172+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70205",
+    "data_version": "1.60.1.70205",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T21:32:50.229868+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:19.310836+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:21.223473+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:23.135861+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:25.026869+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:26.957252+00:00"
+   }
+  ]
+ },
+ "rules": {
+  "first_talent_level": 10,
+  "max_level": 60,
+  "points_per_row": 5
+ },
+ "trees": [
+  {
+   "id": 1,
+   "name": "Affliction"
+  },
+  {
+   "id": 2,
+   "name": "Demonology"
+  },
+  {
+   "id": 3,
+   "name": "Destruction"
+  }
+ ],
+ "talents": {
+  "105921": {
+   "name": "Improved Life Tap",
+   "tree": "Affliction",
+   "row": 0,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_shadow_burningspirit",
+   "rank_text": [
+    "Increases the amount of Mana awarded by your Life Tap spell by 10%.",
+    "Increases the amount of Mana awarded by your Life Tap spell by 20%."
+   ],
+   "classic_status": "moved",
+   "prerequisite": null
+  },
+  "105925": {
+   "name": "Suppression",
+   "tree": "Affliction",
+   "row": 0,
+   "col": 1,
+   "max_rank": 5,
+   "icon": "spell_shadow_unsummonbuilding",
+   "rank_text": [
+    "Improves your chance to hit by 1% and reduces all threat you generate by 4%.",
+    "Improves your chance to hit by 2% and reduces all threat you generate by 8%.",
+    "Improves your chance to hit by 3% and reduces all threat you generate by 12%.",
+    "Improves your chance to hit by 4% and reduces all threat you generate by 16%.",
+    "Improves your chance to hit by 5% and reduces all threat you generate by 20%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105924": {
+   "name": "Improved Corruption",
+   "tree": "Affliction",
+   "row": 0,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_shadow_abominationexplosion",
+   "rank_text": [
+    "Reduces the casting time of your Corruption spell by 0.4 sec and increases the damage it deals by 2%.",
+    "Reduces the casting time of your Corruption spell by 0.8 sec and increases the damage it deals by 4%.",
+    "Reduces the casting time of your Corruption spell by 1.2 sec and increases the damage it deals by 6%.",
+    "Reduces the casting time of your Corruption spell by 1.6 sec and increases the damage it deals by 8%.",
+    "Reduces the casting time of your Corruption spell by 2 sec and increases the damage it deals by 10%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105923": {
+   "name": "Malediction",
+   "tree": "Affliction",
+   "row": 1,
+   "col": 0,
+   "max_rank": 5,
+   "icon": "spell_shadow_curseofachimonde",
+   "rank_text": [
+    "Increases all periodic damage done by your Warlock spells by 1%.",
+    "Increases all periodic damage done by your Warlock spells by 2%.",
+    "Increases all periodic damage done by your Warlock spells by 3%.",
+    "Increases all periodic damage done by your Warlock spells by 4%.",
+    "Increases all periodic damage done by your Warlock spells by 5%."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105922": {
+   "name": "Soul Harvest",
+   "tree": "Affliction",
+   "row": 1,
+   "col": 1,
+   "max_rank": 2,
+   "icon": "inv_elemental_primal_shadow",
+   "rank_text": [
+    "Killing a non-trivial target afflicted by your Drain Soul increases your Mana regeneration by 50% for 10 sec and allows 50% of normal Mana regeneration to continue while casting.",
+    "Killing a non-trivial target afflicted by your Drain Soul increases your Mana regeneration by 100% for 10 sec and allows 100% of normal Mana regeneration to continue while casting."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105920": {
+   "name": "Improved Drains",
+   "tree": "Affliction",
+   "row": 1,
+   "col": 2,
+   "max_rank": 3,
+   "icon": "spell_shadow_haunting",
+   "rank_text": [
+    "Increases health drained or damage done by your Drain Life, Drain Soul, and Wrack spells by 7%.",
+    "Increases health drained or damage done by your Drain Life, Drain Soul, and Wrack spells by 13%.",
+    "Increases health drained or damage done by your Drain Life, Drain Soul, and Wrack spells by 20%."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105919": {
+   "name": "Improved Bane of Agony",
+   "tree": "Affliction",
+   "row": 2,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_shadow_curseofsargeras",
+   "rank_text": [
+    "Increases the damage done by your Bane of Agony by 5%.",
+    "Increases the damage done by your Bane of Agony by 10%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105918": {
+   "name": "Fel Concentration",
+   "tree": "Affliction",
+   "row": 2,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_shadow_fingerofdeath",
+   "rank_text": [
+    "Gives you a 23% chance to avoid interruption caused by damage while channeling or casting your Drain Life, Drain Mana, Drain Soul, or Wrack spells.",
+    "Gives you a 47% chance to avoid interruption caused by damage while channeling or casting your Drain Life, Drain Mana, Drain Soul, or Wrack spells.",
+    "Gives you a 70% chance to avoid interruption caused by damage while channeling or casting your Drain Life, Drain Mana, Drain Soul, or Wrack spells."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105916": {
+   "name": "Amplify Curse",
+   "tree": "Affliction",
+   "row": 2,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_shadow_contagion",
+   "rank_text": [
+    "Increases the effect of your next Curse of Weakness or Bane of Agony by 50%, or your next Curse of Exhaustion by 20%. Lasts 30 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105917": {
+   "name": "Pandemic",
+   "tree": "Affliction",
+   "row": 2,
+   "col": 3,
+   "max_rank": 3,
+   "icon": "spell_shadow_unstableaffliction_2",
+   "rank_text": [
+    "Increases the critical strike damage bonus of your Corruption, Bane of Agony, Bane of Doom, Drain Soul, Drain Life, Siphon Life, and Wrack spells by 33%.",
+    "Increases the critical strike damage bonus of your Corruption, Bane of Agony, Bane of Doom, Drain Soul, Drain Life, Siphon Life, and Wrack spells by 67%.",
+    "Increases the critical strike damage bonus of your Corruption, Bane of Agony, Bane of Doom, Drain Soul, Drain Life, Siphon Life, and Wrack spells by 100%."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "110876": {
+   "name": "Malevolence",
+   "tree": "Affliction",
+   "row": 3,
+   "col": 0,
+   "max_rank": 5,
+   "icon": "spell_shadow_focusedpower",
+   "rank_text": [
+    "Increases the critical effect chance of your Shadow spells by 1%.",
+    "Increases the critical effect chance of your Shadow spells by 2%.",
+    "Increases the critical effect chance of your Shadow spells by 3%.",
+    "Increases the critical effect chance of your Shadow spells by 4%.",
+    "Increases the critical effect chance of your Shadow spells by 5%."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105914": {
+   "name": "Nightfall",
+   "tree": "Affliction",
+   "row": 3,
+   "col": 1,
+   "max_rank": 2,
+   "icon": "spell_shadow_twilight",
+   "rank_text": [
+    "Gives your Corruption, Drain Soul, Drain Life, and Wrack spells a 2% chance to cause you to enter a Shadow Trance after damaging the opponent. The Shadow Trance reduces the casting time of your next Shadow Bolt spell by 100%.",
+    "Gives your Corruption, Drain Soul, Drain Life, and Wrack spells a 4% chance to cause you to enter a Shadow Trance after damaging the opponent. The Shadow Trance reduces the casting time of your next Shadow Bolt spell by 100%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105913": {
+   "name": "Curse of Exhaustion",
+   "tree": "Affliction",
+   "row": 3,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_shadow_grimward",
+   "rank_text": [
+    "Reduces the target's movement speed by 30% for 12 sec. Only one Curse per Warlock can be active on any one target."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 105916
+  },
+  "105912": {
+   "name": "Siphon Life",
+   "tree": "Affliction",
+   "row": 4,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_shadow_requiem",
+   "rank_text": [
+    "Transfers 11 health from the target to the caster every 3 sec. Lasts 30 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105911": {
+   "name": "Soul Siphon",
+   "tree": "Affliction",
+   "row": 4,
+   "col": 2,
+   "max_rank": 3,
+   "icon": "spell_shadow_lifedrain02",
+   "rank_text": [
+    "Increases the damage done or health drained by your Drain Life, Drain Soul, and Wrack spells by 4% per each of your other Affliction effects active on the target, up to a maximum increase of 12%.",
+    "Increases the damage done or health drained by your Drain Life, Drain Soul, and Wrack spells by 8% per each of your other Affliction effects active on the target, up to a maximum increase of 24%.",
+    "Increases the damage done or health drained by your Drain Life, Drain Soul, and Wrack spells by 12% per each of your other Affliction effects active on the target, up to a maximum increase of 36%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105910": {
+   "name": "Shadow Mastery",
+   "tree": "Affliction",
+   "row": 5,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_shadow_shadetruesight",
+   "rank_text": [
+    "Increases the damage dealt or life drained by your Shadow spells by 1%.",
+    "Increases the damage dealt or life drained by your Shadow spells by 2%.",
+    "Increases the damage dealt or life drained by your Shadow spells by 3%.",
+    "Increases the damage dealt or life drained by your Shadow spells by 4%.",
+    "Increases the damage dealt or life drained by your Shadow spells by 5%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105909": {
+   "name": "Wrack",
+   "tree": "Affliction",
+   "row": 6,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "ability_deathknight_hemorrhagicfever",
+   "rank_text": [
+    "Tears the target apart from within, inflicting 36 Shadow damage every 1 sec and increasing the damage they take from your other Shadow damage over time effects by 10% for 6 sec."
+   ],
+   "classic_status": "new",
+   "prerequisite": 105912
+  },
+  "105905": {
+   "name": "Improved Health Funnel",
+   "tree": "Demonology",
+   "row": 0,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_shadow_lifedrain",
+   "rank_text": [
+    "Increases the amount of health transferred by your Health Funnel spell by 20%, reduces its health cost by 15%, and reduces all threat your Health Funnel generates by 50%. Allows Health Funnel to be used regardless of your demon's health.",
+    "Increases the amount of health transferred by your Health Funnel spell by 40%, reduces its health cost by 30%, and reduces all threat your Health Funnel generates by 100%. Allows Health Funnel to be used regardless of your demon's health."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105908": {
+   "name": "Improved Imp",
+   "tree": "Demonology",
+   "row": 0,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_shadow_summonimp",
+   "rank_text": [
+    "Increases the damage of your Imp's Firebolt spell by 10% and the effect of its Fire Shield spell by 10%.",
+    "Increases the damage of your Imp's Firebolt spell by 20% and the effect of its Fire Shield spell by 20%.",
+    "Increases the damage of your Imp's Firebolt spell by 30% and the effect of its Fire Shield spell by 30%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105907": {
+   "name": "Demonic Embrace",
+   "tree": "Demonology",
+   "row": 0,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_shadow_metamorphosis",
+   "rank_text": [
+    "Increases your total Stamina by 3%.",
+    "Increases your total Stamina by 6%.",
+    "Increases your total Stamina by 9%.",
+    "Increases your total Stamina by 12%.",
+    "Increases your total Stamina by 15%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105906": {
+   "name": "Unholy Power",
+   "tree": "Demonology",
+   "row": 0,
+   "col": 3,
+   "max_rank": 5,
+   "icon": "spell_shadow_shadowworddominate",
+   "rank_text": [
+    "Increases all damage done by your Imp, Voidwalker, Succubus, Incubus, and Felhunter pets by 2%.",
+    "Increases all damage done by your Imp, Voidwalker, Succubus, Incubus, and Felhunter pets by 4%.",
+    "Increases all damage done by your Imp, Voidwalker, Succubus, Incubus, and Felhunter pets by 6%.",
+    "Increases all damage done by your Imp, Voidwalker, Succubus, Incubus, and Felhunter pets by 8%.",
+    "Increases all damage done by your Imp, Voidwalker, Succubus, Incubus, and Felhunter pets by 10%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105902": {
+   "name": "Demonic Aegis",
+   "tree": "Demonology",
+   "row": 1,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_shadow_ragingscream",
+   "rank_text": [
+    "Increases the effectiveness of your Demon Skin and Demon Armor spells by 15%.",
+    "Increases the effectiveness of your Demon Skin and Demon Armor spells by 30%."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105904": {
+   "name": "Improved Voidwalker",
+   "tree": "Demonology",
+   "row": 1,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_shadow_summonvoidwalker",
+   "rank_text": [
+    "Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice, and Suffering spells by 10%.",
+    "Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice, and Suffering spells by 20%.",
+    "Increases the effectiveness of your Voidwalker's Torment, Consume Shadows, Sacrifice, and Suffering spells by 30%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105903": {
+   "name": "Fel Vitality",
+   "tree": "Demonology",
+   "row": 1,
+   "col": 2,
+   "max_rank": 3,
+   "icon": "spell_shadow_demonictactics",
+   "rank_text": [
+    "Increases the maximum health and Mana of your Imp, Voidwalker, Succubus, Incubus, and Felhunter by 5%, and increases your maximum Mana by 5%.",
+    "Increases the maximum health and Mana of your Imp, Voidwalker, Succubus, Incubus, and Felhunter by 10%, and increases your maximum Mana by 10%.",
+    "Increases the maximum health and Mana of your Imp, Voidwalker, Succubus, Incubus, and Felhunter by 15%, and increases your maximum Mana by 15%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105899": {
+   "name": "Demonic Energies",
+   "tree": "Demonology",
+   "row": 1,
+   "col": 3,
+   "max_rank": 2,
+   "icon": "spell_shadow_felmending",
+   "rank_text": [
+    "You heal your pet for 8% of all spell damage you deal. When you gain Mana from Life Tap, your summoned demon gains 50% of the Mana you gain.",
+    "You heal your pet for 15% of all spell damage you deal. When you gain Mana from Life Tap, your summoned demon gains 100% of the Mana you gain."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105901": {
+   "name": "Improved Sayaad",
+   "tree": "Demonology",
+   "row": 2,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "ability_warlock_randomizesuccubusincubus",
+   "rank_text": [
+    "Increases the effect of your Succubus' and Incubus' Lash of Pain and Soothing Kiss spells by 10%, and increases the duration of your Succubus' and Incubus' Seduction and Lesser Invisibility spells by 10%.",
+    "Increases the effect of your Succubus' and Incubus' Lash of Pain and Soothing Kiss spells by 20%, and increases the duration of your Succubus' and Incubus' Seduction and Lesser Invisibility spells by 20%.",
+    "Increases the effect of your Succubus' and Incubus' Lash of Pain and Soothing Kiss spells by 30%, and increases the duration of your Succubus' and Incubus' Seduction and Lesser Invisibility spells by 30%."
+   ],
+   "classic_status": "same",
+   "prerequisite": null
+  },
+  "105900": {
+   "name": "Demonic Sacrifice",
+   "tree": "Demonology",
+   "row": 2,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_shadow_psychicscream",
+   "rank_text": [
+    "When activated, sacrifices your summoned Demon to enhance the opposing aspect of your power, granting you an effect that lasts 2 hrs. The effect is canceled if any Demon is summoned.\n\nImp: Increases your Shadow damage by 15%.\n\nVoidwalker: Restores 2% of your total Mana every 4 sec.\n\nSuccubus/Incubus: Increases your Fire damage by 15%.\n\nFelhunter: Restores 3% of your total Health every 4 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105898": {
+   "name": "Master Summoner",
+   "tree": "Demonology",
+   "row": 2,
+   "col": 2,
+   "max_rank": 2,
+   "icon": "spell_shadow_impphaseshift",
+   "rank_text": [
+    "Reduces the casting time of your Imp, Voidwalker, Succubus, Incubus, and Felhunter Summoning spells by 2 sec and the Mana cost by 20%.",
+    "Reduces the casting time of your Imp, Voidwalker, Succubus, Incubus, and Felhunter Summoning spells by 4 sec and the Mana cost by 40%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105897": {
+   "name": "Decimation",
+   "tree": "Demonology",
+   "row": 3,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_fire_fireball02",
+   "rank_text": [
+    "Reduces the cooldown of your Soul Fire spell by 45%. When you cast Shadow Bolt or Searing Pain on an enemy below 35% health, they deal 3% increased damage, and for the next 10 sec your Soul Fire spell has its cast time reduced by 20% and costs no Soul Shards.",
+    "Reduces the cooldown of your Soul Fire spell by 90%. When you cast Shadow Bolt or Searing Pain on an enemy below 35% health, they deal 6% increased damage, and for the next 10 sec your Soul Fire spell has its cast time reduced by 40% and costs no Soul Shards."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105895": {
+   "name": "Fel Domination",
+   "tree": "Demonology",
+   "row": 3,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_nature_removecurse",
+   "rank_text": [
+    "Your next Imp, Voidwalker, Succubus, Incubus, or Felhunter Summon spell has its casting time reduced by 5.5 sec and its Mana cost reduced by 50%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 105898
+  },
+  "105896": {
+   "name": "Demonic Brand",
+   "tree": "Demonology",
+   "row": 3,
+   "col": 3,
+   "max_rank": 3,
+   "icon": "ability_demonhunter_chaoticimprint_fire",
+   "rank_text": [
+    "Your Searing Pain generates 17% less threat and brands the target for 10 sec. Your pet's next 2 attacks against the target generate high threat and deal 65 to 68 Fire or Shadow damage based on the pet.",
+    "Your Searing Pain generates 33% less threat and brands the target for 10 sec. Your pet's next 4 attacks against the target generate high threat and deal 65 to 68 Fire or Shadow damage based on the pet.",
+    "Your Searing Pain generates 50% less threat and brands the target for 10 sec. Your pet's next 6 attacks against the target generate high threat and deal 65 to 68 Fire or Shadow damage based on the pet."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105894": {
+   "name": "Improved Felhunter",
+   "tree": "Demonology",
+   "row": 4,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "spell_shadow_summonfelhunter",
+   "rank_text": [
+    "Increases the Attack Power reduction of your Felhunter's Tainted Blood, the healing of its Devour Magic, and the detection level of its Paranoia by 10%, and reduces the cooldown of its Spell Lock by 2 sec.",
+    "Increases the Attack Power reduction of your Felhunter's Tainted Blood, the healing of its Devour Magic, and the detection level of its Paranoia by 20%, and reduces the cooldown of its Spell Lock by 4 sec.",
+    "Increases the Attack Power reduction of your Felhunter's Tainted Blood, the healing of its Devour Magic, and the detection level of its Paranoia by 30%, and reduces the cooldown of its Spell Lock by 6 sec."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105892": {
+   "name": "Soul Link",
+   "tree": "Demonology",
+   "row": 4,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_shadow_gathershadows",
+   "rank_text": [
+    "When active, 30% of all damage taken by the caster is taken by your Imp, Voidwalker, Succubus, Incubus, or Felhunter Demon instead. In addition, both the Demon and the master will inflict 3% more damage. Lasts as long as the Demon is active."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 105900
+  },
+  "105893": {
+   "name": "Demonic Knowledge",
+   "tree": "Demonology",
+   "row": 4,
+   "col": 2,
+   "max_rank": 3,
+   "icon": "spell_shadow_improvedvampiricembrace",
+   "rank_text": [
+    "Increases your spell damage and your Demon pet's spell damage by up to 33% of your level while you have a summoned Demon pet active.",
+    "Increases your spell damage and your Demon pet's spell damage by up to 67% of your level while you have a summoned Demon pet active.",
+    "Increases your spell damage and your Demon pet's spell damage by up to 100% of your level while you have a summoned Demon pet active."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105891": {
+   "name": "Master Demonologist",
+   "tree": "Demonology",
+   "row": 5,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_shadow_shadowpact",
+   "rank_text": [
+    "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Increases Fire damage done by 2%.\n\nVoidwalker - Reduces Physical damage taken by 2%.\n\nSuccubus/Incubus - Increases Shadow damage done by 2%.\n\nFelhunter - Reduces Magic damage taken by 2%.",
+    "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Increases Fire damage done by 4%.\n\nVoidwalker - Reduces Physical damage taken by 4%.\n\nSuccubus/Incubus - Increases Shadow damage done by 4%.\n\nFelhunter - Reduces Magic damage taken by 4%.",
+    "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Increases Fire damage done by 6%.\n\nVoidwalker - Reduces Physical damage taken by 6%.\n\nSuccubus/Incubus - Increases Shadow damage done by 6%.\n\nFelhunter - Reduces Magic damage taken by 6%.",
+    "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Increases Fire damage done by 8%.\n\nVoidwalker - Reduces Physical damage taken by 8%.\n\nSuccubus/Incubus - Increases Shadow damage done by 8%.\n\nFelhunter - Reduces Magic damage taken by 8%.",
+    "Grants both the Warlock and the summoned demon an effect as long as that demon is active.\n\nImp - Increases Fire damage done by 10%.\n\nVoidwalker - Reduces Physical damage taken by 10%.\n\nSuccubus/Incubus - Increases Shadow damage done by 10%.\n\nFelhunter - Reduces Magic damage taken by 10%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105890": {
+   "name": "Demonic Pact",
+   "tree": "Demonology",
+   "row": 6,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "inv_ability_soulharvesterwarlock_demonicsoul",
+   "rank_text": [
+    "Your Demonic Sacrifice effect is no longer cancelled by summoning a different Demon pet. Resummoning the sacrificed pet will still cancel the effect."
+   ],
+   "classic_status": "new",
+   "prerequisite": 105892
+  },
+  "105881": {
+   "name": "Destructive Reach",
+   "tree": "Destruction",
+   "row": 0,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_shadow_corpseexplode",
+   "rank_text": [
+    "Increases the range of your damaging spells by 10%.",
+    "Increases the range of your damaging spells by 20%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105889": {
+   "name": "Improved Shadow Bolt",
+   "tree": "Destruction",
+   "row": 0,
+   "col": 1,
+   "max_rank": 5,
+   "icon": "spell_shadow_shadowbolt",
+   "rank_text": [
+    "Your Shadow Bolt critical strikes increase Shadow damage taken by the target from your attacks by 4% for 12 sec.",
+    "Your Shadow Bolt critical strikes increase Shadow damage taken by the target from your attacks by 8% for 12 sec.",
+    "Your Shadow Bolt critical strikes increase Shadow damage taken by the target from your attacks by 12% for 12 sec.",
+    "Your Shadow Bolt critical strikes increase Shadow damage taken by the target from your attacks by 16% for 12 sec.",
+    "Your Shadow Bolt critical strikes increase Shadow damage taken by the target from your attacks by 20% for 12 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105888": {
+   "name": "Bane",
+   "tree": "Destruction",
+   "row": 0,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_shadow_deathpact",
+   "rank_text": [
+    "Reduces the casting time of your Shadow Bolt, Immolate, and Incinerate spells by 0.1 sec and your Soul Fire spell by 0.4 sec.",
+    "Reduces the casting time of your Shadow Bolt, Immolate, and Incinerate spells by 0.2 sec and your Soul Fire spell by 0.8 sec.",
+    "Reduces the casting time of your Shadow Bolt, Immolate, and Incinerate spells by 0.3 sec and your Soul Fire spell by 1.2 sec.",
+    "Reduces the casting time of your Shadow Bolt, Immolate, and Incinerate spells by 0.4 sec and your Soul Fire spell by 1.6 sec.",
+    "Reduces the casting time of your Shadow Bolt, Immolate, and Incinerate spells by 0.5 sec and your Soul Fire spell by 2 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105885": {
+   "name": "Molten Skin",
+   "tree": "Destruction",
+   "row": 1,
+   "col": 0,
+   "max_rank": 5,
+   "icon": "ability_mage_moltenarmor",
+   "rank_text": [
+    "Reduces all damage taken by 2%.",
+    "Reduces all damage taken by 4%.",
+    "Reduces all damage taken by 6%.",
+    "Reduces all damage taken by 8%.",
+    "Reduces all damage taken by 10%."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105887": {
+   "name": "Cataclysm",
+   "tree": "Destruction",
+   "row": 1,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_fire_windsofwoe",
+   "rank_text": [
+    "Reduces the Mana cost of your Destruction spells by 3%.",
+    "Reduces the Mana cost of your Destruction spells by 6%.",
+    "Reduces the Mana cost of your Destruction spells by 10%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105886": {
+   "name": "Aftermath",
+   "tree": "Destruction",
+   "row": 1,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_fire_fire",
+   "rank_text": [
+    "Increases the initial damage of your Immolate spell by 10% and your Conflagrate spell has a 20% chance to Daze the target, reducing the target's movement speed by 50% for 5 sec.",
+    "Increases the initial damage of your Immolate spell by 20% and your Conflagrate spell has a 40% chance to Daze the target, reducing the target's movement speed by 50% for 5 sec.",
+    "Increases the initial damage of your Immolate spell by 30% and your Conflagrate spell has a 60% chance to Daze the target, reducing the target's movement speed by 50% for 5 sec.",
+    "Increases the initial damage of your Immolate spell by 40% and your Conflagrate spell has a 80% chance to Daze the target, reducing the target's movement speed by 50% for 5 sec.",
+    "Increases the initial damage of your Immolate spell by 50% and your Conflagrate spell has a 100% chance to Daze the target, reducing the target's movement speed by 50% for 5 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105883": {
+   "name": "Ruin",
+   "tree": "Destruction",
+   "row": 2,
+   "col": 1,
+   "max_rank": 5,
+   "icon": "spell_shadow_shadowwordpain",
+   "rank_text": [
+    "Increases the critical strike damage bonus of your Destruction spells by 20%.",
+    "Increases the critical strike damage bonus of your Destruction spells by 40%.",
+    "Increases the critical strike damage bonus of your Destruction spells by 60%.",
+    "Increases the critical strike damage bonus of your Destruction spells by 80%.",
+    "Increases the critical strike damage bonus of your Destruction spells by 100%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105884": {
+   "name": "Shadowburn",
+   "tree": "Destruction",
+   "row": 2,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_shadow_scourgebuild",
+   "rank_text": [
+    "Instantly blasts the target for 65 to 73 Shadow damage. If a non-trivial target dies within 8 sec of being hit with Shadowburn, the caster gains a Soul Shard."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105882": {
+   "name": "Intensity",
+   "tree": "Destruction",
+   "row": 3,
+   "col": 0,
+   "max_rank": 3,
+   "icon": "spell_fire_lavaspawn",
+   "rank_text": [
+    "Gives you a 23% chance to resist interruption caused by damage while casting or channeling any Destruction spell.",
+    "Gives you a 47% chance to resist interruption caused by damage while casting or channeling any Destruction spell.",
+    "Gives you a 70% chance to resist interruption caused by damage while casting or channeling any Destruction spell."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105879": {
+   "name": "Agonizing Flames",
+   "tree": "Destruction",
+   "row": 3,
+   "col": 1,
+   "max_rank": 3,
+   "icon": "spell_fire_soulburn",
+   "rank_text": [
+    "Increases the critical strike chance of your Searing Pain spell by 3% and the damage done by all your Destruction spells by 3%.",
+    "Increases the critical strike chance of your Searing Pain spell by 7% and the damage done by all your Destruction spells by 7%.",
+    "Increases the critical strike chance of your Searing Pain spell by 10% and the damage done by all your Destruction spells by 10%."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105880": {
+   "name": "Conflagrate",
+   "tree": "Destruction",
+   "row": 3,
+   "col": 2,
+   "max_rank": 1,
+   "icon": "spell_fire_fireball",
+   "rank_text": [
+    "Ignites a target that is already afflicted by your Immolate spell, dealing 88 to 110 Fire damage and consuming your Immolate effect."
+   ],
+   "classic_status": "changed",
+   "prerequisite": null
+  },
+  "105878": {
+   "name": "Pyroclasm",
+   "tree": "Destruction",
+   "row": 4,
+   "col": 0,
+   "max_rank": 2,
+   "icon": "spell_fire_volcano",
+   "rank_text": [
+    "Gives your Soul Fire spell a 13% chance to Stun the target for 3 sec, and your Rain of Fire and Hellfire spells a 13% chance over their duration to Stun targets they damage for 3 sec.",
+    "Gives your Soul Fire spell a 26% chance to Stun the target for 3 sec, and your Rain of Fire and Hellfire spells a 26% chance over their duration to Stun targets they damage for 3 sec."
+   ],
+   "classic_status": "changed",
+   "prerequisite": 105882
+  },
+  "105876": {
+   "name": "Bane of Havoc",
+   "tree": "Destruction",
+   "row": 4,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "ability_warlock_baneofhavoc",
+   "rank_text": [
+    "Afflicts the target for 5 min, causing 15% of all damage done by the Warlock to other targets to also be dealt to the cursed target. Bane of Havoc is limited to 1 target, and only one Bane per Warlock can be active on any one target."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105877": {
+   "name": "Fire and Brimstone",
+   "tree": "Destruction",
+   "row": 4,
+   "col": 2,
+   "max_rank": 3,
+   "icon": "spell_fire_meteorstorm",
+   "rank_text": [
+    "Increases the critical strike chance of your Conflagrate spell by 8%.",
+    "Increases the critical strike chance of your Conflagrate spell by 17%.",
+    "Increases the critical strike chance of your Conflagrate spell by 25%."
+   ],
+   "classic_status": "new",
+   "prerequisite": 105880
+  },
+  "105875": {
+   "name": "Shadow and Flame",
+   "tree": "Destruction",
+   "row": 5,
+   "col": 2,
+   "max_rank": 5,
+   "icon": "spell_fire_playingwithfire",
+   "rank_text": [
+    "Hitting an enemy with Conflagrate increases all Shadow damage you deal by 2% for 20 sec, and hitting an enemy with Shadowburn increases all Fire damage you deal by 2% for 20 sec. In addition, Conflagrate has a 20% chance not to consume Immolate, and Shadowburn has a 20% chance to instantly refund a Soul Shard.",
+    "Hitting an enemy with Conflagrate increases all Shadow damage you deal by 4% for 20 sec, and hitting an enemy with Shadowburn increases all Fire damage you deal by 4% for 20 sec. In addition, Conflagrate has a 40% chance not to consume Immolate, and Shadowburn has a 40% chance to instantly refund a Soul Shard.",
+    "Hitting an enemy with Conflagrate increases all Shadow damage you deal by 6% for 20 sec, and hitting an enemy with Shadowburn increases all Fire damage you deal by 6% for 20 sec. In addition, Conflagrate has a 60% chance not to consume Immolate, and Shadowburn has a 60% chance to instantly refund a Soul Shard.",
+    "Hitting an enemy with Conflagrate increases all Shadow damage you deal by 8% for 20 sec, and hitting an enemy with Shadowburn increases all Fire damage you deal by 8% for 20 sec. In addition, Conflagrate has a 80% chance not to consume Immolate, and Shadowburn has a 80% chance to instantly refund a Soul Shard.",
+    "Hitting an enemy with Conflagrate increases all Shadow damage you deal by 10% for 20 sec, and hitting an enemy with Shadowburn increases all Fire damage you deal by 10% for 20 sec. In addition, Conflagrate has a 100% chance not to consume Immolate, and Shadowburn has a 100% chance to instantly refund a Soul Shard."
+   ],
+   "classic_status": "new",
+   "prerequisite": null
+  },
+  "105874": {
+   "name": "Incinerate",
+   "tree": "Destruction",
+   "row": 6,
+   "col": 1,
+   "max_rank": 1,
+   "icon": "spell_fire_burnout",
+   "rank_text": [
+    "Deals 99 to 113 Fire damage to your target and an additional 25% damage if the target is afflicted by Immolate."
+   ],
+   "classic_status": "new",
+   "prerequisite": 105876
+  }
+ },
+ "builds": [
+  {
+   "id": "warlock-affliction",
+   "name": "Affliction Siphon Life (PvE)",
+   "pair": "warlock-affliction",
+   "variant": "PvE",
+   "origin": "community",
+   "summary": "Affliction with Siphon Life, Wrack, Nightfall, Pandemic and Shadow Mastery; Demonic Embrace, Fel Vitality and Demonic Sacrifice from Demonology. The most saved warlock build: the community's leveling and damage standard.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105925,
+    105925,
+    105925,
+    105925,
+    105925,
+    105924,
+    105924,
+    105924,
+    105924,
+    105924,
+    105923,
+    105923,
+    105923,
+    105923,
+    105923,
+    105920,
+    105920,
+    105920,
+    105919,
+    105919,
+    105917,
+    105917,
+    105917,
+    110876,
+    110876,
+    110876,
+    110876,
+    110876,
+    105914,
+    105914,
+    105912,
+    105911,
+    105911,
+    105911,
+    105910,
+    105910,
+    105910,
+    105910,
+    105910,
+    105909,
+    105907,
+    105907,
+    105907,
+    105907,
+    105907,
+    105902,
+    105902,
+    105903,
+    105903,
+    105903,
+    105900
+   ],
+   "order_source": "legal order (main tree first), not optimized yet",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  },
+  {
+   "id": "warlock-demonology",
+   "name": "Demonology Soul Link (PvP)",
+   "pair": "warlock-demonology",
+   "variant": "PvP",
+   "origin": "community",
+   "summary": "Demonology with Soul Link, Master Demonologist, Demonic Knowledge and Demonic Pact; Bane, Molten Skin and Shadowburn from Destruction. Durable pet play: the community's Demonology build.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105907,
+    105907,
+    105907,
+    105907,
+    105907,
+    105902,
+    105902,
+    105904,
+    105904,
+    105904,
+    105903,
+    105903,
+    105903,
+    105899,
+    105899,
+    105900,
+    105898,
+    105898,
+    105897,
+    105895,
+    105894,
+    105894,
+    105894,
+    105892,
+    105893,
+    105893,
+    105893,
+    105891,
+    105891,
+    105891,
+    105891,
+    105891,
+    105890,
+    105881,
+    105881,
+    105888,
+    105888,
+    105888,
+    105888,
+    105888,
+    105885,
+    105885,
+    105885,
+    105885,
+    105885,
+    105884,
+    105924,
+    105924,
+    105924,
+    105924,
+    105924
+   ],
+   "order_source": "legal order (main tree first), not optimized yet",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  },
+  {
+   "id": "warlock-destruction",
+   "name": "Destruction Conflagrate (PvP)",
+   "pair": "warlock-destruction",
+   "variant": "PvP",
+   "origin": "community",
+   "summary": "Destruction with Conflagrate, Shadowburn, Incinerate, Ruin and Shadow and Flame; Demonic Sacrifice from Demonology. Burst and execute: the community's PvP standard.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105881,
+    105881,
+    105888,
+    105888,
+    105888,
+    105888,
+    105888,
+    105887,
+    105887,
+    105887,
+    105886,
+    105886,
+    105886,
+    105886,
+    105886,
+    105883,
+    105883,
+    105883,
+    105883,
+    105883,
+    105884,
+    105879,
+    105879,
+    105879,
+    105880,
+    105876,
+    105877,
+    105877,
+    105877,
+    105875,
+    105875,
+    105875,
+    105875,
+    105875,
+    105874,
+    105907,
+    105907,
+    105907,
+    105907,
+    105907,
+    105902,
+    105902,
+    105903,
+    105903,
+    105903,
+    105900,
+    105925,
+    105925,
+    105925,
+    105925,
+    105925
+   ],
+   "order_source": "legal order (main tree first), not optimized yet",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  }
+ ],
+ "shortlist": [
+  {
+   "archetype": "deep Affliction",
+   "focus": "PvP",
+   "standard": null,
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": []
+  },
+  {
+   "archetype": "deep Affliction",
+   "focus": "PvE",
+   "standard": "warlock-affliction",
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": [
+    "warlock-affliction"
+   ]
+  },
+  {
+   "archetype": "deep Demonology",
+   "focus": "PvP",
+   "standard": "warlock-demonology",
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": [
+    "warlock-demonology"
+   ]
+  },
+  {
+   "archetype": "deep Demonology",
+   "focus": "PvE",
+   "standard": null,
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": []
+  },
+  {
+   "archetype": "deep Destruction",
+   "focus": "PvP",
+   "standard": "warlock-destruction",
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": [
+    "warlock-destruction"
+   ]
+  },
+  {
+   "archetype": "deep Destruction",
+   "focus": "PvE",
+   "standard": null,
+   "standard_score": null,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {},
+   "qualifying": []
+  }
+ ],
+ "spell_milestones": [
+  {
+   "level": 1,
+   "spell": "Immolate",
+   "rank": 1
+  },
+  {
+   "level": 1,
+   "spell": "Shadow Bolt",
+   "rank": 1
+  },
+  {
+   "level": 4,
+   "spell": "Corruption",
+   "rank": 1
+  },
+  {
+   "level": 6,
+   "spell": "Shadow Bolt",
+   "rank": 2
+  },
+  {
+   "level": 8,
+   "spell": "Bane of Agony",
+   "rank": 1
+  },
+  {
+   "level": 10,
+   "spell": "Drain Soul",
+   "rank": 1
+  },
+  {
+   "level": 10,
+   "spell": "Immolate",
+   "rank": 2
+  },
+  {
+   "level": 12,
+   "spell": "Health Funnel",
+   "rank": 1
+  },
+  {
+   "level": 12,
+   "spell": "Shadow Bolt",
+   "rank": 3
+  },
+  {
+   "level": 14,
+   "spell": "Corruption",
+   "rank": 2
+  },
+  {
+   "level": 18,
+   "spell": "Bane of Agony",
+   "rank": 2
+  },
+  {
+   "level": 18,
+   "spell": "Searing Pain",
+   "rank": 1
+  },
+  {
+   "level": 20,
+   "spell": "Health Funnel",
+   "rank": 2
+  },
+  {
+   "level": 20,
+   "spell": "Immolate",
+   "rank": 3
+  },
+  {
+   "level": 20,
+   "spell": "Rain of Fire",
+   "rank": 1
+  },
+  {
+   "level": 20,
+   "spell": "Shadow Bolt",
+   "rank": 4
+  },
+  {
+   "level": 24,
+   "spell": "Corruption",
+   "rank": 3
+  },
+  {
+   "level": 24,
+   "spell": "Drain Soul",
+   "rank": 2
+  },
+  {
+   "level": 24,
+   "spell": "Shadowburn",
+   "rank": 2
+  },
+  {
+   "level": 26,
+   "spell": "Searing Pain",
+   "rank": 2
+  },
+  {
+   "level": 28,
+   "spell": "Bane of Agony",
+   "rank": 3
+  },
+  {
+   "level": 28,
+   "spell": "Health Funnel",
+   "rank": 3
+  },
+  {
+   "level": 28,
+   "spell": "Shadow Bolt",
+   "rank": 5
+  },
+  {
+   "level": 30,
+   "spell": "Hellfire",
+   "rank": 1
+  },
+  {
+   "level": 30,
+   "spell": "Immolate",
+   "rank": 4
+  },
+  {
+   "level": 32,
+   "spell": "Conflagrate",
+   "rank": 2
+  },
+  {
+   "level": 32,
+   "spell": "Shadowburn",
+   "rank": 3
+  },
+  {
+   "level": 34,
+   "spell": "Corruption",
+   "rank": 4
+  },
+  {
+   "level": 34,
+   "spell": "Rain of Fire",
+   "rank": 2
+  },
+  {
+   "level": 34,
+   "spell": "Searing Pain",
+   "rank": 3
+  },
+  {
+   "level": 36,
+   "spell": "Health Funnel",
+   "rank": 4
+  },
+  {
+   "level": 36,
+   "spell": "Shadow Bolt",
+   "rank": 6
+  },
+  {
+   "level": 38,
+   "spell": "Bane of Agony",
+   "rank": 4
+  },
+  {
+   "level": 38,
+   "spell": "Drain Soul",
+   "rank": 3
+  },
+  {
+   "level": 40,
+   "spell": "Conflagrate",
+   "rank": 3
+  },
+  {
+   "level": 40,
+   "spell": "Immolate",
+   "rank": 5
+  },
+  {
+   "level": 40,
+   "spell": "Shadowburn",
+   "rank": 4
+  },
+  {
+   "level": 42,
+   "spell": "Hellfire",
+   "rank": 2
+  },
+  {
+   "level": 42,
+   "spell": "Searing Pain",
+   "rank": 4
+  },
+  {
+   "level": 44,
+   "spell": "Corruption",
+   "rank": 5
+  },
+  {
+   "level": 44,
+   "spell": "Health Funnel",
+   "rank": 5
+  },
+  {
+   "level": 44,
+   "spell": "Shadow Bolt",
+   "rank": 7
+  },
+  {
+   "level": 46,
+   "spell": "Rain of Fire",
+   "rank": 3
+  },
+  {
+   "level": 48,
+   "spell": "Bane of Agony",
+   "rank": 5
+  },
+  {
+   "level": 48,
+   "spell": "Conflagrate",
+   "rank": 4
+  },
+  {
+   "level": 48,
+   "spell": "Shadowburn",
+   "rank": 5
+  },
+  {
+   "level": 48,
+   "spell": "Soul Fire",
+   "rank": 1
+  },
+  {
+   "level": 50,
+   "spell": "Immolate",
+   "rank": 6
+  },
+  {
+   "level": 50,
+   "spell": "Incinerate",
+   "rank": 2
+  },
+  {
+   "level": 50,
+   "spell": "Searing Pain",
+   "rank": 5
+  },
+  {
+   "level": 52,
+   "spell": "Drain Soul",
+   "rank": 4
+  },
+  {
+   "level": 52,
+   "spell": "Health Funnel",
+   "rank": 6
+  },
+  {
+   "level": 52,
+   "spell": "Shadow Bolt",
+   "rank": 8
+  },
+  {
+   "level": 54,
+   "spell": "Conflagrate",
+   "rank": 5
+  },
+  {
+   "level": 54,
+   "spell": "Corruption",
+   "rank": 6
+  },
+  {
+   "level": 54,
+   "spell": "Hellfire",
+   "rank": 3
+  },
+  {
+   "level": 56,
+   "spell": "Shadowburn",
+   "rank": 6
+  },
+  {
+   "level": 56,
+   "spell": "Soul Fire",
+   "rank": 2
+  },
+  {
+   "level": 58,
+   "spell": "Bane of Agony",
+   "rank": 6
+  },
+  {
+   "level": 58,
+   "spell": "Rain of Fire",
+   "rank": 4
+  },
+  {
+   "level": 58,
+   "spell": "Searing Pain",
+   "rank": 6
+  },
+  {
+   "level": 60,
+   "spell": "Bane of Doom",
+   "rank": 1
+  },
+  {
+   "level": 60,
+   "spell": "Conflagrate",
+   "rank": 6
+  },
+  {
+   "level": 60,
+   "spell": "Corruption",
+   "rank": 7
+  },
+  {
+   "level": 60,
+   "spell": "Health Funnel",
+   "rank": 7
+  },
+  {
+   "level": 60,
+   "spell": "Immolate",
+   "rank": 7
+  },
+  {
+   "level": 60,
+   "spell": "Immolate",
+   "rank": 8
+  },
+  {
+   "level": 60,
+   "spell": "Incinerate",
+   "rank": 3
+  },
+  {
+   "level": 60,
+   "spell": "Shadow Bolt",
+   "rank": 9
+  },
+  {
+   "level": 60,
+   "spell": "Shadow Bolt",
+   "rank": 10
+  }
+ ],
+ "assumptions": {},
+ "checklist": [],
+ "caveats": [
+  "Routes only: this class's builds are community standards in a legal point order (top rows first). Scores, model picks and optimized orders wait on the melee and ranged damage engine (#111)."
+ ]
+}

@@ -82,3 +82,6 @@ UNMODELED: dict[str, str] = {
 
 # Paladin skill lines in SkillLineAbility: Holy, Protection, Retribution.
 SKILL_LINES = (594, 267, 184)
+
+# Shown on the dashboard while the class is routes-only (planning round 2, Q2/Q3).
+SCORING_NOTE = "Paladin scores aren't planned yet; Holy and Protection stay unscored."

@@ -1,0 +1,32 @@
+# Druid community standard (#156) from wowforevertalent.com's popularity data: #3 of the most
+# popular complete druid builds (since the Oct 1 patch (build 70170), updated daily), points 36/0/15, shared 39,
+# saved 181, opened 1099, 40 close variants. Focus label is Claude's judgment.
+
+id = "druid-balance"
+class = "druid"
+name = "Balance Moonkin (PvE)"
+pair = "druid-balance"
+variant = "PvE"
+origin = "community"
+sources = ["wft_popular_druid"]
+confidence = "medium"
+summary = "Balance with Moonkin Form, Insect Swarm, Eclipse, Nature's Grace, Vengeance and Moonfury; Nature's Focus, Naturalist and Reflection from Restoration. The community's caster damage standard."
+
+[final]
+"Eclipse" = 3
+"Improved Moonfire" = 2
+"Improved Starfire" = 5
+"Improved Wrath" = 5
+"Insect Swarm" = 1
+"Moonfury" = 5
+"Moonglow" = 3
+"Moonkin Form" = 1
+"Naturalist" = 5
+"Nature's Focus" = 5
+"Nature's Grace" = 1
+"Nature's Majesty" = 2
+"Nature's Reach" = 2
+"Nature's Splendor" = 1
+"Reflection" = 3
+"Subtlety" = 2
+"Vengeance" = 5

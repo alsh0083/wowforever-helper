@@ -82,3 +82,6 @@ UNMODELED: dict[str, str] = {
 
 # Druid skill lines in SkillLineAbility: Balance, Feral Combat, Restoration.
 SKILL_LINES = (574, 134, 573)
+
+# Shown on the dashboard while the class is routes-only (planning round 2, Q2/Q3).
+SCORING_NOTE = "Balance and Feral scores come with the caster spell engine (#163, #166); bear and Restoration stay unscored."

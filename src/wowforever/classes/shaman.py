@@ -80,3 +80,6 @@ UNMODELED: dict[str, str] = {
 
 # Shaman skill lines in SkillLineAbility: Elemental, Enhancement, Restoration.
 SKILL_LINES = (375, 373, 374)
+
+# Shown on the dashboard while the class is routes-only (planning round 2, Q2/Q3).
+SCORING_NOTE = "Elemental and Enhancement scores come with the caster spell engine (#163, #167); Restoration stays unscored."
