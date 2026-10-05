@@ -31,6 +31,36 @@ class Rotation:
     weave_cast_times: dict[str, float]  # weave spell name -> filler time per weave cast
 
 
+def frozen_hit_gain(char: Character, filler: SpellRank, *, target_level: int,
+                    assumptions: Assumptions) -> float:
+    """Extra damage of one hit on a frozen target (Frost Nova, #97) over spending that time on
+    the filler: a 4x Ice Lance with Shatter's crit when Ice Lance is taken, otherwise the filler
+    with Shatter's crit (0 without Shatter). One hit per freeze: the first hit breaks the root."""
+    ranks = char.ranks
+
+    def ev_of(spell: SpellRank, conditions: frozenset[str]) -> float:
+        return expected_damage(
+            sub20_penalized(scaled(spell, char.level), assumptions),
+            spell_power=char.stats.spell_power, crit_pct=char.stats.crit_pct,
+            hit_pct=char.stats.hit_pct, caster_level=char.level, target_level=target_level,
+            mods=modifiers_for(spell, char.cls, ranks, conditions),
+            periodic_can_crit=periodic_can_crit(spell.name, assumptions),
+        )
+
+    lance_taken = any(t.name == "Ice Lance" and ranks.get(t.talent_id, 0) > 0 for t in char.cls.talents)
+    lance = best_rank(char.spells, "Ice Lance", char.level) if lance_taken else None
+    frozen = frozenset({"frozen"})
+    if lance is not None:
+        quad = replace(lance, min_damage=lance.min_damage * 4.0, max_damage=lance.max_damage * 4.0,
+                       coefficient=lance.coefficient * 4.0)
+        mods = modifiers_for(filler, char.cls, ranks, frozenset())
+        cast = effective_cast_time(filler, mods)
+        if filler.channeled:
+            cast = max(cast, filler.duration)
+        return ev_of(quad, frozen) - ev_of(filler, frozenset()) / cast * GCD_SECONDS
+    return ev_of(filler, frozen) - ev_of(filler, frozenset())
+
+
 def rotation(char: Character, filler: SpellRank, *, target_level: int,
              assumptions: Assumptions, sustained: bool) -> Rotation:
     """DPS and mana drain of `filler` with the mage's proc/stack weaves."""
