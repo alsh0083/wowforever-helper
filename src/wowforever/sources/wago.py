@@ -46,6 +46,10 @@ TABLES: tuple[str, ...] = (
     "ItemSparse",
     "Item",
     "RandPropPoints",
+    # weapon damage from the client's item-level tables (#129)
+    "ItemDamageOneHand",
+    "ItemDamageTwoHand",
+    "ItemDamageRanged",
 )
 
 
