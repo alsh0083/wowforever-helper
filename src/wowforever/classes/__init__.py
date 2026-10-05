@@ -30,6 +30,9 @@ class TraitLayout:
     # Trait nodes left in the client but not in the game's talent UI: Forever parks replaced
     # Classic nodes far off the grid. Skipped; each id is explained in the class module.
     hidden_nodes: frozenset[int] = frozenset()
+    # Positions within `snap` units of a grid point round to it: Forever nudged a few nodes
+    # 10 units off (paladin, warlock). 0 means exact.
+    snap: int = 0
 
 
 @dataclass(frozen=True)
@@ -50,6 +53,11 @@ CLASSES: dict[str, str] = {
     "rogue": "wowforever.classes.rogue",
     "hunter": "wowforever.classes.hunter",
     "warrior": "wowforever.classes.warrior",
+    "druid": "wowforever.classes.druid",
+    "paladin": "wowforever.classes.paladin",
+    "priest": "wowforever.classes.priest",
+    "shaman": "wowforever.classes.shaman",
+    "warlock": "wowforever.classes.warlock",
 }
 
 
