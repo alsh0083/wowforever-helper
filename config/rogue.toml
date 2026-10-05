@@ -1,0 +1,14 @@
+# Rogue rotation constants (#131, part 3). Classic values; confidence LOW until checked in Forever.
+
+# energy per second (Classic: 20 every 2 s)
+energy_per_second = 10.0
+# Adrenaline Rush: +100% energy regen for 15 s every 5 min (rank text; cooldown Classic)
+adrenaline_rush = { bonus_pct = 100.0, duration = 15.0, cooldown = 300.0 }
+# Blade Flurry: +20% attack speed for 15 s every 2 min (rank text; data cooldown 120 s)
+blade_flurry = { haste_pct = 20.0, duration = 15.0, cooldown = 120.0 }
+# Slice and Dice lasts its base duration plus this much per combo point (Classic: 3 s)
+snd_seconds_per_combo_point = 3.0
+# normalized weapon speed for "normalized" strikes (Classic)
+normalized_speed = { dagger = 1.7, one_hand = 2.4, two_hand = 3.3 }
+# finishers are spent at this many combo points
+finisher_combo_points = 5
