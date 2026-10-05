@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WoW Forever · Mage leveling</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1017;--panel:#111b26;--line:#293746;--ink:#e7e9e8;--muted:#a0adba;--gold:#d6b77c;--frost:#81d6ee;--fire:#ffae70;--arcane:#c9a2f5}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 8% 5%,#17334580,transparent 48%),radial-gradient(ellipse at 100% 35%,#56251944,transparent 50%),var(--bg);color:var(--ink);font:15px/1.5 system-ui,sans-serif}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:5px}button{color:var(--ink);background:#172330;border:1px solid #3c4b59;border-radius:5px;padding:9px 13px}button:hover{background:#253748}header{border-bottom:1px solid #aa8c4e40;padding:22px max(5vw,20px);display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{letter-spacing:.2em;font-size:12px;color:var(--gold)}.brand b{font-size:17px;margin-right:12px}.edition{font-size:11px;letter-spacing:.13em;color:var(--muted)}main{max-width:1320px;margin:auto;padding:42px 32px 32px}.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}h1,h2,h3,p{margin:0}h1{font:clamp(42px,6vw,76px)/1.12 Georgia,serif;letter-spacing:-.04em;margin:12px 0 14px}h1 em{font-weight:normal;color:var(--frost)}.intro{color:var(--muted);max-width:610px}.hero{display:flex;justify-content:space-between;gap:24px;align-items:center;margin-bottom:32px}.crest{width:145px;height:145px;position:relative;display:grid;place-items:center;transform:rotate(45deg);border:1px solid #9c855a70;background:linear-gradient(135deg,#123d53,#17212d 50%,#5c2b1f);box-shadow:0 0 65px #3a89a522,inset 0 0 30px #0008;margin:25px 40px}.crest svg{width:100px;height:100px;transform:rotate(-45deg)}.build-switch{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.build-btn{font-size:13px;padding:9px 14px}.build-btn[aria-pressed=true]{border-color:var(--gold);color:var(--gold);background:#2c3a4a}.build-meta{padding:20px 24px;margin-bottom:22px}.build-meta h2{font:25px Georgia;margin-bottom:8px}.build-meta p{font-size:13px;color:var(--muted);max-width:950px}.meta-lines{display:flex;gap:8px 20px;flex-wrap:wrap;margin-top:10px;font-size:12px;color:var(--muted)}.layout{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px}.surface{border:1px solid var(--line);background:linear-gradient(130deg,#17222ddb,#101822eb);border-radius:10px}.level-panel{padding:24px;margin-bottom:22px}.level-heading{display:flex;justify-content:space-between;align-items:center;gap:16px}.level-number{font:36px Georgia;color:var(--gold)}.level-number input{width:72px;color:var(--gold);background:transparent;border:0;border-bottom:1px solid #716449;font:inherit;text-align:center}.subtle{font-size:12px;color:var(--muted)}input[type=range]{width:100%;margin:24px 0 8px;accent-color:var(--gold);cursor:pointer}.range-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:11px}.progress-line{margin-top:20px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.progress-line strong{color:var(--gold)}.track{height:4px;background:#293341;margin-top:13px;border-radius:8px;overflow:hidden}.track div{height:100%;background:linear-gradient(90deg,var(--frost),var(--gold),var(--fire));transition:width .3s}.milestones{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:7px;margin-bottom:26px}.milestone{padding:12px 4px;text-align:center;font-size:10px;background:#101925;border-color:#273542;color:var(--muted)}.milestone b{display:block;color:var(--ink);font:20px Georgia;margin-bottom:3px}.milestone.reached{border-color:#78704e;background:#302b1e55}.milestone.reached b{color:var(--gold)}.section-head{display:flex;align-items:center;justify-content:space-between;margin:24px 0 12px;gap:12px}h2{font:25px Georgia}.frost h2{color:var(--frost)}.fire h2{color:var(--fire)}.arcane h2{color:var(--arcane)}.school-desc{font-size:12px;color:var(--muted);margin-top:5px}.school-count{font-size:12px;color:var(--muted);white-space:nowrap}.talents{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.talent{padding:15px;background:#101923cc;border:1px solid #263543;border-radius:7px;position:relative}.talent.available{border-color:#456272}.fire .talent.available{border-color:#79543b}.arcane .talent.available{border-color:#5d4a80}.talent.complete{background:linear-gradient(115deg,#19303a77,#101923);border-color:#548494}.fire .talent.complete{background:linear-gradient(115deg,#472b2277,#101923);border-color:#996948}.arcane .talent.complete{background:linear-gradient(115deg,#2c2444aa,#101923);border-color:#8d6fc0}.talent.is-next{box-shadow:0 0 0 1px var(--gold)}.step-heading{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:8px}.step-level{font-size:10px;letter-spacing:.18em;color:var(--muted)}.school-badge{font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:2px 9px;border:1px solid #33445a;border-radius:20px;color:var(--muted)}.tree-switch{margin:16px 0 8px;font-size:11px;letter-spacing:.12em;color:var(--gold)}.talent-top{display:flex;align-items:center;gap:12px}.icon{width:45px;height:45px;flex:none;display:grid;place-items:center;background:radial-gradient(circle at 35% 25%,#3c768b,#142a3c 75%);border:1px solid #5a98a7;border-radius:7px;box-shadow:inset 0 0 10px #0008;color:#bdeefa}.fire .icon,.icon.fire-icon{color:#ffe0a6;background:radial-gradient(circle at 35% 25%,#a76132,#48251f 75%);border-color:#b67b49}.arcane .icon,.icon.arcane-icon{color:#e6d4ff;background:radial-gradient(circle at 35% 25%,#5a4280,#2a1f42 75%);border-color:#8d6fc0}.icon svg{width:31px;height:31px}.icon img{width:31px;height:31px;object-fit:cover;border-radius:4px}.talent h3{font-size:13px;font-weight:600}.talent .levels{font-size:10px;color:var(--muted);margin-top:3px}.ranks{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 10px}.rank{font-size:11px;padding:5px 8px;color:#b8c5ce;min-width:35px}.rank[aria-pressed=true]{background:#316274;color:#ecfcff;border-color:#86ccdf}.fire .rank[aria-pressed=true]{background:#784227;color:#fff0cf;border-color:#e0a36e}.arcane .rank[aria-pressed=true]{background:#3d3360;color:#f3eaff;border-color:#a589d6}.rank:disabled{opacity:.35;cursor:not-allowed}.talent details{font-size:11px;color:var(--muted)}summary{cursor:pointer;color:#c3cbd0}details p{margin-top:7px;line-height:1.6}.side{align-self:start;position:sticky;top:20px}.next{padding:23px;border-color:#83704c;background:radial-gradient(ellipse at top right,#62532c22,transparent 70%),#141d27}.next h2{font-size:27px;margin:17px 0 6px}.next .icon{width:57px;height:57px;margin:20px 0 6px}.next p{font-size:13px;color:var(--muted);margin:12px 0 20px}.primary{width:100%;background:#c4a46a;color:#171710;border-color:#e2c899;font-weight:650}.primary:hover{background:#e0c08a}.primary:disabled{opacity:.5;cursor:default}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}.stat{padding:17px;text-align:center}.stat strong{display:block;font:30px Georgia;color:var(--frost)}.stat.fire strong{color:var(--fire)}.stat.arcane strong{color:var(--arcane)}.stat span{font-size:10px;letter-spacing:.14em;color:var(--muted)}.notes{padding:20px;margin-top:15px}.notes h3{font:19px Georgia;color:var(--gold);margin-bottom:10px}.notes p{font-size:12px;color:var(--muted)}.notes ul{margin:8px 0 0;padding-left:18px}.notes li{font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.6}.scores{padding:22px 24px;margin-top:24px}#score-tables{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.score-block h3{font:19px Georgia;color:var(--gold);margin-bottom:8px}table.score{width:100%;border-collapse:collapse;font-size:12px}table.score th{font-size:10px;letter-spacing:.14em;color:var(--muted);text-align:left;padding:5px 8px;border-bottom:1px solid var(--line)}table.score td{padding:6px 8px;border-bottom:1px solid #1c2735}table.score .unit{color:var(--muted);font-size:10px;margin-left:4px}tr.best td{background:#302b1e55}.best-badge{color:var(--gold);font-size:10px;letter-spacing:.08em;margin-left:6px}.spells{padding:22px 24px;margin-top:24px}.spell-chip{display:inline-block;margin:0 6px 7px 0;padding:5px 10px;font-size:11px;background:#101925;border:1px solid #273542;border-radius:16px;color:var(--muted)}.spell-chip b{color:var(--ink);font-weight:600}.spell-chip.next{border-color:var(--gold)}.spell-chip.next b{color:var(--gold)}.legend{display:flex;gap:16px;margin:22px 0 5px;color:var(--muted);font-size:11px}.dot{display:inline-block;width:7px;height:7px;border:1px solid #91b8c4;margin-right:5px}.dot.done{background:#81d6ee}.dot.next-dot{border-color:var(--gold)}footer{margin-top:35px;border-top:1px solid var(--line);padding-top:20px;font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:20px}footer a{color:var(--gold)}.reset{padding:0;background:none;border:0;color:var(--muted);text-decoration:underline;font-size:11px}#status{min-height:18px;font-size:11px;color:var(--gold);margin-top:12px} @media(max-width:1000px){.layout{grid-template-columns:1fr 265px}.talents{grid-template-columns:1fr}#score-tables{grid-template-columns:1fr 1fr}}@media(max-width:720px){main{padding:25px 16px}.layout{display:flex;flex-direction:column}.side{position:static;order:-1}.crest{display:none}.hero{margin-bottom:24px}.edition{display:none}.build-meta{padding:16px 18px}#score-tables{grid-template-columns:1fr}.talents{grid-template-columns:repeat(2,minmax(0,1fr))}.next{padding:18px}.next .icon{float:right;margin:0}.next h2{margin-top:10px}.next p{margin:8px 0 12px}.stats{margin-bottom:0}.stat{padding:10px}.stat strong{font-size:23px}}@media(max-width:440px){.talents{grid-template-columns:1fr}.level-heading{align-items:start}.progress-line{font-size:12px}footer{flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="brand"><b>✧</b> WOW FOREVER</div><div class="edition" id="edition"></div></header>
+<main>
+<div class="hero"><div><div class="eyebrow">Mage field guide</div><h1>Leveling <em>routes</em></h1><p class="intro">Optimized talent orders with scenario scores at every checkpoint. Pick a build, follow the path, and check off points as you level.</p></div><div class="crest" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none"><path d="M50 10v80M16 30l68 40M16 70l68-40M38 18l12 12 12-12M38 82l12-12 12 12" stroke="#9bdeec" stroke-width="3"/><path d="M54 75C90 66 73 43 69 39c1 12-9 16-11 8 4-20-13-29-13-29 8 21-9 24-11 38-2 12 6 21 20 19Z" fill="#db955b" stroke="#ffe0a6" stroke-width="2"/></svg></div></div>
+<nav class="build-switch" id="build-switch" aria-label="Choose a build">
+<button class="build-btn" data-build="arcane-pom-pyro">Arcane PoM-Pyro (reference)</button>
+<button class="build-btn" data-build="deep-fire">Deep Fire (Combustion)</button>
+<button class="build-btn" data-build="deep-frost">Deep Frost (control + Ice Barrier)</button>
+<button class="build-btn" data-build="elementalist-v4">Offensive Elementalist (current route)</button>
+</nav>
+<section class="surface build-meta" id="build-meta" aria-live="polite"></section>
+<div class="layout"><div>
+<section class="surface level-panel" aria-label="Level and progress"><div class="level-heading"><div><div class="eyebrow">Your journey</div><p class="subtle">Choose your level, then check off each point.</p></div><label class="level-number"><span class="subtle">LVL</span> <input id="level" type="number" value="10" aria-label="Current level"></label></div><input id="slider" type="range" value="10" aria-label="Current level slider"><div class="range-labels"><span id="range-first"></span><span id="range-last"></span></div><div class="progress-line"><span><strong id="checked">0 / 0</strong> points checked</span><span id="remaining" class="subtle"></span></div><div class="track"><div id="bar"></div></div><div id="status" role="status" aria-live="polite"></div></section>
+<nav class="milestones" aria-label="Jump to milestone level" id="milestones"></nav>
+<div class="legend"><span><i class="dot done"></i>Checked</span><span><i class="dot"></i>Available at your level</span><span><i class="dot next-dot"></i>Next point</span></div>
+<section aria-labelledby="path-title"><div class="section-head"><div><h2 id="path-title"></h2><p class="school-desc" id="path-desc"></p></div></div><div id="timeline" class="talents"></div><article class="surface notes flex-point" id="flex-point" hidden></article></section>
+<section class="surface scores" aria-labelledby="scores-title"><div class="section-head"><div><h2 id="scores-title">Scenario scores</h2><p class="school-desc">Expected value at the checkpoint levels; ★ marks the best build at that level.</p></div></div><div id="score-tables"></div></section>
+<section class="surface notes" aria-labelledby="notes-title"><h3 id="notes-title">Sensitivity and caveats</h3><ul id="notes-list"></ul></section>
+<section class="surface spells" aria-labelledby="spells-title"><div class="section-head"><div><h2 id="spells-title">Spell training</h2><p class="school-desc" id="spells-desc"></p></div></div><div id="spell-chips"></div></section>
+</div>
+<aside class="side"><section class="surface next" aria-live="polite"><div class="eyebrow" id="next-label">Your next point</div><div id="next-icon"></div><h2 id="next-title"></h2><div class="subtle" id="next-meta"></div><p id="next-why"></p><button id="check-next" class="primary">Check off point</button></section><div class="stats" id="tree-stats"></div></aside></div>
+<footer><span id="footer-data"></span><span>Talent text and icons: <a href="https://wowforevertalent.com/mage/" target="_blank" rel="noopener noreferrer">wowforevertalent.com</a> (Creative Commons Attribution) · Game data: wago.tools · Works offline</span><button class="reset" id="reset">Reset progress</button></footer>
+</main>
+<script>
+'use strict';
+const PAYLOAD = /*__PAYLOAD__*/null;
+const ICONS = /*__ICONS__*/{};
+const $=id=>document.getElementById(id);
+const RULES=PAYLOAD.rules;
+const BUILDS=PAYLOAD.builds;
+const TREE_CLASS={Arcane:'arcane',Fire:'fire',Frost:'frost'};
+const SCENARIO_LABEL={questing:'Questing',aoe:'AoE',raid:'Raid'};
+const SELECTED_KEY='wow-forever-selected-build';
+const KEY_E4='wow-forever-elementalist-v4';
+const storeKey=id=>id==='elementalist-v4'?KEY_E4:'wow-forever-'+id;
+// One-off remap of pre-v4 Elementalist saves: old plan level -> current plan level.
+const MIGRATION={"10":10,"11":11,"12":12,"13":13,"14":14,"15":15,"16":16,"17":17,"18":18,"19":19,"20":20,"21":21,"22":22,"23":23,"24":24,"25":25,"26":26,"27":27,"28":28,"29":29,"30":30,"31":31,"32":32,"33":33,"34":34,"35":35,"36":58,"37":59,"38":36,"39":37,"40":41,"41":42,"42":43,"43":47,"44":49,"45":50,"46":51,"47":52,"48":48,"49":54,"50":null,"51":null,"52":null,"53":53,"54":55,"55":56,"56":57,"57":null,"58":null,"59":null,"60":null};
+
+let build=BUILDS[0],points=[],steps=[];
+let level=RULES.first_talent_level,checked=new Set(),storageOK=true,migrated=false;
+
+function save(){try{localStorage.setItem(storeKey(build.id),JSON.stringify({level,checked:[...checked]}));storageOK=true}catch(e){storageOK=false}}
+function loadProgress(){
+ migrated=false;
+ try{
+  if(build.id==='elementalist-v4'){
+   let version=4,raw=localStorage.getItem(KEY_E4);
+   while(raw===null&&version>1){version--;raw=localStorage.getItem('wow-forever-elementalist-v'+version)}
+   if(raw===null)return;
+   const s=JSON.parse(raw||'null');
+   if(!s)return;
+   if(Number.isInteger(s.level))level=Math.max(RULES.first_talent_level,Math.min(RULES.max_level,s.level));
+   let valid=(Array.isArray(s.checked)?s.checked:[]).filter(n=>Number.isInteger(n));
+   if(version===1)valid=valid.map(n=>n===57?30:n>=30&&n<=56?n+1:n);
+   if(version<=2)valid=valid.map(n=>n===28?25:n>=25&&n<=27?n+1:n);
+   if(version<4){valid=valid.map(n=>MIGRATION[n]).filter(n=>n!==null&&n!==undefined);migrated=true}
+   checked=new Set(valid.filter(n=>points.some(p=>p.level===n)));
+   if(migrated)save();
+  }else{
+   const s=JSON.parse(localStorage.getItem(storeKey(build.id))||'null');
+   if(!s)return;
+   if(Number.isInteger(s.level))level=Math.max(RULES.first_talent_level,Math.min(RULES.max_level,s.level));
+   checked=new Set((Array.isArray(s.checked)?s.checked:[]).filter(n=>Number.isInteger(n)&&points.some(p=>p.level===n)));
+  }
+ }catch(e){storageOK=false}
+}
+function selectBuild(id,persist){
+ const next=BUILDS.find(b=>b.id===id);
+ if(!next)return;
+ build=next;
+ const rank=new Map();
+ points=build.order.map((tid,i)=>{const r=(rank.get(tid)||0)+1;rank.set(tid,r);return{level:RULES.first_talent_level+i,rank:r,id:tid,t:PAYLOAD.talents[tid]}});
+ steps=[];
+ for(const point of points){const last=steps[steps.length-1];if(last&&last.tid===point.id)last.points.push(point);else steps.push({id:point.level,tid:point.id,t:point.t,points:[point]})}
+ level=RULES.first_talent_level;checked=new Set();
+ loadProgress();
+ if(persist){try{localStorage.setItem(SELECTED_KEY,build.id)}catch(e){}}
+ renderBuild();render();
+}
+function icon(t){
+ const cls=(TREE_CLASS[t.tree]||'')+(TREE_CLASS[t.tree]?'-icon':'');
+ const img=ICONS[t.icon]?`<img src="${ICONS[t.icon]}" alt="" width="56" height="56">`:'';
+ return `<div class="icon ${cls}" aria-hidden="true">${img}</div>`;
+}
+function rankText(t,rank){const r=t.rank_text||[];return r[rank-1]||''}
+function renderBuild(){
+ document.querySelectorAll('[data-build]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.build===build.id));
+ $('edition').textContent=`MAGE FIELD GUIDE / LEVELS ${RULES.first_talent_level}—${RULES.max_level}`;
+ $('build-meta').innerHTML=`<h2>${build.name}</h2><p>${build.summary}</p><div class="meta-lines"><span>Order: ${build.order_source}</span><span>Gives up: ${build.gives_up.join(', ')}</span>${build.open_points?`<span>Level ${RULES.max_level}: ${build.open_points} point${build.open_points===1?'':'s'} left open</span>`:''}</div>`;
+ $('range-first').textContent=`${RULES.first_talent_level} · FIRST POINT`;
+ $('range-last').textContent=`${RULES.max_level} · ${build.open_points?'OPEN POINT':'MAX LEVEL'}`;
+ const ms=Object.entries(build.must_have_by).map(([name,n])=>[n,name]).sort((a,b)=>a[0]-b[0]);
+ $('milestones').innerHTML=ms.map(([n,name])=>`<button class="milestone" data-level="${n}" title="View level ${n}"><b>${n}</b>${name}</button>`).join('');
+ $('path-title').textContent=`Your path / Level ${RULES.first_talent_level} → ${RULES.max_level}`;
+ $('path-desc').textContent=`${points.length} allocated points${build.open_points?` + ${build.open_points} open at level ${RULES.max_level}`:''}. Read top to bottom across the trees.`;
+ $('timeline').innerHTML=steps.map((step,i)=>{
+  const t=step.t,ps=step.points,first=ps[0],last=ps[ps.length-1];
+  const cls=TREE_CLASS[t.tree]||'',switchTree=i>0&&steps[i-1].t.tree!==t.tree;
+  const next=ps.find(p=>!checked.has(p.level));
+  const title=next?`${t.name} rank ${next.rank}: ${rankText(t,next.rank)}`:`${t.name} — all ranks checked`;
+  return `<div class="${cls}">${switchTree?`<div class="tree-switch">↳ Switch to ${t.tree}</div>`:''}
+   <article class="talent" id="step-${step.id}" title="${title}">
+   <div class="step-heading"><span class="step-level">LEVEL ${first.level}${first.level!==last.level?'–'+last.level:''}</span><span class="school-badge">${t.tree}</span></div>
+   <div class="talent-top">${icon(t)}<div><h3>${t.name}</h3><div class="levels">${first.rank===last.rank?'Rank '+first.rank:'Ranks '+first.rank+'–'+last.rank} / ${t.max_rank} · <span id="step-count-${step.id}"></span></div></div></div>
+   <div class="ranks">${ps.map(p=>`<button class="rank" data-point="${p.level}" aria-label="${t.name} rank ${p.rank}, level ${p.level}" aria-pressed="false" title="Level ${p.level}: rank ${p.rank} — ${rankText(t,p.rank)}">Lv ${p.level} · Rank ${p.rank}</button>`).join('')}</div>
+   <details><summary>Rank text</summary>${ps.map(p=>`<p><b>Rank ${p.rank} (level ${p.level}):</b> ${rankText(t,p.rank)}</p>`).join('')}</details>
+   </article></div>`}).join('');
+ const flex=$('flex-point');
+ if(build.open_points){flex.hidden=false;flex.innerHTML=`<div class="eyebrow">LEVEL ${RULES.max_level} · ${build.open_points} POINT${build.open_points===1?'':'S'} UNASSIGNED</div><h3>Choose after trying the build</h3><p>The remaining point stays out of the tracker. Compare the scenario scores and sensitivity notes below before deciding.</p>`}else flex.hidden=true;
+}
+function bestAt(scenario,lv){
+ let best=null,winners=[];
+ for(const b of BUILDS){
+  const row=b.scores[scenario]&&b.scores[scenario][lv];
+  if(!row)continue;
+  if(best===null||row.score>best+1e-9){best=row.score;winners=[b]}
+  else if(Math.abs(row.score-best)<=1e-9)winners.push(b);
+ }
+ return{score:best,winners};
+}
+const fmt=n=>Number.isInteger(n)?String(n):n.toFixed(1);
+function renderScores(){
+ $('score-tables').innerHTML=Object.entries(build.scores).map(([name,rows])=>{
+  const levels=Object.keys(rows).sort((a,b)=>a-b);
+  return `<div class="score-block"><h3>${SCENARIO_LABEL[name]||name}</h3><table class="score"><thead><tr><th>Level</th><th>Score</th><th>Spell</th></tr></thead><tbody>${levels.map(lv=>{
+   const r=rows[lv],best=bestAt(name,lv),isBest=best.winners.some(b=>b.id===build.id);
+   const title=isBest?(best.winners.length>1?`Tied for best (${best.winners.length} builds)`:'Best build at this level'):`Best at this level: ${best.winners.map(b=>b.name).join(' + ')} at ${fmt(best.score)} ${r.unit}`;
+   return `<tr class="${isBest?'best':''}" title="${title}"><td>${lv}</td><td>${fmt(r.score)}<span class="unit">${r.unit}</span>${isBest?'<span class="best-badge">★ best</span>':''}</td><td>${r.spell}</td></tr>`;
+  }).join('')}</tbody></table></div>`;
+ }).join('');
+}
+function renderNotes(){
+ const items=[...(build.sensitivity||[]),...PAYLOAD.caveats];
+ $('notes-list').innerHTML=items.length?items.map(t=>`<li>${t}</li>`).join(''):'<li>No notes recorded.</li>';
+}
+function renderSpells(){
+ const groups=new Map();
+ for(const m of PAYLOAD.spell_milestones){
+  if(!groups.has(m.spell))groups.set(m.spell,[]);
+  groups.get(m.spell).push(m);
+ }
+ const upcoming=[];
+ const chips=[];
+ for(const [spell,ms] of groups){
+  ms.sort((a,b)=>a.level-b.level);
+  const total=ms[ms.length-1].rank;
+  let learned=0;
+  while(learned<ms.length&&ms[learned].level<=level)learned++;
+  const next=learned<ms.length?ms[learned]:null;
+  if(next)upcoming.push(next.level);
+  if(!learned&&!next)continue;
+  const learnedRank=learned?ms[learned-1].rank:0;
+  const label=learnedRank?`${learnedRank}/${total}`:`at Lv ${ms[0].level}`;
+  chips.push({spell,label,next,title:ms.map(m=>`rank ${m.rank} at level ${m.level}`).join('; ')});
+ }
+ const soon=new Set(upcoming.sort((a,b)=>a-b).slice(0,3));
+ $('spells-desc').textContent=`Ranks trained by level ${level}; the next ranks to come are highlighted.`;
+ $('spell-chips').innerHTML=chips.map(c=>{
+  const isNext=!!(c.next&&soon.has(c.next.level));
+  return `<span class="spell-chip ${isNext?'next':''}" title="${c.title}">${c.spell} <b>${c.label}</b>${isNext?` · rank ${c.next.rank} at Lv ${c.next.level}`:''}</span>`;
+ }).join('');
+}
+function render(){
+ $('level').value=level;$('slider').value=level;
+ $('checked').textContent=`${checked.size} / ${points.length}`;
+ $('bar').style.width=points.length?`${checked.size/points.length*100}%`:'0%';
+ const due=points.filter(p=>p.level<=level&&!checked.has(p.level));
+ $('remaining').textContent=due.length?`${due.length} point${due.length===1?'':'s'} to check at level ${level}`:`Caught up through level ${level}`;
+ $('status').textContent=storageOK?(migrated?'Older Elementalist save migrated: matching ranks preserved; removed talents were not reassigned.':`Progress for ${build.name} saved on this device.`):'Browser storage unavailable. Progress lasts for this session only.';
+ const next=points.find(p=>!checked.has(p.level));
+ for(const step of steps){
+  const count=step.points.filter(p=>checked.has(p.level)).length;
+  const el=$('step-'+step.id);
+  el.classList.toggle('available',step.points.some(p=>p.level<=level));
+  el.classList.toggle('complete',count===step.points.length);
+  el.classList.toggle('is-next',!!next&&step.points.some(p=>p.level===next.level));
+  $('step-count-'+step.id).textContent=`${count}/${step.points.length} checked`;
+ }
+ document.querySelectorAll('[data-point]').forEach(b=>{const n=+b.dataset.point;b.setAttribute('aria-pressed',checked.has(n));b.disabled=n>level&&!checked.has(n)});
+ document.querySelectorAll('[data-level]').forEach(b=>b.classList.toggle('reached',+b.dataset.level<=level));
+ const byTree=new Map();
+ for(const p of points){if(!byTree.has(p.t.tree))byTree.set(p.t.tree,[]);byTree.get(p.t.tree).push(p)}
+ $('tree-stats').innerHTML=[...byTree.entries()].map(([tree,ps])=>{
+  const count=ps.filter(p=>checked.has(p.level)).length;
+  return `<div class="surface stat ${TREE_CLASS[tree]||''}"><strong>${count} / ${ps.length}</strong><span>${tree.toUpperCase()} POINTS</span></div>`}).join('');
+ $('next-label').textContent=next?(next.level<=level?'Your next point':'Coming next'):'Open choice';
+ $('next-title').textContent=next?next.t.name:`Level ${RULES.max_level} · ${build.open_points} point${build.open_points===1?'':'s'} open`;
+ $('next-icon').innerHTML=next?icon(next.t):'';
+ $('next-meta').textContent=next?`Level ${next.level} · Rank ${next.rank}/${next.t.max_rank} · ${next.t.tree}`:'Not counted in the tracker until you choose it';
+ $('next-why').textContent=next?rankText(next.t,next.rank):`All ${points.length} allocated points are checked. The remaining level-${RULES.max_level} point stays open — try the build first.`;
+ $('check-next').disabled=!next||next.level>level;
+ $('check-next').textContent=!next?`${points.length} allocated points checked`:next.level>level?`Available at level ${next.level}`:`Check off · Level ${next.level}`;
+ renderScores();renderNotes();renderSpells();
+}
+function setLevel(n){if(!Number.isFinite(n))return;level=Math.max(RULES.first_talent_level,Math.min(RULES.max_level,Math.round(n)));save();render()}
+
+$('slider').min=RULES.first_talent_level;$('slider').max=RULES.max_level;
+$('level').min=RULES.first_talent_level;$('level').max=RULES.max_level;
+$('slider').addEventListener('input',e=>setLevel(+e.target.value));
+$('level').addEventListener('change',e=>setLevel(+e.target.value));
+$('build-switch').addEventListener('click',e=>{const b=e.target.closest('[data-build]');if(b)selectBuild(b.dataset.build,true)});
+$('milestones').addEventListener('click',e=>{const b=e.target.closest('[data-level]');if(b)setLevel(+b.dataset.level)});
+$('timeline').addEventListener('click',e=>{const b=e.target.closest('[data-point]');if(!b)return;const n=+b.dataset.point;checked.has(n)?checked.delete(n):checked.add(n);save();render()});
+$('check-next').addEventListener('click',()=>{const p=points.find(p=>!checked.has(p.level));if(p&&p.level<=level){checked.add(p.level);save();render()}});
+$('reset').addEventListener('click',()=>{if(confirm(`Clear all checked points for ${build.name} and return to level ${RULES.first_talent_level}?`)){migrated=false;checked.clear();level=RULES.first_talent_level;save();render()}});
+$('footer-data').textContent=`WoW Forever ${PAYLOAD.dataset.game_build} · dataset ${PAYLOAD.dataset.version}`;
+
+// The static switcher is the baseline: drop buttons the payload does not know and add any it does.
+{
+ const known=new Set();
+ for(const btn of $('build-switch').querySelectorAll('[data-build]')){
+  if(BUILDS.some(b=>b.id===btn.dataset.build))known.add(btn.dataset.build);
+  else btn.remove();
+ }
+ for(const b of BUILDS)if(!known.has(b.id)){
+  const btn=document.createElement('button');
+  btn.className='build-btn';
+  btn.dataset.build=b.id;
+  btn.textContent=b.name;
+  $('build-switch').appendChild(btn);
+ }
+}
+let initial='';
+try{initial=localStorage.getItem(SELECTED_KEY)||''}catch(e){}
+if(!BUILDS.some(b=>b.id===initial))initial=BUILDS.some(b=>b.id==='elementalist-v4')?'elementalist-v4':BUILDS[0].id;
+selectBuild(initial,false);
+</script>
+</body>
+</html>
