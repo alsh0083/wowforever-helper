@@ -1,7 +1,8 @@
 # Rogue Combat (Blade Flurry, Adrenaline Rush): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
 # Second PvP spec for the class (#81), from wowforevertalent.com Forever popularity data plus judgment.
-# source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
-# can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
+# source per value: data = Forever client 1.60.1.70205 rogue spells and the talents of the rogue
+# community build (#106, config/builds/rogue-*.toml); classic = Classic value the data doesn't carry;
+# estimate = judgment. Health and DPS: level-60 estimates vs cloth until the melee engine (#111).
 
 id = "rogue-combat"
 class = "Rogue"
@@ -11,7 +12,7 @@ role = "melee"  # melee | ranged | caster
 stealth = true
 dispels_buffs = false  # can strip Ice Barrier
 confidence = "low"
-sources = ["wft_popular"]
+sources = ["wft_popular", "wft_popular_rogue"]
 
 [at_60]
 health = 3700
@@ -32,7 +33,7 @@ name = "Kidney Shot"
 kind = "stun"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 6.0
 cooldown = 20
-source = "classic (data shows 1 s per combo point)"
+source = "data: 1 s + 1 s per combo point, 5 combo points"
 
 [[controls]]
 name = "Gouge"
@@ -40,6 +41,13 @@ kind = "stun"  # stun | incapacitate | disorient | fear | root | slow | interrup
 duration = 4.0
 cooldown = 10
 source = "data"
+
+[[controls]]
+name = "Blind"
+kind = "disorient"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
+duration = 10.0
+cooldown = 300
+source = "data: 10 s disorient with a 60% slow, 5 min cooldown"
 
 [[controls]]
 name = "Kick"
@@ -50,7 +58,12 @@ source = "data"
 
 [[gap_closers]]
 name = "Sprint"
-cooldown = 300
+cooldown = 120  # data: 5 min, Endurance 2/2 -60%
+
+[[removes]]
+name = "Sprint"
+removes = "slow,root"
+cooldown = 120  # data: Improved Sprint 2/2 removes movement impairing effects; Endurance 2/2 -60%
 
 [[removes]]
 name = "Vanish"

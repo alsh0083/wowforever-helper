@@ -142,7 +142,7 @@ def check_for_updates(
         cls, spells=normalize_spells_module.class_spells(tables, skill_lines=module.SKILL_LINES)
     )
 
-    wft_manifest = json.loads((page_path.parent / "manifest.json").read_text(encoding="utf-8"))
+    wft_manifest = wowforevertalent.manifest_for(page_path)
     dataset = Dataset(
         version=build,
         game_build=build,

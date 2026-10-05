@@ -170,5 +170,9 @@ UNMODELED: dict[str, str] = {
     "Pyroblast": "grants_spell",
 }
 
+# The calculator scores mage builds (spell damage, rotations, duels); classes without ENGINE
+# get routes-only reports until the melee/ranged engine (#111).
+ENGINE = True
+
 # Mage skill lines in SkillLineAbility: Frost, Fire, Arcane.
 SKILL_LINES = (6, 8, 237)

@@ -107,7 +107,7 @@ def snapshot(page_html: str, raw_dir: Path, *, url: str) -> Path:
     """Save a class page snapshot plus its manifest; idempotent for identical content.
 
     Writes raw_dir/<page_data_version>/<class_id>.html with the page's exact UTF-8 bytes
-    and a manifest.json beside it. Same content already present returns the path
+    and <class_id>.manifest.json beside it (one manifest per class page, #104). Same content already present returns the path
     untouched; different content at the same path raises `SnapshotConflict`.
     """
     page = parse_page(page_html)
@@ -128,10 +128,22 @@ def snapshot(page_html: str, raw_dir: Path, *, url: str) -> Path:
         "fetched_at": datetime.now(timezone.utc).isoformat(),
         "sha256": hashlib.sha256(page_html.encode("utf-8")).hexdigest(),
     }
-    (path.parent / "manifest.json").write_text(
+    (path.parent / f"{page.class_id}.manifest.json").write_text(
         json.dumps(manifest, indent=1, sort_keys=True), encoding="utf-8", newline="\n"
     )
     return path
+
+
+def manifest_for(page_path: Path) -> dict[str, Any]:
+    """The manifest of a snapshot page: <class_id>.manifest.json, or for snapshots taken before
+    per-class manifests (mage only) the folder's manifest.json when its URL is this class's page."""
+    own = page_path.with_suffix(".manifest.json")
+    if own.exists():
+        return json.loads(own.read_text(encoding="utf-8"))
+    legacy = json.loads((page_path.parent / "manifest.json").read_text(encoding="utf-8"))
+    if not legacy["url"].rstrip("/").endswith("/" + page_path.stem):
+        raise FileNotFoundError(f"no manifest for {page_path}")
+    return legacy
 
 
 def fetch(class_id: str, *, http_get: Callable[[str], str] | None = None, raw_dir: Path) -> Path:

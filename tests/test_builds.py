@@ -14,7 +14,7 @@ FIX = Path(__file__).parent / "fixtures"
 CLS, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
                          parse_page((FIX / "wowforevertalent" / "mage.html").read_text(encoding="utf-8")),
                          wago_build="1.60.1.70205")
-BUILDS = {b.id: b for b in load_builds()}
+BUILDS = {b.id: b for b in load_builds(class_name="mage")}
 
 
 def test_the_builds_exist_and_names_end_in_their_focus():

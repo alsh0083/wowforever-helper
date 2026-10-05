@@ -24,7 +24,7 @@ from pathlib import Path
 m = class_module("mage")
 ds = Dataset.load(Path("data/datasets/1.60.1.70205.json"))
 cls, _ = attach_effects(ds.class_data("mage"), m.TALENT_EFFECTS, m.UNMODELED)
-builds = {b.id: b for b in load_builds()}
+builds = {b.id: b for b in load_builds(class_name="mage")}
 A = Assumptions.load()
 score = pve_score_fn(cls, StatTable.load("mage").at(60), A)
 arch = Consensus.load().archetypes
