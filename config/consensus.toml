@@ -118,3 +118,15 @@ sources = ["barrens_pvp_builds"]
 core = ["Improved Frostbolt", "Elemental Precision"]
 strong = ["Ice Shards", "Shatter", "Frostbite", "Permafrost"]
 sources = ["method_forever_leveling", "wt_forever_mage"]
+
+# ---- archetypes for the shortlist (#28) -----------------------------------------------------
+# deep = a tree with at least `deep` points; hybrid = no deep tree and exactly two trees with at
+# least `hybrid` points. Only hybrids the community actually builds count (math alone doesn't
+# make a hybrid viable).
+
+[archetypes]
+deep = 31
+hybrid = 15
+recognized = ["Fire/Frost", "Arcane/Fire"]
+sources = ["wft_popular"]
+note = "Fire/Frost: the most popular complete Forever build (0/29/22) and the owner's Elementalist; Arcane/Fire: PoM-Pyro (21/28/2). Arcane/Frost isn't among the popular builds yet."
