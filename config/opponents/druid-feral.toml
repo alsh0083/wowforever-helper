@@ -22,21 +22,21 @@ opener_source = "data (Pounce 2 s); Ravage damage estimate"
 
 [[controls]]
 name = "Pounce"
-kind = "stun"  # stun | incapacitate | fear | root | slow | interrupt | silence
+kind = "stun"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 2.0
 cooldown = 0
 source = "data"
 
 [[controls]]
 name = "Bash"
-kind = "stun"  # stun | incapacitate | fear | root | slow | interrupt | silence
+kind = "stun"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 4.0
 cooldown = 60
 source = "data"
 
 [[controls]]
 name = "Feral Charge"
-kind = "root"  # stun | incapacitate | fear | root | slow | interrupt | silence
+kind = "root"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 4.0
 cooldown = 15
 source = "classic (immobilize + interrupt)"

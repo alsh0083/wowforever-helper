@@ -1,12 +1,12 @@
-# Hunter Survival: PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
-# Spec chosen from wowforevertalent.com Forever popularity data plus PvP judgment.
+# Hunter Marksmanship (Trueshot Aura): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
+# Second PvP spec for the class (#81), from wowforevertalent.com Forever popularity data plus judgment.
 # source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
 # can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
 
-id = "hunter-survival"
+id = "hunter-marksmanship"
 class = "Hunter"
-spec = "Survival"
-points = "5/11/35"
+spec = "Marksmanship (Trueshot Aura)"
+points = "5/41/5"
 role = "ranged"  # melee | ranged | caster
 stealth = false
 dispels_buffs = false  # can strip Ice Barrier
@@ -14,9 +14,9 @@ confidence = "low"
 sources = ["wft_popular"]
 
 [at_60]
-health = 3700
-dps = 230  # sustained vs cloth when in range
-opener_damage = 600
+health = 3600
+dps = 250  # sustained vs cloth when in range
+opener_damage = 900
 opener_stun = 0.0
 opener_source = "estimate (Aimed Shot opener)"
 
@@ -29,7 +29,7 @@ source = "data"
 
 [[controls]]
 name = "Scatter Shot"
-kind = "incapacitate"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
+kind = "disorient"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
 duration = 4.0
 cooldown = 30
 source = "data"
@@ -40,17 +40,3 @@ kind = "slow"  # stun | incapacitate | disorient | fear | root | slow | interrup
 duration = 10.0
 cooldown = 0
 source = "data"
-
-[[controls]]
-name = "Counterattack"
-kind = "root"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
-duration = 5.0
-cooldown = 5
-source = "data"
-
-[[controls]]
-name = "Intimidation"
-kind = "stun"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
-duration = 3.0
-cooldown = 60
-source = "classic (pet stun)"

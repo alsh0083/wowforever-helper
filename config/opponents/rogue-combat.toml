@@ -1,12 +1,12 @@
-# Rogue Subtlety (Preparation/Premeditation): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
-# Spec chosen from wowforevertalent.com Forever popularity data plus PvP judgment.
+# Rogue Combat (Blade Flurry, Adrenaline Rush): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
+# Second PvP spec for the class (#81), from wowforevertalent.com Forever popularity data plus judgment.
 # source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
 # can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
 
-id = "rogue-subtlety"
+id = "rogue-combat"
 class = "Rogue"
-spec = "Subtlety (Preparation/Premeditation)"
-points = "16/12/23"
+spec = "Combat (Blade Flurry, Adrenaline Rush)"
+points = "18/32/0"
 role = "melee"  # melee | ranged | caster
 stealth = true
 dispels_buffs = false  # can strip Ice Barrier
@@ -14,11 +14,11 @@ confidence = "low"
 sources = ["wft_popular"]
 
 [at_60]
-health = 3600
-dps = 200  # sustained vs cloth when in range
-opener_damage = 900
+health = 3700
+dps = 240  # sustained vs cloth when in range
+opener_damage = 700
 opener_stun = 4.0
-opener_source = "data (Cheap Shot 4 s); Ambush damage estimate"
+opener_source = "data (Cheap Shot 4 s); Ambush/Sinister Strike damage estimate"
 
 [[controls]]
 name = "Cheap Shot"
@@ -47,13 +47,6 @@ kind = "interrupt"  # stun | incapacitate | disorient | fear | root | slow | int
 duration = 5.0
 cooldown = 10
 source = "data"
-
-[[controls]]
-name = "Blind"
-kind = "slow"  # stun | incapacitate | disorient | fear | root | slow | interrupt | silence
-duration = 10.0
-cooldown = 300
-source = "data (Forever Blind is a 60% slow)"
 
 [[gap_closers]]
 name = "Sprint"
