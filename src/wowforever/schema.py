@@ -32,6 +32,8 @@ EFFECT_KINDS = frozenset({
     "armor_pen",        # % of the target's armor ignored
     "ap_from_int_pct",  # attack power gained as % of Intellect (Careful Aim)
     "stat_pct",         # % more of a primary stat; applies_to names the stat
+    "ap_per_level_pct", # attack power gained as % of level (Predatory Strikes)
+    "haste_pct",        # % more attack speed while the effect is up (Flurry)
     "proc_chance",      # % chance to trigger something
     "dot_pct",          # % of damage dealt again as damage over time (e.g. Ignite)
     "pushback_pct",     # % reduction of spell pushback

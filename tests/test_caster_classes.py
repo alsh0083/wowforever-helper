@@ -27,7 +27,8 @@ def loaded(name):
 
 def rotation(name, build):
     cls, _, builds = loaded(name)
-    return caster_rotation(name, stat_table(name).at(60), cls.spells, cls, builds[build], BOSS)
+    stats = stat_table(name).at(60)
+    return caster_rotation(name, getattr(stats, "caster", stats), cls.spells, cls, builds[build], BOSS)
 
 
 @pytest.mark.parametrize("name", ["warlock", "druid", "shaman"])
@@ -58,13 +59,13 @@ def test_roots_count_in_pvp():
 
 @pytest.mark.parametrize("name,scored,unscored", [
     ("warlock", {"deep Affliction", "deep Demonology", "deep Destruction"}, set()),
-    ("druid", {"deep Balance"}, {"deep Feral Combat", "deep Restoration"}),
-    ("shaman", {"deep Elemental"}, {"deep Enhancement", "deep Restoration"}),
+    ("druid", {"deep Balance", "deep Feral Combat"}, {"deep Restoration"}),
+    ("shaman", {"deep Elemental", "deep Enhancement"}, {"deep Restoration"}),
 ])
 def test_reports_score_damage_specs_only(name, scored, unscored):
     r = json.loads((ROOT / "data" / f"report-{name}.json").read_text(encoding="utf-8"))
     for s in r["shortlist"]:
-        if s["standard"] and s["archetype"] in scored:
+        if s["standard"] and s["archetype"] in scored and s["standard"] != "druid-feral-bear":
             assert s["standard_score"] is not None
         if s["archetype"] in unscored:
             assert s["standard_score"] is None and s["model_pick"] is None

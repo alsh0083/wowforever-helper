@@ -14,6 +14,7 @@ import tomllib
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, fields
 from pathlib import Path
+from typing import Any
 
 from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Target
@@ -73,16 +74,64 @@ def _has_pet(cls: ClassData, ranks: Mapping[int, int]) -> bool:
     return lone is None or ranks.get(lone.talent_id, 0) <= 0
 
 
+@dataclass(frozen=True)
+class HybridStats:
+    """A caster class with melee builds (#175): its caster row and its melee row at one level.
+    Level, health and mana come from the caster row."""
+
+    caster: Any
+    melee: MeleeStats
+
+    @property
+    def level(self) -> int:
+        return self.caster.level
+
+    @property
+    def health(self) -> float:
+        return self.caster.health
+
+    @property
+    def mana(self) -> float:
+        return self.caster.mana
+
+
+class HybridTable:
+    def __init__(self, caster, melee: MeleeStatTable):
+        self.caster, self.melee = caster, melee
+
+    def at(self, level: int) -> HybridStats:
+        return HybridStats(self.caster.at(level), self.melee.at(level))
+
+
 def stat_table(class_name: str):
-    """The class's per-level stats: a caster's (config/stats/<class>.csv, mage format, #163) or a
-    melee/ranged class's."""
+    """The class's per-level stats: a caster's (config/stats/<class>.csv, mage format, #163), a
+    hybrid's caster and melee rows (#175), or a melee/ranged class's."""
     from wowforever.classes import class_module
 
-    if getattr(class_module(class_name), "ENGINE", None) == "spell":
+    module = class_module(class_name)
+    if getattr(module, "ENGINE", None) == "spell":
         from wowforever.stats import StatTable
 
-        return StatTable.load(class_name)
+        caster = StatTable.load(class_name)
+        if getattr(module, "MELEE_TREES", ()):
+            return HybridTable(caster, MeleeStatTable.load(f"{class_name}_melee"))
+        return caster
     return MeleeStatTable.load(class_name)
+
+
+def build_stats(class_name: str, stats, cls: ClassData, ranks: Mapping[int, int]):
+    """The stats row a build fights with: a hybrid's melee row for its melee builds, else `stats`."""
+    if isinstance(stats, HybridStats):
+        from wowforever.classes import class_module
+
+        return stats.melee if main_tree(cls, ranks) in class_module(class_name).MELEE_TREES else stats.caster
+    return stats
+
+
+def main_tree(cls: ClassData, ranks: Mapping[int, int]) -> str:
+    """The tree holding most of the build's points."""
+    points = {t.name: sum(ranks.get(i, 0) for i in t.talent_ids) for t in cls.trees}
+    return max(points, key=points.get)
 
 
 def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
@@ -90,7 +139,20 @@ def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRa
     """The class rotation's DPS, mana use and out-of-mana fallback against `target`."""
     from wowforever.classes import class_module
 
-    if getattr(class_module(class_name), "ENGINE", None) == "spell":
+    module = class_module(class_name)
+    if isinstance(stats, HybridStats):
+        if main_tree(cls, ranks) in module.MELEE_TREES:
+            if class_name == "druid":
+                from wowforever.classes.druid_rotation import cat_rotation
+
+                r = cat_rotation(stats.melee, spells, cls, ranks, target)
+            else:
+                from wowforever.classes.shaman_rotation import enhancement_rotation
+
+                r = enhancement_rotation(stats.melee, spells, cls, ranks, target)
+            return Output(r.dps, 0.0, r.dps)
+        stats = stats.caster
+    if getattr(module, "ENGINE", None) == "spell":
         from wowforever.caster import caster_rotation
 
         r = caster_rotation(class_name, stats, spells, cls, ranks, target)
