@@ -893,6 +893,124 @@
  },
  "builds": [
   {
+   "id": "shaman-elemental-pve",
+   "name": "Elemental (PvE, model)",
+   "pair": "shaman-elemental",
+   "variant": "PvE",
+   "origin": "model",
+   "summary": "Model build for Elemental PvE: hill-climbed from shaman-elemental under the PvE score. Not a community standard.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    104753,
+    104753,
+    104753,
+    104753,
+    104753,
+    104773,
+    104773,
+    104773,
+    104773,
+    104756,
+    104773,
+    104756,
+    104756,
+    104756,
+    104756,
+    104772,
+    104772,
+    104772,
+    104772,
+    104752,
+    104772,
+    104752,
+    104767,
+    104749,
+    104767,
+    104765,
+    104765,
+    104765,
+    104762,
+    104770,
+    104770,
+    104770,
+    104767,
+    104759,
+    104759,
+    104759,
+    104767,
+    104767,
+    104766,
+    104766,
+    104766,
+    104766,
+    104766,
+    104758,
+    104768,
+    104763,
+    104763,
+    104763,
+    104761,
+    104761,
+    104760
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 64.8,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 63.8,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 70.7,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 75.3,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 83.4,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 33.9,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 56.0,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 141.4,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 179.1,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 292.0,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 113.9,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
    "id": "shaman-elemental",
    "name": "Elemental Lava Burst (PvP)",
    "pair": "shaman-elemental",
@@ -1247,6 +1365,73 @@
    "sensitivity": []
   },
   {
+   "id": "shaman-restoration-pvp",
+   "name": "Restoration (PvP)",
+   "pair": "shaman-restoration",
+   "variant": "PvP",
+   "origin": "community",
+   "summary": "51 points (Elemental 0 / Enhancement 15 / Restoration 36). Ancestral Knowledge is one of the spent talents. From the site's Restoration Shaman \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    104757,
+    104757,
+    104739,
+    104739,
+    104756,
+    104739,
+    104756,
+    104729,
+    104756,
+    104729,
+    104756,
+    104735,
+    104756,
+    104735,
+    104754,
+    104735,
+    104754,
+    104735,
+    104752,
+    104735,
+    104752,
+    104729,
+    104749,
+    104734,
+    104748,
+    104734,
+    104748,
+    104734,
+    104748,
+    104731,
+    104731,
+    104733,
+    104733,
+    104733,
+    104732,
+    104738,
+    104738,
+    104738,
+    104738,
+    104738,
+    104728,
+    104727,
+    104727,
+    104727,
+    104726,
+    104725,
+    104725,
+    104725,
+    104725,
+    104725,
+    104724
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  },
+  {
    "id": "shaman-restoration",
    "name": "Restoration Riptide (PvE)",
    "pair": "shaman-restoration",
@@ -1332,12 +1517,16 @@
   {
    "archetype": "deep Elemental",
    "focus": "PvE",
-   "standard": null,
-   "standard_score": null,
+   "standard": "shaman-elemental-pve",
+   "standard_score": 1.1798673599372487,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
-   "qualifying": []
+   "candidates": {
+    "shaman-elemental-pve": 1.1798673599372487
+   },
+   "qualifying": [
+    "shaman-elemental-pve"
+   ]
   },
   {
    "archetype": "deep Enhancement",
@@ -1370,12 +1559,14 @@
   {
    "archetype": "deep Restoration",
    "focus": "PvP",
-   "standard": null,
+   "standard": "shaman-restoration-pvp",
    "standard_score": null,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {},
-   "qualifying": []
+   "qualifying": [
+    "shaman-restoration-pvp"
+   ]
   },
   {
    "archetype": "deep Restoration",

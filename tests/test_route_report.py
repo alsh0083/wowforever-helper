@@ -52,7 +52,8 @@ def test_matrix_slots_cover_every_tree_and_recognized_hybrid():
     assert by_slot[("deep Combat", "PvP")]["standard"] == "rogue-combat-pvp"
     assert by_slot[("deep Assassination", "PvE")]["standard"] == "rogue-mutilate"
     assert by_slot[("Assassination/Subtlety", "PvP")]["standard"] == "rogue-subtlety"
-    assert by_slot[("deep Subtlety", "PvE")]["standard"] is None
+    # every slot has a build since the matrix fill (owner request, 2026-10-05)
+    assert by_slot[("deep Subtlety", "PvE")]["standard"] == "rogue-subtlety-pve"
     assert all(s["standard_score"] is None and s["model_pick"] is None for s in REPORT["shortlist"])
 
 

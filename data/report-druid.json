@@ -917,6 +917,124 @@
  },
  "builds": [
   {
+   "id": "druid-balance-pvp",
+   "name": "Balance (PvP, model)",
+   "pair": "druid-balance",
+   "variant": "PvP",
+   "origin": "model",
+   "summary": "Model build for Balance PvP: the report's model pick for this slot. Not a community standard.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    104923,
+    104923,
+    104923,
+    104923,
+    104923,
+    104925,
+    104925,
+    104925,
+    104929,
+    104931,
+    104931,
+    104929,
+    104927,
+    104927,
+    104924,
+    104930,
+    104932,
+    104932,
+    104932,
+    104932,
+    104932,
+    104924,
+    104924,
+    104924,
+    104924,
+    104936,
+    104936,
+    104936,
+    104936,
+    104936,
+    104937,
+    104933,
+    104933,
+    104933,
+    104933,
+    104933,
+    104957,
+    104957,
+    104957,
+    104957,
+    104957,
+    104922,
+    104922,
+    104922,
+    104922,
+    104922,
+    104928,
+    104934,
+    104935,
+    104935,
+    104935
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 81.3,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 85.2,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 98.5,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 95.5,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 106.4,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 44.2,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 86.8,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 145.1,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 210.3,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 356.0,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 244.4,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
    "id": "druid-balance",
    "name": "Balance Moonkin (PvE)",
    "pair": "druid-balance",
@@ -1217,6 +1335,73 @@
    "sensitivity": []
   },
   {
+   "id": "druid-restoration-pvp",
+   "name": "Restoration (PvP)",
+   "pair": "druid-restoration",
+   "variant": "PvP",
+   "origin": "community",
+   "summary": "51 points (Balance 0 / Feral Combat 20 / Restoration 31). Heart of the Wild is one of the spent talents. From the site's Restoration Druid \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    104939,
+    104957,
+    104939,
+    104957,
+    104939,
+    104957,
+    104939,
+    104957,
+    104939,
+    104957,
+    104943,
+    104922,
+    104943,
+    104922,
+    104942,
+    104922,
+    104942,
+    104922,
+    104942,
+    104946,
+    104946,
+    104948,
+    104948,
+    104922,
+    104917,
+    104917,
+    104917,
+    104916,
+    104916,
+    104918,
+    104945,
+    104915,
+    104945,
+    104914,
+    104944,
+    104914,
+    104914,
+    104952,
+    104952,
+    104912,
+    104952,
+    104921,
+    104911,
+    104911,
+    104911,
+    104913,
+    104913,
+    104913,
+    104913,
+    104913,
+    104910
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  },
+  {
    "id": "druid-restoration",
    "name": "Restoration (PvE)",
    "pair": "druid-restoration",
@@ -1288,112 +1473,16 @@
   {
    "archetype": "deep Balance",
    "focus": "PvP",
-   "standard": null,
-   "standard_score": null,
-   "model_pick": {
-    "Naturalist": 5,
-    "Improved Wrath": 5,
-    "Genesis": 5,
-    "Moonglow": 3,
-    "Nature's Majesty": 2,
-    "Nature's Splendor": 1,
-    "Nature's Reach": 2,
-    "Insect Swarm": 1,
-    "Improved Moonfire": 2,
-    "Vengeance": 5,
-    "Improved Starfire": 5,
-    "Nature's Grace": 1,
-    "Eclipse": 3,
-    "Moonfury": 5,
-    "Moonkin Form": 1,
-    "Nature's Focus": 5
+   "standard": "druid-balance-pvp",
+   "standard_score": 0.5283670916953077,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {
+    "druid-balance-pvp": 0.5283670916953077
    },
-   "model_pick_score": 0.5283670916953077,
-   "candidates": {},
-   "qualifying": [],
-   "model_pick_changes": [
-    {
-     "talent": "Naturalist",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Improved Wrath",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Genesis",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Moonglow",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Nature's Majesty",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Nature's Splendor",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Nature's Reach",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Insect Swarm",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Improved Moonfire",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Vengeance",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Improved Starfire",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Nature's Grace",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Eclipse",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Moonfury",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Moonkin Form",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Nature's Focus",
-     "from": 0,
-     "to": 5
-    }
-   ],
-   "model_pick_seed": null
+   "qualifying": [
+    "druid-balance-pvp"
+   ]
   },
   {
    "archetype": "deep Balance",
@@ -1438,12 +1527,14 @@
   {
    "archetype": "deep Restoration",
    "focus": "PvP",
-   "standard": null,
+   "standard": "druid-restoration-pvp",
    "standard_score": null,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {},
-   "qualifying": []
+   "qualifying": [
+    "druid-restoration-pvp"
+   ]
   },
   {
    "archetype": "deep Restoration",

@@ -19,7 +19,10 @@ BUILDS = {b.id: b for b in load_builds(class_name="mage")}
 
 def test_the_builds_exist_and_names_end_in_their_focus():
     assert set(BUILDS) == {"elementalist-v4", "elementalist-pve", "elementalist-pve-v2", "deep-frost",
-                           "deep-fire", "arcane-pom-pyro", "fire-frost-shatter", "deep-arcane"}
+                           "deep-fire", "arcane-pom-pyro", "fire-frost-shatter", "deep-arcane",
+                           # matrix fill (owner request, 2026-10-05): catalog plan and model builds
+                           "mage-frost-pve", "mage-arcane-pvp", "mage-fire-pvp", "mage-fire-frost-pvp",
+                           "mage-arcane-fire-pve"}
     for b in BUILDS.values():
         assert b.variant in ("PvP", "PvE") and f"({b.variant}" in b.name
 
@@ -72,6 +75,6 @@ def test_community_builds_cite_known_sources():
     from wowforever.consensus import Consensus
     sources = Consensus.load().sources
     community = [b for b in BUILDS.values() if b.origin == "community"]
-    assert len(community) == 5
+    assert len(community) == 6          # 5 from #23 plus the catalog's Frost PvE plan
     for b in community:
         assert b.sources and all(s in sources for s in b.sources) and b.confidence in ("low", "medium", "high")

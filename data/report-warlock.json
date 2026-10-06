@@ -918,6 +918,242 @@
  },
  "builds": [
   {
+   "id": "warlock-affliction-pvp-guide",
+   "name": "Affliction/Demonology guide (PvP)",
+   "pair": "warlock-affliction",
+   "variant": "PvP",
+   "origin": "community",
+   "summary": "51 points (Affliction 30 / Demonology 21 / Destruction 0). Demonic Embrace is one of the spent talents. From the site's Affliction Warlock \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105924,
+    105925,
+    105925,
+    105905,
+    105905,
+    105907,
+    105907,
+    105924,
+    105924,
+    105923,
+    105923,
+    105923,
+    105924,
+    105924,
+    105919,
+    105907,
+    105907,
+    105907,
+    105902,
+    105902,
+    105903,
+    105900,
+    105903,
+    105903,
+    105899,
+    105899,
+    105901,
+    105901,
+    105918,
+    105918,
+    105918,
+    105898,
+    105898,
+    105916,
+    110876,
+    110876,
+    110876,
+    110876,
+    105914,
+    105914,
+    105895,
+    105913,
+    105892,
+    105912,
+    105911,
+    105911,
+    105910,
+    105910,
+    105910,
+    105910,
+    105910
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 61.7,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 63.0,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 82.2,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 86.4,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 95.2,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 44.2,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 80.7,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 132.3,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 179.7,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 320.0,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 175.4,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
+   "id": "warlock-affliction-pvp",
+   "name": "Affliction (PvP, model)",
+   "pair": "warlock-affliction",
+   "variant": "PvP",
+   "origin": "model",
+   "summary": "Model build for Affliction PvP: the report's model pick for this slot. Not a community standard.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105924,
+    105888,
+    105925,
+    105925,
+    105925,
+    105925,
+    105923,
+    105923,
+    105923,
+    105923,
+    105923,
+    105919,
+    105919,
+    105924,
+    105924,
+    105924,
+    105888,
+    105924,
+    110876,
+    110876,
+    110876,
+    110876,
+    110876,
+    105925,
+    105907,
+    105907,
+    105907,
+    105907,
+    105907,
+    105902,
+    105888,
+    105888,
+    105888,
+    105902,
+    105903,
+    105903,
+    105903,
+    105900,
+    105920,
+    105920,
+    105920,
+    105910,
+    105910,
+    105910,
+    105917,
+    105917,
+    105917,
+    105914,
+    105914,
+    105912,
+    105911
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 62.1,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 64.0,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 78.5,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 89.2,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 97.5,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 46.3,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 87.9,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 133.9,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 209.5,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 362.5,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 175.1,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
    "id": "warlock-affliction",
    "name": "Affliction Siphon Life (PvE)",
    "pair": "warlock-affliction",
@@ -1036,6 +1272,124 @@
    "sensitivity": []
   },
   {
+   "id": "warlock-demonology-pve",
+   "name": "Demonology (PvE)",
+   "pair": "warlock-demonology",
+   "variant": "PvE",
+   "origin": "community",
+   "summary": "51 points (Affliction 0 / Demonology 31 / Destruction 20). Bane is one of the spent talents. From the site's Demonology Warlock \u00b7 Endgame \u00b7 PvE \u00b7 level 60 plan.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105888,
+    105888,
+    105881,
+    105881,
+    105889,
+    105887,
+    105887,
+    105887,
+    105889,
+    105889,
+    105883,
+    105883,
+    105883,
+    105883,
+    105883,
+    105889,
+    105889,
+    105888,
+    105907,
+    105907,
+    105907,
+    105907,
+    105907,
+    105906,
+    105902,
+    105888,
+    105902,
+    105903,
+    105888,
+    105903,
+    105900,
+    105903,
+    105899,
+    105899,
+    105901,
+    105901,
+    105901,
+    105898,
+    105898,
+    105897,
+    105897,
+    105892,
+    105893,
+    105893,
+    105893,
+    105891,
+    105891,
+    105891,
+    105891,
+    105891,
+    105890
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 60.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 60.5,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 80.4,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 85.0,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 93.2,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 43.4,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 79.7,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 138.2,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 185.7,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 321.9,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 156.9,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
    "id": "warlock-demonology",
    "name": "Demonology Soul Link (PvP)",
    "pair": "warlock-demonology",
@@ -1147,6 +1501,124 @@
     "raid": {
      "60": {
       "score": 155.0,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
+   "id": "warlock-destruction-pve",
+   "name": "Destruction (PvE)",
+   "pair": "warlock-destruction",
+   "variant": "PvE",
+   "origin": "community",
+   "summary": "51 points (Affliction 9 / Demonology 11 / Destruction 31). Bane is one of the spent talents. From the site's Destruction Warlock \u00b7 Endgame \u00b7 PvE \u00b7 level 60 plan.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105888,
+    105888,
+    105925,
+    105925,
+    105925,
+    105881,
+    105921,
+    105921,
+    105888,
+    105923,
+    105923,
+    105889,
+    105887,
+    105887,
+    105887,
+    105889,
+    105889,
+    105883,
+    105883,
+    105883,
+    105883,
+    105883,
+    105880,
+    105879,
+    105879,
+    105879,
+    105889,
+    105889,
+    105925,
+    105925,
+    105907,
+    105888,
+    105888,
+    105907,
+    105907,
+    105907,
+    105907,
+    105902,
+    105902,
+    105903,
+    105903,
+    105903,
+    105900,
+    105884,
+    105876,
+    105875,
+    105875,
+    105875,
+    105875,
+    105875,
+    105874
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 60.6,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 62.3,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 80.0,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 88.7,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 100.1,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 46.2,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 83.0,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 137.4,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 192.1,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 370.4,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 186.6,
       "unit": "dps"
      }
     }
@@ -1276,112 +1748,16 @@
   {
    "archetype": "deep Affliction",
    "focus": "PvP",
-   "standard": null,
-   "standard_score": null,
-   "model_pick": {
-    "Bane": 5,
-    "Demonic Sacrifice": 1,
-    "Demonic Aegis": 2,
-    "Fel Vitality": 3,
-    "Demonic Embrace": 5,
-    "Shadow Mastery": 3,
-    "Soul Siphon": 1,
-    "Siphon Life": 1,
-    "Nightfall": 2,
-    "Pandemic": 3,
-    "Improved Bane of Agony": 2,
-    "Improved Drains": 3,
-    "Malediction": 5,
-    "Improved Corruption": 5,
-    "Suppression": 5,
-    "Malevolence": 5
+   "standard": "warlock-affliction-pvp",
+   "standard_score": 0.4271226525239939,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {
+    "warlock-affliction-pvp": 0.4271226525239939
    },
-   "model_pick_score": 0.4271226525239939,
-   "candidates": {},
-   "qualifying": [],
-   "model_pick_changes": [
-    {
-     "talent": "Bane",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Demonic Sacrifice",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Demonic Aegis",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Fel Vitality",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Demonic Embrace",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Shadow Mastery",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Soul Siphon",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Siphon Life",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Nightfall",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Pandemic",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Improved Bane of Agony",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Improved Drains",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Malediction",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Improved Corruption",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Suppression",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Malevolence",
-     "from": 0,
-     "to": 5
-    }
-   ],
-   "model_pick_seed": null
+   "qualifying": [
+    "warlock-affliction-pvp"
+   ]
   },
   {
    "archetype": "deep Affliction",
@@ -1414,124 +1790,71 @@
   {
    "archetype": "deep Demonology",
    "focus": "PvE",
-   "standard": null,
-   "standard_score": null,
+   "standard": "warlock-demonology-pve",
+   "standard_score": 1.3745255708054327,
    "model_pick": {
+    "Agonizing Flames": 1,
+    "Conflagrate": 1,
+    "Ruin": 5,
+    "Cataclysm": 3,
     "Bane": 5,
-    "Master Demonologist": 4,
+    "Improved Shadow Bolt": 2,
+    "Demonic Pact": 1,
+    "Master Demonologist": 5,
     "Soul Link": 1,
     "Demonic Knowledge": 3,
-    "Improved Felhunter": 3,
-    "Fel Domination": 1,
-    "Decimation": 1,
+    "Decimation": 2,
     "Master Summoner": 2,
     "Demonic Energies": 2,
     "Demonic Sacrifice": 1,
+    "Improved Sayaad": 3,
     "Demonic Aegis": 2,
     "Fel Vitality": 3,
-    "Improved Voidwalker": 3,
+    "Unholy Power": 1,
     "Demonic Embrace": 5,
-    "Improved Bane of Agony": 2,
-    "Malediction": 5,
-    "Improved Corruption": 4,
-    "Suppression": 4
+    "Improved Corruption": 1,
+    "Suppression": 2
    },
-   "model_pick_score": 1.465811120475939,
-   "candidates": {},
-   "qualifying": [],
+   "model_pick_score": 1.4537348580417706,
+   "candidates": {
+    "warlock-demonology-pve": 1.3745255708054327
+   },
+   "qualifying": [
+    "warlock-demonology-pve"
+   ],
    "model_pick_changes": [
     {
-     "talent": "Bane",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Master Demonologist",
-     "from": 0,
-     "to": 4
-    },
-    {
-     "talent": "Soul Link",
+     "talent": "Agonizing Flames",
      "from": 0,
      "to": 1
     },
     {
-     "talent": "Demonic Knowledge",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Improved Felhunter",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Fel Domination",
+     "talent": "Conflagrate",
      "from": 0,
      "to": 1
     },
     {
-     "talent": "Decimation",
-     "from": 0,
-     "to": 1
+     "talent": "Destructive Reach",
+     "from": 2,
+     "to": 0
     },
     {
-     "talent": "Master Summoner",
-     "from": 0,
+     "talent": "Improved Shadow Bolt",
+     "from": 5,
      "to": 2
-    },
-    {
-     "talent": "Demonic Energies",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Demonic Sacrifice",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Demonic Aegis",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Fel Vitality",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Improved Voidwalker",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Demonic Embrace",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Improved Bane of Agony",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Malediction",
-     "from": 0,
-     "to": 5
     },
     {
      "talent": "Improved Corruption",
      "from": 0,
-     "to": 4
+     "to": 1
     },
     {
      "talent": "Suppression",
      "from": 0,
-     "to": 4
+     "to": 2
     }
    ],
-   "model_pick_seed": null
+   "model_pick_seed": "warlock-demonology-pve"
   },
   {
    "archetype": "deep Destruction",
@@ -1550,112 +1873,16 @@
   {
    "archetype": "deep Destruction",
    "focus": "PvE",
-   "standard": null,
-   "standard_score": null,
-   "model_pick": {
-    "Shadow and Flame": 5,
-    "Fire and Brimstone": 3,
-    "Agonizing Flames": 3,
-    "Conflagrate": 1,
-    "Ruin": 5,
-    "Shadowburn": 1,
-    "Aftermath": 5,
-    "Cataclysm": 3,
-    "Bane": 5,
-    "Demonic Sacrifice": 1,
-    "Demonic Aegis": 2,
-    "Fel Vitality": 3,
-    "Demonic Embrace": 5,
-    "Malediction": 2,
-    "Improved Corruption": 2,
-    "Suppression": 5
+   "standard": "warlock-destruction-pve",
+   "standard_score": 1.5713341131788867,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {
+    "warlock-destruction-pve": 1.5713341131788867
    },
-   "model_pick_score": 1.6357062260397497,
-   "candidates": {},
-   "qualifying": [],
-   "model_pick_changes": [
-    {
-     "talent": "Shadow and Flame",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Fire and Brimstone",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Agonizing Flames",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Conflagrate",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Ruin",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Shadowburn",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Aftermath",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Cataclysm",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Bane",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Demonic Sacrifice",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Demonic Aegis",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Fel Vitality",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Demonic Embrace",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Malediction",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Improved Corruption",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Suppression",
-     "from": 0,
-     "to": 5
-    }
-   ],
-   "model_pick_seed": null
+   "qualifying": [
+    "warlock-destruction-pve"
+   ]
   }
  ],
  "spell_milestones": [

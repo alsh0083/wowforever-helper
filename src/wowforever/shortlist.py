@@ -173,7 +173,10 @@ def build_shortlist(
             score_fn = score_fns[focus]
             cands = candidates_by_slot[(archetype, focus)]
             community = [cand for cand in cands if cand[0].origin == "community"]
-            standard = max(community, key=lambda cand: cand[2]) if community else None
+            # with no community plan, a model build (origin "model") holds the slot until one exists
+            fallback = [cand for cand in cands if cand[0].origin == "model"]
+            standard = (max(community, key=lambda cand: cand[2]) if community
+                        else max(fallback, key=lambda cand: cand[2]) if fallback else None)
 
             seed = standard
             if seed is None and cands:

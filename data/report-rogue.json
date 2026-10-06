@@ -920,6 +920,242 @@
  },
  "builds": [
   {
+   "id": "rogue-assassination-pvp",
+   "name": "Assassination (PvP)",
+   "pair": "rogue-assassination",
+   "variant": "PvP",
+   "origin": "community",
+   "summary": "51 points (Assassination 34 / Combat 17 / Subtlety 0). Malice is one of the spent talents. From the site's Assassination Rogue \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105722,
+    105722,
+    105722,
+    105722,
+    105722,
+    105708,
+    105708,
+    105708,
+    105742,
+    105742,
+    105742,
+    113398,
+    113398,
+    105737,
+    105737,
+    105720,
+    105720,
+    105759,
+    105716,
+    105716,
+    105716,
+    105716,
+    105716,
+    105738,
+    105738,
+    105738,
+    105736,
+    105736,
+    105735,
+    105732,
+    105732,
+    105714,
+    105714,
+    105714,
+    105714,
+    105709,
+    105721,
+    105721,
+    105721,
+    105714,
+    105710,
+    105710,
+    105710,
+    105710,
+    105710,
+    105733,
+    105733,
+    105715,
+    105711,
+    105711,
+    105712
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 85.0,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 74.5,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 72.3,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 66.1,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 67.5,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 51.6,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 72.0,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 100.4,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 136.7,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 203.0,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 206.9,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
+   "id": "rogue-assassination-subtlety-pve",
+   "name": "Assassination/Subtlety (PvE, model)",
+   "pair": "rogue-assassination-subtlety",
+   "variant": "PvE",
+   "origin": "model",
+   "summary": "Model build for Assassination/Subtlety PvE: the report's model pick for this slot. Not a community standard.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105741,
+    105741,
+    105722,
+    105722,
+    105722,
+    105722,
+    105722,
+    105708,
+    105708,
+    105708,
+    105737,
+    105737,
+    105737,
+    105742,
+    105742,
+    105756,
+    105756,
+    105756,
+    105761,
+    105761,
+    105761,
+    105760,
+    105760,
+    105757,
+    105757,
+    105739,
+    105739,
+    105739,
+    105759,
+    105721,
+    105721,
+    105721,
+    105716,
+    105716,
+    105716,
+    105716,
+    105716,
+    105749,
+    105749,
+    105749,
+    105755,
+    105755,
+    105752,
+    105752,
+    105752,
+    105747,
+    105747,
+    105743,
+    105745,
+    105745,
+    105746
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 87.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 74.9,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 76.9,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 69.2,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 69.5,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 53.9,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 72.7,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 110.2,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 146.9,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 209.4,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 212.7,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
    "id": "rogue-combat-pvp",
    "name": "Combat Swords (PvP)",
    "pair": "rogue-combat",
@@ -1273,6 +1509,242 @@
    "sensitivity": []
   },
   {
+   "id": "rogue-subtlety-pve",
+   "name": "Subtlety (PvE)",
+   "pair": "rogue-subtlety",
+   "variant": "PvE",
+   "origin": "community",
+   "summary": "51 points (Assassination 20 / Combat 0 / Subtlety 31). Malice is one of the spent talents. From the site's Subtlety Rogue \u00b7 Endgame \u00b7 PvE \u00b7 level 60 plan.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105722,
+    105722,
+    105722,
+    105722,
+    105722,
+    105761,
+    105761,
+    105761,
+    105760,
+    105760,
+    105751,
+    105720,
+    105720,
+    105753,
+    105753,
+    105739,
+    105739,
+    105739,
+    105759,
+    105721,
+    105721,
+    105721,
+    105716,
+    105716,
+    105716,
+    105716,
+    105716,
+    105749,
+    105749,
+    105749,
+    105755,
+    105755,
+    105755,
+    105717,
+    105754,
+    105752,
+    105752,
+    105752,
+    105747,
+    105747,
+    105748,
+    105743,
+    105745,
+    105745,
+    105746,
+    110867,
+    110867,
+    110867,
+    110867,
+    110867,
+    110866
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 85.0,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 74.0,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 72.7,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 67.6,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 67.3,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 51.6,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 71.0,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 100.9,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 139.2,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 199.9,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 202.6,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
+   "id": "rogue-subtlety-pvp",
+   "name": "Subtlety (PvP)",
+   "pair": "rogue-subtlety",
+   "variant": "PvP",
+   "origin": "community",
+   "summary": "51 points (Assassination 19 / Combat 0 / Subtlety 32). Malice is one of the spent talents. From the site's Subtlety Rogue \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105722,
+    105722,
+    105722,
+    105722,
+    105722,
+    105742,
+    105742,
+    105742,
+    105756,
+    105756,
+    105756,
+    105760,
+    105760,
+    105751,
+    105751,
+    105751,
+    105720,
+    105720,
+    105759,
+    105716,
+    105716,
+    105716,
+    105716,
+    105716,
+    105753,
+    105753,
+    105757,
+    105757,
+    105755,
+    105755,
+    105755,
+    105752,
+    105752,
+    105752,
+    105754,
+    105747,
+    105747,
+    105715,
+    105743,
+    105745,
+    105745,
+    105748,
+    105721,
+    105721,
+    105746,
+    110867,
+    110867,
+    110867,
+    110867,
+    110867,
+    110866
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 85.0,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 73.3,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 71.1,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 64.0,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 63.9,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 51.6,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 70.1,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 97.9,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 129.1,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 185.1,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 186.9,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
    "id": "rogue-subtlety",
    "name": "Subtlety Preparation (PvP)",
    "pair": "rogue-subtlety",
@@ -1395,12 +1867,84 @@
   {
    "archetype": "deep Assassination",
    "focus": "PvP",
-   "standard": null,
-   "standard_score": null,
-   "model_pick": null,
-   "model_pick_score": null,
-   "candidates": {},
-   "qualifying": []
+   "standard": "rogue-assassination-pvp",
+   "standard_score": 0.3923205965183052,
+   "model_pick": {
+    "Improved Eviscerate": 3,
+    "Mutilate": 1,
+    "Seal Fate": 5,
+    "Vile Poisons": 2,
+    "Cold Blood": 1,
+    "Lethality": 5,
+    "Puncturing Wounds": 3,
+    "Murder": 2,
+    "Ruthlessness": 3,
+    "Malice": 5,
+    "Riposte": 1,
+    "Endurance": 2,
+    "Precision": 3,
+    "Deflection": 3,
+    "Improved Slice and Dice": 3,
+    "Dual Wield Specialization": 3,
+    "Improved Gouge": 3,
+    "Relentless Strikes": 1,
+    "Lightning Reflexes": 2
+   },
+   "model_pick_score": 0.42854132132456085,
+   "candidates": {
+    "rogue-assassination-pvp": 0.3923205965183052
+   },
+   "qualifying": [
+    "rogue-assassination-pvp"
+   ],
+   "model_pick_changes": [
+    {
+     "talent": "Improved Kidney Shot",
+     "from": 2,
+     "to": 0
+    },
+    {
+     "talent": "Venom",
+     "from": 1,
+     "to": 0
+    },
+    {
+     "talent": "Vile Poisons",
+     "from": 5,
+     "to": 2
+    },
+    {
+     "talent": "Puncturing Wounds",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Improved Sprint",
+     "from": 2,
+     "to": 0
+    },
+    {
+     "talent": "Improved Kick",
+     "from": 2,
+     "to": 0
+    },
+    {
+     "talent": "Precision",
+     "from": 2,
+     "to": 3
+    },
+    {
+     "talent": "Improved Slice and Dice",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Dual Wield Specialization",
+     "from": 0,
+     "to": 3
+    }
+   ],
+   "model_pick_seed": "rogue-assassination-pvp"
   },
   {
    "archetype": "deep Assassination",
@@ -1447,22 +1991,89 @@
   {
    "archetype": "deep Subtlety",
    "focus": "PvP",
-   "standard": null,
-   "standard_score": null,
-   "model_pick": null,
-   "model_pick_score": null,
-   "candidates": {},
-   "qualifying": []
+   "standard": "rogue-subtlety-pvp",
+   "standard_score": 0.3739515005565488,
+   "model_pick": {
+    "Improved Eviscerate": 3,
+    "Lethality": 5,
+    "Ruthlessness": 3,
+    "Malice": 5,
+    "Improved Slice and Dice": 3,
+    "Dirty Deeds": 2,
+    "Preparation": 1,
+    "Heightened Senses": 2,
+    "Hemorrhage": 1,
+    "Setup": 3,
+    "Serrated Blades": 3,
+    "Elusiveness": 2,
+    "Ghostly Strike": 1,
+    "Initiative": 3,
+    "Camouflage": 3,
+    "Dirty Tricks": 2,
+    "Relentless Strikes": 1,
+    "Opportunity": 2,
+    "Thousand Cuts": 1,
+    "Quietus": 5
+   },
+   "model_pick_score": 0.39510488126620613,
+   "candidates": {
+    "rogue-subtlety-pvp": 0.3739515005565488
+   },
+   "qualifying": [
+    "rogue-subtlety-pvp"
+   ],
+   "model_pick_changes": [
+    {
+     "talent": "Improved Eviscerate",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Cold Blood",
+     "from": 1,
+     "to": 0
+    },
+    {
+     "talent": "Murder",
+     "from": 2,
+     "to": 0
+    },
+    {
+     "talent": "Ruthlessness",
+     "from": 2,
+     "to": 3
+    },
+    {
+     "talent": "Improved Slice and Dice",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Improved Gouge",
+     "from": 3,
+     "to": 0
+    },
+    {
+     "talent": "Premeditation",
+     "from": 1,
+     "to": 0
+    }
+   ],
+   "model_pick_seed": "rogue-subtlety-pvp"
   },
   {
    "archetype": "deep Subtlety",
    "focus": "PvE",
-   "standard": null,
-   "standard_score": null,
+   "standard": "rogue-subtlety-pve",
+   "standard_score": 1.1187089253974298,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
-   "qualifying": []
+   "candidates": {
+    "rogue-subtlety-pve": 1.1187089253974298
+   },
+   "qualifying": [
+    "rogue-subtlety-pve"
+   ]
   },
   {
    "archetype": "Assassination/Subtlety",
@@ -1555,136 +2166,16 @@
   {
    "archetype": "Assassination/Subtlety",
    "focus": "PvE",
-   "standard": null,
-   "standard_score": null,
-   "model_pick": {
-    "Improved Eviscerate": 3,
-    "Lethality": 5,
-    "Ruthlessness": 3,
-    "Malice": 5,
-    "Precision": 3,
-    "Improved Slice and Dice": 3,
-    "Improved Sinister Strike": 2,
-    "Improved Gouge": 2,
-    "Premeditation": 1,
-    "Dirty Deeds": 2,
-    "Preparation": 1,
-    "Heightened Senses": 2,
-    "Improved Ambush": 3,
-    "Serrated Blades": 3,
-    "Initiative": 2,
-    "Camouflage": 3,
-    "Dirty Tricks": 2,
-    "Relentless Strikes": 1,
-    "Opportunity": 2,
-    "Master of Deception": 3
+   "standard": "rogue-assassination-subtlety-pve",
+   "standard_score": 1.1694558392190677,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {
+    "rogue-assassination-subtlety-pve": 1.1694558392190677
    },
-   "model_pick_score": 1.1694558392190677,
-   "candidates": {},
-   "qualifying": [],
-   "model_pick_changes": [
-    {
-     "talent": "Improved Eviscerate",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Lethality",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Ruthlessness",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Malice",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Precision",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Improved Slice and Dice",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Improved Sinister Strike",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Improved Gouge",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Premeditation",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Dirty Deeds",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Preparation",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Heightened Senses",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Improved Ambush",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Serrated Blades",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Initiative",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Camouflage",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Dirty Tricks",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Relentless Strikes",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Opportunity",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Master of Deception",
-     "from": 0,
-     "to": 3
-    }
-   ],
-   "model_pick_seed": null
+   "qualifying": [
+    "rogue-assassination-subtlety-pve"
+   ]
   }
  ],
  "spell_milestones": [
