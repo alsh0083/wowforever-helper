@@ -54,7 +54,9 @@ def main(argv: list[str] | None = None) -> int:
         paths = args.report or ["data/report.json", *(found[c] for c in CLASSES if c in found)]
         reports = [json.loads(Path(path).read_text(encoding="utf-8")) for path in paths]
         icons = fetch_icons(
-            [talent["icon"] for report in reports for talent in report["talents"].values()],
+            [talent["icon"] for report in reports for talent in report["talents"].values()]
+            # each class's official icon for the page crest
+            + [f"class_{report.get('class', 'mage')}" for report in reports],
             http_get_bytes=http_get_bytes,
             cache_dir=Path("data/cache/icons"),
         )
