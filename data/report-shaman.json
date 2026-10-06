@@ -1,7 +1,7 @@
 {
  "class": "shaman",
- "engine": false,
- "scoring_note": "Elemental and Enhancement scores come with the caster spell engine (#163, #167); Restoration stays unscored.",
+ "engine": true,
+ "scoring_note": "",
  "dataset": {
   "version": "1.60.1.70205",
   "game_build": "1.60.1.70205",
@@ -907,56 +907,107 @@
     104773,
     104773,
     104773,
-    104772,
-    104772,
-    104772,
-    104772,
-    104772,
-    104767,
-    104767,
-    104767,
-    104767,
-    104767,
     104770,
     104770,
     104770,
-    104768,
+    104772,
+    104772,
     104765,
     104765,
     104765,
-    104763,
-    104763,
-    104763,
+    104772,
+    104772,
     104762,
-    104761,
-    104761,
+    104772,
+    104753,
+    104753,
+    104753,
+    104753,
+    104753,
+    104756,
+    104756,
+    104756,
+    104756,
+    104756,
+    104767,
+    104767,
+    104767,
     104759,
     104759,
     104759,
-    104760,
+    104767,
+    104767,
     104766,
     104766,
     104766,
     104766,
     104766,
     104758,
-    104753,
-    104753,
-    104753,
-    104753,
-    104753,
-    104756,
-    104756,
-    104756,
-    104756,
-    104756,
     104752,
     104752,
-    104749
+    104768,
+    104749,
+    104763,
+    104763,
+    104763,
+    104761,
+    104761,
+    104760
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 57.8,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 61.1,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 71.7,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 76.9,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 83.4,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 46.4,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 80.3,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 144.2,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 187.5,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 292.0,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 113.9,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -969,18 +1020,36 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    104772,
+    104772,
+    104772,
+    104772,
+    104772,
     104753,
     104753,
     104753,
     104753,
     104753,
+    104729,
+    104729,
+    104729,
+    104729,
+    104729,
+    104735,
+    104735,
+    104735,
     104756,
     104756,
     104755,
     104755,
     104755,
+    104735,
+    104735,
     104752,
     104752,
+    104769,
+    104769,
+    104769,
     104750,
     104750,
     104750,
@@ -1001,27 +1070,9 @@
     104741,
     104741,
     104741,
-    104740,
-    104729,
-    104729,
-    104729,
-    104729,
-    104729,
-    104735,
-    104735,
-    104735,
-    104735,
-    104735,
-    104772,
-    104772,
-    104772,
-    104772,
-    104772,
-    104769,
-    104769,
-    104769
+    104740
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
    "sensitivity": []
@@ -1036,6 +1087,14 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    104772,
+    104772,
+    104772,
+    104772,
+    104772,
+    104770,
+    104770,
+    104770,
     104753,
     104753,
     104753,
@@ -1046,12 +1105,22 @@
     104755,
     104755,
     104755,
+    104767,
+    104767,
+    104767,
+    104767,
+    104767,
     104752,
     104752,
+    104769,
+    104769,
+    104769,
     104750,
     104750,
     104750,
     104749,
+    104764,
+    104764,
     104747,
     104747,
     104747,
@@ -1068,27 +1137,9 @@
     104741,
     104741,
     104741,
-    104740,
-    104772,
-    104772,
-    104772,
-    104772,
-    104772,
-    104767,
-    104767,
-    104767,
-    104767,
-    104767,
-    104770,
-    104770,
-    104770,
-    104769,
-    104769,
-    104769,
-    104764,
-    104764
+    104740
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
    "sensitivity": []
@@ -1103,6 +1154,11 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    104753,
+    104753,
+    104753,
+    104753,
+    104753,
     104739,
     104739,
     104739,
@@ -1114,6 +1170,11 @@
     104735,
     104735,
     104735,
+    104756,
+    104756,
+    104756,
+    104756,
+    104756,
     104735,
     104735,
     104731,
@@ -1143,19 +1204,9 @@
     104725,
     104725,
     104725,
-    104724,
-    104753,
-    104753,
-    104753,
-    104753,
-    104753,
-    104756,
-    104756,
-    104756,
-    104756,
-    104756
+    104724
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
    "sensitivity": []
@@ -1166,10 +1217,12 @@
    "archetype": "deep Elemental",
    "focus": "PvP",
    "standard": "shaman-elemental",
-   "standard_score": null,
+   "standard_score": 0.46042642761075275,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
+   "candidates": {
+    "shaman-elemental": 0.46042642761075275
+   },
    "qualifying": [
     "shaman-elemental"
    ]
@@ -1436,6 +1489,6 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Routes only: this class's builds are community standards in a legal point order (top rows first). Scores, model picks and optimized orders wait on the melee and ranged damage engine (#111)."
+  "Caster model (#163, #167): Flame Shock kept up (shocks share a cooldown, so no Earth Shock), Lava Burst and Chain Lightning on cooldown, Lightning Bolt in between. Elemental Focus and totems aren't modeled. Enhancement is unscored until the melee hybrids (#175). Base stats are estimates."
  ]
 }

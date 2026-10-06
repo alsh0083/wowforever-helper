@@ -1,7 +1,7 @@
 # Warlock Affliction (Siphon Life): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
 # Spec chosen from wowforevertalent.com Forever popularity data plus PvP judgment.
 # source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
-# can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
+# can't see yet; estimate = judgment. Health and DPS: level-60 values vs cloth from the damage engine (#147, #163).
 
 id = "warlock-affliction"
 class = "Warlock"
@@ -14,8 +14,8 @@ confidence = "low"
 sources = ["wft_popular"]
 
 [at_60]
-health = 3600
-dps = 200  # sustained vs cloth when in range
+health = 2680  # damage engine (#147, #163), build warlock-affliction
+dps = 326  # damage engine (#147, #163), build warlock-affliction
 opener_damage = 0
 opener_stun = 0.0
 opener_source = "none"

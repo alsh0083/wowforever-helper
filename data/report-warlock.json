@@ -1,7 +1,7 @@
 {
  "class": "warlock",
- "engine": false,
- "scoring_note": "Scores come with the caster spell engine (#163, #165).",
+ "engine": true,
+ "scoring_note": "",
  "dataset": {
   "version": "1.60.1.70205",
   "game_build": "1.60.1.70205",
@@ -927,61 +927,112 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    105924,
     105925,
     105925,
     105925,
     105925,
-    105925,
-    105924,
-    105924,
-    105924,
-    105924,
+    105923,
+    105923,
     105924,
     105923,
     105923,
-    105923,
-    105923,
-    105923,
-    105920,
-    105920,
-    105920,
     105919,
     105919,
+    105923,
+    105924,
+    105924,
+    105924,
+    110876,
+    110876,
+    110876,
+    110876,
+    110876,
+    105925,
+    105907,
+    105907,
+    105907,
+    105907,
+    105907,
+    105902,
+    105902,
+    105903,
+    105903,
+    105903,
+    105900,
+    105920,
+    105920,
+    105920,
+    105910,
+    105910,
+    105910,
+    105910,
+    105910,
     105917,
     105917,
     105917,
-    110876,
-    110876,
-    110876,
-    110876,
-    110876,
     105914,
     105914,
     105912,
     105911,
     105911,
     105911,
-    105910,
-    105910,
-    105910,
-    105910,
-    105910,
-    105909,
-    105907,
-    105907,
-    105907,
-    105907,
-    105907,
-    105902,
-    105902,
-    105903,
-    105903,
-    105903,
-    105900
+    105909
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 62.9,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 64.8,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 78.3,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 89.5,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 96.2,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 45.8,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 84.8,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 125.7,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 193.6,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 326.2,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 184.5,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -994,22 +1045,40 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    105924,
+    105888,
+    105881,
+    105881,
     105907,
     105907,
     105907,
     105907,
     105907,
     105902,
+    105924,
+    105924,
+    105924,
+    105924,
     105902,
     105904,
+    105888,
     105904,
     105904,
-    105903,
-    105903,
-    105903,
-    105899,
-    105899,
     105900,
+    105903,
+    105903,
+    105903,
+    105899,
+    105899,
+    105888,
+    105885,
+    105888,
+    105888,
+    105885,
+    105885,
+    105885,
+    105885,
+    105884,
     105898,
     105898,
     105897,
@@ -1026,29 +1095,62 @@
     105891,
     105891,
     105891,
-    105890,
-    105881,
-    105881,
-    105888,
-    105888,
-    105888,
-    105888,
-    105888,
-    105885,
-    105885,
-    105885,
-    105885,
-    105885,
-    105884,
-    105924,
-    105924,
-    105924,
-    105924,
-    105924
+    105890
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 59.6,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 65.8,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 80.5,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 85.4,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 93.6,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 43.7,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 90.3,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 142.7,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 191.5,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 332.0,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 155.0,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -1061,19 +1163,26 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    105888,
+    105888,
+    105925,
+    105925,
+    105925,
     105881,
     105881,
-    105888,
-    105888,
-    105888,
-    105888,
+    105925,
     105888,
     105887,
     105887,
     105887,
-    105886,
-    105886,
-    105886,
+    105925,
+    105907,
+    105907,
+    105907,
+    105907,
+    105907,
+    105902,
+    105902,
     105886,
     105886,
     105883,
@@ -1081,41 +1190,85 @@
     105883,
     105883,
     105883,
-    105884,
-    105879,
-    105879,
-    105879,
     105880,
-    105876,
+    105879,
+    105879,
+    105879,
+    105888,
     105877,
     105877,
     105877,
+    105888,
+    105886,
     105875,
     105875,
     105875,
     105875,
     105875,
-    105874,
-    105907,
-    105907,
-    105907,
-    105907,
-    105907,
-    105902,
-    105902,
+    105886,
+    105886,
     105903,
     105903,
     105903,
     105900,
-    105925,
-    105925,
-    105925,
-    105925,
-    105925
+    105884,
+    105876,
+    105874
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 60.7,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 61.8,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 79.6,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 89.1,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 101.4,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 46.3,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 83.8,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 136.2,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 206.3,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 378.8,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 190.9,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   }
  ],
@@ -1125,19 +1278,121 @@
    "focus": "PvP",
    "standard": null,
    "standard_score": null,
-   "model_pick": null,
-   "model_pick_score": null,
+   "model_pick": {
+    "Bane": 5,
+    "Demonic Sacrifice": 1,
+    "Demonic Aegis": 2,
+    "Fel Vitality": 3,
+    "Demonic Embrace": 5,
+    "Shadow Mastery": 3,
+    "Soul Siphon": 1,
+    "Siphon Life": 1,
+    "Nightfall": 2,
+    "Pandemic": 3,
+    "Improved Bane of Agony": 2,
+    "Improved Drains": 3,
+    "Malediction": 5,
+    "Improved Corruption": 5,
+    "Suppression": 5,
+    "Malevolence": 5
+   },
+   "model_pick_score": 0.4293876918270649,
    "candidates": {},
-   "qualifying": []
+   "qualifying": [],
+   "model_pick_changes": [
+    {
+     "talent": "Bane",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Demonic Sacrifice",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Demonic Aegis",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Fel Vitality",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Demonic Embrace",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Shadow Mastery",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Soul Siphon",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Siphon Life",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Nightfall",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Pandemic",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Improved Bane of Agony",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Improved Drains",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Malediction",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Improved Corruption",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Suppression",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Malevolence",
+     "from": 0,
+     "to": 5
+    }
+   ],
+   "model_pick_seed": null
   },
   {
    "archetype": "deep Affliction",
    "focus": "PvE",
    "standard": "warlock-affliction",
-   "standard_score": null,
+   "standard_score": 1.455580914533434,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
+   "candidates": {
+    "warlock-affliction": 1.455580914533434
+   },
    "qualifying": [
     "warlock-affliction"
    ]
@@ -1146,10 +1401,12 @@
    "archetype": "deep Demonology",
    "focus": "PvP",
    "standard": "warlock-demonology",
-   "standard_score": null,
+   "standard_score": 0.4139228401921498,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
+   "candidates": {
+    "warlock-demonology": 0.4139228401921498
+   },
    "qualifying": [
     "warlock-demonology"
    ]
@@ -1159,19 +1416,133 @@
    "focus": "PvE",
    "standard": null,
    "standard_score": null,
-   "model_pick": null,
-   "model_pick_score": null,
+   "model_pick": {
+    "Bane": 5,
+    "Master Demonologist": 4,
+    "Soul Link": 1,
+    "Demonic Knowledge": 3,
+    "Improved Felhunter": 3,
+    "Fel Domination": 1,
+    "Decimation": 1,
+    "Master Summoner": 2,
+    "Demonic Energies": 2,
+    "Demonic Sacrifice": 1,
+    "Demonic Aegis": 2,
+    "Fel Vitality": 3,
+    "Improved Voidwalker": 3,
+    "Demonic Embrace": 5,
+    "Improved Bane of Agony": 2,
+    "Malediction": 5,
+    "Improved Corruption": 4,
+    "Suppression": 4
+   },
+   "model_pick_score": 1.465811120475939,
    "candidates": {},
-   "qualifying": []
+   "qualifying": [],
+   "model_pick_changes": [
+    {
+     "talent": "Bane",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Master Demonologist",
+     "from": 0,
+     "to": 4
+    },
+    {
+     "talent": "Soul Link",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Demonic Knowledge",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Improved Felhunter",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Fel Domination",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Decimation",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Master Summoner",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Demonic Energies",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Demonic Sacrifice",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Demonic Aegis",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Fel Vitality",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Improved Voidwalker",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Demonic Embrace",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Improved Bane of Agony",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Malediction",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Improved Corruption",
+     "from": 0,
+     "to": 4
+    },
+    {
+     "talent": "Suppression",
+     "from": 0,
+     "to": 4
+    }
+   ],
+   "model_pick_seed": null
   },
   {
    "archetype": "deep Destruction",
    "focus": "PvP",
    "standard": "warlock-destruction",
-   "standard_score": null,
+   "standard_score": 0.43953409213358463,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
+   "candidates": {
+    "warlock-destruction": 0.43953409213358463
+   },
    "qualifying": [
     "warlock-destruction"
    ]
@@ -1181,10 +1552,110 @@
    "focus": "PvE",
    "standard": null,
    "standard_score": null,
-   "model_pick": null,
-   "model_pick_score": null,
+   "model_pick": {
+    "Shadow and Flame": 5,
+    "Fire and Brimstone": 3,
+    "Agonizing Flames": 3,
+    "Conflagrate": 1,
+    "Ruin": 5,
+    "Shadowburn": 1,
+    "Aftermath": 5,
+    "Cataclysm": 3,
+    "Bane": 5,
+    "Demonic Sacrifice": 1,
+    "Demonic Aegis": 2,
+    "Fel Vitality": 3,
+    "Demonic Embrace": 5,
+    "Malediction": 2,
+    "Improved Corruption": 2,
+    "Suppression": 5
+   },
+   "model_pick_score": 1.6357062260397497,
    "candidates": {},
-   "qualifying": []
+   "qualifying": [],
+   "model_pick_changes": [
+    {
+     "talent": "Shadow and Flame",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Fire and Brimstone",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Agonizing Flames",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Conflagrate",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Ruin",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Shadowburn",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Aftermath",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Cataclysm",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Bane",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Demonic Sacrifice",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Demonic Aegis",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Fel Vitality",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Demonic Embrace",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Malediction",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Improved Corruption",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Suppression",
+     "from": 0,
+     "to": 5
+    }
+   ],
+   "model_pick_seed": null
   }
  ],
  "spell_milestones": [
@@ -1542,6 +2013,6 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Routes only: this class's builds are community standards in a legal point order (top rows first). Scores, model picks and optimized orders wait on the melee and ranged damage engine (#111)."
+  "Caster model (#163, #165): Corruption, Bane of Agony and Immolate kept up, Conflagrate on cooldown, then the best of Shadow Bolt, Incinerate, Searing Pain or Wrack, with Life Tap as steady mana. Pets, Siphon Life and Drain Life (health drains), Shadowburn, Nightfall and Improved Shadow Bolt procs aren't modeled; Demonic Sacrifice counts the Imp (+Shadow). Base stats are estimates."
  ]
 }
