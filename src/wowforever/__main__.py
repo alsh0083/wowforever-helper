@@ -21,6 +21,9 @@ def main(argv: list[str] | None = None) -> int:
     il = sub.add_parser("import-logs", help="summarize foreverlogs.gg API responses from browser HAR exports (#69)")
     il.add_argument("har", nargs="+", help="HAR files saved from the browser (keep them in data/cache/logs/)")
     il.add_argument("--out", default="data/logs/foreverlogs.json")
+    gsrc = sub.add_parser("gear-sources", help="build data/items/gear.json: where gear drops, quest rewards and crafted items come from (#188)")
+    gsrc.add_argument("--refresh", action="store_true", help="fetch wowforevertalent.com's items, dungeons and quests pages first")
+    gsrc.add_argument("--tables", default="data/cache/wago/1.60.1.70205", help="folder with the cached client tables")
     sub.add_parser("validate-logs", help="compare the model's dungeon scores with cached Forever Logs statistics (#172)")
     gs = sub.add_parser("gear-stats", help="rebuild config/stats/<class>.csv from real Forever gear")
     gs.add_argument("--tables", required=True, help="folder with ItemSparse/Item/RandPropPoints CSVs")
@@ -64,6 +67,20 @@ def main(argv: list[str] | None = None) -> int:
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(render(reports, icons), encoding="utf-8", newline="\n")
         print(f"wrote {out}")
+        return 0
+    if args.command == "gear-sources":
+        from pathlib import Path
+
+        from wowforever import gear_sources as gs
+        from wowforever.normalize import read_tables
+        from wowforever.sources.http import http_get
+
+        cache = Path("data/cache/wft-gear")
+        if args.refresh:
+            gs.fetch_pages(cache, http_get)
+        dataset = gs.build(gs.load_pages(cache), read_tables(Path(args.tables)), checked_at=gs.now())
+        gs.write(dataset, Path("data/items/gear.json"))
+        print("wrote data/items/gear.json:", gs.summary(dataset))
         return 0
     if args.command == "validate-logs":
         import json
