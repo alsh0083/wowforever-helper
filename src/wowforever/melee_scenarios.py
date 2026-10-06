@@ -113,8 +113,9 @@ def questing(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
 def dungeon(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
     """DPS on a level+2 dungeon pull with tank debuffs (one minute; mana isn't limiting)."""
     d = _config()["dungeon"]
+    armor = _anchor_at(_config()["questing"]["anchors"], stats.level)[0] * d["armor_share_of_questing"]
     return rotation_output(class_name, stats, spells, cls, ranks,
-                           Target(d["target_level_offset"], d["armor"])).dps
+                           Target(d["target_level_offset"], armor)).dps
 
 
 def raid(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
