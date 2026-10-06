@@ -1035,7 +1035,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0365,
+     "strength": 7.8e-05,
+     "agility": 0.000116,
+     "stamina": 0.000325,
+     "intellect": 0.0,
+     "attack_power": 7.8e-05,
+     "crit_rating": 0.000111,
+     "hit_rating": 0.000116,
+     "crit_pct": 0.00036,
+     "hit_pct": 0.000374,
+     "weapon_dps": 0.000828
+    },
+    "30": {
+     "score": 0.0835,
+     "strength": 0.00012,
+     "agility": 0.000176,
+     "stamina": 0.000602,
+     "intellect": 0.0,
+     "attack_power": 0.00012,
+     "crit_rating": 0.000134,
+     "hit_rating": 0.000138,
+     "crit_pct": 0.000792,
+     "hit_pct": 0.000817,
+     "weapon_dps": 0.001139
+    },
+    "40": {
+     "score": 0.1427,
+     "strength": 0.000129,
+     "agility": 0.000198,
+     "stamina": 0.000801,
+     "intellect": 0.0,
+     "attack_power": 0.000129,
+     "crit_rating": 0.000152,
+     "hit_rating": 0.000154,
+     "crit_pct": 0.001314,
+     "hit_pct": 0.001327,
+     "weapon_dps": 0.001264
+    },
+    "50": {
+     "score": 0.2645,
+     "strength": 0.000155,
+     "agility": 0.00024,
+     "stamina": 0.00085,
+     "intellect": 0.0,
+     "attack_power": 0.000155,
+     "crit_rating": 0.000182,
+     "hit_rating": 0.000228,
+     "crit_pct": 0.002053,
+     "hit_pct": 0.002582,
+     "weapon_dps": 0.001459
+    },
+    "60": {
+     "score": 0.3923,
+     "strength": 0.000143,
+     "agility": 0.000235,
+     "stamina": 0.000883,
+     "intellect": 0.0,
+     "attack_power": 0.000143,
+     "crit_rating": 0.000191,
+     "hit_rating": 9.9e-05,
+     "crit_pct": 0.002664,
+     "hit_pct": 0.001379,
+     "weapon_dps": 0.001387
+    }
+   }
   },
   {
    "id": "rogue-assassination-subtlety-pve",
@@ -1153,7 +1220,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.4989,
+     "strength": 0.000882,
+     "agility": 0.001334,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000882,
+     "crit_rating": 0.001328,
+     "hit_rating": 0.001379,
+     "crit_pct": 0.004306,
+     "hit_pct": 0.004476,
+     "weapon_dps": 0.009458
+    },
+    "30": {
+     "score": 0.5456,
+     "strength": 0.000759,
+     "agility": 0.001127,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000759,
+     "crit_rating": 0.000888,
+     "hit_rating": 0.000912,
+     "crit_pct": 0.005264,
+     "hit_pct": 0.005407,
+     "weapon_dps": 0.007193
+    },
+    "40": {
+     "score": 0.72,
+     "strength": 0.000665,
+     "agility": 0.001049,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000665,
+     "crit_rating": 0.000854,
+     "hit_rating": 0.001042,
+     "crit_pct": 0.007361,
+     "hit_pct": 0.008979,
+     "weapon_dps": 0.006548
+    },
+    "50": {
+     "score": 0.8679,
+     "strength": 0.000683,
+     "agility": 0.001067,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000683,
+     "crit_rating": 0.000814,
+     "hit_rating": 0.001,
+     "crit_pct": 0.009204,
+     "hit_pct": 0.011313,
+     "weapon_dps": 0.007297
+    },
+    "60": {
+     "score": 1.1695,
+     "strength": 0.00074,
+     "agility": 0.001137,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.00074,
+     "crit_rating": 0.000817,
+     "hit_rating": 0.000516,
+     "crit_pct": 0.011442,
+     "hit_pct": 0.007219,
+     "weapon_dps": 0.008327
+    }
+   }
   },
   {
    "id": "rogue-combat-pvp",
@@ -1271,7 +1405,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0379,
+     "strength": 8.1e-05,
+     "agility": 0.00012,
+     "stamina": 0.000337,
+     "intellect": 0.0,
+     "attack_power": 8.1e-05,
+     "crit_rating": 0.000114,
+     "hit_rating": 0.000118,
+     "crit_pct": 0.000368,
+     "hit_pct": 0.000381,
+     "weapon_dps": 0.000863
+    },
+    "30": {
+     "score": 0.0856,
+     "strength": 0.00012,
+     "agility": 0.000175,
+     "stamina": 0.000616,
+     "intellect": 0.0,
+     "attack_power": 0.00012,
+     "crit_rating": 0.000132,
+     "hit_rating": 0.000147,
+     "crit_pct": 0.000783,
+     "hit_pct": 0.000873,
+     "weapon_dps": 0.001137
+    },
+    "40": {
+     "score": 0.1553,
+     "strength": 0.00013,
+     "agility": 0.000201,
+     "stamina": 0.000862,
+     "intellect": 0.0,
+     "attack_power": 0.00013,
+     "crit_rating": 0.000159,
+     "hit_rating": 0.000187,
+     "crit_pct": 0.00137,
+     "hit_pct": 0.001612,
+     "weapon_dps": 0.001273
+    },
+    "50": {
+     "score": 0.2897,
+     "strength": 0.00017,
+     "agility": 0.000257,
+     "stamina": 0.000903,
+     "intellect": 0.0,
+     "attack_power": 0.00017,
+     "crit_rating": 0.000183,
+     "hit_rating": 0.000222,
+     "crit_pct": 0.002071,
+     "hit_pct": 0.00251,
+     "weapon_dps": 0.001694
+    },
+    "60": {
+     "score": 0.4252,
+     "strength": 0.000157,
+     "agility": 0.000233,
+     "stamina": 0.00091,
+     "intellect": 0.0,
+     "attack_power": 0.000157,
+     "crit_rating": 0.000157,
+     "hit_rating": 9.7e-05,
+     "crit_pct": 0.002201,
+     "hit_pct": 0.001356,
+     "weapon_dps": 0.001657
+    }
+   }
   },
   {
    "id": "rogue-combat",
@@ -1388,7 +1589,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.4989,
+     "strength": 0.000882,
+     "agility": 0.001334,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000882,
+     "crit_rating": 0.001328,
+     "hit_rating": 0.001379,
+     "crit_pct": 0.004306,
+     "hit_pct": 0.004476,
+     "weapon_dps": 0.009458
+    },
+    "30": {
+     "score": 0.5549,
+     "strength": 0.000753,
+     "agility": 0.001124,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000753,
+     "crit_rating": 0.000897,
+     "hit_rating": 0.001003,
+     "crit_pct": 0.00532,
+     "hit_pct": 0.005946,
+     "weapon_dps": 0.007134
+    },
+    "40": {
+     "score": 0.7295,
+     "strength": 0.000668,
+     "agility": 0.001071,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000668,
+     "crit_rating": 0.000896,
+     "hit_rating": 0.001057,
+     "crit_pct": 0.007723,
+     "hit_pct": 0.009104,
+     "weapon_dps": 0.006585
+    },
+    "50": {
+     "score": 0.9206,
+     "strength": 0.000731,
+     "agility": 0.00114,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000731,
+     "crit_rating": 0.000867,
+     "hit_rating": 0.001052,
+     "crit_pct": 0.009805,
+     "hit_pct": 0.011899,
+     "weapon_dps": 0.007352
+    },
+    "60": {
+     "score": 1.3074,
+     "strength": 0.000817,
+     "agility": 0.001253,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000817,
+     "crit_rating": 0.000898,
+     "hit_rating": 0.000556,
+     "crit_pct": 0.012576,
+     "hit_pct": 0.007785,
+     "weapon_dps": 0.00877
+    }
+   }
   },
   {
    "id": "rogue-mutilate",
@@ -1506,7 +1774,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.4837,
+     "strength": 0.000863,
+     "agility": 0.00131,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000863,
+     "crit_rating": 0.001313,
+     "hit_rating": 0.001258,
+     "crit_pct": 0.004256,
+     "hit_pct": 0.003341,
+     "weapon_dps": 0.009162
+    },
+    "30": {
+     "score": 0.5323,
+     "strength": 0.000743,
+     "agility": 0.001105,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000743,
+     "crit_rating": 0.000874,
+     "hit_rating": 0.000901,
+     "crit_pct": 0.005182,
+     "hit_pct": 0.00533,
+     "weapon_dps": 0.007034
+    },
+    "40": {
+     "score": 0.6957,
+     "strength": 0.000652,
+     "agility": 0.001041,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000652,
+     "crit_rating": 0.000866,
+     "hit_rating": 0.00101,
+     "crit_pct": 0.007459,
+     "hit_pct": 0.0087,
+     "weapon_dps": 0.006399
+    },
+    "50": {
+     "score": 0.9539,
+     "strength": 0.00065,
+     "agility": 0.001077,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.00065,
+     "crit_rating": 0.000907,
+     "hit_rating": 0.001141,
+     "crit_pct": 0.010259,
+     "hit_pct": 0.012907,
+     "weapon_dps": 0.006156
+    },
+    "60": {
+     "score": 1.3271,
+     "strength": 0.000691,
+     "agility": 0.00118,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000691,
+     "crit_rating": 0.001009,
+     "hit_rating": 0.000502,
+     "crit_pct": 0.014123,
+     "hit_pct": 0.007022,
+     "weapon_dps": 0.006822
+    }
+   }
   },
   {
    "id": "rogue-subtlety-pve",
@@ -1624,7 +1959,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.4837,
+     "strength": 0.000863,
+     "agility": 0.00131,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000863,
+     "crit_rating": 0.001313,
+     "hit_rating": 0.001258,
+     "crit_pct": 0.004256,
+     "hit_pct": 0.003341,
+     "weapon_dps": 0.009162
+    },
+    "30": {
+     "score": 0.5365,
+     "strength": 0.000735,
+     "agility": 0.001105,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000735,
+     "crit_rating": 0.000894,
+     "hit_rating": 0.000836,
+     "crit_pct": 0.005302,
+     "hit_pct": 0.004183,
+     "weapon_dps": 0.006966
+    },
+    "40": {
+     "score": 0.6691,
+     "strength": 0.000635,
+     "agility": 0.001022,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000635,
+     "crit_rating": 0.000859,
+     "hit_rating": 0.000675,
+     "crit_pct": 0.007398,
+     "hit_pct": 0.005383,
+     "weapon_dps": 0.006241
+    },
+    "50": {
+     "score": 0.828,
+     "strength": 0.000702,
+     "agility": 0.001079,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000702,
+     "crit_rating": 0.0008,
+     "hit_rating": 0.000892,
+     "crit_pct": 0.009044,
+     "hit_pct": 0.010204,
+     "weapon_dps": 0.00759
+    },
+    "60": {
+     "score": 1.1187,
+     "strength": 0.000752,
+     "agility": 0.001141,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000752,
+     "crit_rating": 0.000799,
+     "hit_rating": 0.000517,
+     "crit_pct": 0.011181,
+     "hit_pct": 0.007244,
+     "weapon_dps": 0.00864
+    }
+   }
   },
   {
    "id": "rogue-subtlety-pvp",
@@ -1742,7 +2144,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0365,
+     "strength": 7.8e-05,
+     "agility": 0.000116,
+     "stamina": 0.000325,
+     "intellect": 0.0,
+     "attack_power": 7.8e-05,
+     "crit_rating": 0.000111,
+     "hit_rating": 0.000116,
+     "crit_pct": 0.00036,
+     "hit_pct": 0.000374,
+     "weapon_dps": 0.000828
+    },
+    "30": {
+     "score": 0.0817,
+     "strength": 0.000118,
+     "agility": 0.000173,
+     "stamina": 0.00059,
+     "intellect": 0.0,
+     "attack_power": 0.000118,
+     "crit_rating": 0.000133,
+     "hit_rating": 0.000138,
+     "crit_pct": 0.000786,
+     "hit_pct": 0.00082,
+     "weapon_dps": 0.001118
+    },
+    "40": {
+     "score": 0.14,
+     "strength": 0.000127,
+     "agility": 0.000196,
+     "stamina": 0.000788,
+     "intellect": 0.0,
+     "attack_power": 0.000127,
+     "crit_rating": 0.000153,
+     "hit_rating": 0.000155,
+     "crit_pct": 0.001317,
+     "hit_pct": 0.001338,
+     "weapon_dps": 0.001246
+    },
+    "50": {
+     "score": 0.2561,
+     "strength": 0.00017,
+     "agility": 0.000253,
+     "stamina": 0.000832,
+     "intellect": 0.0,
+     "attack_power": 0.00017,
+     "crit_rating": 0.000177,
+     "hit_rating": 0.000181,
+     "crit_pct": 0.002003,
+     "hit_pct": 0.002048,
+     "weapon_dps": 0.00178
+    },
+    "60": {
+     "score": 0.374,
+     "strength": 0.000173,
+     "agility": 0.00025,
+     "stamina": 0.000865,
+     "intellect": 0.0,
+     "attack_power": 0.000173,
+     "crit_rating": 0.000158,
+     "hit_rating": 0.000108,
+     "crit_pct": 0.002207,
+     "hit_pct": 0.001512,
+     "weapon_dps": 0.001958
+    }
+   }
   },
   {
    "id": "rogue-subtlety",
@@ -1860,7 +2329,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0379,
+     "strength": 8.1e-05,
+     "agility": 0.00012,
+     "stamina": 0.000337,
+     "intellect": 0.0,
+     "attack_power": 8.1e-05,
+     "crit_rating": 0.000114,
+     "hit_rating": 0.000118,
+     "crit_pct": 0.000368,
+     "hit_pct": 0.000381,
+     "weapon_dps": 0.000863
+    },
+    "30": {
+     "score": 0.0833,
+     "strength": 0.00012,
+     "agility": 0.000174,
+     "stamina": 0.0006,
+     "intellect": 0.0,
+     "attack_power": 0.00012,
+     "crit_rating": 0.000131,
+     "hit_rating": 0.000134,
+     "crit_pct": 0.000774,
+     "hit_pct": 0.000793,
+     "weapon_dps": 0.001137
+    },
+    "40": {
+     "score": 0.1461,
+     "strength": 0.000131,
+     "agility": 0.000199,
+     "stamina": 0.000817,
+     "intellect": 0.0,
+     "attack_power": 0.000131,
+     "crit_rating": 0.000151,
+     "hit_rating": 0.000156,
+     "crit_pct": 0.001303,
+     "hit_pct": 0.001347,
+     "weapon_dps": 0.00129
+    },
+    "50": {
+     "score": 0.2625,
+     "strength": 0.000171,
+     "agility": 0.000254,
+     "stamina": 0.000846,
+     "intellect": 0.0,
+     "attack_power": 0.000171,
+     "crit_rating": 0.000175,
+     "hit_rating": 0.000179,
+     "crit_pct": 0.001978,
+     "hit_pct": 0.002026,
+     "weapon_dps": 0.001813
+    },
+    "60": {
+     "score": 0.376,
+     "strength": 0.000167,
+     "agility": 0.000242,
+     "stamina": 0.000867,
+     "intellect": 0.0,
+     "attack_power": 0.000167,
+     "crit_rating": 0.000155,
+     "hit_rating": 0.000106,
+     "crit_pct": 0.002174,
+     "hit_pct": 0.001487,
+     "weapon_dps": 0.001853
+    }
+   }
   }
  ],
  "shortlist": [

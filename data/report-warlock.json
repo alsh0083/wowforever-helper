@@ -1033,7 +1033,64 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0363,
+     "stamina": 0.00034,
+     "intellect": 5e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000284,
+     "crit_rating": 2.8e-05,
+     "hit_rating": 3.5e-05,
+     "crit_pct": 9.1e-05,
+     "hit_pct": 0.00035
+    },
+    "30": {
+     "score": 0.0847,
+     "stamina": 0.000537,
+     "intellect": 6e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000368,
+     "crit_rating": 3.2e-05,
+     "hit_rating": 7.6e-05,
+     "crit_pct": 0.000192,
+     "hit_pct": 0.000761
+    },
+    "40": {
+     "score": 0.1383,
+     "stamina": 0.000883,
+     "intellect": 7e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000378,
+     "crit_rating": 3.4e-05,
+     "hit_rating": 0.000114,
+     "crit_pct": 0.000289,
+     "hit_pct": 0.00114
+    },
+    "50": {
+     "score": 0.2074,
+     "stamina": 0.001176,
+     "intellect": 8e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000392,
+     "crit_rating": 3.4e-05,
+     "hit_rating": 3.1e-05,
+     "crit_pct": 0.000382,
+     "hit_pct": 0.00031
+    },
+    "60": {
+     "score": 0.3991,
+     "stamina": 0.001177,
+     "intellect": 9e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000348,
+     "crit_rating": 4.1e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000575,
+     "hit_pct": 0.0
+    }
+   }
   },
   {
    "id": "warlock-affliction-pvp",
@@ -1151,7 +1208,64 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0375,
+     "stamina": 0.000351,
+     "intellect": 5e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000293,
+     "crit_rating": 2.9e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 9.5e-05,
+     "hit_pct": 0.0
+    },
+    "30": {
+     "score": 0.0905,
+     "stamina": 0.000569,
+     "intellect": 7e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000391,
+     "crit_rating": 3.5e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000206,
+     "hit_pct": 0.0
+    },
+    "40": {
+     "score": 0.1373,
+     "stamina": 0.000877,
+     "intellect": 7e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000376,
+     "crit_rating": 3.4e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000292,
+     "hit_pct": 0.0
+    },
+    "50": {
+     "score": 0.2285,
+     "stamina": 0.001272,
+     "intellect": 9e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000421,
+     "crit_rating": 3.9e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000439,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 0.4271,
+     "stamina": 0.001211,
+     "intellect": 1e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000356,
+     "crit_rating": 4.5e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000629,
+     "hit_pct": 0.0
+    }
+   }
   },
   {
    "id": "warlock-affliction",
@@ -1269,7 +1383,64 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.4019,
+     "stamina": 0.0,
+     "intellect": 4.5e-05,
+     "spirit": 0.0,
+     "spell_power": 0.002855,
+     "crit_rating": 0.000282,
+     "hit_rating": 0.000425,
+     "crit_pct": 0.000913,
+     "hit_pct": 0.002078
+    },
+    "30": {
+     "score": 0.5717,
+     "stamina": 0.0,
+     "intellect": 4.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.002537,
+     "crit_rating": 0.000217,
+     "hit_rating": 0.000517,
+     "crit_pct": 0.001283,
+     "hit_pct": 0.003844
+    },
+    "40": {
+     "score": 0.7754,
+     "stamina": 0.0,
+     "intellect": 0.000236,
+     "spirit": 0.0,
+     "spell_power": 0.002327,
+     "crit_rating": 0.000199,
+     "hit_rating": 0.00031,
+     "crit_pct": 0.001712,
+     "hit_pct": 0.00267
+    },
+    "50": {
+     "score": 1.0368,
+     "stamina": 0.0,
+     "intellect": 0.000269,
+     "spirit": 0.0,
+     "spell_power": 0.002373,
+     "crit_rating": 0.000201,
+     "hit_rating": 0.000307,
+     "crit_pct": 0.002278,
+     "hit_pct": 0.003471
+    },
+    "60": {
+     "score": 1.4556,
+     "stamina": 0.0,
+     "intellect": 0.000525,
+     "spirit": 0.0,
+     "spell_power": 0.002054,
+     "crit_rating": 0.000237,
+     "hit_rating": 0.000323,
+     "crit_pct": 0.003324,
+     "hit_pct": 0.004517
+    }
+   }
   },
   {
    "id": "warlock-demonology-pve",
@@ -1387,7 +1558,64 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.3822,
+     "stamina": 0.0,
+     "intellect": 4.6e-05,
+     "spirit": 0.0,
+     "spell_power": 0.002744,
+     "crit_rating": 0.000288,
+     "hit_rating": 0.001101,
+     "crit_pct": 0.000933,
+     "hit_pct": 0.003613
+    },
+    "30": {
+     "score": 0.5352,
+     "stamina": 0.0,
+     "intellect": 4.9e-05,
+     "spirit": 0.0,
+     "spell_power": 0.002404,
+     "crit_rating": 0.000249,
+     "hit_rating": 0.0009,
+     "crit_pct": 0.001477,
+     "hit_pct": 0.005336
+    },
+    "40": {
+     "score": 0.8103,
+     "stamina": 0.0,
+     "intellect": 0.000242,
+     "spirit": 0.0,
+     "spell_power": 0.002463,
+     "crit_rating": 0.000259,
+     "hit_rating": 0.000923,
+     "crit_pct": 0.002235,
+     "hit_pct": 0.007949
+    },
+    "50": {
+     "score": 0.9608,
+     "stamina": 0.0,
+     "intellect": 0.000385,
+     "spirit": 0.0,
+     "spell_power": 0.002228,
+     "crit_rating": 0.000231,
+     "hit_rating": 0.000831,
+     "crit_pct": 0.002613,
+     "hit_pct": 0.009395
+    },
+    "60": {
+     "score": 1.3745,
+     "stamina": 0.0,
+     "intellect": 0.000462,
+     "spirit": 0.0,
+     "spell_power": 0.00195,
+     "crit_rating": 0.000273,
+     "hit_rating": 0.000859,
+     "crit_pct": 0.00382,
+     "hit_pct": 0.011858
+    }
+   }
   },
   {
    "id": "warlock-demonology",
@@ -1505,7 +1733,64 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0359,
+     "stamina": 0.000336,
+     "intellect": 5e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000282,
+     "crit_rating": 2.9e-05,
+     "hit_rating": 0.000106,
+     "crit_pct": 9.3e-05,
+     "hit_pct": 0.000353
+    },
+    "30": {
+     "score": 0.0935,
+     "stamina": 0.000586,
+     "intellect": 7e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000405,
+     "crit_rating": 3.8e-05,
+     "hit_rating": 0.000143,
+     "crit_pct": 0.000223,
+     "hit_pct": 0.000845
+    },
+    "40": {
+     "score": 0.147,
+     "stamina": 0.000929,
+     "intellect": 8e-06,
+     "spirit": 0.0,
+     "spell_power": 0.0004,
+     "crit_rating": 3.9e-05,
+     "hit_rating": 0.000141,
+     "crit_pct": 0.000338,
+     "hit_pct": 0.001219
+    },
+    "50": {
+     "score": 0.2174,
+     "stamina": 0.001222,
+     "intellect": 9e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000409,
+     "crit_rating": 3.9e-05,
+     "hit_rating": 0.000144,
+     "crit_pct": 0.000444,
+     "hit_pct": 0.00163
+    },
+    "60": {
+     "score": 0.4117,
+     "stamina": 0.001193,
+     "intellect": 1.1e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000353,
+     "crit_rating": 4.6e-05,
+     "hit_rating": 4.8e-05,
+     "crit_pct": 0.000647,
+     "hit_pct": 0.000485
+    }
+   }
   },
   {
    "id": "warlock-destruction-pve",
@@ -1623,7 +1908,64 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.3959,
+     "stamina": 0.0,
+     "intellect": 4.7e-05,
+     "spirit": 0.0,
+     "spell_power": 0.002857,
+     "crit_rating": 0.000297,
+     "hit_rating": 0.00054,
+     "crit_pct": 0.000959,
+     "hit_pct": 0.002118
+    },
+    "30": {
+     "score": 0.556,
+     "stamina": 0.0,
+     "intellect": 4.9e-05,
+     "spirit": 0.0,
+     "spell_power": 0.002489,
+     "crit_rating": 0.000252,
+     "hit_rating": 0.000642,
+     "crit_pct": 0.001492,
+     "hit_pct": 0.003805
+    },
+    "40": {
+     "score": 0.8124,
+     "stamina": 0.0,
+     "intellect": 0.000263,
+     "spirit": 0.0,
+     "spell_power": 0.002251,
+     "crit_rating": 0.000332,
+     "hit_rating": 0.000317,
+     "crit_pct": 0.00286,
+     "hit_pct": 0.00273
+    },
+    "50": {
+     "score": 1.0258,
+     "stamina": 0.0,
+     "intellect": 0.000321,
+     "spirit": 0.0,
+     "spell_power": 0.002105,
+     "crit_rating": 0.000453,
+     "hit_rating": 0.000302,
+     "crit_pct": 0.005124,
+     "hit_pct": 0.003416
+    },
+    "60": {
+     "score": 1.5713,
+     "stamina": 0.0,
+     "intellect": 0.000561,
+     "spirit": 0.0,
+     "spell_power": 0.002112,
+     "crit_rating": 0.000372,
+     "hit_rating": 0.000326,
+     "crit_pct": 0.005206,
+     "hit_pct": 0.004568
+    }
+   }
   },
   {
    "id": "warlock-destruction",
@@ -1741,7 +2083,64 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0375,
+     "stamina": 0.000351,
+     "intellect": 5e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000295,
+     "crit_rating": 3.1e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 9.9e-05,
+     "hit_pct": 0.0
+    },
+    "30": {
+     "score": 0.086,
+     "stamina": 0.000545,
+     "intellect": 7e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000375,
+     "crit_rating": 3.5e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000209,
+     "hit_pct": 0.0
+    },
+    "40": {
+     "score": 0.1392,
+     "stamina": 0.000887,
+     "intellect": 1.1e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000349,
+     "crit_rating": 5.2e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000448,
+     "hit_pct": 0.0
+    },
+    "50": {
+     "score": 0.226,
+     "stamina": 0.001261,
+     "intellect": 1.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.00038,
+     "crit_rating": 5.3e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000604,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 0.4373,
+     "stamina": 0.001222,
+     "intellect": 1.4e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000336,
+     "crit_rating": 5.9e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000819,
+     "hit_pct": 0.0
+    }
+   }
   }
  ],
  "shortlist": [

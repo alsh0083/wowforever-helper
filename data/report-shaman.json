@@ -1008,7 +1008,68 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.3502,
+     "strength": 0.000981,
+     "agility": 0.000375,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000492,
+     "crit_rating": 0.000773,
+     "hit_rating": 0.00087,
+     "crit_pct": 0.002502,
+     "hit_pct": 0.002511,
+     "weapon_dps": 0.006852
+    },
+    "30": {
+     "score": 0.4428,
+     "strength": 0.000907,
+     "agility": 0.000347,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000454,
+     "crit_rating": 0.000585,
+     "hit_rating": 0.0006,
+     "crit_pct": 0.003466,
+     "hit_pct": 0.003187,
+     "weapon_dps": 0.006341
+    },
+    "40": {
+     "score": 0.7236,
+     "stamina": 0.0,
+     "intellect": 0.000352,
+     "spirit": 0.0,
+     "spell_power": 0.001801,
+     "crit_rating": 0.000324,
+     "hit_rating": 0.000831,
+     "crit_pct": 0.002787,
+     "hit_pct": 0.007161
+    },
+    "50": {
+     "score": 0.8333,
+     "stamina": 0.0,
+     "intellect": 0.000373,
+     "spirit": 0.0,
+     "spell_power": 0.00181,
+     "crit_rating": 0.000428,
+     "hit_rating": 0.000723,
+     "crit_pct": 0.004838,
+     "hit_pct": 0.008171
+    },
+    "60": {
+     "score": 1.1799,
+     "stamina": 0.0,
+     "intellect": 0.000477,
+     "spirit": 0.0,
+     "spell_power": 0.001746,
+     "crit_rating": 0.000576,
+     "hit_rating": 0.000833,
+     "crit_pct": 0.008065,
+     "hit_pct": 0.011661
+    }
+   }
   },
   {
    "id": "shaman-elemental",
@@ -1126,7 +1187,68 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0291,
+     "strength": 8.1e-05,
+     "agility": 3.2e-05,
+     "stamina": 0.000235,
+     "intellect": 0.0,
+     "attack_power": 4.1e-05,
+     "crit_rating": 6.6e-05,
+     "hit_rating": 8.3e-05,
+     "crit_pct": 0.000213,
+     "hit_pct": 0.000273,
+     "weapon_dps": 0.00057
+    },
+    "30": {
+     "score": 0.0714,
+     "strength": 0.00014,
+     "agility": 5.2e-05,
+     "stamina": 0.000475,
+     "intellect": 0.0,
+     "attack_power": 7e-05,
+     "crit_rating": 8.8e-05,
+     "hit_rating": 0.000108,
+     "crit_pct": 0.000521,
+     "hit_pct": 0.000639,
+     "weapon_dps": 0.000978
+    },
+    "40": {
+     "score": 0.1778,
+     "stamina": 0.001134,
+     "intellect": 1.5e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000374,
+     "crit_rating": 6.7e-05,
+     "hit_rating": 0.000164,
+     "crit_pct": 0.000581,
+     "hit_pct": 0.001417
+    },
+    "50": {
+     "score": 0.2617,
+     "stamina": 0.001109,
+     "intellect": 2.4e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000434,
+     "crit_rating": 0.000103,
+     "hit_rating": 0.000166,
+     "crit_pct": 0.001165,
+     "hit_pct": 0.001874
+    },
+    "60": {
+     "score": 0.4582,
+     "stamina": 0.001259,
+     "intellect": 3e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000378,
+     "crit_rating": 0.000125,
+     "hit_rating": 0.000173,
+     "crit_pct": 0.001754,
+     "hit_pct": 0.002415
+    }
+   }
   },
   {
    "id": "shaman-enhancement-pve",
@@ -1244,7 +1366,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.3707,
+     "strength": 0.000961,
+     "agility": 0.000398,
+     "stamina": 0.0,
+     "intellect": 0.000482,
+     "attack_power": 0.000482,
+     "crit_rating": 0.000821,
+     "hit_rating": 0.00091,
+     "crit_pct": 0.002658,
+     "hit_pct": 0.002613,
+     "weapon_dps": 0.006716
+    },
+    "30": {
+     "score": 0.4856,
+     "strength": 0.00093,
+     "agility": 0.000368,
+     "stamina": 0.0,
+     "intellect": 0.000466,
+     "attack_power": 0.000466,
+     "crit_rating": 0.000621,
+     "hit_rating": 0.000456,
+     "crit_pct": 0.003678,
+     "hit_pct": 0.00315,
+     "weapon_dps": 0.006505
+    },
+    "40": {
+     "score": 0.7988,
+     "strength": 0.001079,
+     "agility": 0.000462,
+     "stamina": 0.0,
+     "intellect": 0.00054,
+     "attack_power": 0.00054,
+     "crit_rating": 0.000715,
+     "hit_rating": 0.000658,
+     "crit_pct": 0.006159,
+     "hit_pct": 0.005985,
+     "weapon_dps": 0.007548
+    },
+    "50": {
+     "score": 0.9986,
+     "strength": 0.001082,
+     "agility": 0.000631,
+     "stamina": 0.0,
+     "intellect": 0.000541,
+     "attack_power": 0.000541,
+     "crit_rating": 0.000929,
+     "hit_rating": 0.000525,
+     "crit_pct": 0.010505,
+     "hit_pct": 0.005853,
+     "weapon_dps": 0.007747
+    },
+    "60": {
+     "score": 1.1991,
+     "strength": 0.001069,
+     "agility": 0.000637,
+     "stamina": 0.0,
+     "intellect": 0.000534,
+     "attack_power": 0.000534,
+     "crit_rating": 0.00091,
+     "hit_rating": 8.6e-05,
+     "crit_pct": 0.01273,
+     "hit_pct": 0.001207,
+     "weapon_dps": 0.007761
+    }
+   }
   },
   {
    "id": "shaman-enhancement",
@@ -1362,7 +1551,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0308,
+     "strength": 8.1e-05,
+     "agility": 3.4e-05,
+     "stamina": 0.000248,
+     "intellect": 4.1e-05,
+     "attack_power": 4.1e-05,
+     "crit_rating": 7.1e-05,
+     "hit_rating": 8.8e-05,
+     "crit_pct": 0.000228,
+     "hit_pct": 0.000288,
+     "weapon_dps": 0.000567
+    },
+    "30": {
+     "score": 0.0758,
+     "strength": 0.000138,
+     "agility": 5.6e-05,
+     "stamina": 0.000502,
+     "intellect": 6.9e-05,
+     "attack_power": 6.9e-05,
+     "crit_rating": 9.4e-05,
+     "hit_rating": 0.000114,
+     "crit_pct": 0.000556,
+     "hit_pct": 0.000673,
+     "weapon_dps": 0.000966
+    },
+    "40": {
+     "score": 0.1618,
+     "strength": 0.000191,
+     "agility": 0.000107,
+     "stamina": 0.000868,
+     "intellect": 9.6e-05,
+     "attack_power": 9.6e-05,
+     "crit_rating": 0.000166,
+     "hit_rating": 0.000151,
+     "crit_pct": 0.00143,
+     "hit_pct": 0.001301,
+     "weapon_dps": 0.001338
+    },
+    "50": {
+     "score": 0.2644,
+     "strength": 0.000211,
+     "agility": 0.00012,
+     "stamina": 0.000906,
+     "intellect": 0.000106,
+     "attack_power": 0.000106,
+     "crit_rating": 0.000177,
+     "hit_rating": 0.000164,
+     "crit_pct": 0.002003,
+     "hit_pct": 0.001854,
+     "weapon_dps": 0.001505
+    },
+    "60": {
+     "score": 0.4012,
+     "strength": 0.000214,
+     "agility": 0.000122,
+     "stamina": 0.000792,
+     "intellect": 0.000107,
+     "attack_power": 0.000107,
+     "crit_rating": 0.000174,
+     "hit_rating": 0.0,
+     "crit_pct": 0.002437,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.00155
+    }
+   }
   },
   {
    "id": "shaman-restoration-pvp",
@@ -1429,7 +1685,18 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "generic": {
+     "spell_power": 1.0,
+     "crit_rating": 0.8,
+     "hit_rating": 0.9,
+     "intellect": 0.4,
+     "spirit": 0.1,
+     "stamina": 0.15,
+     "mp5": 0.6
+    }
+   }
   },
   {
    "id": "shaman-restoration",
@@ -1496,7 +1763,18 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "generic": {
+     "spell_power": 1.0,
+     "crit_rating": 0.8,
+     "hit_rating": 0.9,
+     "intellect": 0.4,
+     "spirit": 0.1,
+     "stamina": 0.15,
+     "mp5": 0.6
+    }
+   }
   }
  ],
  "shortlist": [
