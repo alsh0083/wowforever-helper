@@ -21,7 +21,31 @@ LAYOUT = TraitLayout(
     snap=20,
 )
 
-TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {}
+# Numbers are read from the rank text (#175); Vengeance counts at full stacks.
+TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
+    "Conviction": (
+        EffectRule("crit_chance", r"critical strike with melee attacks by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
+    "Two-Handed Weapon Specialization": (
+        EffectRule("damage_pct", r"damage you deal with two-handed melee weapons by (\d+(?:\.\d+)?)%", ("@two_hand",)),
+    ),
+    "Vengeance": (
+        EffectRule("damage_pct", r"Physical and Holy damage dealt by (\d+)% for \d+ sec after landing a non-periodic critical strike. Stacks up to (\d+) times",
+                   ("all",), combine=lambda m: float(m.group(1)) * float(m.group(2))),
+    ),
+    "Sacred Arbiter": (
+        EffectRule("damage_pct", r"damage of your Holy Strike ability by (\d+(?:\.\d+)?)%", ("Holy Strike",)),
+    ),
+    "Improved Judgement": (
+        EffectRule("cooldown", r"cooldown of your Judgement ability by (\d+(?:\.\d+)?) sec", ("Judgement",), sign=-1),
+    ),
+    "Precision": (
+        EffectRule("hit_chance", r"Improves your chance to hit by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
+    "Improved Seals": (
+        EffectRule("damage_pct", r"damage done by your Seals and Judgements by (\d+(?:\.\d+)?)%", ("Seal of Command", "Judgement")),
+    ),
+}
 
 # Every paladin talent, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
@@ -30,7 +54,6 @@ UNMODELED: dict[str, str] = {
     "Divine Intellect": "buff: +10% Intellect",
     "Healing Light": "healing: +12% Holy Light, Flash of Light, Holy Shock",
     "Spiritual Focus": "utility: heals resist pushback",
-    "Improved Seals": "damage: +15% Seal and Judgement damage",
     "Unyielding Faith": "defensive: shorter Fear and Disorient",
     "Voice of Truth": "defensive: immune to Silence and Interrupt for 6 s",
     "Reverence": "resource: 30% mana regeneration while casting",
@@ -46,7 +69,6 @@ UNMODELED: dict[str, str] = {
     # Protection
     "Toughness": "defensive: +10% armor from items",
     "Redoubt": "defensive: block chance after being hit",
-    "Precision": "damage: +3% hit",
     "Guardian's Favor": "utility: Blessing of Protection and Freedom",
     "Anticipation": "defensive: +20 Defense",
     "Improved Seal of Fury": "resource: mana when Seal of Fury's shield breaks",
@@ -63,17 +85,12 @@ UNMODELED: dict[str, str] = {
     # Retribution
     "Deflection": "defensive: +5% parry",
     "Benediction": "resource: instant spells cost 10% less mana",
-    "Improved Judgement": "damage: Judgement cooldown -2 s",
     "Holy Conduit": "resource: cheaper Consecration, Holy Wrath, Exorcism, Hammer of Wrath",
-    "Conviction": "damage: +5% melee crit",
     "Vindication": "proc: melee hits lower enemy attack power",
     "Sanctified Judgement": "resource: Judgement refunds seal mana",
     "Seal of Command": "grants_spell",
     "Pursuit of Justice": "mobility: +15% movement speed",
     "Eye for an Eye": "damage: reflects crit damage",
-    "Sacred Arbiter": "damage: Holy Strike damage, refreshes Judgements",
-    "Two-Handed Weapon Specialization": "damage: +6% two-handed damage",
-    "Vengeance": "damage: Physical and Holy damage after crits",
     "Repentance": "grants_spell",
     "Champion of the Light": "damage: spell damage from Intellect",
     "Instrument of Law": "damage: faster Hammer of Wrath, less threat",
@@ -83,5 +100,10 @@ UNMODELED: dict[str, str] = {
 # Paladin skill lines in SkillLineAbility: Holy, Protection, Retribution.
 SKILL_LINES = (594, 267, 184)
 
-# Shown on the dashboard while the class is routes-only (planning round 2, Q2/Q3).
-SCORING_NOTE = "Paladin scores aren't planned yet; Holy and Protection stay unscored."
+# Retribution is scored by the melee engine (#175); healer and tank trees stay unscored (Q3).
+ENGINE = "melee"
+UNSCORED_TREES = ("Holy", "Protection")
+CAVEAT = ("Retribution model (#175): a two-hander's white swings with Seal of Command procs, Judgement and Holy "
+          "Strike on cooldown; Holy damage ignores armor. Seal of Command's proc rate and Judgement of Command's "
+          "damage are Classic values. Consecration, Exorcism, Hammer of Wrath, Vindication, Divine Strength and "
+          "mana aren't modeled; base stats are estimates. Holy and Protection stay unscored.")

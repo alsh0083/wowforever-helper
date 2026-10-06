@@ -6,7 +6,7 @@
 player_armor = 2500
 # opponent kit DPS assumes a cloth target; physical kits hit these classes by the armor ratio
 cloth_armor = 1000
-own_armor = { rogue = 2500, hunter = 3500, warrior = 5000, priest = 1000, warlock = 1000, druid = 2500, shaman = 3000 }
+own_armor = { rogue = 2500, hunter = 3500, warrior = 5000, paladin = 5000, priest = 1000, warlock = 1000, druid = 2500, shaman = 3000 }
 
 [rogue]
 energy_per_minute = 600
@@ -75,3 +75,11 @@ controls = [
 ]
 # Frost Shock (50% for 8 s, shares the shock cooldown with Earth Shock): about a third of the time
 slow = 0.17
+
+[paladin]
+energy_per_minute = 0
+controls = [
+  { name = "Hammer of Justice", kind = "stun", duration = 6.0, cooldown = 60 },
+  { name = "Repentance", kind = "incapacitate", duration = 6.0, cooldown = 60, requires = "Repentance" },
+]
+slow = 0.0

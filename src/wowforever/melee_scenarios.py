@@ -107,6 +107,11 @@ def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRa
 
         r = hunter_rotation(stats, spells, cls, ranks, target, pet=_has_pet(cls, ranks))
         return Output(r.dps, r.mana_per_second, r.auto_dps + r.pet_dps)
+    if class_name == "paladin":
+        from wowforever.classes.paladin_rotation import paladin_rotation
+
+        r = paladin_rotation(stats, spells, cls, ranks, target)
+        return Output(r.dps, 0.0, r.dps)
     if class_name == "warrior":
         from wowforever.classes.warrior_rotation import warrior_rotation
 
