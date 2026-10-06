@@ -14,7 +14,7 @@ from pathlib import Path
 from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
-from wowforever.melee_scenarios import rotation_output, stat_table
+from wowforever.melee_scenarios import build_stats, rotation_output, stat_table
 from wowforever.physical import Target
 from wowforever.schema import Dataset
 
@@ -35,6 +35,8 @@ KIT_BUILDS: dict[str, str] = {
     "druid-balance": "druid-balance",
     "shaman-elemental": "shaman-elemental",
     "paladin-retribution": "paladin-retribution-pvp",
+    "druid-feral": "druid-feral",
+    "shaman-enhancement": "shaman-enhancement",
 }
 
 
@@ -48,4 +50,4 @@ def engine_at_60(kit_id: str) -> tuple[float, float]:
     ranks = build.final_ids(cls)
     cloth_armor = tomllib.loads((ROOT / "config" / "pvp_self.toml").read_text(encoding="utf-8"))["cloth_armor"]
     dps = rotation_output(class_name, stats, cls.spells, cls, ranks, Target(0, cloth_armor)).dps
-    return stats.health, dps
+    return build_stats(class_name, stats, cls, ranks).health, dps
