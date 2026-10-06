@@ -72,3 +72,10 @@ def test_layout_badges_show_the_builds_ranks():
     # rank like a calculator, and a bar under the icon shows progress at the chosen level
     assert '<span class="lt-rank">${f}/${t.max_rank}</span>' in HTML
     assert 'class="lt-bar"><i style="width:${r/f*100}%"' in HTML
+
+
+def test_layout_completion_follows_the_build_not_max_rank():
+    # owner report 2026-10-06: a talent the build stops at 2/5 never looked finished; gold marks
+    # "every rank this build puts here is reached", and iconless talents get a text label
+    assert "f&&r===f?'done':''" in HTML and ".lt-cell.done{border:1px solid var(--gold)}" in HTML
+    assert "'full'" not in HTML and 'class="lt-abbr"' in HTML
