@@ -21,6 +21,7 @@ def main(argv: list[str] | None = None) -> int:
     il = sub.add_parser("import-logs", help="summarize foreverlogs.gg API responses from browser HAR exports (#69)")
     il.add_argument("har", nargs="+", help="HAR files saved from the browser (keep them in data/cache/logs/)")
     il.add_argument("--out", default="data/logs/foreverlogs.json")
+    sub.add_parser("validate-logs", help="compare the model's dungeon scores with cached Forever Logs statistics (#172)")
     gs = sub.add_parser("gear-stats", help="rebuild config/stats/<class>.csv from real Forever gear")
     gs.add_argument("--tables", required=True, help="folder with ItemSparse/Item/RandPropPoints CSVs")
     gs.add_argument("--class", dest="class_name", default="mage", choices=("mage", "rogue", "hunter", "warrior", "paladin", "priest", "warlock", "druid", "shaman",
@@ -61,6 +62,15 @@ def main(argv: list[str] | None = None) -> int:
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(render(reports, icons), encoding="utf-8", newline="\n")
         print(f"wrote {out}")
+        return 0
+    if args.command == "validate-logs":
+        import json
+        from pathlib import Path
+
+        from wowforever.validate import compare, log_averages, markdown
+
+        reports = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(Path("data").glob("report*.json"))]
+        print(markdown(compare(reports, log_averages())))
         return 0
     if args.command == "import-logs":
         from pathlib import Path
