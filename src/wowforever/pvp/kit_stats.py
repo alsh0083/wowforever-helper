@@ -34,6 +34,7 @@ KIT_BUILDS: dict[str, str] = {
     "warlock-destruction": "warlock-destruction",
     "druid-balance": "druid-balance",
     "shaman-elemental": "shaman-elemental",
+    "paladin-retribution": "paladin-retribution-pvp",
 }
 
 

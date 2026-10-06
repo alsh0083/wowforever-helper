@@ -1,0 +1,10 @@
+# Retribution rotation constants (#175). Classic values; confidence LOW until checked in Forever.
+
+# Seal of Command: procs per minute (Classic 7 PPM), each a Holy hit for 70% of weapon damage (rank text)
+seal_of_command_ppm = 7.0
+seal_of_command_weapon_pct = 70.0
+# Judgement of Command (the judged Seal of Command): average Holy damage by level from the Classic
+# ranks (rank 1 at 20 through rank 5 at 60); the client data carries no damage for Judgement
+judgement_of_command = { 20 = [48], 30 = [77], 40 = [107], 50 = [137], 60 = [240] }
+# normalized weapon speed for "normalized" strikes (Classic)
+normalized_speed = { one_hand = 2.4, two_hand = 3.3 }

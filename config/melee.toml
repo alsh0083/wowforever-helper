@@ -78,3 +78,32 @@ crit_rating = 1.0
 hit_rating = 1.2
 stamina = 0.3
 weapon_dps = 3.0
+
+[paladin]
+# mail from level 1 (Forever: plate from 40)
+armor = [[1, [1, 2, 3]], [40, [1, 2, 3, 4]]]
+one_hand = [0, 4, 7]
+two_hand = [1, 5, 6, 8]
+# Retribution swings a two-hander (#175)
+prefer_two_hand = true
+ranged = []
+# attack power = 3 * level + 2 * strength - 20 (Classic paladin)
+ap_level = 3
+ap_str = 2
+ap_agi = 0
+ap_const = 20
+rap_level = 0
+rap_agi = 0
+rap_const = 0
+agi_per_crit_at_60 = 20.0
+uses_mana = true
+[paladin.weights]
+strength = 1.0
+agility = 0.5
+attack_power = 0.5
+crit_rating = 1.0
+hit_rating = 1.2
+stamina = 0.3
+intellect = 0.2
+spell_power = 0.2
+weapon_dps = 3.0
