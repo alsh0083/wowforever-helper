@@ -15,8 +15,11 @@ target_level_offset = 3
 # once dry they keep Auto Shot going, which costs no mana
 
 [dungeon]
-# a dungeon pull: level+2 mobs with Sunder Armor from the tank, ~1500 armor
+# a dungeon pull: level+2 mobs with Sunder Armor from the tank. ~1500 armor at 60, which is this share
+# of the questing mob armor at the same level; lower levels scale with it (#172: a flat 1500 at every
+# level understated low-level melee against Forever Logs)
 armor = 1500
+armor_share_of_questing = 0.4545
 target_level_offset = 2
 
 [references]
