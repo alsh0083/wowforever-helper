@@ -173,7 +173,40 @@ def _site_item(record: Mapping[str, Any]) -> dict[str, Any]:
     weapon = record.get("weapon")
     return {"name": record["name"], "item_level": record.get("itemLevel"), "required_level": record.get("requiredLevel"),
             "quality": record.get("quality"), "slot": slot, "armor_type": armor, "stats": stats,
-            "weapon": {k: weapon[k] for k in ("min", "max", "speed")} if weapon else None}
+            "weapon": {k: weapon[k] for k in ("min", "max", "speed")} if weapon else None,
+            "weapon_type": _weapon_type_from_name(" ".join(words + parts[:1]), slot)}
+
+
+# Item.SubclassID for weapons (ClassID 2) -> type; two-handed variants share the one-handed name
+WEAPON_SUBCLASSES = {0: "axe", 1: "axe", 2: "bow", 3: "gun", 4: "mace", 5: "mace", 6: "polearm", 7: "sword",
+                     8: "sword", 10: "staff", 13: "fist", 15: "dagger", 16: "thrown", 18: "crossbow", 19: "wand"}
+WEAPON_WORDS = (("staff", "staff"), ("staves", "staff"), ("polearm", "polearm"), ("crossbow", "crossbow"),
+                ("bow", "bow"), ("gun", "gun"), ("thrown", "thrown"), ("wand", "wand"), ("dagger", "dagger"),
+                ("fist", "fist"), ("axe", "axe"), ("mace", "mace"), ("sword", "sword"), ("shield", "shield"))
+
+
+def _weapon_type_from_name(text: str, slot: str | None) -> str | None:
+    """A weapon's type from the site's slot and subclass words; off hands without one are held items."""
+    if slot not in ("main_hand", "two_hand", "off_hand", "ranged"):
+        return None
+    for word, kind in WEAPON_WORDS:
+        if word in text:
+            return kind
+    return "held" if slot == "off_hand" else None
+
+
+def _client_weapon_types(tables: Tables) -> dict[int, str]:
+    """Weapon type from the client's Item table: weapon subclasses, shields, and held off-hand items."""
+    out = {}
+    for row in tables.get("Item", ()):
+        cls, sub = int(row["ClassID"]), int(row["SubclassID"])
+        if cls == 2 and sub in WEAPON_SUBCLASSES:
+            out[int(row["ID"])] = WEAPON_SUBCLASSES[sub]
+        elif cls == 4 and sub == 6:
+            out[int(row["ID"])] = "shield"
+        elif cls == 4 and sub == 0 and row.get("InventoryType") == "23":
+            out[int(row["ID"])] = "held"
+    return out
 
 
 def _client_weapons(tables: Tables) -> dict[int, dict[str, float]]:
@@ -230,13 +263,15 @@ def build(pages: Mapping[str, str], tables: Tables, *, checked_at: str) -> dict[
     # Blizzard withholds most dungeon items from the client tables; the site's Classic catalog has them
     classic = {int(r["numericId"]): _site_item(r) for r in json.loads(pages.get("classic", "[]"))}
     weapons = _client_weapons(tables)
+    weapon_types = _client_weapon_types(tables)
     out = []
     for item_id, srcs in sorted(sources.items()):
         if item_id in client:
             c = client[item_id]
             data = {"name": c.name, "item_level": c.item_level, "required_level": c.required_level,
                     "quality": c.quality, "slot": c.slot, "armor_type": c.armor_type, "stats": c.stats,
-                    "weapon": weapons.get(item_id), "data": "client"}
+                    "weapon": weapons.get(item_id),
+                    "weapon_type": weapon_types.get(item_id), "data": "client"}
         elif item_id in site_items:
             data = {**site_items[item_id], "data": "site"}
         elif item_id in classic:
