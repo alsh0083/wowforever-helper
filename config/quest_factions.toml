@@ -1,14 +1,20 @@
 # Quest factions the sources haven't recorded (wowforevertalent.com marks many quests "unrecorded",
 # which is not "both"). Used by `wowforever gear-sources`; the gear panel hides the other faction's
-# quest rewards. Add what you see in game: by pickup NPC, or by quest id when an NPC serves both.
+# quest rewards. Add what you see in game or find in a quest guide (with its link): by pickup NPC, or by
+# quest id when the pickup isn't recorded. faction is "alliance", "horde" or "both".
 #
 # Order of use: [quests] here, [npcs] here, the site's recorded faction, the same NPC's recorded
 # quests, then faction cities and home zones named in the quest's text (marked "likely").
 
 [npcs]
 "Thom Filch" = { faction = "alliance", source = "owner, in game, 2026-10-06" }
+"Scout Riell" = { faction = "alliance", source = "Sentinel Hill, Westfall: https://warcraft.wiki.gg/wiki/Red_Silk_Bandanas" }
+"Nalpak" = { faction = "both", source = "neutral, above Wailing Caverns: https://warcraft.wiki.gg/wiki/Nalpak" }
+"Ebru" = { faction = "both", source = "neutral, above Wailing Caverns: https://warcraft.wiki.gg/wiki/Deviate_Eradication" }
+"Ghostly Attendant" = { faction = "both", source = "likely: inside Hall of Thanes, Horde can take it: https://www.icy-veins.com/wow-forever/hall-of-thanes-quests" }
 
 [quests]
+1098 = { faction = "horde", source = "Deathstalkers in Shadowfang, from High Executor Hadrec: https://wowclassicdb.com/quest/1098" }
 
 # Words in a quest's site text that tie it to one faction. Contested zones (Ashenvale, the Barrens'
 # border, Stranglethorn...) are left out because both factions have quest hubs there.

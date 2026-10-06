@@ -279,7 +279,7 @@ function usable(it,rules){
  return true;
 }
 function sourcesNow(it,types){
- return it.src.filter(s=>types.includes(s.t)&&(s.l==null||s.l<=level)&&!(s.t==='q'&&faction&&s.f!=='unknown'&&s.f!==faction));
+ return it.src.filter(s=>types.includes(s.t)&&(s.l==null||s.l<=level)&&!(s.t==='q'&&faction&&(s.f==='alliance'||s.f==='horde')&&s.f!==faction));
 }
 function itemValue(it,w){
  let v=0;for(const [k,x] of Object.entries(it.st||{}))v+=(w[k]||0)*x;
@@ -288,7 +288,7 @@ function itemValue(it,w){
 }
 function sourceText(s){
  if(s.t==='b'){const d=GEAR.dungeons[s.d];return `${s.b||'Boss'}, ${d?d.name:s.d}`}
- if(s.t==='q')return `Quest: ${s.n}${s.p&&!/not recorded/i.test(s.p)?` (${s.p})`:''}${s.f&&s.f!=='unknown'?` <span class="gear-tag ${s.f}" title="${s.fb&&s.fb!=='recorded'?s.fb:''}">${s.f==='alliance'?'Alliance':'Horde'}${s.fb&&s.fb.startsWith('likely')?' (likely)':''}</span>`:' <span class="gear-tag" title="The source hasn\'t recorded this quest\'s faction">Faction unrecorded</span>'}`;
+ if(s.t==='q')return `Quest: ${s.n}${s.p&&!/not recorded/i.test(s.p)?` (${s.p})`:''}${s.f==='both'?` <span class="gear-tag" title="${s.fb||''}">Both factions</span>`:s.f&&s.f!=='unknown'?` <span class="gear-tag ${s.f}" title="${s.fb&&s.fb!=='recorded'?s.fb:''}">${s.f==='alliance'?'Alliance':'Horde'}${s.fb&&s.fb.startsWith('likely')?' (likely)':''}</span>`:' <span class="gear-tag" title="The source hasn\'t recorded this quest\'s faction">Faction unrecorded</span>'}`;
  return `Crafted: ${s.p}${s.k?`, about skill ${s.k}`:''}`;
 }
 function itemLine(it,score,wt,cls='gear-pick'){
