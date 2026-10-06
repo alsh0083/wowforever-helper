@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_every_rogue_and_hunter_kit_has_a_build():
     kits = {p.stem for p in (ROOT / "config" / "opponents").glob("*.toml")
-            if p.stem.startswith(("rogue-", "hunter-", "warrior-"))}
+            if p.stem.startswith(tuple(f"{c}-" for c in {k.split("-")[0] for k in KIT_BUILDS}))}
     assert set(KIT_BUILDS) == kits
     builds = {p.stem for p in (ROOT / "config" / "builds").glob("*.toml")}
     assert set(KIT_BUILDS.values()) <= builds

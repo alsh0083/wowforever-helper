@@ -1,0 +1,23 @@
+# Caster stat and regen rules per class (#163). Confidence: LOW. Classic rules, not yet checked
+# against Forever; item stats are real client data, base stats come from config/stats/<class>_base.csv.
+# The mage keeps its own rules in config/gear.toml. Replaced by the owner's characters at launch (#33).
+#
+# armor: [from level, [armor subclasses]] (1 cloth, 2 leather, 3 mail)
+# crit: base_crit_pct + Intellect / (int_per_crit_pct_at_60 * level / 60)
+# spirit regen outside the five-second rule, per 2 s tick: regen_base + spirit / regen_spirit_div
+# weights: value of one point of each stat when picking gear (caster damage focus)
+
+[priest]
+armor = [[1, [1]]]
+base_crit_pct = 0.8
+int_per_crit_pct_at_60 = 59.2
+regen_base = 13
+regen_spirit_div = 4
+[priest.weights]
+spell_power = 1.0
+crit_rating = 0.8
+hit_rating = 0.9
+intellect = 0.4
+spirit = 0.2
+stamina = 0.15
+mp5 = 0.5

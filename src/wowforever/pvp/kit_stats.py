@@ -14,7 +14,7 @@ from pathlib import Path
 from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
-from wowforever.melee_scenarios import MeleeStatTable, rotation_output
+from wowforever.melee_scenarios import rotation_output, stat_table
 from wowforever.physical import Target
 from wowforever.schema import Dataset
 
@@ -28,6 +28,8 @@ KIT_BUILDS: dict[str, str] = {
     "hunter-marksmanship": "hunter-marksmanship",
     "hunter-survival": "hunter-survival-pvp",
     "warrior-arms": "warrior-arms",
+    "priest-shadow": "priest-shadow",
+    "priest-discipline": "priest-discipline-smite",
 }
 
 
@@ -36,9 +38,9 @@ def engine_at_60(kit_id: str) -> tuple[float, float]:
     class_name = kit_id.split("-", 1)[0]
     m = class_module(class_name)
     cls, _ = attach_effects(Dataset.load(DATASET).class_data(class_name), m.TALENT_EFFECTS, m.UNMODELED)
-    stats = MeleeStatTable.load(class_name).at(60)
+    stats = stat_table(class_name).at(60)
     build = {b.id: b for b in load_builds(class_name=class_name)}[KIT_BUILDS[kit_id]]
     ranks = build.final_ids(cls)
     cloth_armor = tomllib.loads((ROOT / "config" / "pvp_self.toml").read_text(encoding="utf-8"))["cloth_armor"]
-    dps = rotation_output(class_name, stats, cls.spells, cls, ranks, Target(60, cloth_armor)).dps
+    dps = rotation_output(class_name, stats, cls.spells, cls, ranks, Target(0, cloth_armor)).dps
     return stats.health, dps

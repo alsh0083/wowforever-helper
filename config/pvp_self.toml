@@ -6,7 +6,7 @@
 player_armor = 2500
 # opponent kit DPS assumes a cloth target; physical kits hit these classes by the armor ratio
 cloth_armor = 1000
-own_armor = { rogue = 2500, hunter = 3500, warrior = 5000 }
+own_armor = { rogue = 2500, hunter = 3500, warrior = 5000, priest = 1000 }
 
 [rogue]
 energy_per_minute = 600
@@ -39,3 +39,14 @@ controls = [
 ]
 # Hamstring (data: 15 s, Classic 50% slow) kept up in melee; Piercing Howl's 50% for 6 s on top
 slow = 0.5
+
+[priest]
+# casters spend mana, not a shared energy budget, on controls
+energy_per_minute = 0
+controls = [
+  { name = "Psychic Scream", kind = "fear", duration = 8.0, cooldown = 30 },
+  { name = "Silence", kind = "silence", duration = 5.0, cooldown = 45, requires = "Silence" },
+  { name = "Blackout", kind = "stun", duration = 3.0, cooldown = 30, requires = "Blackout" },
+]
+# Mind Flay's slow while channeling (data: 50%, about a third of the time in Shadow builds)
+slow = 0.17
