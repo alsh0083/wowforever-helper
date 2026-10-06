@@ -1044,7 +1044,64 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0376,
+     "stamina": 0.000371,
+     "intellect": 6e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000253,
+     "crit_rating": 3.6e-05,
+     "hit_rating": 0.000111,
+     "crit_pct": 0.000116,
+     "hit_pct": 0.00037
+    },
+    "30": {
+     "score": 0.0923,
+     "stamina": 0.000617,
+     "intellect": 1.1e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000328,
+     "crit_rating": 5.5e-05,
+     "hit_rating": 5.9e-05,
+     "crit_pct": 0.000324,
+     "hit_pct": 0.000347
+    },
+    "40": {
+     "score": 0.1518,
+     "stamina": 0.000858,
+     "intellect": 1.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000284,
+     "crit_rating": 5.7e-05,
+     "hit_rating": 8.5e-05,
+     "crit_pct": 0.00049,
+     "hit_pct": 0.00073
+    },
+    "50": {
+     "score": 0.2114,
+     "stamina": 0.001437,
+     "intellect": 1.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000276,
+     "crit_rating": 5.1e-05,
+     "hit_rating": 8.1e-05,
+     "crit_pct": 0.00058,
+     "hit_pct": 0.000916
+    },
+    "60": {
+     "score": 0.3794,
+     "stamina": 0.001338,
+     "intellect": 1.4e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000273,
+     "crit_rating": 5.9e-05,
+     "hit_rating": 9.1e-05,
+     "crit_pct": 0.00083,
+     "hit_pct": 0.00118
+    }
+   }
   },
   {
    "id": "priest-discipline",
@@ -1111,7 +1168,18 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "generic": {
+     "spell_power": 1.0,
+     "crit_rating": 0.8,
+     "hit_rating": 0.9,
+     "intellect": 0.4,
+     "spirit": 0.2,
+     "stamina": 0.15,
+     "mp5": 0.5
+    }
+   }
   },
   {
    "id": "priest-holy-pvp",
@@ -1178,7 +1246,18 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "generic": {
+     "spell_power": 1.0,
+     "crit_rating": 0.8,
+     "hit_rating": 0.9,
+     "intellect": 0.4,
+     "spirit": 0.2,
+     "stamina": 0.15,
+     "mp5": 0.5
+    }
+   }
   },
   {
    "id": "priest-holy",
@@ -1245,7 +1324,18 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "generic": {
+     "spell_power": 1.0,
+     "crit_rating": 0.8,
+     "hit_rating": 0.9,
+     "intellect": 0.4,
+     "spirit": 0.2,
+     "stamina": 0.15,
+     "mp5": 0.5
+    }
+   }
   },
   {
    "id": "priest-shadow-pve",
@@ -1363,7 +1453,64 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.3466,
+     "stamina": 0.0,
+     "intellect": 5.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.002183,
+     "crit_rating": 0.000316,
+     "hit_rating": 0.000714,
+     "crit_pct": 0.001021,
+     "hit_pct": 0.002332
+    },
+    "30": {
+     "score": 0.5558,
+     "stamina": 0.0,
+     "intellect": 2.4e-05,
+     "spirit": 0.0,
+     "spell_power": 0.001599,
+     "crit_rating": 0.000122,
+     "hit_rating": 0.000314,
+     "crit_pct": 0.000722,
+     "hit_pct": 0.00186
+    },
+    "40": {
+     "score": 0.996,
+     "stamina": 0.0,
+     "intellect": 0.000316,
+     "spirit": 0.000325,
+     "spell_power": 0.001548,
+     "crit_rating": 0.000243,
+     "hit_rating": 0.000403,
+     "crit_pct": 0.002093,
+     "hit_pct": 0.00347
+    },
+    "50": {
+     "score": 1.2144,
+     "stamina": 0.0,
+     "intellect": 0.000507,
+     "spirit": 0.00035,
+     "spell_power": 0.001379,
+     "crit_rating": 0.000229,
+     "hit_rating": 0.000345,
+     "crit_pct": 0.00259,
+     "hit_pct": 0.003905
+    },
+    "60": {
+     "score": 2.2866,
+     "stamina": 0.0,
+     "intellect": 0.000328,
+     "spirit": 0.000215,
+     "spell_power": 0.001744,
+     "crit_rating": 0.000653,
+     "hit_rating": 0.000707,
+     "crit_pct": 0.009148,
+     "hit_pct": 0.009894
+    }
+   }
   },
   {
    "id": "priest-shadow",
@@ -1481,7 +1628,64 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0347,
+     "stamina": 0.000343,
+     "intellect": 5e-06,
+     "spirit": 0.0,
+     "spell_power": 0.00023,
+     "crit_rating": 3.3e-05,
+     "hit_rating": 5.7e-05,
+     "crit_pct": 0.000107,
+     "hit_pct": 0.00019
+    },
+    "30": {
+     "score": 0.0826,
+     "stamina": 0.000559,
+     "intellect": 1e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000284,
+     "crit_rating": 4.9e-05,
+     "hit_rating": 6.3e-05,
+     "crit_pct": 0.000289,
+     "hit_pct": 0.000376
+    },
+    "40": {
+     "score": 0.1665,
+     "stamina": 0.000919,
+     "intellect": 9e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000221,
+     "crit_rating": 4e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000342,
+     "hit_pct": 0.0
+    },
+    "50": {
+     "score": 0.2291,
+     "stamina": 0.00154,
+     "intellect": 8e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000203,
+     "crit_rating": 3.4e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000382,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 0.452,
+     "stamina": 0.001449,
+     "intellect": 1.7e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000191,
+     "crit_rating": 7.2e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001005,
+     "hit_pct": 0.0
+    }
+   }
   }
  ],
  "shortlist": [

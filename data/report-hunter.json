@@ -1008,7 +1008,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0695,
+     "strength": 0.0,
+     "agility": 0.00014,
+     "stamina": 0.00058,
+     "intellect": 3.7e-05,
+     "attack_power": 6.2e-05,
+     "crit_rating": 8.6e-05,
+     "hit_rating": 0.000119,
+     "crit_pct": 0.00028,
+     "hit_pct": 0.000384,
+     "weapon_dps": 0.0
+    },
+    "30": {
+     "score": 0.1557,
+     "strength": 0.0,
+     "agility": 0.000189,
+     "stamina": 0.001068,
+     "intellect": 8.1e-05,
+     "attack_power": 8.1e-05,
+     "crit_rating": 0.000122,
+     "hit_rating": 0.000144,
+     "crit_pct": 0.000725,
+     "hit_pct": 0.000853,
+     "weapon_dps": 0.0
+    },
+    "40": {
+     "score": 0.2441,
+     "strength": 0.0,
+     "agility": 0.000208,
+     "stamina": 0.001171,
+     "intellect": 8.9e-05,
+     "attack_power": 8.9e-05,
+     "crit_rating": 0.000119,
+     "hit_rating": 0.000142,
+     "crit_pct": 0.001029,
+     "hit_pct": 0.001227,
+     "weapon_dps": 0.0
+    },
+    "50": {
+     "score": 0.3926,
+     "strength": 0.0,
+     "agility": 0.000215,
+     "stamina": 0.000999,
+     "intellect": 9.3e-05,
+     "attack_power": 9.3e-05,
+     "crit_rating": 0.000111,
+     "hit_rating": 0.000142,
+     "crit_pct": 0.001259,
+     "hit_pct": 0.0016,
+     "weapon_dps": 0.0
+    },
+    "60": {
+     "score": 0.516,
+     "strength": 0.0,
+     "agility": 0.000169,
+     "stamina": 0.00101,
+     "intellect": 7.2e-05,
+     "attack_power": 7.2e-05,
+     "crit_rating": 9.8e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001365,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.0
+    }
+   }
   },
   {
    "id": "hunter-beast-mastery",
@@ -1126,7 +1193,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.6393,
+     "strength": 0.0,
+     "agility": 0.001452,
+     "stamina": 0.0,
+     "intellect": 0.000385,
+     "attack_power": 0.000641,
+     "crit_rating": 0.000904,
+     "hit_rating": 0.001081,
+     "crit_pct": 0.002926,
+     "hit_pct": 0.002736,
+     "weapon_dps": 0.0
+    },
+    "30": {
+     "score": 0.8601,
+     "strength": 0.0,
+     "agility": 0.001308,
+     "stamina": 0.0,
+     "intellect": 0.000571,
+     "attack_power": 0.000571,
+     "crit_rating": 0.000729,
+     "hit_rating": 0.000748,
+     "crit_pct": 0.00432,
+     "hit_pct": 0.003605,
+     "weapon_dps": 0.0
+    },
+    "40": {
+     "score": 1.1319,
+     "strength": 0.0,
+     "agility": 0.001258,
+     "stamina": 0.0,
+     "intellect": 0.000552,
+     "attack_power": 0.000548,
+     "crit_rating": 0.000658,
+     "hit_rating": 0.000544,
+     "crit_pct": 0.005672,
+     "hit_pct": 0.004293,
+     "weapon_dps": 0.0
+    },
+    "50": {
+     "score": 1.3423,
+     "strength": 0.0,
+     "agility": 0.001268,
+     "stamina": 0.0,
+     "intellect": 0.00072,
+     "attack_power": 0.000544,
+     "crit_rating": 0.000692,
+     "hit_rating": 0.000701,
+     "crit_pct": 0.007829,
+     "hit_pct": 0.008023,
+     "weapon_dps": 0.0
+    },
+    "60": {
+     "score": 1.8047,
+     "strength": 0.0,
+     "agility": 0.001315,
+     "stamina": 0.0,
+     "intellect": 0.00094,
+     "attack_power": 0.000553,
+     "crit_rating": 0.000785,
+     "hit_rating": 0.00035,
+     "crit_pct": 0.010991,
+     "hit_pct": 0.004896,
+     "weapon_dps": 0.0
+    }
+   }
   },
   {
    "id": "hunter-marksmanship-pvp",
@@ -1244,7 +1378,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0685,
+     "strength": 0.0,
+     "agility": 0.00014,
+     "stamina": 0.000573,
+     "intellect": 1.2e-05,
+     "attack_power": 6.2e-05,
+     "crit_rating": 8.4e-05,
+     "hit_rating": 0.000116,
+     "crit_pct": 0.000272,
+     "hit_pct": 0.000376,
+     "weapon_dps": 0.0
+    },
+    "30": {
+     "score": 0.1557,
+     "strength": 0.0,
+     "agility": 0.000195,
+     "stamina": 0.001068,
+     "intellect": 8.3e-05,
+     "attack_power": 8.3e-05,
+     "crit_rating": 0.000131,
+     "hit_rating": 0.000144,
+     "crit_pct": 0.000774,
+     "hit_pct": 0.000853,
+     "weapon_dps": 0.0
+    },
+    "40": {
+     "score": 0.2495,
+     "strength": 0.0,
+     "agility": 0.000227,
+     "stamina": 0.00119,
+     "intellect": 9.7e-05,
+     "attack_power": 9.7e-05,
+     "crit_rating": 0.000139,
+     "hit_rating": 0.00015,
+     "crit_pct": 0.001198,
+     "hit_pct": 0.001291,
+     "weapon_dps": 0.0
+    },
+    "50": {
+     "score": 0.3927,
+     "strength": 0.0,
+     "agility": 0.000239,
+     "stamina": 0.000999,
+     "intellect": 0.000103,
+     "attack_power": 0.000103,
+     "crit_rating": 0.000132,
+     "hit_rating": 0.000152,
+     "crit_pct": 0.001489,
+     "hit_pct": 0.001715,
+     "weapon_dps": 0.0
+    },
+    "60": {
+     "score": 0.5468,
+     "strength": 0.0,
+     "agility": 0.000184,
+     "stamina": 0.001013,
+     "intellect": 7.7e-05,
+     "attack_power": 7.7e-05,
+     "crit_rating": 0.000117,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001638,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.0
+    }
+   }
   },
   {
    "id": "hunter-marksmanship",
@@ -1362,7 +1563,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.6382,
+     "strength": 0.0,
+     "agility": 0.00146,
+     "stamina": 0.0,
+     "intellect": 0.00013,
+     "attack_power": 0.000647,
+     "crit_rating": 0.000886,
+     "hit_rating": 0.001062,
+     "crit_pct": 0.002867,
+     "hit_pct": 0.002696,
+     "weapon_dps": 0.0
+    },
+    "30": {
+     "score": 0.8914,
+     "strength": 0.0,
+     "agility": 0.001377,
+     "stamina": 0.0,
+     "intellect": 0.000583,
+     "attack_power": 0.000583,
+     "crit_rating": 0.000929,
+     "hit_rating": 0.000784,
+     "crit_pct": 0.005506,
+     "hit_pct": 0.003778,
+     "weapon_dps": 0.0
+    },
+    "40": {
+     "score": 1.1798,
+     "strength": 0.0,
+     "agility": 0.001435,
+     "stamina": 0.0,
+     "intellect": 0.000608,
+     "attack_power": 0.000608,
+     "crit_rating": 0.000887,
+     "hit_rating": 0.000612,
+     "crit_pct": 0.007644,
+     "hit_pct": 0.004823,
+     "weapon_dps": 0.0
+    },
+    "50": {
+     "score": 1.3894,
+     "strength": 0.0,
+     "agility": 0.001383,
+     "stamina": 0.0,
+     "intellect": 0.000812,
+     "attack_power": 0.000592,
+     "crit_rating": 0.000765,
+     "hit_rating": 0.000782,
+     "crit_pct": 0.008652,
+     "hit_pct": 0.008948,
+     "weapon_dps": 0.0
+    },
+    "60": {
+     "score": 1.7095,
+     "strength": 0.0,
+     "agility": 0.001703,
+     "stamina": 0.0,
+     "intellect": 0.001274,
+     "attack_power": 0.000714,
+     "crit_rating": 0.001029,
+     "hit_rating": 0.000467,
+     "crit_pct": 0.014398,
+     "hit_pct": 0.006543,
+     "weapon_dps": 0.0
+    }
+   }
   },
   {
    "id": "hunter-survival-pvp",
@@ -1480,7 +1748,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0704,
+     "strength": 0.0,
+     "agility": 0.00014,
+     "stamina": 0.000587,
+     "intellect": 6.2e-05,
+     "attack_power": 6.2e-05,
+     "crit_rating": 8.9e-05,
+     "hit_rating": 0.000121,
+     "crit_pct": 0.000287,
+     "hit_pct": 0.000393,
+     "weapon_dps": 0.0
+    },
+    "30": {
+     "score": 0.1501,
+     "strength": 0.0,
+     "agility": 0.000184,
+     "stamina": 0.001034,
+     "intellect": 8.1e-05,
+     "attack_power": 8.1e-05,
+     "crit_rating": 0.000102,
+     "hit_rating": 0.000137,
+     "crit_pct": 0.000604,
+     "hit_pct": 0.00081,
+     "weapon_dps": 0.0
+    },
+    "40": {
+     "score": 0.2352,
+     "strength": 0.0,
+     "agility": 0.000207,
+     "stamina": 0.001139,
+     "intellect": 9.1e-05,
+     "attack_power": 9.1e-05,
+     "crit_rating": 0.000103,
+     "hit_rating": 0.000135,
+     "crit_pct": 0.000884,
+     "hit_pct": 0.001161,
+     "weapon_dps": 0.0
+    },
+    "50": {
+     "score": 0.4172,
+     "strength": 0.000149,
+     "agility": 0.000196,
+     "stamina": 0.001039,
+     "intellect": 0.000149,
+     "attack_power": 0.000149,
+     "crit_rating": 0.000168,
+     "hit_rating": 0.00015,
+     "crit_pct": 0.001904,
+     "hit_pct": 0.0017,
+     "weapon_dps": 0.001425
+    },
+    "60": {
+     "score": 0.4564,
+     "strength": 0.0,
+     "agility": 0.000252,
+     "stamina": 0.00099,
+     "intellect": 9.9e-05,
+     "attack_power": 9.9e-05,
+     "crit_rating": 0.000119,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001666,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.0
+    }
+   }
   },
   {
    "id": "hunter-survival",
@@ -1598,7 +1933,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.6368,
+     "strength": 0.0,
+     "agility": 0.001441,
+     "stamina": 0.0,
+     "intellect": 0.000635,
+     "attack_power": 0.000635,
+     "crit_rating": 0.000921,
+     "hit_rating": 0.001098,
+     "crit_pct": 0.002979,
+     "hit_pct": 0.002768,
+     "weapon_dps": 0.0
+    },
+    "30": {
+     "score": 0.8342,
+     "strength": 0.0,
+     "agility": 0.001282,
+     "stamina": 0.0,
+     "intellect": 0.00056,
+     "attack_power": 0.00056,
+     "crit_rating": 0.000714,
+     "hit_rating": 0.000733,
+     "crit_pct": 0.004233,
+     "hit_pct": 0.003532,
+     "weapon_dps": 0.0
+    },
+    "40": {
+     "score": 1.0735,
+     "strength": 0.0,
+     "agility": 0.001255,
+     "stamina": 0.0,
+     "intellect": 0.000584,
+     "attack_power": 0.00055,
+     "crit_rating": 0.000627,
+     "hit_rating": 0.000812,
+     "crit_pct": 0.005403,
+     "hit_pct": 0.006992,
+     "weapon_dps": 0.0
+    },
+    "50": {
+     "score": 1.3171,
+     "strength": 0.000126,
+     "agility": -0.004984,
+     "stamina": 0.0,
+     "intellect": 0.000728,
+     "attack_power": 0.000573,
+     "crit_rating": 0.000597,
+     "hit_rating": 0.000743,
+     "crit_pct": 0.006751,
+     "hit_pct": 0.008397,
+     "weapon_dps": 0.001209
+    },
+    "60": {
+     "score": 1.5156,
+     "strength": 0.0,
+     "agility": 0.001611,
+     "stamina": 0.0,
+     "intellect": 0.001044,
+     "attack_power": 0.000634,
+     "crit_rating": 0.000739,
+     "hit_rating": 0.0,
+     "crit_pct": 0.010345,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.0
+    }
+   }
   }
  ],
  "shortlist": [

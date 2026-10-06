@@ -401,9 +401,44 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
                          "fetched_at": p.fetched_at} for p in ds.provenance]}
     builds = load_builds(class_name=class_name)
     if getattr(module, "ENGINE", False) in ("melee", "spell"):
-        return melee_report(class_name, cls, builds, meta, hybrids=getattr(module, "HYBRIDS", ()))
-    if not getattr(module, "ENGINE", False):
-        return route_report(cls, builds, meta, hybrids=getattr(module, "HYBRIDS", ()),
-                            scoring_note=getattr(module, "SCORING_NOTE", ""))
-    return {"class": class_name, "engine": True,
-            **build_report(cls, cls.spells, builds, StatTable.load(class_name), Assumptions.load(), meta)}
+        report = melee_report(class_name, cls, builds, meta, hybrids=getattr(module, "HYBRIDS", ()))
+    elif not getattr(module, "ENGINE", False):
+        report = route_report(cls, builds, meta, hybrids=getattr(module, "HYBRIDS", ()),
+                              scoring_note=getattr(module, "SCORING_NOTE", ""))
+    else:
+        report = {"class": class_name, "engine": True,
+                  **build_report(cls, cls.spells, builds, StatTable.load(class_name), Assumptions.load(), meta)}
+    add_stat_weights(class_name, cls, builds, report)
+    return report
+
+
+def add_stat_weights(class_name: str, cls: ClassData, builds: Sequence[Build], report: dict[str, Any]) -> None:
+    """Per-build stat weights at each checkpoint from the class's engine (#189); builds without
+    scores (healers, tanks, routes-only classes) get the class's generic gear weights."""
+    from wowforever import melee_scenarios as ms
+    from wowforever import stat_weights as sw
+    from wowforever.pvp.class_pvp import pvp_score
+
+    variant = {b.id: b.variant for b in builds}
+    module = _class_module(class_name)
+    kits = load_kits()
+    if class_name == "mage":
+        table, assumptions, consensus = StatTable.load("mage"), Assumptions.load(), Consensus.load()
+        score = {"PvE": lambda s, r: pve_score_fn(cls, s, assumptions)(r),
+                 "PvP": lambda s, r: pvp_score_fn(cls, s, assumptions, kits, consensus)(r)}
+    elif getattr(module, "ENGINE", False) in ("melee", "spell"):
+        table = ms.stat_table(class_name)
+        score = {"PvE": lambda s, r: ms.pve_score(class_name, s, cls.spells, cls, r),
+                 "PvP": lambda s, r: pvp_score(class_name, s, cls.spells, cls, r, kits)}
+    else:
+        table, score = None, {}
+    melee_trees = getattr(module, "MELEE_TREES", ())
+    generic = sw.generic_weights(class_name)
+    for b in report["builds"]:
+        focus = variant.get(b["id"])
+        if table is None or not b.get("scores") or focus not in score:
+            b["stat_weights"] = {"generic": generic}
+            continue
+        b["stat_weights"] = sw.build_weights(
+            class_name, cls, b, table, score[focus], CHECKPOINTS,
+            melee_build=lambda ranks: bool(melee_trees) and ms.main_tree(cls, ranks) in melee_trees)

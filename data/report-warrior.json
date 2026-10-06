@@ -985,7 +985,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.34,
+     "strength": 0.001103,
+     "agility": 0.000413,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000553,
+     "crit_rating": 0.000851,
+     "hit_rating": 0.000934,
+     "crit_pct": 0.002757,
+     "hit_pct": 0.002553,
+     "weapon_dps": 0.007701
+    },
+    "30": {
+     "score": 0.3745,
+     "strength": 0.000876,
+     "agility": 0.000363,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000438,
+     "crit_rating": 0.000613,
+     "hit_rating": 0.000545,
+     "crit_pct": 0.003633,
+     "hit_pct": 0.002775,
+     "weapon_dps": 0.006345
+    },
+    "40": {
+     "score": 0.6036,
+     "strength": 0.001077,
+     "agility": 0.000576,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000539,
+     "crit_rating": 0.000891,
+     "hit_rating": 0.000528,
+     "crit_pct": 0.007676,
+     "hit_pct": 0.004222,
+     "weapon_dps": 0.008342
+    },
+    "50": {
+     "score": 0.6832,
+     "strength": 0.001003,
+     "agility": 0.000537,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000502,
+     "crit_rating": 0.000791,
+     "hit_rating": 0.000626,
+     "crit_pct": 0.008943,
+     "hit_pct": 0.007165,
+     "weapon_dps": 0.007936
+    },
+    "60": {
+     "score": 0.9181,
+     "strength": 0.001295,
+     "agility": 0.000662,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000647,
+     "crit_rating": 0.000946,
+     "hit_rating": 0.0,
+     "crit_pct": 0.013251,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.009815
+    }
+   }
   },
   {
    "id": "warrior-arms",
@@ -1100,7 +1167,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0389,
+     "strength": 0.000143,
+     "agility": 5.1e-05,
+     "stamina": 0.000313,
+     "intellect": 0.0,
+     "attack_power": 7.2e-05,
+     "crit_rating": 0.000105,
+     "hit_rating": 0.000121,
+     "crit_pct": 0.000341,
+     "hit_pct": 0.000391,
+     "weapon_dps": 0.001
+    },
+    "30": {
+     "score": 0.0925,
+     "strength": 0.000213,
+     "agility": 8.7e-05,
+     "stamina": 0.000579,
+     "intellect": 0.0,
+     "attack_power": 0.000106,
+     "crit_rating": 0.000146,
+     "hit_rating": 0.00015,
+     "crit_pct": 0.000868,
+     "hit_pct": 0.00089,
+     "weapon_dps": 0.001564
+    },
+    "40": {
+     "score": 0.2082,
+     "strength": 0.000301,
+     "agility": 0.000162,
+     "stamina": 0.000908,
+     "intellect": 0.0,
+     "attack_power": 0.000151,
+     "crit_rating": 0.00025,
+     "hit_rating": 0.000204,
+     "crit_pct": 0.002157,
+     "hit_pct": 0.001757,
+     "weapon_dps": 0.002399
+    },
+    "50": {
+     "score": 0.3019,
+     "strength": 0.000312,
+     "agility": 0.000163,
+     "stamina": 0.000905,
+     "intellect": 0.0,
+     "attack_power": 0.000156,
+     "crit_rating": 0.000239,
+     "hit_rating": 0.000199,
+     "crit_pct": 0.002706,
+     "hit_pct": 0.002254,
+     "weapon_dps": 0.002509
+    },
+    "60": {
+     "score": 0.4249,
+     "strength": 0.000342,
+     "agility": 0.000168,
+     "stamina": 0.000876,
+     "intellect": 0.0,
+     "attack_power": 0.000172,
+     "crit_rating": 0.00024,
+     "hit_rating": 0.0,
+     "crit_pct": 0.003356,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.002623
+    }
+   }
   },
   {
    "id": "warrior-fury-pve",
@@ -1218,7 +1352,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.34,
+     "strength": 0.001103,
+     "agility": 0.000413,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000553,
+     "crit_rating": 0.000851,
+     "hit_rating": 0.000934,
+     "crit_pct": 0.002757,
+     "hit_pct": 0.002553,
+     "weapon_dps": 0.007701
+    },
+    "30": {
+     "score": 0.3745,
+     "strength": 0.000876,
+     "agility": 0.000363,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000438,
+     "crit_rating": 0.000613,
+     "hit_rating": 0.000545,
+     "crit_pct": 0.003633,
+     "hit_pct": 0.002775,
+     "weapon_dps": 0.006345
+    },
+    "40": {
+     "score": 0.6122,
+     "strength": 0.001072,
+     "agility": 0.000577,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000536,
+     "crit_rating": 0.000893,
+     "hit_rating": 0.000533,
+     "crit_pct": 0.007696,
+     "hit_pct": 0.004258,
+     "weapon_dps": 0.008302
+    },
+    "50": {
+     "score": 0.7145,
+     "strength": 0.001029,
+     "agility": 0.000554,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000515,
+     "crit_rating": 0.000817,
+     "hit_rating": 0.000651,
+     "crit_pct": 0.009237,
+     "hit_pct": 0.007445,
+     "weapon_dps": 0.008139
+    },
+    "60": {
+     "score": 0.8636,
+     "strength": 0.001072,
+     "agility": 0.000553,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000536,
+     "crit_rating": 0.00079,
+     "hit_rating": 0.0,
+     "crit_pct": 0.011053,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.008231
+    }
+   }
   },
   {
    "id": "warrior-fury-pvp",
@@ -1336,7 +1537,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0389,
+     "strength": 0.000143,
+     "agility": 5.1e-05,
+     "stamina": 0.000313,
+     "intellect": 0.0,
+     "attack_power": 7.2e-05,
+     "crit_rating": 0.000105,
+     "hit_rating": 0.000121,
+     "crit_pct": 0.000341,
+     "hit_pct": 0.000391,
+     "weapon_dps": 0.001
+    },
+    "30": {
+     "score": 0.0925,
+     "strength": 0.000213,
+     "agility": 8.7e-05,
+     "stamina": 0.000579,
+     "intellect": 0.0,
+     "attack_power": 0.000106,
+     "crit_rating": 0.000146,
+     "hit_rating": 0.00015,
+     "crit_pct": 0.000868,
+     "hit_pct": 0.00089,
+     "weapon_dps": 0.001564
+    },
+    "40": {
+     "score": 0.2082,
+     "strength": 0.000301,
+     "agility": 0.000162,
+     "stamina": 0.000908,
+     "intellect": 0.0,
+     "attack_power": 0.000151,
+     "crit_rating": 0.00025,
+     "hit_rating": 0.000204,
+     "crit_pct": 0.002157,
+     "hit_pct": 0.001757,
+     "weapon_dps": 0.002399
+    },
+    "50": {
+     "score": 0.3113,
+     "strength": 0.000311,
+     "agility": 0.000164,
+     "stamina": 0.000922,
+     "intellect": 0.0,
+     "attack_power": 0.000156,
+     "crit_rating": 0.000242,
+     "hit_rating": 0.000203,
+     "crit_pct": 0.002733,
+     "hit_pct": 0.00229,
+     "weapon_dps": 0.002509
+    },
+    "60": {
+     "score": 0.41,
+     "strength": 0.000298,
+     "agility": 0.00015,
+     "stamina": 0.000865,
+     "intellect": 0.0,
+     "attack_power": 0.000149,
+     "crit_rating": 0.000214,
+     "hit_rating": 0.0,
+     "crit_pct": 0.002986,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.002318
+    }
+   }
   },
   {
    "id": "warrior-protection-pvp",
@@ -1403,7 +1671,18 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "generic": {
+     "strength": 1.0,
+     "agility": 0.5,
+     "attack_power": 0.5,
+     "crit_rating": 1.0,
+     "hit_rating": 1.2,
+     "stamina": 0.3,
+     "weapon_dps": 3.0
+    }
+   }
   },
   {
    "id": "warrior-protection",
@@ -1465,7 +1744,18 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 5,
    "scores": {},
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "generic": {
+     "strength": 1.0,
+     "agility": 0.5,
+     "attack_power": 0.5,
+     "crit_rating": 1.0,
+     "hit_rating": 1.2,
+     "stamina": 0.3,
+     "weapon_dps": 3.0
+    }
+   }
   }
  ],
  "shortlist": [
