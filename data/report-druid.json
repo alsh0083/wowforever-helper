@@ -1032,7 +1032,64 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0655,
+     "stamina": 0.000551,
+     "intellect": 1.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000407,
+     "crit_rating": 7.5e-05,
+     "hit_rating": 5.9e-05,
+     "crit_pct": 0.000242,
+     "hit_pct": 0.000593
+    },
+    "30": {
+     "score": 0.1468,
+     "stamina": 0.001124,
+     "intellect": 2.4e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000589,
+     "crit_rating": 0.000119,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000705,
+     "hit_pct": 0.0
+    },
+    "40": {
+     "score": 0.2111,
+     "stamina": 0.001738,
+     "intellect": 2.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000503,
+     "crit_rating": 0.000101,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000872,
+     "hit_pct": 0.0
+    },
+    "50": {
+     "score": 0.3574,
+     "stamina": 0.001598,
+     "intellect": 2.6e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000483,
+     "crit_rating": 0.000117,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001321,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 0.5284,
+     "stamina": 0.001381,
+     "intellect": 2.4e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000338,
+     "crit_rating": 0.000102,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001431,
+     "hit_pct": 0.0
+    }
+   }
   },
   {
    "id": "druid-balance",
@@ -1150,7 +1207,64 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.456,
+     "stamina": 0.0,
+     "intellect": 7.6e-05,
+     "spirit": 0.0,
+     "spell_power": 0.002539,
+     "crit_rating": 0.000468,
+     "hit_rating": 0.000805,
+     "crit_pct": 0.001513,
+     "hit_pct": 0.003866
+    },
+    "30": {
+     "score": 0.6097,
+     "stamina": 0.0,
+     "intellect": 6.8e-05,
+     "spirit": 0.0,
+     "spell_power": 0.00269,
+     "crit_rating": 0.000347,
+     "hit_rating": 0.000478,
+     "crit_pct": 0.002054,
+     "hit_pct": 0.003558
+    },
+    "40": {
+     "score": 0.8493,
+     "stamina": 0.0,
+     "intellect": 5.9e-05,
+     "spirit": 0.0,
+     "spell_power": 0.002556,
+     "crit_rating": 0.000272,
+     "hit_rating": 0.000634,
+     "crit_pct": 0.002346,
+     "hit_pct": 0.005868
+    },
+    "50": {
+     "score": 1.1099,
+     "stamina": 0.0,
+     "intellect": 0.000187,
+     "spirit": 6.9e-05,
+     "spell_power": 0.002281,
+     "crit_rating": 0.000513,
+     "hit_rating": 0.00046,
+     "crit_pct": 0.005804,
+     "hit_pct": 0.005091
+    },
+    "60": {
+     "score": 1.726,
+     "stamina": 0.0,
+     "intellect": 0.000589,
+     "spirit": 0.00029,
+     "spell_power": 0.002273,
+     "crit_rating": 0.000691,
+     "hit_rating": 0.00048,
+     "crit_pct": 0.009677,
+     "hit_pct": 0.006713
+    }
+   }
   },
   {
    "id": "druid-feral-bear",
@@ -1217,7 +1331,18 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "generic": {
+     "spell_power": 1.0,
+     "crit_rating": 0.8,
+     "hit_rating": 0.9,
+     "intellect": 0.4,
+     "spirit": 0.15,
+     "stamina": 0.15,
+     "mp5": 0.5
+    }
+   }
   },
   {
    "id": "druid-feral",
@@ -1332,7 +1457,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0384,
+     "strength": 0.000123,
+     "agility": 0.000112,
+     "stamina": 0.00034,
+     "intellect": 0.0,
+     "attack_power": 6.1e-05,
+     "crit_rating": 0.000102,
+     "hit_rating": 0.000111,
+     "crit_pct": 0.000331,
+     "hit_pct": 0.000361,
+     "weapon_dps": 0.0
+    },
+    "30": {
+     "score": 0.101,
+     "strength": 0.000197,
+     "agility": 0.000175,
+     "stamina": 0.000784,
+     "intellect": 0.0,
+     "attack_power": 9.9e-05,
+     "crit_rating": 0.000128,
+     "hit_rating": 0.000142,
+     "crit_pct": 0.000757,
+     "hit_pct": 0.000843,
+     "weapon_dps": 0.0
+    },
+    "40": {
+     "score": 0.1769,
+     "strength": 0.000199,
+     "agility": 0.00019,
+     "stamina": 0.001052,
+     "intellect": 0.0,
+     "attack_power": 0.0001,
+     "crit_rating": 0.00014,
+     "hit_rating": 0.000167,
+     "crit_pct": 0.001204,
+     "hit_pct": 0.001436,
+     "weapon_dps": 0.0
+    },
+    "50": {
+     "score": 0.3025,
+     "strength": 0.000222,
+     "agility": 0.000219,
+     "stamina": 0.001097,
+     "intellect": 0.0,
+     "attack_power": 0.000111,
+     "crit_rating": 0.000158,
+     "hit_rating": 0.000186,
+     "crit_pct": 0.001791,
+     "hit_pct": 0.002104,
+     "weapon_dps": 0.0
+    },
+    "60": {
+     "score": 0.4672,
+     "strength": 0.000218,
+     "agility": 0.000212,
+     "stamina": 0.000926,
+     "intellect": 0.0,
+     "attack_power": 0.000109,
+     "crit_rating": 0.000146,
+     "hit_rating": 0.0,
+     "crit_pct": 0.002044,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.0
+    }
+   }
   },
   {
    "id": "druid-restoration-pvp",
@@ -1399,7 +1591,18 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "generic": {
+     "spell_power": 1.0,
+     "crit_rating": 0.8,
+     "hit_rating": 0.9,
+     "intellect": 0.4,
+     "spirit": 0.15,
+     "stamina": 0.15,
+     "mp5": 0.5
+    }
+   }
   },
   {
    "id": "druid-restoration",
@@ -1466,7 +1669,18 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "generic": {
+     "spell_power": 1.0,
+     "crit_rating": 0.8,
+     "hit_rating": 0.9,
+     "intellect": 0.4,
+     "spirit": 0.15,
+     "stamina": 0.15,
+     "mp5": 0.5
+    }
+   }
   }
  ],
  "shortlist": [

@@ -1535,7 +1535,64 @@
    },
    "sensitivity": [
     "sub20_spell_penalty=False: raid DPS 282.0 -> 283.8"
-   ]
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.2189,
+     "stamina": 0.001006,
+     "intellect": 7.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.00024,
+     "crit_rating": 0.000396,
+     "hit_rating": 0.000147,
+     "crit_pct": 0.001283,
+     "hit_pct": 0.001465
+    },
+    "30": {
+     "score": 0.2661,
+     "stamina": 0.000904,
+     "intellect": 6.6e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000264,
+     "crit_rating": 0.000289,
+     "hit_rating": 0.000175,
+     "crit_pct": 0.001716,
+     "hit_pct": 0.00175
+    },
+    "40": {
+     "score": 0.3099,
+     "stamina": 0.000939,
+     "intellect": 5.6e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000268,
+     "crit_rating": 0.00022,
+     "hit_rating": 0.000193,
+     "crit_pct": 0.001899,
+     "hit_pct": 0.001929
+    },
+    "50": {
+     "score": 0.3702,
+     "stamina": 0.001579,
+     "intellect": 3.5e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000194,
+     "crit_rating": 0.000117,
+     "hit_rating": 2.9e-05,
+     "crit_pct": 0.001326,
+     "hit_pct": 0.000291
+    },
+    "60": {
+     "score": 0.4816,
+     "stamina": 0.001355,
+     "intellect": 3.5e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000205,
+     "crit_rating": 0.000112,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001573,
+     "hit_pct": 0.0
+    }
+   }
   },
   {
    "id": "deep-arcane",
@@ -2135,7 +2192,64 @@
    },
    "sensitivity": [
     "sub20_spell_penalty=False: raid DPS 239.4 -> 242.4"
-   ]
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.6097,
+     "stamina": 0.0,
+     "intellect": 0.000988,
+     "spirit": 0.000231,
+     "spell_power": 0.000622,
+     "crit_rating": 0.000582,
+     "hit_rating": 0.001438,
+     "crit_pct": 0.00188,
+     "hit_pct": 0.004702
+    },
+    "30": {
+     "score": 0.6901,
+     "stamina": 0.0,
+     "intellect": 0.001073,
+     "spirit": 0.000274,
+     "spell_power": 0.00064,
+     "crit_rating": 0.00022,
+     "hit_rating": 0.000909,
+     "crit_pct": 0.0013,
+     "hit_pct": 0.005384
+    },
+    "40": {
+     "score": 0.8176,
+     "stamina": 0.0,
+     "intellect": 0.001209,
+     "spirit": 0.000299,
+     "spell_power": 0.000768,
+     "crit_rating": 0.000308,
+     "hit_rating": 0.000529,
+     "crit_pct": 0.002652,
+     "hit_pct": 0.004559
+    },
+    "50": {
+     "score": 0.9581,
+     "stamina": 0.0,
+     "intellect": 0.001252,
+     "spirit": 0.000193,
+     "spell_power": 0.000949,
+     "crit_rating": 0.000371,
+     "hit_rating": 0.000513,
+     "crit_pct": 0.00421,
+     "hit_pct": 0.005818
+    },
+    "60": {
+     "score": 1.3126,
+     "stamina": 0.0,
+     "intellect": 0.000265,
+     "spirit": 0.000389,
+     "spell_power": 0.001149,
+     "crit_rating": 0.000287,
+     "hit_rating": 0.000644,
+     "crit_pct": 0.004015,
+     "hit_pct": 0.009009
+    }
+   }
   },
   {
    "id": "deep-fire",
@@ -2735,7 +2849,64 @@
    },
    "sensitivity": [
     "sub20_spell_penalty=False: raid DPS 291.3 -> 292.2"
-   ]
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.6166,
+     "stamina": 0.0,
+     "intellect": 0.000988,
+     "spirit": 0.000148,
+     "spell_power": 0.000629,
+     "crit_rating": 0.000752,
+     "hit_rating": 0.001173,
+     "crit_pct": 0.002428,
+     "hit_pct": 0.004113
+    },
+    "30": {
+     "score": 0.6969,
+     "stamina": 0.0,
+     "intellect": 0.001034,
+     "spirit": 0.000159,
+     "spell_power": 0.000714,
+     "crit_rating": 0.000525,
+     "hit_rating": 0.000589,
+     "crit_pct": 0.003108,
+     "hit_pct": 0.003491
+    },
+    "40": {
+     "score": 0.8314,
+     "stamina": 0.0,
+     "intellect": 0.001243,
+     "spirit": 0.000186,
+     "spell_power": 0.000825,
+     "crit_rating": 0.000622,
+     "hit_rating": 0.000328,
+     "crit_pct": 0.005356,
+     "hit_pct": 0.002822
+    },
+    "50": {
+     "score": 0.9751,
+     "stamina": 0.0,
+     "intellect": 0.001481,
+     "spirit": 0.000289,
+     "spell_power": 0.000962,
+     "crit_rating": 0.00087,
+     "hit_rating": 0.000316,
+     "crit_pct": 0.009838,
+     "hit_pct": 0.003572
+    },
+    "60": {
+     "score": 1.4805,
+     "stamina": 0.0,
+     "intellect": 0.00195,
+     "spirit": 0.000291,
+     "spell_power": 0.001292,
+     "crit_rating": 0.001106,
+     "hit_rating": 0.000409,
+     "crit_pct": 0.015496,
+     "hit_pct": 0.005727
+    }
+   }
   },
   {
    "id": "deep-frost",
@@ -3335,7 +3506,64 @@
    },
    "sensitivity": [
     "sub20_spell_penalty=False: raid DPS 353.0 -> 353.6"
-   ]
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.23,
+     "stamina": 0.001044,
+     "intellect": 5.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000232,
+     "crit_rating": 0.00025,
+     "hit_rating": 0.000104,
+     "crit_pct": 0.000809,
+     "hit_pct": 0.00035
+    },
+    "30": {
+     "score": 0.2898,
+     "stamina": 0.000955,
+     "intellect": 7.3e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000277,
+     "crit_rating": 0.000305,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001807,
+     "hit_pct": 0.0
+    },
+    "40": {
+     "score": 0.4287,
+     "stamina": 0.001036,
+     "intellect": 4.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000187,
+     "crit_rating": 0.000136,
+     "hit_rating": 0.0,
+     "crit_pct": 0.00117,
+     "hit_pct": 0.0
+    },
+    "50": {
+     "score": 0.5556,
+     "stamina": 0.002961,
+     "intellect": 3.6e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000103,
+     "crit_rating": 9.9e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001119,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 0.8254,
+     "stamina": 0.001439,
+     "intellect": 3.2e-05,
+     "spirit": 0.0,
+     "spell_power": 9.9e-05,
+     "crit_rating": 8.1e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001138,
+     "hit_pct": 0.0
+    }
+   }
   },
   {
    "id": "elementalist-pve-v2",
@@ -3944,7 +4172,64 @@
    },
    "sensitivity": [
     "sub20_spell_penalty=False: raid DPS 329.2 -> 329.6"
-   ]
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.6229,
+     "stamina": 0.0,
+     "intellect": 0.001091,
+     "spirit": 0.00026,
+     "spell_power": 0.000637,
+     "crit_rating": 0.000788,
+     "hit_rating": 0.001191,
+     "crit_pct": 0.002548,
+     "hit_pct": 0.006103
+    },
+    "30": {
+     "score": 0.7365,
+     "stamina": 0.0,
+     "intellect": 0.001221,
+     "spirit": 0.000283,
+     "spell_power": 0.000748,
+     "crit_rating": 0.00084,
+     "hit_rating": 0.000977,
+     "crit_pct": 0.004977,
+     "hit_pct": 0.007258
+    },
+    "40": {
+     "score": 0.9885,
+     "stamina": 0.0,
+     "intellect": 0.001461,
+     "spirit": 0.000213,
+     "spell_power": 0.000641,
+     "crit_rating": 0.000732,
+     "hit_rating": 0.00106,
+     "crit_pct": 0.006309,
+     "hit_pct": 0.009641
+    },
+    "50": {
+     "score": 1.2725,
+     "stamina": 0.0,
+     "intellect": 0.001913,
+     "spirit": 0.000283,
+     "spell_power": 0.000848,
+     "crit_rating": 0.000754,
+     "hit_rating": 0.000836,
+     "crit_pct": 0.008521,
+     "hit_pct": 0.009352
+    },
+    "60": {
+     "score": 1.7112,
+     "stamina": 0.0,
+     "intellect": 0.002143,
+     "spirit": 8.1e-05,
+     "spell_power": 0.001086,
+     "crit_rating": 0.001017,
+     "hit_rating": 0.000925,
+     "crit_pct": 0.014251,
+     "hit_pct": 0.012488
+    }
+   }
   },
   {
    "id": "elementalist-pve",
@@ -4551,7 +4836,64 @@
    },
    "sensitivity": [
     "sub20_spell_penalty=False: raid DPS 265.6 -> 266.6"
-   ]
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.6229,
+     "stamina": 0.0,
+     "intellect": 0.001091,
+     "spirit": 0.00026,
+     "spell_power": 0.000637,
+     "crit_rating": 0.000788,
+     "hit_rating": 0.001191,
+     "crit_pct": 0.002548,
+     "hit_pct": 0.006103
+    },
+    "30": {
+     "score": 0.7365,
+     "stamina": 0.0,
+     "intellect": 0.001221,
+     "spirit": 0.000283,
+     "spell_power": 0.000748,
+     "crit_rating": 0.00084,
+     "hit_rating": 0.000977,
+     "crit_pct": 0.004977,
+     "hit_pct": 0.007258
+    },
+    "40": {
+     "score": 0.9885,
+     "stamina": 0.0,
+     "intellect": 0.001461,
+     "spirit": 0.000213,
+     "spell_power": 0.000641,
+     "crit_rating": 0.000732,
+     "hit_rating": 0.00106,
+     "crit_pct": 0.006309,
+     "hit_pct": 0.009641
+    },
+    "50": {
+     "score": 1.1019,
+     "stamina": 0.0,
+     "intellect": 0.001525,
+     "spirit": 0.000225,
+     "spell_power": 0.000717,
+     "crit_rating": 0.000654,
+     "hit_rating": 0.000693,
+     "crit_pct": 0.0074,
+     "hit_pct": 0.007736
+    },
+    "60": {
+     "score": 1.4325,
+     "stamina": 0.0,
+     "intellect": 0.001811,
+     "spirit": 0.000271,
+     "spell_power": 0.000888,
+     "crit_rating": 0.00072,
+     "hit_rating": 0.000359,
+     "crit_pct": 0.010082,
+     "hit_pct": 0.005026
+    }
+   }
   },
   {
    "id": "elementalist-v4",
@@ -5158,7 +5500,64 @@
    },
    "sensitivity": [
     "sub20_spell_penalty=False: raid DPS 262.6 -> 263.5"
-   ]
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.2906,
+     "stamina": 0.001264,
+     "intellect": 5.4e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000222,
+     "crit_rating": 0.000263,
+     "hit_rating": 0.00019,
+     "crit_pct": 0.00085,
+     "hit_pct": 0.001896
+    },
+    "30": {
+     "score": 0.4374,
+     "stamina": 0.001104,
+     "intellect": 4.7e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000151,
+     "crit_rating": 0.000183,
+     "hit_rating": 0.000164,
+     "crit_pct": 0.001087,
+     "hit_pct": 0.001642
+    },
+    "40": {
+     "score": 0.4871,
+     "stamina": 0.001075,
+     "intellect": 3.5e-05,
+     "spirit": 0.0,
+     "spell_power": 9.7e-05,
+     "crit_rating": 0.00012,
+     "hit_rating": 0.000163,
+     "crit_pct": 0.001037,
+     "hit_pct": 0.001627
+    },
+    "50": {
+     "score": 0.5464,
+     "stamina": 0.002885,
+     "intellect": 3.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000104,
+     "crit_rating": 0.000102,
+     "hit_rating": 3.5e-05,
+     "crit_pct": 0.00115,
+     "hit_pct": 0.00035
+    },
+    "60": {
+     "score": 0.7015,
+     "stamina": 0.001606,
+     "intellect": 3.3e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000114,
+     "crit_rating": 0.000106,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001482,
+     "hit_pct": 0.0
+    }
+   }
   },
   {
    "id": "fire-frost-shatter",
@@ -5758,7 +6157,64 @@
    },
    "sensitivity": [
     "frostfire_periodic_can_crit=False: raid DPS 315.9 -> 314.2"
-   ]
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.6166,
+     "stamina": 0.0,
+     "intellect": 0.000988,
+     "spirit": 0.000148,
+     "spell_power": 0.000629,
+     "crit_rating": 0.000752,
+     "hit_rating": 0.001173,
+     "crit_pct": 0.002428,
+     "hit_pct": 0.004113
+    },
+    "30": {
+     "score": 0.7056,
+     "stamina": 0.0,
+     "intellect": 0.001127,
+     "spirit": 0.000166,
+     "spell_power": 0.000732,
+     "crit_rating": 0.000796,
+     "hit_rating": 0.00062,
+     "crit_pct": 0.004716,
+     "hit_pct": 0.003674
+    },
+    "40": {
+     "score": 0.9101,
+     "stamina": 0.0,
+     "intellect": 0.001434,
+     "spirit": 0.000143,
+     "spell_power": 0.000954,
+     "crit_rating": 0.000904,
+     "hit_rating": 0.000384,
+     "crit_pct": 0.007792,
+     "hit_pct": 0.003306
+    },
+    "50": {
+     "score": 1.0388,
+     "stamina": 0.0,
+     "intellect": 0.001451,
+     "spirit": 5.5e-05,
+     "spell_power": 0.001063,
+     "crit_rating": 0.000893,
+     "hit_rating": 0.000318,
+     "crit_pct": 0.010101,
+     "hit_pct": 0.0036
+    },
+    "60": {
+     "score": 1.6245,
+     "stamina": 0.0,
+     "intellect": 0.000561,
+     "spirit": 0.000321,
+     "spell_power": 0.00113,
+     "crit_rating": 0.001101,
+     "hit_rating": 0.000443,
+     "crit_pct": 0.015409,
+     "hit_pct": 0.006207
+    }
+   }
   },
   {
    "id": "mage-arcane-fire-pve",
@@ -6358,7 +6814,64 @@
    },
    "sensitivity": [
     "sub20_spell_penalty=False: raid DPS 303.8 -> 305.5"
-   ]
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.6383,
+     "stamina": 0.0,
+     "intellect": 0.001102,
+     "spirit": 0.000281,
+     "spell_power": 0.000607,
+     "crit_rating": 0.000347,
+     "hit_rating": 0.001485,
+     "crit_pct": 0.001121,
+     "hit_pct": 0.004854
+    },
+    "30": {
+     "score": 0.7264,
+     "stamina": 0.0,
+     "intellect": 0.001194,
+     "spirit": 0.000299,
+     "spell_power": 0.00068,
+     "crit_rating": 0.000368,
+     "hit_rating": 0.000967,
+     "crit_pct": 0.002178,
+     "hit_pct": 0.005725
+    },
+    "40": {
+     "score": 0.8381,
+     "stamina": 0.0,
+     "intellect": 0.00116,
+     "spirit": 0.00018,
+     "spell_power": 0.00076,
+     "crit_rating": 0.000333,
+     "hit_rating": 0.000796,
+     "crit_pct": 0.002868,
+     "hit_pct": 0.006857
+    },
+    "50": {
+     "score": 0.9871,
+     "stamina": 0.0,
+     "intellect": 0.001391,
+     "spirit": 0.000203,
+     "spell_power": 0.000956,
+     "crit_rating": 0.000848,
+     "hit_rating": 0.000896,
+     "crit_pct": 0.009588,
+     "hit_pct": 0.010132
+    },
+    "60": {
+     "score": 1.5769,
+     "stamina": 0.0,
+     "intellect": 0.001927,
+     "spirit": 0.000877,
+     "spell_power": 0.001415,
+     "crit_rating": 0.001198,
+     "hit_rating": 0.001189,
+     "crit_pct": 0.016786,
+     "hit_pct": 0.016351
+    }
+   }
   },
   {
    "id": "mage-arcane-pvp",
@@ -6958,7 +7471,64 @@
    },
    "sensitivity": [
     "sub20_spell_penalty=False: raid DPS 257.5 -> 258.9"
-   ]
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.2265,
+     "stamina": 0.001031,
+     "intellect": 3.9e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000228,
+     "crit_rating": 0.000175,
+     "hit_rating": 0.000359,
+     "crit_pct": 0.000565,
+     "hit_pct": 0.001199
+    },
+    "30": {
+     "score": 0.2735,
+     "stamina": 0.000918,
+     "intellect": 3.5e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000251,
+     "crit_rating": 0.000113,
+     "hit_rating": 0.00024,
+     "crit_pct": 0.000671,
+     "hit_pct": 0.001422
+    },
+    "40": {
+     "score": 0.3902,
+     "stamina": 0.000984,
+     "intellect": 3.1e-05,
+     "spirit": 0.0,
+     "spell_power": 0.00026,
+     "crit_rating": 8.9e-05,
+     "hit_rating": 0.000188,
+     "crit_pct": 0.000763,
+     "hit_pct": 0.001617
+    },
+    "50": {
+     "score": 0.4562,
+     "stamina": 0.002351,
+     "intellect": 2.7e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000157,
+     "crit_rating": 6.4e-05,
+     "hit_rating": 0.000142,
+     "crit_pct": 0.000722,
+     "hit_pct": 0.001606
+    },
+    "60": {
+     "score": 0.5782,
+     "stamina": 0.00158,
+     "intellect": 2.7e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000169,
+     "crit_rating": 6.2e-05,
+     "hit_rating": 0.000138,
+     "crit_pct": 0.000871,
+     "hit_pct": 0.001792
+    }
+   }
   },
   {
    "id": "mage-fire-frost-pvp",
@@ -7558,7 +8128,64 @@
    },
    "sensitivity": [
     "sub20_spell_penalty=False: raid DPS 259.5 -> 260.4"
-   ]
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.2307,
+     "stamina": 0.001048,
+     "intellect": 6.3e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000233,
+     "crit_rating": 0.000352,
+     "hit_rating": 0.00035,
+     "crit_pct": 0.001037,
+     "hit_pct": 0.001578
+    },
+    "30": {
+     "score": 0.2807,
+     "stamina": 0.000935,
+     "intellect": 5.8e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000262,
+     "crit_rating": 0.000238,
+     "hit_rating": 0.000315,
+     "crit_pct": 0.001412,
+     "hit_pct": 0.001868
+    },
+    "40": {
+     "score": 0.3724,
+     "stamina": 0.000976,
+     "intellect": 6.9e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000269,
+     "crit_rating": 0.000282,
+     "hit_rating": 0.000238,
+     "crit_pct": 0.002431,
+     "hit_pct": 0.002049
+    },
+    "50": {
+     "score": 0.5268,
+     "stamina": 0.002858,
+     "intellect": 3.4e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000103,
+     "crit_rating": 0.000114,
+     "hit_rating": 0.000155,
+     "crit_pct": 0.001289,
+     "hit_pct": 0.00175
+    },
+    "60": {
+     "score": 0.7216,
+     "stamina": 0.001604,
+     "intellect": 3.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000114,
+     "crit_rating": 0.000101,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001418,
+     "hit_pct": 0.0
+    }
+   }
   },
   {
    "id": "mage-fire-pvp",
@@ -8158,7 +8785,64 @@
    },
    "sensitivity": [
     "sub20_spell_penalty=False: raid DPS 277.3 -> 278.2"
-   ]
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.2108,
+     "stamina": 0.000986,
+     "intellect": 3.3e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000201,
+     "crit_rating": 0.000133,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000398,
+     "hit_pct": 0.0
+    },
+    "30": {
+     "score": 0.266,
+     "stamina": 0.000904,
+     "intellect": 3.6e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000263,
+     "crit_rating": 0.000138,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000819,
+     "hit_pct": 0.0
+    },
+    "40": {
+     "score": 0.3481,
+     "stamina": 0.000939,
+     "intellect": 5.6e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000269,
+     "crit_rating": 0.000218,
+     "hit_rating": 0.0,
+     "crit_pct": 0.00188,
+     "hit_pct": 0.0
+    },
+    "50": {
+     "score": 0.4565,
+     "stamina": 0.002203,
+     "intellect": 3.6e-05,
+     "spirit": 0.0,
+     "spell_power": 0.0002,
+     "crit_rating": 0.000123,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001385,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 0.5866,
+     "stamina": 0.001578,
+     "intellect": 3.6e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000212,
+     "crit_rating": 0.000116,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001622,
+     "hit_pct": 0.0
+    }
+   }
   },
   {
    "id": "mage-frost-pve",
@@ -8758,7 +9442,64 @@
    },
    "sensitivity": [
     "sub20_spell_penalty=False: raid DPS 285.4 -> 285.6"
-   ]
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.6199,
+     "stamina": 0.0,
+     "intellect": 0.001124,
+     "spirit": 0.000264,
+     "spell_power": 0.000671,
+     "crit_rating": 0.000903,
+     "hit_rating": 0.000808,
+     "crit_pct": 0.002921,
+     "hit_pct": 0.003037
+    },
+    "30": {
+     "score": 0.7429,
+     "stamina": 0.0,
+     "intellect": 0.001158,
+     "spirit": 0.000177,
+     "spell_power": 0.000819,
+     "crit_rating": 0.000604,
+     "hit_rating": 0.000668,
+     "crit_pct": 0.00358,
+     "hit_pct": 0.003956
+    },
+    "40": {
+     "score": 0.9716,
+     "stamina": 0.0,
+     "intellect": 0.002369,
+     "spirit": 0.000239,
+     "spell_power": 0.001026,
+     "crit_rating": 0.000556,
+     "hit_rating": 0.000707,
+     "crit_pct": 0.004789,
+     "hit_pct": 0.006089
+    },
+    "50": {
+     "score": 1.1026,
+     "stamina": 0.0,
+     "intellect": 0.001441,
+     "spirit": 5.8e-05,
+     "spell_power": 0.001145,
+     "crit_rating": 0.000481,
+     "hit_rating": 0.000647,
+     "crit_pct": 0.005438,
+     "hit_pct": 0.007315
+    },
+    "60": {
+     "score": 1.4946,
+     "stamina": 0.0,
+     "intellect": 0.000178,
+     "spirit": 0.00013,
+     "spell_power": 0.00138,
+     "crit_rating": 0.000523,
+     "hit_rating": 0.000386,
+     "crit_pct": 0.007323,
+     "hit_pct": 0.0054
+    }
+   }
   }
  ],
  "shortlist": [

@@ -947,7 +947,20 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "generic": {
+     "strength": 1.0,
+     "agility": 0.5,
+     "attack_power": 0.5,
+     "crit_rating": 1.0,
+     "hit_rating": 1.2,
+     "stamina": 0.3,
+     "intellect": 0.2,
+     "spell_power": 0.2,
+     "weapon_dps": 3.0
+    }
+   }
   },
   {
    "id": "paladin-holy",
@@ -1014,7 +1027,20 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "generic": {
+     "strength": 1.0,
+     "agility": 0.5,
+     "attack_power": 0.5,
+     "crit_rating": 1.0,
+     "hit_rating": 1.2,
+     "stamina": 0.3,
+     "intellect": 0.2,
+     "spell_power": 0.2,
+     "weapon_dps": 3.0
+    }
+   }
   },
   {
    "id": "paladin-protection-pvp",
@@ -1081,7 +1107,20 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "generic": {
+     "strength": 1.0,
+     "agility": 0.5,
+     "attack_power": 0.5,
+     "crit_rating": 1.0,
+     "hit_rating": 1.2,
+     "stamina": 0.3,
+     "intellect": 0.2,
+     "spell_power": 0.2,
+     "weapon_dps": 3.0
+    }
+   }
   },
   {
    "id": "paladin-protection",
@@ -1146,7 +1185,20 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 2,
    "scores": {},
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "generic": {
+     "strength": 1.0,
+     "agility": 0.5,
+     "attack_power": 0.5,
+     "crit_rating": 1.0,
+     "hit_rating": 1.2,
+     "stamina": 0.3,
+     "intellect": 0.2,
+     "spell_power": 0.2,
+     "weapon_dps": 3.0
+    }
+   }
   },
   {
    "id": "paladin-retribution-pvp",
@@ -1264,7 +1316,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0291,
+     "strength": 0.000111,
+     "agility": 3.9e-05,
+     "stamina": 0.000258,
+     "intellect": 0.0,
+     "attack_power": 5.6e-05,
+     "crit_rating": 8.1e-05,
+     "hit_rating": 5.5e-05,
+     "crit_pct": 0.000263,
+     "hit_pct": 0.000275,
+     "weapon_dps": 0.000785
+    },
+    "30": {
+     "score": 0.0667,
+     "strength": 0.00017,
+     "agility": 5.7e-05,
+     "stamina": 0.000464,
+     "intellect": 0.0,
+     "attack_power": 8.5e-05,
+     "crit_rating": 9.7e-05,
+     "hit_rating": 0.000101,
+     "crit_pct": 0.000573,
+     "hit_pct": 0.000597,
+     "weapon_dps": 0.001187
+    },
+    "40": {
+     "score": 0.182,
+     "strength": 0.000225,
+     "agility": 9.5e-05,
+     "stamina": 0.000925,
+     "intellect": 0.0,
+     "attack_power": 0.000113,
+     "crit_rating": 0.000147,
+     "hit_rating": 0.000166,
+     "crit_pct": 0.001264,
+     "hit_pct": 0.001429,
+     "weapon_dps": 0.001571
+    },
+    "50": {
+     "score": 0.3035,
+     "strength": 0.000262,
+     "agility": 0.000107,
+     "stamina": 0.000953,
+     "intellect": 0.0,
+     "attack_power": 0.000131,
+     "crit_rating": 0.000157,
+     "hit_rating": 0.000178,
+     "crit_pct": 0.001774,
+     "hit_pct": 0.002011,
+     "weapon_dps": 0.001858
+    },
+    "60": {
+     "score": 0.415,
+     "strength": 0.000232,
+     "agility": 0.000101,
+     "stamina": 0.000973,
+     "intellect": 0.0,
+     "attack_power": 0.000116,
+     "crit_rating": 0.000144,
+     "hit_rating": 0.0,
+     "crit_pct": 0.00201,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.001616
+    }
+   }
   },
   {
    "id": "paladin-retribution",
@@ -1378,7 +1497,74 @@
      }
     }
    },
-   "sensitivity": []
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.3231,
+     "strength": 0.001096,
+     "agility": 0.000421,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000549,
+     "crit_rating": 0.000867,
+     "hit_rating": 0.000835,
+     "crit_pct": 0.002807,
+     "hit_pct": 0.00228,
+     "weapon_dps": 0.007714
+    },
+    "30": {
+     "score": 0.524,
+     "strength": 0.001114,
+     "agility": 0.000438,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000558,
+     "crit_rating": 0.000739,
+     "hit_rating": 0.000676,
+     "crit_pct": 0.004379,
+     "hit_pct": 0.003381,
+     "weapon_dps": 0.007789
+    },
+    "40": {
+     "score": 0.731,
+     "strength": 0.001041,
+     "agility": 0.000466,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000521,
+     "crit_rating": 0.000721,
+     "hit_rating": 0.000563,
+     "crit_pct": 0.006212,
+     "hit_pct": 0.004489,
+     "weapon_dps": 0.007281
+    },
+    "50": {
+     "score": 0.9322,
+     "strength": 0.001123,
+     "agility": 0.000489,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000562,
+     "crit_rating": 0.00072,
+     "hit_rating": 0.000751,
+     "crit_pct": 0.008146,
+     "hit_pct": 0.008595,
+     "weapon_dps": 0.007955
+    },
+    "60": {
+     "score": 1.205,
+     "strength": 0.001137,
+     "agility": 0.000515,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.000569,
+     "crit_rating": 0.000736,
+     "hit_rating": 0.000252,
+     "crit_pct": 0.010307,
+     "hit_pct": 0.002525,
+     "weapon_dps": 0.007923
+    }
+   }
   }
  ],
  "shortlist": [
