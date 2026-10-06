@@ -161,7 +161,8 @@ def compact_gear(gear: Mapping | None) -> dict | None:
         if s["type"] == "boss":
             out.update(d=s["dungeon"], b=s.get("boss"), u=bool(s.get("confirmed")))
         elif s["type"] == "quest":
-            out.update(n=s.get("quest"), f=s.get("faction", "unknown"), fb=s.get("faction_basis"), p=s.get("pickup"))
+            out.update(n=s.get("quest"), f=s.get("faction", "unknown"), fb=s.get("faction_basis"), p=s.get("pickup"),
+                       o=s.get("objective"), ps=s.get("start"), pe=s.get("end"), ch=s.get("chain") or None)
         else:
             out.update(p=s.get("profession"), k=s.get("skill"))
         return out

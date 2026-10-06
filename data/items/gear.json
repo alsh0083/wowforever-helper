@@ -390,7 +390,11 @@
      "faction_basis": "likely: mentions stormwind",
      "pickup": "Pickup not recorded",
      "dungeon": "deadmines",
-     "level": 20
+     "level": 20,
+     "objective": "Bring Foreman Thistlenettle's Explorers' League Badge to Wilder Thistlenettle.",
+     "start": null,
+     "end": "Wilder Thistlenettle · Stormwind",
+     "chain": []
     }
    ]
   },
@@ -451,7 +455,11 @@
      "faction_basis": "likely: mentions stormwind",
      "pickup": "Pickup not recorded",
      "dungeon": "deadmines",
-     "level": 18
+     "level": 18,
+     "objective": "Bring four Miners’ Union Cards to Wilder Thistlenettle in Stormwind.",
+     "start": null,
+     "end": "Wilder Thistlenettle · Stormwind",
+     "chain": []
     }
    ]
   },
@@ -481,7 +489,11 @@
      "faction_basis": "likely: mentions stormwind",
      "pickup": "Pickup not recorded",
      "dungeon": "deadmines",
-     "level": 18
+     "level": 18,
+     "objective": "Bring four Miners’ Union Cards to Wilder Thistlenettle in Stormwind.",
+     "start": null,
+     "end": "Wilder Thistlenettle · Stormwind",
+     "chain": []
     }
    ]
   },
@@ -511,7 +523,16 @@
      "faction_basis": "likely: mentions westfall",
      "pickup": "Pickup not recorded",
      "dungeon": "deadmines",
-     "level": 22
+     "level": 22,
+     "objective": "Kill Edwin VanCleef and bring his head to Gryan Stoutmantle.",
+     "start": null,
+     "end": "Gryan Stoutmantle",
+     "chain": [
+      [
+       "after",
+       "The Defias Brotherhood"
+      ]
+     ]
     }
    ]
   },
@@ -545,7 +566,16 @@
      "faction_basis": "likely: mentions westfall",
      "pickup": "Pickup not recorded",
      "dungeon": "deadmines",
-     "level": 22
+     "level": 22,
+     "objective": "Kill Edwin VanCleef and bring his head to Gryan Stoutmantle.",
+     "start": null,
+     "end": "Gryan Stoutmantle",
+     "chain": [
+      [
+       "after",
+       "The Defias Brotherhood"
+      ]
+     ]
     }
    ]
   },
@@ -579,7 +609,11 @@
      "faction_basis": "Sentinel Hill, Westfall: https://warcraft.wiki.gg/wiki/Red_Silk_Bandanas",
      "pickup": "Scout Riell",
      "dungeon": "deadmines",
-     "level": 17
+     "level": 17,
+     "objective": "Collect red silk bandanas from the Deadmines for Scout Riell.",
+     "start": "Scout Riell · Sentinel Hill Tower",
+     "end": "Scout Riell · Sentinel Hill Tower",
+     "chain": []
     }
    ]
   },
@@ -612,7 +646,11 @@
      "faction_basis": "Sentinel Hill, Westfall: https://warcraft.wiki.gg/wiki/Red_Silk_Bandanas",
      "pickup": "Scout Riell",
      "dungeon": "deadmines",
-     "level": 17
+     "level": 17,
+     "objective": "Collect red silk bandanas from the Deadmines for Scout Riell.",
+     "start": "Scout Riell · Sentinel Hill Tower",
+     "end": "Scout Riell · Sentinel Hill Tower",
+     "chain": []
     }
    ]
   },
@@ -1700,7 +1738,11 @@
      "faction_basis": "Deathstalkers in Shadowfang, from High Executor Hadrec: https://wowclassicdb.com/quest/1098",
      "pickup": "Pickup not recorded",
      "dungeon": "shadowfang-keep",
-     "level": 25
+     "level": 25,
+     "objective": "Find Deathstalker Adamant and Deathstalker Vincent inside Shadowfang Keep.",
+     "start": null,
+     "end": null,
+     "chain": []
     }
    ]
   },
@@ -4324,7 +4366,11 @@
      "faction_basis": "likely: mentions undercity",
      "pickup": "Pickup not recorded",
      "dungeon": "shadowfang-keep",
-     "level": 26
+     "level": 26,
+     "objective": "Bring the Book of Ur to Keeper Bel'dugur in the Undercity.",
+     "start": null,
+     "end": "Keeper Bel'dugur · Apothecarium, Undercity",
+     "chain": []
     }
    ]
   },
@@ -5366,7 +5412,16 @@
      "faction_basis": "likely: mentions westfall",
      "pickup": "Pickup not recorded",
      "dungeon": "deadmines",
-     "level": 22
+     "level": 22,
+     "objective": "Kill Edwin VanCleef and bring his head to Gryan Stoutmantle.",
+     "start": null,
+     "end": "Gryan Stoutmantle",
+     "chain": [
+      [
+       "after",
+       "The Defias Brotherhood"
+      ]
+     ]
     }
    ]
   },
@@ -5399,7 +5454,11 @@
      "faction_basis": "Sentinel Hill, Westfall: https://warcraft.wiki.gg/wiki/Red_Silk_Bandanas",
      "pickup": "Scout Riell",
      "dungeon": "deadmines",
-     "level": 17
+     "level": 17,
+     "objective": "Collect red silk bandanas from the Deadmines for Scout Riell.",
+     "start": "Scout Riell · Sentinel Hill Tower",
+     "end": "Scout Riell · Sentinel Hill Tower",
+     "chain": []
     }
    ]
   },
@@ -5918,7 +5977,11 @@
      "faction_basis": "likely: mentions undercity",
      "pickup": "Pickup not recorded",
      "dungeon": "shadowfang-keep",
-     "level": 26
+     "level": 26,
+     "objective": "Bring the Book of Ur to Keeper Bel'dugur in the Undercity.",
+     "start": null,
+     "end": "Keeper Bel'dugur · Apothecarium, Undercity",
+     "chain": []
     }
    ]
   },
@@ -6054,7 +6117,11 @@
      "faction_basis": "likely: mentions sepulcher",
      "pickup": "Pickup not recorded",
      "dungeon": "shadowfang-keep",
-     "level": 27
+     "level": 27,
+     "objective": "Kill Arugal and bring his head to Dalar Dawnweaver at the Sepulcher.",
+     "start": null,
+     "end": "Dalar Dawnweaver · The Sepulcher",
+     "chain": []
     }
    ]
   },
@@ -6462,7 +6529,11 @@
      "faction_basis": "neutral, above Wailing Caverns: https://warcraft.wiki.gg/wiki/Nalpak",
      "pickup": "Nalpak",
      "dungeon": "wailing-caverns",
-     "level": 17
+     "level": 17,
+     "objective": "Bring twenty Deviate Hides to Nalpak at the Wailing Caverns.",
+     "start": "Nalpak · Wailing Caverns",
+     "end": null,
+     "chain": []
     }
    ]
   },
@@ -6493,7 +6564,11 @@
      "faction_basis": "neutral, above Wailing Caverns: https://warcraft.wiki.gg/wiki/Deviate_Eradication",
      "pickup": "Ebru",
      "dungeon": "wailing-caverns",
-     "level": 21
+     "level": 21,
+     "objective": "Kill seven of each listed deviate type for Ebru at the caverns.",
+     "start": "Ebru · Wailing Caverns",
+     "end": null,
+     "chain": []
     }
    ]
   },
@@ -6527,7 +6602,16 @@
      "faction_basis": "likely: mentions thunder bluff",
      "pickup": "Pickup not recorded",
      "dungeon": "wailing-caverns",
-     "level": 22
+     "level": 22,
+     "objective": "Bring the four fanglord gems to Nara Wildmane in Thunder Bluff.",
+     "start": null,
+     "end": "Nara Wildmane · Thunder Bluff",
+     "chain": [
+      [
+       "after",
+       "Nara Wildmane #1490"
+      ]
+     ]
     }
    ]
   },
@@ -6562,7 +6646,16 @@
      "faction_basis": "likely: mentions thunder bluff",
      "pickup": "Pickup not recorded",
      "dungeon": "wailing-caverns",
-     "level": 22
+     "level": 22,
+     "objective": "Bring the four fanglord gems to Nara Wildmane in Thunder Bluff.",
+     "start": null,
+     "end": "Nara Wildmane · Thunder Bluff",
+     "chain": [
+      [
+       "after",
+       "Nara Wildmane #1490"
+      ]
+     ]
     }
    ]
   },
@@ -7150,7 +7243,11 @@
      "faction_basis": "likely: mentions ironforge",
      "pickup": "Pickup not recorded",
      "dungeon": "blackfathom-deeps",
-     "level": 23
+     "level": 23,
+     "objective": "Bring the Lorgalis Manuscript to Gerrig Bonegrip in Ironforge.",
+     "start": null,
+     "end": "Gerrig Bonegrip · Forlorn Cavern, Ironforge",
+     "chain": []
     }
    ]
   },
@@ -7205,7 +7302,11 @@
      "faction_basis": "likely: mentions the barrens",
      "pickup": "Pickup not recorded",
      "dungeon": "shadowfang-keep",
-     "level": 25
+     "level": 25,
+     "objective": "Bring Soran'ruk fragments to Doan Karhan in the Barrens.",
+     "start": null,
+     "end": "Doan Karhan · The Barrens",
+     "chain": []
     }
    ]
   },
@@ -7536,7 +7637,11 @@
      "faction_basis": "recorded",
      "pickup": "Pickup not recorded",
      "dungeon": "blackfathom-deeps",
-     "level": 25
+     "level": 25,
+     "objective": "Bring ten Twilight Pendants to Argent Guard Manados in Darnassus.",
+     "start": null,
+     "end": "Argent Guard Manados · Darnassus",
+     "chain": []
     }
    ]
   },
@@ -7565,7 +7670,11 @@
      "faction_basis": "recorded",
      "pickup": "Pickup not recorded",
      "dungeon": "blackfathom-deeps",
-     "level": 25
+     "level": 25,
+     "objective": "Bring ten Twilight Pendants to Argent Guard Manados in Darnassus.",
+     "start": null,
+     "end": "Argent Guard Manados · Darnassus",
+     "chain": []
     }
    ]
   },
@@ -7598,7 +7707,16 @@
      "faction_basis": "recorded",
      "pickup": "Pickup not recorded",
      "dungeon": "blackfathom-deeps",
-     "level": 27
+     "level": 27,
+     "objective": "Bring Twilight Lord Kelris’s head to Dawnwatcher Selgorm in Darnassus.",
+     "start": null,
+     "end": "Dawnwatcher Selgorm · Darnassus",
+     "chain": [
+      [
+       "after",
+       "In Search of Thaelrid #1198"
+      ]
+     ]
     },
     {
      "type": "quest",
@@ -7608,7 +7726,11 @@
      "faction_basis": "recorded",
      "pickup": "Pickup not recorded",
      "dungeon": "blackfathom-deeps",
-     "level": 27
+     "level": 27,
+     "objective": "Bring Twilight Lord Kelris’s head to Bashana Runetotem in Thunder Bluff.",
+     "start": null,
+     "end": "Bashana Runetotem · Thunder Bluff",
+     "chain": []
     }
    ]
   },
@@ -7638,7 +7760,16 @@
      "faction_basis": "recorded",
      "pickup": "Pickup not recorded",
      "dungeon": "blackfathom-deeps",
-     "level": 27
+     "level": 27,
+     "objective": "Bring Twilight Lord Kelris’s head to Dawnwatcher Selgorm in Darnassus.",
+     "start": null,
+     "end": "Dawnwatcher Selgorm · Darnassus",
+     "chain": [
+      [
+       "after",
+       "In Search of Thaelrid #1198"
+      ]
+     ]
     },
     {
      "type": "quest",
@@ -7648,7 +7779,11 @@
      "faction_basis": "recorded",
      "pickup": "Pickup not recorded",
      "dungeon": "blackfathom-deeps",
-     "level": 27
+     "level": 27,
+     "objective": "Bring Twilight Lord Kelris’s head to Bashana Runetotem in Thunder Bluff.",
+     "start": null,
+     "end": "Bashana Runetotem · Thunder Bluff",
+     "chain": []
     }
    ]
   },
@@ -7677,7 +7812,16 @@
      "faction_basis": "likely: mentions auberdine",
      "pickup": "Gershala Nightwhisper",
      "dungeon": "blackfathom-deeps",
-     "level": 24
+     "level": 24,
+     "objective": "Bring eight corrupted brain stems to Gershala Nightwhisper in Auberdine.",
+     "start": "Gershala Nightwhisper · Auberdine",
+     "end": null,
+     "chain": [
+      [
+       "after",
+       "The Corruption Abroad"
+      ]
+     ]
     }
    ]
   },
@@ -7707,7 +7851,16 @@
      "faction_basis": "likely: mentions auberdine",
      "pickup": "Gershala Nightwhisper",
      "dungeon": "blackfathom-deeps",
-     "level": 24
+     "level": 24,
+     "objective": "Bring eight corrupted brain stems to Gershala Nightwhisper in Auberdine.",
+     "start": "Gershala Nightwhisper · Auberdine",
+     "end": null,
+     "chain": [
+      [
+       "after",
+       "The Corruption Abroad"
+      ]
+     ]
     }
    ]
   },
@@ -8878,7 +9031,16 @@
      "faction_basis": "likely: mentions stormwind",
      "pickup": "Pickup not recorded",
      "dungeon": "deadmines",
-     "level": 20
+     "level": 20,
+     "objective": "Retrieve the Gnoam Sprecklesprocket and return it to Shoni the Shilent.",
+     "start": null,
+     "end": "Shoni the Shilent · Stormwind",
+     "chain": [
+      [
+       "after",
+       "Speak with Shoni"
+      ]
+     ]
     }
    ]
   },
@@ -8911,7 +9073,16 @@
      "faction_basis": "likely: mentions stormwind",
      "pickup": "Pickup not recorded",
      "dungeon": "deadmines",
-     "level": 20
+     "level": 20,
+     "objective": "Retrieve the Gnoam Sprecklesprocket and return it to Shoni the Shilent.",
+     "start": null,
+     "end": "Shoni the Shilent · Stormwind",
+     "chain": [
+      [
+       "after",
+       "Speak with Shoni"
+      ]
+     ]
     }
    ]
   },
@@ -10595,7 +10766,11 @@
      "faction_basis": "neutral, above Wailing Caverns: https://warcraft.wiki.gg/wiki/Deviate_Eradication",
      "pickup": "Ebru",
      "dungeon": "wailing-caverns",
-     "level": 21
+     "level": 21,
+     "objective": "Kill seven of each listed deviate type for Ebru at the caverns.",
+     "start": "Ebru · Wailing Caverns",
+     "end": null,
+     "chain": []
     }
    ]
   },
@@ -12839,7 +13014,11 @@
      "faction_basis": "likely: mentions stormwind",
      "pickup": "Pickup not recorded",
      "dungeon": "gnomeregan",
-     "level": 30
+     "level": 30,
+     "objective": "Bring twenty-four Robo-mechanical Guts to Shoni in Stormwind.",
+     "start": null,
+     "end": "Shoni the Shilent · Stormwind",
+     "chain": []
     }
    ]
   },
@@ -12868,7 +13047,11 @@
      "faction_basis": "likely: mentions stormwind",
      "pickup": "Pickup not recorded",
      "dungeon": "gnomeregan",
-     "level": 30
+     "level": 30,
+     "objective": "Bring twenty-four Robo-mechanical Guts to Shoni in Stormwind.",
+     "start": null,
+     "end": "Shoni the Shilent · Stormwind",
+     "chain": []
     }
    ]
   },
@@ -15847,7 +16030,11 @@
      "faction_basis": "likely: mentions thunder bluff",
      "pickup": "Apothecary Zamah",
      "dungeon": "wailing-caverns",
-     "level": 18
+     "level": 18,
+     "objective": "Collect ten Serpentbloom for Apothecary Zamah in Thunder Bluff.",
+     "start": "Apothecary Zamah · Thunder Bluff",
+     "end": null,
+     "chain": []
     }
    ]
   },
@@ -28947,7 +29134,11 @@
      "faction_basis": "likely: mentions the barrens",
      "pickup": "Pickup not recorded",
      "dungeon": "shadowfang-keep",
-     "level": 25
+     "level": 25,
+     "objective": "Bring Soran'ruk fragments to Doan Karhan in the Barrens.",
+     "start": null,
+     "end": "Doan Karhan · The Barrens",
+     "chain": []
     }
    ]
   },
@@ -29033,7 +29224,11 @@
      "faction_basis": "likely: mentions undercity",
      "pickup": "Pickup not recorded",
      "dungeon": "ragefire-chasm",
-     "level": 16
+     "level": 16,
+     "objective": "Bring Spells of Shadow and Incantations from the Nether to Varimathras.",
+     "start": null,
+     "end": "Varimathras · Undercity",
+     "chain": []
     }
    ]
   },
@@ -29064,7 +29259,11 @@
      "faction_basis": "likely: mentions undercity",
      "pickup": "Pickup not recorded",
      "dungeon": "ragefire-chasm",
-     "level": 16
+     "level": 16,
+     "objective": "Bring Spells of Shadow and Incantations from the Nether to Varimathras.",
+     "start": null,
+     "end": "Varimathras · Undercity",
+     "chain": []
     }
    ]
   },
@@ -29095,7 +29294,11 @@
      "faction_basis": "likely: mentions undercity",
      "pickup": "Pickup not recorded",
      "dungeon": "ragefire-chasm",
-     "level": 16
+     "level": 16,
+     "objective": "Bring Spells of Shadow and Incantations from the Nether to Varimathras.",
+     "start": null,
+     "end": "Varimathras · Undercity",
+     "chain": []
     }
    ]
   },
@@ -29124,7 +29327,16 @@
      "faction_basis": "likely: mentions thunder bluff",
      "pickup": "Item start",
      "dungeon": "ragefire-chasm",
-     "level": 16
+     "level": 16,
+     "objective": "Take the Grimtotem Satchel from the chasm back to Rahauro.",
+     "start": "Item: Grimtotem Satchel",
+     "end": "Rahauro · Thunder Bluff",
+     "chain": [
+      [
+       "after",
+       "Searching for the Lost Satchel #5722"
+      ]
+     ]
     }
    ]
   },
@@ -29153,7 +29365,16 @@
      "faction_basis": "likely: mentions thunder bluff",
      "pickup": "Item start",
      "dungeon": "ragefire-chasm",
-     "level": 16
+     "level": 16,
+     "objective": "Take the Grimtotem Satchel from the chasm back to Rahauro.",
+     "start": "Item: Grimtotem Satchel",
+     "end": "Rahauro · Thunder Bluff",
+     "chain": [
+      [
+       "after",
+       "Searching for the Lost Satchel #5722"
+      ]
+     ]
     }
    ]
   },
@@ -44643,7 +44864,11 @@
      "faction_basis": "recorded",
      "pickup": "Tabitha Heartweaver",
      "dungeon": "ruins-of-lordaeron",
-     "level": 22
+     "level": 22,
+     "objective": "Learn what happened to Edward Heartweaver in the ruins and report back.",
+     "start": "Tabitha Heartweaver · The Sepulcher, Silverpine Forest",
+     "end": "Tabitha Heartweaver · The Sepulcher, Silverpine Forest",
+     "chain": []
     }
    ]
   },
@@ -44673,7 +44898,11 @@
      "faction_basis": "recorded",
      "pickup": "Tabitha Heartweaver",
      "dungeon": "ruins-of-lordaeron",
-     "level": 22
+     "level": 22,
+     "objective": "Learn what happened to Edward Heartweaver in the ruins and report back.",
+     "start": "Tabitha Heartweaver · The Sepulcher, Silverpine Forest",
+     "end": "Tabitha Heartweaver · The Sepulcher, Silverpine Forest",
+     "chain": []
     }
    ]
   },
@@ -44707,7 +44936,11 @@
      "faction_basis": "recorded",
      "pickup": "Deathguard Kristof",
      "dungeon": "ruins-of-lordaeron",
-     "level": 22
+     "level": 22,
+     "objective": "Kill Rath’mael in the ruins. The listing prints no faction; Horde pickup is from a player guide.",
+     "start": "Deathguard Kristof · Leatherworking camp southeast of Brill, Tirisfal Glades",
+     "end": "Deathguard Kristof · Southeast of Brill",
+     "chain": []
     }
    ]
   },
@@ -44740,7 +44973,11 @@
      "faction_basis": "recorded",
      "pickup": "Deathguard Kristof",
      "dungeon": "ruins-of-lordaeron",
-     "level": 22
+     "level": 22,
+     "objective": "Kill Rath’mael in the ruins. The listing prints no faction; Horde pickup is from a player guide.",
+     "start": "Deathguard Kristof · Leatherworking camp southeast of Brill, Tirisfal Glades",
+     "end": "Deathguard Kristof · Southeast of Brill",
+     "chain": []
     }
    ]
   },
@@ -52779,7 +53016,16 @@
      "faction_basis": "likely: mentions thunder bluff",
      "pickup": "Item start",
      "dungeon": "ragefire-chasm",
-     "level": 16
+     "level": 16,
+     "objective": "Take the Grimtotem Satchel from the chasm back to Rahauro.",
+     "start": "Item: Grimtotem Satchel",
+     "end": "Rahauro · Thunder Bluff",
+     "chain": [
+      [
+       "after",
+       "Searching for the Lost Satchel #5722"
+      ]
+     ]
     }
    ]
   },
@@ -52812,7 +53058,11 @@
      "faction_basis": "Sentinel Hill, Westfall: https://warcraft.wiki.gg/wiki/Red_Silk_Bandanas",
      "pickup": "Scout Riell",
      "dungeon": "deadmines",
-     "level": 17
+     "level": 17,
+     "objective": "Collect red silk bandanas from the Deadmines for Scout Riell.",
+     "start": "Scout Riell · Sentinel Hill Tower",
+     "end": "Scout Riell · Sentinel Hill Tower",
+     "chain": []
     }
    ]
   },
@@ -52842,7 +53092,11 @@
      "faction_basis": "likely: mentions stormwind",
      "pickup": "Pickup not recorded",
      "dungeon": "deadmines",
-     "level": 18
+     "level": 18,
+     "objective": "Bring four Miners’ Union Cards to Wilder Thistlenettle in Stormwind.",
+     "start": null,
+     "end": "Wilder Thistlenettle · Stormwind",
+     "chain": []
     }
    ]
   },
@@ -52872,7 +53126,11 @@
      "faction_basis": "likely: mentions thunder bluff",
      "pickup": "Apothecary Zamah",
      "dungeon": "wailing-caverns",
-     "level": 18
+     "level": 18,
+     "objective": "Collect ten Serpentbloom for Apothecary Zamah in Thunder Bluff.",
+     "start": "Apothecary Zamah · Thunder Bluff",
+     "end": null,
+     "chain": []
     }
    ]
   },
@@ -52902,7 +53160,11 @@
      "faction_basis": "likely: mentions thunder bluff",
      "pickup": "Apothecary Zamah",
      "dungeon": "wailing-caverns",
-     "level": 18
+     "level": 18,
+     "objective": "Collect ten Serpentbloom for Apothecary Zamah in Thunder Bluff.",
+     "start": "Apothecary Zamah · Thunder Bluff",
+     "end": null,
+     "chain": []
     }
    ]
   },
@@ -52931,7 +53193,11 @@
      "faction_basis": "likely: mentions stormwind",
      "pickup": "Pickup not recorded",
      "dungeon": "deadmines",
-     "level": 20
+     "level": 20,
+     "objective": "Bring Foreman Thistlenettle's Explorers' League Badge to Wilder Thistlenettle.",
+     "start": null,
+     "end": "Wilder Thistlenettle · Stormwind",
+     "chain": []
     }
    ]
   },
@@ -52960,7 +53226,11 @@
      "faction_basis": "likely: mentions stormwind",
      "pickup": "Pickup not recorded",
      "dungeon": "deadmines",
-     "level": 20
+     "level": 20,
+     "objective": "Bring Foreman Thistlenettle's Explorers' League Badge to Wilder Thistlenettle.",
+     "start": null,
+     "end": "Wilder Thistlenettle · Stormwind",
+     "chain": []
     }
    ]
   },
@@ -52991,7 +53261,16 @@
      "faction_basis": "likely: mentions stormwind",
      "pickup": "Pickup not recorded",
      "dungeon": "deadmines",
-     "level": 20
+     "level": 20,
+     "objective": "Retrieve the Gnoam Sprecklesprocket and return it to Shoni the Shilent.",
+     "start": null,
+     "end": "Shoni the Shilent · Stormwind",
+     "chain": [
+      [
+       "after",
+       "Speak with Shoni"
+      ]
+     ]
     }
    ]
   },
@@ -53020,7 +53299,16 @@
      "faction_basis": "likely: mentions stormwind",
      "pickup": "Pickup not recorded",
      "dungeon": "deadmines",
-     "level": 20
+     "level": 20,
+     "objective": "Retrieve the Gnoam Sprecklesprocket and return it to Shoni the Shilent.",
+     "start": null,
+     "end": "Shoni the Shilent · Stormwind",
+     "chain": [
+      [
+       "after",
+       "Speak with Shoni"
+      ]
+     ]
     }
    ]
   },
@@ -53054,7 +53342,16 @@
      "faction_basis": "likely: mentions thunder bluff",
      "pickup": "Pickup not recorded",
      "dungeon": "wailing-caverns",
-     "level": 22
+     "level": 22,
+     "objective": "Bring the four fanglord gems to Nara Wildmane in Thunder Bluff.",
+     "start": null,
+     "end": "Nara Wildmane · Thunder Bluff",
+     "chain": [
+      [
+       "after",
+       "Nara Wildmane #1490"
+      ]
+     ]
     }
    ]
   },
@@ -53084,7 +53381,16 @@
      "faction_basis": "likely: mentions auberdine",
      "pickup": "Gershala Nightwhisper",
      "dungeon": "blackfathom-deeps",
-     "level": 24
+     "level": 24,
+     "objective": "Bring eight corrupted brain stems to Gershala Nightwhisper in Auberdine.",
+     "start": "Gershala Nightwhisper · Auberdine",
+     "end": null,
+     "chain": [
+      [
+       "after",
+       "The Corruption Abroad"
+      ]
+     ]
     }
    ]
   },
@@ -53114,7 +53420,11 @@
      "faction_basis": "Deathstalkers in Shadowfang, from High Executor Hadrec: https://wowclassicdb.com/quest/1098",
      "pickup": "Pickup not recorded",
      "dungeon": "shadowfang-keep",
-     "level": 25
+     "level": 25,
+     "objective": "Find Deathstalker Adamant and Deathstalker Vincent inside Shadowfang Keep.",
+     "start": null,
+     "end": null,
+     "chain": []
     }
    ]
   },
@@ -53144,7 +53454,11 @@
      "faction_basis": "Deathstalkers in Shadowfang, from High Executor Hadrec: https://wowclassicdb.com/quest/1098",
      "pickup": "Pickup not recorded",
      "dungeon": "shadowfang-keep",
-     "level": 25
+     "level": 25,
+     "objective": "Find Deathstalker Adamant and Deathstalker Vincent inside Shadowfang Keep.",
+     "start": null,
+     "end": null,
+     "chain": []
     }
    ]
   },
@@ -53174,7 +53488,11 @@
      "faction_basis": "recorded",
      "pickup": "Pickup not recorded",
      "dungeon": "blackfathom-deeps",
-     "level": 25
+     "level": 25,
+     "objective": "Bring ten Twilight Pendants to Argent Guard Manados in Darnassus.",
+     "start": null,
+     "end": "Argent Guard Manados · Darnassus",
+     "chain": []
     }
    ]
   },
@@ -53205,7 +53523,11 @@
      "faction_basis": "likely: mentions undercity",
      "pickup": "Pickup not recorded",
      "dungeon": "shadowfang-keep",
-     "level": 26
+     "level": 26,
+     "objective": "Bring the Book of Ur to Keeper Bel'dugur in the Undercity.",
+     "start": null,
+     "end": "Keeper Bel'dugur · Apothecarium, Undercity",
+     "chain": []
     }
    ]
   },
@@ -53234,7 +53556,16 @@
      "faction_basis": "recorded",
      "pickup": "Pickup not recorded",
      "dungeon": "blackfathom-deeps",
-     "level": 27
+     "level": 27,
+     "objective": "Bring Twilight Lord Kelris’s head to Dawnwatcher Selgorm in Darnassus.",
+     "start": null,
+     "end": "Dawnwatcher Selgorm · Darnassus",
+     "chain": [
+      [
+       "after",
+       "In Search of Thaelrid #1198"
+      ]
+     ]
     },
     {
      "type": "quest",
@@ -53244,7 +53575,11 @@
      "faction_basis": "recorded",
      "pickup": "Pickup not recorded",
      "dungeon": "blackfathom-deeps",
-     "level": 27
+     "level": 27,
+     "objective": "Bring Twilight Lord Kelris’s head to Bashana Runetotem in Thunder Bluff.",
+     "start": null,
+     "end": "Bashana Runetotem · Thunder Bluff",
+     "chain": []
     }
    ]
   },
@@ -53273,7 +53608,16 @@
      "faction_basis": "recorded",
      "pickup": "Pickup not recorded",
      "dungeon": "blackfathom-deeps",
-     "level": 27
+     "level": 27,
+     "objective": "Bring Twilight Lord Kelris’s head to Dawnwatcher Selgorm in Darnassus.",
+     "start": null,
+     "end": "Dawnwatcher Selgorm · Darnassus",
+     "chain": [
+      [
+       "after",
+       "In Search of Thaelrid #1198"
+      ]
+     ]
     },
     {
      "type": "quest",
@@ -53283,7 +53627,11 @@
      "faction_basis": "recorded",
      "pickup": "Pickup not recorded",
      "dungeon": "blackfathom-deeps",
-     "level": 27
+     "level": 27,
+     "objective": "Bring Twilight Lord Kelris’s head to Bashana Runetotem in Thunder Bluff.",
+     "start": null,
+     "end": "Bashana Runetotem · Thunder Bluff",
+     "chain": []
     }
    ]
   },
@@ -53314,7 +53662,11 @@
      "faction_basis": "likely: mentions stormwind",
      "pickup": "Pickup not recorded",
      "dungeon": "gnomeregan",
-     "level": 30
+     "level": 30,
+     "objective": "Bring twenty-four Robo-mechanical Guts to Shoni in Stormwind.",
+     "start": null,
+     "end": "Shoni the Shilent · Stormwind",
+     "chain": []
     }
    ]
   },
@@ -57501,7 +57853,11 @@
      "faction_basis": "recorded",
      "pickup": "Pickup not recorded",
      "dungeon": "ruins-of-lordaeron",
-     "level": 21
+     "level": 21,
+     "objective": "Take the Baron’s head from the ruins and deliver it to Captain Truman.",
+     "start": null,
+     "end": "Captain Truman",
+     "chain": []
     }
    ]
   },
@@ -57532,7 +57888,11 @@
      "faction_basis": "recorded",
      "pickup": "Pickup not recorded",
      "dungeon": "ruins-of-lordaeron",
-     "level": 21
+     "level": 21,
+     "objective": "Take the Baron’s head from the ruins and deliver it to Captain Truman.",
+     "start": null,
+     "end": "Captain Truman",
+     "chain": []
     }
    ]
   },
@@ -57561,7 +57921,11 @@
      "faction_basis": "recorded",
      "pickup": "Pickup not recorded",
      "dungeon": "ruins-of-lordaeron",
-     "level": 21
+     "level": 21,
+     "objective": "Take the Baron’s head from the ruins and deliver it to Captain Truman.",
+     "start": null,
+     "end": "Captain Truman",
+     "chain": []
     }
    ]
   },
@@ -57591,7 +57955,11 @@
      "faction_basis": "recorded",
      "pickup": "Item start",
      "dungeon": "ruins-of-lordaeron",
-     "level": 22
+     "level": 22,
+     "objective": "A bloodied insignia starts a collection that turns in at Stormwind City.",
+     "start": "Item: Bloodied Insignia · Inside Ruins of Lordaeron",
+     "end": "General Marcus Jonathan · Stormwind City",
+     "chain": []
     }
    ]
   },
@@ -57622,7 +57990,11 @@
      "faction_basis": "recorded",
      "pickup": "Item start",
      "dungeon": "ruins-of-lordaeron",
-     "level": 22
+     "level": 22,
+     "objective": "A bloodied insignia starts a collection that turns in at Stormwind City.",
+     "start": "Item: Bloodied Insignia · Inside Ruins of Lordaeron",
+     "end": "General Marcus Jonathan · Stormwind City",
+     "chain": []
     }
    ]
   },
@@ -57655,7 +58027,11 @@
      "faction_basis": "recorded",
      "pickup": "Morbin Lightbane",
      "dungeon": "ruins-of-lordaeron",
-     "level": 22
+     "level": 22,
+     "objective": "Gather intact limbs from the ruins and return them in Undercity.",
+     "start": "Morbin Lightbane · Royal Quarters, Undercity",
+     "end": "Morbin Lightbane · Royal Quarters, Undercity",
+     "chain": []
     }
    ]
   },
@@ -57686,7 +58062,11 @@
      "faction_basis": "recorded",
      "pickup": "Morbin Lightbane",
      "dungeon": "ruins-of-lordaeron",
-     "level": 22
+     "level": 22,
+     "objective": "Gather intact limbs from the ruins and return them in Undercity.",
+     "start": "Morbin Lightbane · Royal Quarters, Undercity",
+     "end": "Morbin Lightbane · Royal Quarters, Undercity",
+     "chain": []
     }
    ]
   },
@@ -57717,7 +58097,11 @@
      "faction_basis": "recorded",
      "pickup": "Theodore Griffs",
      "dungeon": "ruins-of-lordaeron",
-     "level": 22
+     "level": 22,
+     "objective": "Take a highly toxic strain from Witherfang back to the Apothecarium. A reported prerequisite is not confirmed.",
+     "start": "Theodore Griffs · Apothecarium, Undercity",
+     "end": "Theodore Griffs · Apothecarium, Undercity",
+     "chain": []
     }
    ]
   },
@@ -57747,7 +58131,11 @@
      "faction_basis": "recorded",
      "pickup": "Theodore Griffs",
      "dungeon": "ruins-of-lordaeron",
-     "level": 22
+     "level": 22,
+     "objective": "Take a highly toxic strain from Witherfang back to the Apothecarium. A reported prerequisite is not confirmed.",
+     "start": "Theodore Griffs · Apothecarium, Undercity",
+     "end": "Theodore Griffs · Apothecarium, Undercity",
+     "chain": []
     }
    ]
   },
@@ -57780,7 +58168,20 @@
      "faction_basis": "likely: mentions ironforge, dun morogh",
      "pickup": "Earthseer Farsen",
      "dungeon": "hall-of-thanes",
-     "level": 16
+     "level": 16,
+     "objective": "Enter the Hall of Thanes and take Durgen Dirgehammer’s head to King Magni Bronzebeard.",
+     "start": "Earthseer Farsen · Hill above Gol’Bolar Quarry, Dun Morogh",
+     "end": "King Magni Bronzebeard · Ironforge",
+     "chain": [
+      [
+       "needs",
+       "Underground Map (after a short Dun Morogh chain from Beldin Steelgrill / Earthseer Farsen)."
+      ],
+      [
+       "after",
+       "Underground Map"
+      ]
+     ]
     }
    ]
   },
@@ -57814,7 +58215,20 @@
      "faction_basis": "likely: mentions ironforge, dun morogh",
      "pickup": "Earthseer Farsen",
      "dungeon": "hall-of-thanes",
-     "level": 16
+     "level": 16,
+     "objective": "Enter the Hall of Thanes and take Durgen Dirgehammer’s head to King Magni Bronzebeard.",
+     "start": "Earthseer Farsen · Hill above Gol’Bolar Quarry, Dun Morogh",
+     "end": "King Magni Bronzebeard · Ironforge",
+     "chain": [
+      [
+       "needs",
+       "Underground Map (after a short Dun Morogh chain from Beldin Steelgrill / Earthseer Farsen)."
+      ],
+      [
+       "after",
+       "Underground Map"
+      ]
+     ]
     }
    ]
   },
@@ -57847,7 +58261,20 @@
      "faction_basis": "likely: mentions ironforge, dun morogh",
      "pickup": "Earthseer Farsen",
      "dungeon": "hall-of-thanes",
-     "level": 16
+     "level": 16,
+     "objective": "Enter the Hall of Thanes and take Durgen Dirgehammer’s head to King Magni Bronzebeard.",
+     "start": "Earthseer Farsen · Hill above Gol’Bolar Quarry, Dun Morogh",
+     "end": "King Magni Bronzebeard · Ironforge",
+     "chain": [
+      [
+       "needs",
+       "Underground Map (after a short Dun Morogh chain from Beldin Steelgrill / Earthseer Farsen)."
+      ],
+      [
+       "after",
+       "Underground Map"
+      ]
+     ]
     }
    ]
   },
@@ -57877,7 +58304,11 @@
      "faction_basis": "recorded",
      "pickup": "Afadra Dunwall",
      "dungeon": "hall-of-thanes",
-     "level": 15
+     "level": 15,
+     "objective": "Clear restless dead in the vault and put Anvilmar’s spirit back to rest.",
+     "start": "Afadra Dunwall · Ironforge",
+     "end": null,
+     "chain": []
     }
    ]
   },
@@ -57906,7 +58337,11 @@
      "faction_basis": "owner, in game, 2026-10-06",
      "pickup": "Thom Filch",
      "dungeon": "hall-of-thanes",
-     "level": 15
+     "level": 15,
+     "objective": "Collect eight dwarven heirlooms from the Hall of Thanes and bring them back.",
+     "start": "Thom Filch · Near the vault entrance",
+     "end": "Thom Filch · Near the vault entrance",
+     "chain": []
     }
    ]
   },
@@ -57935,7 +58370,11 @@
      "faction_basis": "likely: inside Hall of Thanes, Horde can take it: https://www.icy-veins.com/wow-forever/hall-of-thanes-quests",
      "pickup": "Ghostly Attendant",
      "dungeon": "hall-of-thanes",
-     "level": 15
+     "level": 15,
+     "objective": "Inside the vault, put Faldrim Anvilmar’s spirit to rest.",
+     "start": "Ghostly Attendant · Inside The Hall of Thanes",
+     "end": null,
+     "chain": []
     }
    ]
   },
@@ -57966,7 +58405,11 @@
      "faction_basis": "likely: inside Hall of Thanes, Horde can take it: https://www.icy-veins.com/wow-forever/hall-of-thanes-quests",
      "pickup": "Ghostly Attendant",
      "dungeon": "hall-of-thanes",
-     "level": 15
+     "level": 15,
+     "objective": "Inside the vault, put Faldrim Anvilmar’s spirit to rest.",
+     "start": "Ghostly Attendant · Inside The Hall of Thanes",
+     "end": null,
+     "chain": []
     }
    ]
   },
@@ -57996,7 +58439,11 @@
      "faction_basis": "recorded",
      "pickup": "Afadra Dunwall",
      "dungeon": "hall-of-thanes",
-     "level": 15
+     "level": 15,
+     "objective": "Clear restless dead in the vault and put Anvilmar’s spirit back to rest.",
+     "start": "Afadra Dunwall · Ironforge",
+     "end": null,
+     "chain": []
     }
    ]
   },
@@ -58026,7 +58473,11 @@
      "faction_basis": "owner, in game, 2026-10-06",
      "pickup": "Thom Filch",
      "dungeon": "hall-of-thanes",
-     "level": 15
+     "level": 15,
+     "objective": "Collect eight dwarven heirlooms from the Hall of Thanes and bring them back.",
+     "start": "Thom Filch · Near the vault entrance",
+     "end": "Thom Filch · Near the vault entrance",
+     "chain": []
     }
    ]
   },
