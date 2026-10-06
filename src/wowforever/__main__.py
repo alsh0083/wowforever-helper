@@ -18,6 +18,9 @@ def main(argv: list[str] | None = None) -> int:
                       help="report JSON written by `report`; repeat for several classes (default: "
                            "data/report.json plus data/report-<class>.json files)")
     dash.add_argument("--out", default="dashboard/index.html")
+    il = sub.add_parser("import-logs", help="summarize foreverlogs.gg API responses from browser HAR exports (#69)")
+    il.add_argument("har", nargs="+", help="HAR files saved from the browser (keep them in data/cache/logs/)")
+    il.add_argument("--out", default="data/logs/foreverlogs.json")
     gs = sub.add_parser("gear-stats", help="rebuild config/stats/<class>.csv from real Forever gear")
     gs.add_argument("--tables", required=True, help="folder with ItemSparse/Item/RandPropPoints CSVs")
     gs.add_argument("--class", dest="class_name", default="mage", choices=("mage", "rogue", "hunter", "warrior"))
@@ -57,6 +60,15 @@ def main(argv: list[str] | None = None) -> int:
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(render(reports, icons), encoding="utf-8", newline="\n")
         print(f"wrote {out}")
+        return 0
+    if args.command == "import-logs":
+        from pathlib import Path
+
+        from wowforever.sources.foreverlogs import import_hars
+
+        merged = import_hars([Path(p) for p in args.har], Path(args.out))
+        print(f"wrote {args.out}: {len(merged)} encounter sets, "
+              f"{sum(len(s['players']) for s in merged)} player rows")
         return 0
     if args.command == "gear-stats":
         import csv
