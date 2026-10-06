@@ -287,7 +287,7 @@ function itemValue(it,w){
  return v;
 }
 function sourceText(s){
- if(s.t==='b'){const d=GEAR.dungeons[s.d];return `${s.b||'Boss'}, ${d?d.name:s.d}${s.u?'':' <span class="gear-tag" title="Seen in Classic; not yet confirmed as a Forever drop">Classic drop</span>'}`}
+ if(s.t==='b'){const d=GEAR.dungeons[s.d];return `${s.b||'Boss'}, ${d?d.name:s.d}`}
  if(s.t==='q')return `Quest: ${s.n}${s.p&&!/not recorded/i.test(s.p)?` (${s.p})`:''}${s.f&&s.f!=='unknown'?` <span class="gear-tag ${s.f}">${s.f==='alliance'?'Alliance':'Horde'}</span>`:' <span class="gear-tag" title="The source hasn\'t recorded this quest\'s faction">Faction unrecorded</span>'}`;
  return `Crafted: ${s.p}${s.k?`, about skill ${s.k}`:''}`;
 }
