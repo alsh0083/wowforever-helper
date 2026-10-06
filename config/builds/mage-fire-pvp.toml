@@ -1,0 +1,33 @@
+# Model build for the empty Fire PvP slot (owner request, 2026-10-05): the report's model pick for this slot.
+# No community plan with talents exists for this slot yet; replace it when one does.
+
+id = "mage-fire-pvp"
+class = "mage"
+name = "Fire (PvP, model)"
+pair = "mage-fire"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Fire PvP: the report's model pick for this slot. Not a community standard."
+
+[final]
+"Arcane Blast" = 1
+"Arcane Concentration" = 3
+"Arcane Focus" = 5
+"Arcane Subtlety" = 2
+"Burning Soul" = 2
+"Critical Mass" = 3
+"Elemental Precision" = 5
+"Fire Power" = 2
+"Frostbite" = 2
+"Heating Up" = 1
+"Ignite" = 5
+"Impact" = 3
+"Improved Fireball" = 5
+"Improved Frost Nova" = 1
+"Improved Scorch" = 3
+"Incineration" = 3
+"Master of Elements" = 3
+"Permafrost" = 1
+"Pyroblast" = 1

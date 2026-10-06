@@ -237,7 +237,9 @@ def _slot_cell(slot: Mapping, by_id: Mapping[str, Mapping]) -> str:
                 f'{num}{yours}{cap}</div>')
 
     if slot.get("standard"):
-        parts.append(build_line(slot["standard"], "Community standard", slot.get("standard_score")))
+        is_model = by_id.get(slot["standard"], {}).get("origin") == "model"
+        parts.append(build_line(slot["standard"], "Model build, no community plan yet" if is_model else "Community standard",
+                                slot.get("standard_score")))
     else:
         parts.append('<p class="empty">No community standard yet</p>')
     for bid in slot.get("qualifying", []):

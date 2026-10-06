@@ -1114,6 +1114,73 @@
    "sensitivity": []
   },
   {
+   "id": "priest-holy-pvp",
+   "name": "Holy (PvP)",
+   "pair": "priest-holy",
+   "variant": "PvP",
+   "origin": "community",
+   "summary": "51 points (Discipline 18 / Holy 33 / Shadow 0). Twin Disciplines is one of the spent talents. From the site's Holy Priest \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    110855,
+    110855,
+    105867,
+    105867,
+    105867,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    105849,
+    105849,
+    105849,
+    105849,
+    105849,
+    105864,
+    105864,
+    105864,
+    105864,
+    105864,
+    105846,
+    105846,
+    105846,
+    105845,
+    105845,
+    105843,
+    105842,
+    105842,
+    105842,
+    105862,
+    105844,
+    105861,
+    105861,
+    105861,
+    105860,
+    105841,
+    105837,
+    105858,
+    105858,
+    105858,
+    105839,
+    105856,
+    105855,
+    105854,
+    105853,
+    105853,
+    105853,
+    105852,
+    105852,
+    105852,
+    105851
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  },
+  {
    "id": "priest-holy",
    "name": "Holy Prayer of Mending (PvE)",
    "pair": "priest-holy",
@@ -1178,6 +1245,124 @@
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
+   "sensitivity": []
+  },
+  {
+   "id": "priest-shadow-pve",
+   "name": "Shadow (PvE)",
+   "pair": "priest-shadow",
+   "variant": "PvE",
+   "origin": "community",
+   "summary": "51 points (Discipline 18 / Holy 0 / Shadow 33). Shadow Focus is one of the spent talents. From the site's Shadow Priest \u00b7 Endgame \u00b7 PvE \u00b7 level 60 plan.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    110851,
+    110851,
+    110851,
+    110851,
+    110851,
+    105849,
+    105849,
+    105849,
+    105849,
+    105849,
+    105831,
+    105831,
+    105831,
+    105848,
+    105848,
+    105848,
+    105830,
+    105830,
+    105826,
+    105825,
+    105825,
+    105846,
+    105827,
+    105827,
+    105821,
+    105821,
+    105821,
+    105846,
+    105843,
+    105843,
+    105843,
+    105842,
+    105842,
+    105842,
+    105844,
+    105820,
+    105837,
+    105827,
+    105827,
+    105827,
+    105824,
+    105819,
+    105819,
+    105818,
+    105818,
+    105818,
+    105818,
+    105818,
+    105817,
+    110854,
+    110854
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 49.1,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 62.4,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 93.7,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 99.2,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 120.1,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 43.7,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 82.9,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 170.3,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 241.6,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 447.8,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 401.0,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -1372,12 +1557,14 @@
   {
    "archetype": "deep Holy",
    "focus": "PvP",
-   "standard": null,
+   "standard": "priest-holy-pvp",
    "standard_score": null,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {},
-   "qualifying": []
+   "qualifying": [
+    "priest-holy-pvp"
+   ]
   },
   {
    "archetype": "deep Holy",
@@ -1447,12 +1634,16 @@
   {
    "archetype": "deep Shadow",
    "focus": "PvE",
-   "standard": null,
-   "standard_score": null,
+   "standard": "priest-shadow-pve",
+   "standard_score": 2.2865886625240694,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
-   "qualifying": []
+   "candidates": {
+    "priest-shadow-pve": 2.2865886625240694
+   },
+   "qualifying": [
+    "priest-shadow-pve"
+   ]
   }
  ],
  "spell_milestones": [

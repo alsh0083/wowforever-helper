@@ -1,0 +1,30 @@
+# Model build for the empty deep Affliction PvP slot (owner request, 2026-10-05): the report's model pick for this slot.
+# No community plan with talents exists for this slot yet; replace it when one does.
+
+id = "warlock-affliction-pvp"
+class = "warlock"
+name = "Affliction (PvP, model)"
+pair = "warlock-affliction"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Affliction PvP: the report's model pick for this slot. Not a community standard."
+
+[final]
+"Bane" = 5
+"Demonic Aegis" = 2
+"Demonic Embrace" = 5
+"Demonic Sacrifice" = 1
+"Fel Vitality" = 3
+"Improved Bane of Agony" = 2
+"Improved Corruption" = 5
+"Improved Drains" = 3
+"Malediction" = 5
+"Malevolence" = 5
+"Nightfall" = 2
+"Pandemic" = 3
+"Shadow Mastery" = 3
+"Siphon Life" = 1
+"Soul Siphon" = 1
+"Suppression" = 5

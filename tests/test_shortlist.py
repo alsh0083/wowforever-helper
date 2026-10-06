@@ -95,3 +95,18 @@ def test_shortlist_slots_standards_model_picks_and_candidates():
 def test_slot_is_json_friendly():
     s = Slot("deep Fire", "PvP", "x", 1.0, None, None, {"x": 1.0}, ("x",))
     assert s.as_dict()["archetype"] == "deep Fire"
+
+
+def test_model_build_holds_a_slot_without_a_community_plan():
+    # owner request 2026-10-05: every matrix slot gets a build; model builds are labeled as such
+    import json
+    from pathlib import Path
+
+    root = Path(__file__).resolve().parents[1]
+    for path in sorted((root / "data").glob("report*.json")):
+        report = json.loads(path.read_text(encoding="utf-8"))
+        origins = {b["id"]: b["origin"] for b in report["builds"]}
+        for slot in report["shortlist"]:
+            assert slot["standard"], (path.name, slot["archetype"], slot["focus"])
+            if origins[slot["standard"]] == "model":
+                assert not any(origins[q] == "community" for q in slot["qualifying"])

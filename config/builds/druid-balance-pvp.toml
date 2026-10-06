@@ -1,0 +1,30 @@
+# Model build for the empty Balance PvP slot (owner request, 2026-10-05): the report's model pick for this slot.
+# No community plan with talents exists for this slot yet; replace it when one does.
+
+id = "druid-balance-pvp"
+class = "druid"
+name = "Balance (PvP, model)"
+pair = "druid-balance"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Balance PvP: the report's model pick for this slot. Not a community standard."
+
+[final]
+"Eclipse" = 3
+"Genesis" = 5
+"Improved Moonfire" = 2
+"Improved Starfire" = 5
+"Improved Wrath" = 5
+"Insect Swarm" = 1
+"Moonfury" = 5
+"Moonglow" = 3
+"Moonkin Form" = 1
+"Naturalist" = 5
+"Nature's Focus" = 5
+"Nature's Grace" = 1
+"Nature's Majesty" = 2
+"Nature's Reach" = 2
+"Nature's Splendor" = 1
+"Vengeance" = 5
