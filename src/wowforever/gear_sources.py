@@ -75,13 +75,44 @@ def parse_quests(page: str) -> dict[int, dict[str, Any]]:
         accept = re.search(r"Accept (\d+)", label)
         level = re.search(r"Quest (\d+)", label)
         pickup = re.search(r"Pick up: ([^.]+)\.", label)
+        search = re.search(r'data-search="([^"]*)"', tag)
         out[int(qid.group(1))] = {
             "name": name, "faction": re.search(r'data-faction="([^"]*)"', tag).group(1),
             "location": re.search(r'data-location="([^"]*)"', tag).group(1),
             "accept": int(accept.group(1)) if accept else None, "level": int(level.group(1)) if level else None,
             "pickup": pickup.group(1).strip() if pickup else None,
+            "search": html.unescape(search.group(1)) if search else "",
         }
     return out
+
+
+def resolve_factions(quests: Mapping[int, dict[str, Any]], rules: Mapping[str, Any]) -> None:
+    """Fill in factions the site hasn't recorded, with how each was decided (`faction_basis`):
+    config/quest_factions.toml by quest, then by NPC; the site's record; the same pickup NPC's
+    recorded quests; then faction cities and home zones named in the quest's text ("likely")."""
+    by_quest, by_npc = rules.get("quests", {}), rules.get("npcs", {})
+    places = rules.get("places", {})
+    npc_faction: dict[str, set[str]] = {}
+    for q in quests.values():
+        if q["faction"] in ("alliance", "horde") and q.get("pickup"):
+            npc_faction.setdefault(q["pickup"], set()).add(q["faction"])
+    for qid, q in quests.items():
+        q["faction_basis"] = "recorded" if q["faction"] in ("alliance", "horde") else None
+        npc = q.get("pickup") or ""
+        if str(qid) in by_quest:
+            q["faction"], q["faction_basis"] = by_quest[str(qid)]["faction"], by_quest[str(qid)].get("source", "config")
+        elif npc in by_npc:
+            q["faction"], q["faction_basis"] = by_npc[npc]["faction"], by_npc[npc].get("source", "config")
+        elif q["faction_basis"]:
+            continue
+        elif len(npc_faction.get(npc, ())) == 1:
+            q["faction"], q["faction_basis"] = next(iter(npc_faction[npc])), f"likely: {npc} gives a recorded quest"
+        else:
+            text = q.get("search", "").lower()
+            hits = {f: [p for p in words if p in text] for f, words in places.items()}
+            sides = [f for f, found in hits.items() if found]
+            if len(sides) == 1:
+                q["faction"], q["faction_basis"] = sides[0], f"likely: mentions {', '.join(hits[sides[0]])}"
 
 
 def _slug(name: str) -> str:
@@ -218,10 +249,19 @@ def _client_weapons(tables: Tables) -> dict[int, dict[str, float]]:
     return {w.item_id: {"min": w.min_damage, "max": w.max_damage, "speed": w.speed} for w in load_weapons(tables).values()}
 
 
-def build(pages: Mapping[str, str], tables: Tables, *, checked_at: str) -> dict[str, Any]:
+def _faction_rules() -> dict[str, Any]:
+    import tomllib
+
+    path = Path(__file__).resolve().parents[2] / "config" / "quest_factions.toml"
+    return tomllib.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+
+
+def build(pages: Mapping[str, str], tables: Tables, *, checked_at: str,
+          faction_rules: Mapping[str, Any] | None = None) -> dict[str, Any]:
     """The gear source dataset: every item with a kept source, its data and where it comes from."""
     items_page, dungeons_page = _props(pages["items"]), _props(pages["dungeons"])
     quests = parse_quests(pages["quests"])
+    resolve_factions(quests, faction_rules if faction_rules is not None else _faction_rules())
     dungeons = {d["id"]: {"name": d["name"], "level_min": d.get("levelMin"), "level_max": d.get("levelMax"),
                           "origin": d.get("origin")} for d in dungeons_page["dungeons"]}
     client: dict[int, Item] = {i.item_id: i for i in load_items(tables)}
@@ -254,7 +294,7 @@ def build(pages: Mapping[str, str], tables: Tables, *, checked_at: str) -> dict[
             elif src["via"] in ("choice", "fixed") and src.get("questId"):
                 q = quests.get(int(src["questId"]), {})
                 add(item_id, {"type": "quest", "quest": src.get("questName") or q.get("name"),
-                              "quest_id": int(src["questId"]), "faction": q.get("faction", "unknown"),
+                              "quest_id": int(src["questId"]), "faction": q.get("faction", "unknown"), "faction_basis": q.get("faction_basis"),
                               "pickup": q.get("pickup"), "dungeon": q.get("location"),
                               "level": q.get("level") or q.get("accept")})
     for item_id, recipe in crafted(tables).items():
