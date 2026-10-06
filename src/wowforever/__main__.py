@@ -65,7 +65,12 @@ def main(argv: list[str] | None = None) -> int:
         )
         out = Path(args.out)
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(render(reports, icons), encoding="utf-8", newline="\n")
+        import tomllib
+
+        gear_path, rules_path = Path("data/items/gear.json"), Path("config/gear_rules.toml")
+        gear = json.loads(gear_path.read_text(encoding="utf-8")) if gear_path.exists() else None
+        rules = tomllib.loads(rules_path.read_text(encoding="utf-8")) if rules_path.exists() else None
+        out.write_text(render(reports, icons, gear=gear, gear_rules=rules), encoding="utf-8", newline="\n")
         print(f"wrote {out}")
         return 0
     if args.command == "gear-sources":

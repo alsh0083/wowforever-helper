@@ -1,0 +1,69 @@
+# What each class can equip, for the recommended-gear panel (#190). Classic rules (trainer
+# proficiencies and armor specialization levels); confidence MEDIUM until checked in Forever.
+#
+# armor: [from level, [armor types]] with 1 cloth, 2 leather, 3 mail, 4 plate (as config/melee.toml)
+# weapons: weapon types by slot group; "one_hand" covers main and off hand, "off_hand" the extra
+# off-hand-only kinds (shields, held items)
+
+[mage]
+armor = [[1, [1]]]
+one_hand = ["sword", "dagger"]
+two_hand = ["staff"]
+off_hand = ["held"]
+ranged = ["wand"]
+
+[priest]
+armor = [[1, [1]]]
+one_hand = ["mace", "dagger"]
+two_hand = ["staff"]
+off_hand = ["held"]
+ranged = ["wand"]
+
+[warlock]
+armor = [[1, [1]]]
+one_hand = ["sword", "dagger"]
+two_hand = ["staff"]
+off_hand = ["held"]
+ranged = ["wand"]
+
+[rogue]
+armor = [[1, [1, 2]]]
+one_hand = ["dagger", "sword", "mace", "fist"]
+two_hand = []
+off_hand = []
+ranged = ["bow", "gun", "crossbow", "thrown"]
+
+[hunter]
+armor = [[1, [1, 2]], [40, [1, 2, 3]]]
+one_hand = ["axe", "sword", "dagger", "fist"]
+two_hand = ["axe", "sword", "polearm", "staff"]
+off_hand = []
+ranged = ["bow", "gun", "crossbow", "thrown"]
+
+[warrior]
+armor = [[1, [1, 2, 3]], [40, [1, 2, 3, 4]]]
+one_hand = ["axe", "sword", "mace", "dagger", "fist"]
+two_hand = ["axe", "sword", "mace", "polearm", "staff"]
+off_hand = ["shield"]
+ranged = ["bow", "gun", "crossbow", "thrown"]
+
+[paladin]
+armor = [[1, [1, 2, 3]], [40, [1, 2, 3, 4]]]
+one_hand = ["axe", "sword", "mace"]
+two_hand = ["axe", "sword", "mace", "polearm"]
+off_hand = ["shield", "held"]
+ranged = []
+
+[shaman]
+armor = [[1, [1, 2]], [40, [1, 2, 3]]]
+one_hand = ["axe", "mace", "dagger", "fist"]
+two_hand = ["axe", "mace", "staff"]
+off_hand = ["shield", "held"]
+ranged = []
+
+[druid]
+armor = [[1, [1, 2]]]
+one_hand = ["mace", "dagger", "fist"]
+two_hand = ["mace", "staff", "polearm"]
+off_hand = ["held"]
+ranged = []

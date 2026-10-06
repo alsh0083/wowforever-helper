@@ -150,7 +150,32 @@ def theme_css() -> str:
     return "".join(out)
 
 
-def render(payload: dict | Sequence[dict], icons: Mapping[str, bytes]) -> str:
+def compact_gear(gear: Mapping | None) -> dict | None:
+    """data/items/gear.json in short keys for the page (#190)."""
+    if not gear:
+        return None
+    kind = {"boss": "b", "quest": "q", "crafted": "c"}
+
+    def src(s: Mapping) -> dict:
+        out = {"t": kind[s["type"]], "l": s.get("level")}
+        if s["type"] == "boss":
+            out.update(d=s["dungeon"], b=s.get("boss"), u=bool(s.get("confirmed")))
+        elif s["type"] == "quest":
+            out.update(n=s.get("quest"), f=s.get("faction", "unknown"), p=s.get("pickup"))
+        else:
+            out.update(p=s.get("profession"), k=s.get("skill"))
+        return out
+
+    items = [{"i": it["id"], "n": it["name"], "q": it.get("quality"), "s": it["slot"], "a": it.get("armor_type"),
+              "w": it.get("weapon_type"), "l": it.get("required_level") or 1, "st": it.get("stats") or {},
+              "wd": [it["weapon"]["min"], it["weapon"]["max"], it["weapon"]["speed"]] if it.get("weapon") else None,
+              "c": it.get("classes"), "src": [src(s) for s in it["sources"]]} for it in gear["items"]]
+    return {"checked_at": gear["checked_at"], "items": items,
+            "dungeons": {k: {"name": v["name"]} for k, v in gear["dungeons"].items()}}
+
+
+def render(payload: dict | Sequence[dict], icons: Mapping[str, bytes], *, gear: Mapping | None = None,
+           gear_rules: Mapping | None = None) -> str:
     """Fill the template placeholders and return the complete HTML page.
 
     `payload` is one class's report or a list of them (#102): the first is the page's default
@@ -172,6 +197,8 @@ def render(payload: dict | Sequence[dict], icons: Mapping[str, bytes]) -> str:
     tabs = "".join(f'<a class="class-tab" href="?class={html.escape(n)}" data-class-tab="{html.escape(n)}">'
                    f'{html.escape(CLASS_THEMES.get(n, {}).get("label", n.title()))}</a>' for n in names)
     themes = {n: {k: v for k, v in CLASS_THEMES[n].items() if k != "crest_bg"} for n in names if n in CLASS_THEMES}
+    template = (template.replace("/*__GEAR__*/null", json.dumps(compact_gear(gear), separators=(",", ":")))
+                .replace("/*__GEAR_RULES__*/{}", json.dumps(gear_rules or {})))
     return (template.replace("/*__PAYLOAD__*/null", json.dumps(first))
             .replace("/*__OTHERS__*/{}", json.dumps({p.get("class", "mage"): p for p in others}))
             .replace("/*__THEMES__*/{}", json.dumps(themes))
