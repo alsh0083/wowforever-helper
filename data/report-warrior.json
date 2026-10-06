@@ -1,7 +1,7 @@
 {
  "class": "warrior",
- "engine": false,
- "scoring_note": "Arms and Fury scores come with the warrior damage model (#162); Protection stays unscored.",
+ "engine": true,
+ "scoring_note": "",
  "dataset": {
   "version": "1.60.1.70205",
   "game_build": "1.60.1.70205",
@@ -879,9 +879,19 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    105939,
+    105939,
+    105939,
+    105939,
+    105939,
     105958,
     105958,
     105958,
+    105937,
+    105937,
+    105937,
+    105937,
+    105937,
     105956,
     105956,
     105956,
@@ -889,19 +899,20 @@
     105954,
     105954,
     105954,
+    105950,
+    105950,
+    105950,
     105954,
-    105952,
-    105952,
     105951,
-    105950,
-    105950,
-    105950,
+    105948,
+    105948,
+    105948,
+    105947,
+    105947,
+    105952,
+    105952,
+    105935,
     105949,
-    105948,
-    105948,
-    105948,
-    105947,
-    105947,
     110524,
     110524,
     110524,
@@ -909,28 +920,68 @@
     110524,
     105945,
     105944,
-    105944,
-    105944,
-    105944,
-    105944,
-    110858,
-    110858,
     105941,
-    105939,
-    105939,
-    105939,
-    105939,
-    105939,
-    105937,
-    105937,
-    105937,
-    105937,
-    105937,
-    105935
+    105944,
+    105944,
+    105944,
+    105944,
+    110858,
+    110858
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 3,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 62.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 53.7,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 66.7,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 56.5,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 54.9,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 22.8,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 37.5,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 80.1,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 107.1,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 161.1,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 169.7,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -943,6 +994,16 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    105939,
+    105939,
+    105939,
+    105939,
+    105939,
+    105957,
+    105957,
+    105957,
+    105957,
+    105957,
     105976,
     105976,
     105976,
@@ -978,19 +1039,9 @@
     105961,
     105961,
     105961,
-    105959,
-    105957,
-    105957,
-    105957,
-    105957,
-    105957,
-    105939,
-    105939,
-    105939,
-    105939,
-    105939
+    105959
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 5,
    "scores": {},
    "sensitivity": []
@@ -1001,10 +1052,12 @@
    "archetype": "deep Arms",
    "focus": "PvP",
    "standard": "warrior-arms",
-   "standard_score": null,
+   "standard_score": 0.45268160727859746,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
+   "candidates": {
+    "warrior-arms": 0.45268160727859746
+   },
    "qualifying": [
     "warrior-arms"
    ]
@@ -1262,6 +1315,6 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Routes only: this class's builds are community standards in a legal point order (top rows first). Scores, model picks and optimized orders wait on the melee and ranged damage engine (#111)."
+  "Warrior model (#162): a two-hander's white swings build Rage for Mortal Strike, Whirlwind and Heroic Strike, against Classic combat-table rules. Fury dual wield, Bloodthirst, Flurry, Execute, Overpower and Slam aren't modeled yet, and base stats are estimates. Protection stays unscored. PvP uses the mage's duel model from the warrior's side."
  ]
 }

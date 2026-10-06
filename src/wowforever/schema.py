@@ -27,6 +27,7 @@ EFFECT_KINDS = frozenset({
     "cooldown",         # change to cooldown, seconds
     "mana_cost_pct",    # % change to mana cost
     "energy_cost",      # flat change to an ability's energy cost (negative = cheaper)
+    "rage_cost",        # flat change to an ability's rage cost (negative = cheaper)
     "dodge_reduction",  # percentage points off the target's dodge and parry
     "armor_pen",        # % of the target's armor ignored
     "ap_from_int_pct",  # attack power gained as % of Intellect (Careful Aim)
@@ -131,6 +132,7 @@ class SpellRank:
     fear: float = 0.0                  # seconds the target is feared (Fear, Psychic Scream)
     disorient: float = 0.0             # seconds the target is disoriented (Scatter Shot, Blind)
     energy_cost: int = 0               # rogue energy (SpellPower PowerType 3, #121)
+    rage_cost: int = 0                 # warrior rage (SpellPower PowerType 1, stored in tenths, #162)
     weapon_bonus: float = 0.0          # flat damage added to the weapon hit (effect 121 or 58 base points)
     weapon_normalized: bool = False    # effect 121: normalized weapon damage (speed set by weapon type)
     weapon_pct: float = 0.0            # effect 31 base points, e.g. 150 for 150%; 0 = no percentage effect

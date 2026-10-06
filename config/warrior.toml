@@ -1,0 +1,12 @@
+# Warrior rotation constants (#162). Classic values; confidence LOW until checked in Forever.
+
+# Rage from dealing damage: rage = 7.5 * damage / c, c = a * level^2 + b * level + k (Classic)
+rage_conversion = { a = 0.0091107836, b = 3.225598133, k = 4.2652911 }
+# Bloodrage: 10 rage up front plus 10 over 10 s, every 60 s (data cooldown 60 s; rage Classic)
+bloodrage_rage = 20.0
+# Anger Management: 1 rage every 3 s in combat (rank text)
+anger_management_rage_per_second = 0.333
+# Death Wish: +20% Physical damage for 30 s every 3 min (rank text; duration and cooldown Classic)
+death_wish = { bonus_pct = 20.0, duration = 30.0, cooldown = 180.0 }
+# normalized weapon speed for "normalized" strikes (Classic)
+normalized_speed = { one_hand = 2.4, two_hand = 3.3 }
