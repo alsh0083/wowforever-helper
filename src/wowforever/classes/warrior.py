@@ -116,3 +116,12 @@ CAVEAT = ("Warrior model (#162): a two-hander's white swings build Rage for Mort
           "Heroic Strike, against Classic combat-table rules. Fury dual wield, Bloodthirst, Flurry, Execute, "
           "Overpower and Slam aren't modeled yet, and base stats are estimates. Protection stays unscored. "
           "PvP uses the mage's duel model from the warrior's side.")
+
+# Icons for talents wowforevertalent.com doesn't show (its page is a build behind, #149), by the client's
+# SpellMisc.SpellIconFileDataID, named through wago.tools' documented file-info API (/api/info/{fdid}).
+ICON_OVERRIDES = {
+    "Improved Cleave": "ability_warrior_cleave",          # file 132338
+    "Precision": "ability_marksmanship",                  # file 132222
+    "Toughness": "spell_holy_devotion",                   # file 135892
+    "Boundless Rage": "ability_warrior_intensifyrage",    # file 236310
+}

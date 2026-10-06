@@ -23,7 +23,8 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
-LLAMA_SWAP = "http://192.168.1.215:8080/v1"
+# OpenAI-compatible endpoint serving the local models (llama-swap); set WOWFOREVER_LLM_URL to point elsewhere
+LLAMA_SWAP = os.environ.get("WOWFOREVER_LLM_URL", "http://localhost:8080/v1")
 MODELS = {
     "qwen3.8-27b": "default coder",
     "qwen3-coder-30b": "bulk / mechanical work",
