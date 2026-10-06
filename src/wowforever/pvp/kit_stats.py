@@ -30,6 +30,10 @@ KIT_BUILDS: dict[str, str] = {
     "warrior-arms": "warrior-arms",
     "priest-shadow": "priest-shadow",
     "priest-discipline": "priest-discipline-smite",
+    "warlock-affliction": "warlock-affliction",
+    "warlock-destruction": "warlock-destruction",
+    "druid-balance": "druid-balance",
+    "shaman-elemental": "shaman-elemental",
 }
 
 

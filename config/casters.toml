@@ -21,3 +21,50 @@ intellect = 0.4
 spirit = 0.2
 stamina = 0.15
 mp5 = 0.5
+
+[warlock]
+armor = [[1, [1]]]
+base_crit_pct = 1.7
+int_per_crit_pct_at_60 = 60.6
+regen_base = 8
+regen_spirit_div = 4
+# Life Tap turns health into mana; with healers topping the warlock up, about this much mana per
+# second over a fight (estimate; Improved Life Tap isn't counted separately)
+extra_regen_per_second = 15.0
+[warlock.weights]
+spell_power = 1.0
+crit_rating = 0.8
+hit_rating = 1.0
+intellect = 0.3
+spirit = 0.05
+stamina = 0.3
+
+[druid]
+armor = [[1, [1, 2]]]
+base_crit_pct = 1.8
+int_per_crit_pct_at_60 = 60.0
+regen_base = 15
+regen_spirit_div = 5
+[druid.weights]
+spell_power = 1.0
+crit_rating = 0.8
+hit_rating = 0.9
+intellect = 0.4
+spirit = 0.15
+stamina = 0.15
+mp5 = 0.5
+
+[shaman]
+armor = [[1, [1, 2]], [40, [1, 2, 3]]]
+base_crit_pct = 2.3
+int_per_crit_pct_at_60 = 59.5
+regen_base = 17
+regen_spirit_div = 5
+[shaman.weights]
+spell_power = 1.0
+crit_rating = 0.8
+hit_rating = 0.9
+intellect = 0.4
+spirit = 0.1
+stamina = 0.15
+mp5 = 0.6

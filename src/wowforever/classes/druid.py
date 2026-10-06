@@ -19,27 +19,59 @@ LAYOUT = TraitLayout(
     grid=600,
 )
 
-TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {}
+# Numbers are read from the rank text (#163).
+TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
+    "Improved Wrath": (
+        EffectRule("cast_time", r"cast time of your Wrath spell by (\d+(?:\.\d+)?) sec", ("Wrath",), sign=-1),
+        EffectRule("mana_cost_pct", r"its Mana cost by (\d+(?:\.\d+)?)%", ("Wrath",), sign=-1),
+    ),
+    "Genesis": (
+        EffectRule("damage_pct", r"periodic damage and healing done by your spells and abilities by (\d+(?:\.\d+)?)%",
+                   ("Moonfire", "Insect Swarm")),
+    ),
+    "Moonglow": (
+        EffectRule("mana_cost_pct", r"Mana cost of your damaging spells by (\d+(?:\.\d+)?)%", ("arcane", "nature"), sign=-1),
+    ),
+    "Improved Moonfire": (
+        EffectRule("damage_pct", r"damage and critical strike chance of your Moonfire spell by (\d+(?:\.\d+)?)%", ("Moonfire",)),
+        EffectRule("crit_chance", r"damage and critical strike chance of your Moonfire spell by (\d+(?:\.\d+)?)%", ("Moonfire",)),
+    ),
+    "Nature's Majesty": (
+        EffectRule("crit_chance", r"critical strike chance with spells and melee attacks by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
+    "Nature's Reach": (
+        EffectRule("hit_chance", r"improves your chance to hit by (\d+(?:\.\d+)?)%", ("arcane", "nature")),
+    ),
+    "Vengeance": (
+        EffectRule("crit_damage_pct", r"critical strike damage bonus of your Arcane and Nature spells by (\d+(?:\.\d+)?)%",
+                   ("arcane", "nature")),
+    ),
+    "Improved Starfire": (
+        EffectRule("cast_time", r"cast time of Starfire by (\d+(?:\.\d+)?) sec", ("Starfire",), sign=-1),
+    ),
+    "Moonfury": (
+        EffectRule("damage_pct", r"damage done by your Arcane and Nature spells by (\d+(?:\.\d+)?)%", ("arcane", "nature")),
+    ),
+    "Moonkin Form": (
+        EffectRule("crit_chance", r"Critical Strike chance increased by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
+    "Naturalist": (
+        EffectRule("damage_pct", r"increases all damage you deal by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
+    "Reflection": (
+        EffectRule("regen_while_casting", r"Allows (\d+(?:\.\d+)?)% of your Mana regeneration", ("all",)),
+    ),
+}
 
 # Every druid talent, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Balance
-    "Improved Wrath": "damage: faster, cheaper Wrath",
-    "Genesis": "damage: +5% periodic damage and healing",
-    "Moonglow": "resource: damaging spells cost 25% less mana",
-    "Improved Moonfire": "damage: Moonfire damage and crit",
-    "Nature's Majesty": "damage: +4% spell and melee crit",
-    "Nature's Reach": "damage: Balance spell range and hit",
     "Improved Entangling Roots": "control: stronger Entangling Roots",
     "Nature's Splendor": "damage: longer Moonfire, Rejuvenation, Regrowth, Insect Swarm",
     "Insect Swarm": "grants_spell",
-    "Vengeance": "damage: Arcane and Nature crit damage",
-    "Improved Starfire": "control: faster Starfire that can stun 3 s",
     "Overgrowth": "control: Entangling Roots on 2 more targets",
     "Nature's Grace": "proc: spell crits speed up the next cast",
     "Eclipse": "proc: Wrath speeds up Starfire",
-    "Moonfury": "damage: +10% Arcane and Nature damage",
-    "Moonkin Form": "grants_spell",
     # Feral Combat
     "Ferocity": "resource: feral abilities cost 5 less Rage or Energy",
     "Heart of the Wild": "buff: +10% Intellect, bear Stamina",
@@ -64,10 +96,8 @@ UNMODELED: dict[str, str] = {
     # Restoration
     "Nature's Focus": "utility: 70% pushback avoidance",
     "Furor": "resource: Rage or Energy on shapeshift",
-    "Naturalist": "damage: +5% damage, faster Healing Touch",
     "Subtlety": "threat: less threat from Nature and Arcane spells",
     "Natural Shapeshifter": "resource: cheaper shapeshifting",
-    "Reflection": "resource: 50% mana regeneration while casting",
     "Gift of Nature": "healing: +10% healing",
     "Gift of the Earthmother": "healing: shorter global cooldown on heals",
     "Tranquil Spirit": "resource: cheaper Healing Touch and Tranquility",
@@ -83,5 +113,15 @@ UNMODELED: dict[str, str] = {
 # Druid skill lines in SkillLineAbility: Balance, Feral Combat, Restoration.
 SKILL_LINES = (574, 134, 573)
 
-# Shown on the dashboard while the class is routes-only (planning round 2, Q2/Q3).
-SCORING_NOTE = "Balance and Feral scores come with the caster spell engine (#163, #166); bear and Restoration stay unscored."
+# Scored by the caster spell engine (#163).
+ENGINE = "spell"
+ROTATION = {
+    "dots": ("Moonfire", "Insect Swarm"),
+    "cooldowns": (),
+    "fillers": ("Starfire", "Wrath"),
+}
+# Feral (cat and bear) and Restoration wait for the melee hybrids and healing (#175, Q3).
+UNSCORED_TREES = ("Feral Combat", "Restoration")
+CAVEAT = ("Caster model (#163, #166): Moonfire and Insect Swarm kept up, then Starfire or Wrath. Eclipse, Nature's "
+          "Grace and Omen of Clarity procs aren't modeled. Feral is unscored until the melee hybrids (#175); "
+          "Restoration stays unscored. Base stats are estimates.")

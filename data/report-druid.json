@@ -1,7 +1,7 @@
 {
  "class": "druid",
- "engine": false,
- "scoring_note": "Balance and Feral scores come with the caster spell engine (#163, #166); bear and Restoration stay unscored.",
+ "engine": true,
+ "scoring_note": "",
  "dataset": {
   "version": "1.60.1.70205",
   "game_build": "1.60.1.70205",
@@ -934,53 +934,104 @@
     104925,
     104925,
     104925,
+    104929,
     104931,
     104931,
+    104929,
     104927,
     104927,
-    104929,
-    104929,
+    104957,
+    104957,
+    104957,
+    104957,
+    104957,
+    104922,
+    104922,
+    104922,
+    104922,
+    104922,
+    104920,
+    104920,
+    104917,
+    104917,
+    104917,
     104928,
     104930,
     104932,
+    104933,
+    104933,
+    104933,
+    104933,
+    104933,
     104932,
     104932,
     104932,
-    104932,
-    104933,
-    104933,
-    104933,
-    104933,
-    104933,
-    104934,
-    104935,
-    104935,
-    104935,
     104936,
     104936,
     104936,
     104936,
     104936,
     104937,
-    104957,
-    104957,
-    104957,
-    104957,
-    104957,
-    104922,
-    104922,
-    104922,
-    104922,
-    104922,
-    104920,
-    104920,
-    104917,
-    104917,
-    104917
+    104932,
+    104934,
+    104935,
+    104935,
+    104935
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 81.3,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 84.2,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 91.9,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 91.5,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 105.6,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 44.2,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 78.5,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 129.4,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 196.0,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 351.3,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 266.9,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -993,6 +1044,15 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    104924,
+    104924,
+    104924,
+    104924,
+    104924,
+    104929,
+    104929,
+    104927,
+    104927,
     104938,
     104938,
     104938,
@@ -1034,18 +1094,9 @@
     104953,
     104953,
     104953,
-    104956,
-    104924,
-    104924,
-    104924,
-    104924,
-    104924,
-    104927,
-    104927,
-    104929,
-    104929
+    104956
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
    "sensitivity": []
@@ -1060,6 +1111,15 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    104924,
+    104924,
+    104924,
+    104924,
+    104924,
+    104929,
+    104929,
+    104927,
+    104927,
     104938,
     104938,
     104938,
@@ -1070,6 +1130,11 @@
     104939,
     104939,
     104939,
+    104958,
+    104958,
+    104958,
+    104958,
+    104958,
     104943,
     104943,
     104945,
@@ -1093,23 +1158,9 @@
     104953,
     104953,
     104953,
-    104956,
-    104924,
-    104924,
-    104924,
-    104924,
-    104924,
-    104927,
-    104927,
-    104929,
-    104929,
-    104958,
-    104958,
-    104958,
-    104958,
-    104958
+    104956
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 3,
    "scores": {},
    "sensitivity": []
@@ -1124,6 +1175,16 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    104924,
+    104924,
+    104924,
+    104924,
+    104924,
+    104925,
+    104925,
+    104925,
+    104927,
+    104927,
     104957,
     104957,
     104957,
@@ -1137,11 +1198,17 @@
     104917,
     104917,
     104917,
+    104939,
+    104939,
+    104939,
+    104939,
+    104939,
     104916,
     104916,
     104916,
     104916,
     104916,
+    104928,
     104918,
     104914,
     104914,
@@ -1158,25 +1225,9 @@
     104913,
     104913,
     104913,
-    104910,
-    104924,
-    104924,
-    104924,
-    104924,
-    104924,
-    104925,
-    104925,
-    104925,
-    104927,
-    104927,
-    104928,
-    104939,
-    104939,
-    104939,
-    104939,
-    104939
+    104910
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
    "sensitivity": []
@@ -1188,19 +1239,121 @@
    "focus": "PvP",
    "standard": null,
    "standard_score": null,
-   "model_pick": null,
-   "model_pick_score": null,
+   "model_pick": {
+    "Naturalist": 5,
+    "Improved Wrath": 5,
+    "Genesis": 5,
+    "Moonglow": 3,
+    "Nature's Majesty": 2,
+    "Nature's Splendor": 1,
+    "Nature's Reach": 2,
+    "Insect Swarm": 1,
+    "Improved Moonfire": 2,
+    "Vengeance": 5,
+    "Improved Starfire": 5,
+    "Nature's Grace": 1,
+    "Eclipse": 3,
+    "Moonfury": 5,
+    "Moonkin Form": 1,
+    "Nature's Focus": 5
+   },
+   "model_pick_score": 0.5305423883081465,
    "candidates": {},
-   "qualifying": []
+   "qualifying": [],
+   "model_pick_changes": [
+    {
+     "talent": "Naturalist",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Improved Wrath",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Genesis",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Moonglow",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Nature's Majesty",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Nature's Splendor",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Nature's Reach",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Insect Swarm",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Improved Moonfire",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Vengeance",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Improved Starfire",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Nature's Grace",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Eclipse",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Moonfury",
+     "from": 0,
+     "to": 5
+    },
+    {
+     "talent": "Moonkin Form",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Nature's Focus",
+     "from": 0,
+     "to": 5
+    }
+   ],
+   "model_pick_seed": null
   },
   {
    "archetype": "deep Balance",
    "focus": "PvE",
    "standard": "druid-balance",
-   "standard_score": null,
+   "standard_score": 1.7260299008173785,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
+   "candidates": {
+    "druid-balance": 1.7260299008173785
+   },
    "qualifying": [
     "druid-balance"
    ]
@@ -1562,6 +1715,6 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Routes only: this class's builds are community standards in a legal point order (top rows first). Scores, model picks and optimized orders wait on the melee and ranged damage engine (#111)."
+  "Caster model (#163, #166): Moonfire and Insect Swarm kept up, then Starfire or Wrath. Eclipse, Nature's Grace and Omen of Clarity procs aren't modeled. Feral is unscored until the melee hybrids (#175); Restoration stays unscored. Base stats are estimates."
  ]
 }

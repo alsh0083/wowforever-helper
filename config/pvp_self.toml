@@ -6,7 +6,7 @@
 player_armor = 2500
 # opponent kit DPS assumes a cloth target; physical kits hit these classes by the armor ratio
 cloth_armor = 1000
-own_armor = { rogue = 2500, hunter = 3500, warrior = 5000, priest = 1000 }
+own_armor = { rogue = 2500, hunter = 3500, warrior = 5000, priest = 1000, warlock = 1000, druid = 2500, shaman = 3000 }
 
 [rogue]
 energy_per_minute = 600
@@ -49,4 +49,29 @@ controls = [
   { name = "Blackout", kind = "stun", duration = 3.0, cooldown = 30, requires = "Blackout" },
 ]
 # Mind Flay's slow while channeling (data: 50%, about a third of the time in Shadow builds)
+slow = 0.17
+
+[warlock]
+energy_per_minute = 0
+controls = [
+  { name = "Fear", kind = "fear", duration = 4.0, cooldown = 15 },
+  { name = "Death Coil", kind = "fear", duration = 3.0, cooldown = 120 },
+]
+# Curse of Exhaustion (talent): 30% slow kept up
+slow = 0.0
+
+[druid]
+energy_per_minute = 0
+controls = [
+  { name = "Entangling Roots", kind = "root", duration = 10.0, cooldown = 15 },
+]
+slow = 0.0
+
+[shaman]
+energy_per_minute = 0
+controls = [
+  { name = "Earth Shock", kind = "interrupt", duration = 2.0, cooldown = 6 },
+  { name = "Earthbound", kind = "root", duration = 5.0, cooldown = 15, requires = "Earthbound" },
+]
+# Frost Shock (50% for 8 s, shares the shock cooldown with Earth Shock): about a third of the time
 slow = 0.17
