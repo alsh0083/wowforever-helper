@@ -1,0 +1,19 @@
+# Quest factions the sources haven't recorded (wowforevertalent.com marks many quests "unrecorded",
+# which is not "both"). Used by `wowforever gear-sources`; the gear panel hides the other faction's
+# quest rewards. Add what you see in game: by pickup NPC, or by quest id when an NPC serves both.
+#
+# Order of use: [quests] here, [npcs] here, the site's recorded faction, the same NPC's recorded
+# quests, then faction cities and home zones named in the quest's text (marked "likely").
+
+[npcs]
+"Thom Filch" = { faction = "alliance", source = "owner, in game, 2026-10-06" }
+
+[quests]
+
+# Words in a quest's site text that tie it to one faction. Contested zones (Ashenvale, the Barrens'
+# border, Stranglethorn...) are left out because both factions have quest hubs there.
+[places]
+alliance = ["stormwind", "ironforge", "darnassus", "elwynn", "westfall", "dun morogh", "loch modan",
+            "teldrassil", "darkshore", "redridge", "duskwood", "menethil", "auberdine", "astranaar"]
+horde = ["orgrimmar", "thunder bluff", "undercity", "durotar", "mulgore", "tirisfal", "silverpine",
+         "the barrens", "crossroads", "camp taurajo", "sepulcher", "zoram'gar"]

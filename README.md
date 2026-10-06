@@ -21,6 +21,8 @@ that works for all nine classes.
 - **Recommended gear by level:** as you move through the journey, the best gear your class can use at
   that level for the selected build, from dungeon bosses and quests, with crafted alternatives. Each item
   shows its source, and quest rewards are marked Alliance or Horde (pick yours at the top of the page).
+  Where the source site has no faction for a quest, it is worked out from the quest giver or the places
+  it names and marked "(likely)". If you know a quest giver's faction, add it to `config/quest_factions.toml`.
 - **Scores:**
   - PvE: questing kills per hour, dungeon and raid DPS.
   - PvP: an expected-value duel model against real class opponents.

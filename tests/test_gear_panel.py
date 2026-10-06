@@ -27,6 +27,7 @@ def test_compact_gear_keeps_sources_and_faction():
     assert kinds == {"b", "q", "c"}
     quests = [s for it in g["items"] for s in it["src"] if s["t"] == "q"]
     assert {s["f"] for s in quests} <= {"alliance", "horde", "unknown"}
+    assert all("fb" in s for s in quests) and any((s["fb"] or "").startswith("likely") for s in quests)
     assert compact_gear(None) is None
 
 
@@ -43,3 +44,8 @@ def test_page_has_the_panel_and_the_faction_toggle():
 def test_boss_drops_carry_no_classic_tag():
     # owner 2026-10-06: a drop listed for a Forever dungeon needs no "Classic drop" note on the page
     assert "Classic drop" not in render(MAGE, {}, gear=GEAR, gear_rules=RULES)
+
+
+def test_inferred_quest_factions_are_marked_likely():
+    html = render(MAGE, {}, gear=GEAR, gear_rules=RULES)
+    assert "(likely)" in html and "s.fb" in html

@@ -27,7 +27,7 @@ def test_quest_rows_give_faction_level_and_pickup():
             'data-location="ragefire-chasm" data-search="x"><button type="button" aria-label="Slay It #7. Accept 9. '
             'Quest 16. Horde. Pick up: Rahauro."></button></article>')
     assert parse_quests(page) == {7: {"name": "Slay It", "faction": "horde", "location": "ragefire-chasm",
-                                      "accept": 9, "level": 16, "pickup": "Rahauro"}}
+                                      "accept": 9, "level": 16, "pickup": "Rahauro", "search": "x"}}
 
 
 def test_dungeon_rows_and_unconfirmed_classic_drops():
@@ -88,3 +88,25 @@ def test_build_keeps_boss_and_quest_sources_and_drops_rare_mobs():
     assert by_id[100]["sources"] == [{"type": "boss", "dungeon": "dm", "boss": "Sneed", "confirmed": True, "level": 17}]
     quest = by_id[200]["sources"][0]
     assert quest["faction"] == "alliance" and quest["level"] == 20 and by_id[200]["required_level"] == 20
+
+
+def test_quest_factions_resolve_in_order():
+    from wowforever.gear_sources import resolve_factions
+
+    quests = {1: {"faction": "unknown", "pickup": "Thom Filch", "search": ""},
+              2: {"faction": "horde", "pickup": "Rahauro", "search": ""},
+              3: {"faction": "unknown", "pickup": "Rahauro", "search": "stormwind"},
+              4: {"faction": "unknown", "pickup": None, "search": "bring it to orgrimmar"},
+              5: {"faction": "unknown", "pickup": None, "search": "ashenvale"},
+              6: {"faction": "unknown", "pickup": None, "search": "stormwind or orgrimmar"},
+              7: {"faction": "horde", "pickup": "Thom Filch", "search": ""}}
+    rules = {"npcs": {"Thom Filch": {"faction": "alliance", "source": "owner"}},
+             "places": {"alliance": ["stormwind"], "horde": ["orgrimmar"]}}
+    resolve_factions(quests, rules)
+    got = {q: (v["faction"], v["faction_basis"]) for q, v in quests.items()}
+    assert got[1] == ("alliance", "owner")                              # owner's NPC override first
+    assert got[7] == ("alliance", "owner")                              # ...even over a site record
+    assert got[2] == ("horde", "recorded")
+    assert got[3][0] == "horde" and got[3][1].startswith("likely: Rahauro")  # same NPC beats the text
+    assert got[4] == ("horde", "likely: mentions orgrimmar")
+    assert got[5] == ("unknown", None) and got[6] == ("unknown", None)  # contested or both: stays unrecorded
