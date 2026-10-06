@@ -22,7 +22,7 @@ that works for all nine classes.
   - PvE: questing kills per hour, dungeon and raid DPS.
   - PvP: an expected-value duel model against real class opponents.
   - Each comes with a model pick that beats the standard where the calculator finds one.
-- **Per-class look:** in-game class colors, tree colors and real talent icons, working on desktop and phone.
+- **Per-class look:** official class icons, in-game class colors, tree colors and real talent icons, working on desktop and phone.
 
 ![The talent layout of a rogue build](docs/images/talent-layout.png)
 

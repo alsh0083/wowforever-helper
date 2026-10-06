@@ -67,3 +67,11 @@ def test_talent_layout_previews_the_finished_build():
     assert not any(use in layout for use in ("${level}", "<=level", "p.level"))   # not tied to the slider
     assert "renderLayout();" in HTML[HTML.index("function renderBuild(){"):]
     assert "'taken'" in layout and "'maxed'" in layout and 'class="lt-abbr"' in layout
+
+
+def test_crest_shows_the_official_class_icon():
+    # owner request 2026-10-06: the page crest uses wowforevertalent.com's class icon (class_<name>);
+    # the drawn SVG crest remains the fallback when the icon isn't cached
+    html = render([MAGE, ROGUE], {"class_rogue": bytes([0xFF, 0xD8])})
+    assert "ICONS['class_'+CLASS]" in html and 'class="crest-icon"' in html
+    assert '"class_rogue": "data:image/jpeg;base64,' in html
