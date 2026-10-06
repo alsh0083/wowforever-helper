@@ -239,6 +239,7 @@ def route_report(cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any
     deep = Consensus.load().archetypes["deep"]
     hybrid = Consensus.load().archetypes["hybrid"]
     payload_builds, placed = [], {}
+    origin = {b.id: b.origin for b in builds}
     for b in builds:
         if b.order:
             order, how = b.order_ids(cls), "hand-written"
@@ -267,7 +268,9 @@ def route_report(cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any
     archetypes = [f"deep {t.name}" for t in sorted(cls.trees, key=lambda t: t.tree_id)] + list(hybrids)
     shortlist = [{
         "archetype": a, "focus": focus,
-        "standard": (placed.get((a, focus)) or [None])[0], "standard_score": None,
+        # community plans first; a model build holds the slot only when none exists
+        "standard": (sorted(placed.get((a, focus), []), key=lambda i: origin[i] != "community") or [None])[0],
+        "standard_score": None,
         "model_pick": None, "model_pick_score": None, "candidates": {},
         "qualifying": placed.get((a, focus), []),
     } for a in archetypes for focus in ("PvP", "PvE")]

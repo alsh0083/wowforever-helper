@@ -1,0 +1,30 @@
+# Model build for the empty Marksmanship PvP slot (owner request, 2026-10-05): the report's model pick for this slot.
+# No community plan with talents exists for this slot yet; replace it when one does.
+
+id = "hunter-marksmanship-pvp"
+class = "hunter"
+name = "Marksmanship (PvP, model)"
+pair = "hunter-marksmanship"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Marksmanship PvP: the report's model pick for this slot. Not a community standard."
+
+[final]
+"Barrage" = 3
+"Careful Aim" = 5
+"Deadly Aspects" = 1
+"Efficiency" = 5
+"Hawk Eye" = 3
+"Improved Arcane Shot" = 5
+"Improved Stings" = 3
+"Improved Tracking" = 4
+"Lethal Attacks" = 5
+"Mortal Shots" = 5
+"Ranged Weapon Specialization" = 5
+"Rapid Killing" = 2
+"Rapid Recuperation" = 2
+"Scatter Shot" = 1
+"Sniper Shot" = 1
+"Trueshot Aura" = 1

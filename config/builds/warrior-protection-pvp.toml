@@ -1,0 +1,32 @@
+# Model build for the empty Protection PvP slot (owner request, 2026-10-05): hill-climbed from warrior-protection under the PvP score.
+# No community plan with talents exists for this slot yet; replace it when one does.
+
+id = "warrior-protection-pvp"
+class = "warrior"
+name = "Protection (PvP, model)"
+pair = "warrior-protection"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Protection PvP: hill-climbed from warrior-protection under the PvP score. Not a community standard."
+
+[final]
+"Anticipation" = 5
+"Bastion" = 5
+"Concussion Blow" = 1
+"Cruelty" = 5
+"Defiance" = 3
+"Deflection" = 2
+"Focused Rage" = 3
+"Improved Bloodrage" = 2
+"Improved Heroic Strike" = 3
+"Improved Revenge" = 3
+"Improved Shield Wall" = 2
+"Improved Sunder Armor" = 2
+"Last Stand" = 1
+"Master of Defense" = 2
+"Shield Slam" = 1
+"Shield Specialization" = 5
+"Unbridled Wrath" = 5
+"Vanguard" = 1

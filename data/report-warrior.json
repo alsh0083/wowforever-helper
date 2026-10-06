@@ -870,6 +870,124 @@
  },
  "builds": [
   {
+   "id": "warrior-arms-pve",
+   "name": "Arms (PvE)",
+   "pair": "warrior-arms",
+   "variant": "PvE",
+   "origin": "community",
+   "summary": "51 points (Arms 40 / Fury 11 / Protection 0). Cruelty is one of the spent talents. From the site's Arms Warrior \u00b7 Solo leveling \u00b7 PvE \u00b7 levels 10\u201360 plan.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105939,
+    105939,
+    105939,
+    105939,
+    105939,
+    105958,
+    105958,
+    105958,
+    105937,
+    105937,
+    105937,
+    105937,
+    105937,
+    105956,
+    105956,
+    105956,
+    105955,
+    105955,
+    105954,
+    105954,
+    105950,
+    105950,
+    105950,
+    105954,
+    105954,
+    105948,
+    105948,
+    105948,
+    105947,
+    105947,
+    105954,
+    105951,
+    105952,
+    105952,
+    105935,
+    105949,
+    110524,
+    110524,
+    110524,
+    110524,
+    110524,
+    105945,
+    105941,
+    105944,
+    105944,
+    105944,
+    105944,
+    105944,
+    105942,
+    105942,
+    105942
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 62.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 53.7,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 66.0,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 56.5,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 54.9,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 34.2,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 47.6,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 90.3,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 113.3,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 161.1,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 169.7,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
    "id": "warrior-arms",
    "name": "Arms Mortal Strike (PvP)",
    "pair": "warrior-arms",
@@ -985,6 +1103,309 @@
    "sensitivity": []
   },
   {
+   "id": "warrior-fury-pve",
+   "name": "Fury (PvE, model)",
+   "pair": "warrior-fury",
+   "variant": "PvE",
+   "origin": "model",
+   "summary": "Model build for Fury PvE: popular build #4 without Furious Precision, Lingering Rage (site-only talents) and points the client tree doesn't allow, topped up and hill-climbed under the PvE score. Not a community standard.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105939,
+    105939,
+    105939,
+    105939,
+    105939,
+    105958,
+    105958,
+    105958,
+    105937,
+    105937,
+    105937,
+    105937,
+    105937,
+    105956,
+    105956,
+    105956,
+    105954,
+    105954,
+    105954,
+    105954,
+    105950,
+    105950,
+    105950,
+    105954,
+    105951,
+    105948,
+    105948,
+    105948,
+    105947,
+    105947,
+    105936,
+    105935,
+    105934,
+    105934,
+    105934,
+    105977,
+    105931,
+    105931,
+    105931,
+    105931,
+    105927,
+    105931,
+    105929,
+    105929,
+    105929,
+    105926,
+    105926,
+    105928,
+    105928,
+    105928,
+    105928
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 62.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 53.7,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 66.7,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 58.5,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 53.0,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 34.2,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 47.6,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 91.7,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 118.9,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 150.8,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 158.4,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
+   "id": "warrior-fury-pvp",
+   "name": "Fury (PvP, model)",
+   "pair": "warrior-fury",
+   "variant": "PvP",
+   "origin": "model",
+   "summary": "Model build for Fury PvP: popular build #4 without Furious Precision, Lingering Rage (site-only talents) and points the client tree doesn't allow, topped up and hill-climbed under the PvP score. Not a community standard.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105939,
+    105939,
+    105939,
+    105939,
+    105939,
+    105958,
+    105958,
+    105958,
+    105937,
+    105937,
+    105937,
+    105937,
+    105937,
+    105956,
+    105956,
+    105956,
+    105954,
+    105954,
+    105954,
+    105954,
+    105950,
+    105950,
+    105950,
+    105954,
+    105951,
+    105948,
+    105948,
+    105948,
+    105947,
+    105947,
+    105936,
+    105935,
+    105934,
+    105934,
+    105934,
+    105977,
+    105931,
+    105931,
+    105931,
+    105931,
+    105927,
+    105931,
+    105929,
+    105929,
+    105929,
+    105926,
+    105926,
+    105928,
+    105928,
+    105928,
+    105928
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 62.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 53.7,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 66.7,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 58.5,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 53.0,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 34.2,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 47.6,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 91.7,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 118.9,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 150.8,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 158.4,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
+   "id": "warrior-protection-pvp",
+   "name": "Protection (PvP, model)",
+   "pair": "warrior-protection",
+   "variant": "PvP",
+   "origin": "model",
+   "summary": "Model build for Protection PvP: hill-climbed from warrior-protection under the PvP score. Not a community standard.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105939,
+    105939,
+    105939,
+    105939,
+    105939,
+    105958,
+    105958,
+    105958,
+    105937,
+    105937,
+    105937,
+    105937,
+    105937,
+    105957,
+    105957,
+    105976,
+    105976,
+    105976,
+    105976,
+    105976,
+    105975,
+    105975,
+    105975,
+    105975,
+    105975,
+    105974,
+    105974,
+    105970,
+    105971,
+    105971,
+    105969,
+    105969,
+    105969,
+    110856,
+    110856,
+    110856,
+    105968,
+    105968,
+    105966,
+    105964,
+    105964,
+    105965,
+    105962,
+    105962,
+    105962,
+    105962,
+    105962,
+    105961,
+    105961,
+    105961,
+    105959
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {},
+   "sensitivity": []
+  },
+  {
    "id": "warrior-protection",
    "name": "Protection Shield Slam (PvE)",
    "pair": "warrior-protection",
@@ -1065,42 +1486,56 @@
   {
    "archetype": "deep Arms",
    "focus": "PvE",
-   "standard": null,
-   "standard_score": null,
+   "standard": "warrior-arms-pve",
+   "standard_score": 0.9181309344546124,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
-   "qualifying": []
+   "candidates": {
+    "warrior-arms-pve": 0.9181309344546124
+   },
+   "qualifying": [
+    "warrior-arms-pve"
+   ]
   },
   {
    "archetype": "deep Fury",
    "focus": "PvP",
-   "standard": null,
-   "standard_score": null,
+   "standard": "warrior-fury-pvp",
+   "standard_score": 0.4100315677239844,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
-   "qualifying": []
+   "candidates": {
+    "warrior-fury-pvp": 0.4100315677239844
+   },
+   "qualifying": [
+    "warrior-fury-pvp"
+   ]
   },
   {
    "archetype": "deep Fury",
    "focus": "PvE",
-   "standard": null,
-   "standard_score": null,
+   "standard": "warrior-fury-pve",
+   "standard_score": 0.8635695083681455,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
-   "qualifying": []
+   "candidates": {
+    "warrior-fury-pve": 0.8635695083681455
+   },
+   "qualifying": [
+    "warrior-fury-pve"
+   ]
   },
   {
    "archetype": "deep Protection",
    "focus": "PvP",
-   "standard": null,
+   "standard": "warrior-protection-pvp",
    "standard_score": null,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {},
-   "qualifying": []
+   "qualifying": [
+    "warrior-protection-pvp"
+   ]
   },
   {
    "archetype": "deep Protection",

@@ -1,0 +1,32 @@
+# Model build for the empty Beast Mastery PvP slot (owner request, 2026-10-05): the report's model pick for this slot.
+# No community plan with talents exists for this slot yet; replace it when one does.
+
+id = "hunter-beast-mastery-pvp"
+class = "hunter"
+name = "Beast Mastery (PvP, model)"
+pair = "hunter-beast-mastery"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Beast Mastery PvP: the report's model pick for this slot. Not a community standard."
+
+[final]
+"Bestial Discipline" = 2
+"Bestial Swiftness" = 1
+"Bestial Wrath" = 1
+"Careful Aim" = 5
+"Deadly Aspects" = 5
+"Efficiency" = 3
+"Endurance Training" = 1
+"Ferocity" = 5
+"Focused Fire" = 2
+"Frenzy" = 5
+"Improved Revive Pet" = 2
+"Improved Stings" = 3
+"Intimidation" = 1
+"Lethal Attacks" = 5
+"Mortal Shots" = 3
+"Summon Hawk" = 1
+"Trueshot Aura" = 1
+"Unleashed Fury" = 5

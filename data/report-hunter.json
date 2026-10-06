@@ -893,6 +893,124 @@
  },
  "builds": [
   {
+   "id": "hunter-beast-mastery-pvp",
+   "name": "Beast Mastery (PvP, model)",
+   "pair": "hunter-beast-mastery",
+   "variant": "PvP",
+   "origin": "model",
+   "summary": "Model build for Beast Mastery PvP: the report's model pick for this slot. Not a community standard.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105011,
+    105011,
+    105011,
+    105011,
+    105011,
+    105009,
+    105009,
+    105009,
+    105008,
+    105008,
+    105008,
+    105008,
+    105008,
+    110870,
+    110870,
+    105004,
+    110870,
+    105002,
+    105002,
+    105002,
+    104960,
+    104960,
+    104960,
+    104960,
+    104960,
+    104975,
+    104975,
+    104976,
+    104972,
+    104972,
+    104969,
+    104969,
+    104969,
+    104969,
+    104969,
+    104970,
+    104967,
+    104967,
+    104967,
+    104967,
+    104967,
+    104966,
+    104964,
+    104963,
+    104963,
+    104962,
+    104962,
+    104962,
+    104962,
+    104962,
+    104961
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 89.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 91.1,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 102.0,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 102.7,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 103.1,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 83.0,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 135.4,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 182.1,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 237.3,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 357.9,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 313.0,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
    "id": "hunter-beast-mastery",
    "name": "Beast Mastery (PvE)",
    "pair": "hunter-beast-mastery",
@@ -1004,6 +1122,124 @@
     "raid": {
      "60": {
       "score": 308.4,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": []
+  },
+  {
+   "id": "hunter-marksmanship-pvp",
+   "name": "Marksmanship (PvP, model)",
+   "pair": "hunter-marksmanship",
+   "variant": "PvP",
+   "origin": "model",
+   "summary": "Model build for Marksmanship PvP: the report's model pick for this slot. Not a community standard.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105011,
+    105011,
+    105011,
+    105011,
+    105011,
+    105009,
+    105009,
+    105009,
+    105009,
+    105009,
+    105008,
+    105008,
+    105008,
+    105008,
+    105008,
+    105004,
+    105002,
+    105002,
+    105002,
+    105002,
+    105001,
+    105001,
+    105001,
+    105002,
+    110870,
+    104998,
+    104998,
+    104998,
+    104998,
+    104998,
+    110870,
+    110870,
+    105013,
+    105013,
+    105013,
+    104960,
+    104996,
+    104996,
+    104996,
+    104996,
+    105005,
+    105005,
+    104999,
+    104999,
+    105000,
+    104997,
+    105006,
+    105006,
+    105006,
+    105006,
+    105006
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 90.8,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 93.7,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 106.0,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 104.2,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 103.5,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 81.4,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 136.1,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 189.4,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 239.3,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 370.8,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 313.4,
       "unit": "dps"
      }
     }
@@ -1369,124 +1605,16 @@
   {
    "archetype": "deep Beast Mastery",
    "focus": "PvP",
-   "standard": null,
-   "standard_score": null,
-   "model_pick": {
-    "Deadly Aspects": 5,
-    "Bestial Wrath": 1,
-    "Frenzy": 5,
-    "Bestial Discipline": 2,
-    "Intimidation": 1,
-    "Summon Hawk": 1,
-    "Ferocity": 5,
-    "Unleashed Fury": 5,
-    "Bestial Swiftness": 1,
-    "Improved Revive Pet": 2,
-    "Focused Fire": 2,
-    "Endurance Training": 1,
-    "Mortal Shots": 3,
-    "Trueshot Aura": 1,
-    "Careful Aim": 5,
-    "Efficiency": 3,
-    "Lethal Attacks": 5,
-    "Improved Stings": 3
+   "standard": "hunter-beast-mastery-pvp",
+   "standard_score": 0.5159999575864054,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {
+    "hunter-beast-mastery-pvp": 0.5159999575864054
    },
-   "model_pick_score": 0.5159999575864054,
-   "candidates": {},
-   "qualifying": [],
-   "model_pick_changes": [
-    {
-     "talent": "Deadly Aspects",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Bestial Wrath",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Frenzy",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Bestial Discipline",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Intimidation",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Summon Hawk",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Ferocity",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Unleashed Fury",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Bestial Swiftness",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Improved Revive Pet",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Focused Fire",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Endurance Training",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Mortal Shots",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Trueshot Aura",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Careful Aim",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Efficiency",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Lethal Attacks",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Improved Stings",
-     "from": 0,
-     "to": 3
-    }
-   ],
-   "model_pick_seed": null
+   "qualifying": [
+    "hunter-beast-mastery-pvp"
+   ]
   },
   {
    "archetype": "deep Beast Mastery",
@@ -1505,112 +1633,16 @@
   {
    "archetype": "deep Marksmanship",
    "focus": "PvP",
-   "standard": null,
-   "standard_score": null,
-   "model_pick": {
-    "Deadly Aspects": 1,
-    "Improved Tracking": 4,
-    "Sniper Shot": 1,
-    "Ranged Weapon Specialization": 5,
-    "Rapid Recuperation": 2,
-    "Scatter Shot": 1,
-    "Barrage": 3,
-    "Mortal Shots": 5,
-    "Trueshot Aura": 1,
-    "Rapid Killing": 2,
-    "Improved Arcane Shot": 5,
-    "Careful Aim": 5,
-    "Efficiency": 5,
-    "Lethal Attacks": 5,
-    "Hawk Eye": 3,
-    "Improved Stings": 3
+   "standard": "hunter-marksmanship-pvp",
+   "standard_score": 0.5467595191805698,
+   "model_pick": null,
+   "model_pick_score": null,
+   "candidates": {
+    "hunter-marksmanship-pvp": 0.5467595191805698
    },
-   "model_pick_score": 0.5467595191805698,
-   "candidates": {},
-   "qualifying": [],
-   "model_pick_changes": [
-    {
-     "talent": "Deadly Aspects",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Improved Tracking",
-     "from": 0,
-     "to": 4
-    },
-    {
-     "talent": "Sniper Shot",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Ranged Weapon Specialization",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Rapid Recuperation",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Scatter Shot",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Barrage",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Mortal Shots",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Trueshot Aura",
-     "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Rapid Killing",
-     "from": 0,
-     "to": 2
-    },
-    {
-     "talent": "Improved Arcane Shot",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Careful Aim",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Efficiency",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Lethal Attacks",
-     "from": 0,
-     "to": 5
-    },
-    {
-     "talent": "Hawk Eye",
-     "from": 0,
-     "to": 3
-    },
-    {
-     "talent": "Improved Stings",
-     "from": 0,
-     "to": 3
-    }
-   ],
-   "model_pick_seed": null
+   "qualifying": [
+    "hunter-marksmanship-pvp"
+   ]
   },
   {
    "archetype": "deep Marksmanship",
