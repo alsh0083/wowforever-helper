@@ -68,6 +68,8 @@ def _best_weapons(items: list[Item], weapons: Mapping[int, Weapon], level: int, 
         return min(options, key=lambda wi: (-(wi[0].dps * weights["weapon_dps"] + weighted(wi[1], weights)),
                                             wi[0].item_id))
 
+    if cfg.get("prefer_two_hand"):
+        return best({"two_hand"}, cfg["two_hand"]), None, best({"ranged"}, cfg["ranged"])
     main = best({"one_hand", "main_hand"}, cfg["one_hand"])
     off = best({"one_hand", "off_hand"}, cfg["one_hand"], exclude=main[0].item_id if main else None)
     ranged = best({"ranged"}, cfg["ranged"])
@@ -76,7 +78,7 @@ def _best_weapons(items: list[Item], weapons: Mapping[int, Weapon], level: int, 
 
 def melee_stat_table(class_name: str, items: list[Item], weapons: Mapping[int, Weapon],
                      levels: Iterable[int]) -> list[MeleeStats]:
-    """Per-level stats for a rogue or hunter: base row + best armor + best weapons."""
+    """Per-level stats for a melee or ranged class: base row + best armor + best weapons."""
     cfg = class_config(class_name)
     base_rows = _read_base_rows(STATS_DIR / f"{class_name}_base.csv")
     rows: list[MeleeStats] = []
@@ -103,7 +105,8 @@ def melee_stat_table(class_name: str, items: list[Item], weapons: Mapping[int, W
                              for pick in chosen)
         rows.append(MeleeStats(
             level=level, strength=strength, agility=agility, stamina=stamina, intellect=intellect,
-            attack_power=(cfg["ap_level"] * level + strength + agility - cfg["ap_const"]
+            attack_power=(cfg["ap_level"] * level + cfg.get("ap_str", 1) * strength
+                          + cfg.get("ap_agi", 1) * agility - cfg["ap_const"]
                           + totals.get("attack_power", 0)),
             ranged_attack_power=(cfg["rap_level"] * level + cfg["rap_agi"] * agility - cfg["rap_const"]
                                  + totals.get("ranged_attack_power", 0) + totals.get("attack_power", 0)),

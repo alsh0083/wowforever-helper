@@ -43,7 +43,7 @@ def test_matrix_bars_use_the_class_trees():
     assert _school_style("deep Restoration", "shaman").startswith("--from:var(--shaman-restoration)")
 
 
-@pytest.mark.parametrize("name", NEW)
+@pytest.mark.parametrize("name", [c for c in NEW if not getattr(class_module(c), "ENGINE", False)])
 def test_routes_only_reports_carry_standards_and_their_own_note(name):
     r = report(name)
     assert r["engine"] is False and r["scoring_note"] == class_module(name).SCORING_NOTE

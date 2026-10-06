@@ -27,6 +27,7 @@ EFFECT_KINDS = frozenset({
     "cooldown",         # change to cooldown, seconds
     "mana_cost_pct",    # % change to mana cost
     "energy_cost",      # flat change to an ability's energy cost (negative = cheaper)
+    "rage_cost",        # flat change to an ability's rage cost (negative = cheaper)
     "dodge_reduction",  # percentage points off the target's dodge and parry
     "armor_pen",        # % of the target's armor ignored
     "ap_from_int_pct",  # attack power gained as % of Intellect (Careful Aim)

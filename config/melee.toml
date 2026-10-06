@@ -49,3 +49,32 @@ hit_rating = 1.2
 stamina = 0.3
 intellect = 0.3
 weapon_dps = 3.0
+
+[warrior]
+# mail from level 1, plate from 40
+armor = [[1, [1, 2, 3]], [40, [1, 2, 3, 4]]]
+# 0 axe, 4 mace, 7 sword, 13 fist, 15 dagger
+one_hand = [0, 4, 7, 13, 15]
+# 1 two-handed axe, 5 two-handed mace, 6 polearm, 8 two-handed sword
+two_hand = [1, 5, 6, 8]
+# Arms swings a two-hander (#162); Fury dual wield isn't modeled yet
+prefer_two_hand = true
+ranged = [2, 3, 16, 18]
+# attack power = 3 * level + 2 * strength - 20 (Classic warrior)
+ap_level = 3
+ap_str = 2
+ap_agi = 0
+ap_const = 20
+rap_level = 1
+rap_agi = 1
+rap_const = 10
+agi_per_crit_at_60 = 20.0
+uses_mana = false
+[warrior.weights]
+strength = 1.0
+agility = 0.5
+attack_power = 0.5
+crit_rating = 1.0
+hit_rating = 1.2
+stamina = 0.3
+weapon_dps = 3.0

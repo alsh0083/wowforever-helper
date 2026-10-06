@@ -1,4 +1,4 @@
-# A rogue's or hunter's own controls in the duel model (#134): what it does to its opponent.
+# A rogue's, hunter's or warrior's own controls in the duel model (#134): what it does to its opponent.
 # Same fields as an opponent kit's [[controls]]; `requires` names a talent the build must take.
 # Confidence: LOW (Classic durations and energy estimates, Forever data where noted).
 
@@ -6,7 +6,7 @@
 player_armor = 2500
 # opponent kit DPS assumes a cloth target; physical kits hit these classes by the armor ratio
 cloth_armor = 1000
-own_armor = { rogue = 2500, hunter = 3500 }
+own_armor = { rogue = 2500, hunter = 3500, warrior = 5000 }
 
 [rogue]
 energy_per_minute = 600
@@ -27,3 +27,15 @@ controls = [
 # slows as uptime x strength (0-1): Concussive Shot 50% for 4 s every 12 s; Wing Clip 60% kept up in melee
 slow_ranged = 0.167
 slow_melee = 0.6
+
+[warrior]
+# rage spent on controls, using the energy budget rules (estimate: half of ~10 rage/s at 60)
+energy_per_minute = 300
+controls = [
+  { name = "Intercept", kind = "stun", duration = 3.0, cooldown = 30, energy = 10 },
+  { name = "Intimidating Shout", kind = "fear", duration = 8.0, cooldown = 180, energy = 25 },
+  { name = "Pummel", kind = "interrupt", duration = 4.0, cooldown = 10, energy = 10 },
+  { name = "Concussion Blow", kind = "stun", duration = 5.0, cooldown = 45, energy = 15, requires = "Concussion Blow" },
+]
+# Hamstring (data: 15 s, Classic 50% slow) kept up in melee; Piercing Howl's 50% for 6 s on top
+slow = 0.5

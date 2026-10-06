@@ -16,6 +16,7 @@ from wowforever.assumptions import Assumptions
 from wowforever.builds import Build
 from wowforever.calc.pvp_axes import control, survival
 from wowforever.checklist import checklist
+from wowforever.classes import class_module as _class_module
 from wowforever.consensus import Consensus
 from wowforever.focus import pve_score_fn, pvp_score_fn
 from wowforever.optimizer import optimize_order
@@ -311,6 +312,9 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
     from wowforever.shortlist import build_shortlist
 
     payload = route_report(cls, builds, dataset, hybrids=hybrids)
+    # tank and healer trees stay unscored (planning round 2, Q3): routes only
+    unscored = {f"deep {t}" for t in getattr(_class_module(class_name), "UNSCORED_TREES", ())}
+    unscored_builds = {b for s in payload["shortlist"] if s["archetype"] in unscored for b in s["qualifying"]}
     table = ms.MeleeStatTable.load(class_name)
     top = cls.rules.max_level
     spells = cls.spells
@@ -340,7 +344,7 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
             if level == top:
                 scores["raid"][level] = {"score": round(ms.raid(class_name, stats, spells, cls, ranks), 1),
                                          "unit": "dps"}
-        entry["scores"] = scores
+        entry["scores"] = {} if entry["id"] in unscored_builds else scores
 
     arch = Consensus.load().archetypes
     stats_top = table.at(top)
@@ -357,7 +361,9 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
     shortlist = []
     for slot in slots:
         d = slot.as_dict()
-        if slot.model_pick is not None:
+        if slot.archetype in unscored:
+            d.update(standard_score=None, model_pick=None, model_pick_score=None, candidates={})
+        elif slot.model_pick is not None:
             seed_id = slot.standard or (slot.qualifying[0] if slot.qualifying else None)
             seed = finals.get(seed_id, {})
             d["model_pick"] = {names[t]: r for t, r in sorted(slot.model_pick.items())}
@@ -366,7 +372,8 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
                                        if seed.get(t, 0) != slot.model_pick.get(t, 0)]
             d["model_pick_seed"] = seed_id
         shortlist.append(d)
-    payload.update(engine=True, shortlist=shortlist, caveats=[MELEE_CAVEAT])
+    payload.update(engine=True, shortlist=shortlist,
+                   caveats=[getattr(_class_module(class_name), "CAVEAT", MELEE_CAVEAT)])
     return payload
 
 

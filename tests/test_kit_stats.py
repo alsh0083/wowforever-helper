@@ -1,4 +1,4 @@
-"""Rogue and hunter opponent kits take level-60 health and DPS vs cloth from the melee engine (#147)."""
+"""Rogue, hunter and warrior opponent kits take level-60 health and DPS vs cloth from the melee engine (#147)."""
 
 import tomllib
 from pathlib import Path
@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_every_rogue_and_hunter_kit_has_a_build():
     kits = {p.stem for p in (ROOT / "config" / "opponents").glob("*.toml")
-            if p.stem.startswith(("rogue-", "hunter-"))}
+            if p.stem.startswith(("rogue-", "hunter-", "warrior-"))}
     assert set(KIT_BUILDS) == kits
     builds = {p.stem for p in (ROOT / "config" / "builds").glob("*.toml")}
     assert set(KIT_BUILDS.values()) <= builds
