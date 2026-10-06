@@ -38,3 +38,8 @@ def test_page_has_the_panel_and_the_faction_toggle():
     assert "const GEAR = null" not in html and "/*__GEAR__*/" not in html
     # without gear data the panel hides itself
     assert "const GEAR = null" in render(MAGE, {})
+
+
+def test_boss_drops_carry_no_classic_tag():
+    # owner 2026-10-06: a drop listed for a Forever dungeon needs no "Classic drop" note on the page
+    assert "Classic drop" not in render(MAGE, {}, gear=GEAR, gear_rules=RULES)
