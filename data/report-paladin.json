@@ -1,7 +1,7 @@
 {
  "class": "paladin",
- "engine": false,
- "scoring_note": "Paladin scores aren't planned yet; Holy and Protection stay unscored.",
+ "engine": true,
+ "scoring_note": "",
  "dataset": {
   "version": "1.60.1.70205",
   "game_build": "1.60.1.70205",
@@ -892,16 +892,31 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    105630,
+    105630,
+    105630,
+    105630,
+    105630,
+    105638,
+    105638,
+    105638,
     105332,
     105332,
     105332,
     105332,
     105332,
+    105706,
+    105706,
+    105706,
+    105706,
+    105706,
     105333,
     105333,
     105333,
     105335,
     105335,
+    105637,
+    105637,
     105331,
     105331,
     105330,
@@ -927,24 +942,9 @@
     105321,
     105321,
     105321,
-    105320,
-    105630,
-    105630,
-    105630,
-    105630,
-    105630,
-    105638,
-    105638,
-    105638,
-    105637,
-    105637,
-    105706,
-    105706,
-    105706,
-    105706,
-    105706
+    105320
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
    "sensitivity": []
@@ -963,14 +963,21 @@
     105630,
     105630,
     105630,
-    105626,
-    105626,
-    105626,
-    105626,
+    105707,
+    105707,
+    105707,
+    105707,
+    105707,
     105626,
     105638,
     105638,
     105638,
+    105626,
+    105626,
+    105626,
+    105626,
+    105705,
+    105705,
     105636,
     105636,
     105636,
@@ -1000,16 +1007,9 @@
     110879,
     110879,
     110879,
-    105628,
-    105707,
-    105707,
-    105707,
-    105707,
-    105707,
-    105705,
-    105705
+    105628
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 2,
    "scores": {},
    "sensitivity": []
@@ -1024,61 +1024,112 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    105630,
+    105630,
+    105630,
+    105630,
+    105630,
+    105638,
+    105638,
+    105638,
+    105639,
+    105639,
+    105639,
+    105639,
+    105639,
     105706,
     105706,
     105706,
     105706,
     105706,
+    105703,
+    105703,
+    105703,
+    105703,
+    105703,
+    105696,
+    105334,
+    105334,
+    105334,
     105705,
     105705,
     105704,
     105704,
-    105703,
-    105703,
-    105703,
-    105703,
-    105703,
+    105700,
     105702,
     105701,
     105701,
     105701,
-    105696,
+    105693,
+    105693,
+    105693,
+    105697,
+    105697,
+    105697,
     105699,
     105699,
-    105700,
-    105697,
-    105697,
-    105697,
-    105693,
-    105693,
-    105693,
     105694,
     110882,
     110882,
     110882,
     110880,
     110880,
-    105692,
-    105630,
-    105630,
-    105630,
-    105630,
-    105630,
-    105639,
-    105639,
-    105639,
-    105639,
-    105639,
-    105638,
-    105638,
-    105638,
-    105334,
-    105334,
-    105334
+    105692
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 61.7,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 54.3,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 80.2,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 77.8,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 75.1,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 31.9,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 45.7,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 109.5,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 159.3,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 214.4,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 216.4,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -1091,31 +1142,44 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    105639,
+    105639,
+    105639,
+    105639,
+    105639,
+    105332,
+    105332,
+    105332,
+    105332,
+    105332,
     105706,
     105706,
     105706,
     105706,
     105706,
-    105705,
-    105705,
-    105704,
-    105704,
     105703,
     105703,
     105703,
     105703,
     105703,
-    105702,
-    105702,
-    105702,
-    105701,
-    105701,
-    105701,
     105696,
+    105334,
+    105334,
+    105334,
+    105705,
+    105705,
+    105704,
+    105704,
     105700,
+    105702,
+    105702,
+    105702,
+    105701,
     105697,
     105697,
     105697,
+    105701,
+    105701,
     105693,
     105693,
     105693,
@@ -1124,24 +1188,62 @@
     110882,
     110880,
     110880,
-    105692,
-    105639,
-    105639,
-    105639,
-    105639,
-    105639,
-    105332,
-    105332,
-    105332,
-    105332,
-    105332,
-    105334,
-    105334,
-    105334
+    105692
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 4,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 60.4,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 73.3,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 79.7,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 76.6,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 75.1,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 30.9,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 66.5,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 108.1,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 155.6,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 214.4,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 215.3,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   }
  ],
@@ -1194,10 +1296,12 @@
    "archetype": "deep Retribution",
    "focus": "PvP",
    "standard": "paladin-retribution-pvp",
-   "standard_score": null,
+   "standard_score": 0.41688896727873537,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
+   "candidates": {
+    "paladin-retribution-pvp": 0.41688896727873537
+   },
    "qualifying": [
     "paladin-retribution-pvp"
    ]
@@ -1206,10 +1310,12 @@
    "archetype": "deep Retribution",
    "focus": "PvE",
    "standard": "paladin-retribution",
-   "standard_score": null,
+   "standard_score": 1.2049881679780974,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
+   "candidates": {
+    "paladin-retribution": 1.2049881679780974
+   },
    "qualifying": [
     "paladin-retribution"
    ]
@@ -1305,6 +1411,6 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Routes only: this class's builds are community standards in a legal point order (top rows first). Scores, model picks and optimized orders wait on the melee and ranged damage engine (#111)."
+  "Retribution model (#175): a two-hander's white swings with Seal of Command procs, Judgement and Holy Strike on cooldown; Holy damage ignores armor. Seal of Command's proc rate and Judgement of Command's damage are Classic values. Consecration, Exorcism, Hammer of Wrath, Vindication, Divine Strength and mana aren't modeled; base stats are estimates. Holy and Protection stay unscored."
  ]
 }
