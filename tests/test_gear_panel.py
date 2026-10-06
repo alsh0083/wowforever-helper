@@ -26,7 +26,7 @@ def test_compact_gear_keeps_sources_and_faction():
     kinds = {s["t"] for it in g["items"] for s in it["src"]}
     assert kinds == {"b", "q", "c"}
     quests = [s for it in g["items"] for s in it["src"] if s["t"] == "q"]
-    assert {s["f"] for s in quests} <= {"alliance", "horde", "unknown"}
+    assert {s["f"] for s in quests} <= {"alliance", "horde", "both", "unknown"}
     assert all("fb" in s for s in quests) and any((s["fb"] or "").startswith("likely") for s in quests)
     assert compact_gear(None) is None
 
