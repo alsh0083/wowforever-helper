@@ -1,0 +1,90 @@
+"""Gear sources (#188): dungeon boss drops, quest rewards and crafted items, with faction.
+Synthetic pages in the site's shapes; the real build runs on cached pages (data/items/gear.json)."""
+
+import html
+import json
+
+from wowforever.gear_sources import (_site_item, build, crafted, item_classes, item_faction, parse_dungeon,
+                                     parse_quests)
+
+
+def astro(value):
+    """Encode like the site's Astro props: every value tagged, lists [1, ...], everything else [0, ...]."""
+    if isinstance(value, list):
+        return [1, [astro(v) for v in value]]
+    if isinstance(value, dict):
+        return [0, {k: astro(v) for k, v in value.items()}]
+    return [0, value]
+
+
+def island(props):
+    enc = {k: astro(v) for k, v in props.items()}
+    return f'<astro-island props="{html.escape(json.dumps(enc))}"></astro-island>'
+
+
+def test_quest_rows_give_faction_level_and_pickup():
+    page = ('<article class="quest-row" id="quest-7" data-quest-card data-quest-id="7" data-faction="horde" '
+            'data-location="ragefire-chasm" data-search="x"><button type="button" aria-label="Slay It #7. Accept 9. '
+            'Quest 16. Horde. Pick up: Rahauro."></button></article>')
+    assert parse_quests(page) == {7: {"name": "Slay It", "faction": "horde", "location": "ragefire-chasm",
+                                      "accept": 9, "level": 16, "pickup": "Rahauro"}}
+
+
+def test_dungeon_rows_and_unconfirmed_classic_drops():
+    page = ('<details class="dungeon-item dungeon-item-loot" id="item-872-brhahk-zor"><p>Dropped by Rhahk\'Zor.</p></details>'
+            '<details class="dungeon-item dungeon-item-loot" id="item-5187-brhahk-zor"><p>Classic reference drop. '
+            'Forever drop unconfirmed.</p></details>')
+    assert parse_dungeon(page) == [(872, "rhahk-zor", True), (5187, "rhahk-zor", False)]
+
+
+def test_faction_and_class_masks():
+    assert item_faction({"AllowableRace_0": "-1"}) == "both"
+    assert item_faction({"AllowableRace_0": str(1 | 4)}) == "alliance"          # Human, Dwarf
+    assert item_faction({"AllowableRace_0": str(2 | 16)}) == "horde"            # Orc, Undead
+    assert item_classes({"AllowableClass": "-1"}) is None
+    assert item_classes({"AllowableClass": str(1 << 7)}) == ["mage"]
+
+
+def test_site_records_map_stats_effects_slot_armor_and_weapon():
+    item = _site_item({"name": "Rod", "itemLevel": 29, "requiredLevel": 24, "quality": 3, "slot": "Two-Hand",
+                       "subclass": "Staves", "stats": [{"key": "int", "value": 11}, {"key": "firres", "value": 5}],
+                       "effects": ["Equip: Increases damage and healing done by magical spells and effects by up to 7.",
+                                   "Equip: Improves your chance to get a critical strike by 1%."],
+                       "weapon": {"min": 53, "max": 80, "speed": 2.8, "dps": 23.8}})
+    assert item["slot"] == "two_hand" and item["armor_type"] is None
+    assert item["stats"] == {"intellect": 11, "spell_power": 7, "crit_pct": 1}
+    assert item["weapon"] == {"min": 53, "max": 80, "speed": 2.8}
+    assert _site_item({"name": "Gloves", "slot": "Hands", "subclass": "Leather Armor"})["armor_type"] == 2
+
+
+def test_recipes_keep_the_real_skill():
+    tables = {"SpellEffect": [{"SpellID": "10", "Effect": "24", "EffectItemType": "2307"},
+                              {"SpellID": "11", "Effect": "24", "EffectItemType": "2307"}],
+              "SkillLineAbility": [{"SkillLine": "165", "Spell": "10", "TrivialSkillLineRankLow": "95"},
+                                   {"SkillLine": "165", "Spell": "11", "TrivialSkillLineRankLow": "40"},
+                                   {"SkillLine": "999", "Spell": "10", "TrivialSkillLineRankLow": "1"}]}
+    assert crafted(tables) == {2307: {"profession": "Leatherworking", "skill": 95}}
+
+
+def test_build_keeps_boss_and_quest_sources_and_drops_rare_mobs():
+    dungeons = island({"dungeons": [{"id": "dm", "name": "Deadmines", "levelMin": 17, "levelMax": 26}],
+                       "lootById": {"dm": [{"observedBoss": "Sneed", "rosterKind": "boss", "items": []},
+                                           {"observedBoss": "Miner Johnson", "rosterKind": "rare", "items": []}]}})
+    detail = ('<details class="dungeon-item dungeon-item-loot" id="item-100-bsneed">Dropped by Sneed.</details>'
+              '<details class="dungeon-item dungeon-item-loot" id="item-101-bminer-johnson">Dropped.</details>')
+    items = island({"foreverRecords": [{"numericId": 200, "name": "Belt", "itemLevel": 20, "requiredLevel": None,
+                                        "quality": 2, "slot": "Waist", "subclass": "Cloth Armor",
+                                        "stats": [{"key": "sta", "value": 3}],
+                                        "sources": [{"via": "choice", "questId": 7, "questName": "Slay It"}]}]})
+    quests = ('<article class="quest-row" data-quest-id="7" data-faction="alliance" data-location="dm">'
+              '<button aria-label="Slay It #7. Accept 15. Quest 20. Alliance. Pick up: Gryan."></button></article>')
+    classic = [{"numericId": n, "name": f"Item {n}", "itemLevel": 22, "requiredLevel": 17, "quality": 2,
+                "slot": "Hands", "stats": [{"key": "str", "value": 2}]} for n in (100, 101)]
+    tables = {"ItemSparse": [], "RandPropPoints": [], "Item": [], "SpellEffect": [], "SkillLineAbility": []}
+    out = build({"items": items, "dungeons": dungeons, "quests": quests, "dungeon-dm": detail,
+                 "classic": json.dumps(classic)}, tables, checked_at="2026-10-06")
+    by_id = {i["id"]: i for i in out["items"]}
+    assert set(by_id) == {100, 200}                                   # the rare mob's drop is excluded
+    assert by_id[100]["sources"] == [{"type": "boss", "dungeon": "dm", "boss": "Sneed", "confirmed": True, "level": 17}]
+    quest = by_id[200]["sources"][0]
+    assert quest["faction"] == "alliance" and quest["level"] == 20 and by_id[200]["required_level"] == 20
