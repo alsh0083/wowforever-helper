@@ -73,9 +73,30 @@ def _has_pet(cls: ClassData, ranks: Mapping[int, int]) -> bool:
     return lone is None or ranks.get(lone.talent_id, 0) <= 0
 
 
+def stat_table(class_name: str):
+    """The class's per-level stats: a caster's (config/stats/<class>.csv, mage format, #163) or a
+    melee/ranged class's."""
+    from wowforever.classes import class_module
+
+    if getattr(class_module(class_name), "ENGINE", None) == "spell":
+        from wowforever.stats import StatTable
+
+        return StatTable.load(class_name)
+    return MeleeStatTable.load(class_name)
+
+
 def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
                     ranks: Mapping[int, int], target: Target) -> Output:
     """The class rotation's DPS, mana use and out-of-mana fallback against `target`."""
+    from wowforever.classes import class_module
+
+    if getattr(class_module(class_name), "ENGINE", None) == "spell":
+        from wowforever.caster import caster_rotation
+
+        r = caster_rotation(class_name, stats, spells, cls, ranks, target)
+        gross = r.mana_per_second + r.regen_per_second
+        # once dry, a caster keeps casting at the rate its regen pays for
+        return Output(r.dps, r.mana_per_second, r.dps * min(1.0, r.regen_per_second / gross) if gross > 0 else r.dps)
     if class_name == "rogue":
         from wowforever.classes.rogue_rotation import rogue_rotation
 

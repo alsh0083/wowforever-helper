@@ -314,8 +314,9 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
     payload = route_report(cls, builds, dataset, hybrids=hybrids)
     # tank and healer trees stay unscored (planning round 2, Q3): routes only
     unscored = {f"deep {t}" for t in getattr(_class_module(class_name), "UNSCORED_TREES", ())}
-    unscored_builds = {b for s in payload["shortlist"] if s["archetype"] in unscored for b in s["qualifying"]}
-    table = ms.MeleeStatTable.load(class_name)
+    unscored_builds = ({b for s in payload["shortlist"] if s["archetype"] in unscored for b in s["qualifying"]}
+                       | set(getattr(_class_module(class_name), "UNSCORED_BUILDS", ())))
+    table = ms.stat_table(class_name)
     top = cls.rules.max_level
     spells = cls.spells
 
@@ -361,7 +362,7 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
     shortlist = []
     for slot in slots:
         d = slot.as_dict()
-        if slot.archetype in unscored:
+        if slot.archetype in unscored or (slot.standard in unscored_builds and slot.focus == "PvE"):
             d.update(standard_score=None, model_pick=None, model_pick_score=None, candidates={})
         elif slot.model_pick is not None:
             seed_id = slot.standard or (slot.qualifying[0] if slot.qualifying else None)
@@ -396,7 +397,7 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
             "sources": [{"source": p.source, "game_build": p.game_build, "data_version": p.data_version,
                          "fetched_at": p.fetched_at} for p in ds.provenance]}
     builds = load_builds(class_name=class_name)
-    if getattr(module, "ENGINE", False) == "melee":
+    if getattr(module, "ENGINE", False) in ("melee", "spell"):
         return melee_report(class_name, cls, builds, meta, hybrids=getattr(module, "HYBRIDS", ()))
     if not getattr(module, "ENGINE", False):
         return route_report(cls, builds, meta, hybrids=getattr(module, "HYBRIDS", ()),

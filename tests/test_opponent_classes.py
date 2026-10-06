@@ -80,7 +80,8 @@ def test_unmodeled_reasons_name_a_category(name):
 def test_talents_that_teach_an_ability_are_grants_spell(name):
     module = class_module(name)
     for talent in CLASSES[name][3]:
-        assert module.UNMODELED.get(talent) == "grants_spell", talent
+        # stage 2 classes move some of these into TALENT_EFFECTS (Shadowform, #164)
+        assert module.UNMODELED.get(talent) == "grants_spell" or talent in module.TALENT_EFFECTS, talent
 
 
 @pytest.mark.parametrize("name", sorted(CLASSES))

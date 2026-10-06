@@ -14,7 +14,7 @@ The rogue and hunter opponent kits in `config/opponents/` carry hand estimates f
   - `m = class_module(class_name)`; `cls, _ = attach_effects(Dataset.load(DATASET).class_data(class_name), m.TALENT_EFFECTS, m.UNMODELED)` with `DATASET = <repo>/data/datasets/1.60.1.70205.json` (repo root is `Path(__file__).resolve().parents[3]`).
   - `stats = MeleeStatTable.load(class_name).at(60)`.
   - build: `{b.id: b for b in load_builds(class_name=class_name)}[KIT_BUILDS[kit_id]]`, ranks `build.final_ids(cls)`.
-  - `dps = rotation_output(class_name, stats, cls.spells, cls, ranks, Target(60, cloth_armor)).dps` where `cloth_armor` is the `cloth_armor` key in `config/pvp_self.toml` (read with `tomllib`).
+  - `dps = rotation_output(class_name, stats, cls.spells, cls, ranks, Target(0, cloth_armor)).dps` where `cloth_armor` is the `cloth_armor` key in `config/pvp_self.toml` (read with `tomllib`).
   - `health = stats.health`.
   - Imports: `wowforever.builds.load_builds`, `wowforever.classes.class_module`, `wowforever.effects.attach_effects`, `wowforever.melee_scenarios.MeleeStatTable, rotation_output`, `wowforever.physical.Target`, `wowforever.schema.Dataset`.
 

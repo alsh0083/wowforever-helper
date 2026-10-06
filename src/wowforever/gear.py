@@ -254,3 +254,40 @@ def _interpolate_base(rows: list[dict[str, float]], level: int) -> dict[str, flo
             t = (level - anchor["level"]) / (upper["level"] - anchor["level"])
             return {key: anchor[key] + t * (upper[key] - anchor[key]) for key in anchor}
     raise AssertionError("unreachable")
+
+
+CASTERS = Path(__file__).resolve().parents[2] / "config" / "casters.toml"
+
+
+def caster_config(class_name: str) -> dict:
+    """The class's section of config/casters.toml (#163)."""
+    return tomllib.loads(CASTERS.read_text(encoding="utf-8"))[class_name]
+
+
+def caster_stat_table(class_name: str, items: list[Item], levels: Iterable[int]) -> list[Stats]:
+    """Per-level stats for a non-mage caster (#163): its base row plus the best gear it can wear,
+    with its own crit and armor rules from config/casters.toml."""
+    cfg = caster_config(class_name)
+    base_rows = _read_base_rows(MAGE_BASE.parent / f"{class_name}_base.csv")
+    rows: list[Stats] = []
+    for level in levels:
+        allowed: list[int] = []
+        for from_level, subclasses in cfg["armor"]:
+            if from_level <= level:
+                allowed = subclasses
+        base = _interpolate_base(base_rows, level)
+        totals = set_totals(best_set(items, level, 3 if level < 60 else 4,
+                                     weights=cfg.get("weights", WEIGHTS), armor=frozenset(allowed)))
+        intellect = base["intellect"] + totals.get("intellect", 0)
+        spirit = base["spirit"] + totals.get("spirit", 0)
+        stamina = base["stamina"] + totals.get("stamina", 0)
+        rows.append(Stats(
+            level=level, intellect=intellect, spirit=spirit, stamina=stamina,
+            spell_power=float(totals.get("spell_power", 0)),
+            crit_pct=(cfg["base_crit_pct"] + intellect / (cfg["int_per_crit_pct_at_60"] * level / 60)
+                      + crit_pct_from_rating(totals.get("crit_rating", 0), level)),
+            hit_pct=hit_pct_from_rating(totals.get("hit_rating", 0), level),
+            mana=base["base_mana"] + MANA_PER_INT * intellect,
+            health=base["base_health"] + HEALTH_PER_STAMINA * stamina,
+        ))
+    return rows

@@ -1,7 +1,7 @@
 {
  "class": "priest",
- "engine": false,
- "scoring_note": "Shadow scores come with the caster spell engine (#163, #164); Discipline and Holy healing stay unscored.",
+ "engine": true,
+ "scoring_note": "",
  "dataset": {
   "version": "1.60.1.70205",
   "game_build": "1.60.1.70205",
@@ -938,61 +938,112 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    110855,
+    110855,
+    110855,
+    110855,
+    110855,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    105867,
+    105867,
+    105867,
     110853,
     110853,
     110853,
     110853,
     110853,
+    110852,
     105850,
     105850,
     105849,
     105849,
+    105843,
+    105843,
+    105843,
+    105842,
+    105842,
+    105842,
     105849,
     105849,
     105849,
     105848,
     105848,
     105848,
+    105864,
     110852,
     110852,
-    110852,
-    105842,
-    105842,
-    105842,
+    105862,
+    105857,
+    105857,
     105844,
-    105843,
-    105843,
-    105843,
+    105859,
+    105859,
     105837,
     105837,
     105837,
     105837,
     105837,
     105834,
-    105836,
-    105867,
-    105867,
-    105867,
-    110855,
-    110855,
-    110855,
-    110855,
-    110855,
-    105864,
-    105863,
-    105863,
-    105863,
-    105863,
-    105863,
-    105862,
-    105859,
-    105859,
-    105857,
-    105857
+    105836
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 49.9,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 49.7,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 77.9,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 85.8,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 90.0,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 47.2,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 93.3,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 156.7,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 213.0,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 320.8,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 152.6,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -1005,6 +1056,18 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    110855,
+    110855,
+    110855,
+    110855,
+    110855,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    105866,
+    105866,
     105849,
     105849,
     105849,
@@ -1015,18 +1078,24 @@
     105846,
     105846,
     105846,
+    105843,
+    105843,
+    105843,
     105842,
     105842,
     105842,
     105844,
-    105843,
-    105843,
-    105843,
+    105860,
+    105860,
+    105860,
     105837,
     105837,
     105837,
     105837,
     105837,
+    105858,
+    105858,
+    105858,
     105839,
     105834,
     105835,
@@ -1037,27 +1106,9 @@
     105840,
     105840,
     105840,
-    105836,
-    105866,
-    105866,
-    110855,
-    110855,
-    110855,
-    110855,
-    110855,
-    105863,
-    105863,
-    105863,
-    105863,
-    105863,
-    105860,
-    105860,
-    105860,
-    105858,
-    105858,
-    105858
+    105836
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
    "sensitivity": []
@@ -1072,26 +1123,45 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    110855,
+    110855,
+    110855,
+    110855,
+    110855,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
     105866,
     105866,
     105866,
-    110855,
-    110855,
-    110855,
-    110855,
-    110855,
-    105863,
-    105863,
-    105863,
-    105863,
-    105863,
+    105849,
+    105849,
+    105849,
+    105849,
+    105849,
+    105848,
+    105848,
+    105848,
+    105846,
+    105846,
+    105843,
+    105843,
+    105843,
+    105846,
     105862,
+    105844,
     105860,
     105860,
     105860,
+    105837,
+    105837,
+    105837,
     105858,
     105858,
     105858,
+    105839,
     105855,
     105855,
     105854,
@@ -1103,28 +1173,9 @@
     105852,
     105852,
     105852,
-    105851,
-    105849,
-    105849,
-    105849,
-    105849,
-    105849,
-    105848,
-    105848,
-    105848,
-    105846,
-    105846,
-    105846,
-    105844,
-    105843,
-    105843,
-    105843,
-    105837,
-    105837,
-    105837,
-    105839
+    105851
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {},
    "sensitivity": []
@@ -1142,58 +1193,109 @@
     110851,
     110851,
     110851,
+    105867,
+    105867,
+    105867,
     110851,
     110851,
+    105850,
+    105850,
+    105849,
+    105849,
+    105849,
+    105849,
+    105849,
     105831,
     105831,
     105831,
     105830,
     105830,
+    105827,
+    105827,
+    105827,
+    105827,
+    105827,
+    105821,
+    105821,
+    105821,
+    105825,
+    105825,
+    105846,
+    105846,
+    105846,
+    105843,
+    105843,
+    105843,
     105829,
     105829,
-    105827,
-    105827,
-    105827,
-    105827,
-    105827,
+    105844,
     105826,
-    105825,
-    105825,
     105820,
-    105821,
-    105821,
-    105821,
     105819,
-    105819,
-    110854,
-    110854,
     105818,
     105818,
     105818,
     105818,
     105818,
     105817,
-    105850,
-    105850,
-    105849,
-    105849,
-    105849,
-    105849,
-    105849,
-    105846,
-    105846,
-    105846,
-    105844,
-    105843,
-    105843,
-    105843,
-    105867,
-    105867,
-    105867
+    105819,
+    110854,
+    110854
    ],
-   "order_source": "legal order (main tree first), not optimized yet",
+   "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 49.1,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 48.7,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 88.2,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 99.2,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 120.1,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 43.7,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 82.0,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 178.5,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 241.6,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 447.8,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 401.0,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   }
  ],
@@ -1202,13 +1304,58 @@
    "archetype": "deep Discipline",
    "focus": "PvP",
    "standard": "priest-discipline-smite",
-   "standard_score": null,
-   "model_pick": null,
-   "model_pick_score": null,
-   "candidates": {},
+   "standard_score": 0.3857164221877039,
+   "model_pick": {
+    "Blackout": 1,
+    "Penance": 1,
+    "Mental Strength": 5,
+    "Mental Agility": 3,
+    "Meditation": 3,
+    "Inner Focus": 1,
+    "Silent Resolve": 3,
+    "Twin Disciplines": 5,
+    "Wand Specialization": 2,
+    "Searing Light": 2,
+    "Holy Reach": 1,
+    "Holy Nova": 1,
+    "Divine Fury": 5,
+    "Spell Warding": 1,
+    "Twilight Focus": 3,
+    "Shadow Focus": 1,
+    "Holy Precision": 3,
+    "Power in Light": 5,
+    "Holy Specialization": 5
+   },
+   "model_pick_score": 0.4154107474065558,
+   "candidates": {
+    "priest-discipline-smite": 0.3857164221877039
+   },
    "qualifying": [
     "priest-discipline-smite"
-   ]
+   ],
+   "model_pick_changes": [
+    {
+     "talent": "Blackout",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Power Infusion",
+     "from": 1,
+     "to": 0
+    },
+    {
+     "talent": "Holy Reach",
+     "from": 2,
+     "to": 1
+    },
+    {
+     "talent": "Shadow Focus",
+     "from": 0,
+     "to": 1
+    }
+   ],
+   "model_pick_seed": "priest-discipline-smite"
   },
   {
    "archetype": "deep Discipline",
@@ -1248,13 +1395,54 @@
    "archetype": "deep Shadow",
    "focus": "PvP",
    "standard": "priest-shadow",
-   "standard_score": null,
-   "model_pick": null,
-   "model_pick_score": null,
-   "candidates": {},
+   "standard_score": 0.4583209184937548,
+   "model_pick": {
+    "Shadowform": 1,
+    "Darkness": 5,
+    "Vampiric Embrace": 1,
+    "Shadow Weaving": 3,
+    "Silence": 1,
+    "Improved Mind Flay": 2,
+    "Mind Flay": 1,
+    "Improved Mind Blast": 5,
+    "Shadow Reach": 2,
+    "Improved Shadow Word: Pain": 2,
+    "Shadow Affinity": 3,
+    "Blackout": 1,
+    "Meditation": 3,
+    "Inner Focus": 1,
+    "Improved Power Word: Shield": 3,
+    "Twin Disciplines": 5,
+    "Wand Specialization": 2,
+    "Twilight Focus": 3,
+    "Shadow Focus": 5,
+    "Early Demise": 2
+   },
+   "model_pick_score": 0.49776522049387073,
+   "candidates": {
+    "priest-shadow": 0.4583209184937548
+   },
    "qualifying": [
     "priest-shadow"
-   ]
+   ],
+   "model_pick_changes": [
+    {
+     "talent": "Devouring Contagion",
+     "from": 2,
+     "to": 0
+    },
+    {
+     "talent": "Silence",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Blackout",
+     "from": 0,
+     "to": 1
+    }
+   ],
+   "model_pick_seed": "priest-shadow"
   },
   {
    "archetype": "deep Shadow",
@@ -1627,6 +1815,6 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Routes only: this class's builds are community standards in a legal point order (top rows first). Scores, model picks and optimized orders wait on the melee and ranged damage engine (#111)."
+  "Caster model (#163): Shadow Word: Pain and Devouring Plague kept up, Mind Blast and Shadow Word: Death on cooldown, Mind Flay or Smite in between, with Classic hit, crit and mana rules. Shadow Weaving counts at full stacks; Vampiric Embrace's healing, Twin Disciplines and Improved Shadow Word: Pain's longer duration aren't modeled. Base stats are estimates; healer builds stay unscored."
  ]
 }

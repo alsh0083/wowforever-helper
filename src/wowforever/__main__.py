@@ -23,7 +23,7 @@ def main(argv: list[str] | None = None) -> int:
     il.add_argument("--out", default="data/logs/foreverlogs.json")
     gs = sub.add_parser("gear-stats", help="rebuild config/stats/<class>.csv from real Forever gear")
     gs.add_argument("--tables", required=True, help="folder with ItemSparse/Item/RandPropPoints CSVs")
-    gs.add_argument("--class", dest="class_name", default="mage", choices=("mage", "rogue", "hunter", "warrior"))
+    gs.add_argument("--class", dest="class_name", default="mage", choices=("mage", "rogue", "hunter", "warrior", "priest", "warlock", "druid", "shaman"))
     upd = sub.add_parser("update", help="fetch both sources, diff against the last saved dataset, record the check")
     upd.add_argument("--data-dir", default="data")
     upd.add_argument("--delay", type=float, default=1.0, help="seconds between table downloads")
@@ -81,7 +81,7 @@ def main(argv: list[str] | None = None) -> int:
 
         tables = read_tables(Path(args.tables))
         levels = (10, 20, 30, 40, 50, 60)
-        if args.class_name != "mage":
+        if args.class_name not in ("mage",) and not _is_caster(args.class_name):
             from wowforever.melee_stats import melee_stat_table, write_melee_csv
             from wowforever.weapons import load_weapons
 
@@ -89,8 +89,13 @@ def main(argv: list[str] | None = None) -> int:
             write_melee_csv(melee_stat_table(args.class_name, load_items(tables), load_weapons(tables), levels), out)
             print(f"wrote {out}")
             return 0
-        rows = gear_stat_table(load_items(tables), levels=levels)
-        out = CONFIG_DIR / "mage.csv"
+        if args.class_name == "mage":
+            rows = gear_stat_table(load_items(tables), levels=levels)
+        else:
+            from wowforever.gear import caster_stat_table
+
+            rows = caster_stat_table(args.class_name, load_items(tables), levels)
+        out = CONFIG_DIR / f"{args.class_name}.csv"
         with out.open("w", encoding="utf-8", newline="") as handle:
             writer = csv.DictWriter(handle, list(asdict(rows[0])), lineterminator="\n")
             writer.writeheader()
@@ -117,6 +122,13 @@ def main(argv: list[str] | None = None) -> int:
     if args.command is None:
         parser.print_help()
     return 0
+
+
+def _is_caster(class_name: str) -> bool:
+    """Classes scored by the caster spell engine (#163)."""
+    from wowforever.classes import class_module
+
+    return getattr(class_module(class_name), "ENGINE", None) == "spell"
 
 
 if __name__ == "__main__":
