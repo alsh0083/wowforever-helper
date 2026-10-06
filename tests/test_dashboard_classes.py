@@ -57,3 +57,11 @@ def test_payloads_are_embedded_for_every_class():
 def test_single_payload_still_renders():
     html = render(MAGE, {})
     assert 'data-class-matrix="mage"' in html and "class-tab" in html
+
+
+def test_talent_layout_sits_above_the_journey():
+    # owner request 2026-10-06: a calculator-style grid of the selected build, following the level slider
+    assert HTML.index('id="talent-layout"') < HTML.index('class="surface level-panel"')
+    assert "function renderLayout()" in HTML and "renderLayout();" in HTML
+    # its next-point marker must not reuse the sidebar card's .next class (padding squashed the icon)
+    assert "'lt-next'" in HTML and ".lt-cell.lt-next{" in HTML
