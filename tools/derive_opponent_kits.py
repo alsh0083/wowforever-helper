@@ -15,12 +15,12 @@ from wowforever.pvp.kit_stats import KIT_BUILDS, engine_at_60
 
 ROOT = Path(__file__).resolve().parents[1]
 OPPONENTS = ROOT / "config" / "opponents"
-HEADER_NOTE = "Health and DPS: level-60 values vs cloth from the melee engine (#147)."
+HEADER_NOTE = "Health and DPS: level-60 values vs cloth from the damage engine (#147, #163)."
 
 
 def rewrite(path: Path, kit_id: str) -> None:
     health, dps = engine_at_60(kit_id)
-    note = f"# melee engine (#147), build {KIT_BUILDS[kit_id]}"
+    note = f"# damage engine (#147, #163), build {KIT_BUILDS[kit_id]}"
     lines = path.read_text(encoding="utf-8").split("\n")
     old_health = old_dps = None
     in_at_60 = False

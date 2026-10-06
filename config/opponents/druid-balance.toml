@@ -1,7 +1,7 @@
 # Druid Balance (Moonkin): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
 # Second PvP spec for the class (#81), from wowforevertalent.com Forever popularity data plus judgment.
 # source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
-# can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
+# can't see yet; estimate = judgment. Health and DPS: level-60 values vs cloth from the damage engine (#147, #163).
 
 id = "druid-balance"
 class = "Druid"
@@ -14,8 +14,8 @@ confidence = "low"
 sources = ["wft_popular"]
 
 [at_60]
-health = 3900
-dps = 200  # sustained vs cloth when in range
+health = 2630  # damage engine (#147, #163), build druid-balance
+dps = 351  # damage engine (#147, #163), build druid-balance
 opener_damage = 0
 opener_stun = 0.0
 opener_source = "none"

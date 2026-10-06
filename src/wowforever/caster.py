@@ -70,7 +70,12 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
     target_level = stats.level + target.level_diff
     time_left, dps, mana, used = 1.0, 0.0, 0.0, []
 
+    talent_ids = {t.name: t.talent_id for t in cls.talents}
+
     def learned(name: str) -> SpellRank | None:
+        # a spell taught by a talent (Conflagrate, Lava Burst, Mind Flay) needs that talent
+        if name in talent_ids and ranks.get(talent_ids[name], 0) <= 0:
+            return None
         return best_rank(spells, name, stats.level)
 
     for kind in ("dots", "cooldowns"):
@@ -104,4 +109,5 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
         used.append(best[3])
 
     regen = regen_while_casting(class_name, stats, cls, ranks)
+    regen += caster_config(class_name).get("extra_regen_per_second", 0.0)   # Life Tap
     return CasterRotation(dps=dps, mana_per_second=mana - regen, regen_per_second=regen, spells=tuple(used))

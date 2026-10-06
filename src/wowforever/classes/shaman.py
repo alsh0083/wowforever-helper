@@ -19,30 +19,59 @@ LAYOUT = TraitLayout(
     grid=600,
 )
 
-TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {}
+# Numbers are read from the rank text (#163).
+TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
+    "Convection": (
+        EffectRule("mana_cost_pct", r"mana cost of your Shock, Lightning Bolt, Lava Burst, and Chain Lightning spells by (\d+(?:\.\d+)?)%",
+                   ("Flame Shock", "Lightning Bolt", "Lava Burst", "Chain Lightning"), sign=-1),
+    ),
+    "Concussion": (
+        EffectRule("damage_pct", r"damage done by your Lightning Bolt, Chain Lightning, and Earth Shock spells by (\d+(?:\.\d+)?)%",
+                   ("Lightning Bolt", "Chain Lightning")),
+    ),
+    "Call of Flame": (
+        EffectRule("damage_pct", r"Flame Shock, Fire Nova, and Lava Burst spells by (\d+(?:\.\d+)?)%", ("Flame Shock", "Lava Burst")),
+    ),
+    "Elemental Alacrity": (
+        EffectRule("cast_time", r"cast time of your Lightning Bolt, Chain Lightning, and Lava Burst spells by (\d+(?:\.\d+)?) sec",
+                   ("Lightning Bolt", "Chain Lightning", "Lava Burst"), sign=-1),
+    ),
+    "Call of Thunder": (
+        EffectRule("crit_chance", r"critical strike chance of your Lightning Bolt and Chain Lightning spells by (\d+(?:\.\d+)?)%",
+                   ("Lightning Bolt", "Chain Lightning")),
+    ),
+    "Elemental Fury": (
+        EffectRule("crit_damage_pct", r"your Fire, Frost, and Nature spells by (\d+(?:\.\d+)?)%", ("fire", "frost", "nature")),
+    ),
+    "Lightning Overload": (
+        EffectRule("damage_pct", r"(\d+)% chance to cast a second, similar spell on the same target at no additional cost that causes half damage",
+                   ("Lightning Bolt", "Chain Lightning"), combine=lambda m: float(m.group(1)) / 2),
+    ),
+    "Thundering Strikes": (
+        EffectRule("crit_chance", r"critical strike with all spells and attacks by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
+    "Tidal Focus": (
+        EffectRule("hit_chance", r"improves your chance to hit by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
+    "Mindfulness": (
+        EffectRule("regen_while_casting", r"Allows (\d+(?:\.\d+)?)% of your Mana regeneration", ("all",)),
+    ),
+}
 
 # Every shaman talent, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Elemental
-    "Convection": "resource: cheaper Shocks and Lightning",
-    "Concussion": "damage: +5% Lightning Bolt, Chain Lightning, Earth Shock",
     "Elemental Warding": "defensive: 10% less Fire, Frost, Nature damage",
     "Reverberation": "damage: Shock cooldown -1 s",
-    "Call of Flame": "damage: +15% fire totems, Flame Shock, Fire Nova, Lava Burst",
     "Elemental Devastation": "proc: spell crits raise melee crit",
     "Elemental Focus": "proc: Clearcasting after damage spells",
-    "Elemental Alacrity": "damage: faster Lightning Bolt, Chain Lightning, Lava Burst",
     "Improved Fire Nova": "damage: Fire Nova damage and cooldown",
     "Eye of the Storm": "utility: less pushback on Lightning and Lava Burst",
-    "Call of Thunder": "damage: +3% Lightning crit",
     "Elemental Reach": "utility: longer spell range",
-    "Lightning Overload": "proc: Lightning spells can cast twice",
     "Earthbound": "control: Earthbind Totem roots 5 s",
-    "Elemental Fury": "damage: spell and fire totem crit damage",
     "Lava Burst": "grants_spell",
     # Enhancement
     "Earth's Grasp": "utility: Stoneclaw health, Earthbind radius",
-    "Thundering Strikes": "damage: +5% spell and melee crit",
     "Ancestral Knowledge": "buff: +10% Intellect",
     "Guardian Totems": "defensive: stronger Stoneskin and Windwall Totems",
     "Mental Dexterity": "damage: attack power from Intellect",
@@ -62,9 +91,7 @@ UNMODELED: dict[str, str] = {
     # Restoration
     "Improved Healing Wave": "healing: faster Healing Wave",
     "Totemic Focus": "resource: cheaper totems",
-    "Mindfulness": "resource: 50% mana regeneration while casting",
     "Natural Grace": "threat: 15% less spell threat",
-    "Tidal Focus": "resource: cheaper heals, +5% hit",
     "Improved Reincarnation": "defensive: Reincarnation cooldown, +4% health",
     "Ancestral Healing": "healing: crit heals raise target armor",
     "Healing Focus": "utility: heals resist pushback",
@@ -81,5 +108,15 @@ UNMODELED: dict[str, str] = {
 # Shaman skill lines in SkillLineAbility: Elemental, Enhancement, Restoration.
 SKILL_LINES = (375, 373, 374)
 
-# Shown on the dashboard while the class is routes-only (planning round 2, Q2/Q3).
-SCORING_NOTE = "Elemental and Enhancement scores come with the caster spell engine (#163, #167); Restoration stays unscored."
+# Scored by the caster spell engine (#163).
+ENGINE = "spell"
+ROTATION = {
+    "dots": ("Flame Shock",),
+    "cooldowns": ("Lava Burst", "Chain Lightning"),
+    "fillers": ("Lightning Bolt",),
+}
+# Enhancement waits for the melee hybrids (#175); Restoration stays unscored (Q3).
+UNSCORED_TREES = ("Enhancement", "Restoration")
+CAVEAT = ("Caster model (#163, #167): Flame Shock kept up (shocks share a cooldown, so no Earth Shock), Lava Burst "
+          "and Chain Lightning on cooldown, Lightning Bolt in between. Elemental Focus and totems aren't modeled. "
+          "Enhancement is unscored until the melee hybrids (#175). Base stats are estimates.")
