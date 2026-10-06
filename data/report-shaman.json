@@ -902,35 +902,38 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    104753,
+    104753,
+    104753,
+    104753,
+    104753,
     104773,
     104773,
     104773,
     104773,
+    104756,
     104773,
-    104770,
-    104770,
-    104770,
+    104756,
+    104756,
+    104756,
+    104756,
     104772,
     104772,
+    104772,
+    104772,
+    104752,
+    104772,
+    104752,
+    104767,
+    104749,
+    104767,
     104765,
     104765,
     104765,
-    104772,
-    104772,
     104762,
-    104772,
-    104753,
-    104753,
-    104753,
-    104753,
-    104753,
-    104756,
-    104756,
-    104756,
-    104756,
-    104756,
-    104767,
-    104767,
+    104770,
+    104770,
+    104770,
     104767,
     104759,
     104759,
@@ -943,10 +946,7 @@
     104766,
     104766,
     104758,
-    104752,
-    104752,
     104768,
-    104749,
     104763,
     104763,
     104763,
@@ -959,19 +959,19 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 57.8,
+      "score": 64.8,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 61.1,
+      "score": 63.8,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 71.7,
+      "score": 70.7,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 76.9,
+      "score": 75.3,
       "unit": "kills/hour"
      },
      "60": {
@@ -981,19 +981,19 @@
     },
     "dungeon": {
      "20": {
-      "score": 46.4,
+      "score": 33.9,
       "unit": "dps"
      },
      "30": {
-      "score": 80.3,
+      "score": 56.0,
       "unit": "dps"
      },
      "40": {
-      "score": 144.2,
+      "score": 141.4,
       "unit": "dps"
      },
      "50": {
-      "score": 187.5,
+      "score": 179.1,
       "unit": "dps"
      },
      "60": {
@@ -1020,16 +1020,14 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
-    104772,
-    104772,
-    104772,
-    104772,
-    104772,
     104753,
     104753,
     104753,
     104753,
     104753,
+    104755,
+    104755,
+    104755,
     104729,
     104729,
     104729,
@@ -1039,27 +1037,29 @@
     104735,
     104735,
     104756,
+    104735,
     104756,
-    104755,
-    104755,
-    104755,
     104735,
-    104735,
+    104750,
+    104750,
+    104750,
+    104772,
+    104772,
+    104772,
+    104772,
+    104772,
     104752,
     104752,
-    104769,
-    104769,
-    104769,
-    104750,
-    104750,
-    104750,
-    104749,
-    104747,
-    104747,
-    104747,
-    104747,
-    104747,
     104743,
+    104747,
+    104747,
+    104747,
+    104747,
+    104747,
+    104769,
+    104769,
+    104769,
+    104749,
     104745,
     104744,
     104744,
@@ -1068,13 +1068,64 @@
     104741,
     104741,
     104741,
+    104740,
     104741,
-    104741,
-    104740
+    104741
    ],
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 68.1,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 68.8,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 83.4,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 78.0,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 72.1,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 36.4,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 62.6,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 123.0,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 170.6,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 214.7,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 216.7,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -1087,24 +1138,24 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
-    104772,
-    104772,
-    104772,
-    104772,
-    104772,
-    104770,
-    104770,
-    104770,
     104753,
     104753,
     104753,
     104753,
     104753,
+    104755,
+    104755,
+    104755,
     104756,
     104756,
-    104755,
-    104755,
-    104755,
+    104750,
+    104750,
+    104750,
+    104772,
+    104772,
+    104772,
+    104772,
+    104772,
     104767,
     104767,
     104767,
@@ -1112,21 +1163,21 @@
     104767,
     104752,
     104752,
-    104769,
-    104769,
-    104769,
-    104750,
-    104750,
-    104750,
-    104749,
-    104764,
-    104764,
     104747,
     104747,
     104747,
     104747,
     104747,
     104743,
+    104770,
+    104770,
+    104770,
+    104769,
+    104769,
+    104769,
+    104749,
+    104764,
+    104764,
     104745,
     104744,
     104744,
@@ -1135,13 +1186,64 @@
     104741,
     104741,
     104741,
+    104740,
     104741,
-    104741,
-    104740
+    104741
    ],
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
-   "scores": {},
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 68.1,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 67.2,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 84.7,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 76.4,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 72.1,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 36.4,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 60.2,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 125.1,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 163.7,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 214.7,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 215.9,
+      "unit": "dps"
+     }
+    }
+   },
    "sensitivity": []
   },
   {
@@ -1164,19 +1266,19 @@
     104739,
     104739,
     104739,
+    104756,
+    104735,
+    104756,
+    104735,
+    104756,
+    104735,
+    104756,
+    104735,
+    104756,
+    104735,
     104734,
     104734,
     104734,
-    104735,
-    104735,
-    104735,
-    104756,
-    104756,
-    104756,
-    104756,
-    104756,
-    104735,
-    104735,
     104731,
     104731,
     104731,
@@ -1217,11 +1319,11 @@
    "archetype": "deep Elemental",
    "focus": "PvP",
    "standard": "shaman-elemental",
-   "standard_score": 0.4603927230720438,
+   "standard_score": 0.4581877003143719,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "shaman-elemental": 0.4603927230720438
+    "shaman-elemental": 0.4581877003143719
    },
    "qualifying": [
     "shaman-elemental"
@@ -1241,10 +1343,12 @@
    "archetype": "deep Enhancement",
    "focus": "PvP",
    "standard": "shaman-enhancement",
-   "standard_score": null,
+   "standard_score": 0.40115191995758714,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
+   "candidates": {
+    "shaman-enhancement": 0.40115191995758714
+   },
    "qualifying": [
     "shaman-enhancement"
    ]
@@ -1253,10 +1357,12 @@
    "archetype": "deep Enhancement",
    "focus": "PvE",
    "standard": "shaman-enhancement-pve",
-   "standard_score": null,
+   "standard_score": 1.1990907478952237,
    "model_pick": null,
    "model_pick_score": null,
-   "candidates": {},
+   "candidates": {
+    "shaman-enhancement-pve": 1.1990907478952237
+   },
    "qualifying": [
     "shaman-enhancement-pve"
    ]
@@ -1489,6 +1595,6 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Caster model (#163, #167): Flame Shock kept up (shocks share a cooldown, so no Earth Shock), Lava Burst and Chain Lightning on cooldown, Lightning Bolt in between. Elemental Focus and totems aren't modeled. Enhancement is unscored until the melee hybrids (#175). Base stats are estimates."
+  "Elemental (#167): Flame Shock kept up, Lava Burst and Chain Lightning on cooldown, Lightning Bolt in between on the caster engine. Enhancement (#175): two-hander swings with Windfury (Classic chance and attack power) and Flurry, Stormstrike and Earth Shock on cooldown on the melee engine; Stormstrike's debuff, Maelstrom Weapon, totems and Enhancement's mana aren't modeled. Restoration stays unscored. Base stats are estimates."
  ]
 }

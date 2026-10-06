@@ -1,0 +1,10 @@
+# Enhancement constants (#175). Classic values; confidence LOW until checked in Forever.
+
+# Windfury Weapon: chance per swing of an extra attack with bonus attack power by level (Classic ranks)
+windfury_chance = 0.20
+windfury_attack_power = { 30 = [46], 40 = [119], 50 = [249], 60 = [315] }
+# Rage of the Farseer: +30% attack speed for 25 s (rank text); cooldown Classic-style 3 min (estimate)
+rage_of_the_farseer = { haste_pct = 30.0, duration = 25.0, cooldown = 180.0 }
+# Flurry: +25% attack speed for 3 swings after a melee crit (rank text)
+flurry_swings = 3
+normalized_speed = { one_hand = 2.4, two_hand = 3.3 }

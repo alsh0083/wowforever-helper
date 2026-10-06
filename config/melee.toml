@@ -107,3 +107,56 @@ stamina = 0.3
 intellect = 0.2
 spell_power = 0.2
 weapon_dps = 3.0
+
+[druid_melee]
+# Feral cat (#175): leather; the weapon's damage is replaced by the cat's paws (config/druid.toml)
+armor = [[1, [1, 2]]]
+one_hand = [4, 13, 15]
+two_hand = [5, 6]
+prefer_two_hand = true
+ranged = []
+# cat attack power = 2 * strength + agility - 20 (+ Predatory Strikes, by level, in the rotation)
+ap_level = 0
+ap_str = 2
+ap_agi = 1
+ap_const = 20
+rap_level = 0
+rap_agi = 0
+rap_const = 0
+agi_per_crit_at_60 = 20.0
+uses_mana = true
+[druid_melee.weights]
+strength = 1.0
+agility = 1.0
+attack_power = 0.5
+crit_rating = 1.0
+hit_rating = 1.2
+stamina = 0.3
+weapon_dps = 0.0
+
+[shaman_melee]
+# Enhancement (#175): two-hander; leather, mail from 40
+armor = [[1, [1, 2]], [40, [1, 2, 3]]]
+one_hand = [0, 4, 15]
+two_hand = [1, 5]
+prefer_two_hand = true
+ranged = []
+# attack power = 2 * level + 2 * strength - 20 (Classic shaman; Mental Dexterity adds Intellect)
+ap_level = 2
+ap_str = 2
+ap_agi = 0
+ap_const = 20
+rap_level = 0
+rap_agi = 0
+rap_const = 0
+agi_per_crit_at_60 = 20.0
+uses_mana = true
+[shaman_melee.weights]
+strength = 1.0
+agility = 0.6
+attack_power = 0.5
+crit_rating = 1.0
+hit_rating = 1.2
+stamina = 0.3
+intellect = 0.3
+weapon_dps = 3.0

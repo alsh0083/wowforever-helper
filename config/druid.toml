@@ -1,0 +1,7 @@
+# Feral cat constants (#175). Classic values; confidence LOW until checked in Forever.
+
+# cat paw damage (min, max) by level; cat form attacks once per second
+paws = { 10 = [9, 13], 20 = [17, 24], 30 = [25, 36], 40 = [33, 47], 50 = [41, 58], 60 = [49, 70] }
+paw_speed = 1.0
+energy_per_second = 10.0
+finisher_combo_points = 5

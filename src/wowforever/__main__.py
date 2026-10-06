@@ -23,7 +23,8 @@ def main(argv: list[str] | None = None) -> int:
     il.add_argument("--out", default="data/logs/foreverlogs.json")
     gs = sub.add_parser("gear-stats", help="rebuild config/stats/<class>.csv from real Forever gear")
     gs.add_argument("--tables", required=True, help="folder with ItemSparse/Item/RandPropPoints CSVs")
-    gs.add_argument("--class", dest="class_name", default="mage", choices=("mage", "rogue", "hunter", "warrior", "paladin", "priest", "warlock", "druid", "shaman"))
+    gs.add_argument("--class", dest="class_name", default="mage", choices=("mage", "rogue", "hunter", "warrior", "paladin", "priest", "warlock", "druid", "shaman",
+                                     "druid_melee", "shaman_melee"))
     upd = sub.add_parser("update", help="fetch both sources, diff against the last saved dataset, record the check")
     upd.add_argument("--data-dir", default="data")
     upd.add_argument("--delay", type=float, default=1.0, help="seconds between table downloads")
@@ -126,9 +127,9 @@ def main(argv: list[str] | None = None) -> int:
 
 def _is_caster(class_name: str) -> bool:
     """Classes scored by the caster spell engine (#163)."""
-    from wowforever.classes import class_module
+    from wowforever.classes import CLASSES, class_module
 
-    return getattr(class_module(class_name), "ENGINE", None) == "spell"
+    return class_name in CLASSES and getattr(class_module(class_name), "ENGINE", None) == "spell"
 
 
 if __name__ == "__main__":

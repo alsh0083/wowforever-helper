@@ -16,7 +16,7 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path
 
 from wowforever.focus import PVP_SCENARIOS
-from wowforever.melee_scenarios import rotation_output
+from wowforever.melee_scenarios import build_stats, rotation_output
 from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Target, armor_factor
 from wowforever.pvp.duel import Control, Kit, MageSide, lockout_seconds, scenario_scores
@@ -45,7 +45,7 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
                                pet=_has_pet(cls, ranks)).mode
         slow = cfg["slow_melee"] if mode == "melee" else cfg["slow_ranged"]
     return MageSide(
-        health=stats.health,
+        health=build_stats(class_name, stats, cls, ranks).health,
         dps=output.dps,
         barrier_per_min=0.0,
         immunity_share=0.0,

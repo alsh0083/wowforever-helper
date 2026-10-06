@@ -61,6 +61,33 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Reflection": (
         EffectRule("regen_while_casting", r"Allows (\d+(?:\.\d+)?)% of your Mana regeneration", ("all",)),
     ),
+    # melee hybrid (#175)
+    "Ferocity": (
+        EffectRule("energy_cost", r"cost of your Maul, Primal Bite, Swipe, Claw, and Rake abilities by (\d+(?:\.\d+)?) Rage or Energy",
+                   ("Claw", "Rake", "Maul", "Swipe", "Primal Bite"), sign=-1),
+    ),
+    "Shredding Attacks": (
+        EffectRule("energy_cost", r"Energy cost of your Shred ability by (\d+(?:\.\d+)?)", ("Shred",), sign=-1),
+    ),
+    "Savage Fury": (
+        EffectRule("damage_pct", r"damage caused by your Claw, Rake, Shred, Maul, and Swipe abilities by (\d+(?:\.\d+)?)%",
+                   ("Claw", "Rake", "Shred", "Maul", "Swipe")),
+    ),
+    "Sharpened Claws": (
+        EffectRule("crit_chance", r"critical strike chance while in Bear Form, Dire Bear Form, or Cat Form by (\d+(?:\.\d+)?)%", ("@feral",)),
+    ),
+    "Predatory Strikes": (
+        EffectRule("ap_per_level_pct", r"Attack Power in Cat Form, Bear Form, and Dire Bear Form by (\d+(?:\.\d+)?)% of your level", ("all",)),
+    ),
+    "Leader of the Pack": (
+        EffectRule("crit_chance", r"critical strike chance of all party members within 45 yards by (\d+(?:\.\d+)?)%", ("@feral",)),
+    ),
+    "Predatory Instincts": (
+        EffectRule("crit_damage_pct", r"critical strike damage bonus of your melee abilities by (\d+(?:\.\d+)?)%", ("@ability",)),
+    ),
+    "Rend and Tear": (
+        EffectRule("damage_pct", r"damage done by your melee abilities on Bleeding targets by (\d+(?:\.\d+)?)%", ("@bleeding",)),
+    ),
 }
 
 # Every druid talent, with why it isn't modeled.
@@ -73,25 +100,17 @@ UNMODELED: dict[str, str] = {
     "Nature's Grace": "proc: spell crits speed up the next cast",
     "Eclipse": "proc: Wrath speeds up Starfire",
     # Feral Combat
-    "Ferocity": "resource: feral abilities cost 5 less Rage or Energy",
     "Heart of the Wild": "buff: +10% Intellect, bear Stamina",
     "Feral Swiftness": "mobility: Cat Form speed and dodge",
     "Feral Instinct": "damage: Swipe damage, stealthier Prowl",
     "Brutal Impact": "control: longer Bash and Pounce stuns",
     "Thick Hide": "defensive: more armor in forms",
-    "Shredding Attacks": "resource: cheaper Shred and Lacerate",
-    "Savage Fury": "damage: +10% feral ability damage",
     "Feral Charge": "grants_spell",
-    "Sharpened Claws": "damage: +6% crit in forms",
     "Shifting Power": "grants_spell",
     "Primal Bite": "grants_spell",
-    "Predatory Strikes": "damage: attack power in forms",
     "Blood Frenzy": "resource: Rage on bear crits",
     "Improved Shifting Power": "resource: Shifting Power cooldown -8 s",
-    "Leader of the Pack": "buff: party melee crit aura",
-    "Predatory Instincts": "damage: +20% melee crit damage",
     "Natural Reaction": "defensive: +5% dodge, Rage on dodge",
-    "Rend and Tear": "damage: +10% vs bleeding targets",
     "Berserk": "damage: Primal Bite cleaves and crits more",
     # Restoration
     "Nature's Focus": "utility: 70% pushback avoidance",
@@ -120,8 +139,12 @@ ROTATION = {
     "cooldowns": (),
     "fillers": ("Starfire", "Wrath"),
 }
-# Feral (cat and bear) and Restoration wait for the melee hybrids and healing (#175, Q3).
-UNSCORED_TREES = ("Feral Combat", "Restoration")
-CAVEAT = ("Caster model (#163, #166): Moonfire and Insect Swarm kept up, then Starfire or Wrath. Eclipse, Nature's "
-          "Grace and Omen of Clarity procs aren't modeled. Feral is unscored until the melee hybrids (#175); "
-          "Restoration stays unscored. Base stats are estimates.")
+# Feral builds fight in cat form on the melee engine (#175); the bear tank and Restoration stay
+# unscored (Q3).
+MELEE_TREES = ("Feral Combat",)
+UNSCORED_TREES = ("Restoration",)
+UNSCORED_BUILDS = ("druid-feral-bear",)
+CAVEAT = ("Balance (#166): Moonfire and Insect Swarm kept up, then Starfire or Wrath on the caster engine; Eclipse, "
+          "Nature's Grace and Omen of Clarity aren't modeled. Feral cat (#175): paw swings and a Shred or Claw to "
+          "Ferocious Bite energy cycle on the melee engine, Classic paw damage; Rake and Rip bleeds, Tiger's Fury and "
+          "powershifting aren't modeled. The bear tank and Restoration stay unscored. Base stats are estimates.")

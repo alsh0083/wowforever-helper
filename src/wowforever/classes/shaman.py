@@ -56,6 +56,16 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Mindfulness": (
         EffectRule("regen_while_casting", r"Allows (\d+(?:\.\d+)?)% of your Mana regeneration", ("all",)),
     ),
+    # melee hybrid (#175)
+    "Flurry": (
+        EffectRule("haste_pct", r"attack speed by (\d+(?:\.\d+)?)% for your next 3 swings", ("@flurry",)),
+    ),
+    "Elemental Weapons": (
+        EffectRule("damage_pct", r"your Windfury Weapon effect by (\d+(?:\.\d+)?)%", ("Windfury Weapon",)),
+    ),
+    "Mental Dexterity": (
+        EffectRule("ap_from_int_pct", r"Attack Power by an amount equal to (\d+(?:\.\d+)?)% of your Intellect", ("all",)),
+    ),
 }
 
 # Every shaman talent, with why it isn't modeled.
@@ -74,14 +84,11 @@ UNMODELED: dict[str, str] = {
     "Earth's Grasp": "utility: Stoneclaw health, Earthbind radius",
     "Ancestral Knowledge": "buff: +10% Intellect",
     "Guardian Totems": "defensive: stronger Stoneskin and Windwall Totems",
-    "Mental Dexterity": "damage: attack power from Intellect",
     "Improved Ghost Wolf": "mobility: faster Ghost Wolf, usable indoors",
     "Improved Lightning Shield": "damage: +15% Lightning Shield",
-    "Elemental Weapons": "damage: stronger weapon imbues",
     "Shamanistic Focus": "resource: cheaper Shocks and Lightning Shield",
     "Anticipation": "defensive: +6% dodge",
     "Toughness": "defensive: +10% Stamina",
-    "Flurry": "damage: attack speed after melee crits",
     "Stormstrike": "grants_spell",
     "Spirit Weapons": "defensive: parry, less threat",
     "Mental Quickness": "damage: spell power from Intellect",
@@ -115,8 +122,11 @@ ROTATION = {
     "cooldowns": ("Lava Burst", "Chain Lightning"),
     "fillers": ("Lightning Bolt",),
 }
-# Enhancement waits for the melee hybrids (#175); Restoration stays unscored (Q3).
-UNSCORED_TREES = ("Enhancement", "Restoration")
-CAVEAT = ("Caster model (#163, #167): Flame Shock kept up (shocks share a cooldown, so no Earth Shock), Lava Burst "
-          "and Chain Lightning on cooldown, Lightning Bolt in between. Elemental Focus and totems aren't modeled. "
-          "Enhancement is unscored until the melee hybrids (#175). Base stats are estimates.")
+# Enhancement fights in melee on the melee engine (#175); Restoration stays unscored (Q3).
+MELEE_TREES = ("Enhancement",)
+UNSCORED_TREES = ("Restoration",)
+CAVEAT = ("Elemental (#167): Flame Shock kept up, Lava Burst and Chain Lightning on cooldown, Lightning Bolt in "
+          "between on the caster engine. Enhancement (#175): two-hander swings with Windfury (Classic chance and "
+          "attack power) and Flurry, Stormstrike and Earth Shock on cooldown on the melee engine; Stormstrike's "
+          "debuff, Maelstrom Weapon, totems and Enhancement's mana aren't modeled. Restoration stays unscored. "
+          "Base stats are estimates.")
