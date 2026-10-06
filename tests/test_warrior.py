@@ -85,3 +85,11 @@ def test_warrior_arms_kit_matches_the_spell_data():
         assert spells[c["name"]].cooldown == c["cooldown"], c["name"]
         if c["name"] not in ("Charge", "Intercept"):
             assert spells[c["name"]].duration == c["duration"], c["name"]
+
+
+def test_every_warrior_talent_has_an_icon():
+    # page icons by position, then by name for talents the site shows elsewhere, then the client's icon
+    # file ids for the four the site lacks (ICON_OVERRIDES)
+    cls, _ = normalize_class(TABLES, WARRIOR.LAYOUT, PAGE, wago_build="1.60.1.70205",
+                             icon_overrides=WARRIOR.ICON_OVERRIDES)
+    assert all(t.icon for t in cls.talents)

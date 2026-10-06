@@ -136,7 +136,8 @@ def check_for_updates(
     page = wowforevertalent.parse_page(page_path.read_text(encoding="utf-8"))
 
     tables = normalize_module.read_tables(data_dir / "cache" / "wago" / build)
-    cls, report = normalize_module.normalize_class(tables, module.LAYOUT, page, wago_build=build)
+    cls, report = normalize_module.normalize_class(tables, module.LAYOUT, page, wago_build=build,
+                                                   icon_overrides=getattr(module, "ICON_OVERRIDES", None))
     cls, effect_problems = effects_module.attach_effects(cls, module.TALENT_EFFECTS, module.UNMODELED)
     cls = dataclasses.replace(
         cls, spells=normalize_spells_module.class_spells(tables, skill_lines=module.SKILL_LINES)
