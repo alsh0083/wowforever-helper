@@ -9,6 +9,7 @@ rather than dropped.
 from __future__ import annotations
 
 import csv
+from collections.abc import Mapping
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -89,7 +90,7 @@ def _snapped(pos: int, origin: int, layout: TraitLayout) -> int:
 
 
 def normalize_class(tables: Tables, layout: TraitLayout, page: WftPage, *,
-                    wago_build: str) -> tuple[ClassData, NormalizeReport]:
+                    wago_build: str, icon_overrides: Mapping[str, str] | None = None) -> tuple[ClassData, NormalizeReport]:
     """Cut `layout`'s trait tree into Classic-style trees and join it with `page`."""
     report = NormalizeReport()
     if page.game_build != wago_build:
@@ -156,6 +157,9 @@ def normalize_class(tables: Tables, layout: TraitLayout, page: WftPage, *,
         for talent in tree["talents"]:
             page_talent_at[(tree_position, int(talent["row"]), int(talent["col"]))] = talent
     matched: set[tuple[int, int, int]] = set()
+    # icons by talent name, for talents the site shows at another position (it can be a build behind
+    # the client, #149): the icon belongs to the talent, so it's safe to reuse; rank text is not
+    icon_by_name = {str(t["name"]).lower(): t.get("icon") or "" for tree in page.trees for t in tree["talents"]}
 
     ordered = sorted(placed, key=lambda p: (band_index[p.tree_id], p.row, p.col))
     talents: list[Talent] = []
@@ -183,6 +187,8 @@ def normalize_class(tables: Tables, layout: TraitLayout, page: WftPage, *,
                 status = classic.get("status") if isinstance(classic, dict) else None
                 classic_status = status if status in CLASSIC_STATUS else None
                 icon = page_talent.get("icon") or ""
+        if not icon:
+            icon = icon_by_name.get(p.name.lower(), "") or (icon_overrides or {}).get(p.name, "")
         talents.append(Talent(
             talent_id=p.talent_id, name=p.name, tree_id=p.tree_id, row=p.row, col=p.col,
             max_rank=p.max_rank, rank_spell_ids=(), rank_text=rank_text,
