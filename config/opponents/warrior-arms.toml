@@ -1,7 +1,7 @@
 # Warrior Arms (Mortal Strike): PvP opponent kit for the duel model (docs/design/pvp-duel-model.md).
 # Spec chosen from wowforevertalent.com Forever popularity data plus PvP judgment.
 # source per value: data = Forever client 1.60.1.70205; classic = Classic value the data reader
-# can't see yet; estimate = judgment. Health and DPS: level-60 estimates vs cloth (low confidence).
+# can't see yet; estimate = judgment. Health and DPS: level-60 values vs cloth from the melee engine (#147).
 
 id = "warrior-arms"
 class = "Warrior"
@@ -14,8 +14,8 @@ confidence = "low"
 sources = ["wft_popular"]
 
 [at_60]
-health = 4200
-dps = 220  # sustained vs cloth when in range
+health = 3420  # melee engine (#147), build warrior-arms
+dps = 169  # melee engine (#147), build warrior-arms
 opener_damage = 0
 opener_stun = 1.0
 opener_source = "classic (Charge stun; not in data reader)"

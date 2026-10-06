@@ -27,6 +27,7 @@ KIT_BUILDS: dict[str, str] = {
     "rogue-subtlety": "rogue-subtlety",
     "hunter-marksmanship": "hunter-marksmanship",
     "hunter-survival": "hunter-survival-pvp",
+    "warrior-arms": "warrior-arms",
 }
 
 

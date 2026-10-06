@@ -1,6 +1,7 @@
 {
  "class": "rogue",
  "engine": true,
+ "scoring_note": "",
  "dataset": {
   "version": "1.60.1.70205",
   "game_build": "1.60.1.70205",
@@ -82,6 +83,42 @@
     "game_build": "1.60.1.70170",
     "data_version": "beta-20261004-652acfd6",
     "fetched_at": "2026-10-05T18:14:08.229210+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T21:32:50.229868+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:19.310836+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:21.223473+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:23.135861+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:25.026869+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-05T22:22:26.957252+00:00"
    }
   ]
  },
@@ -1383,11 +1420,11 @@
    "archetype": "deep Combat",
    "focus": "PvP",
    "standard": "rogue-combat-pvp",
-   "standard_score": 0.44455471942669145,
+   "standard_score": 0.452623842056584,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "rogue-combat-pvp": 0.44455471942669145
+    "rogue-combat-pvp": 0.452623842056584
    },
    "qualifying": [
     "rogue-combat-pvp"
@@ -1431,7 +1468,7 @@
    "archetype": "Assassination/Subtlety",
    "focus": "PvP",
    "standard": "rogue-subtlety",
-   "standard_score": 0.3946932077538829,
+   "standard_score": 0.40231195367607714,
    "model_pick": {
     "Improved Eviscerate": 3,
     "Lethality": 5,
@@ -1454,9 +1491,9 @@
     "Opportunity": 2,
     "Master of Deception": 3
    },
-   "model_pick_score": 0.4195213377742719,
+   "model_pick_score": 0.4273833790014628,
    "candidates": {
-    "rogue-subtlety": 0.3946932077538829
+    "rogue-subtlety": 0.40231195367607714
    },
    "qualifying": [
     "rogue-subtlety"

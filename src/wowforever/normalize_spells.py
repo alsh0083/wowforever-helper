@@ -29,6 +29,8 @@ EFFECT_WEAPON_PCT = 31       # percent weapon damage (base points = percent)
 EFFECT_TRIGGER_SPELL = 64    # trigger a spell
 EFFECT_WEAPON_DAMAGE = 58    # weapon damage
 EFFECT_NORMALIZED_WEAPON = 121  # normalized weapon damage (speed set by weapon type)
+EFFECT_WEAPON_DAMAGE_NOSCHOOL = 17  # weapon damage plus a flat bonus (Heroic Strike, #162)
+_STRIKES = (str(EFFECT_NORMALIZED_WEAPON), str(EFFECT_WEAPON_DAMAGE), str(EFFECT_WEAPON_DAMAGE_NOSCHOOL))
 AURA_DOT = 3                 # periodic damage over time
 AURA_PERIODIC_TRIGGER = 23   # periodic trigger: fires EffectTriggerSpell every EffectAuraPeriod
 AURA_SLOW = 33               # movement speed mod (negative base points = slow)
@@ -127,6 +129,7 @@ def _index_tables(tables: Tables) -> _Indexes:
 
 
 _POWER_MANA, _POWER_ENERGY = "0", "3"   # SpellPower.PowerType (4 = combo points)
+_POWER_RAGE = "1"                      # SpellPower.PowerType: warrior rage (stored in tenths)
 
 
 def _all_by_spell(rows: list[dict[str, str]]) -> dict[int, list[dict[str, str]]]:
@@ -203,6 +206,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
     costs = {row["PowerType"]: int(_f(row["ManaCost"])) for row in indexes.powers.get(spell_id, ())}
     mana_cost = costs.get(_POWER_MANA, 0)
     energy_cost = costs.get(_POWER_ENERGY, 0)
+    rage_cost = costs.get(_POWER_RAGE, 0) // 10
 
     cooldown_row = indexes.cooldowns.get(spell_id)
     cooldown = 0.0
@@ -273,6 +277,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
     return SpellRank(
         spell_id=spell_id, name=name, rank=rank, level=level, schools=schools,
         cast_time=cast_time, cooldown=cooldown, mana_cost=mana_cost, energy_cost=energy_cost,
+        rage_cost=rage_cost,
         min_damage=min_damage, max_damage=max_damage, coefficient=coefficient,
         periodic_damage=periodic_damage, periodic_coefficient=periodic_coefficient,
         duration=duration, range=range_max, tick_period=tick_period,
@@ -309,13 +314,13 @@ def _triggered_damage(indexes: _Indexes, trigger: dict[str, str]) -> tuple[float
 def _weapon_strike(indexes: _Indexes, effects: list[dict[str, str]]) -> tuple[int, float, bool, float]:
     """(hits, bonus, normalized, pct) of the spell's weapon strikes.
 
-    A direct strike is an Effect 121 (normalized) or 58 row of the spell itself;
+    A direct strike is an Effect 121 (normalized), 58 or 17 row of the spell itself;
     triggered strikes are Effect 64 rows whose trigger spell carries such a row
     (Mutilate strikes with main and off hand). The bonus and the Effect 31
     percentage come from the strike, or from the first triggered spell.
     """
     strike = next((e for e in effects
-                   if e["Effect"] in (str(EFFECT_NORMALIZED_WEAPON), str(EFFECT_WEAPON_DAMAGE))), None)
+                   if e["Effect"] in _STRIKES), None)
     if strike is not None:
         strike_rows, hits = effects, 1
     else:
@@ -324,13 +329,13 @@ def _weapon_strike(indexes: _Indexes, effects: list[dict[str, str]]) -> tuple[in
             if effect["Effect"] != str(EFFECT_TRIGGER_SPELL):
                 continue
             rows = indexes.effects.get(int(_f(effect["EffectTriggerSpell"])), [])
-            if not any(r["Effect"] in (str(EFFECT_NORMALIZED_WEAPON), str(EFFECT_WEAPON_DAMAGE)) for r in rows):
+            if not any(r["Effect"] in _STRIKES for r in rows):
                 continue
             hits += 1
             if strike is None:
                 strike_rows = rows
                 strike = next(r for r in rows
-                              if r["Effect"] in (str(EFFECT_NORMALIZED_WEAPON), str(EFFECT_WEAPON_DAMAGE)))
+                              if r["Effect"] in _STRIKES)
     if strike is None:
         return 0, 0.0, False, 0.0
     pct_row = next((e for e in strike_rows if e["Effect"] == str(EFFECT_WEAPON_PCT)), None)

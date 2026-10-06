@@ -1,7 +1,7 @@
 """Warrior-specific knowledge: where the Forever warrior talent trees live in the client's trait data.
 
-Stage 1 of class-specific opponents (#34, #149): the trees and spells load and every talent is
-classified; nothing is modeled yet. The warrior is an opponent, not a dashboard class.
+Stage 1 (#149, #155): trees, spells and every talent classified. Stage 2 (#162): Arms on the
+melee engine; the damage talents carry effect rules from the rank text.
 """
 
 from wowforever.classes import EffectRule, TraitLayout, TreeBand
@@ -19,23 +19,48 @@ LAYOUT = TraitLayout(
     grid=600,
 )
 
-TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {}
+# Numbers are read from the rank text (#162); Anger Management and Death Wish are fixed effects
+# in config/warrior.toml, taken or not.
+TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
+    "Cruelty": (
+        EffectRule("crit_chance", r"chance to get a critical strike with melee attacks by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
+    "Two-Handed Weapon Specialization": (
+        EffectRule("damage_pct", r"damage you deal with two-handed melee weapons by (\d+(?:\.\d+)?)%", ("@two_hand",)),
+    ),
+    "Impale": (
+        EffectRule("crit_damage_pct", r"critical strike damage bonus of your abilities by (\d+(?:\.\d+)?)%", ("@ability",)),
+    ),
+    "Improved Overpower": (
+        EffectRule("crit_chance", r"critical strike chance of your Overpower ability by (\d+(?:\.\d+)?)%", ("Overpower",)),
+    ),
+    "Improved Heroic Strike": (
+        EffectRule("rage_cost", r"cost of your Heroic Strike ability by (\d+(?:\.\d+)?) Rage", ("Heroic Strike",), sign=-1),
+    ),
+    "Raging Blows": (
+        EffectRule("rage_cost", r"Rage cost of your Cleave and Whirlwind abilities by (\d+(?:\.\d+)?)", ("Cleave", "Whirlwind"), sign=-1),
+    ),
+    "Improved Execute": (
+        EffectRule("rage_cost", r"Rage cost of your Execute ability by (\d+(?:\.\d+)?)", ("Execute",), sign=-1),
+    ),
+    "Unbridled Wrath": (
+        EffectRule("proc_chance", r"(\d+(?:\.\d+)?)% chance to generate 1 additional Rage", ("@white_rage",)),
+    ),
+    "Deep Wounds": (
+        EffectRule("dot_pct", r"dealing (\d+(?:\.\d+)?)% of your melee weapon's average damage", ("@crit",)),
+    ),
+}
 
 # Every warrior talent, with why it isn't modeled. Talents marked "(no rank text)" are
 # classified from the name: wowforevertalent.com is a build behind the client for them.
 UNMODELED: dict[str, str] = {
     # Arms
-    "Improved Heroic Strike": "rage: Heroic Strike costs 3 less Rage",
     "Deflection": "defensive: +5% parry",
     "Improved Rend": "melee damage: Rend bleeds 35% harder",
     "Improved Charge": "rage: Charge generates 6 more Rage",
     "Improved Tactical Mastery": "rage: keep 15 more Rage on stance change",
-    "Improved Overpower": "melee damage: Overpower +50% crit",
     "Anger Management": "rage: 1 Rage every 3 s in combat",
-    "Deep Wounds": "melee damage: crits bleed for 60% of weapon damage",
     "Spearing Strike": "grants_spell",
-    "Two-Handed Weapon Specialization": "melee damage: +3% two-handed damage",
-    "Impale": "melee damage: +20% ability crit damage",
     "Bloodthrill": "proc: main-hand hits on Rend targets can enable an ability",
     "Sweeping Strikes": "grants_spell",
     "Weaponmaster": "melee damage: weapon-type bonus (crit, damage)",
@@ -44,17 +69,13 @@ UNMODELED: dict[str, str] = {
     "Mortal Strike": "grants_spell",
     # Fury
     "Booming Voice": "shout: shouts reach 50% farther and cost 25% less",
-    "Cruelty": "melee damage: +5% melee crit",
     "Iron Will": "defensive: resist stuns and charms (no rank text)",
-    "Unbridled Wrath": "rage: 60% chance of 1 extra Rage per hit",
     "Improved Cleave": "melee damage: Cleave deals more damage (no rank text)",
     "Piercing Howl": "grants_spell",
     "Blood Craze": "defensive: regenerate health after being crit",
     "Boundless Rage": "rage: more Rage (no rank text)",
     "Dual Wield Specialization": "melee damage: +25% off-hand damage and Rage",
-    "Raging Blows": "rage: Cleave and Whirlwind cost 3 less Rage",
     "Enrage": "melee damage: +10% Physical damage after being hit",
-    "Improved Execute": "rage: Execute costs 5 less Rage",
     "Precision": "melee damage: more melee hit (no rank text)",
     "Death Wish": "grants_spell",
     "Improved Intercept": "mobility: Intercept cooldown -10 s",
@@ -85,5 +106,13 @@ UNMODELED: dict[str, str] = {
 # Warrior skill lines in SkillLineAbility: Arms, Fury, Protection.
 SKILL_LINES = (26, 256, 257)
 
-# Shown on the dashboard while the class is routes-only (planning round 2, Q2/Q3).
-SCORING_NOTE = "Arms and Fury scores come with the warrior damage model (#162); Protection stays unscored."
+# Scored by the melee engine (#162): report_from_dataset builds a melee_report.
+ENGINE = "melee"
+# Tank tree: routes only, unscored (planning round 2, Q3).
+UNSCORED_TREES = ("Protection",)
+
+# Dashboard caveat for the warrior's scores (replaces the rogue/hunter one).
+CAVEAT = ("Warrior model (#162): a two-hander's white swings build Rage for Mortal Strike, Whirlwind and "
+          "Heroic Strike, against Classic combat-table rules. Fury dual wield, Bloodthirst, Flurry, Execute, "
+          "Overpower and Slam aren't modeled yet, and base stats are estimates. Protection stays unscored. "
+          "PvP uses the mage's duel model from the warrior's side.")

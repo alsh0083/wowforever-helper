@@ -1,4 +1,4 @@
-"""Rogue and hunter PvP scores (#134): the mage's duel model (#26, #121) from their side.
+"""Rogue, hunter and warrior PvP scores (#134, #162): the mage's duel model (#26, #121) from their side.
 
 The class's side has the same fields as the mage's: health, rotation DPS against player armor, and
 what its controls do to the opponent (stuns keep a melee opponent from hitting, interrupts lock a
@@ -36,7 +36,7 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
                 for c in cfg["controls"] if c.get("requires") is None or c["requires"] in taken]
     locks = lockout_seconds(controls, cfg.get("energy_per_minute", 0.0))
     output = rotation_output(class_name, stats, spells, cls, ranks, Target(0, raw["player_armor"]))
-    slow = 0.0
+    slow = cfg.get("slow", 0.0)
     if class_name == "hunter":
         from wowforever.classes.hunter_rotation import hunter_rotation
         from wowforever.melee_scenarios import _has_pet

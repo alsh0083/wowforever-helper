@@ -2,7 +2,7 @@
 DPS, built on their rotations (#131, #132). Constants: config/melee_scenarios.toml, plus the mage's
 questing anchors (mob HP, drink rates, travel) and raid mana budget from config/scenarios.toml.
 
-Downtime: rogues eat back the health a fight costs them; hunters drink back the mana. Hunters
+Downtime: rogues and warriors eat back the health a fight costs them; hunters drink back the mana. Hunters
 with a pet let it tank; a Lone Wolf hunter's health isn't modeled yet.
 """
 
@@ -86,6 +86,11 @@ def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRa
 
         r = hunter_rotation(stats, spells, cls, ranks, target, pet=_has_pet(cls, ranks))
         return Output(r.dps, r.mana_per_second, r.auto_dps + r.pet_dps)
+    if class_name == "warrior":
+        from wowforever.classes.warrior_rotation import warrior_rotation
+
+        r = warrior_rotation(stats, spells, cls, ranks, target)
+        return Output(r.dps, 0.0, r.dps)
     raise ValueError(f"no melee rotation for {class_name!r}")
 
 
@@ -96,7 +101,7 @@ def questing(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
     armor, mob_dps, eat = _anchor_at(_config()["questing"]["anchors"], level)
     out = rotation_output(class_name, stats, spells, cls, ranks, Target(0, armor))
     kill = q.mob_hp / out.dps
-    if class_name == "rogue" or not _has_pet(cls, ranks):
+    if class_name != "hunter" or not _has_pet(cls, ranks):
         downtime = mob_dps * kill / eat
     else:
         downtime = 0.0
