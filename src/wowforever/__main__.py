@@ -121,12 +121,18 @@ def main(argv: list[str] | None = None) -> int:
 
         from wowforever.classes import CLASSES
 
+        from wowforever.sources.wago import MissingTables
+
         now = update.datetime.now(update.timezone.utc).isoformat()
         for class_name in CLASSES:
-            summary = update.check_for_updates(
-                update.default_http_get, data_dir=Path(args.data_dir), delay=args.delay, now=now,
-                class_name=class_name,
-            )
+            try:
+                summary = update.check_for_updates(
+                    update.default_http_get, data_dir=Path(args.data_dir), delay=args.delay, now=now,
+                    class_name=class_name,
+                )
+            except MissingTables as missing:
+                print(missing)
+                return 2
             print(f"[{class_name}]")
             print(summary.text())
         return 0

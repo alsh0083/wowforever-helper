@@ -1,11 +1,12 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]  # 77+: SPDX license string
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "wowforever"
 version = "0.0.1"
 description = "WoW Forever theorycrafting: versioned talent data, build legality, calculator, dashboard"
+license = "MIT"
 requires-python = ">=3.12"
 dependencies = []
 

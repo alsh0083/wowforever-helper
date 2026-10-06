@@ -111,6 +111,7 @@ def check_for_updates(
     delay: float = 1.0,
     now: str | None = None,
     class_name: str = "mage",
+    table_http_get: Callable[[str], str] | None = None,
 ) -> UpdateSummary:
     """Fetch both sources, normalize `class_name`, and diff it against the last dataset.
 
@@ -122,9 +123,11 @@ def check_for_updates(
         now = datetime.now(timezone.utc).isoformat()
 
     build = wago.latest_build(json.loads(http_get(WAGO_BUILDS_URL)))
+    # table CSVs aren't in wago.tools' published API: they come from the cache, saved by hand
+    # (wago.MissingTables says which); only tests pass a table_http_get
     manifest_path = wago.fetch_build(
         build,
-        http_get=http_get,
+        http_get=table_http_get,
         cache_dir=data_dir / "cache" / "wago",
         manifest_dir=data_dir / "raw" / "wago",
         delay=delay,

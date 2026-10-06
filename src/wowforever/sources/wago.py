@@ -1,8 +1,11 @@
-"""Fetcher for wago.tools DB2 table CSVs.
+"""wago.tools DB2 table CSVs, read from a local cache.
 
-wago.tools serves raw DB2 table CSVs per game build (db2/<Table>/csv?build=...). The cache
-under cache_dir is disposable (any file can be re-downloaded using the manifest hashes);
-the manifest under manifest_dir is the record of what was fetched and when.
+wago.tools offers each DB2 table as a CSV per game build (db2/<Table>/csv?build=...), but those
+download links aren't part of its published API and its robots.txt disallows them. So by default
+this module downloads nothing: a person saves the CSVs from the site in a browser into
+cache_dir/<build>/ (`MissingTables` lists the links), and `fetch_build` records their hashes in the
+manifest under manifest_dir. The published `/api/builds` endpoint, used to find the latest build,
+stays automated (update.py). Tests can still pass an `http_get` to exercise the download path.
 """
 
 from __future__ import annotations
@@ -14,7 +17,6 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Sequence
 
-from wowforever.sources.http import http_get as default_http_get
 
 TABLES: tuple[str, ...] = (
     "Talent",
@@ -79,6 +81,18 @@ def table_url(table: str, build: str) -> str:
     return f"https://wago.tools/db2/{table}/csv?build={build}"
 
 
+class MissingTables(Exception):
+    """Tables for a build that must be saved from wago.tools by hand before the build can be used."""
+
+    def __init__(self, build: str, tables: Sequence[str], build_cache: Path):
+        self.build, self.tables, self.build_cache = build, list(tables), build_cache
+        links = "\n".join(f"  {table_url(t, build)}  ->  {build_cache / (t + '.csv')}" for t in tables)
+        super().__init__(
+            f"Build {build} needs {len(tables)} table(s) that aren't cached. wago.tools doesn't allow "
+            f"automated downloads of its table CSVs, so open each link in a browser and save the file "
+            f"as shown, then rerun:\n{links}")
+
+
 def fetch_build(
     build: str,
     *,
@@ -88,14 +102,13 @@ def fetch_build(
     tables: Sequence[str] = TABLES,
     delay: float = 1.0,
 ) -> Path:
-    """Download `tables` for `build` into the cache, keeping a manifest record.
+    """Make sure `tables` for `build` are in the cache, keeping a manifest record.
 
-    A table whose cached file exists and matches the manifest hash is skipped (no HTTP
-    call). A missing cache file is refetched; a refetch whose hash no longer matches the
-    manifest raises `ValueError` (data changed under the same build).
+    A table whose cached file exists and matches the manifest hash is skipped. Without `http_get`
+    (the default) nothing is downloaded: cached files saved by hand are hashed into the manifest,
+    and missing ones raise `MissingTables`. With `http_get`, missing tables are fetched; a refetch
+    whose hash no longer matches the manifest raises `ValueError` (data changed under the same build).
     """
-    if http_get is None:
-        http_get = default_http_get
     build_cache = cache_dir / build
     build_raw = manifest_dir / build
     manifest_path = build_raw / "manifest.json"
@@ -117,7 +130,18 @@ def fetch_build(
         )
 
     to_fetch = [table for table in tables if needs_fetch(table)]
-    for index, table in enumerate(to_fetch):
+    if http_get is None:
+        missing = [t for t in to_fetch if not (build_cache / f"{t}.csv").exists()]
+        if missing:
+            raise MissingTables(build, missing, build_cache)
+        for table in to_fetch:                 # saved by hand: record what's there
+            encoded = (build_cache / f"{table}.csv").read_bytes()
+            files[table] = {"url": table_url(table, build), "sha256": hashlib.sha256(encoded).hexdigest(),
+                            "bytes": len(encoded), "saved_by": "browser"}
+        to_fetch_now: list[str] = []
+    else:
+        to_fetch_now = to_fetch
+    for index, table in enumerate(to_fetch_now):
         if index and delay:
             time.sleep(delay)
         url = table_url(table, build)
