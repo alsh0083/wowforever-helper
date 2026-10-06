@@ -18,6 +18,9 @@ that works for all nine classes.
 - **Leveling routes:** a legal point-by-point order for every build from level 10 to 60, with a level
   slider, check-off progress saved in your browser, and the next point to take.
 - **Talent layout:** the finished build shown the way a talent calculator draws it.
+- **Recommended gear by level:** as you move through the journey, the best gear your class can use at
+  that level for the selected build, from dungeon bosses and quests, with crafted alternatives. Each item
+  shows its source, and quest rewards are marked Alliance or Horde (pick yours at the top of the page).
 - **Scores:**
   - PvE: questing kills per hour, dungeon and raid DPS.
   - PvP: an expected-value duel model against real class opponents.
@@ -25,6 +28,8 @@ that works for all nine classes.
 - **Per-class look:** official class icons, in-game class colors, tree colors and real talent icons, working on desktop and phone.
 
 ![The talent layout of a rogue build](docs/images/talent-layout.png)
+
+![Recommended gear at level 25 for an Assassination rogue, with sources and crafted alternatives](docs/images/gear.png)
 
 ## Quick start
 
@@ -56,6 +61,7 @@ python -m venv .venv
 | `wowforever report --class <class>` | Scores every build of a class and writes the dashboard payload |
 | `wowforever dashboard` | Renders `dashboard/index.html` from all reports |
 | `wowforever gear-stats --class <class>` | Rebuilds a class's per-level stat table from real Forever items |
+| `wowforever gear-sources [--refresh]` | Rebuilds `data/items/gear.json` (where gear comes from); `--refresh` fetches wowforevertalent.com's item, dungeon and quest pages first |
 | `wowforever import-logs <file.har>` | Summarizes Forever Logs pages you saved from your browser (no fetching) |
 | `wowforever validate-logs` | Compares the model's dungeon DPS with Forever Logs statistics per class and spec |
 
