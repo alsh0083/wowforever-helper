@@ -59,23 +59,11 @@ def test_single_payload_still_renders():
     assert 'data-class-matrix="mage"' in html and "class-tab" in html
 
 
-def test_talent_layout_sits_above_the_journey():
-    # owner request 2026-10-06: a calculator-style grid of the selected build, following the level slider
+def test_talent_layout_previews_the_finished_build():
+    # owner request 2026-10-06: a calculator-style grid of the selected build above the journey, shown
+    # at max level for a quick preview; the journey below does the per-level allocation
     assert HTML.index('id="talent-layout"') < HTML.index('class="surface level-panel"')
-    assert "function renderLayout()" in HTML and "renderLayout();" in HTML
-    # its next-point marker must not reuse the sidebar card's .next class (padding squashed the icon)
-    assert "'lt-next'" in HTML and ".lt-cell.lt-next{" in HTML
-
-
-def test_layout_badges_show_the_builds_ranks():
-    # owner report 2026-10-06: badges read 0/x on highlighted (planned) talents; they show the build's
-    # rank like a calculator, and a bar under the icon shows progress at the chosen level
-    assert '<span class="lt-rank">${f}/${t.max_rank}</span>' in HTML
-    assert 'class="lt-bar"><i style="width:${r/f*100}%"' in HTML
-
-
-def test_layout_completion_follows_the_build_not_max_rank():
-    # owner report 2026-10-06: a talent the build stops at 2/5 never looked finished; gold marks
-    # "every rank this build puts here is reached", and iconless talents get a text label
-    assert "f&&r===f?'done':''" in HTML and ".lt-cell.done{border:1px solid var(--gold)}" in HTML
-    assert "'full'" not in HTML and 'class="lt-abbr"' in HTML
+    layout = HTML[HTML.index("function renderLayout(){"):HTML.index("function render(){")]
+    assert not any(use in layout for use in ("${level}", "<=level", "p.level"))   # not tied to the slider
+    assert "renderLayout();" in HTML[HTML.index("function renderBuild(){"):]
+    assert "'taken'" in layout and "'maxed'" in layout and 'class="lt-abbr"' in layout
