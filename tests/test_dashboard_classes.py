@@ -65,3 +65,10 @@ def test_talent_layout_sits_above_the_journey():
     assert "function renderLayout()" in HTML and "renderLayout();" in HTML
     # its next-point marker must not reuse the sidebar card's .next class (padding squashed the icon)
     assert "'lt-next'" in HTML and ".lt-cell.lt-next{" in HTML
+
+
+def test_layout_badges_show_the_builds_ranks():
+    # owner report 2026-10-06: badges read 0/x on highlighted (planned) talents; they show the build's
+    # rank like a calculator, and a bar under the icon shows progress at the chosen level
+    assert '<span class="lt-rank">${f}/${t.max_rank}</span>' in HTML
+    assert 'class="lt-bar"><i style="width:${r/f*100}%"' in HTML
