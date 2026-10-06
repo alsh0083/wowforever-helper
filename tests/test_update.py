@@ -57,7 +57,9 @@ def data(tmp_path):
 
 
 def run(data, http=None):
-    return check_for_updates(http or FakeHttp(), data_dir=data, delay=0, now="2026-10-04T20:00:00Z")
+    http = http or FakeHttp()
+    # table CSVs are saved by hand in real use (wago.tools rules); the fake serves them here
+    return check_for_updates(http, data_dir=data, delay=0, now="2026-10-04T20:00:00Z", table_http_get=http)
 
 
 def test_first_check_saves_a_dataset_and_reports_a_new_build(data):
@@ -117,6 +119,12 @@ def test_cli_entry_point(data, capsys, monkeypatch):
     from wowforever.__main__ import main
     monkeypatch.setattr(update, "default_http_get", FakeHttp())
     monkeypatch.setattr("wowforever.classes.CLASSES", {"mage": "wowforever.classes.mage"})  # fake serves mage only
+    # no cached tables: update downloads nothing and lists what to save from wago.tools
+    assert main(["update", "--data-dir", str(data), "--delay", "0"]) == 2
+    out = capsys.readouterr().out
+    assert "wago.tools doesn't allow automated downloads" in out and "db2/TraitNode/csv?build=1.60.1.70205" in out
+    # with the tables in the cache (saved by hand; the fake stands in here) it runs
+    run(data)
     assert main(["update", "--data-dir", str(data), "--delay", "0"]) == 0
     assert "1.60.1.70205" in capsys.readouterr().out
 

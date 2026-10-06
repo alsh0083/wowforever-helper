@@ -28,9 +28,14 @@ that works for all nine classes.
 
 ## Quick start
 
-Open `dashboard/index.html` in a browser. It's a single offline file with the data built in.
+Download `index.html` from the latest [release](https://github.com/alsh0083/wowforever-helper/releases)
+(or take `dashboard/index.html` from this repository) and open it in a browser. It's a single offline
+file with the data built in, so nothing needs installing.
 
-To rebuild it yourself (Python 3.12+):
+### Rebuilding it yourself (optional)
+
+Only needed to change builds or assumptions, or to pick up a new game build before a release does
+(Python 3.12+):
 
 ```sh
 python -m venv .venv
@@ -47,7 +52,7 @@ python -m venv .venv
 
 | Command | What it does |
 |---|---|
-| `wowforever update` | On-demand patch check: fetches the client tables (wago.tools) and wowforevertalent.com pages, diffs them against the saved dataset and records changes in `data/CHANGELOG.md` |
+| `wowforever update` | On-demand patch check: finds the latest build (wago.tools API), reads the client tables from the local cache, fetches the wowforevertalent.com pages, diffs against the saved dataset and records changes in `data/CHANGELOG.md`. For a new build it lists the table CSVs to save from wago.tools in a browser first |
 | `wowforever report --class <class>` | Scores every build of a class and writes the dashboard payload |
 | `wowforever dashboard` | Renders `dashboard/index.html` from all reports |
 | `wowforever gear-stats --class <class>` | Rebuilds a class's per-level stat table from real Forever items |
@@ -89,9 +94,10 @@ Assumptions and their sources are in `config/` and `docs/research/`.
   free key (`FOREVERLOGS_API_KEY` in `.env`). Responses are cached locally and not redistributed.
 - **Community guides and forums** cited per build and per assumption in `config/consensus.toml`.
 
-Sources are used through their published APIs or where robots.txt allows. One open question remains:
-the wago.tools table CSVs that `update` downloads aren't part of its published API (see
-`docs/research/data-sources.md`). Gold, boosting and carry sellers are excluded.
+Sources are used through their published APIs or where robots.txt allows, and never otherwise:
+wago.tools' table CSVs aren't in its published API, so the tool doesn't download them; you save them
+in a browser when a new game build arrives (`update` lists the links). Gold, boosting and carry
+sellers are excluded. See `docs/research/data-sources.md`.
 
 World of Warcraft, WoW Forever and related names and game icons are trademarks or property of Blizzard
 Entertainment. This project isn't affiliated with or endorsed by Blizzard.
@@ -117,3 +123,7 @@ Issues and pull requests are welcome. Corrections from people playing the beta a
 Work is tracked in [issues](https://github.com/alsh0083/wowforever-helper/issues) by
 [milestone](https://github.com/alsh0083/wowforever-helper/milestones). Please run the test suite before
 opening a PR.
+
+## License
+
+[MIT](LICENSE). Game data, talent text and icons belong to their owners (see above).

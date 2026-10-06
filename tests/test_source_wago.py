@@ -75,3 +75,20 @@ def test_fetch_build_refetches_missing_cache_and_verifies_hash(tmp_path):
                 tables=("Talent",), delay=0)
     assert len(calls) == 1
     assert (cache / "1.60.1.70205" / "Talent.csv").exists()
+
+
+def test_without_a_downloader_tables_come_from_the_cache(tmp_path):
+    # wago.tools' table CSVs aren't in its published API: nothing is fetched by default
+    import pytest
+
+    from wowforever.sources.wago import MissingTables
+
+    cache, raw = tmp_path / "cache", tmp_path / "raw"
+    with pytest.raises(MissingTables) as missing:
+        fetch_build("1.60.1.70205", cache_dir=cache, manifest_dir=raw, tables=("Talent", "SpellName"))
+    assert missing.value.tables == ["Talent", "SpellName"] and "csv?build=1.60.1.70205" in str(missing.value)
+    for table in ("Talent", "SpellName"):                         # saved from the browser
+        (cache / "1.60.1.70205" / f"{table}.csv").write_text(f"ID\n{table}\n", encoding="utf-8")
+    manifest = json.loads(fetch_build("1.60.1.70205", cache_dir=cache, manifest_dir=raw,
+                                      tables=("Talent", "SpellName")).read_text(encoding="utf-8"))
+    assert manifest["files"]["Talent"]["saved_by"] == "browser"
