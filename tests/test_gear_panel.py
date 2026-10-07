@@ -49,3 +49,10 @@ def test_boss_drops_carry_no_classic_tag():
 def test_inferred_quest_factions_are_marked_likely():
     html = render(MAGE, {}, gear=GEAR, gear_rules=RULES)
     assert "(likely)" in html and "s.fb" in html
+
+
+def test_items_and_quests_have_hover_cards():
+    quests = [s for it in compact_gear(GEAR)["items"] for s in it["src"] if s["t"] == "q"]
+    assert any(s["o"] for s in quests) and any(s["pe"] for s in quests)
+    html = render(MAGE, {}, gear=GEAR, gear_rules=RULES)
+    assert "function itemCard(" in html and "function questCard(" in html and 'role="tooltip"' in html

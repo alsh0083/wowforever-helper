@@ -27,7 +27,7 @@ def test_quest_rows_give_faction_level_and_pickup():
             'data-location="ragefire-chasm" data-search="x"><button type="button" aria-label="Slay It #7. Accept 9. '
             'Quest 16. Horde. Pick up: Rahauro."></button></article>')
     assert parse_quests(page) == {7: {"name": "Slay It", "faction": "horde", "location": "ragefire-chasm",
-                                      "accept": 9, "level": 16, "pickup": "Rahauro", "search": "x"}}
+                                      "accept": 9, "level": 16, "pickup": "Rahauro", "search": "x", "slug": None}}
 
 
 def test_dungeon_rows_and_unconfirmed_classic_drops():
@@ -110,3 +110,19 @@ def test_quest_factions_resolve_in_order():
     assert got[3][0] == "horde" and got[3][1].startswith("likely: Rahauro")  # same NPC beats the text
     assert got[4] == ("horde", "likely: mentions orgrimmar")
     assert got[5] == ("unknown", None) and got[6] == ("unknown", None)  # contested or both: stays unrecorded
+
+
+def test_quest_page_gives_objective_start_end_and_chain():
+    from wowforever.gear_sources import parse_quest_page
+
+    page = ('<h2>Objectives</h2><p>Kill Bazzalan, then return to Thrall.</p><ul></ul></section>'
+            '<section><h2>Pick up</h2><p>Item start · Grimtotem Satchel · Player guide</p>'
+            '<h2>Turn in</h2><p>Thrall · Orgrimmar · Named in the quest text</p>'
+            '<p><strong>Prerequisite.</strong> Earlier step (id not in this listing).</p>'
+            '<p><strong>Leads to.</strong> <a href="/quests/x-1/">Hidden Enemies</a></p>'
+            '<p><strong>Recorded rewards.</strong> Not recorded</p>')
+    assert parse_quest_page(page) == {
+        "objective": "Kill Bazzalan, then return to Thrall.", "start": "Item: Grimtotem Satchel",
+        "end": "Thrall · Orgrimmar",
+        "chain": [["needs", "Earlier step (id not in this listing)."], ["next", "Hidden Enemies"]]}
+    assert parse_quest_page("<h2>Pick up</h2><p>Not recorded</p>")["start"] is None
