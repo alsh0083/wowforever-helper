@@ -126,3 +126,9 @@ def test_quest_page_gives_objective_start_end_and_chain():
         "end": "Thrall · Orgrimmar",
         "chain": [["needs", "Earlier step (id not in this listing)."], ["next", "Hidden Enemies"]]}
     assert parse_quest_page("<h2>Pick up</h2><p>Not recorded</p>")["start"] is None
+
+
+def test_crafted_items_wait_for_the_skill_they_need():
+    from wowforever.gear_sources import skill_level
+
+    assert [skill_level(s) for s in (None, 50, 75, 145, 225, 245, 300, 310)] == [1, 5, 5, 10, 20, 35, 35, 60]
