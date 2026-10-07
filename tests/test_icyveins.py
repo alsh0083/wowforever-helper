@@ -22,3 +22,15 @@ def test_guides_are_found_on_the_hub_and_parsed_for_their_builds():
             '<h3 id="deep-shadow">Deep Shadow</h3><div data-talentcalculator-pointsurl="#tc-1123"></div>')
     assert parse_guide(page) == {"updated": "Sep 17, 2026",
                                  "builds": [{"code": "1123", "title": "Deep Shadow", "anchor": "deep-shadow", "level": 30}]}
+
+
+def test_compare_counts_shared_points_against_the_guide_build_of_the_same_tree():
+    from wowforever.sources.icyveins import compare
+
+    report = {"class": "priest", "talents": {"1": {"name": "Spirit Tap", "tree": "Shadow"},
+                                              "2": {"name": "Mind Flay", "tree": "Shadow"},
+                                              "3": {"name": "Meditation", "tree": "Discipline"}},
+              "builds": [{"id": "b", "order": [1, 3, 2, 2]}]}
+    dataset = {"builds": [{"class": "priest", "guide": "g", "title": "t", "order": ["Spirit Tap", "Mind Flay", "Mind Flay"]}]}
+    assert compare(dataset, [report]) == [{"class": "priest", "build": "b", "guide": "g", "title": "t", "points": 3,
+                                           "shared": 2}]

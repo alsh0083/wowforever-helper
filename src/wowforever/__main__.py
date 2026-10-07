@@ -75,9 +75,7 @@ def main(argv: list[str] | None = None) -> int:
         gear_path, rules_path = Path("data/items/gear.json"), Path("config/gear_rules.toml")
         gear = json.loads(gear_path.read_text(encoding="utf-8")) if gear_path.exists() else None
         rules = tomllib.loads(rules_path.read_text(encoding="utf-8")) if rules_path.exists() else None
-        iv_path = Path("data/icy-veins/builds.json")
-        icy = json.loads(iv_path.read_text(encoding="utf-8")) if iv_path.exists() else None
-        out.write_text(render(reports, icons, gear=gear, gear_rules=rules, icy_veins=icy), encoding="utf-8", newline="\n")
+        out.write_text(render(reports, icons, gear=gear, gear_rules=rules), encoding="utf-8", newline="\n")
         print(f"wrote {out}")
         return 0
     if args.command == "icy-veins":
@@ -96,6 +94,9 @@ def main(argv: list[str] | None = None) -> int:
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps(dataset, indent=1, ensure_ascii=False), encoding="utf-8", newline="\n")
         print(f"wrote {out}: {len(dataset['builds'])} builds from {len({b['guide'] for b in dataset['builds']})} guides")
+        # a background sanity check on the first points of every talent path (their builds stop at level 30)
+        reports = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(Path("data").glob("report*.json"))]
+        print(icyveins.markdown(icyveins.compare(dataset, reports)))
         return 0
     if args.command == "gear-sources":
         from pathlib import Path
