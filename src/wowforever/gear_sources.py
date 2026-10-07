@@ -32,6 +32,17 @@ BASE = "https://wowforevertalent.com"
 PAGES = ("items", "dungeons", "quests")
 KEPT_DROPS = ("boss", "quest")                 # rosterKind values kept; rare, trash and object are not
 PROFESSIONS = {164: "Blacksmithing", 165: "Leatherworking", 197: "Tailoring", 202: "Engineering"}
+# The level each profession rank can be trained at (Classic): skill up to 75 / 150 / 225 / 300; above
+# 300 is treated as level 60. Crafted items without a level requirement (most Engineering goggles) need
+# the skill instead, so a recipe is no earlier than the level that can reach its skill.
+SKILL_RANK_LEVELS = ((75, 5), (150, 10), (225, 20), (300, 35))
+
+
+def skill_level(skill: int | None) -> int:
+    """The earliest level that can train a profession to `skill`."""
+    if not skill:
+        return 1
+    return next((level for cap, level in SKILL_RANK_LEVELS if skill <= cap), 60)
 EFFECT_CREATE_ITEM = "24"
 # Classic race ids: Human, Dwarf, Night Elf, Gnome / Orc, Undead, Tauren, Troll
 ALLIANCE_RACES = (1 << 0) | (1 << 2) | (1 << 3) | (1 << 6)
@@ -376,7 +387,7 @@ def build(pages: Mapping[str, str], tables: Tables, *, checked_at: str,
             if s["type"] == "boss":
                 s["level"] = (dungeons.get(s["dungeon"]) or {}).get("level_min")
             elif s["type"] == "crafted":
-                s["level"] = data["required_level"]
+                s["level"] = max(data["required_level"] or 1, skill_level(s.get("skill")))
         if data["required_level"] is None:
             levels = [s["level"] for s in srcs if s.get("level")]
             if not levels:
