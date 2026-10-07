@@ -2,8 +2,8 @@
 
 Sources:
 - wowforevertalent.com (robots allows all): `/items/` (Forever item records with stats and sources),
-  `/dungeons/` (loot per boss, with the kind of each drop) and `/quests/` (quest faction, levels and
-  pickup). Pages are fetched only by `gear-sources --refresh`, 1.5 s apart, into data/cache/wft-gear/.
+  `/dungeons/` (loot per boss, with the kind of each drop), `/quests/` (quest faction, levels and
+  pickup) and each reward quest's own page (objective, where it starts and ends, its chain). Pages are fetched only by `gear-sources --refresh`, 1.5 s apart, into data/cache/wft-gear/.
 - The client item tables (cached, saved by hand per wago.tools' rules): stats, required level, slot,
   faction (allowed races) and class restrictions; recipes (profession spells that create items).
 
@@ -56,6 +56,19 @@ def fetch_pages(cache_dir: Path, http_get: Callable[[str], str], *, delay: float
             time.sleep(delay)
             (cache_dir / f"dungeon-{dungeon_id}.html").write_text(http_get(f"{BASE}/dungeons/{dungeon_id}/"),
                                                                    encoding="utf-8", newline="\n")
+    # each reward quest's own page: where it starts and ends, and its chain
+    quests = parse_quests((cache_dir / "quests.html").read_text(encoding="utf-8"))
+    for qid in sorted(reward_quests(_props((cache_dir / "items.html").read_text(encoding="utf-8")))):
+        if quests.get(qid, {}).get("slug"):
+            time.sleep(delay)
+            (cache_dir / f"quest-{qid}.html").write_text(http_get(f"{BASE}/quests/{quests[qid]['slug']}/"),
+                                                        encoding="utf-8", newline="\n")
+
+
+def reward_quests(items_page: Mapping[str, Any]) -> set[int]:
+    """Ids of the quests that reward an item."""
+    return {int(s["questId"]) for r in items_page["foreverRecords"] for s in r.get("sources") or []
+            if s["via"] in ("choice", "fixed") and s.get("questId")}
 
 
 def _props(page: str) -> dict[str, Any]:
@@ -76,14 +89,47 @@ def parse_quests(page: str) -> dict[int, dict[str, Any]]:
         level = re.search(r"Quest (\d+)", label)
         pickup = re.search(r"Pick up: ([^.]+)\.", label)
         search = re.search(r'data-search="([^"]*)"', tag)
+        slug = re.search(r'href="/quests/([^"/]+)/"', tag)
         out[int(qid.group(1))] = {
             "name": name, "faction": re.search(r'data-faction="([^"]*)"', tag).group(1),
             "location": re.search(r'data-location="([^"]*)"', tag).group(1),
             "accept": int(accept.group(1)) if accept else None, "level": int(level.group(1)) if level else None,
             "pickup": pickup.group(1).strip() if pickup else None,
             "search": html.unescape(search.group(1)) if search else "",
+            "slug": slug.group(1) if slug else None,
         }
     return out
+
+
+def _text(fragment: str) -> str:
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", fragment))).strip()
+
+
+def _place(text: str | None) -> str | None:
+    """"Scout Riell · Sentinel Hill Tower · Named in the quest text" -> "Scout Riell · Sentinel Hill Tower";
+    the site's notes on where it learned a place (player guide, quest text) are dropped."""
+    if not text or text.lower().startswith("not recorded"):
+        return None
+    parts = [p for p in text.split(" · ") if p.lower() != "player guide" and not p.lower().startswith("named in")
+             and not p.endswith(".")]
+    if parts and parts[0] == "Item start":
+        parts = [f"Item: {parts[1]}", *parts[2:]] if len(parts) > 1 else ["Starts from an item"]
+    return " · ".join(parts) or None
+
+
+def parse_quest_page(page: str) -> dict[str, Any]:
+    """A quest page's objective, where it starts and ends, and the chain around it."""
+    def after(heading: str) -> str | None:
+        m = re.search(rf"<h2>{heading}</h2>\s*<p>(.*?)</p>", page, re.S)
+        return _text(m.group(1)) if m else None
+
+    chain = []
+    for label, key in (("Prerequisite", "needs"), ("Comes after", "after"), ("Leads to", "next")):
+        m = re.search(rf"<strong>{label}\.</strong>(.*?)</p>", page, re.S)
+        if m and not _text(m.group(1)).lower().startswith("not recorded"):
+            chain.append([key, _text(m.group(1))])
+    return {"objective": after("Objectives"), "start": _place(after("Pick up")), "end": _place(after("Turn in")),
+            "chain": chain}
 
 
 def resolve_factions(quests: Mapping[int, dict[str, Any]], rules: Mapping[str, Any]) -> None:
@@ -261,6 +307,9 @@ def build(pages: Mapping[str, str], tables: Tables, *, checked_at: str,
     """The gear source dataset: every item with a kept source, its data and where it comes from."""
     items_page, dungeons_page = _props(pages["items"]), _props(pages["dungeons"])
     quests = parse_quests(pages["quests"])
+    for qid, q in quests.items():
+        if f"quest-{qid}" in pages:
+            q.update(parse_quest_page(pages[f"quest-{qid}"]))
     resolve_factions(quests, faction_rules if faction_rules is not None else _faction_rules())
     dungeons = {d["id"]: {"name": d["name"], "level_min": d.get("levelMin"), "level_max": d.get("levelMax"),
                           "origin": d.get("origin")} for d in dungeons_page["dungeons"]}
@@ -296,7 +345,8 @@ def build(pages: Mapping[str, str], tables: Tables, *, checked_at: str,
                 add(item_id, {"type": "quest", "quest": src.get("questName") or q.get("name"),
                               "quest_id": int(src["questId"]), "faction": q.get("faction", "unknown"), "faction_basis": q.get("faction_basis"),
                               "pickup": q.get("pickup"), "dungeon": q.get("location"),
-                              "level": q.get("level") or q.get("accept")})
+                              "level": q.get("level") or q.get("accept"), "objective": q.get("objective"),
+                              "start": q.get("start"), "end": q.get("end"), "chain": q.get("chain") or []})
     for item_id, recipe in crafted(tables).items():
         add(item_id, {"type": "crafted", **recipe})
 
@@ -352,7 +402,7 @@ def load_pages(cache_dir: Path) -> dict[str, str]:
     pages = {p: (cache_dir / f"{p}.html").read_text(encoding="utf-8") for p in PAGES}
     if (cache_dir / "classic.json").exists():
         pages["classic"] = (cache_dir / "classic.json").read_text(encoding="utf-8")
-    for path in cache_dir.glob("dungeon-*.html"):
+    for path in [*cache_dir.glob("dungeon-*.html"), *cache_dir.glob("quest-*.html")]:
         pages[path.stem] = path.read_text(encoding="utf-8")
     return pages
 
