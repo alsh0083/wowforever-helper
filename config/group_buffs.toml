@@ -1,0 +1,194 @@
+# Group buffs and target debuffs that change a party member's damage (#218, plan:
+# docs/planning/2026-10-07-party-buffs.md). Values are read from the game client's spell tables by
+# `wowforever group-buffs` into data/buffs/group_buffs.json, at the best rank a provider of each level has.
+#
+# Fields:
+#   spell     the spell whose effect carries the value (for totems and talents, the aura they apply)
+#   cast      the spell the provider learns, when it differs from `spell` (its learn levels gate the buff)
+#   aura      the client EffectAura to read (or effect: the Effect type, for procs); misc: its
+#             EffectMiscValue_0 when the aura has several; spell_id pins one spell when names repeat
+#   proc_chance  for procs the client data does not carry (Windfury: 20% per hit)
+#   stacks    applications that stack on the target (Sunder Armor x5)
+#   provider  class, and the talent or tree it needs; tank / healer / any role restricts who provides it
+#   stack     stacking group: within a group only the strongest counts, so two providers count once
+#   choice    one option per provider from this set (one blessing per paladin on you, one totem per
+#             element per shaman, one curse per warlock, one aura per paladin); the provider picks the
+#             option best for you (plan D1)
+#   reach     who it helps: party, melee, ranged, casters, physical (melee and ranged), or target (a debuff)
+#
+# Left out, with reasons (checked in the 1.60.1.70205 client):
+#   Shadow Weaving, Improved Scorch (Fire Vulnerability) and Winter's Chill: Forever made them caster-only
+#     (auras 270 and 308: damage taken from / crit for the caster who applies them), so no party effect.
+#   Sanctity Aura: not in Forever's Retribution tree (Sanctified Judgement takes that spot).
+#   Vampiric Embrace, Retribution Aura, Power Word: Fortitude, Blood Pact: healing, damage shields or
+#     stamina, not damage.
+#   Blessing of Wisdom, Mana Spring Totem, Arcane Intellect's mana: the dungeon scenario assumes mana isn't
+#     limiting (one pull). Arcane Intellect stays for its spell crit from intellect.
+
+[[buff]]
+id = "battle_shout"
+spell = "Battle Shout"
+aura = 99
+provider = { class = "warrior" }
+stack = "battle_shout"
+reach = "physical"
+
+[[buff]]
+id = "blessing_of_might"
+spell = "Blessing of Might"
+aura = 99
+provider = { class = "paladin" }
+stack = "blessing_of_might"
+choice = "blessing"
+reach = "physical"
+
+[[buff]]
+id = "blessing_of_kings"
+spell = "Blessing of Kings"
+aura = 137
+provider = { class = "paladin" }
+stack = "blessing_of_kings"
+choice = "blessing"
+reach = "party"
+
+[[buff]]
+id = "mark_of_the_wild"
+spell = "Mark of the Wild"
+aura = 29
+misc = -1
+provider = { class = "druid" }
+stack = "mark_of_the_wild"
+reach = "party"
+
+[[buff]]
+id = "arcane_intellect"
+spell = "Arcane Intellect"
+aura = 29
+misc = 3
+provider = { class = "mage" }
+stack = "arcane_intellect"
+reach = "casters"
+
+[[buff]]
+id = "trueshot_aura"
+spell = "Trueshot Aura"
+aura = 124
+provider = { class = "hunter", talent = "Trueshot Aura", tree = "Marksmanship" }
+stack = "trueshot_aura"
+reach = "physical"
+
+[[buff]]
+id = "leader_of_the_pack"
+spell = "Leader of the Pack"
+spell_id = 24932
+aura = 290
+provider = { class = "druid", talent = "Leader of the Pack", tree = "Feral Combat" }
+stack = "leader_of_the_pack"
+reach = "physical"
+
+[[buff]]
+id = "moonkin_aura"
+spell = "Moonkin Aura"
+aura = 290
+provider = { class = "druid", talent = "Moonkin Form", tree = "Balance" }
+stack = "moonkin_aura"
+reach = "casters"
+
+[[buff]]
+id = "strength_of_earth"
+spell = "Strength of Earth"
+cast = "Strength of Earth Totem"
+aura = 29
+misc = 0
+provider = { class = "shaman" }
+stack = "strength_of_earth"
+choice = "totem_earth"
+reach = "physical"
+
+[[buff]]
+id = "grace_of_air"
+spell = "Grace of Air"
+cast = "Grace of Air Totem"
+aura = 29
+misc = 1
+provider = { class = "shaman" }
+stack = "grace_of_air"
+choice = "totem_air"
+reach = "physical"
+
+
+[[buff]]
+id = "sunder_armor"
+spell = "Sunder Armor"
+aura = 22
+misc = 1
+stacks = 5
+provider = { class = "warrior", role = "tank" }
+stack = "major_armor"
+reach = "target"
+
+[[buff]]
+id = "faerie_fire"
+spell = "Faerie Fire"
+aura = 22
+misc = 1
+provider = { class = "druid" }
+stack = "faerie_fire"
+reach = "target"
+
+[[buff]]
+id = "curse_of_recklessness"
+spell = "Curse of Recklessness"
+aura = 22
+misc = 1
+provider = { class = "warlock" }
+stack = "curse_of_recklessness"
+choice = "curse"
+reach = "target"
+
+[[buff]]
+id = "curse_of_the_elements"
+spell = "Curse of the Elements"
+aura = 87
+provider = { class = "warlock" }
+stack = "curse_of_the_elements"
+choice = "curse"
+reach = "target"
+
+[[buff]]
+id = "judgement_of_the_crusader"
+spell = "Judgement of the Crusader"
+aura = 14
+provider = { class = "paladin" }
+stack = "judgement_of_the_crusader"
+choice = "judgement"
+reach = "target"
+
+[[buff]]
+id = "hunters_mark"
+spell = "Hunter's Mark"
+aura = 127
+provider = { class = "hunter" }
+stack = "hunters_mark"
+reach = "target"
+
+[[buff]]
+id = "windfury_totem"
+spell = "Windfury Totem"
+cast = "Windfury Totem"
+aura = 99
+proc_chance = 0.2
+provider = { class = "shaman" }
+stack = "windfury_totem"
+choice = "totem_air"
+reach = "melee"
+
+[[buff]]
+id = "flametongue_totem"
+spell = "Flametongue Totem Proc"
+cast = "Flametongue Totem"
+effect = 3
+provider = { class = "shaman" }
+stack = "flametongue_totem"
+choice = "totem_fire"
+reach = "melee"
