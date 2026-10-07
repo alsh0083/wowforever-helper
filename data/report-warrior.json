@@ -959,24 +959,64 @@
     },
     "dungeon": {
      "20": {
-      "score": 34.1,
-      "unit": "dps"
+      "score": 36.1,
+      "low": 31.3,
+      "high": 40.7,
+      "unbuffed": 28.7,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 34.1
      },
      "30": {
-      "score": 49.2,
-      "unit": "dps"
+      "score": 55.9,
+      "low": 44.7,
+      "high": 64.3,
+      "unbuffed": 40.8,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 49.2
      },
      "40": {
-      "score": 91.5,
-      "unit": "dps"
+      "score": 108.8,
+      "low": 82.2,
+      "high": 137.6,
+      "unbuffed": 74.0,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 91.5
      },
      "50": {
-      "score": 125.1,
-      "unit": "dps"
+      "score": 151.8,
+      "low": 109.3,
+      "high": 193.4,
+      "unbuffed": 95.9,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 125.1
      },
      "60": {
-      "score": 161.1,
-      "unit": "dps"
+      "score": 204.3,
+      "low": 145.6,
+      "high": 266.3,
+      "unbuffed": 121.6,
+      "top_buffs": [
+       "battle_shout",
+       "blessing_of_might"
+      ],
+      "unit": "dps",
+      "solo": 161.1
      }
     },
     "raid": {
@@ -990,69 +1030,69 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.3394,
-     "strength": 0.001105,
-     "agility": 0.000414,
+     "score": 0.343,
+     "strength": 0.001093,
+     "agility": 0.000418,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000554,
-     "crit_rating": 0.000852,
-     "hit_rating": 0.000932,
-     "crit_pct": 0.002761,
-     "hit_pct": 0.002546,
-     "weapon_dps": 0.007716
+     "attack_power": 0.000548,
+     "crit_rating": 0.000861,
+     "hit_rating": 0.000943,
+     "crit_pct": 0.00279,
+     "hit_pct": 0.002584,
+     "weapon_dps": 0.007632
     },
     "30": {
-     "score": 0.3868,
-     "strength": 0.00088,
-     "agility": 0.000427,
+     "score": 0.3999,
+     "strength": 0.000876,
+     "agility": 0.000434,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000441,
-     "crit_rating": 0.00072,
-     "hit_rating": 0.00056,
-     "crit_pct": 0.004266,
-     "hit_pct": 0.002845,
-     "weapon_dps": 0.006816
+     "attack_power": 0.000438,
+     "crit_rating": 0.000732,
+     "hit_rating": 0.000576,
+     "crit_pct": 0.004338,
+     "hit_pct": 0.002944,
+     "weapon_dps": 0.006794
     },
     "40": {
-     "score": 0.6108,
-     "strength": 0.001074,
-     "agility": 0.000578,
+     "score": 0.6446,
+     "strength": 0.001078,
+     "agility": 0.000595,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000537,
-     "crit_rating": 0.000894,
-     "hit_rating": 0.000532,
-     "crit_pct": 0.007699,
-     "hit_pct": 0.004247,
-     "weapon_dps": 0.008317
+     "attack_power": 0.000539,
+     "crit_rating": 0.000921,
+     "hit_rating": 0.000552,
+     "crit_pct": 0.007938,
+     "hit_pct": 0.004423,
+     "weapon_dps": 0.008362
     },
     "50": {
-     "score": 0.7436,
-     "strength": 0.001231,
-     "agility": 0.000658,
+     "score": 0.7926,
+     "strength": 0.001244,
+     "agility": 0.000687,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000615,
-     "crit_rating": 0.00097,
-     "hit_rating": 0.000786,
-     "crit_pct": 0.01097,
-     "hit_pct": 0.008997,
-     "weapon_dps": 0.009596
+     "attack_power": 0.000622,
+     "crit_rating": 0.001013,
+     "hit_rating": 0.000821,
+     "crit_pct": 0.01146,
+     "hit_pct": 0.009392,
+     "weapon_dps": 0.009718
     },
     "60": {
-     "score": 0.9181,
-     "strength": 0.001295,
-     "agility": 0.000662,
+     "score": 0.9991,
+     "strength": 0.001314,
+     "agility": 0.000706,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000647,
-     "crit_rating": 0.000946,
+     "attack_power": 0.000656,
+     "crit_rating": 0.001009,
      "hit_rating": 0.0,
-     "crit_pct": 0.013251,
+     "crit_pct": 0.014134,
      "hit_pct": 0.0,
-     "weapon_dps": 0.009815
+     "weapon_dps": 0.00997
     }
    },
    "about": [
@@ -1153,24 +1193,64 @@
     },
     "dungeon": {
      "20": {
-      "score": 34.1,
-      "unit": "dps"
+      "score": 36.1,
+      "low": 31.3,
+      "high": 40.7,
+      "unbuffed": 28.7,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 34.1
      },
      "30": {
-      "score": 50.0,
-      "unit": "dps"
+      "score": 56.7,
+      "low": 45.4,
+      "high": 65.1,
+      "unbuffed": 41.5,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 50.0
      },
      "40": {
-      "score": 91.7,
-      "unit": "dps"
+      "score": 109.0,
+      "low": 82.4,
+      "high": 137.8,
+      "unbuffed": 74.3,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 91.7
      },
      "50": {
-      "score": 125.5,
-      "unit": "dps"
+      "score": 152.2,
+      "low": 109.7,
+      "high": 193.9,
+      "unbuffed": 96.2,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 125.5
      },
      "60": {
-      "score": 161.1,
-      "unit": "dps"
+      "score": 204.3,
+      "low": 145.6,
+      "high": 266.3,
+      "unbuffed": 121.6,
+      "top_buffs": [
+       "battle_shout",
+       "blessing_of_might"
+      ],
+      "unit": "dps",
+      "solo": 161.1
      }
     },
     "raid": {
@@ -1346,24 +1426,64 @@
     },
     "dungeon": {
      "20": {
-      "score": 34.1,
-      "unit": "dps"
+      "score": 36.1,
+      "low": 31.3,
+      "high": 40.7,
+      "unbuffed": 28.7,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 34.1
      },
      "30": {
-      "score": 50.0,
-      "unit": "dps"
+      "score": 56.7,
+      "low": 45.4,
+      "high": 65.1,
+      "unbuffed": 41.5,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 50.0
      },
      "40": {
-      "score": 91.7,
-      "unit": "dps"
+      "score": 109.0,
+      "low": 82.4,
+      "high": 137.8,
+      "unbuffed": 74.3,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 91.7
      },
      "50": {
-      "score": 118.9,
-      "unit": "dps"
+      "score": 141.8,
+      "low": 106.4,
+      "high": 178.9,
+      "unbuffed": 94.6,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 118.9
      },
      "60": {
-      "score": 150.8,
-      "unit": "dps"
+      "score": 187.1,
+      "low": 138.9,
+      "high": 240.6,
+      "unbuffed": 118.0,
+      "top_buffs": [
+       "battle_shout",
+       "blessing_of_might"
+      ],
+      "unit": "dps",
+      "solo": 150.8
      }
     },
     "raid": {
@@ -1377,75 +1497,75 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.3394,
-     "strength": 0.001105,
-     "agility": 0.000414,
+     "score": 0.343,
+     "strength": 0.001093,
+     "agility": 0.000418,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000554,
-     "crit_rating": 0.000852,
-     "hit_rating": 0.000932,
-     "crit_pct": 0.002761,
-     "hit_pct": 0.002546,
-     "weapon_dps": 0.007716
+     "attack_power": 0.000548,
+     "crit_rating": 0.000861,
+     "hit_rating": 0.000943,
+     "crit_pct": 0.00279,
+     "hit_pct": 0.002584,
+     "weapon_dps": 0.007632
     },
     "30": {
-     "score": 0.3922,
-     "strength": 0.000875,
-     "agility": 0.000425,
+     "score": 0.4052,
+     "strength": 0.00087,
+     "agility": 0.000432,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000438,
-     "crit_rating": 0.000717,
-     "hit_rating": 0.000565,
-     "crit_pct": 0.00425,
-     "hit_pct": 0.002873,
-     "weapon_dps": 0.006779
+     "attack_power": 0.000436,
+     "crit_rating": 0.000729,
+     "hit_rating": 0.000582,
+     "crit_pct": 0.004322,
+     "hit_pct": 0.002972,
+     "weapon_dps": 0.006757
     },
     "40": {
-     "score": 0.6122,
-     "strength": 0.001072,
-     "agility": 0.000577,
+     "score": 0.6459,
+     "strength": 0.001076,
+     "agility": 0.000595,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000536,
-     "crit_rating": 0.000893,
-     "hit_rating": 0.000533,
-     "crit_pct": 0.007696,
-     "hit_pct": 0.004258,
-     "weapon_dps": 0.008302
+     "attack_power": 0.000538,
+     "crit_rating": 0.000921,
+     "hit_rating": 0.000553,
+     "crit_pct": 0.007935,
+     "hit_pct": 0.004434,
+     "weapon_dps": 0.008348
     },
     "50": {
-     "score": 0.7145,
+     "score": 0.7586,
      "strength": 0.001029,
-     "agility": 0.000554,
+     "agility": 0.000573,
      "stamina": 0.0,
      "intellect": 0.0,
      "attack_power": 0.000515,
-     "crit_rating": 0.000817,
-     "hit_rating": 0.000651,
-     "crit_pct": 0.009237,
-     "hit_pct": 0.007445,
-     "weapon_dps": 0.008139
+     "crit_rating": 0.000844,
+     "hit_rating": 0.000671,
+     "crit_pct": 0.009545,
+     "hit_pct": 0.007675,
+     "weapon_dps": 0.008156
     },
     "60": {
-     "score": 0.8636,
-     "strength": 0.001072,
-     "agility": 0.000553,
+     "score": 0.9343,
+     "strength": 0.001067,
+     "agility": 0.000579,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000536,
-     "crit_rating": 0.00079,
+     "attack_power": 0.000533,
+     "crit_rating": 0.000828,
      "hit_rating": 0.0,
-     "crit_pct": 0.011053,
+     "crit_pct": 0.011589,
      "hit_pct": 0.0,
-     "weapon_dps": 0.008231
+     "weapon_dps": 0.008215
     }
    },
    "about": [
     "31 points in Fury, with 20 in Arms. Built for PvE. On this order the key talents arrive as follows: Anger Management at 29, Piercing Howl at 41, Raging Blows at 45, Death Wish at 50 and Flurry at 57.",
     "In the model's rotation its priority is Whirlwind and Heroic Strike. Damage comes from auto-attacks 63% and abilities 37%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (97%) and dungeon damage (94%), and weakest at raid damage (93%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (97%) and raid damage (93%), and weakest at dungeon damage (92%).",
     "A model build: the calculator's pick for this slot, not yet tried in game."
    ]
   },
@@ -1539,24 +1659,64 @@
     },
     "dungeon": {
      "20": {
-      "score": 34.1,
-      "unit": "dps"
+      "score": 36.1,
+      "low": 31.3,
+      "high": 40.7,
+      "unbuffed": 28.7,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 34.1
      },
      "30": {
-      "score": 50.0,
-      "unit": "dps"
+      "score": 56.7,
+      "low": 45.4,
+      "high": 65.1,
+      "unbuffed": 41.5,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 50.0
      },
      "40": {
-      "score": 91.7,
-      "unit": "dps"
+      "score": 109.0,
+      "low": 82.4,
+      "high": 137.8,
+      "unbuffed": 74.3,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 91.7
      },
      "50": {
-      "score": 118.9,
-      "unit": "dps"
+      "score": 141.8,
+      "low": 106.4,
+      "high": 178.9,
+      "unbuffed": 94.6,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 118.9
      },
      "60": {
-      "score": 150.8,
-      "unit": "dps"
+      "score": 187.1,
+      "low": 138.9,
+      "high": 240.6,
+      "unbuffed": 118.0,
+      "top_buffs": [
+       "battle_shout",
+       "blessing_of_might"
+      ],
+      "unit": "dps",
+      "solo": 150.8
      }
     },
     "raid": {
@@ -1638,7 +1798,7 @@
    "about": [
     "31 points in Fury, with 20 in Arms. Built for PvP. On this order the key talents arrive as follows: Anger Management at 29, Piercing Howl at 41, Raging Blows at 45, Death Wish at 50 and Flurry at 57.",
     "In the model's rotation its priority is Whirlwind and Heroic Strike. Damage comes from auto-attacks 63% and abilities 37%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (97%) and dungeon damage (94%), and weakest at raid damage (93%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (97%) and raid damage (93%), and weakest at dungeon damage (92%).",
     "A model build: the calculator's pick for this slot, not yet tried in game."
    ]
   },
@@ -2843,11 +3003,11 @@
    "archetype": "deep Arms",
    "focus": "PvE",
    "standard": "warrior-arms-pve",
-   "standard_score": 0.9181309344546124,
+   "standard_score": 0.9991003205945587,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "warrior-arms-pve": 0.9181309344546124
+    "warrior-arms-pve": 0.9991003205945587
    },
    "qualifying": [
     "warrior-arms-pve"
@@ -2871,11 +3031,11 @@
    "archetype": "deep Fury",
    "focus": "PvE",
    "standard": "warrior-fury-pve",
-   "standard_score": 0.8635695083681455,
+   "standard_score": 0.9343242641312589,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "warrior-fury-pve": 0.8635695083681455
+    "warrior-fury-pve": 0.9343242641312589
    },
    "qualifying": [
     "warrior-fury-pve"

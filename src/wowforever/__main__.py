@@ -95,6 +95,12 @@ def main(argv: list[str] | None = None) -> int:
         out = group.RESOLVED
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps(data, indent=1), encoding="utf-8", newline="\n")
+        logs = Path("data/cache/foreverlogs")
+        if (logs / "stats-role-tank").exists() and (logs / "stats-hps").exists():
+            # group weights (#220): parse counts per role from the cached Forever Logs statistics
+            weights = group.build_weights(logs / "stats", logs / "stats-role-tank", logs / "stats-hps")
+            group.WEIGHTS.write_text(json.dumps(weights, indent=1), encoding="utf-8", newline="\n")
+            print(f"wrote {group.WEIGHTS}: " + ", ".join(f"{r} {sum(weights[r].values())}" for r in ("tank", "healer", "dps")))
         for b in data["buffs"]:
             first = min(map(int, b["by_level"]), default=None)
             print(f"{b['id']:28} {b['kind']:30} from {first}: {b['by_level'].get('60', {}).get('value')} at 60"

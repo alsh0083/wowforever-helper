@@ -300,3 +300,207 @@ def dungeon_dps(class_name: str, stats, cls, ranks: Mapping[int, int], eff: Mapp
 
 def _level(stats) -> int:
     return stats.level
+
+
+# --- phase 3 (#220): compositions, weights and the grouped dungeon score ---------------------------------
+
+WEIGHTS = ROOT / "data" / "buffs" / "group_weights.json"
+TANK_SPECS = {("warrior", "Protection"): "Protection", ("paladin", "Protection"): "Protection",
+              ("druid", "Guardian"): "Feral Combat"}
+HEALER_SPECS = {("druid", "Restoration"), ("paladin", "Holy"), ("priest", "Discipline"), ("priest", "Holy"),
+                ("shaman", "Restoration")}
+# which option a provider uses for you (plan D1), by what kind of damage your build does
+PREFERENCES = {
+    "melee": {"blessing": ["blessing_of_might", "blessing_of_kings"], "totem_air": ["windfury_totem", "grace_of_air"],
+              "curse": ["curse_of_recklessness", "curse_of_the_elements"]},
+    "ranged": {"blessing": ["blessing_of_might", "blessing_of_kings"], "totem_air": ["grace_of_air", "windfury_totem"],
+               "curse": ["curse_of_recklessness", "curse_of_the_elements"]},
+    "caster": {"blessing": ["blessing_of_kings", "blessing_of_might"], "totem_air": ["grace_of_air", "windfury_totem"],
+               "curse": ["curse_of_the_elements", "curse_of_recklessness"]},
+}
+
+
+def build_weights(dps_dir: Path, tank_dir: Path, healer_dir: Path) -> dict[str, Any]:
+    """Parse counts per class and tree in each role, from cached Forever Logs statistics: DPS from the
+    damage statistics (role=dps), tanks from role=tank, healers from the healing statistics (healer
+    trees only)."""
+    def counts(directory: Path, keep) -> dict[str, int]:
+        out: dict[str, int] = {}
+        for f in sorted(directory.glob("*.json")):
+            for cls, data in (json.loads(f.read_text(encoding="utf-8")).get("statistics") or {}).items():
+                for spec, s in data["specs"].items():
+                    key = keep(cls.lower(), spec)
+                    if key:
+                        out[key] = out.get(key, 0) + int(s["total_parses"])
+        return dict(sorted(out.items()))
+
+    def tank(c: str, s: str) -> str | None:
+        return f"{c}/{TANK_SPECS[(c, s)]}" if (c, s) in TANK_SPECS else None
+
+    def healer(c: str, s: str) -> str | None:
+        return f"{c}/{s}" if (c, s) in HEALER_SPECS else None
+
+    def dps(c: str, s: str) -> str | None:
+        return f"{c}/{s}" if (c, s) not in TANK_SPECS and (c, s) not in HEALER_SPECS else None
+
+    return {"source": "Forever Logs public statistics (phase 1), parse counts per role",
+            "tank": counts(tank_dir, tank), "healer": counts(healer_dir, healer), "dps": counts(dps_dir, dps)}
+
+
+def load_weights(path: Path = WEIGHTS) -> dict[str, Any]:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def compositions(weights: Mapping[str, Mapping[str, int]]) -> list[tuple[float, tuple[Member, ...]]]:
+    """Every tank x healer x pair of other DPS, with its probability (DPS drawn with replacement)."""
+    def shares(role: str) -> list[tuple[Member, float]]:
+        total = sum(weights[role].values()) or 1
+        return [(Member(k.split("/")[0], k.split("/")[1], role), n / total) for k, n in weights[role].items() if n]
+
+    tanks, healers, dps = shares("tank"), shares("healer"), shares("dps")
+    out = []
+    for t, pt in tanks:
+        for h, ph in healers:
+            for i, (a, pa) in enumerate(dps):
+                for b, pb in dps[i:]:
+                    out.append((pt * ph * pa * pb * (1 if a == b else 2), (t, h, a, b)))
+    return out
+
+
+def player_kind(class_name: str, melee_build: bool, stats) -> str:
+    if class_name == "hunter":
+        return "ranged"
+    return "melee" if melee_build or _is_physical(stats) else "caster"
+
+
+def _pick(member_options: Sequence[Sequence[dict]], kind: str) -> list[dict]:
+    prefs = PREFERENCES[kind]
+    picks = []
+    for opts in member_options:
+        order = next((prefs[k] for k in prefs if any(o["id"] in prefs[k] for o in opts)), [])
+        picks.append(min(opts, key=lambda o: order.index(o["id"]) if o["id"] in order else len(order)))
+    return picks
+
+
+_DIST_CACHE: dict[tuple, list] = {}
+
+
+def distribution(player: Member, kind: str, level: int, *, drop: frozenset[str] = frozenset(),
+                 buffs: Sequence[Mapping[str, Any]] | None = None,
+                 weights: Mapping[str, Any] | None = None) -> list[tuple[float, dict[str, dict]]]:
+    """Distinct effective buff sets for `player` at `level` with their probabilities. The player provides
+    their own buffs too; `drop` removes stacking groups the engine already models (a hunter's own
+    Trueshot Aura)."""
+    key = (player, kind, level, drop)
+    cacheable = buffs is None and weights is None
+    if cacheable and key in _DIST_CACHE:
+        return _DIST_CACHE[key]
+    buffs = buffs if buffs is not None else load_resolved()["buffs"]
+    weights = weights if weights is not None else load_weights()
+    sets: dict[tuple, list] = {}
+    for p, party in compositions(weights):
+        picks = [x for m in options(buffs, (*party, player), level) for x in _pick(m, kind)]
+        eff = {k: v for k, v in effective(picks).items() if k not in drop}
+        sig = tuple(sorted((k, v["value"]) for k, v in eff.items()))
+        if sig in sets:
+            sets[sig][0] += p
+        else:
+            sets[sig] = [p, eff]
+    out = [(p, eff) for p, eff in sets.values()]
+    if cacheable:
+        _DIST_CACHE[key] = out
+    return out
+
+
+def typical(dist: Sequence[tuple[float, Mapping[str, dict]]]) -> dict[str, dict]:
+    """The buffs at least half of the weighted groups have (each at its most likely value): one set to
+    score with where a full expectation is too slow (the build search, stat weights)."""
+    present: dict[str, dict[float, float]] = {}
+    sample: dict[tuple[str, float], dict] = {}
+    for p, eff in dist:
+        for k, v in eff.items():
+            present.setdefault(k, {}).setdefault(v["value"], 0.0)
+            present[k][v["value"]] += p
+            sample[(k, v["value"])] = v
+    out = {}
+    for k, by_value in present.items():
+        if sum(by_value.values()) >= 0.5:
+            value = max(by_value, key=by_value.get)
+            out[k] = sample[(k, value)]
+    return out
+
+
+def member_for(class_name: str, cls, ranks: Mapping[int, int]) -> Member:
+    from wowforever.melee_scenarios import main_tree
+
+    return Member(class_name, main_tree(cls, ranks), "dps")
+
+
+def _drop_for(class_name: str, cls, ranks: Mapping[int, int]) -> frozenset[str]:
+    tsa = next((t for t in cls.talents if t.name == "Trueshot Aura"), None)
+    if class_name == "hunter" and tsa is not None and ranks.get(tsa.talent_id, 0):
+        return frozenset({"trueshot_aura"})
+    return frozenset()
+
+
+def _kind_for(class_name: str, stats, cls, ranks) -> str:
+    from wowforever import melee_scenarios as ms
+    from wowforever.classes import class_module
+
+    melee_trees = getattr(class_module(class_name), "MELEE_TREES", ())
+    melee_build = isinstance(stats, ms.HybridStats) and ms.main_tree(cls, ranks) in melee_trees
+    inner = stats.melee if melee_build else (stats.caster if isinstance(stats, ms.HybridStats) else stats)
+    return player_kind(class_name, melee_build, inner)
+
+
+def _dist_for(class_name: str, stats, cls, ranks):
+    return distribution(member_for(class_name, cls, ranks), _kind_for(class_name, stats, cls, ranks),
+                        _level(stats), drop=_drop_for(class_name, cls, ranks))
+
+
+def typical_dungeon_dps(class_name: str, stats, cls, ranks: Mapping[int, int]) -> float:
+    """Dungeon DPS with every buff at its probability-weighted value (for scores that run thousands of
+    times); close to the full expectation, in one engine run."""
+    return dungeon_dps(class_name, stats, cls, ranks, average(_dist_for(class_name, stats, cls, ranks)))
+
+
+def grouped_dungeon(class_name: str, stats, cls, ranks: Mapping[int, int]) -> dict[str, Any]:
+    """Expected dungeon DPS over every weighted group, its 10th-90th percentile range, the unbuffed value,
+    and the typical group's buffs that add most."""
+    dist = _dist_for(class_name, stats, cls, ranks)
+    results = sorted((dungeon_dps(class_name, stats, cls, ranks, eff), p) for p, eff in dist)
+    total = sum(p for _, p in results) or 1.0
+    expected = sum(v * p for v, p in results) / total
+
+    def pct(q: float) -> float:
+        acc = 0.0
+        for v, p in results:
+            acc += p / total
+            if acc >= q:
+                return v
+        return results[-1][0]
+
+    base = dungeon_dps(class_name, stats, cls, ranks, {})
+    gains = {k: dungeon_dps(class_name, stats, cls, ranks, {k: v}) - base for k, v in typical(dist).items()}
+    top = [k for k, g in sorted(gains.items(), key=lambda kv: -kv[1]) if g > 0.01 * base][:3]
+    return {"score": round(expected, 1), "low": round(pct(0.1), 1), "high": round(pct(0.9), 1),
+            "unbuffed": round(base, 1), "top_buffs": top}
+
+
+def average(dist: Sequence[tuple[float, Mapping[str, dict]]]) -> dict[str, dict]:
+    """Every buff at its probability-weighted value (a Sunder in half the groups counts half; Windfury's
+    proc chance scales the same way): one set to score with where the full expectation is too slow
+    (the build search, stat weights). Smooth, unlike a majority cut."""
+    total = sum(p for p, _ in dist) or 1.0
+    out: dict[str, dict] = {}
+    for p, eff in dist:
+        for k, v in eff.items():
+            cell = out.setdefault(k, {**v, "value": 0.0, "proc_chance": 0.0 if v.get("proc_chance") else None, "_p": 0.0})
+            cell["_p"] += p / total
+            cell["value"] += v["value"] * p / total
+    for k, cell in out.items():
+        if cell.get("proc_chance") is not None:          # a proc keeps its own size; how often it's there scales
+            cell["proc_chance"] = (out[k].get("proc_chance") or 0) + 0.2 * cell["_p"]
+            cell["value"] = cell["value"] / cell["_p"]
+        cell.pop("_p")
+    return out

@@ -1319,24 +1319,64 @@
     },
     "dungeon": {
      "20": {
-      "score": 47.8,
-      "unit": "dps"
+      "score": 51.1,
+      "low": 46.6,
+      "high": 55.6,
+      "unbuffed": 43.5,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 47.8
      },
      "30": {
-      "score": 71.9,
-      "unit": "dps"
+      "score": 80.7,
+      "low": 70.9,
+      "high": 89.8,
+      "unbuffed": 65.3,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 71.9
      },
      "40": {
-      "score": 115.5,
-      "unit": "dps"
+      "score": 134.4,
+      "low": 111.9,
+      "high": 159.7,
+      "unbuffed": 103.8,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 115.5
      },
      "50": {
-      "score": 159.0,
-      "unit": "dps"
+      "score": 185.2,
+      "low": 155.0,
+      "high": 217.8,
+      "unbuffed": 143.3,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 159.0
      },
      "60": {
-      "score": 214.4,
-      "unit": "dps"
+      "score": 255.1,
+      "low": 211.6,
+      "high": 303.0,
+      "unbuffed": 193.7,
+      "top_buffs": [
+       "battle_shout",
+       "blessing_of_might"
+      ],
+      "unit": "dps",
+      "solo": 214.4
      }
     },
     "raid": {
@@ -1513,24 +1553,64 @@
     },
     "dungeon": {
      "20": {
-      "score": 47.8,
-      "unit": "dps"
+      "score": 51.1,
+      "low": 46.6,
+      "high": 55.6,
+      "unbuffed": 43.5,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 47.8
      },
      "30": {
-      "score": 70.6,
-      "unit": "dps"
+      "score": 79.3,
+      "low": 69.6,
+      "high": 88.3,
+      "unbuffed": 64.0,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 70.6
      },
      "40": {
-      "score": 115.5,
-      "unit": "dps"
+      "score": 134.4,
+      "low": 111.9,
+      "high": 159.7,
+      "unbuffed": 103.8,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 115.5
      },
      "50": {
-      "score": 155.6,
-      "unit": "dps"
+      "score": 181.5,
+      "low": 151.7,
+      "high": 213.8,
+      "unbuffed": 140.3,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 155.6
      },
      "60": {
-      "score": 214.4,
-      "unit": "dps"
+      "score": 255.1,
+      "low": 211.6,
+      "high": 303.0,
+      "unbuffed": 193.7,
+      "top_buffs": [
+       "battle_shout",
+       "blessing_of_might"
+      ],
+      "unit": "dps",
+      "solo": 214.4
      }
     },
     "raid": {
@@ -1544,69 +1624,69 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4725,
-     "strength": 0.001354,
-     "agility": 0.000529,
+     "score": 0.4791,
+     "strength": 0.001345,
+     "agility": 0.000538,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000679,
-     "crit_rating": 0.00109,
-     "hit_rating": 0.001134,
-     "crit_pct": 0.003531,
-     "hit_pct": 0.002989,
-     "weapon_dps": 0.009509
+     "attack_power": 0.000674,
+     "crit_rating": 0.001108,
+     "hit_rating": 0.001156,
+     "crit_pct": 0.003591,
+     "hit_pct": 0.003059,
+     "weapon_dps": 0.009446
     },
     "30": {
-     "score": 0.5523,
-     "strength": 0.001136,
-     "agility": 0.000457,
+     "score": 0.5702,
+     "strength": 0.001134,
+     "agility": 0.000469,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000569,
-     "crit_rating": 0.000771,
-     "hit_rating": 0.000708,
-     "crit_pct": 0.004572,
-     "hit_pct": 0.00353,
-     "weapon_dps": 0.007944
+     "attack_power": 0.000568,
+     "crit_rating": 0.000792,
+     "hit_rating": 0.000732,
+     "crit_pct": 0.004694,
+     "hit_pct": 0.003674,
+     "weapon_dps": 0.00793
     },
     "40": {
-     "score": 0.7729,
-     "strength": 0.001118,
-     "agility": 0.000496,
+     "score": 0.811,
+     "strength": 0.001129,
+     "agility": 0.000517,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.00056,
-     "crit_rating": 0.000767,
-     "hit_rating": 0.000589,
-     "crit_pct": 0.006607,
-     "hit_pct": 0.004688,
-     "weapon_dps": 0.007823
+     "attack_power": 0.000565,
+     "crit_rating": 0.000799,
+     "hit_rating": 0.000614,
+     "crit_pct": 0.006888,
+     "hit_pct": 0.004909,
+     "weapon_dps": 0.0079
     },
     "50": {
-     "score": 0.9322,
-     "strength": 0.001123,
-     "agility": 0.000489,
+     "score": 0.9842,
+     "strength": 0.001132,
+     "agility": 0.000512,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000562,
-     "crit_rating": 0.00072,
-     "hit_rating": 0.000751,
-     "crit_pct": 0.008146,
-     "hit_pct": 0.008595,
-     "weapon_dps": 0.007955
+     "attack_power": 0.000566,
+     "crit_rating": 0.000754,
+     "hit_rating": 0.000779,
+     "crit_pct": 0.008524,
+     "hit_pct": 0.00891,
+     "weapon_dps": 0.008019
     },
     "60": {
-     "score": 1.205,
-     "strength": 0.001137,
-     "agility": 0.000515,
+     "score": 1.2871,
+     "strength": 0.001144,
+     "agility": 0.000546,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000569,
-     "crit_rating": 0.000736,
+     "attack_power": 0.000572,
+     "crit_rating": 0.00078,
      "hit_rating": 0.000252,
-     "crit_pct": 0.010307,
+     "crit_pct": 0.010918,
      "hit_pct": 0.002525,
-     "weapon_dps": 0.007923
+     "weapon_dps": 0.007971
     }
    },
    "about": [
@@ -2692,11 +2772,11 @@
    "archetype": "deep Retribution",
    "focus": "PvE",
    "standard": "paladin-retribution",
-   "standard_score": 1.2049881679780974,
+   "standard_score": 1.2870543357795994,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "paladin-retribution": 1.2049881679780974
+    "paladin-retribution": 1.2870543357795994
    },
    "qualifying": [
     "paladin-retribution"

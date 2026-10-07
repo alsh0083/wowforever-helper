@@ -11,6 +11,7 @@ from __future__ import annotations
 
 from collections.abc import Callable, Mapping
 
+from wowforever import group
 from wowforever.assumptions import Assumptions
 from wowforever.consensus import Consensus
 from wowforever.pvp.battleground import best_battleground
@@ -64,7 +65,7 @@ def pve_score_fn(cls: ClassData, stats: Stats, assumptions: Assumptions) -> Scor
         q = questing(char, q_params, assumptions).score
         r = raid(char, r_params, assumptions).score
         aoe_time = aoe_curve(char, a_params, assumptions).details["aoe_time"][3]
-        d = raid(char, d_params, assumptions).score
+        d = group.typical_dungeon_dps("mage", stats, cls, ranks)    # with a weighted 5-player group (#220)
         return (q / PVE_REFERENCES["questing"] + r / PVE_REFERENCES["raid"]
                 + PVE_REFERENCES["aoe_seconds_3"] / aoe_time + d / PVE_REFERENCES["dungeon"]) / 4
 
