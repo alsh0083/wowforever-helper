@@ -150,6 +150,18 @@ def theme_css() -> str:
     return "".join(out)
 
 
+def compact_icy_veins(data: Mapping | None) -> list[dict]:
+    """Icy Veins' decoded guide builds for the page: class, spec, title, level, date, link, order."""
+    if not data:
+        return []
+    out = []
+    for b in data["builds"]:
+        spec = b["guide"].split("-" + b["class"] + "-")[0].replace("-", " ").title()
+        out.append({"c": b["class"], "s": spec, "t": b["title"], "l": b["level"], "u": b["updated"], "h": b["url"],
+                    "o": b["order"]})
+    return out
+
+
 def compact_gear(gear: Mapping | None) -> dict | None:
     """data/items/gear.json in short keys for the page (#190)."""
     if not gear:
@@ -176,7 +188,7 @@ def compact_gear(gear: Mapping | None) -> dict | None:
 
 
 def render(payload: dict | Sequence[dict], icons: Mapping[str, bytes], *, gear: Mapping | None = None,
-           gear_rules: Mapping | None = None) -> str:
+           gear_rules: Mapping | None = None, icy_veins: Mapping | None = None) -> str:
     """Fill the template placeholders and return the complete HTML page.
 
     `payload` is one class's report or a list of them (#102): the first is the page's default
@@ -199,7 +211,8 @@ def render(payload: dict | Sequence[dict], icons: Mapping[str, bytes], *, gear: 
                    f'{html.escape(CLASS_THEMES.get(n, {}).get("label", n.title()))}</a>' for n in names)
     themes = {n: {k: v for k, v in CLASS_THEMES[n].items() if k != "crest_bg"} for n in names if n in CLASS_THEMES}
     template = (template.replace("/*__GEAR__*/null", json.dumps(compact_gear(gear), separators=(",", ":")))
-                .replace("/*__GEAR_RULES__*/{}", json.dumps(gear_rules or {})))
+                .replace("/*__GEAR_RULES__*/{}", json.dumps(gear_rules or {}))
+                .replace("/*__ICY_VEINS__*/[]", json.dumps(compact_icy_veins(icy_veins), separators=(",", ":"))))
     return (template.replace("/*__PAYLOAD__*/null", json.dumps(first))
             .replace("/*__OTHERS__*/{}", json.dumps({p.get("class", "mage"): p for p in others}))
             .replace("/*__THEMES__*/{}", json.dumps(themes))

@@ -63,3 +63,12 @@ def test_header_mark_shows_the_picked_factions_crest():
     html = render(MAGE, {}, gear=GEAR, gear_rules=RULES)
     assert 'id="brand-mark"' in html and 'class="crest-a"' in html and 'class="crest-h"' in html
     assert "function showCrest()" in html and "showCrest();renderGear()" in html
+
+
+def test_page_compares_with_icy_veins_and_has_the_talented_setting():
+    icy = {"builds": [{"class": "mage", "guide": "frost-mage-ranged-dps-pve-guide", "title": "Level 30 Talent Build",
+                       "level": 30, "updated": "Oct 1, 2026", "url": "https://www.icy-veins.com/wow-forever/x",
+                       "order": ["Frostbite"]}]}
+    html = render(MAGE, {}, gear=GEAR, gear_rules=RULES, icy_veins=icy)
+    assert "function icyVeinsHtml()" in html and '"s":"Frost"' in html and "/*__ICY_VEINS__*/" not in html
+    assert 'id="talented"' in html and "function setTalented(" in html
