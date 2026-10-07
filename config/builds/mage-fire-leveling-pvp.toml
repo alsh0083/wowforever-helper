@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level, leaning toward the talents of Fire (PvP, model), the tree's endgame PvP build.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "mage-fire-leveling-pvp"
+class = "mage"
+name = "Fire leveling (PvP)"
+pair = "mage-fire-leveling-pvp"
+variant = "PvP"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Fire talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Fire (PvP, model), the tree's endgame PvP build. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Elemental Precision",  # 10
+  "Elemental Precision",  # 11
+  "Elemental Precision",  # 12
+  "Arcane Focus",  # 13
+  "Incineration",  # 14
+  "Incineration",  # 15
+  "Incineration",  # 16
+  "Improved Fireball",  # 17
+  "Improved Fireball",  # 18
+  "Improved Fireball",  # 19
+  "Improved Fireball",  # 20
+  "Ignite",  # 21
+  "Ignite",  # 22
+  "Ignite",  # 23
+  "Improved Frostbolt",  # 24
+  "Ignite",  # 25
+  "Improved Fireball",  # 26
+  "Ignite",  # 27
+  "Impact",  # 28
+  "Impact",  # 29
+  "Master of Elements",  # 30
+  "Master of Elements",  # 31
+  "Master of Elements",  # 32
+  "Impact",  # 33
+  "Burning Soul",  # 34
+  "Critical Mass",  # 35
+  "Critical Mass",  # 36
+  "Critical Mass",  # 37
+  "Burning Soul",  # 38
+  "Burning Soul",  # 39
+  "Fire Power",  # 40
+  "Fire Power",  # 41
+  "Fire Power",  # 42
+  "Fire Power",  # 43
+  "Fire Power",  # 44
+  "Arcane Focus",  # 45
+  "Arcane Focus",  # 46
+  "Arcane Focus",  # 47
+  "Arcane Focus",  # 48
+  "Arcane Concentration",  # 49
+  "Arcane Concentration",  # 50
+  "Arcane Concentration",  # 51
+  "Arcane Concentration",  # 52
+  "Arcane Concentration",  # 53
+  "Wake of Fire",  # 54
+  "Wake of Fire",  # 55
+  "Improved Scorch",  # 56
+  "Improved Scorch",  # 57
+  "Improved Scorch",  # 58
+  "Pyroblast",  # 59
+  "Heating Up",  # 60
+]

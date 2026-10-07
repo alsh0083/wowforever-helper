@@ -23,6 +23,9 @@ def test_builds_get_legal_optimized_orders_and_pve_scores(report):
     assert r["engine"] is True and r["class"] == class_name
     for b in r["builds"]:
         assert check_order(cls, b["order"]) == [], b["id"]
+        if b["mode"] == "leveling":   # questing pace only (owner request, 2026-10-07)
+            assert set(b["scores"]) == {"questing"} and all(row["score"] > 0 for row in b["scores"]["questing"].values())
+            continue
         assert b["order_source"] in ("hand-written", "optimized for questing kills/hour")
         assert set(b["scores"]) == {"questing", "dungeon", "raid"}
         assert set(b["scores"]["questing"]) == {20, 30, 40, 50, 60} and set(b["scores"]["raid"]) == {60}

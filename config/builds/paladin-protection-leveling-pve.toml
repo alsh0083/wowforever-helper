@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "paladin-protection-leveling-pve"
+class = "paladin"
+name = "Protection leveling (PvE)"
+pair = "paladin-protection-leveling-pve"
+variant = "PvE"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Protection talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Toughness",  # 10
+  "Toughness",  # 11
+  "Toughness",  # 12
+  "Toughness",  # 13
+  "Toughness",  # 14
+  "Precision",  # 15
+  "Precision",  # 16
+  "Precision",  # 17
+  "Redoubt",  # 18
+  "Redoubt",  # 19
+  "Redoubt",  # 20
+  "Redoubt",  # 21
+  "Redoubt",  # 22
+  "Guardian's Favor",  # 23
+  "Guardian's Favor",  # 24
+  "Anticipation",  # 25
+  "Anticipation",  # 26
+  "Anticipation",  # 27
+  "Anticipation",  # 28
+  "Anticipation",  # 29
+  "Improved Seal of Fury",  # 30
+  "Improved Righteous Fury",  # 31
+  "Improved Righteous Fury",  # 32
+  "Improved Righteous Fury",  # 33
+  "Shield Specialization",  # 34
+  "Shield Specialization",  # 35
+  "Shield Specialization",  # 36
+  "Sacred Duty",  # 37
+  "Sacred Duty",  # 38
+  "Swift Judgement",  # 39
+  "One-Handed Weapon Specialization",  # 40
+  "Deflection",  # 41
+  "Deflection",  # 42
+  "Deflection",  # 43
+  "Deflection",  # 44
+  "Deflection",  # 45
+  "Conviction",  # 46
+  "Conviction",  # 47
+  "Conviction",  # 48
+  "Conviction",  # 49
+  "Conviction",  # 50
+  "Seal of Command",  # 51
+  "Improved Judgement",  # 52
+  "Improved Judgement",  # 53
+  "Benediction",  # 54
+  "Benediction",  # 55
+  "Sacred Arbiter",  # 56
+  "One-Handed Weapon Specialization",  # 57
+  "One-Handed Weapon Specialization",  # 58
+  "Improved Hammer of Justice",  # 59
+  "Improved Hammer of Justice",  # 60
+]

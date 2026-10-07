@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level, leaning toward the talents of Feral Cat (PvP), the tree's endgame PvP build.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "druid-feral-combat-leveling-pvp"
+class = "druid"
+name = "Feral Combat leveling (PvP)"
+pair = "druid-feral-combat-leveling-pvp"
+variant = "PvP"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Feral Combat talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Feral Cat (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Ferocity",  # 10
+  "Ferocity",  # 11
+  "Ferocity",  # 12
+  "Ferocity",  # 13
+  "Ferocity",  # 14
+  "Heart of the Wild",  # 15
+  "Heart of the Wild",  # 16
+  "Heart of the Wild",  # 17
+  "Heart of the Wild",  # 18
+  "Heart of the Wild",  # 19
+  "Sharpened Claws",  # 20
+  "Sharpened Claws",  # 21
+  "Savage Fury",  # 22
+  "Savage Fury",  # 23
+  "Feral Swiftness",  # 24
+  "Predatory Strikes",  # 25
+  "Predatory Strikes",  # 26
+  "Predatory Strikes",  # 27
+  "Feral Swiftness",  # 28
+  "Feral Charge",  # 29
+  "Leader of the Pack",  # 30
+  "Predatory Instincts",  # 31
+  "Predatory Instincts",  # 32
+  "Blood Frenzy",  # 33
+  "Blood Frenzy",  # 34
+  "Rend and Tear",  # 35
+  "Rend and Tear",  # 36
+  "Rend and Tear",  # 37
+  "Rend and Tear",  # 38
+  "Rend and Tear",  # 39
+  "Berserk",  # 40
+  "Improved Wrath",  # 41
+  "Improved Wrath",  # 42
+  "Improved Wrath",  # 43
+  "Improved Wrath",  # 44
+  "Improved Wrath",  # 45
+  "Nature's Majesty",  # 46
+  "Nature's Majesty",  # 47
+  "Nature's Reach",  # 48
+  "Nature's Reach",  # 49
+  "Genesis",  # 50
+  "Genesis",  # 51
+  "Genesis",  # 52
+  "Genesis",  # 53
+  "Feral Instinct",  # 54
+  "Feral Instinct",  # 55
+  "Feral Instinct",  # 56
+  "Brutal Impact",  # 57
+  "Genesis",  # 58
+  "Furor",  # 59
+  "Furor",  # 60
+]

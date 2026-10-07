@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "druid-feral-combat-leveling-pve"
+class = "druid"
+name = "Feral Combat leveling (PvE)"
+pair = "druid-feral-combat-leveling-pve"
+variant = "PvE"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Feral Combat talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Ferocity",  # 10
+  "Ferocity",  # 11
+  "Ferocity",  # 12
+  "Ferocity",  # 13
+  "Ferocity",  # 14
+  "Heart of the Wild",  # 15
+  "Heart of the Wild",  # 16
+  "Heart of the Wild",  # 17
+  "Heart of the Wild",  # 18
+  "Heart of the Wild",  # 19
+  "Sharpened Claws",  # 20
+  "Sharpened Claws",  # 21
+  "Savage Fury",  # 22
+  "Savage Fury",  # 23
+  "Feral Swiftness",  # 24
+  "Predatory Strikes",  # 25
+  "Predatory Strikes",  # 26
+  "Predatory Strikes",  # 27
+  "Feral Swiftness",  # 28
+  "Feral Instinct",  # 29
+  "Leader of the Pack",  # 30
+  "Predatory Instincts",  # 31
+  "Predatory Instincts",  # 32
+  "Feral Instinct",  # 33
+  "Feral Instinct",  # 34
+  "Rend and Tear",  # 35
+  "Rend and Tear",  # 36
+  "Rend and Tear",  # 37
+  "Rend and Tear",  # 38
+  "Rend and Tear",  # 39
+  "Brutal Impact",  # 40
+  "Improved Wrath",  # 41
+  "Improved Wrath",  # 42
+  "Improved Wrath",  # 43
+  "Improved Wrath",  # 44
+  "Improved Wrath",  # 45
+  "Nature's Majesty",  # 46
+  "Nature's Majesty",  # 47
+  "Brutal Impact",  # 48
+  "Thick Hide",  # 49
+  "Thick Hide",  # 50
+  "Thick Hide",  # 51
+  "Feral Charge",  # 52
+  "Shredding Attacks",  # 53
+  "Shredding Attacks",  # 54
+  "Shredding Attacks",  # 55
+  "Berserk",  # 56
+  "Natural Reaction",  # 57
+  "Natural Reaction",  # 58
+  "Natural Reaction",  # 59
+  "Natural Reaction",  # 60
+]

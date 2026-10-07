@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level, leaning toward the talents of Marksmanship (PvP, model), the tree's endgame PvP build.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "hunter-marksmanship-leveling-pvp"
+class = "hunter"
+name = "Marksmanship leveling (PvP)"
+pair = "hunter-marksmanship-leveling-pvp"
+variant = "PvP"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Marksmanship talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Marksmanship (PvP, model), the tree's endgame PvP build. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Lethal Attacks",  # 10
+  "Lethal Attacks",  # 11
+  "Lethal Attacks",  # 12
+  "Lethal Attacks",  # 13
+  "Lethal Attacks",  # 14
+  "Efficiency",  # 15
+  "Efficiency",  # 16
+  "Efficiency",  # 17
+  "Efficiency",  # 18
+  "Efficiency",  # 19
+  "Careful Aim",  # 20
+  "Careful Aim",  # 21
+  "Careful Aim",  # 22
+  "Careful Aim",  # 23
+  "Careful Aim",  # 24
+  "Trueshot Aura",  # 25
+  "Mortal Shots",  # 26
+  "Mortal Shots",  # 27
+  "Mortal Shots",  # 28
+  "Mortal Shots",  # 29
+  "Barrage",  # 30
+  "Barrage",  # 31
+  "Barrage",  # 32
+  "Mortal Shots",  # 33
+  "Improved Stings",  # 34
+  "Ranged Weapon Specialization",  # 35
+  "Ranged Weapon Specialization",  # 36
+  "Ranged Weapon Specialization",  # 37
+  "Ranged Weapon Specialization",  # 38
+  "Ranged Weapon Specialization",  # 39
+  "Improved Stings",  # 40
+  "Improved Stings",  # 41
+  "Deadly Aspects",  # 42
+  "Deadly Aspects",  # 43
+  "Deadly Aspects",  # 44
+  "Deadly Aspects",  # 45
+  "Deadly Aspects",  # 46
+  "Focused Fire",  # 47
+  "Focused Fire",  # 48
+  "Sniper Shot",  # 49
+  "Scatter Shot",  # 50
+  "Rapid Killing",  # 51
+  "Rapid Killing",  # 52
+  "Rapid Recuperation",  # 53
+  "Rapid Recuperation",  # 54
+  "Hawk Eye",  # 55
+  "Hawk Eye",  # 56
+  "Endurance Training",  # 57
+  "Endurance Training",  # 58
+  "Endurance Training",  # 59
+  "Unleashed Fury",  # 60
+]
