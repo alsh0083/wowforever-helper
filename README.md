@@ -85,9 +85,9 @@ There are no scheduled jobs. Every network call happens only when you run `updat
 - **PvP** is a duel model of kill speed, lockouts (with diminishing returns), kiting and armor against
   18 real-talent opponent kits.
 - **Healers and tanks** have routes but no scores (there's no healing or threat model yet).
-- **Reality check:** `validate-logs` compares the model with real beta parses. Ranged and caster DPS track
-  the logs closely. Melee and some low-level casters are off by known reasons
-  ([#172](https://github.com/alsh0083/wowforever-helper/issues/172)).
+- **Reality check:** `validate-logs` compares the model with real beta parses (`--boss-only` for boss
+  fights). Ranged and caster DPS track the stronger boss parses; melee comes out low, most likely because
+  the model leaves out party buffs and totems ([findings](docs/research/log-calibration.md), [#172](https://github.com/alsh0083/wowforever-helper/issues/172)).
 
 Each class's caveats (what isn't modeled yet) are shown on its dashboard page and live in its module.
 Assumptions and their sources are in `config/` and `docs/research/`.

@@ -32,7 +32,7 @@ Checked 2026-10-04 against Forever beta build 1.60.1.70205.
   - Send the key as an `X-API-Key` or `Authorization: Bearer` header, never in a URL. Keep it in `.env` as `FOREVERLOGS_API_KEY` (gitignored).
   - Terms: visible attribution wherever its data is shown publicly; no bulk redistribution of the dataset.
 - The site's internal `/api/` (used by its own pages) and `/reports/` are disallowed for crawlers in its robots.txt; this project uses only the public API and HAR files a person saved while browsing (`wowforever import-logs`).
-- Cached responses live in `data/cache/foreverlogs/` (gitignored). `wowforever validate-logs` compares them with the model (#172).
+- Cached responses live in `data/cache/foreverlogs/` (gitignored). `wowforever validate-logs` compares them with the model, against the average and the p75/p90 parses; `--boss-only` uses the `damageMode=boss-only` statistics (#172, [findings](log-calibration.md)).
 - During the beta the level cap is 30, so the logs are level 15-30 dungeons; `config/log_levels.toml` maps each dungeon to a typical level.
 
 ## wago.tools access

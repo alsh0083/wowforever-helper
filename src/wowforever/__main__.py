@@ -24,7 +24,10 @@ def main(argv: list[str] | None = None) -> int:
     gsrc = sub.add_parser("gear-sources", help="build data/items/gear.json: where gear drops, quest rewards and crafted items come from (#188)")
     gsrc.add_argument("--refresh", action="store_true", help="fetch wowforevertalent.com's items, dungeons and quests pages first")
     gsrc.add_argument("--tables", default="data/cache/wago/1.60.1.70205", help="folder with the cached client tables")
-    sub.add_parser("validate-logs", help="compare the model's dungeon scores with cached Forever Logs statistics (#172)")
+    vl = sub.add_parser("validate-logs", help="compare the model's dungeon scores with cached Forever Logs statistics (#172)")
+    vl.add_argument("--boss-only", action="store_true",
+                    help="compare with boss fights only (data/cache/foreverlogs/stats-boss-only/), which leaves out "
+                         "trash pulls where AoE inflates DPS; the model scores one target")
     gs = sub.add_parser("gear-stats", help="rebuild config/stats/<class>.csv from real Forever gear")
     gs.add_argument("--tables", required=True, help="folder with ItemSparse/Item/RandPropPoints CSVs")
     gs.add_argument("--class", dest="class_name", default="mage", choices=("mage", "rogue", "hunter", "warrior", "paladin", "priest", "warlock", "druid", "shaman",
@@ -91,10 +94,13 @@ def main(argv: list[str] | None = None) -> int:
         import json
         from pathlib import Path
 
-        from wowforever.validate import compare, log_averages, markdown
+        from wowforever.validate import compare, log_averages, log_percentiles, markdown
 
         reports = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(Path("data").glob("report*.json"))]
-        print(markdown(compare(reports, log_averages())))
+        from wowforever.validate import STATS_DIR
+
+        stats = STATS_DIR.parent / "stats-boss-only" if args.boss_only else STATS_DIR
+        print(markdown(compare(reports, log_averages(stats), log_percentiles(stats))))
         return 0
     if args.command == "import-logs":
         from pathlib import Path
