@@ -1,11 +1,12 @@
 # wowforever-helper
 
-Talent builds, talent paths (the order to spend points while leveling) and build scoring for **World of Warcraft: Forever**, Blizzard's reimagined
-Classic. It reads the game client's own talent and spell data, collects the builds the community actually
-plays, and scores them for PvE and PvP with a deterministic model. The result is an offline dashboard
-that works for all nine classes.
+Talent builds, talent paths (the order to spend your points from level 10 to 60) and build scoring for
+**World of Warcraft: Forever**, Blizzard's reimagined Classic. It reads the game client's own talent and
+spell data, collects the builds the community actually plays, and scores them for PvE and PvP with a
+deterministic model. The result is a single offline page for all nine classes. It's a talent planner,
+not a leveling guide: it tells you which talent to take at each level, not where to quest.
 
-![The dashboard: specs by archetype for the mage, with community standards, model builds and scores](docs/images/dashboard.png)
+![The mage page: specs by archetype for PvP and PvE, community standards with the model's picks beside them, scores as a share of the best build](docs/images/dashboard.png)
 
 > **Fan project, beta data.** WoW Forever is in beta and changes weekly. Talent trees come straight from
 > the client and are current to the listed build. Scores come from a model with stated assumptions, not
@@ -14,25 +15,33 @@ that works for all nine classes.
 ## What you get
 
 - **Every class and spec:** a matrix of each talent tree (plus the common hybrids) for PvP and PvE.
-  Each slot holds the community standard, or a clearly labeled model build where no community plan exists.
+  Each slot holds the community standard. Where the model finds a better version, its pick sits right
+  under the standard as its own build, with the gain and the talents it changes. Slots with no community
+  plan hold a clearly labeled model build.
 - **Talent paths:** a legal point-by-point order for every build from level 10 to 60, with a level
-  slider, check-off progress saved in your browser, and the next point to take.
+  slider, check-off progress saved in your browser, and the next point to take. The order is optimized
+  for questing pace and looks ahead, so it heads for key talents (Moonkin Form, Seal of Command,
+  Stormstrike) as early as they pay off.
+- **About this build:** for every build, its talent split and when its key talents arrive, what its
+  rotation does at level 60, and where it's strongest and weakest. All generated from the model's data.
 - **Talent layout:** the finished build shown the way a talent calculator draws it.
 - **Recommended gear by level:** as you move through the journey, the best gear your class can use at
   that level for the selected build, from dungeon bosses and quests, with crafted alternatives. Each item
   shows its source, and quest rewards are marked Alliance or Horde (pick yours at the top of the page).
   Where the source site has no faction for a quest, it is worked out from the quest giver or the places
   it names (hover over the tag for the reason). If you know a quest giver's faction, add it to `config/quest_factions.toml`.
-  Hover over (or tap) an item for its stats, or a quest for where it starts and ends and its chain.
-- **Scores:**
-  - PvE: questing kills per hour, dungeon and raid DPS.
-  - PvP: an expected-value duel model against real class opponents.
-  - Each comes with a model pick that beats the standard where the calculator finds one.
-- **Per-class look:** official class icons, in-game class colors, tree colors and real talent icons, working on desktop and phone.
+  Hover over (or tap) an item for its stats and where it comes from, or a quest for where it starts and
+  ends and its chain. The emblem next to the title shows the faction you picked.
+- **Scores:** shown as a share of the class's best build in the same column (100% = best); hover a
+  number for what goes into it.
+  - PvE: questing kills per hour, dungeon and raid DPS, and AoE.
+  - PvP: an expected-value duel model against real class opponents, plus battlegrounds.
+- **Per-class look:** official class icons, in-game class colors, tree colors, real talent icons and the
+  game's own faction emblems, working on desktop and phone.
 
-![The talent layout of a rogue build](docs/images/talent-layout.png)
+![A rogue build: About this build above its talent layout](docs/images/talent-layout.png)
 
-![Recommended gear at level 25 for an Assassination rogue, with sources, crafted alternatives and a quest card open](docs/images/gear.png)
+![Recommended gear at level 25 for an Assassination rogue playing Horde, with sources, crafted alternatives and a quest card open](docs/images/gear.png)
 
 ## Quick start
 
@@ -66,7 +75,7 @@ python -m venv .venv
 | `wowforever gear-stats --class <class>` | Rebuilds a class's per-level stat table from real Forever items |
 | `wowforever gear-sources [--refresh]` | Rebuilds `data/items/gear.json` (where gear comes from); `--refresh` fetches wowforevertalent.com's item, dungeon and quest pages first |
 | `wowforever import-logs <file.har>` | Summarizes Forever Logs pages you saved from your browser (no fetching) |
-| `wowforever validate-logs` | Compares the model's dungeon DPS with Forever Logs statistics per class and spec |
+| `wowforever validate-logs [--boss-only]` | Compares the model's dungeon DPS with Forever Logs statistics per class and spec, against the average and the strong (p75/p90) parses; `--boss-only` leaves out trash pulls |
 
 There are no scheduled jobs. Every network call happens only when you run `update` or one of the tools.
 
@@ -84,7 +93,9 @@ There are no scheduled jobs. Every network call happens only when you run `updat
   (`config/stats/`).
 - **PvP** is a duel model of kill speed, lockouts (with diminishing returns), kiting and armor against
   18 real-talent opponent kits.
-- **Healers and tanks** have routes but no scores (there's no healing or threat model yet).
+- **Healers and tanks** have talent paths but no scores (there's no healing or threat model yet).
+- **Community builds that spend fewer than 51 points** (their site build uses talents the client's tree
+  doesn't have) get the rest filled by the model; the build's description says which.
 - **Reality check:** `validate-logs` compares the model with real beta parses (`--boss-only` for boss
   fights). Ranged and caster DPS track the stronger boss parses; melee comes out low, most likely because
   the model leaves out party buffs and totems ([findings](docs/research/log-calibration.md), [#172](https://github.com/alsh0083/wowforever-helper/issues/172)).
@@ -97,7 +108,8 @@ Assumptions and their sources are in `config/` and `docs/research/`.
 - **[wowforevertalent.com](https://wowforevertalent.com/)**: talent rank text, icons, calculator popularity
   and the build catalog, under Creative Commons Attribution. Raw page snapshots are kept unmodified under
   `data/raw/wowforevertalent/`.
-- **[wago.tools](https://wago.tools/)**: DB2 exports of the WoW Forever client (talent trees, spells, items).
+- **[wago.tools](https://wago.tools/)**: DB2 exports of the WoW Forever client (talent trees, spells, items),
+  and game files such as the faction emblems through its published API.
 - **[Forever Logs](https://foreverlogs.gg/)**: combat-log statistics through its
   [official public API](https://foreverlogs.gg/docs/api), used to check the damage models. Bring your own
   free key (`FOREVERLOGS_API_KEY` in `.env`). Responses are cached locally and not redistributed.
