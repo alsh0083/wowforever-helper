@@ -383,7 +383,7 @@ function questCard(s){
 }
 function sourceText(s){
  if(s.t==='b'){const d=GEAR.dungeons[s.d];return `${s.b||'Boss'}, ${d?d.name:s.d}`}
- if(s.t==='q')return `Quest: ${tip(esc(s.n),questCard(s),'tip-quest')}${s.p&&!/not recorded/i.test(s.p)?` (${s.p})`:''}${s.f==='both'?` <span class="gear-tag" title="${s.fb||''}">Both factions</span>`:s.f&&s.f!=='unknown'?` <span class="gear-tag ${s.f}" title="${s.fb&&s.fb!=='recorded'?s.fb:''}">${s.f==='alliance'?'Alliance':'Horde'}${s.fb&&s.fb.startsWith('likely')?' (likely)':''}</span>`:' <span class="gear-tag" title="The source hasn\'t recorded this quest\'s faction">Faction unrecorded</span>'}`;
+ if(s.t==='q')return `Quest: ${tip(esc(s.n),questCard(s),'tip-quest')}${s.p&&!/not recorded/i.test(s.p)?` (${s.p})`:''}${s.f==='both'?` <span class="gear-tag" title="${s.fb||''}">Both factions</span>`:s.f&&s.f!=='unknown'?` <span class="gear-tag ${s.f}" title="${s.fb&&s.fb!=='recorded'?s.fb:''}">${s.f==='alliance'?'Alliance':'Horde'}</span>`:' <span class="gear-tag" title="The source hasn\'t recorded this quest\'s faction">Faction unrecorded</span>'}`;
  return `Crafted: ${s.p}${s.k?`, about skill ${s.k}`:''}`;
 }
 function itemLine(it,score,wt,cls='gear-pick'){
