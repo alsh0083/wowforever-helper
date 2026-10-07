@@ -920,6 +920,191 @@
  },
  "builds": [
   {
+   "id": "rogue-assassination-pvp-model",
+   "name": "Assassination (PvP, model pick)",
+   "pair": "rogue-assassination-pvp-model",
+   "variant": "PvP",
+   "origin": "model",
+   "summary": "The model's alternative to Assassination (PvP): Improved Kidney Shot 2->0, Venom 1->0, Vile Poisons 5->2, Puncturing Wounds 0->3, Improved Sprint 2->0, Improved Kick 2->0, Precision 2->3, Improved Slice and Dice 0->3, Dual Wield Specialization 0->3. Scores +9.2% higher; not tried in game.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105722,
+    105722,
+    105722,
+    105722,
+    105722,
+    105708,
+    105708,
+    105708,
+    105742,
+    105742,
+    105742,
+    113398,
+    113398,
+    105737,
+    105737,
+    105737,
+    105719,
+    105719,
+    105719,
+    105720,
+    105720,
+    105759,
+    105716,
+    105716,
+    105716,
+    105716,
+    105716,
+    105738,
+    105738,
+    105738,
+    105739,
+    105739,
+    105739,
+    105721,
+    105709,
+    105721,
+    105721,
+    105736,
+    105740,
+    105740,
+    105740,
+    105736,
+    105735,
+    105714,
+    105714,
+    105710,
+    105710,
+    105710,
+    105710,
+    105710,
+    105715
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 85.0,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 73.5,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 72.8,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 72.5,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 75.3,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 51.6,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 70.6,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 101.6,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 157.0,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 239.0,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 245.1,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0365,
+     "strength": 7.8e-05,
+     "agility": 0.000116,
+     "stamina": 0.000325,
+     "intellect": 0.0,
+     "attack_power": 7.8e-05,
+     "crit_rating": 0.000111,
+     "hit_rating": 0.000116,
+     "crit_pct": 0.00036,
+     "hit_pct": 0.000374,
+     "weapon_dps": 0.000828
+    },
+    "30": {
+     "score": 0.0821,
+     "strength": 0.000119,
+     "agility": 0.000172,
+     "stamina": 0.000592,
+     "intellect": 0.0,
+     "attack_power": 0.000119,
+     "crit_rating": 0.000128,
+     "hit_rating": 0.000132,
+     "crit_pct": 0.000761,
+     "hit_pct": 0.00078,
+     "weapon_dps": 0.001123
+    },
+    "40": {
+     "score": 0.144,
+     "strength": 0.00013,
+     "agility": 0.000199,
+     "stamina": 0.000807,
+     "intellect": 0.0,
+     "attack_power": 0.00013,
+     "crit_rating": 0.000152,
+     "hit_rating": 0.000153,
+     "crit_pct": 0.001312,
+     "hit_pct": 0.001321,
+     "weapon_dps": 0.001274
+    },
+    "50": {
+     "score": 0.2898,
+     "strength": 0.000155,
+     "agility": 0.000237,
+     "stamina": 0.000903,
+     "intellect": 0.0,
+     "attack_power": 0.000155,
+     "crit_rating": 0.000175,
+     "hit_rating": 0.000231,
+     "crit_pct": 0.001983,
+     "hit_pct": 0.002614,
+     "weapon_dps": 0.001407
+    },
+    "60": {
+     "score": 0.4285,
+     "strength": 0.000134,
+     "agility": 0.00022,
+     "stamina": 0.000912,
+     "intellect": 0.0,
+     "attack_power": 0.000134,
+     "crit_rating": 0.000176,
+     "hit_rating": 9.1e-05,
+     "crit_pct": 0.002467,
+     "hit_pct": 0.001268,
+     "weapon_dps": 0.001263
+    }
+   }
+  },
+  {
    "id": "rogue-assassination-pvp",
    "name": "Assassination (PvP)",
    "pair": "rogue-assassination",
@@ -1844,6 +2029,191 @@
    }
   },
   {
+   "id": "rogue-subtlety-model",
+   "name": "Subtlety Preparation (PvP, model pick)",
+   "pair": "rogue-subtlety-model",
+   "variant": "PvP",
+   "origin": "model",
+   "summary": "The model's alternative to Subtlety Preparation (PvP): Cold Blood 1->0, Lethality 4->5, Puncturing Wounds 3->0, Murder 2->0, Ruthlessness 0->3, Improved Sprint 2->0, Precision 2->3, Improved Slice and Dice 0->3, Improved Gouge 3->2, Serrated Blades 2->3. Scores +6.5% higher; not tried in game.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105741,
+    105741,
+    105722,
+    105722,
+    105722,
+    105722,
+    105722,
+    105708,
+    105708,
+    105708,
+    105737,
+    105737,
+    105737,
+    105742,
+    105742,
+    105756,
+    105756,
+    105756,
+    105761,
+    105761,
+    105761,
+    105760,
+    105760,
+    105757,
+    105757,
+    105739,
+    105739,
+    105739,
+    105759,
+    105721,
+    105721,
+    105721,
+    105716,
+    105716,
+    105716,
+    105716,
+    105716,
+    105749,
+    105749,
+    105749,
+    105755,
+    105755,
+    105752,
+    105752,
+    105752,
+    105747,
+    105747,
+    105743,
+    105745,
+    105745,
+    105746
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 87.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 74.9,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 76.9,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 69.2,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 69.5,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 53.9,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 72.7,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 110.2,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 146.9,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 209.4,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 212.7,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0379,
+     "strength": 8.1e-05,
+     "agility": 0.00012,
+     "stamina": 0.000337,
+     "intellect": 0.0,
+     "attack_power": 8.1e-05,
+     "crit_rating": 0.000114,
+     "hit_rating": 0.000118,
+     "crit_pct": 0.000368,
+     "hit_pct": 0.000381,
+     "weapon_dps": 0.000863
+    },
+    "30": {
+     "score": 0.0841,
+     "strength": 0.000121,
+     "agility": 0.000175,
+     "stamina": 0.000605,
+     "intellect": 0.0,
+     "attack_power": 0.000121,
+     "crit_rating": 0.00013,
+     "hit_rating": 0.000133,
+     "crit_pct": 0.000773,
+     "hit_pct": 0.000791,
+     "weapon_dps": 0.001146
+    },
+    "40": {
+     "score": 0.1535,
+     "strength": 0.000129,
+     "agility": 0.000198,
+     "stamina": 0.000853,
+     "intellect": 0.0,
+     "attack_power": 0.000129,
+     "crit_rating": 0.000152,
+     "hit_rating": 0.000185,
+     "crit_pct": 0.001308,
+     "hit_pct": 0.001594,
+     "weapon_dps": 0.001269
+    },
+    "50": {
+     "score": 0.2769,
+     "strength": 0.000164,
+     "agility": 0.000248,
+     "stamina": 0.000877,
+     "intellect": 0.0,
+     "attack_power": 0.000164,
+     "crit_rating": 0.000178,
+     "hit_rating": 0.000218,
+     "crit_pct": 0.002012,
+     "hit_pct": 0.002468,
+     "weapon_dps": 0.001735
+    },
+    "60": {
+     "score": 0.4004,
+     "strength": 0.000156,
+     "agility": 0.000232,
+     "stamina": 0.00089,
+     "intellect": 0.0,
+     "attack_power": 0.000156,
+     "crit_rating": 0.000157,
+     "hit_rating": 9.9e-05,
+     "crit_pct": 0.002196,
+     "hit_pct": 0.001378,
+     "weapon_dps": 0.001729
+    }
+   }
+  },
+  {
    "id": "rogue-subtlety-pve",
    "name": "Subtlety (PvE)",
    "pair": "rogue-subtlety",
@@ -2025,6 +2395,191 @@
      "crit_pct": 0.011181,
      "hit_pct": 0.007244,
      "weapon_dps": 0.00864
+    }
+   }
+  },
+  {
+   "id": "rogue-subtlety-pvp-model",
+   "name": "Subtlety (PvP, model pick)",
+   "pair": "rogue-subtlety-pvp-model",
+   "variant": "PvP",
+   "origin": "model",
+   "summary": "The model's alternative to Subtlety (PvP): Improved Eviscerate 0->3, Cold Blood 1->0, Murder 2->0, Ruthlessness 2->3, Improved Slice and Dice 0->3, Improved Gouge 3->0, Premeditation 1->0. Scores +5.7% higher; not tried in game.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105722,
+    105722,
+    105722,
+    105722,
+    105722,
+    105708,
+    105708,
+    105708,
+    105756,
+    105756,
+    105756,
+    105760,
+    105760,
+    105751,
+    105751,
+    105751,
+    105753,
+    105753,
+    105757,
+    105757,
+    105739,
+    105739,
+    105739,
+    105721,
+    105721,
+    105759,
+    105721,
+    105716,
+    105716,
+    105716,
+    105716,
+    105716,
+    105755,
+    105755,
+    105755,
+    105752,
+    105752,
+    105752,
+    105754,
+    105747,
+    105748,
+    105747,
+    105745,
+    105745,
+    105746,
+    110867,
+    110867,
+    110867,
+    110867,
+    110867,
+    110866
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 85.0,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 71.9,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 72.9,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 68.3,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 68.3,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 51.6,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 68.1,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 101.4,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 141.5,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 204.2,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 207.1,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0365,
+     "strength": 7.8e-05,
+     "agility": 0.000116,
+     "stamina": 0.000325,
+     "intellect": 0.0,
+     "attack_power": 7.8e-05,
+     "crit_rating": 0.000111,
+     "hit_rating": 0.000116,
+     "crit_pct": 0.00036,
+     "hit_pct": 0.000374,
+     "weapon_dps": 0.000828
+    },
+    "30": {
+     "score": 0.0797,
+     "strength": 0.000116,
+     "agility": 0.000169,
+     "stamina": 0.000576,
+     "intellect": 0.0,
+     "attack_power": 0.000116,
+     "crit_rating": 0.000129,
+     "hit_rating": 0.000133,
+     "crit_pct": 0.000762,
+     "hit_pct": 0.000787,
+     "weapon_dps": 0.001094
+    },
+    "40": {
+     "score": 0.1442,
+     "strength": 0.000125,
+     "agility": 0.000195,
+     "stamina": 0.000808,
+     "intellect": 0.0,
+     "attack_power": 0.000125,
+     "crit_rating": 0.000154,
+     "hit_rating": 0.000182,
+     "crit_pct": 0.001327,
+     "hit_pct": 0.001566,
+     "weapon_dps": 0.001226
+    },
+    "50": {
+     "score": 0.2732,
+     "strength": 0.000172,
+     "agility": 0.000257,
+     "stamina": 0.000869,
+     "intellect": 0.0,
+     "attack_power": 0.000172,
+     "crit_rating": 0.00018,
+     "hit_rating": 0.000228,
+     "crit_pct": 0.002039,
+     "hit_pct": 0.002581,
+     "weapon_dps": 0.001838
+    },
+    "60": {
+     "score": 0.3951,
+     "strength": 0.000161,
+     "agility": 0.000238,
+     "stamina": 0.000886,
+     "intellect": 0.0,
+     "attack_power": 0.000161,
+     "crit_rating": 0.000159,
+     "hit_rating": 0.0001,
+     "crit_pct": 0.002217,
+     "hit_pct": 0.001405,
+     "weapon_dps": 0.001818
     }
    }
   },
@@ -2428,10 +2983,12 @@
    },
    "model_pick_score": 0.42854132132456085,
    "candidates": {
+    "rogue-assassination-pvp-model": 0.42854132132456085,
     "rogue-assassination-pvp": 0.3923205965183052
    },
    "qualifying": [
-    "rogue-assassination-pvp"
+    "rogue-assassination-pvp",
+    "rogue-assassination-pvp-model"
    ],
    "model_pick_changes": [
     {
@@ -2553,10 +3110,12 @@
    },
    "model_pick_score": 0.39510488126620613,
    "candidates": {
+    "rogue-subtlety-pvp-model": 0.39510488126620613,
     "rogue-subtlety-pvp": 0.3739515005565488
    },
    "qualifying": [
-    "rogue-subtlety-pvp"
+    "rogue-subtlety-pvp",
+    "rogue-subtlety-pvp-model"
    ],
    "model_pick_changes": [
     {
@@ -2640,10 +3199,12 @@
    },
    "model_pick_score": 0.4004402443106305,
    "candidates": {
+    "rogue-subtlety-model": 0.4004402443106305,
     "rogue-subtlety": 0.37597856155734155
    },
    "qualifying": [
-    "rogue-subtlety"
+    "rogue-subtlety",
+    "rogue-subtlety-model"
    ],
    "model_pick_changes": [
     {

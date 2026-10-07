@@ -1,0 +1,35 @@
+# Model pick for the deep Subtlety PvP slot (owner request, 2026-10-07): the
+# community standard rogue-subtlety-pvp hill-climbed under the PvP score, +5.7%.
+# Changes: Improved Eviscerate 0->3, Cold Blood 1->0, Murder 2->0, Ruthlessness 2->3, Improved Slice and Dice 0->3, Improved Gouge 3->0, Premeditation 1->0.
+
+id = "rogue-subtlety-pvp-model"
+class = "rogue"
+name = "Subtlety (PvP, model pick)"
+pair = "rogue-subtlety-pvp-model"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "The model's alternative to Subtlety (PvP): Improved Eviscerate 0->3, Cold Blood 1->0, Murder 2->0, Ruthlessness 2->3, Improved Slice and Dice 0->3, Improved Gouge 3->0, Premeditation 1->0. Scores +5.7% higher; not tried in game."
+
+[final]
+"Camouflage" = 3
+"Dirty Deeds" = 2
+"Dirty Tricks" = 2
+"Elusiveness" = 2
+"Ghostly Strike" = 1
+"Heightened Senses" = 2
+"Hemorrhage" = 1
+"Improved Eviscerate" = 3
+"Improved Slice and Dice" = 3
+"Initiative" = 3
+"Lethality" = 5
+"Malice" = 5
+"Opportunity" = 2
+"Preparation" = 1
+"Quietus" = 5
+"Relentless Strikes" = 1
+"Ruthlessness" = 3
+"Serrated Blades" = 3
+"Setup" = 3
+"Thousand Cuts" = 1

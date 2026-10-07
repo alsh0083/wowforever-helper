@@ -24,7 +24,9 @@ def test_the_builds_exist_and_names_end_in_their_focus():
                            "deep-fire", "arcane-pom-pyro", "fire-frost-shatter", "deep-arcane",
                            # matrix fill (owner request, 2026-10-05): catalog plan and model builds
                            "mage-frost-pve", "mage-arcane-pvp", "mage-fire-pvp", "mage-fire-frost-pvp",
-                           "mage-arcane-fire-pve"}
+                           "mage-arcane-fire-pve",
+                           # model picks next to the standards they beat (owner request, 2026-10-07)
+                           "deep-arcane-model", "mage-frost-pve-model"}
     for b in BUILDS.values():
         assert b.variant in ("PvP", "PvE") and f"({b.variant}" in b.name
 

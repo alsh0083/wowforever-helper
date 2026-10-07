@@ -1,0 +1,35 @@
+# Model pick for the Assassination/Subtlety PvP slot (owner request, 2026-10-07): the
+# community standard rogue-subtlety hill-climbed under the PvP score, +6.5%.
+# Changes: Cold Blood 1->0, Lethality 4->5, Puncturing Wounds 3->0, Murder 2->0, Ruthlessness 0->3, Improved Sprint 2->0, Precision 2->3, Improved Slice and Dice 0->3, Improved Gouge 3->2, Serrated Blades 2->3.
+
+id = "rogue-subtlety-model"
+class = "rogue"
+name = "Subtlety Preparation (PvP, model pick)"
+pair = "rogue-subtlety-model"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "The model's alternative to Subtlety Preparation (PvP): Cold Blood 1->0, Lethality 4->5, Puncturing Wounds 3->0, Murder 2->0, Ruthlessness 0->3, Improved Sprint 2->0, Precision 2->3, Improved Slice and Dice 0->3, Improved Gouge 3->2, Serrated Blades 2->3. Scores +6.5% higher; not tried in game."
+
+[final]
+"Camouflage" = 3
+"Dirty Deeds" = 2
+"Dirty Tricks" = 2
+"Heightened Senses" = 2
+"Improved Ambush" = 3
+"Improved Eviscerate" = 3
+"Improved Gouge" = 2
+"Improved Sinister Strike" = 2
+"Improved Slice and Dice" = 3
+"Initiative" = 2
+"Lethality" = 5
+"Malice" = 5
+"Master of Deception" = 3
+"Opportunity" = 2
+"Precision" = 3
+"Premeditation" = 1
+"Preparation" = 1
+"Relentless Strikes" = 1
+"Ruthlessness" = 3
+"Serrated Blades" = 3

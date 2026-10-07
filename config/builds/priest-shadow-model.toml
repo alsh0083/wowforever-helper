@@ -1,0 +1,35 @@
+# Model pick for the deep Shadow PvP slot (owner request, 2026-10-07): the
+# community standard priest-shadow hill-climbed under the PvP score, +8.8%.
+# Changes: Devouring Contagion 2->0, Silence 0->1, Blackout 0->1.
+
+id = "priest-shadow-model"
+class = "priest"
+name = "Shadowform (PvP, model pick)"
+pair = "priest-shadow-model"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "The model's alternative to Shadowform (PvP): Devouring Contagion 2->0, Silence 0->1, Blackout 0->1. Scores +8.8% higher; not tried in game."
+
+[final]
+"Blackout" = 1
+"Darkness" = 5
+"Early Demise" = 2
+"Improved Mind Blast" = 5
+"Improved Mind Flay" = 2
+"Improved Power Word: Shield" = 3
+"Improved Shadow Word: Pain" = 2
+"Inner Focus" = 1
+"Meditation" = 3
+"Mind Flay" = 1
+"Shadow Affinity" = 3
+"Shadow Focus" = 5
+"Shadow Reach" = 2
+"Shadow Weaving" = 3
+"Shadowform" = 1
+"Silence" = 1
+"Twilight Focus" = 3
+"Twin Disciplines" = 5
+"Vampiric Embrace" = 1
+"Wand Specialization" = 2

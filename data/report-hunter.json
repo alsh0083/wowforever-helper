@@ -1263,6 +1263,191 @@
    }
   },
   {
+   "id": "hunter-marksmanship-model",
+   "name": "Marksmanship (PvE, model pick)",
+   "pair": "hunter-marksmanship-model",
+   "variant": "PvE",
+   "origin": "model",
+   "summary": "The model's alternative to Marksmanship (PvE): Deadly Aspects 5->1, Improved Arcane Shot 0->5, Lone Wolf 1->0. Scores +9.1% higher; not tried in game.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105011,
+    105011,
+    105011,
+    105011,
+    105011,
+    105009,
+    105009,
+    105009,
+    105009,
+    105009,
+    105008,
+    105008,
+    105008,
+    105008,
+    105008,
+    105004,
+    105002,
+    105002,
+    105002,
+    105002,
+    105001,
+    105001,
+    105001,
+    105002,
+    110870,
+    104998,
+    104998,
+    104998,
+    104998,
+    104998,
+    110870,
+    110870,
+    105013,
+    105013,
+    105013,
+    104960,
+    104996,
+    104996,
+    104996,
+    104996,
+    104996,
+    105005,
+    105005,
+    104999,
+    104999,
+    104997,
+    105006,
+    105006,
+    105006,
+    105006,
+    105006
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 90.8,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 93.7,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 106.0,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 104.2,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 103.5,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 81.4,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 136.1,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 189.4,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 239.3,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 370.8,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 313.4,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.6382,
+     "strength": 0.0,
+     "agility": 0.00146,
+     "stamina": 0.0,
+     "intellect": 0.00013,
+     "attack_power": 0.000647,
+     "crit_rating": 0.000886,
+     "hit_rating": 0.001062,
+     "crit_pct": 0.002867,
+     "hit_pct": 0.002696,
+     "weapon_dps": 0.0
+    },
+    "30": {
+     "score": 0.8914,
+     "strength": 0.0,
+     "agility": 0.001377,
+     "stamina": 0.0,
+     "intellect": 0.000583,
+     "attack_power": 0.000583,
+     "crit_rating": 0.000929,
+     "hit_rating": 0.000784,
+     "crit_pct": 0.005506,
+     "hit_pct": 0.003778,
+     "weapon_dps": 0.0
+    },
+    "40": {
+     "score": 1.1798,
+     "strength": 0.0,
+     "agility": 0.001435,
+     "stamina": 0.0,
+     "intellect": 0.000608,
+     "attack_power": 0.000608,
+     "crit_rating": 0.000887,
+     "hit_rating": 0.000612,
+     "crit_pct": 0.007644,
+     "hit_pct": 0.004823,
+     "weapon_dps": 0.0
+    },
+    "50": {
+     "score": 1.3894,
+     "strength": 0.0,
+     "agility": 0.001383,
+     "stamina": 0.0,
+     "intellect": 0.000812,
+     "attack_power": 0.000592,
+     "crit_rating": 0.000765,
+     "hit_rating": 0.000782,
+     "crit_pct": 0.008652,
+     "hit_pct": 0.008948,
+     "weapon_dps": 0.0
+    },
+    "60": {
+     "score": 1.8655,
+     "strength": 0.0,
+     "agility": 0.001419,
+     "stamina": 0.0,
+     "intellect": 0.001051,
+     "attack_power": 0.000592,
+     "crit_rating": 0.000882,
+     "hit_rating": 0.000388,
+     "crit_pct": 0.012343,
+     "hit_pct": 0.005431,
+     "weapon_dps": 0.0
+    }
+   }
+  },
+  {
    "id": "hunter-marksmanship-pvp",
    "name": "Marksmanship (PvP, model)",
    "pair": "hunter-marksmanship",
@@ -1628,6 +1813,376 @@
      "hit_rating": 0.000467,
      "crit_pct": 0.014398,
      "hit_pct": 0.006543,
+     "weapon_dps": 0.0
+    }
+   }
+  },
+  {
+   "id": "hunter-survival-model",
+   "name": "Survival Lone Wolf (PvE, model pick)",
+   "pair": "hunter-survival-model",
+   "variant": "PvE",
+   "origin": "model",
+   "summary": "The model's alternative to Survival Lone Wolf (PvE): Deadly Aspects 5->0, Strider Kick 1->0, Resourcefulness 2->0, Lacerating Strikes 1->0, Mortal Shots 0->4, Trueshot Aura 0->1, Efficiency 0->4. Scores +6.6% higher; not tried in game.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105011,
+    105011,
+    105011,
+    105011,
+    105011,
+    105009,
+    105009,
+    105009,
+    105009,
+    105008,
+    105008,
+    105008,
+    105008,
+    105008,
+    104996,
+    104996,
+    104996,
+    104996,
+    104996,
+    104993,
+    104993,
+    104992,
+    104992,
+    104992,
+    104987,
+    104987,
+    104987,
+    104991,
+    104991,
+    104988,
+    104988,
+    110861,
+    110861,
+    110861,
+    110861,
+    110861,
+    104985,
+    104985,
+    110860,
+    110859,
+    110859,
+    110859,
+    110859,
+    110859,
+    110860,
+    105007,
+    105004,
+    105002,
+    105002,
+    105002,
+    105002
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 90.0,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 89.6,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 100.0,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 115.7,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 89.3,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 82.2,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 129.2,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 173.5,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 220.3,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 317.9,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 275.0,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.6387,
+     "strength": 0.0,
+     "agility": 0.001456,
+     "stamina": 0.0,
+     "intellect": 0.000258,
+     "attack_power": 0.000644,
+     "crit_rating": 0.000895,
+     "hit_rating": 0.001072,
+     "crit_pct": 0.002896,
+     "hit_pct": 0.002716,
+     "weapon_dps": 0.0
+    },
+    "30": {
+     "score": 0.8493,
+     "strength": 0.0,
+     "agility": 0.001288,
+     "stamina": 0.0,
+     "intellect": 0.000563,
+     "attack_power": 0.000563,
+     "crit_rating": 0.000718,
+     "hit_rating": 0.000738,
+     "crit_pct": 0.004256,
+     "hit_pct": 0.003561,
+     "weapon_dps": 0.0
+    },
+    "40": {
+     "score": 1.0889,
+     "strength": 0.0,
+     "agility": 0.001262,
+     "stamina": 0.0,
+     "intellect": 0.000553,
+     "attack_power": 0.000553,
+     "crit_rating": 0.000631,
+     "hit_rating": 0.000817,
+     "crit_pct": 0.005437,
+     "hit_pct": 0.007042,
+     "weapon_dps": 0.0
+    },
+    "50": {
+     "score": 1.3419,
+     "strength": 0.000126,
+     "agility": -0.004426,
+     "stamina": 0.0,
+     "intellect": 0.000759,
+     "attack_power": 0.000578,
+     "crit_rating": 0.000609,
+     "hit_rating": 0.000761,
+     "crit_pct": 0.006886,
+     "hit_pct": 0.008605,
+     "weapon_dps": 0.001208
+    },
+    "60": {
+     "score": 1.6151,
+     "strength": 0.0,
+     "agility": 0.001734,
+     "stamina": 0.0,
+     "intellect": 0.00115,
+     "attack_power": 0.000662,
+     "crit_rating": 0.000946,
+     "hit_rating": 0.0,
+     "crit_pct": 0.013241,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.0
+    }
+   }
+  },
+  {
+   "id": "hunter-survival-pvp-model",
+   "name": "Survival Lone Wolf (PvP, model pick)",
+   "pair": "hunter-survival-pvp-model",
+   "variant": "PvP",
+   "origin": "model",
+   "summary": "The model's alternative to Survival Lone Wolf (PvP): Deadly Aspects 5->0, Strider Kick 1->0, Resourcefulness 2->0, Lacerating Strikes 1->0, Mortal Shots 0->2, Trueshot Aura 0->1, Improved Arcane Shot 0->5, Lone Wolf 1->0, Improved Stings 0->2. Scores +8.5% higher; not tried in game.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105011,
+    105011,
+    105011,
+    105011,
+    105011,
+    105008,
+    105008,
+    105008,
+    105008,
+    105008,
+    110870,
+    110870,
+    104996,
+    104996,
+    104996,
+    104996,
+    104996,
+    104994,
+    104994,
+    104994,
+    104993,
+    104993,
+    104987,
+    104987,
+    104987,
+    104991,
+    104991,
+    104988,
+    104988,
+    110861,
+    110861,
+    110861,
+    110861,
+    110861,
+    104985,
+    104985,
+    110860,
+    110859,
+    110859,
+    110859,
+    110859,
+    110859,
+    110860,
+    105006,
+    105006,
+    105006,
+    105004,
+    105002,
+    105002,
+    105006,
+    105006
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 86.8,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 85.5,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 119.9,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 96.9,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 96.1,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 84.9,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 130.1,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 175.0,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 225.0,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 349.1,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 284.7,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0707,
+     "strength": 0.0,
+     "agility": 0.00014,
+     "stamina": 0.000589,
+     "intellect": 6.2e-05,
+     "attack_power": 6.2e-05,
+     "crit_rating": 8.9e-05,
+     "hit_rating": 0.000122,
+     "crit_pct": 0.000287,
+     "hit_pct": 0.000395,
+     "weapon_dps": 0.0
+    },
+    "30": {
+     "score": 0.1512,
+     "strength": 0.0,
+     "agility": 0.000184,
+     "stamina": 0.00104,
+     "intellect": 8e-05,
+     "attack_power": 8e-05,
+     "crit_rating": 0.000102,
+     "hit_rating": 0.000138,
+     "crit_pct": 0.000602,
+     "hit_pct": 0.000818,
+     "weapon_dps": 0.0
+    },
+    "40": {
+     "score": 0.2369,
+     "strength": 0.003277,
+     "agility": 0.000206,
+     "stamina": 0.001145,
+     "intellect": 0.003277,
+     "attack_power": 0.003277,
+     "crit_rating": 0.003299,
+     "hit_rating": 0.003304,
+     "crit_pct": 0.032784,
+     "hit_pct": 0.03282,
+     "weapon_dps": 0.01714
+    },
+    "50": {
+     "score": 0.379,
+     "strength": 0.0,
+     "agility": 0.000237,
+     "stamina": 0.000984,
+     "intellect": 9.7e-05,
+     "attack_power": 9.7e-05,
+     "crit_rating": 0.0001,
+     "hit_rating": 0.000142,
+     "crit_pct": 0.001134,
+     "hit_pct": 0.001603,
+     "weapon_dps": 0.0
+    },
+    "60": {
+     "score": 0.495,
+     "strength": 0.0,
+     "agility": 0.000188,
+     "stamina": 0.001005,
+     "intellect": 7.2e-05,
+     "attack_power": 7.2e-05,
+     "crit_rating": 0.000102,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001422,
+     "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
    }
@@ -2070,10 +2625,12 @@
    },
    "model_pick_score": 1.8655383098815905,
    "candidates": {
+    "hunter-marksmanship-model": 1.8655383098815905,
     "hunter-marksmanship": 1.7094507862441237
    },
    "qualifying": [
-    "hunter-marksmanship"
+    "hunter-marksmanship",
+    "hunter-marksmanship-model"
    ],
    "model_pick_changes": [
     {
@@ -2119,10 +2676,12 @@
    },
    "model_pick_score": 0.49502236311096004,
    "candidates": {
+    "hunter-survival-pvp-model": 0.49502236311096004,
     "hunter-survival-pvp": 0.456438115322812
    },
    "qualifying": [
-    "hunter-survival-pvp"
+    "hunter-survival-pvp",
+    "hunter-survival-pvp-model"
    ],
    "model_pick_changes": [
     {
@@ -2198,10 +2757,12 @@
    },
    "model_pick_score": 1.615121167089643,
    "candidates": {
+    "hunter-survival-model": 1.615121167089643,
     "hunter-survival": 1.5155601381288761
    },
    "qualifying": [
-    "hunter-survival"
+    "hunter-survival",
+    "hunter-survival-model"
    ],
    "model_pick_changes": [
     {
