@@ -63,8 +63,13 @@ def cast(spell: SpellRank, stats: Stats, cls: ClassData, ranks: Mapping[int, int
 
 
 def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], cls: ClassData,
-                    ranks: Mapping[int, int], target: Target) -> CasterRotation:
-    """Sustained DPS and mana use against `target` with the class's ROTATION and talents `ranks`."""
+                    ranks: Mapping[int, int], target: Target, *,
+                    drink_mana_per_second: float | None = None) -> CasterRotation:
+    """Sustained DPS and mana use against `target` with the class's ROTATION and talents `ranks`.
+
+    The filler is the one with the best damage per second; with `drink_mana_per_second` (questing,
+    where drinking is the bottleneck) it is the one with the best damage per second of kill time
+    plus drinking, so a cheaper filler (Mind Flay over Smite) wins when mana runs out first."""
     plan = class_module(class_name).ROTATION
     assumptions = Assumptions.load()
     target_level = stats.level + target.level_diff
@@ -95,19 +100,26 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
             mana += cost / period
             used.append(name)
 
+    regen = regen_while_casting(class_name, stats, cls, ranks)
+    regen += caster_config(class_name).get("extra_regen_per_second", 0.0)   # Life Tap
+
+    def worth(ev: float, seconds: float, cost: float) -> float:
+        total_dps = dps + time_left * ev / seconds
+        if drink_mana_per_second is None:
+            return total_dps
+        drain = max(0.0, mana + time_left * cost / seconds - regen)
+        return total_dps / (1 + drain / drink_mana_per_second)
+
     best = None
     for name in plan["fillers"]:
         spell = learned(name)
         if spell is None:
             continue
         ev, seconds, cost = cast(spell, stats, cls, ranks, target_level, assumptions)
-        if ev > 0 and (best is None or ev / seconds > best[0] / best[1]):
+        if ev > 0 and (best is None or worth(ev, seconds, cost) > worth(*best[:3])):
             best = (ev, seconds, cost, name)
     if best is not None:
         dps += time_left * best[0] / best[1]
         mana += time_left * best[2] / best[1]
         used.append(best[3])
-
-    regen = regen_while_casting(class_name, stats, cls, ranks)
-    regen += caster_config(class_name).get("extra_regen_per_second", 0.0)   # Life Tap
     return CasterRotation(dps=dps, mana_per_second=mana - regen, regen_per_second=regen, spells=tuple(used))

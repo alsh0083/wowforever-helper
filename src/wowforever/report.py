@@ -409,6 +409,12 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
         report = {"class": class_name, "engine": True,
                   **build_report(cls, cls.spells, builds, StatTable.load(class_name), Assumptions.load(), meta)}
     add_stat_weights(class_name, cls, builds, report)
+    from wowforever import melee_scenarios as ms
+    from wowforever.describe import add_descriptions
+
+    stats_60 = StatTable.load("mage").at(60) if class_name == "mage" else (
+        ms.stat_table(class_name).at(60) if getattr(module, "ENGINE", False) else None)
+    add_descriptions(class_name, cls, report, {b.id: b.variant for b in builds}, stats_60)
     return report
 
 

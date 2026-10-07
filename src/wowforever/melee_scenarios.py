@@ -135,7 +135,7 @@ def main_tree(cls: ClassData, ranks: Mapping[int, int]) -> str:
 
 
 def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
-                    ranks: Mapping[int, int], target: Target) -> Output:
+                    ranks: Mapping[int, int], target: Target, *, drink_mana_per_second: float | None = None) -> Output:
     """The class rotation's DPS, mana use and out-of-mana fallback against `target`."""
     from wowforever.classes import class_module
 
@@ -155,7 +155,7 @@ def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRa
     if getattr(module, "ENGINE", None) == "spell":
         from wowforever.caster import caster_rotation
 
-        r = caster_rotation(class_name, stats, spells, cls, ranks, target)
+        r = caster_rotation(class_name, stats, spells, cls, ranks, target, drink_mana_per_second=drink_mana_per_second)
         gross = r.mana_per_second + r.regen_per_second
         # once dry, a caster keeps casting at the rate its regen pays for
         return Output(r.dps, r.mana_per_second, r.dps * min(1.0, r.regen_per_second / gross) if gross > 0 else r.dps)
@@ -187,7 +187,8 @@ def questing(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
     level = stats.level
     q = default_params("questing", level)
     armor, mob_dps, eat = _anchor_at(_config()["questing"]["anchors"], level)
-    out = rotation_output(class_name, stats, spells, cls, ranks, Target(0, armor))
+    out = rotation_output(class_name, stats, spells, cls, ranks, Target(0, armor),
+                          drink_mana_per_second=q.drink_mana_per_second)
     kill = q.mob_hp / out.dps
     if class_name != "hunter" or not _has_pet(cls, ranks):
         downtime = mob_dps * kill / eat

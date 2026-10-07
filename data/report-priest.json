@@ -938,6 +938,22 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    110853,
+    110853,
+    110853,
+    110853,
+    110853,
+    110852,
+    105850,
+    105850,
+    105849,
+    105849,
+    105843,
+    105843,
+    105843,
+    105842,
+    105842,
+    105842,
     110851,
     110855,
     110855,
@@ -952,35 +968,19 @@
     105867,
     105867,
     105867,
-    110853,
-    110853,
-    110853,
-    110853,
-    110853,
-    110852,
-    105832,
-    105850,
-    105850,
-    105849,
-    105849,
-    105843,
-    105843,
-    105843,
-    105842,
-    105842,
-    105842,
-    105849,
-    105849,
-    105849,
-    105848,
-    105848,
-    105848,
     105864,
-    110852,
-    110852,
     105862,
     105857,
     105857,
+    105832,
+    105849,
+    105849,
+    105849,
+    105848,
+    105848,
+    105848,
+    110852,
+    110852,
     105844,
     105859,
     105837,
@@ -995,33 +995,33 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 50.0,
+      "score": 51.5,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 49.8,
+      "score": 63.2,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 78.2,
+      "score": 86.5,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 85.1,
+      "score": 92.2,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 90.3,
+      "score": 95.9,
       "unit": "kills/hour"
      }
     },
     "dungeon": {
      "20": {
-      "score": 47.4,
+      "score": 44.0,
       "unit": "dps"
      },
      "30": {
-      "score": 93.7,
+      "score": 82.5,
       "unit": "dps"
      },
      "40": {
@@ -1029,7 +1029,7 @@
       "unit": "dps"
      },
      "50": {
-      "score": 210.0,
+      "score": 214.3,
       "unit": "dps"
      },
      "60": {
@@ -1047,48 +1047,48 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.0378,
-     "stamina": 0.000373,
-     "intellect": 6e-06,
+     "score": 0.0348,
+     "stamina": 0.000345,
+     "intellect": 5e-06,
      "spirit": 0.0,
-     "spell_power": 0.000254,
-     "crit_rating": 3.6e-05,
-     "hit_rating": 9.6e-05,
-     "crit_pct": 0.000116,
-     "hit_pct": 0.00037
+     "spell_power": 0.000232,
+     "crit_rating": 3.3e-05,
+     "hit_rating": 4.4e-05,
+     "crit_pct": 0.000108,
+     "hit_pct": 0.000147
     },
     "30": {
-     "score": 0.1031,
-     "stamina": 0.000673,
-     "intellect": 1.2e-05,
+     "score": 0.0829,
+     "stamina": 0.000562,
+     "intellect": 1e-05,
      "spirit": 0.0,
-     "spell_power": 0.000359,
-     "crit_rating": 6e-05,
-     "hit_rating": 6.4e-05,
-     "crit_pct": 0.000355,
-     "hit_pct": 0.000379
+     "spell_power": 0.000291,
+     "crit_rating": 4.9e-05,
+     "hit_rating": 6e-05,
+     "crit_pct": 0.000288,
+     "hit_pct": 0.000358
     },
     "40": {
-     "score": 0.1679,
-     "stamina": 0.000918,
-     "intellect": 1.3e-05,
-     "spirit": 0.0,
-     "spell_power": 0.000304,
-     "crit_rating": 6.1e-05,
-     "hit_rating": 9e-05,
-     "crit_pct": 0.000526,
-     "hit_pct": 0.000779
-    },
-    "50": {
-     "score": 0.2282,
-     "stamina": 0.001554,
+     "score": 0.1525,
+     "stamina": 0.000862,
      "intellect": 1.2e-05,
      "spirit": 0.0,
      "spell_power": 0.000284,
-     "crit_rating": 5.3e-05,
-     "hit_rating": 8.6e-05,
-     "crit_pct": 0.000603,
-     "hit_pct": 0.000971
+     "crit_rating": 5.7e-05,
+     "hit_rating": 8.4e-05,
+     "crit_pct": 0.000491,
+     "hit_pct": 0.000728
+    },
+    "50": {
+     "score": 0.2314,
+     "stamina": 0.001572,
+     "intellect": 1.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.00029,
+     "crit_rating": 5.4e-05,
+     "hit_rating": 8.5e-05,
+     "crit_pct": 0.000611,
+     "hit_pct": 0.000959
     },
     "60": {
      "score": 0.4091,
@@ -1101,7 +1101,13 @@
      "crit_pct": 0.00085,
      "hit_pct": 0.0
     }
-   }
+   },
+   "about": [
+    "31 points in Discipline, with 18 in Holy and 2 in Shadow. Built for PvP. On this order the key talents arrive as follows: Holy Nova at 41, Inner Focus at 53 and Penance at 60.",
+    "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Smite.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (80%) and dungeon damage (72%), and weakest at raid damage (38%).",
+    "A model build: the calculator's pick for this slot, not yet tried in game."
+   ]
   },
   {
    "id": "priest-discipline-smite",
@@ -1113,19 +1119,6 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
-    110855,
-    110855,
-    110855,
-    110855,
-    110855,
-    105863,
-    105863,
-    105863,
-    105863,
-    105863,
-    105867,
-    105867,
-    105867,
     110853,
     110853,
     110853,
@@ -1142,18 +1135,31 @@
     105842,
     105842,
     105842,
-    105849,
-    105849,
-    105849,
-    105848,
-    105848,
-    105848,
+    110855,
+    110855,
+    110855,
+    110855,
+    110855,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    105867,
+    105867,
+    105867,
     105864,
-    110852,
-    110852,
     105862,
     105857,
     105857,
+    105849,
+    105849,
+    105849,
+    105848,
+    105848,
+    105848,
+    110852,
+    110852,
     105844,
     105859,
     105859,
@@ -1170,33 +1176,33 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 49.9,
+      "score": 51.5,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 49.7,
+      "score": 63.1,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 77.9,
+      "score": 86.1,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 85.8,
+      "score": 91.9,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 90.0,
+      "score": 95.6,
       "unit": "kills/hour"
      }
     },
     "dungeon": {
      "20": {
-      "score": 47.2,
+      "score": 44.0,
       "unit": "dps"
      },
      "30": {
-      "score": 93.3,
+      "score": 82.3,
       "unit": "dps"
      },
      "40": {
@@ -1222,26 +1228,26 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.0376,
-     "stamina": 0.000371,
-     "intellect": 6e-06,
+     "score": 0.0348,
+     "stamina": 0.000345,
+     "intellect": 5e-06,
      "spirit": 0.0,
-     "spell_power": 0.000253,
-     "crit_rating": 3.6e-05,
-     "hit_rating": 0.000111,
-     "crit_pct": 0.000116,
-     "hit_pct": 0.00037
+     "spell_power": 0.000232,
+     "crit_rating": 3.3e-05,
+     "hit_rating": 4.4e-05,
+     "crit_pct": 0.000108,
+     "hit_pct": 0.000147
     },
     "30": {
-     "score": 0.0923,
-     "stamina": 0.000617,
-     "intellect": 1.1e-05,
+     "score": 0.0828,
+     "stamina": 0.000561,
+     "intellect": 1e-05,
      "spirit": 0.0,
-     "spell_power": 0.000328,
-     "crit_rating": 5.5e-05,
-     "hit_rating": 5.9e-05,
-     "crit_pct": 0.000324,
-     "hit_pct": 0.000347
+     "spell_power": 0.000291,
+     "crit_rating": 4.8e-05,
+     "hit_rating": 6e-05,
+     "crit_pct": 0.000287,
+     "hit_pct": 0.000358
     },
     "40": {
      "score": 0.1518,
@@ -1276,7 +1282,12 @@
      "crit_pct": 0.00083,
      "hit_pct": 0.00118
     }
-   }
+   },
+   "about": [
+    "32 points in Discipline, with 19 in Holy. Built for PvP. On this order the key talents arrive as follows: Holy Nova at 40, Inner Focus at 51, Penance at 59 and Power Infusion at 60.",
+    "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Smite.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (80%) and dungeon damage (72%), and weakest at raid damage (38%)."
+   ]
   },
   {
    "id": "priest-discipline",
@@ -1288,18 +1299,6 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
-    110855,
-    110855,
-    110855,
-    110855,
-    110855,
-    105863,
-    105863,
-    105863,
-    105863,
-    105863,
-    105866,
-    105866,
     105849,
     105849,
     105849,
@@ -1316,6 +1315,18 @@
     105842,
     105842,
     105842,
+    110855,
+    110855,
+    110855,
+    110855,
+    110855,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    105866,
+    105866,
     105844,
     105860,
     105860,
@@ -1354,7 +1365,11 @@
      "stamina": 0.15,
      "mp5": 0.5
     }
-   }
+   },
+   "about": [
+    "33 points in Discipline, with 18 in Holy. Built for PvE. On this order the key talents arrive as follows: Inner Focus at 38, Soul Warding at 50, Penance at 51 and Power Infusion at 60.",
+    "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
+   ]
   },
   {
    "id": "priest-holy-pvp",
@@ -1366,26 +1381,11 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
-    110855,
-    110855,
-    105867,
-    105867,
-    105867,
-    105863,
-    105863,
-    105863,
-    105863,
-    105863,
     105849,
     105849,
     105849,
     105849,
     105849,
-    105864,
-    105864,
-    105864,
-    105864,
-    105864,
     105846,
     105846,
     105846,
@@ -1395,6 +1395,21 @@
     105842,
     105842,
     105842,
+    110855,
+    110855,
+    105867,
+    105867,
+    105867,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    105864,
+    105864,
+    105864,
+    105864,
+    105864,
     105862,
     105844,
     105861,
@@ -1432,7 +1447,11 @@
      "stamina": 0.15,
      "mp5": 0.5
     }
-   }
+   },
+   "about": [
+    "33 points in Holy, with 18 in Discipline. Built for PvP. On this order the key talents arrive as follows: Holy Nova at 39, Inner Focus at 40, Soul Warding at 50, Binding Heal at 51, Spirit of Redemption at 53 and Prayer of Mending at 60.",
+    "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
+   ]
   },
   {
    "id": "priest-holy",
@@ -1444,19 +1463,6 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
-    110855,
-    110855,
-    110855,
-    110855,
-    110855,
-    105863,
-    105863,
-    105863,
-    105863,
-    105863,
-    105866,
-    105866,
-    105866,
     105849,
     105849,
     105849,
@@ -1470,6 +1476,19 @@
     105843,
     105843,
     105843,
+    110855,
+    110855,
+    110855,
+    110855,
+    110855,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    105866,
+    105866,
+    105866,
     105846,
     105862,
     105844,
@@ -1510,7 +1529,11 @@
      "stamina": 0.15,
      "mp5": 0.5
     }
-   }
+   },
+   "about": [
+    "32 points in Holy, with 19 in Discipline. Built for PvE. On this order the key talents arrive as follows: Holy Nova at 37, Inner Focus at 38, Soul Warding at 48, Spirit of Redemption at 51 and Prayer of Mending at 60.",
+    "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
+   ]
   },
   {
    "id": "priest-shadow-model",
@@ -1522,55 +1545,55 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
+    105850,
+    105850,
+    105849,
+    105849,
+    105849,
+    105849,
+    105849,
+    105846,
+    105846,
+    105846,
+    105843,
+    105843,
+    105843,
     110851,
     110851,
     110851,
-    105867,
-    105867,
-    105867,
     110851,
     110851,
     105832,
-    105850,
-    105850,
-    105849,
-    105849,
-    105849,
-    105849,
-    105849,
     105831,
     105831,
     105831,
     105830,
-    105827,
-    105827,
-    105827,
-    105827,
-    105827,
-    105821,
     105826,
-    105821,
-    105821,
     105825,
     105825,
     105830,
-    105846,
-    105846,
-    105846,
-    105843,
-    105843,
-    105843,
     105829,
+    105821,
+    105821,
+    105821,
     105829,
-    105844,
     105820,
+    105824,
+    105827,
+    105827,
+    105827,
+    105827,
     105818,
     105818,
     105818,
     105818,
     105818,
     105817,
-    105824,
+    105827,
+    105867,
+    105867,
+    105867,
+    105844,
     110854,
     110854
    ],
@@ -1579,19 +1602,19 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 49.1,
+      "score": 50.8,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 48.7,
+      "score": 60.8,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 88.2,
+      "score": 93.9,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 99.2,
+      "score": 102.1,
       "unit": "kills/hour"
      },
      "60": {
@@ -1601,19 +1624,19 @@
     },
     "dungeon": {
      "20": {
-      "score": 43.7,
+      "score": 42.7,
       "unit": "dps"
      },
      "30": {
-      "score": 82.0,
+      "score": 81.1,
       "unit": "dps"
      },
      "40": {
-      "score": 178.5,
+      "score": 166.5,
       "unit": "dps"
      },
      "50": {
-      "score": 241.6,
+      "score": 250.0,
       "unit": "dps"
      },
      "60": {
@@ -1631,47 +1654,47 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.0391,
-     "stamina": 0.000381,
-     "intellect": 6e-06,
+     "score": 0.0342,
+     "stamina": 0.000339,
+     "intellect": 5e-06,
      "spirit": 0.0,
-     "spell_power": 0.000257,
-     "crit_rating": 3.7e-05,
-     "hit_rating": 6.4e-05,
-     "crit_pct": 0.00012,
-     "hit_pct": 0.000213
+     "spell_power": 0.000228,
+     "crit_rating": 3.3e-05,
+     "hit_rating": 0.000101,
+     "crit_pct": 0.000106,
+     "hit_pct": 0.000338
     },
     "30": {
-     "score": 0.0921,
-     "stamina": 0.00061,
+     "score": 0.0912,
+     "stamina": 0.000605,
      "intellect": 1.1e-05,
      "spirit": 0.0,
-     "spell_power": 0.000312,
-     "crit_rating": 5.4e-05,
-     "hit_rating": 7e-05,
-     "crit_pct": 0.000317,
-     "hit_pct": 0.000413
+     "spell_power": 0.000313,
+     "crit_rating": 5.3e-05,
+     "hit_rating": 7.1e-05,
+     "crit_pct": 0.000314,
+     "hit_pct": 0.000421
     },
     "40": {
-     "score": 0.1828,
-     "stamina": 0.000976,
-     "intellect": 9e-06,
+     "score": 0.1734,
+     "stamina": 0.00094,
+     "intellect": 8e-06,
      "spirit": 0.0,
-     "spell_power": 0.000235,
-     "crit_rating": 4.2e-05,
+     "spell_power": 0.000236,
+     "crit_rating": 3.5e-05,
      "hit_rating": 0.0,
-     "crit_pct": 0.000365,
+     "crit_pct": 0.000298,
      "hit_pct": 0.0
     },
     "50": {
-     "score": 0.249,
-     "stamina": 0.001676,
+     "score": 0.2646,
+     "stamina": 0.001722,
      "intellect": 8e-06,
      "spirit": 0.0,
-     "spell_power": 0.000212,
+     "spell_power": 0.000219,
      "crit_rating": 3.5e-05,
      "hit_rating": 0.0,
-     "crit_pct": 0.0004,
+     "crit_pct": 0.000393,
      "hit_pct": 0.0
     },
     "60": {
@@ -1685,7 +1708,13 @@
      "crit_pct": 0.001005,
      "hit_pct": 0.0
     }
-   }
+   },
+   "about": [
+    "34 points in Shadow, with 14 in Discipline and 3 in Holy. Built for PvP. On this order the key talents arrive as follows: Mind Flay at 33, Vampiric Embrace at 42, Silence at 43, Shadowform at 53 and Inner Focus at 58.",
+    "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Mind Flay.",
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage.",
+    "A model build: the calculator's pick for this slot, not yet tried in game."
+   ]
   },
   {
    "id": "priest-shadow-pve",
@@ -1697,48 +1726,46 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
-    110851,
-    110851,
-    110851,
-    110851,
-    110851,
     105849,
     105849,
     105849,
     105849,
     105849,
-    105831,
-    105831,
-    105831,
     105848,
     105848,
     105848,
+    105846,
+    105846,
+    105843,
+    105843,
+    105843,
+    105842,
+    105842,
+    105842,
+    110851,
+    110851,
+    110851,
+    110851,
+    110851,
+    105831,
+    105831,
+    105831,
     105830,
     105830,
     105826,
     105825,
     105825,
-    105846,
     105827,
     105827,
     105821,
     105821,
     105821,
-    105846,
-    105843,
-    105843,
-    105843,
-    105842,
-    105842,
-    105842,
-    105844,
     105820,
-    105837,
-    105827,
-    105827,
     105827,
     105824,
     105819,
+    105827,
+    105827,
     105819,
     105818,
     105818,
@@ -1746,6 +1773,8 @@
     105818,
     105818,
     105817,
+    105844,
+    105837,
     110854,
     110854
    ],
@@ -1754,15 +1783,15 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 49.1,
+      "score": 50.8,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 62.4,
+      "score": 62.6,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 93.7,
+      "score": 88.6,
       "unit": "kills/hour"
      },
      "50": {
@@ -1776,15 +1805,15 @@
     },
     "dungeon": {
      "20": {
-      "score": 43.7,
+      "score": 42.7,
       "unit": "dps"
      },
      "30": {
-      "score": 82.9,
+      "score": 81.1,
       "unit": "dps"
      },
      "40": {
-      "score": 170.3,
+      "score": 155.7,
       "unit": "dps"
      },
      "50": {
@@ -1806,37 +1835,37 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.3466,
+     "score": 0.3479,
      "stamina": 0.0,
      "intellect": 5.2e-05,
-     "spirit": 0.0,
-     "spell_power": 0.002183,
+     "spirit": 7e-05,
+     "spell_power": 0.002185,
      "crit_rating": 0.000316,
-     "hit_rating": 0.000714,
+     "hit_rating": 0.001039,
      "crit_pct": 0.001021,
-     "hit_pct": 0.002332
+     "hit_pct": 0.003405
     },
     "30": {
-     "score": 0.5558,
+     "score": 0.5436,
      "stamina": 0.0,
-     "intellect": 2.4e-05,
-     "spirit": 0.0,
-     "spell_power": 0.001599,
-     "crit_rating": 0.000122,
-     "hit_rating": 0.000314,
-     "crit_pct": 0.000722,
-     "hit_pct": 0.00186
+     "intellect": 9.8e-05,
+     "spirit": 0.0002,
+     "spell_power": 0.001929,
+     "crit_rating": 0.000308,
+     "hit_rating": 0.000605,
+     "crit_pct": 0.001827,
+     "hit_pct": 0.003583
     },
     "40": {
-     "score": 0.996,
+     "score": 0.9202,
      "stamina": 0.0,
-     "intellect": 0.000316,
-     "spirit": 0.000325,
-     "spell_power": 0.001548,
-     "crit_rating": 0.000243,
-     "hit_rating": 0.000403,
-     "crit_pct": 0.002093,
-     "hit_pct": 0.00347
+     "intellect": 0.000289,
+     "spirit": 0.000304,
+     "spell_power": 0.001438,
+     "crit_rating": 0.000224,
+     "hit_rating": 0.000368,
+     "crit_pct": 0.001932,
+     "hit_pct": 0.003171
     },
     "50": {
      "score": 1.2144,
@@ -1860,7 +1889,12 @@
      "crit_pct": 0.009148,
      "hit_pct": 0.009894
     }
-   }
+   },
+   "about": [
+    "33 points in Shadow, with 18 in Discipline. Built for PvE. On this order the key talents arrive as follows: Mind Flay at 36, Vampiric Embrace at 44, Silence at 46, Shadowform at 56 and Inner Focus at 57.",
+    "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Mind Flay.",
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage."
+   ]
   },
   {
    "id": "priest-shadow",
@@ -1872,14 +1906,6 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
-    110851,
-    110851,
-    110851,
-    105867,
-    105867,
-    105867,
-    110851,
-    110851,
     105850,
     105850,
     105849,
@@ -1887,40 +1913,48 @@
     105849,
     105849,
     105849,
+    105846,
+    105846,
+    105846,
+    105843,
+    105843,
+    105843,
+    110851,
+    110851,
+    110851,
+    110851,
+    110851,
     105831,
     105831,
     105831,
     105830,
     105830,
-    105827,
-    105827,
-    105827,
-    105827,
-    105827,
-    105821,
     105826,
-    105821,
-    105821,
     105825,
     105825,
-    105846,
-    105846,
-    105846,
-    105843,
-    105843,
-    105843,
     105829,
     105829,
-    105844,
+    105821,
+    105821,
+    105821,
     105820,
+    105827,
     105819,
+    105819,
+    105827,
+    105827,
+    105827,
     105818,
     105818,
     105818,
     105818,
     105818,
     105817,
-    105819,
+    105827,
+    105867,
+    105867,
+    105867,
+    105844,
     110854,
     110854
    ],
@@ -1929,19 +1963,19 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 49.1,
+      "score": 50.8,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 48.7,
+      "score": 60.8,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 88.2,
+      "score": 93.9,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 99.2,
+      "score": 102.1,
       "unit": "kills/hour"
      },
      "60": {
@@ -1951,19 +1985,19 @@
     },
     "dungeon": {
      "20": {
-      "score": 43.7,
+      "score": 42.7,
       "unit": "dps"
      },
      "30": {
-      "score": 82.0,
+      "score": 81.1,
       "unit": "dps"
      },
      "40": {
-      "score": 178.5,
+      "score": 166.5,
       "unit": "dps"
      },
      "50": {
-      "score": 241.6,
+      "score": 250.0,
       "unit": "dps"
      },
      "60": {
@@ -1981,47 +2015,47 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.0347,
-     "stamina": 0.000343,
+     "score": 0.0342,
+     "stamina": 0.000339,
      "intellect": 5e-06,
      "spirit": 0.0,
-     "spell_power": 0.00023,
+     "spell_power": 0.000228,
      "crit_rating": 3.3e-05,
-     "hit_rating": 5.7e-05,
-     "crit_pct": 0.000107,
-     "hit_pct": 0.00019
+     "hit_rating": 0.000101,
+     "crit_pct": 0.000106,
+     "hit_pct": 0.000338
     },
     "30": {
-     "score": 0.0826,
-     "stamina": 0.000559,
+     "score": 0.0818,
+     "stamina": 0.000555,
      "intellect": 1e-05,
      "spirit": 0.0,
-     "spell_power": 0.000284,
-     "crit_rating": 4.9e-05,
-     "hit_rating": 6.3e-05,
-     "crit_pct": 0.000289,
-     "hit_pct": 0.000376
+     "spell_power": 0.000285,
+     "crit_rating": 4.8e-05,
+     "hit_rating": 6.5e-05,
+     "crit_pct": 0.000286,
+     "hit_pct": 0.000383
     },
     "40": {
-     "score": 0.1665,
-     "stamina": 0.000919,
-     "intellect": 9e-06,
+     "score": 0.1577,
+     "stamina": 0.000884,
+     "intellect": 7e-06,
      "spirit": 0.0,
      "spell_power": 0.000221,
-     "crit_rating": 4e-05,
+     "crit_rating": 3.2e-05,
      "hit_rating": 0.0,
-     "crit_pct": 0.000342,
+     "crit_pct": 0.000279,
      "hit_pct": 0.0
     },
     "50": {
-     "score": 0.2291,
-     "stamina": 0.00154,
+     "score": 0.2346,
+     "stamina": 0.001572,
      "intellect": 8e-06,
      "spirit": 0.0,
-     "spell_power": 0.000203,
-     "crit_rating": 3.4e-05,
+     "spell_power": 0.000207,
+     "crit_rating": 3.3e-05,
      "hit_rating": 0.0,
-     "crit_pct": 0.000382,
+     "crit_pct": 0.000372,
      "hit_pct": 0.0
     },
     "60": {
@@ -2035,7 +2069,12 @@
      "crit_pct": 0.001005,
      "hit_pct": 0.0
     }
-   }
+   },
+   "about": [
+    "34 points in Shadow, with 14 in Discipline and 3 in Holy. Built for PvP. On this order the key talents arrive as follows: Mind Flay at 33, Vampiric Embrace at 41, Shadowform at 53 and Inner Focus at 58.",
+    "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Mind Flay.",
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage."
+   ]
   }
  ],
  "shortlist": [

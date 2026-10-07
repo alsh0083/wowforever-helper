@@ -82,3 +82,12 @@ def test_value_function_sees_level_of_the_point_being_chosen():
 
     optimize_order(CLS, {A1: 2}, {}, value)
     assert set(seen) == {10, 11}
+
+
+def test_look_ahead_unlocks_a_deep_talent_worth_more_per_point_than_the_greedy_pick():
+    # X1 pays 3 per point now; tree One's points pay almost nothing until C1 (worth 100) opens after
+    # 10 of them: 100 / 11 points beats 3 per point, so the order heads down tree One first
+    final = {A1: 5, A2: 3, B1: 2, C1: 1, X1: 5}
+    order = optimize_order(CLS, final, {}, weighted({C1: 100, X1: 3, A1: 0.1, A2: 0.1, B1: 0.1}))
+    assert order.index(C1) == 10 and order[11:] == [X1] * 5
+    assert check_order(CLS, order) == []

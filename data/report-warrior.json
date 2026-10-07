@@ -887,11 +887,6 @@
     105958,
     105958,
     105958,
-    105937,
-    105937,
-    105937,
-    105937,
-    105937,
     105956,
     105956,
     105956,
@@ -911,9 +906,11 @@
     105947,
     105954,
     105951,
+    105937,
+    105937,
+    105937,
     105952,
     105952,
-    105935,
     105949,
     110524,
     110524,
@@ -922,6 +919,9 @@
     110524,
     105945,
     105941,
+    105937,
+    105937,
+    105935,
     105944,
     105944,
     105944,
@@ -936,19 +936,19 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 62.2,
+      "score": 62.1,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 53.7,
+      "score": 55.4,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 66.0,
+      "score": 66.5,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 56.5,
+      "score": 60.0,
       "unit": "kills/hour"
      },
      "60": {
@@ -958,19 +958,19 @@
     },
     "dungeon": {
      "20": {
-      "score": 34.2,
+      "score": 34.1,
       "unit": "dps"
      },
      "30": {
-      "score": 47.6,
+      "score": 49.2,
       "unit": "dps"
      },
      "40": {
-      "score": 90.3,
+      "score": 91.5,
       "unit": "dps"
      },
      "50": {
-      "score": 113.3,
+      "score": 125.1,
       "unit": "dps"
      },
      "60": {
@@ -988,56 +988,56 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.34,
-     "strength": 0.001103,
-     "agility": 0.000413,
+     "score": 0.3394,
+     "strength": 0.001105,
+     "agility": 0.000414,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000553,
-     "crit_rating": 0.000851,
-     "hit_rating": 0.000934,
-     "crit_pct": 0.002757,
-     "hit_pct": 0.002553,
-     "weapon_dps": 0.007701
+     "attack_power": 0.000554,
+     "crit_rating": 0.000852,
+     "hit_rating": 0.000932,
+     "crit_pct": 0.002761,
+     "hit_pct": 0.002546,
+     "weapon_dps": 0.007716
     },
     "30": {
-     "score": 0.3745,
-     "strength": 0.000876,
-     "agility": 0.000363,
+     "score": 0.3868,
+     "strength": 0.00088,
+     "agility": 0.000427,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000438,
-     "crit_rating": 0.000613,
-     "hit_rating": 0.000545,
-     "crit_pct": 0.003633,
-     "hit_pct": 0.002775,
-     "weapon_dps": 0.006345
+     "attack_power": 0.000441,
+     "crit_rating": 0.00072,
+     "hit_rating": 0.00056,
+     "crit_pct": 0.004266,
+     "hit_pct": 0.002845,
+     "weapon_dps": 0.006816
     },
     "40": {
-     "score": 0.6036,
-     "strength": 0.001077,
-     "agility": 0.000576,
+     "score": 0.6108,
+     "strength": 0.001074,
+     "agility": 0.000578,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000539,
-     "crit_rating": 0.000891,
-     "hit_rating": 0.000528,
-     "crit_pct": 0.007676,
-     "hit_pct": 0.004222,
-     "weapon_dps": 0.008342
+     "attack_power": 0.000537,
+     "crit_rating": 0.000894,
+     "hit_rating": 0.000532,
+     "crit_pct": 0.007699,
+     "hit_pct": 0.004247,
+     "weapon_dps": 0.008317
     },
     "50": {
-     "score": 0.6832,
-     "strength": 0.001003,
-     "agility": 0.000537,
+     "score": 0.7436,
+     "strength": 0.001231,
+     "agility": 0.000658,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000502,
-     "crit_rating": 0.000791,
-     "hit_rating": 0.000626,
-     "crit_pct": 0.008943,
-     "hit_pct": 0.007165,
-     "weapon_dps": 0.007936
+     "attack_power": 0.000615,
+     "crit_rating": 0.00097,
+     "hit_rating": 0.000786,
+     "crit_pct": 0.01097,
+     "hit_pct": 0.008997,
+     "weapon_dps": 0.009596
     },
     "60": {
      "score": 0.9181,
@@ -1052,7 +1052,12 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.009815
     }
-   }
+   },
+   "about": [
+    "40 points in Arms, with 11 in Fury. Built for PvE. On this order the key talents arrive as follows: Anger Management at 36, Spearing Strike at 42, Sweeping Strikes at 48, Mortal Strike at 49 and Piercing Howl at 52.",
+    "In the model's rotation its priority is Mortal Strike and Whirlwind. Damage comes from auto-attacks 53% and abilities 47%.",
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage."
+   ]
   },
   {
    "id": "warrior-arms",
@@ -1072,11 +1077,6 @@
     105958,
     105958,
     105958,
-    105937,
-    105937,
-    105937,
-    105937,
-    105937,
     105956,
     105956,
     105956,
@@ -1094,9 +1094,13 @@
     105948,
     105947,
     105947,
+    105937,
+    105937,
+    105937,
+    105937,
+    105937,
     105952,
     105952,
-    105935,
     105949,
     110524,
     110524,
@@ -1106,6 +1110,7 @@
     105945,
     105944,
     105941,
+    105935,
     105944,
     105944,
     105944,
@@ -1118,11 +1123,11 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 62.2,
+      "score": 62.1,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 53.7,
+      "score": 55.9,
       "unit": "kills/hour"
      },
      "40": {
@@ -1130,7 +1135,7 @@
       "unit": "kills/hour"
      },
      "50": {
-      "score": 56.5,
+      "score": 60.2,
       "unit": "kills/hour"
      },
      "60": {
@@ -1140,11 +1145,11 @@
     },
     "dungeon": {
      "20": {
-      "score": 34.2,
+      "score": 34.1,
       "unit": "dps"
      },
      "30": {
-      "score": 47.6,
+      "score": 50.0,
       "unit": "dps"
      },
      "40": {
@@ -1152,7 +1157,7 @@
       "unit": "dps"
      },
      "50": {
-      "score": 113.3,
+      "score": 125.5,
       "unit": "dps"
      },
      "60": {
@@ -1170,30 +1175,30 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.0389,
+     "score": 0.0388,
      "strength": 0.000143,
      "agility": 5.1e-05,
      "stamina": 0.000313,
      "intellect": 0.0,
      "attack_power": 7.2e-05,
-     "crit_rating": 0.000105,
+     "crit_rating": 0.000106,
      "hit_rating": 0.000121,
      "crit_pct": 0.000341,
-     "hit_pct": 0.000391,
-     "weapon_dps": 0.001
+     "hit_pct": 0.000389,
+     "weapon_dps": 0.001002
     },
     "30": {
-     "score": 0.0925,
-     "strength": 0.000213,
-     "agility": 8.7e-05,
-     "stamina": 0.000579,
+     "score": 0.0978,
+     "strength": 0.000211,
+     "agility": 0.000107,
+     "stamina": 0.000609,
      "intellect": 0.0,
      "attack_power": 0.000106,
-     "crit_rating": 0.000146,
-     "hit_rating": 0.00015,
-     "crit_pct": 0.000868,
-     "hit_pct": 0.00089,
-     "weapon_dps": 0.001564
+     "crit_rating": 0.00018,
+     "hit_rating": 0.000158,
+     "crit_pct": 0.001068,
+     "hit_pct": 0.000934,
+     "weapon_dps": 0.001705
     },
     "40": {
      "score": 0.2082,
@@ -1209,17 +1214,17 @@
      "weapon_dps": 0.002399
     },
     "50": {
-     "score": 0.3019,
-     "strength": 0.000312,
-     "agility": 0.000163,
-     "stamina": 0.000905,
+     "score": 0.3198,
+     "strength": 0.000362,
+     "agility": 0.000186,
+     "stamina": 0.000936,
      "intellect": 0.0,
-     "attack_power": 0.000156,
-     "crit_rating": 0.000239,
-     "hit_rating": 0.000199,
-     "crit_pct": 0.002706,
-     "hit_pct": 0.002254,
-     "weapon_dps": 0.002509
+     "attack_power": 0.000182,
+     "crit_rating": 0.000274,
+     "hit_rating": 0.000237,
+     "crit_pct": 0.0031,
+     "hit_pct": 0.002674,
+     "weapon_dps": 0.002866
     },
     "60": {
      "score": 0.4249,
@@ -1234,7 +1239,12 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.002623
     }
-   }
+   },
+   "about": [
+    "37 points in Arms, with 11 in Fury. Built for PvP. On this order the key talents arrive as follows: Anger Management at 29, Spearing Strike at 42, Sweeping Strikes at 48, Mortal Strike at 50 and Piercing Howl at 51.",
+    "In the model's rotation its priority is Mortal Strike and Whirlwind. Damage comes from auto-attacks 53% and abilities 47%.",
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage."
+   ]
   },
   {
    "id": "warrior-fury-pve",
@@ -1254,11 +1264,6 @@
     105958,
     105958,
     105958,
-    105937,
-    105937,
-    105937,
-    105937,
-    105937,
     105956,
     105956,
     105956,
@@ -1276,6 +1281,11 @@
     105948,
     105947,
     105947,
+    105937,
+    105937,
+    105937,
+    105937,
+    105937,
     105936,
     105935,
     105934,
@@ -1303,11 +1313,11 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 62.2,
+      "score": 62.1,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 53.7,
+      "score": 55.9,
       "unit": "kills/hour"
      },
      "40": {
@@ -1325,11 +1335,11 @@
     },
     "dungeon": {
      "20": {
-      "score": 34.2,
+      "score": 34.1,
       "unit": "dps"
      },
      "30": {
-      "score": 47.6,
+      "score": 50.0,
       "unit": "dps"
      },
      "40": {
@@ -1355,30 +1365,30 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.34,
-     "strength": 0.001103,
-     "agility": 0.000413,
+     "score": 0.3394,
+     "strength": 0.001105,
+     "agility": 0.000414,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000553,
-     "crit_rating": 0.000851,
-     "hit_rating": 0.000934,
-     "crit_pct": 0.002757,
-     "hit_pct": 0.002553,
-     "weapon_dps": 0.007701
+     "attack_power": 0.000554,
+     "crit_rating": 0.000852,
+     "hit_rating": 0.000932,
+     "crit_pct": 0.002761,
+     "hit_pct": 0.002546,
+     "weapon_dps": 0.007716
     },
     "30": {
-     "score": 0.3745,
-     "strength": 0.000876,
-     "agility": 0.000363,
+     "score": 0.3922,
+     "strength": 0.000875,
+     "agility": 0.000425,
      "stamina": 0.0,
      "intellect": 0.0,
      "attack_power": 0.000438,
-     "crit_rating": 0.000613,
-     "hit_rating": 0.000545,
-     "crit_pct": 0.003633,
-     "hit_pct": 0.002775,
-     "weapon_dps": 0.006345
+     "crit_rating": 0.000717,
+     "hit_rating": 0.000565,
+     "crit_pct": 0.00425,
+     "hit_pct": 0.002873,
+     "weapon_dps": 0.006779
     },
     "40": {
      "score": 0.6122,
@@ -1419,7 +1429,13 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.008231
     }
-   }
+   },
+   "about": [
+    "31 points in Fury, with 20 in Arms. Built for PvE. On this order the key talents arrive as follows: Anger Management at 29, Piercing Howl at 41, Raging Blows at 45, Death Wish at 50 and Flurry at 57.",
+    "In the model's rotation its priority is Whirlwind and Heroic Strike. Damage comes from auto-attacks 63% and abilities 37%.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (97%) and dungeon damage (94%), and weakest at raid damage (93%).",
+    "A model build: the calculator's pick for this slot, not yet tried in game."
+   ]
   },
   {
    "id": "warrior-fury-pvp",
@@ -1439,11 +1455,6 @@
     105958,
     105958,
     105958,
-    105937,
-    105937,
-    105937,
-    105937,
-    105937,
     105956,
     105956,
     105956,
@@ -1461,6 +1472,11 @@
     105948,
     105947,
     105947,
+    105937,
+    105937,
+    105937,
+    105937,
+    105937,
     105936,
     105935,
     105934,
@@ -1488,11 +1504,11 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 62.2,
+      "score": 62.1,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 53.7,
+      "score": 55.9,
       "unit": "kills/hour"
      },
      "40": {
@@ -1510,11 +1526,11 @@
     },
     "dungeon": {
      "20": {
-      "score": 34.2,
+      "score": 34.1,
       "unit": "dps"
      },
      "30": {
-      "score": 47.6,
+      "score": 50.0,
       "unit": "dps"
      },
      "40": {
@@ -1540,30 +1556,30 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.0389,
+     "score": 0.0388,
      "strength": 0.000143,
      "agility": 5.1e-05,
      "stamina": 0.000313,
      "intellect": 0.0,
      "attack_power": 7.2e-05,
-     "crit_rating": 0.000105,
+     "crit_rating": 0.000106,
      "hit_rating": 0.000121,
      "crit_pct": 0.000341,
-     "hit_pct": 0.000391,
-     "weapon_dps": 0.001
+     "hit_pct": 0.000389,
+     "weapon_dps": 0.001002
     },
     "30": {
-     "score": 0.0925,
-     "strength": 0.000213,
-     "agility": 8.7e-05,
-     "stamina": 0.000579,
+     "score": 0.0978,
+     "strength": 0.000211,
+     "agility": 0.000107,
+     "stamina": 0.000609,
      "intellect": 0.0,
      "attack_power": 0.000106,
-     "crit_rating": 0.000146,
-     "hit_rating": 0.00015,
-     "crit_pct": 0.000868,
-     "hit_pct": 0.00089,
-     "weapon_dps": 0.001564
+     "crit_rating": 0.00018,
+     "hit_rating": 0.000158,
+     "crit_pct": 0.001068,
+     "hit_pct": 0.000934,
+     "weapon_dps": 0.001705
     },
     "40": {
      "score": 0.2082,
@@ -1604,7 +1620,13 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.002318
     }
-   }
+   },
+   "about": [
+    "31 points in Fury, with 20 in Arms. Built for PvP. On this order the key talents arrive as follows: Anger Management at 29, Piercing Howl at 41, Raging Blows at 45, Death Wish at 50 and Flurry at 57.",
+    "In the model's rotation its priority is Whirlwind and Heroic Strike. Damage comes from auto-attacks 63% and abilities 37%.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (97%) and dungeon damage (94%), and weakest at raid damage (93%).",
+    "A model build: the calculator's pick for this slot, not yet tried in game."
+   ]
   },
   {
    "id": "warrior-protection-pvp",
@@ -1682,7 +1704,12 @@
      "stamina": 0.3,
      "weapon_dps": 3.0
     }
-   }
+   },
+   "about": [
+    "36 points in Protection, with 10 in Fury and 5 in Arms. Built for PvP. On this order the key talents arrive as follows: Last Stand at 37, Vanguard at 48, Concussion Blow at 51 and Shield Slam at 60.",
+    "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order.",
+    "A model build: the calculator's pick for this slot, not yet tried in game."
+   ]
   },
   {
    "id": "warrior-protection",
@@ -1755,7 +1782,11 @@
      "stamina": 0.3,
      "weapon_dps": 3.0
     }
-   }
+   },
+   "about": [
+    "36 points in Protection, with 5 in Fury and 5 in Arms. Built for PvE. On this order the key talents arrive as follows: Last Stand at 32, Vanguard at 43, Concussion Blow at 46 and Shield Slam at 55.",
+    "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
+   ]
   }
  ],
  "shortlist": [
