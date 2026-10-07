@@ -1595,6 +1595,663 @@
    }
   },
   {
+   "id": "deep-arcane-model",
+   "name": "Deep Arcane (PvE, model pick)",
+   "pair": "deep-arcane-model",
+   "variant": "PvE",
+   "origin": "model",
+   "summary": "The model's alternative to Deep Arcane (PvE): Frost Channeling 0->3, Piercing Ice 0->1, Ice Shards 0->5, Improved Frostbolt 0->5, Incineration 3->0, Wake of Fire 1->0, Arcane Power 1->0, Arcane Mind 5->0, Presence of Mind 1->0, Missile Barrage 1->0, Arcane Meditation 3->1. Scores +15.6% higher; not tried in game.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105779,
+    105779,
+    105779,
+    105779,
+    105779,
+    105777,
+    105777,
+    105777,
+    105777,
+    105777,
+    105772,
+    105772,
+    105772,
+    105773,
+    105815,
+    105815,
+    105814,
+    105814,
+    105814,
+    105810,
+    105810,
+    105810,
+    105810,
+    105810,
+    105814,
+    105814,
+    105813,
+    105813,
+    105813,
+    105813,
+    105813,
+    105812,
+    105812,
+    105811,
+    105811,
+    105809,
+    105809,
+    105808,
+    105808,
+    105799,
+    105799,
+    105799,
+    105807,
+    105807,
+    105807,
+    105806,
+    105805,
+    105805,
+    105804,
+    105804,
+    105803
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 51.3,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "30": {
+      "score": 64.8,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "40": {
+      "score": 86.0,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "50": {
+      "score": 97.0,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "60": {
+      "score": 109.3,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     }
+    },
+    "aoe": {
+     "20": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "30": {
+      "score": 1.0,
+      "unit": "pack size",
+      "spell": "Arcane Explosion",
+      "break_even": 1
+     },
+     "40": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "50": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "60": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Arcane Explosion",
+      "break_even": 2
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 279.9,
+      "unit": "dps",
+      "spell": "Frostbolt",
+      "time_to_oom": null,
+      "raw_dps": 298.1,
+      "fallback_spell": "Frostbolt rank 4"
+     }
+    },
+    "survival": {
+     "20": {
+      "score": 0.16,
+      "unit": "0-1",
+      "components": {
+       "barrier": 0.0,
+       "immunity": 0.0,
+       "pushback": 0.0,
+       "escapes": 6.4
+      }
+     },
+     "30": {
+      "score": 0.16,
+      "unit": "0-1",
+      "components": {
+       "barrier": 0.0,
+       "immunity": 0.0,
+       "pushback": 0.0,
+       "escapes": 6.4
+      }
+     },
+     "40": {
+      "score": 0.16,
+      "unit": "0-1",
+      "components": {
+       "barrier": 0.0,
+       "immunity": 0.0,
+       "pushback": 0.0,
+       "escapes": 6.4
+      }
+     },
+     "50": {
+      "score": 0.16,
+      "unit": "0-1",
+      "components": {
+       "barrier": 0.0,
+       "immunity": 0.0,
+       "pushback": 0.0,
+       "escapes": 6.4
+      }
+     },
+     "60": {
+      "score": 0.16,
+      "unit": "0-1",
+      "components": {
+       "barrier": 0.0,
+       "immunity": 0.0,
+       "pushback": 0.0,
+       "escapes": 6.4
+      }
+     }
+    },
+    "control": {
+     "20": {
+      "score": 0.504,
+      "unit": "0-1",
+      "components": {
+       "slow": 0.4,
+       "root": 19.2,
+       "stun": 0.0,
+       "interrupt": 0.0
+      }
+     },
+     "30": {
+      "score": 0.654,
+      "unit": "0-1",
+      "components": {
+       "slow": 0.4,
+       "root": 19.2,
+       "stun": 0.0,
+       "interrupt": 20.0
+      }
+     },
+     "40": {
+      "score": 0.654,
+      "unit": "0-1",
+      "components": {
+       "slow": 0.4,
+       "root": 19.2,
+       "stun": 0.0,
+       "interrupt": 20.0
+      }
+     },
+     "50": {
+      "score": 0.654,
+      "unit": "0-1",
+      "components": {
+       "slow": 0.4,
+       "root": 19.2,
+       "stun": 0.0,
+       "interrupt": 20.0
+      }
+     },
+     "60": {
+      "score": 0.654,
+      "unit": "0-1",
+      "components": {
+       "slow": 0.4,
+       "root": 19.2,
+       "stun": 0.0,
+       "interrupt": 28.0
+      }
+     }
+    },
+    "wpvp_melee": {
+     "20": {
+      "score": 0.063,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.073,
+       "hunter-survival": 0.045,
+       "paladin-retribution": 0.066,
+       "rogue-combat": 0.059,
+       "rogue-subtlety": 0.065,
+       "shaman-enhancement": 0.074,
+       "warrior-arms": 0.058
+      }
+     },
+     "30": {
+      "score": 0.126,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.145,
+       "hunter-survival": 0.092,
+       "paladin-retribution": 0.132,
+       "rogue-combat": 0.118,
+       "rogue-subtlety": 0.13,
+       "shaman-enhancement": 0.147,
+       "warrior-arms": 0.116
+      }
+     },
+     "40": {
+      "score": 0.209,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.237,
+       "hunter-survival": 0.157,
+       "paladin-retribution": 0.218,
+       "rogue-combat": 0.198,
+       "rogue-subtlety": 0.215,
+       "shaman-enhancement": 0.241,
+       "warrior-arms": 0.195
+      }
+     },
+     "50": {
+      "score": 0.325,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.363,
+       "hunter-survival": 0.254,
+       "paladin-retribution": 0.338,
+       "rogue-combat": 0.311,
+       "rogue-subtlety": 0.334,
+       "shaman-enhancement": 0.367,
+       "warrior-arms": 0.307
+      }
+     },
+     "60": {
+      "score": 0.504,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.547,
+       "hunter-survival": 0.42,
+       "paladin-retribution": 0.521,
+       "rogue-combat": 0.49,
+       "rogue-subtlety": 0.516,
+       "shaman-enhancement": 0.552,
+       "warrior-arms": 0.485
+      }
+     }
+    },
+    "wpvp_melee_they_open": {
+     "20": {
+      "score": 0.033,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.012,
+       "hunter-survival": 0.03,
+       "paladin-retribution": 0.066,
+       "rogue-combat": 0.0,
+       "rogue-subtlety": 0.0,
+       "shaman-enhancement": 0.074,
+       "warrior-arms": 0.048
+      }
+     },
+     "30": {
+      "score": 0.073,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.056,
+       "hunter-survival": 0.069,
+       "paladin-retribution": 0.132,
+       "rogue-combat": 0.0,
+       "rogue-subtlety": 0.0,
+       "shaman-enhancement": 0.147,
+       "warrior-arms": 0.103
+      }
+     },
+     "40": {
+      "score": 0.123,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.107,
+       "hunter-survival": 0.122,
+       "paladin-retribution": 0.218,
+       "rogue-combat": 0.0,
+       "rogue-subtlety": 0.0,
+       "shaman-enhancement": 0.241,
+       "warrior-arms": 0.175
+      }
+     },
+     "50": {
+      "score": 0.205,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.21,
+       "hunter-survival": 0.21,
+       "paladin-retribution": 0.338,
+       "rogue-combat": 0.009,
+       "rogue-subtlety": 0.016,
+       "shaman-enhancement": 0.367,
+       "warrior-arms": 0.284
+      }
+     },
+     "60": {
+      "score": 0.379,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.405,
+       "hunter-survival": 0.373,
+       "paladin-retribution": 0.521,
+       "rogue-combat": 0.159,
+       "rogue-subtlety": 0.18,
+       "shaman-enhancement": 0.552,
+       "warrior-arms": 0.462
+      }
+     }
+    },
+    "wpvp_caster": {
+     "20": {
+      "score": 0.038,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-balance": 0.048,
+       "hunter-marksmanship": 0.037,
+       "mage-frost": 0.031,
+       "priest-discipline": 0.044,
+       "priest-shadow": 0.028,
+       "shaman-elemental": 0.04,
+       "warlock-affliction": 0.04,
+       "warlock-destruction": 0.034
+      }
+     },
+     "30": {
+      "score": 0.127,
+      "unit": "duel 0-1",
+      "spell": "Fireball",
+      "matchups": {
+       "druid-balance": 0.164,
+       "hunter-marksmanship": 0.091,
+       "mage-frost": 0.111,
+       "priest-discipline": 0.152,
+       "priest-shadow": 0.099,
+       "shaman-elemental": 0.138,
+       "warlock-affliction": 0.138,
+       "warlock-destruction": 0.121
+      }
+     },
+     "40": {
+      "score": 0.195,
+      "unit": "duel 0-1",
+      "spell": "Arcane Missiles",
+      "matchups": {
+       "druid-balance": 0.247,
+       "hunter-marksmanship": 0.143,
+       "mage-frost": 0.173,
+       "priest-discipline": 0.231,
+       "priest-shadow": 0.156,
+       "shaman-elemental": 0.212,
+       "warlock-affliction": 0.212,
+       "warlock-destruction": 0.188
+      }
+     },
+     "50": {
+      "score": 0.287,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-balance": 0.354,
+       "hunter-marksmanship": 0.218,
+       "mage-frost": 0.258,
+       "priest-discipline": 0.333,
+       "priest-shadow": 0.235,
+       "shaman-elemental": 0.309,
+       "warlock-affliction": 0.31,
+       "warlock-destruction": 0.279
+      }
+     },
+     "60": {
+      "score": 0.507,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-balance": 0.592,
+       "hunter-marksmanship": 0.372,
+       "mage-frost": 0.481,
+       "priest-discipline": 0.571,
+       "priest-shadow": 0.45,
+       "shaman-elemental": 0.544,
+       "warlock-affliction": 0.544,
+       "warlock-destruction": 0.506
+      }
+     }
+    },
+    "stealth_ambush": {
+     "20": {
+      "score": 0.004,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.012,
+       "rogue-combat": 0.0,
+       "rogue-subtlety": 0.0
+      }
+     },
+     "30": {
+      "score": 0.02,
+      "unit": "duel 0-1",
+      "spell": "Fireball",
+      "matchups": {
+       "druid-feral": 0.06,
+       "rogue-combat": 0.0,
+       "rogue-subtlety": 0.0
+      }
+     },
+     "40": {
+      "score": 0.036,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.107,
+       "rogue-combat": 0.0,
+       "rogue-subtlety": 0.0
+      }
+     },
+     "50": {
+      "score": 0.078,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.21,
+       "rogue-combat": 0.009,
+       "rogue-subtlety": 0.016
+      }
+     },
+     "60": {
+      "score": 0.248,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.405,
+       "rogue-combat": 0.159,
+       "rogue-subtlety": 0.18
+      }
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 37.1,
+      "unit": "dps",
+      "spell": "Frostbolt"
+     },
+     "30": {
+      "score": 69.6,
+      "unit": "dps",
+      "spell": "Frostbolt"
+     },
+     "40": {
+      "score": 121.5,
+      "unit": "dps",
+      "spell": "Frostbolt"
+     },
+     "50": {
+      "score": 174.2,
+      "unit": "dps",
+      "spell": "Frostbolt"
+     },
+     "60": {
+      "score": 336.7,
+      "unit": "dps",
+      "spell": "Frostbolt"
+     }
+    },
+    "battleground": {
+     "20": {
+      "score": 0.401,
+      "unit": "0-1",
+      "spell": "Frostbolt",
+      "components": {
+       "kill": 0.515,
+       "endurance": 0.442,
+       "survival": 0.16,
+       "control": 0.504
+      }
+     },
+     "30": {
+      "score": 0.472,
+      "unit": "0-1",
+      "spell": "Frostbolt",
+      "components": {
+       "kill": 0.569,
+       "endurance": 0.577,
+       "survival": 0.16,
+       "control": 0.654
+      }
+     },
+     "40": {
+      "score": 0.53,
+      "unit": "0-1",
+      "spell": "Frostbolt",
+      "components": {
+       "kill": 0.744,
+       "endurance": 0.511,
+       "survival": 0.16,
+       "control": 0.654
+      }
+     },
+     "50": {
+      "score": 0.598,
+      "unit": "0-1",
+      "spell": "Frostbolt",
+      "components": {
+       "kill": 0.946,
+       "endurance": 0.451,
+       "survival": 0.16,
+       "control": 0.654
+      }
+     },
+     "60": {
+      "score": 0.618,
+      "unit": "0-1",
+      "spell": "Frostbolt",
+      "components": {
+       "kill": 1.0,
+       "endurance": 0.485,
+       "survival": 0.16,
+       "control": 0.654
+      }
+     }
+    }
+   },
+   "sensitivity": [
+    "sub20_spell_penalty=False: raid DPS 279.9 -> 280.9"
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.6234,
+     "stamina": 0.0,
+     "intellect": 0.001235,
+     "spirit": 0.000272,
+     "spell_power": 0.000683,
+     "crit_rating": 0.001361,
+     "hit_rating": 0.001886,
+     "crit_pct": 0.004405,
+     "hit_pct": 0.006201
+    },
+    "30": {
+     "score": 0.7748,
+     "stamina": 0.0,
+     "intellect": 0.001349,
+     "spirit": 0.000197,
+     "spell_power": 0.000863,
+     "crit_rating": 0.000965,
+     "hit_rating": 0.001308,
+     "crit_pct": 0.005721,
+     "hit_pct": 0.007748
+    },
+    "40": {
+     "score": 0.9271,
+     "stamina": 0.0,
+     "intellect": 0.002303,
+     "spirit": 0.000225,
+     "spell_power": 0.000979,
+     "crit_rating": 0.000819,
+     "hit_rating": 0.001082,
+     "crit_pct": 0.007059,
+     "hit_pct": 0.009327
+    },
+    "50": {
+     "score": 1.0971,
+     "stamina": 0.0,
+     "intellect": 0.001487,
+     "spirit": 5.7e-05,
+     "spell_power": 0.001137,
+     "crit_rating": 0.000724,
+     "hit_rating": 0.000972,
+     "crit_pct": 0.008182,
+     "hit_pct": 0.010989
+    },
+    "60": {
+     "score": 1.5177,
+     "stamina": 0.0,
+     "intellect": 0.000252,
+     "spirit": 9.7e-05,
+     "spell_power": 0.001427,
+     "crit_rating": 0.000803,
+     "hit_rating": 0.000917,
+     "crit_pct": 0.011244,
+     "hit_pct": 0.012818
+    }
+   }
+  },
+  {
    "id": "deep-arcane",
    "name": "Deep Arcane (PvE)",
    "pair": "deep-arcane",
@@ -7517,6 +8174,663 @@
    }
   },
   {
+   "id": "mage-frost-pve-model",
+   "name": "Frost (PvE, model pick)",
+   "pair": "mage-frost-pve-model",
+   "variant": "PvE",
+   "origin": "model",
+   "summary": "The model's alternative to Frost (PvE): Ice Barrier 1->0, Winter's Chill 0->5, Improved Cone of Cold 3->0, Cold Snap 1->0, Ice Block 1->0, Arctic Reach 2->0, Improved Blizzard 3->0, Ice Shards 1->5, Elemental Precision 3->5. Scores +10.6% higher; not tried in game.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105779,
+    105779,
+    105779,
+    105778,
+    105779,
+    105779,
+    105778,
+    105778,
+    105777,
+    105777,
+    105772,
+    105772,
+    105772,
+    105773,
+    105773,
+    105773,
+    105777,
+    105777,
+    105777,
+    105814,
+    105814,
+    105814,
+    105814,
+    105814,
+    105810,
+    105810,
+    105810,
+    105810,
+    105810,
+    105778,
+    105778,
+    105812,
+    105812,
+    105776,
+    105776,
+    105776,
+    105775,
+    105775,
+    105809,
+    105809,
+    105807,
+    105807,
+    105807,
+    105803,
+    105803,
+    105803,
+    105763,
+    105763,
+    105763,
+    105763,
+    105763
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 52.1,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "30": {
+      "score": 66.7,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "40": {
+      "score": 89.9,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "50": {
+      "score": 98.4,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "60": {
+      "score": 108.9,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     }
+    },
+    "aoe": {
+     "20": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "30": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Arcane Explosion",
+      "break_even": 2
+     },
+     "40": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "50": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     },
+     "60": {
+      "score": 2.0,
+      "unit": "pack size",
+      "spell": "Flamestrike",
+      "break_even": 2
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 331.8,
+      "unit": "dps",
+      "spell": "Frostbolt",
+      "time_to_oom": null,
+      "raw_dps": 338.1,
+      "fallback_spell": "Frostbolt rank 4"
+     }
+    },
+    "survival": {
+     "20": {
+      "score": 0.16,
+      "unit": "0-1",
+      "components": {
+       "barrier": 0.0,
+       "immunity": 0.0,
+       "pushback": 0.0,
+       "escapes": 6.4
+      }
+     },
+     "30": {
+      "score": 0.16,
+      "unit": "0-1",
+      "components": {
+       "barrier": 0.0,
+       "immunity": 0.0,
+       "pushback": 0.0,
+       "escapes": 6.4
+      }
+     },
+     "40": {
+      "score": 0.16,
+      "unit": "0-1",
+      "components": {
+       "barrier": 0.0,
+       "immunity": 0.0,
+       "pushback": 0.0,
+       "escapes": 6.4
+      }
+     },
+     "50": {
+      "score": 0.171,
+      "unit": "0-1",
+      "components": {
+       "barrier": 0.0,
+       "immunity": 0.0,
+       "pushback": 0.0,
+       "escapes": 6.857
+      }
+     },
+     "60": {
+      "score": 0.171,
+      "unit": "0-1",
+      "components": {
+       "barrier": 0.0,
+       "immunity": 0.0,
+       "pushback": 0.0,
+       "escapes": 6.857
+      }
+     }
+    },
+    "control": {
+     "20": {
+      "score": 0.504,
+      "unit": "0-1",
+      "components": {
+       "slow": 0.4,
+       "root": 19.2,
+       "stun": 0.0,
+       "interrupt": 0.0
+      }
+     },
+     "30": {
+      "score": 0.654,
+      "unit": "0-1",
+      "components": {
+       "slow": 0.4,
+       "root": 19.2,
+       "stun": 0.0,
+       "interrupt": 20.0
+      }
+     },
+     "40": {
+      "score": 0.654,
+      "unit": "0-1",
+      "components": {
+       "slow": 0.4,
+       "root": 19.2,
+       "stun": 0.0,
+       "interrupt": 20.0
+      }
+     },
+     "50": {
+      "score": 0.767,
+      "unit": "0-1",
+      "components": {
+       "slow": 0.5,
+       "root": 22.857,
+       "stun": 0.0,
+       "interrupt": 20.0
+      }
+     },
+     "60": {
+      "score": 0.767,
+      "unit": "0-1",
+      "components": {
+       "slow": 0.5,
+       "root": 22.857,
+       "stun": 0.0,
+       "interrupt": 20.0
+      }
+     }
+    },
+    "wpvp_melee": {
+     "20": {
+      "score": 0.064,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.074,
+       "hunter-survival": 0.046,
+       "paladin-retribution": 0.067,
+       "rogue-combat": 0.06,
+       "rogue-subtlety": 0.066,
+       "shaman-enhancement": 0.075,
+       "warrior-arms": 0.059
+      }
+     },
+     "30": {
+      "score": 0.134,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.154,
+       "hunter-survival": 0.098,
+       "paladin-retribution": 0.14,
+       "rogue-combat": 0.126,
+       "rogue-subtlety": 0.138,
+       "shaman-enhancement": 0.156,
+       "warrior-arms": 0.124
+      }
+     },
+     "40": {
+      "score": 0.22,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.25,
+       "hunter-survival": 0.166,
+       "paladin-retribution": 0.231,
+       "rogue-combat": 0.209,
+       "rogue-subtlety": 0.227,
+       "shaman-enhancement": 0.253,
+       "warrior-arms": 0.206
+      }
+     },
+     "50": {
+      "score": 0.372,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.386,
+       "hunter-survival": 0.274,
+       "paladin-retribution": 0.361,
+       "rogue-combat": 0.375,
+       "rogue-subtlety": 0.4,
+       "shaman-enhancement": 0.435,
+       "warrior-arms": 0.371
+      }
+     },
+     "60": {
+      "score": 0.548,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.565,
+       "hunter-survival": 0.437,
+       "paladin-retribution": 0.538,
+       "rogue-combat": 0.553,
+       "rogue-subtlety": 0.579,
+       "shaman-enhancement": 0.614,
+       "warrior-arms": 0.548
+      }
+     }
+    },
+    "wpvp_melee_they_open": {
+     "20": {
+      "score": 0.034,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.013,
+       "hunter-survival": 0.03,
+       "paladin-retribution": 0.067,
+       "rogue-combat": 0.0,
+       "rogue-subtlety": 0.0,
+       "shaman-enhancement": 0.075,
+       "warrior-arms": 0.049
+      }
+     },
+     "30": {
+      "score": 0.077,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.06,
+       "hunter-survival": 0.074,
+       "paladin-retribution": 0.14,
+       "rogue-combat": 0.0,
+       "rogue-subtlety": 0.0,
+       "shaman-enhancement": 0.156,
+       "warrior-arms": 0.11
+      }
+     },
+     "40": {
+      "score": 0.131,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.114,
+       "hunter-survival": 0.13,
+       "paladin-retribution": 0.231,
+       "rogue-combat": 0.0,
+       "rogue-subtlety": 0.0,
+       "shaman-enhancement": 0.253,
+       "warrior-arms": 0.186
+      }
+     },
+     "50": {
+      "score": 0.233,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.227,
+       "hunter-survival": 0.227,
+       "paladin-retribution": 0.361,
+       "rogue-combat": 0.012,
+       "rogue-subtlety": 0.021,
+       "shaman-enhancement": 0.435,
+       "warrior-arms": 0.345
+      }
+     },
+     "60": {
+      "score": 0.415,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.422,
+       "hunter-survival": 0.389,
+       "paladin-retribution": 0.538,
+       "rogue-combat": 0.196,
+       "rogue-subtlety": 0.22,
+       "shaman-enhancement": 0.614,
+       "warrior-arms": 0.526
+      }
+     }
+    },
+    "wpvp_caster": {
+     "20": {
+      "score": 0.038,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-balance": 0.049,
+       "hunter-marksmanship": 0.038,
+       "mage-frost": 0.032,
+       "priest-discipline": 0.045,
+       "priest-shadow": 0.028,
+       "shaman-elemental": 0.04,
+       "warlock-affliction": 0.04,
+       "warlock-destruction": 0.035
+      }
+     },
+     "30": {
+      "score": 0.13,
+      "unit": "duel 0-1",
+      "spell": "Fireball",
+      "matchups": {
+       "druid-balance": 0.168,
+       "hunter-marksmanship": 0.093,
+       "mage-frost": 0.114,
+       "priest-discipline": 0.156,
+       "priest-shadow": 0.102,
+       "shaman-elemental": 0.142,
+       "warlock-affliction": 0.142,
+       "warlock-destruction": 0.125
+      }
+     },
+     "40": {
+      "score": 0.195,
+      "unit": "duel 0-1",
+      "spell": "Arcane Missiles",
+      "matchups": {
+       "druid-balance": 0.247,
+       "hunter-marksmanship": 0.143,
+       "mage-frost": 0.173,
+       "priest-discipline": 0.231,
+       "priest-shadow": 0.156,
+       "shaman-elemental": 0.212,
+       "warlock-affliction": 0.212,
+       "warlock-destruction": 0.188
+      }
+     },
+     "50": {
+      "score": 0.292,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-balance": 0.359,
+       "hunter-marksmanship": 0.224,
+       "mage-frost": 0.263,
+       "priest-discipline": 0.339,
+       "priest-shadow": 0.24,
+       "shaman-elemental": 0.314,
+       "warlock-affliction": 0.315,
+       "warlock-destruction": 0.283
+      }
+     },
+     "60": {
+      "score": 0.458,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-balance": 0.536,
+       "hunter-marksmanship": 0.373,
+       "mage-frost": 0.424,
+       "priest-discipline": 0.513,
+       "priest-shadow": 0.394,
+       "shaman-elemental": 0.486,
+       "warlock-affliction": 0.486,
+       "warlock-destruction": 0.449
+      }
+     }
+    },
+    "stealth_ambush": {
+     "20": {
+      "score": 0.004,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.013,
+       "rogue-combat": 0.0,
+       "rogue-subtlety": 0.0
+      }
+     },
+     "30": {
+      "score": 0.02,
+      "unit": "duel 0-1",
+      "spell": "Fireball",
+      "matchups": {
+       "druid-feral": 0.061,
+       "rogue-combat": 0.0,
+       "rogue-subtlety": 0.0
+      }
+     },
+     "40": {
+      "score": 0.038,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.114,
+       "rogue-combat": 0.0,
+       "rogue-subtlety": 0.0
+      }
+     },
+     "50": {
+      "score": 0.087,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.227,
+       "rogue-combat": 0.012,
+       "rogue-subtlety": 0.021
+      }
+     },
+     "60": {
+      "score": 0.279,
+      "unit": "duel 0-1",
+      "spell": "Frostbolt",
+      "matchups": {
+       "druid-feral": 0.422,
+       "rogue-combat": 0.196,
+       "rogue-subtlety": 0.22
+      }
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 37.9,
+      "unit": "dps",
+      "spell": "Frostbolt"
+     },
+     "30": {
+      "score": 74.6,
+      "unit": "dps",
+      "spell": "Frostbolt"
+     },
+     "40": {
+      "score": 133.0,
+      "unit": "dps",
+      "spell": "Frostbolt"
+     },
+     "50": {
+      "score": 182.0,
+      "unit": "dps",
+      "spell": "Frostbolt"
+     },
+     "60": {
+      "score": 371.6,
+      "unit": "dps",
+      "spell": "Frostbolt"
+     }
+    },
+    "battleground": {
+     "20": {
+      "score": 0.405,
+      "unit": "0-1",
+      "spell": "Frostbolt",
+      "components": {
+       "kill": 0.525,
+       "endurance": 0.442,
+       "survival": 0.16,
+       "control": 0.504
+      }
+     },
+     "30": {
+      "score": 0.485,
+      "unit": "0-1",
+      "spell": "Frostbolt",
+      "components": {
+       "kill": 0.609,
+       "endurance": 0.55,
+       "survival": 0.16,
+       "control": 0.654
+      }
+     },
+     "40": {
+      "score": 0.549,
+      "unit": "0-1",
+      "spell": "Frostbolt",
+      "components": {
+       "kill": 0.798,
+       "endurance": 0.511,
+       "survival": 0.16,
+       "control": 0.654
+      }
+     },
+     "50": {
+      "score": 0.643,
+      "unit": "0-1",
+      "spell": "Frostbolt",
+      "components": {
+       "kill": 0.968,
+       "endurance": 0.451,
+       "survival": 0.171,
+       "control": 0.767
+      }
+     },
+     "60": {
+      "score": 0.656,
+      "unit": "0-1",
+      "spell": "Frostbolt",
+      "components": {
+       "kill": 1.0,
+       "endurance": 0.485,
+       "survival": 0.171,
+       "control": 0.767
+      }
+     }
+    }
+   },
+   "sensitivity": [
+    "sub20_spell_penalty=False: raid DPS 331.8 -> 332.1"
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 0.6376,
+     "stamina": 0.0,
+     "intellect": 0.001204,
+     "spirit": 0.000279,
+     "spell_power": 0.000696,
+     "crit_rating": 0.001047,
+     "hit_rating": 0.000831,
+     "crit_pct": 0.003387,
+     "hit_pct": 0.002975
+    },
+    "30": {
+     "score": 0.8005,
+     "stamina": 0.0,
+     "intellect": 0.00138,
+     "spirit": 0.000202,
+     "spell_power": 0.000891,
+     "crit_rating": 0.000994,
+     "hit_rating": 0.000751,
+     "crit_pct": 0.00589,
+     "hit_pct": 0.00445
+    },
+    "40": {
+     "score": 0.9939,
+     "stamina": 0.0,
+     "intellect": 0.002525,
+     "spirit": 0.000248,
+     "spell_power": 0.001055,
+     "crit_rating": 0.000882,
+     "hit_rating": 0.000431,
+     "crit_pct": 0.007598,
+     "hit_pct": 0.003715
+    },
+    "50": {
+     "score": 1.1346,
+     "stamina": 0.0,
+     "intellect": 0.001557,
+     "spirit": 6.1e-05,
+     "spell_power": 0.001184,
+     "crit_rating": 0.000766,
+     "hit_rating": 0.000375,
+     "crit_pct": 0.008661,
+     "hit_pct": 0.004237
+    },
+    "60": {
+     "score": 1.6528,
+     "stamina": 0.0,
+     "intellect": 0.000261,
+     "spirit": 0.000151,
+     "spell_power": 0.001552,
+     "crit_rating": 0.000839,
+     "hit_rating": 0.000439,
+     "crit_pct": 0.011739,
+     "hit_pct": 0.006139
+    }
+   }
+  },
+  {
    "id": "mage-frost-pve",
    "name": "Frost (PvE)",
    "pair": "mage-frost",
@@ -8271,10 +9585,12 @@
    },
    "model_pick_score": 1.5177045139288636,
    "candidates": {
+    "deep-arcane-model": 1.5177045139288636,
     "deep-arcane": 1.3125559206173316
    },
    "qualifying": [
-    "deep-arcane"
+    "deep-arcane",
+    "deep-arcane-model"
    ],
    "model_pick_changes": [
     {
@@ -8400,10 +9716,12 @@
    },
    "model_pick_score": 1.65280969991665,
    "candidates": {
+    "mage-frost-pve-model": 1.65280969991665,
     "mage-frost-pve": 1.4945910076362061
    },
    "qualifying": [
-    "mage-frost-pve"
+    "mage-frost-pve",
+    "mage-frost-pve-model"
    ],
    "model_pick_changes": [
     {

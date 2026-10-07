@@ -1,0 +1,34 @@
+# Model pick for the deep Discipline PvP slot (owner request, 2026-10-07): the
+# community standard priest-discipline-smite hill-climbed under the PvP score, +7.8%.
+# Changes: Blackout 0->1, Power Infusion 1->0, Holy Reach 2->1, Shadow Focus 0->1.
+
+id = "priest-discipline-smite-model"
+class = "priest"
+name = "Discipline Smite (PvP, model pick)"
+pair = "priest-discipline-smite-model"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "The model's alternative to Discipline Smite (PvP): Blackout 0->1, Power Infusion 1->0, Holy Reach 2->1, Shadow Focus 0->1. Scores +7.8% higher; not tried in game."
+
+[final]
+"Blackout" = 1
+"Divine Fury" = 5
+"Holy Nova" = 1
+"Holy Precision" = 3
+"Holy Reach" = 1
+"Holy Specialization" = 5
+"Inner Focus" = 1
+"Meditation" = 3
+"Mental Agility" = 3
+"Mental Strength" = 5
+"Penance" = 1
+"Power in Light" = 5
+"Searing Light" = 2
+"Shadow Focus" = 1
+"Silent Resolve" = 3
+"Spell Warding" = 1
+"Twilight Focus" = 3
+"Twin Disciplines" = 5
+"Wand Specialization" = 2

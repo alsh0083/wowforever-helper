@@ -929,6 +929,181 @@
  },
  "builds": [
   {
+   "id": "priest-discipline-smite-model",
+   "name": "Discipline Smite (PvP, model pick)",
+   "pair": "priest-discipline-smite-model",
+   "variant": "PvP",
+   "origin": "model",
+   "summary": "The model's alternative to Discipline Smite (PvP): Blackout 0->1, Power Infusion 1->0, Holy Reach 2->1, Shadow Focus 0->1. Scores +7.8% higher; not tried in game.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    110851,
+    110855,
+    110855,
+    110855,
+    110855,
+    110855,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    105867,
+    105867,
+    105867,
+    110853,
+    110853,
+    110853,
+    110853,
+    110853,
+    110852,
+    105832,
+    105850,
+    105850,
+    105849,
+    105849,
+    105843,
+    105843,
+    105843,
+    105842,
+    105842,
+    105842,
+    105849,
+    105849,
+    105849,
+    105848,
+    105848,
+    105848,
+    105864,
+    110852,
+    110852,
+    105862,
+    105857,
+    105857,
+    105844,
+    105859,
+    105837,
+    105837,
+    105837,
+    105837,
+    105837,
+    105834
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 50.0,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 49.8,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 78.2,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 85.1,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 90.3,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 47.4,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 93.7,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 157.6,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 210.0,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 322.7,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 153.6,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0378,
+     "stamina": 0.000373,
+     "intellect": 6e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000254,
+     "crit_rating": 3.6e-05,
+     "hit_rating": 9.6e-05,
+     "crit_pct": 0.000116,
+     "hit_pct": 0.00037
+    },
+    "30": {
+     "score": 0.1031,
+     "stamina": 0.000673,
+     "intellect": 1.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000359,
+     "crit_rating": 6e-05,
+     "hit_rating": 6.4e-05,
+     "crit_pct": 0.000355,
+     "hit_pct": 0.000379
+    },
+    "40": {
+     "score": 0.1679,
+     "stamina": 0.000918,
+     "intellect": 1.3e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000304,
+     "crit_rating": 6.1e-05,
+     "hit_rating": 9e-05,
+     "crit_pct": 0.000526,
+     "hit_pct": 0.000779
+    },
+    "50": {
+     "score": 0.2282,
+     "stamina": 0.001554,
+     "intellect": 1.2e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000284,
+     "crit_rating": 5.3e-05,
+     "hit_rating": 8.6e-05,
+     "crit_pct": 0.000603,
+     "hit_pct": 0.000971
+    },
+    "60": {
+     "score": 0.4091,
+     "stamina": 0.0014,
+     "intellect": 1.4e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000279,
+     "crit_rating": 6.1e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.00085,
+     "hit_pct": 0.0
+    }
+   }
+  },
+  {
    "id": "priest-discipline-smite",
    "name": "Discipline Smite (PvP)",
    "pair": "priest-discipline-smite",
@@ -1338,6 +1513,181 @@
    }
   },
   {
+   "id": "priest-shadow-model",
+   "name": "Shadowform (PvP, model pick)",
+   "pair": "priest-shadow-model",
+   "variant": "PvP",
+   "origin": "model",
+   "summary": "The model's alternative to Shadowform (PvP): Devouring Contagion 2->0, Silence 0->1, Blackout 0->1. Scores +8.8% higher; not tried in game.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    110851,
+    110851,
+    110851,
+    105867,
+    105867,
+    105867,
+    110851,
+    110851,
+    105832,
+    105850,
+    105850,
+    105849,
+    105849,
+    105849,
+    105849,
+    105849,
+    105831,
+    105831,
+    105831,
+    105830,
+    105827,
+    105827,
+    105827,
+    105827,
+    105827,
+    105821,
+    105826,
+    105821,
+    105821,
+    105825,
+    105825,
+    105830,
+    105846,
+    105846,
+    105846,
+    105843,
+    105843,
+    105843,
+    105829,
+    105829,
+    105844,
+    105820,
+    105818,
+    105818,
+    105818,
+    105818,
+    105818,
+    105817,
+    105824,
+    110854,
+    110854
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 49.1,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 48.7,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 88.2,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 99.2,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 120.1,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 43.7,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 82.0,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 178.5,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 241.6,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 447.8,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 401.0,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.0391,
+     "stamina": 0.000381,
+     "intellect": 6e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000257,
+     "crit_rating": 3.7e-05,
+     "hit_rating": 6.4e-05,
+     "crit_pct": 0.00012,
+     "hit_pct": 0.000213
+    },
+    "30": {
+     "score": 0.0921,
+     "stamina": 0.00061,
+     "intellect": 1.1e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000312,
+     "crit_rating": 5.4e-05,
+     "hit_rating": 7e-05,
+     "crit_pct": 0.000317,
+     "hit_pct": 0.000413
+    },
+    "40": {
+     "score": 0.1828,
+     "stamina": 0.000976,
+     "intellect": 9e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000235,
+     "crit_rating": 4.2e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.000365,
+     "hit_pct": 0.0
+    },
+    "50": {
+     "score": 0.249,
+     "stamina": 0.001676,
+     "intellect": 8e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000212,
+     "crit_rating": 3.5e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.0004,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 0.4918,
+     "stamina": 0.001486,
+     "intellect": 1.7e-05,
+     "spirit": 0.0,
+     "spell_power": 0.000191,
+     "crit_rating": 7.2e-05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.001005,
+     "hit_pct": 0.0
+    }
+   }
+  },
+  {
    "id": "priest-shadow-pve",
    "name": "Shadow (PvE)",
    "pair": "priest-shadow",
@@ -1717,10 +2067,12 @@
    },
    "model_pick_score": 0.4090919193576469,
    "candidates": {
+    "priest-discipline-smite-model": 0.4090919193576469,
     "priest-discipline-smite": 0.37939318937143013
    },
    "qualifying": [
-    "priest-discipline-smite"
+    "priest-discipline-smite",
+    "priest-discipline-smite-model"
    ],
    "model_pick_changes": [
     {
@@ -1811,10 +2163,12 @@
    },
    "model_pick_score": 0.4917994825315686,
    "candidates": {
+    "priest-shadow-model": 0.4917994825315686,
     "priest-shadow": 0.45204685517453114
    },
    "qualifying": [
-    "priest-shadow"
+    "priest-shadow",
+    "priest-shadow-model"
    ],
    "model_pick_changes": [
     {

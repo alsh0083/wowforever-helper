@@ -1,0 +1,34 @@
+# Model pick for the deep Assassination PvP slot (owner request, 2026-10-07): the
+# community standard rogue-assassination-pvp hill-climbed under the PvP score, +9.2%.
+# Changes: Improved Kidney Shot 2->0, Venom 1->0, Vile Poisons 5->2, Puncturing Wounds 0->3, Improved Sprint 2->0, Improved Kick 2->0, Precision 2->3, Improved Slice and Dice 0->3, Dual Wield Specialization 0->3.
+
+id = "rogue-assassination-pvp-model"
+class = "rogue"
+name = "Assassination (PvP, model pick)"
+pair = "rogue-assassination-pvp-model"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "The model's alternative to Assassination (PvP): Improved Kidney Shot 2->0, Venom 1->0, Vile Poisons 5->2, Puncturing Wounds 0->3, Improved Sprint 2->0, Improved Kick 2->0, Precision 2->3, Improved Slice and Dice 0->3, Dual Wield Specialization 0->3. Scores +9.2% higher; not tried in game."
+
+[final]
+"Cold Blood" = 1
+"Deflection" = 3
+"Dual Wield Specialization" = 3
+"Endurance" = 2
+"Improved Eviscerate" = 3
+"Improved Gouge" = 3
+"Improved Slice and Dice" = 3
+"Lethality" = 5
+"Lightning Reflexes" = 2
+"Malice" = 5
+"Murder" = 2
+"Mutilate" = 1
+"Precision" = 3
+"Puncturing Wounds" = 3
+"Relentless Strikes" = 1
+"Riposte" = 1
+"Ruthlessness" = 3
+"Seal Fate" = 5
+"Vile Poisons" = 2

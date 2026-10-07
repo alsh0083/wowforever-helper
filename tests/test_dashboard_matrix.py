@@ -56,3 +56,13 @@ def test_best_pair_takes_the_top_build_of_each_column():
 def test_pair_divergence_is_described():
     assert "Orders match until level" in HTML     # pair mates show where their orders split
     assert "within one cell only" not in HTML      # scores compare across a whole column
+
+
+def test_a_model_pick_build_sits_next_to_its_community_standard():
+    # Deep Arcane PvE: the community standard, then its model pick as a build with the gain and changes
+    live = render(json.loads((Path(__file__).parents[1] / "data" / "report.json").read_text(encoding="utf-8")), {})
+    start = live.index('data-slot="deep Arcane|PvE"')
+    cell = live[start:live.index('data-slot=', start + 10)]
+    assert cell.index('data-build="deep-arcane"') < cell.index('data-build="deep-arcane-model"')
+    assert "Model pick: " in cell and "vs standard" in cell and "Talent changes from Deep Arcane (PvE)" in cell
+    assert 'class="model"' not in cell                # no separate pick box for the same build

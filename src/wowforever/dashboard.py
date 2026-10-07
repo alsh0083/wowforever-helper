@@ -280,11 +280,16 @@ def _slot_cell(slot: Mapping, by_id: Mapping[str, Mapping], best: Mapping[str, f
                                 slot.get("standard_score")))
     else:
         parts.append('<p class="empty">No community standard yet</p>')
+    # a model pick written as its own build (tools/derive_model_picks.py) takes the pick box's place
+    pick_build = f'{slot.get("standard")}-model' if slot.get("standard") else None
+    pick_shown = pick_build in slot.get("qualifying", [])
     for bid in slot.get("qualifying", []):
-        if bid != slot.get("standard"):
+        if bid == pick_build:
+            parts.append(_pick_line(build_line(bid, "", cands.get(bid)), slot, by_id))
+        elif bid != slot.get("standard"):
             parts.append(build_line(bid, "Also qualifies" if slot.get("standard") else "Qualifies",
                                     cands.get(bid)))
-    if slot.get("model_pick"):
+    if slot.get("model_pick") and not pick_shown:
         gain = _gain(slot)
         gain_txt = (f'{gain:+.1f}% vs {"standard" if slot.get("standard") else "its seed"}'
                     if gain is not None else f'scores {slot["model_pick_score"]:.2f}; no standard to compare against')
@@ -297,6 +302,18 @@ def _slot_cell(slot: Mapping, by_id: Mapping[str, Mapping], best: Mapping[str, f
                      f'<details><summary>{label}</summary><ul>{lines}</ul></details></div>')
     key = f'{slot["archetype"]}|{slot["focus"]}'
     return f'<div class="slot" data-slot="{e(key)}">{"".join(parts)}</div>'
+
+
+def _pick_line(line: str, slot: Mapping, by_id: Mapping[str, Mapping]) -> str:
+    """A model-pick build's row: its gain over the standard and the talents it changes."""
+    e = html.escape
+    gain = _gain(slot)
+    lines = "".join(f'<li>{e(c["talent"])} {c["from"]} → {c["to"]}</li>' for c in slot.get("model_pick_changes", []))
+    detail = (f'<span class="caption">Model pick: <span class="gain">{gain:+.1f}% vs standard</span></span>'
+              if gain is not None else '<span class="caption">Model pick</span>')
+    detail += (f'<details class="pick-changes"><summary>Talent changes from {e(by_id[slot["standard"]]["name"])}</summary>'
+               f'<ul>{lines}</ul></details>' if lines else "")
+    return line[:-len("</div>")] + detail + "</div>"
 
 
 def best_pair(payload: Mapping) -> tuple[tuple[str, float] | None, tuple[str, float] | None]:

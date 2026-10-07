@@ -1,0 +1,31 @@
+# Model pick for the deep Survival PvP slot (owner request, 2026-10-07): the
+# community standard hunter-survival-pvp hill-climbed under the PvP score, +8.5%.
+# Changes: Deadly Aspects 5->0, Strider Kick 1->0, Resourcefulness 2->0, Lacerating Strikes 1->0, Mortal Shots 0->2, Trueshot Aura 0->1, Improved Arcane Shot 0->5, Lone Wolf 1->0, Improved Stings 0->2.
+
+id = "hunter-survival-pvp-model"
+class = "hunter"
+name = "Survival Lone Wolf (PvP, model pick)"
+pair = "hunter-survival-pvp-model"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "The model's alternative to Survival Lone Wolf (PvP): Deadly Aspects 5->0, Strider Kick 1->0, Resourcefulness 2->0, Lacerating Strikes 1->0, Mortal Shots 0->2, Trueshot Aura 0->1, Improved Arcane Shot 0->5, Lone Wolf 1->0, Improved Stings 0->2. Scores +8.5% higher; not tried in game."
+
+[final]
+"Careful Aim" = 5
+"Clever Traps" = 2
+"Entrapment" = 3
+"Expose Prey" = 2
+"Improved Arcane Shot" = 5
+"Improved Stings" = 2
+"Improved Tracking" = 5
+"Lethal Attacks" = 5
+"Lightning Reflexes" = 5
+"Mortal Shots" = 2
+"Predator's Edge" = 5
+"Savage Strikes" = 2
+"Surefooted" = 3
+"Survival Tactics" = 2
+"Survivalist's Discipline" = 2
+"Trueshot Aura" = 1
