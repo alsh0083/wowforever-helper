@@ -22,7 +22,7 @@ that works for all nine classes.
   that level for the selected build, from dungeon bosses and quests, with crafted alternatives. Each item
   shows its source, and quest rewards are marked Alliance or Horde (pick yours at the top of the page).
   Where the source site has no faction for a quest, it is worked out from the quest giver or the places
-  it names and marked "(likely)". If you know a quest giver's faction, add it to `config/quest_factions.toml`.
+  it names (hover over the tag for the reason). If you know a quest giver's faction, add it to `config/quest_factions.toml`.
   Hover over (or tap) an item for its stats, or a quest for where it starts and ends and its chain.
 - **Scores:**
   - PvE: questing kills per hour, dungeon and raid DPS.
