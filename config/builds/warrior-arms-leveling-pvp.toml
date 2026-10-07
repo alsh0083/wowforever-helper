@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level, leaning toward the talents of Arms Mortal Strike (PvP), the tree's endgame PvP build.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "warrior-arms-leveling-pvp"
+class = "warrior"
+name = "Arms leveling (PvP)"
+pair = "warrior-arms-leveling-pvp"
+variant = "PvP"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Arms talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Arms Mortal Strike (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Cruelty",  # 10
+  "Cruelty",  # 11
+  "Cruelty",  # 12
+  "Cruelty",  # 13
+  "Cruelty",  # 14
+  "Improved Heroic Strike",  # 15
+  "Improved Heroic Strike",  # 16
+  "Improved Heroic Strike",  # 17
+  "Improved Rend",  # 18
+  "Improved Rend",  # 19
+  "Improved Rend",  # 20
+  "Improved Tactical Mastery",  # 21
+  "Improved Tactical Mastery",  # 22
+  "Improved Tactical Mastery",  # 23
+  "Improved Tactical Mastery",  # 24
+  "Deep Wounds",  # 25
+  "Deep Wounds",  # 26
+  "Deep Wounds",  # 27
+  "Improved Tactical Mastery",  # 28
+  "Anger Management",  # 29
+  "Two-Handed Weapon Specialization",  # 30
+  "Two-Handed Weapon Specialization",  # 31
+  "Two-Handed Weapon Specialization",  # 32
+  "Impale",  # 33
+  "Impale",  # 34
+  "Improved Overpower",  # 35
+  "Improved Overpower",  # 36
+  "Spearing Strike",  # 37
+  "Bloodthrill",  # 38
+  "Bloodthrill",  # 39
+  "Bloodthrill",  # 40
+  "Bloodthrill",  # 41
+  "Bloodthrill",  # 42
+  "Sweeping Strikes",  # 43
+  "Weaponmaster",  # 44
+  "Mortal Strike",  # 45
+  "Unbridled Wrath",  # 46
+  "Unbridled Wrath",  # 47
+  "Unbridled Wrath",  # 48
+  "Unbridled Wrath",  # 49
+  "Unbridled Wrath",  # 50
+  "Improved Slam",  # 51
+  "Improved Slam",  # 52
+  "Weaponmaster",  # 53
+  "Weaponmaster",  # 54
+  "Weaponmaster",  # 55
+  "Weaponmaster",  # 56
+  "Piercing Howl",  # 57
+  "Booming Voice",  # 58
+  "Booming Voice",  # 59
+  "Booming Voice",  # 60
+]

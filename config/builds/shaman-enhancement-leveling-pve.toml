@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "shaman-enhancement-leveling-pve"
+class = "shaman"
+name = "Enhancement leveling (PvE)"
+pair = "shaman-enhancement-leveling-pve"
+variant = "PvE"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Enhancement talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Thundering Strikes",  # 10
+  "Thundering Strikes",  # 11
+  "Thundering Strikes",  # 12
+  "Thundering Strikes",  # 13
+  "Thundering Strikes",  # 14
+  "Mental Dexterity",  # 15
+  "Mental Dexterity",  # 16
+  "Mental Dexterity",  # 17
+  "Earth's Grasp",  # 18
+  "Earth's Grasp",  # 19
+  "Elemental Weapons",  # 20
+  "Elemental Weapons",  # 21
+  "Elemental Weapons",  # 22
+  "Ancestral Knowledge",  # 23
+  "Ancestral Knowledge",  # 24
+  "Flurry",  # 25
+  "Flurry",  # 26
+  "Flurry",  # 27
+  "Flurry",  # 28
+  "Flurry",  # 29
+  "Stormstrike",  # 30
+  "Ancestral Knowledge",  # 31
+  "Ancestral Knowledge",  # 32
+  "Ancestral Knowledge",  # 33
+  "Guardian Totems",  # 34
+  "Maelstrom Weapon",  # 35
+  "Maelstrom Weapon",  # 36
+  "Maelstrom Weapon",  # 37
+  "Maelstrom Weapon",  # 38
+  "Maelstrom Weapon",  # 39
+  "Spirit Weapons",  # 40
+  "Improved Healing Wave",  # 41
+  "Improved Healing Wave",  # 42
+  "Improved Healing Wave",  # 43
+  "Improved Healing Wave",  # 44
+  "Improved Healing Wave",  # 45
+  "Tidal Focus",  # 46
+  "Tidal Focus",  # 47
+  "Tidal Focus",  # 48
+  "Tidal Focus",  # 49
+  "Tidal Focus",  # 50
+  "Mental Quickness",  # 51
+  "Mental Quickness",  # 52
+  "Rage of the Farseer",  # 53
+  "Improved Stormstrike",  # 54
+  "Improved Stormstrike",  # 55
+  "Toughness",  # 56
+  "Toughness",  # 57
+  "Toughness",  # 58
+  "Toughness",  # 59
+  "Toughness",  # 60
+]

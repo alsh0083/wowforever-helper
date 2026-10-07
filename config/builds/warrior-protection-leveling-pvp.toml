@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level, leaning toward the talents of Protection (PvP, model), the tree's endgame PvP build.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "warrior-protection-leveling-pvp"
+class = "warrior"
+name = "Protection leveling (PvP)"
+pair = "warrior-protection-leveling-pvp"
+variant = "PvP"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Protection talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Protection (PvP, model), the tree's endgame PvP build. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Cruelty",  # 10
+  "Cruelty",  # 11
+  "Cruelty",  # 12
+  "Cruelty",  # 13
+  "Cruelty",  # 14
+  "Shield Specialization",  # 15
+  "Shield Specialization",  # 16
+  "Shield Specialization",  # 17
+  "Shield Specialization",  # 18
+  "Shield Specialization",  # 19
+  "Anticipation",  # 20
+  "Anticipation",  # 21
+  "Anticipation",  # 22
+  "Anticipation",  # 23
+  "Anticipation",  # 24
+  "Improved Bloodrage",  # 25
+  "Improved Bloodrage",  # 26
+  "Last Stand",  # 27
+  "Master of Defense",  # 28
+  "Master of Defense",  # 29
+  "Improved Revenge",  # 30
+  "Improved Revenge",  # 31
+  "Improved Revenge",  # 32
+  "Defiance",  # 33
+  "Defiance",  # 34
+  "Defiance",  # 35
+  "Improved Sunder Armor",  # 36
+  "Improved Sunder Armor",  # 37
+  "Improved Sunder Armor",  # 38
+  "Vanguard",  # 39
+  "Improved Shield Wall",  # 40
+  "Unbridled Wrath",  # 41
+  "Unbridled Wrath",  # 42
+  "Improved Heroic Strike",  # 43
+  "Improved Heroic Strike",  # 44
+  "Improved Heroic Strike",  # 45
+  "Deflection",  # 46
+  "Deflection",  # 47
+  "Deflection",  # 48
+  "Deflection",  # 49
+  "Deflection",  # 50
+  "Improved Rend",  # 51
+  "Improved Rend",  # 52
+  "Improved Rend",  # 53
+  "Deep Wounds",  # 54
+  "Deep Wounds",  # 55
+  "Focused Rage",  # 56
+  "Focused Rage",  # 57
+  "Focused Rage",  # 58
+  "Improved Shield Wall",  # 59
+  "Concussion Blow",  # 60
+]

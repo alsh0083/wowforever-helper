@@ -91,3 +91,12 @@ def test_look_ahead_unlocks_a_deep_talent_worth_more_per_point_than_the_greedy_p
     order = optimize_order(CLS, final, {}, weighted({C1: 100, X1: 3, A1: 0.1, A2: 0.1, B1: 0.1}))
     assert order.index(C1) == 10 and order[11:] == [X1] * 5
     assert check_order(CLS, order) == []
+
+
+def test_free_order_picks_talents_by_value_and_caps_off_tree_points():
+    from wowforever.optimizer import optimize_free_order
+
+    # tree One is the main tree; X1 (tree Two) pays most but only 2 off-tree points are allowed
+    order = optimize_free_order(CLS, weighted({X1: 10, A2: 2, A1: 1, B1: 1, C1: 50}), main_tree=1, max_off_tree=2, total=8)
+    assert order.count(X1) == 2 and order[:2] == [X1, X1]
+    assert check_order(CLS, order) == []

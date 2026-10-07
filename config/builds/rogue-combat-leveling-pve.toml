@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "rogue-combat-leveling-pve"
+class = "rogue"
+name = "Combat leveling (PvE)"
+pair = "rogue-combat-leveling-pve"
+variant = "PvE"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Combat talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Improved Sinister Strike",  # 10
+  "Improved Sinister Strike",  # 11
+  "Malice",  # 12
+  "Malice",  # 13
+  "Malice",  # 14
+  "Malice",  # 15
+  "Malice",  # 16
+  "Improved Eviscerate",  # 17
+  "Improved Eviscerate",  # 18
+  "Improved Eviscerate",  # 19
+  "Precision",  # 20
+  "Precision",  # 21
+  "Precision",  # 22
+  "Lightning Reflexes",  # 23
+  "Lightning Reflexes",  # 24
+  "Lightning Reflexes",  # 25
+  "Lightning Reflexes",  # 26
+  "Lightning Reflexes",  # 27
+  "Puncturing Wounds",  # 28
+  "Puncturing Wounds",  # 29
+  "Dual Wield Specialization",  # 30
+  "Dual Wield Specialization",  # 31
+  "Dual Wield Specialization",  # 32
+  "Dual Wield Specialization",  # 33
+  "Dual Wield Specialization",  # 34
+  "Blade Flurry",  # 35
+  "Puncturing Wounds",  # 36
+  "Deflection",  # 37
+  "Deflection",  # 38
+  "Deflection",  # 39
+  "Weapon Expertise",  # 40
+  "Weapon Expertise",  # 41
+  "Improved Slice and Dice",  # 42
+  "Improved Slice and Dice",  # 43
+  "Improved Slice and Dice",  # 44
+  "Ruthlessness",  # 45
+  "Ruthlessness",  # 46
+  "Relentless Strikes",  # 47
+  "Aggression",  # 48
+  "Aggression",  # 49
+  "Aggression",  # 50
+  "Adrenaline Rush",  # 51
+  "Ruthlessness",  # 52
+  "Lethality",  # 53
+  "Lethality",  # 54
+  "Lethality",  # 55
+  "Lethality",  # 56
+  "Lethality",  # 57
+  "Hack and Slash",  # 58
+  "Hack and Slash",  # 59
+  "Hack and Slash",  # 60
+]

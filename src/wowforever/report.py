@@ -400,6 +400,8 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
             "sources": [{"source": p.source, "game_build": p.game_build, "data_version": p.data_version,
                          "fetched_at": p.fetched_at} for p in ds.provenance]}
     builds = load_builds(class_name=class_name)
+    leveling = [b for b in builds if b.mode == "leveling"]
+    builds = [b for b in builds if b.mode != "leveling"]
     if getattr(module, "ENGINE", False) in ("melee", "spell"):
         report = melee_report(class_name, cls, builds, meta, hybrids=getattr(module, "HYBRIDS", ()))
     elif not getattr(module, "ENGINE", False):
@@ -408,6 +410,8 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
     else:
         report = {"class": class_name, "engine": True,
                   **build_report(cls, cls.spells, builds, StatTable.load(class_name), Assumptions.load(), meta)}
+    add_leveling(class_name, cls, leveling, report)
+    builds = builds + leveling
     add_stat_weights(class_name, cls, builds, report)
     from wowforever import melee_scenarios as ms
     from wowforever.describe import add_descriptions
@@ -416,6 +420,59 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
         ms.stat_table(class_name).at(60) if getattr(module, "ENGINE", False) else None)
     add_descriptions(class_name, cls, report, {b.id: b.variant for b in builds}, stats_60)
     return report
+
+
+def questing_at(class_name: str, cls: ClassData):
+    """(stats, ranks) -> questing result dict (score, unit, spell) with the class's engine."""
+    from wowforever import melee_scenarios as ms
+
+    if class_name == "mage":
+        assumptions = Assumptions.load()
+
+        def run(stats, ranks):
+            q = questing(Character(stats.level, stats, cls.spells, cls, dict(ranks)),
+                         default_params("questing", stats.level), assumptions)
+            return {"score": round(q.score, 1), "unit": q.unit, "spell": q.details["spell"]}
+        return run
+    return lambda stats, ranks: {"score": round(ms.questing(class_name, stats, cls.spells, cls, dict(ranks)), 1),
+                                 "unit": "kills/hour"}
+
+
+def add_leveling(class_name: str, cls: ClassData, leveling: Sequence[Build], report: dict[str, Any]) -> None:
+    """Leveling builds (owner request, 2026-10-07): each gets its path and questing pace at every
+    checkpoint, and `report["leveling"]` lists them by tree and focus with the endgame builds to respec
+    into at 60 (the same tree and focus in the endgame matrix)."""
+    from wowforever import melee_scenarios as ms
+
+    for b in report["builds"]:
+        b.setdefault("mode", "endgame")
+    if not leveling or not report.get("engine", True):
+        report["leveling"] = []
+        return
+    table = StatTable.load("mage") if class_name == "mage" else ms.stat_table(class_name)
+    run = questing_at(class_name, cls)
+    slots = {(s["archetype"], s["focus"]): s for s in report.get("shortlist", [])}
+    known = {b["id"] for b in report["builds"]}
+    rows = []
+    for b in leveling:
+        order = b.order_ids(cls)
+        problems = check_order(cls, order)
+        if problems:
+            raise ValueError(f"{b.id}: illegal order: {problems}")
+        scores = {"questing": {lvl: run(table.at(lvl), ranks_at(order, lvl, cls)) for lvl in CHECKPOINTS}}
+        tree = Counter(cls.talent(t).tree_id for t in order).most_common(1)[0][0]
+        tree_name = next(t.name for t in cls.trees if t.tree_id == tree)
+        slot = slots.get((f"deep {tree_name}", b.variant), {})
+        respec = [x for x in [slot.get("standard"), f'{slot.get("standard")}-model', *slot.get("qualifying", [])]
+                  if x and x in known]
+        report["builds"].append({
+            "id": b.id, "name": b.name, "pair": b.pair, "variant": b.variant, "origin": b.origin, "mode": "leveling",
+            "summary": b.summary, "gives_up": [], "model_filled": {}, "must_have_by": {}, "order": order,
+            "order_source": "model leveling path (questing pace)", "open_points": 0, "scores": scores,
+            "sensitivity": [], "respec": list(dict.fromkeys(respec))})
+        rows.append({"tree": tree_name, "focus": b.variant, "build": b.id,
+                     "score": round(sum(c["score"] for c in scores["questing"].values()) / len(CHECKPOINTS), 1)})
+    report["leveling"] = rows
 
 
 def add_stat_weights(class_name: str, cls: ClassData, builds: Sequence[Build], report: dict[str, Any]) -> None:
@@ -440,11 +497,12 @@ def add_stat_weights(class_name: str, cls: ClassData, builds: Sequence[Build], r
         table, score = None, {}
     melee_trees = getattr(module, "MELEE_TREES", ())
     generic = sw.generic_weights(class_name)
+    leveling_score = (lambda s, r, run=questing_at(class_name, cls): run(s, r)["score"]) if table is not None else None
     for b in report["builds"]:
         focus = variant.get(b["id"])
         if table is None or not b.get("scores") or focus not in score:
             b["stat_weights"] = {"generic": generic}
             continue
         b["stat_weights"] = sw.build_weights(
-            class_name, cls, b, table, score[focus], CHECKPOINTS,
+            class_name, cls, b, table, leveling_score if b.get("mode") == "leveling" else score[focus], CHECKPOINTS,
             melee_build=lambda ranks: bool(melee_trees) and ms.main_tree(cls, ranks) in melee_trees)

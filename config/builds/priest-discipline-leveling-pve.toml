@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "priest-discipline-leveling-pve"
+class = "priest"
+name = "Discipline leveling (PvE)"
+pair = "priest-discipline-leveling-pve"
+variant = "PvE"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Discipline talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Power in Light",  # 10
+  "Power in Light",  # 11
+  "Power in Light",  # 12
+  "Power in Light",  # 13
+  "Power in Light",  # 14
+  "Holy Precision",  # 15
+  "Wand Specialization",  # 16
+  "Wand Specialization",  # 17
+  "Twin Disciplines",  # 18
+  "Twin Disciplines",  # 19
+  "Meditation",  # 20
+  "Meditation",  # 21
+  "Meditation",  # 22
+  "Mental Agility",  # 23
+  "Mental Agility",  # 24
+  "Mental Agility",  # 25
+  "Shadow Focus",  # 26
+  "Shadow Focus",  # 27
+  "Shadow Focus",  # 28
+  "Holy Specialization",  # 29
+  "Holy Specialization",  # 30
+  "Twin Disciplines",  # 31
+  "Twin Disciplines",  # 32
+  "Twin Disciplines",  # 33
+  "Silent Resolve",  # 34
+  "Silent Resolve",  # 35
+  "Silent Resolve",  # 36
+  "Holy Precision",  # 37
+  "Holy Precision",  # 38
+  "Improved Power Word: Shield",  # 39
+  "Divine Aegis",  # 40
+  "Shadow Focus",  # 41
+  "Shadow Focus",  # 42
+  "Holy Specialization",  # 43
+  "Blackout",  # 44
+  "Blackout",  # 45
+  "Holy Specialization",  # 46
+  "Holy Specialization",  # 47
+  "Divine Fury",  # 48
+  "Divine Fury",  # 49
+  "Divine Fury",  # 50
+  "Divine Fury",  # 51
+  "Divine Fury",  # 52
+  "Divine Aegis",  # 53
+  "Divine Aegis",  # 54
+  "Penance",  # 55
+  "Improved Power Word: Shield",  # 56
+  "Power Infusion",  # 57
+  "Improved Power Word: Shield",  # 58
+  "Martyrdom",  # 59
+  "Martyrdom",  # 60
+]

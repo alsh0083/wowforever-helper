@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "mage-fire-leveling-pve"
+class = "mage"
+name = "Fire leveling (PvE)"
+pair = "mage-fire-leveling-pve"
+variant = "PvE"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Fire talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Improved Frostbolt",  # 10
+  "Improved Frostbolt",  # 11
+  "Improved Frostbolt",  # 12
+  "Elemental Precision",  # 13
+  "Improved Frostbolt",  # 14
+  "Wake of Fire",  # 15
+  "Wake of Fire",  # 16
+  "Incineration",  # 17
+  "Incineration",  # 18
+  "Incineration",  # 19
+  "Improved Fireball",  # 20
+  "Improved Fireball",  # 21
+  "Improved Fireball",  # 22
+  "Improved Fireball",  # 23
+  "Improved Fireball",  # 24
+  "Ignite",  # 25
+  "Ignite",  # 26
+  "Ignite",  # 27
+  "Ignite",  # 28
+  "Ignite",  # 29
+  "Master of Elements",  # 30
+  "Master of Elements",  # 31
+  "Master of Elements",  # 32
+  "Flame Throwing",  # 33
+  "Flame Throwing",  # 34
+  "Critical Mass",  # 35
+  "Critical Mass",  # 36
+  "Critical Mass",  # 37
+  "Impact",  # 38
+  "Impact",  # 39
+  "Fire Power",  # 40
+  "Fire Power",  # 41
+  "Fire Power",  # 42
+  "Fire Power",  # 43
+  "Fire Power",  # 44
+  "Elemental Precision",  # 45
+  "Wand Specialization",  # 46
+  "Wand Specialization",  # 47
+  "Arcane Focus",  # 48
+  "Arcane Focus",  # 49
+  "Arcane Focus",  # 50
+  "Arcane Concentration",  # 51
+  "Arcane Concentration",  # 52
+  "Arcane Concentration",  # 53
+  "Arcane Concentration",  # 54
+  "Arcane Concentration",  # 55
+  "Combustion",  # 56
+  "Blast Wave",  # 57
+  "Improved Scorch",  # 58
+  "Improved Scorch",  # 59
+  "Improved Scorch",  # 60
+]

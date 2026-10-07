@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "shaman-restoration-leveling-pve"
+class = "shaman"
+name = "Restoration leveling (PvE)"
+pair = "shaman-restoration-leveling-pve"
+variant = "PvE"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Restoration talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Thundering Strikes",  # 10
+  "Thundering Strikes",  # 11
+  "Thundering Strikes",  # 12
+  "Thundering Strikes",  # 13
+  "Thundering Strikes",  # 14
+  "Improved Healing Wave",  # 15
+  "Improved Healing Wave",  # 16
+  "Improved Healing Wave",  # 17
+  "Improved Healing Wave",  # 18
+  "Improved Healing Wave",  # 19
+  "Mindfulness",  # 20
+  "Mindfulness",  # 21
+  "Mindfulness",  # 22
+  "Tidal Focus",  # 23
+  "Tidal Focus",  # 24
+  "Tidal Focus",  # 25
+  "Totemic Focus",  # 26
+  "Totemic Focus",  # 27
+  "Totemic Focus",  # 28
+  "Totemic Focus",  # 29
+  "Totemic Focus",  # 30
+  "Natural Grace",  # 31
+  "Natural Grace",  # 32
+  "Natural Grace",  # 33
+  "Tidal Focus",  # 34
+  "Tidal Focus",  # 35
+  "Improved Reincarnation",  # 36
+  "Improved Reincarnation",  # 37
+  "Ancestral Healing",  # 38
+  "Ancestral Healing",  # 39
+  "Purification",  # 40
+  "Convection",  # 41
+  "Convection",  # 42
+  "Convection",  # 43
+  "Convection",  # 44
+  "Convection",  # 45
+  "Call of Flame",  # 46
+  "Call of Flame",  # 47
+  "Call of Flame",  # 48
+  "Concussion",  # 49
+  "Concussion",  # 50
+  "Elemental Alacrity",  # 51
+  "Elemental Alacrity",  # 52
+  "Elemental Alacrity",  # 53
+  "Concussion",  # 54
+  "Concussion",  # 55
+  "Purification",  # 56
+  "Purification",  # 57
+  "Purification",  # 58
+  "Purification",  # 59
+  "Healing Way",  # 60
+]

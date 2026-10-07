@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "priest-holy-leveling-pve"
+class = "priest"
+name = "Holy leveling (PvE)"
+pair = "priest-holy-leveling-pve"
+variant = "PvE"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Holy talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Holy Specialization",  # 10
+  "Holy Specialization",  # 11
+  "Holy Specialization",  # 12
+  "Holy Specialization",  # 13
+  "Holy Specialization",  # 14
+  "Divine Fury",  # 15
+  "Divine Fury",  # 16
+  "Divine Fury",  # 17
+  "Divine Fury",  # 18
+  "Divine Fury",  # 19
+  "Shadow Focus",  # 20
+  "Shadow Focus",  # 21
+  "Shadow Focus",  # 22
+  "Twilight Focus",  # 23
+  "Twilight Focus",  # 24
+  "Twilight Focus",  # 25
+  "Improved Renew",  # 26
+  "Improved Renew",  # 27
+  "Searing Light",  # 28
+  "Searing Light",  # 29
+  "Improved Renew",  # 30
+  "Spell Warding",  # 31
+  "Spell Warding",  # 32
+  "Spell Warding",  # 33
+  "Spell Warding",  # 34
+  "Spell Warding",  # 35
+  "Holy Nova",  # 36
+  "Blessed Recovery",  # 37
+  "Blessed Recovery",  # 38
+  "Blessed Recovery",  # 39
+  "Inspiration",  # 40
+  "Power in Light",  # 41
+  "Power in Light",  # 42
+  "Power in Light",  # 43
+  "Power in Light",  # 44
+  "Power in Light",  # 45
+  "Holy Precision",  # 46
+  "Wand Specialization",  # 47
+  "Wand Specialization",  # 48
+  "Twin Disciplines",  # 49
+  "Twin Disciplines",  # 50
+  "Meditation",  # 51
+  "Meditation",  # 52
+  "Meditation",  # 53
+  "Mental Agility",  # 54
+  "Mental Agility",  # 55
+  "Mental Agility",  # 56
+  "Inspiration",  # 57
+  "Inspiration",  # 58
+  "Holy Reach",  # 59
+  "Holy Reach",  # 60
+]

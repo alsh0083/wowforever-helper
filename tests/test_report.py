@@ -29,7 +29,7 @@ def payload():
     cls, _ = attach_effects(cls, TALENT_EFFECTS, UNMODELED)
     spells = class_spells(read_tables(FIX / "wago-1.60.1.70205-spells"), skill_lines=SKILL_LINES)
     cls = replace(cls, spells=spells)
-    report = build_report(cls, spells, load_builds(class_name="mage"), StatTable.load("mage"), Assumptions.load(),
+    report = build_report(cls, spells, [b for b in load_builds(class_name="mage") if b.mode == "endgame"], StatTable.load("mage"), Assumptions.load(),
                           {"version": "1.60.1.70205", "game_build": "1.60.1.70205"})
     return cls, report
 
