@@ -14,7 +14,8 @@ DATASET = Path(__file__).resolve().parents[1] / "data" / "datasets" / "1.60.1.70
 _ROGUE = class_module("rogue")
 _CLS, _ = attach_effects(Dataset.load(DATASET).class_data("rogue"), _ROGUE.TALENT_EFFECTS, _ROGUE.UNMODELED)
 # routes-only reports stay available for classes without an engine; the rogue is a stand-in here
-REPORT = {"class": "rogue", **route_report(_CLS, load_builds(class_name="rogue"), {}, hybrids=_ROGUE.HYBRIDS)}
+ENDGAME = [b for b in load_builds(class_name="rogue") if b.mode == "endgame"]   # leveling builds join later (add_leveling)
+REPORT = {"class": "rogue", **route_report(_CLS, ENDGAME, {}, hybrids=_ROGUE.HYBRIDS)}
 
 
 def test_engines():
@@ -25,7 +26,7 @@ def test_engines():
 def test_rogue_report_is_routes_only():
     assert REPORT["class"] == "rogue" and REPORT["engine"] is False
     ids = {b["id"] for b in REPORT["builds"]}
-    assert ids == {b.id for b in load_builds(class_name="rogue")}
+    assert ids == {b.id for b in ENDGAME}
     for b in REPORT["builds"]:
         assert b["scores"] == {} and b["sensitivity"] == []
         assert b["order_source"].startswith("legal order")

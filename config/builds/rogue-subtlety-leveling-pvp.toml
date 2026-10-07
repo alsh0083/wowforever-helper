@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level, leaning toward the talents of Subtlety (PvP), the tree's endgame PvP build.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "rogue-subtlety-leveling-pvp"
+class = "rogue"
+name = "Subtlety leveling (PvP)"
+pair = "rogue-subtlety-leveling-pvp"
+variant = "PvP"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Subtlety talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Subtlety (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Malice",  # 10
+  "Malice",  # 11
+  "Malice",  # 12
+  "Malice",  # 13
+  "Malice",  # 14
+  "Camouflage",  # 15
+  "Camouflage",  # 16
+  "Camouflage",  # 17
+  "Camouflage",  # 18
+  "Camouflage",  # 19
+  "Opportunity",  # 20
+  "Opportunity",  # 21
+  "Setup",  # 22
+  "Setup",  # 23
+  "Setup",  # 24
+  "Elusiveness",  # 25
+  "Elusiveness",  # 26
+  "Dirty Tricks",  # 27
+  "Dirty Tricks",  # 28
+  "Initiative",  # 29
+  "Serrated Blades",  # 30
+  "Serrated Blades",  # 31
+  "Serrated Blades",  # 32
+  "Initiative",  # 33
+  "Initiative",  # 34
+  "Hemorrhage",  # 35
+  "Ghostly Strike",  # 36
+  "Heightened Senses",  # 37
+  "Heightened Senses",  # 38
+  "Premeditation",  # 39
+  "Dirty Deeds",  # 40
+  "Improved Slice and Dice",  # 41
+  "Improved Slice and Dice",  # 42
+  "Improved Slice and Dice",  # 43
+  "Ruthlessness",  # 44
+  "Ruthlessness",  # 45
+  "Relentless Strikes",  # 46
+  "Ruthlessness",  # 47
+  "Lethality",  # 48
+  "Lethality",  # 49
+  "Lethality",  # 50
+  "Lethality",  # 51
+  "Lethality",  # 52
+  "Improved Eviscerate",  # 53
+  "Improved Eviscerate",  # 54
+  "Improved Eviscerate",  # 55
+  "Dirty Deeds",  # 56
+  "Quietus",  # 57
+  "Quietus",  # 58
+  "Quietus",  # 59
+  "Quietus",  # 60
+]

@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level, leaning toward the talents of Assassination (PvP), the tree's endgame PvP build.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "rogue-assassination-leveling-pvp"
+class = "rogue"
+name = "Assassination leveling (PvP)"
+pair = "rogue-assassination-leveling-pvp"
+variant = "PvP"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Assassination talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Assassination (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Malice",  # 10
+  "Malice",  # 11
+  "Malice",  # 12
+  "Malice",  # 13
+  "Malice",  # 14
+  "Improved Gouge",  # 15
+  "Improved Gouge",  # 16
+  "Improved Gouge",  # 17
+  "Murder",  # 18
+  "Murder",  # 19
+  "Relentless Strikes",  # 20
+  "Improved Sinister Strike",  # 21
+  "Lethality",  # 22
+  "Lethality",  # 23
+  "Lethality",  # 24
+  "Lethality",  # 25
+  "Improved Sinister Strike",  # 26
+  "Lethality",  # 27
+  "Vile Poisons",  # 28
+  "Vile Poisons",  # 29
+  "Vile Poisons",  # 30
+  "Vile Poisons",  # 31
+  "Improved Kidney Shot",  # 32
+  "Improved Kidney Shot",  # 33
+  "Vile Poisons",  # 34
+  "Cold Blood",  # 35
+  "Ruthlessness",  # 36
+  "Improved Slice and Dice",  # 37
+  "Ruthlessness",  # 38
+  "Ruthlessness",  # 39
+  "Mutilate",  # 40
+  "Improved Slice and Dice",  # 41
+  "Improved Eviscerate",  # 42
+  "Improved Eviscerate",  # 43
+  "Improved Eviscerate",  # 44
+  "Precision",  # 45
+  "Precision",  # 46
+  "Precision",  # 47
+  "Improved Slice and Dice",  # 48
+  "Seal Fate",  # 49
+  "Puncturing Wounds",  # 50
+  "Seal Fate",  # 51
+  "Puncturing Wounds",  # 52
+  "Seal Fate",  # 53
+  "Puncturing Wounds",  # 54
+  "Seal Fate",  # 55
+  "Seal Fate",  # 56
+  "Opportunity",  # 57
+  "Opportunity",  # 58
+  "Lightning Reflexes",  # 59
+  "Lightning Reflexes",  # 60
+]

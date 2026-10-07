@@ -178,3 +178,65 @@ def _stuck(
     return ValueError(
         f"cannot meet deadline for {by_id[worst_id].name} (id {worst_id}) at level {worst_deadline}"
     )
+
+
+def optimize_free_order(
+    cls: ClassData,
+    value: Callable[[dict[int, int], int], float],
+    *,
+    main_tree: int,
+    max_off_tree: int,
+    total: int,
+    early_off_tree: int | None = None,
+    early_points: int = 0,
+) -> list[int]:
+    """A leveling path not tied to a finished build (owner request, 2026-10-07): `total` points, each on
+    the best legal path's first point by `value` (as `optimize_order`), choosing from every talent of
+    the class. At most `max_off_tree` points go outside `main_tree`, and at most `early_off_tree` within
+    the first `early_points` (a small early dip, then deep), so the build stays in that tree's direction. Ties go to the main tree, then deeper rows, so points that don't change the score still
+    head toward the tree's deep talents."""
+    by_id = {t.talent_id: t for t in cls.talents}
+    final = {t.talent_id: t.max_rank for t in cls.talents}
+    ranks = {tid: 0 for tid in final}
+    memo: dict[tuple, float] = {}
+
+    def cached(r: Mapping[int, int], level: int) -> float:
+        key = (level, tuple(sorted((k, v) for k, v in r.items() if v)))
+        if key not in memo:
+            memo[key] = value(dict(r), level)
+        return memo[key]
+
+    order: list[int] = []
+    for index in range(1, total + 1):
+        level = cls.rules.first_talent_level + index - 1
+        off = sum(n for tid, n in ranks.items() if by_id[tid].tree_id != main_tree)
+        cap = max_off_tree if early_off_tree is None or index > early_points else min(max_off_tree, early_off_tree)
+        allowed = {t.talent_id for t in cls.talents
+                   if ranks[t.talent_id] < t.max_rank and _legal_now(t, ranks, by_id, cls.rules)
+                   and (t.tree_id == main_tree or off < cap)}
+        if not allowed:
+            raise ValueError(f"no legal point left at level {level}")
+        now = cached(ranks, level)
+        options = []
+        for target in by_id.values():
+            if ranks[target.talent_id] >= target.max_rank:
+                continue
+            path = _unlock_path(target, ranks, final, by_id, cls.rules, lambda r: cached(r, level))
+            if not path or path[0] not in allowed:
+                continue
+            if sum(1 for tid in path if by_id[tid].tree_id != main_tree) + off > cap:
+                continue
+            after = dict(ranks)
+            for tid in path:
+                after[tid] += 1
+            first = by_id[path[0]]
+            rate = (cached(after, level) - now) / len(path)
+            options.append((round(rate, 9), first.tree_id == main_tree, target.row, -len(path), -first.row,
+                            -first.col, -first.talent_id, first))
+        if options:
+            best = max(options, key=lambda o: o[:7])[7]
+        else:
+            best = min((by_id[tid] for tid in allowed), key=lambda t: (t.tree_id != main_tree, t.row, t.col, t.talent_id))
+        ranks[best.talent_id] += 1
+        order.append(best.talent_id)
+    return order

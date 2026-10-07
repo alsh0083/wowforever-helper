@@ -66,3 +66,13 @@ def test_a_model_pick_build_sits_next_to_its_community_standard():
     assert cell.index('data-build="deep-arcane"') < cell.index('data-build="deep-arcane-model"')
     assert "Model pick: " in cell and "vs standard" in cell and "Talent changes from Deep Arcane (PvE)" in cell
     assert 'class="model"' not in cell                # no separate pick box for the same build
+
+
+def test_leveling_mode_has_its_own_table_and_respec_suggestions():
+    live = json.loads((Path(__file__).parents[1] / "data" / "report.json").read_text(encoding="utf-8"))
+    html = render(live, {})
+    assert 'data-mode-pick="leveling"' in html and 'data-mode-pick="endgame"' in html
+    assert '<div class="mode-leveling">' in html and 'aria-label="Leveling builds by tree and focus"' in html
+    assert 'data-build="mage-frost-leveling-pve"' in html and "Respec at 60 into" in html
+    fire = next(b for b in live["builds"] if b["id"] == "mage-fire-leveling-pve")
+    assert fire["mode"] == "leveling" and fire["respec"] and set(fire["scores"]) == {"questing"}

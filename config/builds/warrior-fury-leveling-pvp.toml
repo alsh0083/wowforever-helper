@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level, leaning toward the talents of Fury (PvP, model), the tree's endgame PvP build.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "warrior-fury-leveling-pvp"
+class = "warrior"
+name = "Fury leveling (PvP)"
+pair = "warrior-fury-leveling-pvp"
+variant = "PvP"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Fury talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Fury (PvP, model), the tree's endgame PvP build. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Cruelty",  # 10
+  "Cruelty",  # 11
+  "Cruelty",  # 12
+  "Cruelty",  # 13
+  "Cruelty",  # 14
+  "Improved Heroic Strike",  # 15
+  "Improved Heroic Strike",  # 16
+  "Improved Heroic Strike",  # 17
+  "Unbridled Wrath",  # 18
+  "Unbridled Wrath",  # 19
+  "Unbridled Wrath",  # 20
+  "Unbridled Wrath",  # 21
+  "Unbridled Wrath",  # 22
+  "Improved Cleave",  # 23
+  "Improved Cleave",  # 24
+  "Improved Cleave",  # 25
+  "Piercing Howl",  # 26
+  "Blood Craze",  # 27
+  "Raging Blows",  # 28
+  "Blood Craze",  # 29
+  "Blood Craze",  # 30
+  "Enrage",  # 31
+  "Enrage",  # 32
+  "Death Wish",  # 33
+  "Enrage",  # 34
+  "Enrage",  # 35
+  "Enrage",  # 36
+  "Precision",  # 37
+  "Flurry",  # 38
+  "Flurry",  # 39
+  "Flurry",  # 40
+  "Improved Rend",  # 41
+  "Improved Rend",  # 42
+  "Improved Rend",  # 43
+  "Improved Tactical Mastery",  # 44
+  "Improved Tactical Mastery",  # 45
+  "Improved Tactical Mastery",  # 46
+  "Improved Tactical Mastery",  # 47
+  "Deep Wounds",  # 48
+  "Deep Wounds",  # 49
+  "Deep Wounds",  # 50
+  "Improved Tactical Mastery",  # 51
+  "Anger Management",  # 52
+  "Two-Handed Weapon Specialization",  # 53
+  "Two-Handed Weapon Specialization",  # 54
+  "Two-Handed Weapon Specialization",  # 55
+  "Impale",  # 56
+  "Impale",  # 57
+  "Flurry",  # 58
+  "Flurry",  # 59
+  "Precision",  # 60
+]

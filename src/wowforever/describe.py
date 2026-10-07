@@ -117,6 +117,16 @@ def strengths(build: Mapping[str, Any], best: Mapping[str, float]) -> str:
             f"weakest at {SCENARIO_LABELS[low[0]]} ({low[1]:.0%}).")
 
 
+def pace(build: Mapping[str, Any]) -> str:
+    """A leveling build's questing pace by level."""
+    cells = build.get("scores", {}).get("questing", {})
+    by_level = [(int(lvl), c["score"]) for lvl, c in cells.items() if c and c.get("score") is not None]
+    if not by_level:
+        return ""
+    steps = [f"{score:.0f} at {lvl}" for lvl, score in sorted(by_level)]
+    return f"Questing pace in the model, in kills per hour: {_join(steps)}."
+
+
 def class_best(builds: Sequence[Mapping[str, Any]]) -> dict[str, float]:
     best: dict[str, float] = {}
     for b in builds:
@@ -213,7 +223,11 @@ def add_descriptions(class_name: str, cls: ClassData, report: dict[str, Any], va
                 facts = rotation_facts(class_name, cls, final, stats_at_60, b["scores"])
             except Exception:   # an engine that can't run this build at 60 just gets no playstyle line
                 facts = {}
-            paragraphs += [p for p in (playstyle(class_name, facts), strengths(b, best)) if p]
-        if b.get("origin") == "model":
+            paragraphs += [p for p in (playstyle(class_name, facts),
+                                       pace(b) if b.get("mode") == "leveling" else strengths(b, best)) if p]
+        if b.get("mode") == "leveling":
+            paragraphs.append("A model leveling path, not yet tried in game. It isn't tied to an endgame build: "
+                              "respec at 60 into one of the builds suggested below.")
+        elif b.get("origin") == "model":
             paragraphs.append("A model build: the calculator's pick for this slot, not yet tried in game.")
         b["about"] = paragraphs

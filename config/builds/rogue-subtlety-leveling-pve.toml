@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "rogue-subtlety-leveling-pve"
+class = "rogue"
+name = "Subtlety leveling (PvE)"
+pair = "rogue-subtlety-leveling-pve"
+variant = "PvE"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Subtlety talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Improved Sinister Strike",  # 10
+  "Improved Sinister Strike",  # 11
+  "Malice",  # 12
+  "Malice",  # 13
+  "Malice",  # 14
+  "Camouflage",  # 15
+  "Camouflage",  # 16
+  "Camouflage",  # 17
+  "Camouflage",  # 18
+  "Camouflage",  # 19
+  "Master of Deception",  # 20
+  "Master of Deception",  # 21
+  "Master of Deception",  # 22
+  "Opportunity",  # 23
+  "Opportunity",  # 24
+  "Setup",  # 25
+  "Setup",  # 26
+  "Setup",  # 27
+  "Elusiveness",  # 28
+  "Elusiveness",  # 29
+  "Serrated Blades",  # 30
+  "Serrated Blades",  # 31
+  "Serrated Blades",  # 32
+  "Dirty Tricks",  # 33
+  "Dirty Tricks",  # 34
+  "Improved Ambush",  # 35
+  "Improved Ambush",  # 36
+  "Improved Ambush",  # 37
+  "Initiative",  # 38
+  "Initiative",  # 39
+  "Initiative",  # 40
+  "Malice",  # 41
+  "Malice",  # 42
+  "Improved Gouge",  # 43
+  "Improved Gouge",  # 44
+  "Improved Gouge",  # 45
+  "Remorseless Attacks",  # 46
+  "Remorseless Attacks",  # 47
+  "Relentless Strikes",  # 48
+  "Improved Slice and Dice",  # 49
+  "Improved Slice and Dice",  # 50
+  "Improved Slice and Dice",  # 51
+  "Ruthlessness",  # 52
+  "Ruthlessness",  # 53
+  "Ruthlessness",  # 54
+  "Improved Eviscerate",  # 55
+  "Ghostly Strike",  # 56
+  "Improved Distract",  # 57
+  "Improved Distract",  # 58
+  "Heightened Senses",  # 59
+  "Heightened Senses",  # 60
+]

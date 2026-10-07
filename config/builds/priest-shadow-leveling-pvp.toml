@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level, leaning toward the talents of Shadowform (PvP), the tree's endgame PvP build.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "priest-shadow-leveling-pvp"
+class = "priest"
+name = "Shadow leveling (PvP)"
+pair = "priest-shadow-leveling-pvp"
+variant = "PvP"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Shadow talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Shadowform (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Shadow Focus",  # 10
+  "Shadow Focus",  # 11
+  "Shadow Focus",  # 12
+  "Shadow Focus",  # 13
+  "Shadow Focus",  # 14
+  "Shadow Affinity",  # 15
+  "Shadow Affinity",  # 16
+  "Shadow Affinity",  # 17
+  "Improved Shadow Word: Pain",  # 18
+  "Improved Shadow Word: Pain",  # 19
+  "Mind Flay",  # 20
+  "Improved Mind Flay",  # 21
+  "Improved Mind Flay",  # 22
+  "Shadow Reach",  # 23
+  "Shadow Reach",  # 24
+  "Shadow Weaving",  # 25
+  "Shadow Weaving",  # 26
+  "Shadow Weaving",  # 27
+  "Vampiric Embrace",  # 28
+  "Improved Mind Blast",  # 29
+  "Devouring Contagion",  # 30
+  "Devouring Contagion",  # 31
+  "Improved Mind Blast",  # 32
+  "Improved Mind Blast",  # 33
+  "Improved Mind Blast",  # 34
+  "Darkness",  # 35
+  "Darkness",  # 36
+  "Darkness",  # 37
+  "Darkness",  # 38
+  "Darkness",  # 39
+  "Shadowform",  # 40
+  "Improved Mind Blast",  # 41
+  "Early Demise",  # 42
+  "Early Demise",  # 43
+  "Wand Specialization",  # 44
+  "Wand Specialization",  # 45
+  "Twin Disciplines",  # 46
+  "Twin Disciplines",  # 47
+  "Twin Disciplines",  # 48
+  "Twin Disciplines",  # 49
+  "Twin Disciplines",  # 50
+  "Improved Power Word: Shield",  # 51
+  "Improved Power Word: Shield",  # 52
+  "Improved Power Word: Shield",  # 53
+  "Inner Focus",  # 54
+  "Meditation",  # 55
+  "Meditation",  # 56
+  "Meditation",  # 57
+  "Twilight Focus",  # 58
+  "Twilight Focus",  # 59
+  "Twilight Focus",  # 60
+]

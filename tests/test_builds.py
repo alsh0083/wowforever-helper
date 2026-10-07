@@ -1,5 +1,6 @@
 """The v0 builds (#20) must be legal on real Forever data (build 1.60.1.70205 fixtures)."""
 
+from collections import Counter
 from pathlib import Path
 
 import pytest
@@ -20,7 +21,7 @@ FIXTURES = {b.id: b for b in load_builds(Path(__file__).parent / "fixtures" / "b
 
 
 def test_the_builds_exist_and_names_end_in_their_focus():
-    assert set(BUILDS) == {"elementalist-pve-v2", "deep-frost",
+    assert {k for k, b in BUILDS.items() if b.mode == "endgame"} == {"elementalist-pve-v2", "deep-frost",
                            "deep-fire", "arcane-pom-pyro", "fire-frost-shatter", "deep-arcane",
                            # matrix fill (owner request, 2026-10-05): catalog plan and model builds
                            "mage-frost-pve", "mage-arcane-pvp", "mage-fire-pvp", "mage-fire-frost-pvp",
@@ -85,3 +86,14 @@ def test_model_filled_points_add_to_the_published_final(tmp_path):
                     '[model_filled]\n"Ice Shards" = 2\n"Frostbite" = 1\n', encoding="utf-8")
     b = Build.load(path)
     assert b.final == {"Ice Shards": 5, "Frostbite": 1} and b.model_filled == {"Ice Shards": 2, "Frostbite": 1}
+
+
+def test_every_tree_has_a_leveling_build_per_focus_with_a_full_legal_path():
+    # owner request, 2026-10-07: Leveling mode; paths may use any talent but stay deep in the tree
+    leveling = {b.id: b for b in BUILDS.values() if b.mode == "leveling"}
+    assert set(leveling) == {f"mage-{t}-leveling-{f}" for t in ("arcane", "fire", "frost") for f in ("pve", "pvp")}
+    for b in leveling.values():
+        ids = b.order_ids(CLS)
+        assert check_order(CLS, ids) == [] and len(ids) == points_available(60, CLS.rules)
+        trees = Counter(CLS.talent(t).tree_id for t in ids)
+        assert max(trees.values()) >= 31 and b.origin == "model", b.id

@@ -35,6 +35,7 @@ class Build:
     class_name: str = "mage"                   # TOML key `class`
     model_filled: dict[str, int] = field(default_factory=dict)  # points the model added to a community
                                                                 # build that leaves some open (in `final`)
+    mode: str = "endgame"                      # "endgame", or "leveling": a path to 60 not tied to an endgame build
 
     @classmethod
     def load(cls, path: Path) -> Build:
@@ -48,7 +49,7 @@ class Build:
                    dict(raw.get("must_have_by", {})), tuple(raw.get("gives_up", ())),
                    raw.get("primary_spell", ""), raw.get("pair", raw["id"]), raw.get("variant", ""),
                    raw.get("origin", "hand"), tuple(raw.get("sources", ())), raw.get("confidence", ""),
-                   raw.get("class", "mage"), filled)
+                   raw.get("class", "mage"), filled, raw.get("mode", "endgame"))
 
     def unknown_talents(self, cls: ClassData) -> list[str]:
         """Talent names in this build that the class doesn't have (e.g. renamed by a patch)."""

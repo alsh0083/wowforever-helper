@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level, leaning toward the talents of Affliction (PvP, model), the tree's endgame PvP build.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "warlock-affliction-leveling-pvp"
+class = "warlock"
+name = "Affliction leveling (PvP)"
+pair = "warlock-affliction-leveling-pvp"
+variant = "PvP"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Affliction talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Affliction (PvP, model), the tree's endgame PvP build. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Improved Corruption",  # 10
+  "Bane",  # 11
+  "Suppression",  # 12
+  "Suppression",  # 13
+  "Suppression",  # 14
+  "Suppression",  # 15
+  "Malediction",  # 16
+  "Malediction",  # 17
+  "Malediction",  # 18
+  "Malediction",  # 19
+  "Malediction",  # 20
+  "Improved Bane of Agony",  # 21
+  "Improved Bane of Agony",  # 22
+  "Improved Corruption",  # 23
+  "Improved Corruption",  # 24
+  "Improved Corruption",  # 25
+  "Improved Corruption",  # 26
+  "Malevolence",  # 27
+  "Malevolence",  # 28
+  "Malevolence",  # 29
+  "Malevolence",  # 30
+  "Malevolence",  # 31
+  "Suppression",  # 32
+  "Improved Drains",  # 33
+  "Improved Drains",  # 34
+  "Improved Drains",  # 35
+  "Shadow Mastery",  # 36
+  "Shadow Mastery",  # 37
+  "Shadow Mastery",  # 38
+  "Shadow Mastery",  # 39
+  "Shadow Mastery",  # 40
+  "Demonic Embrace",  # 41
+  "Demonic Embrace",  # 42
+  "Demonic Embrace",  # 43
+  "Demonic Embrace",  # 44
+  "Demonic Embrace",  # 45
+  "Demonic Aegis",  # 46
+  "Demonic Aegis",  # 47
+  "Fel Vitality",  # 48
+  "Fel Vitality",  # 49
+  "Fel Vitality",  # 50
+  "Demonic Sacrifice",  # 51
+  "Bane",  # 52
+  "Bane",  # 53
+  "Bane",  # 54
+  "Bane",  # 55
+  "Siphon Life",  # 56
+  "Soul Siphon",  # 57
+  "Soul Siphon",  # 58
+  "Soul Siphon",  # 59
+  "Nightfall",  # 60
+]

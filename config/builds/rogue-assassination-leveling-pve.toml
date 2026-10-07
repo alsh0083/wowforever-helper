@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "rogue-assassination-leveling-pve"
+class = "rogue"
+name = "Assassination leveling (PvE)"
+pair = "rogue-assassination-leveling-pve"
+variant = "PvE"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Assassination talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Improved Sinister Strike",  # 10
+  "Improved Sinister Strike",  # 11
+  "Malice",  # 12
+  "Malice",  # 13
+  "Malice",  # 14
+  "Malice",  # 15
+  "Malice",  # 16
+  "Improved Gouge",  # 17
+  "Improved Gouge",  # 18
+  "Improved Gouge",  # 19
+  "Remorseless Attacks",  # 20
+  "Remorseless Attacks",  # 21
+  "Relentless Strikes",  # 22
+  "Improved Slice and Dice",  # 23
+  "Improved Slice and Dice",  # 24
+  "Improved Slice and Dice",  # 25
+  "Ruthlessness",  # 26
+  "Ruthlessness",  # 27
+  "Ruthlessness",  # 28
+  "Improved Eviscerate",  # 29
+  "Lethality",  # 30
+  "Lethality",  # 31
+  "Lethality",  # 32
+  "Mutilate",  # 33
+  "Opportunity",  # 34
+  "Opportunity",  # 35
+  "Lethality",  # 36
+  "Lethality",  # 37
+  "Murder",  # 38
+  "Murder",  # 39
+  "Seal Fate",  # 40
+  "Improved Eviscerate",  # 41
+  "Improved Eviscerate",  # 42
+  "Puncturing Wounds",  # 43
+  "Puncturing Wounds",  # 44
+  "Puncturing Wounds",  # 45
+  "Precision",  # 46
+  "Precision",  # 47
+  "Precision",  # 48
+  "Seal Fate",  # 49
+  "Seal Fate",  # 50
+  "Seal Fate",  # 51
+  "Seal Fate",  # 52
+  "Lightning Reflexes",  # 53
+  "Lightning Reflexes",  # 54
+  "Lightning Reflexes",  # 55
+  "Lightning Reflexes",  # 56
+  "Dual Wield Specialization",  # 57
+  "Dual Wield Specialization",  # 58
+  "Dual Wield Specialization",  # 59
+  "Venom",  # 60
+]

@@ -14,6 +14,13 @@ not a leveling guide: it tells you which talent to take at each level, not where
 
 ## What you get
 
+- **Leveling or Endgame:** a toggle at the top switches the whole page between leveling builds and
+  endgame builds.
+  - **Leveling:** for every tree, a PvP and a PvE leveling build: talent paths the model picks for questing
+    pace from 10 to 60, from any talent of the class but staying in the tree (at most 5 points outside it
+    before 40). The PvP version also leans toward the talents the tree's endgame PvP build uses. Each one
+    suggests the endgame builds to respec into at 60.
+  - **Endgame:** the builds below.
 - **Every class and spec:** a matrix of each talent tree (plus the common hybrids) for PvP and PvE.
   Each slot holds the community standard. Where the model finds a better version, its pick sits right
   under the standard as its own build, with the gain and the talents it changes. Slots with no community
@@ -73,6 +80,7 @@ python -m venv .venv
 |---|---|
 | `wowforever update` | On-demand patch check: finds the latest build (wago.tools API), reads the client tables from the local cache, fetches the wowforevertalent.com pages, diffs against the saved dataset and records changes in `data/CHANGELOG.md`. For a new build it lists the table CSVs to save from wago.tools in a browser first |
 | `wowforever report --class <class>` | Scores every build of a class and writes the dashboard payload |
+| `tools/derive_leveling_builds.py [class ...]` | Regenerates the leveling builds (a path per tree and focus); rerun the reports after |
 | `wowforever dashboard` | Renders `dashboard/index.html` from all reports |
 | `wowforever gear-stats --class <class>` | Rebuilds a class's per-level stat table from real Forever items |
 | `wowforever gear-sources [--refresh]` | Rebuilds `data/items/gear.json` (where gear comes from); `--refresh` fetches wowforevertalent.com's item, dungeon and quest pages first |

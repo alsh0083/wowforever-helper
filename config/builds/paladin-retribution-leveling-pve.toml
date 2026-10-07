@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "paladin-retribution-leveling-pve"
+class = "paladin"
+name = "Retribution leveling (PvE)"
+pair = "paladin-retribution-leveling-pve"
+variant = "PvE"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Retribution talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Deflection",  # 10
+  "Deflection",  # 11
+  "Deflection",  # 12
+  "Deflection",  # 13
+  "Deflection",  # 14
+  "Conviction",  # 15
+  "Conviction",  # 16
+  "Conviction",  # 17
+  "Conviction",  # 18
+  "Conviction",  # 19
+  "Seal of Command",  # 20
+  "Improved Judgement",  # 21
+  "Improved Judgement",  # 22
+  "Benediction",  # 23
+  "Benediction",  # 24
+  "Sacred Arbiter",  # 25
+  "Benediction",  # 26
+  "Benediction",  # 27
+  "Benediction",  # 28
+  "Holy Conduit",  # 29
+  "Two-Handed Weapon Specialization",  # 30
+  "Two-Handed Weapon Specialization",  # 31
+  "Two-Handed Weapon Specialization",  # 32
+  "Holy Conduit",  # 33
+  "Vindication",  # 34
+  "Vindication",  # 35
+  "Vindication",  # 36
+  "Sanctified Judgement",  # 37
+  "Sanctified Judgement",  # 38
+  "Sanctified Judgement",  # 39
+  "Vengeance",  # 40
+  "Vengeance",  # 41
+  "Vengeance",  # 42
+  "Divine Strength",  # 43
+  "Divine Strength",  # 44
+  "Divine Strength",  # 45
+  "Divine Strength",  # 46
+  "Divine Strength",  # 47
+  "Improved Seals",  # 48
+  "Improved Seals",  # 49
+  "Improved Seals",  # 50
+  "Toughness",  # 51
+  "Toughness",  # 52
+  "Toughness",  # 53
+  "Toughness",  # 54
+  "Toughness",  # 55
+  "Twist of Light",  # 56
+  "Champion of the Light",  # 57
+  "Champion of the Light",  # 58
+  "Champion of the Light",  # 59
+  "Instrument of Law",  # 60
+]

@@ -1,0 +1,67 @@
+# Leveling build (owner request, 2026-10-07): tools/derive_leveling_builds.py, questing pace at every level.
+# Any talent of the class: at most 5 points outside the tree before 40, 20 in all. Model-made, unproven.
+
+id = "warlock-demonology-leveling-pve"
+class = "warlock"
+name = "Demonology leveling (PvE)"
+pair = "warlock-demonology-leveling-pve"
+variant = "PvE"
+mode = "leveling"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "A Demonology talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60."
+
+order = [
+  "Improved Corruption",  # 10
+  "Bane",  # 11
+  "Improved Health Funnel",  # 12
+  "Improved Health Funnel",  # 13
+  "Improved Imp",  # 14
+  "Improved Imp",  # 15
+  "Improved Imp",  # 16
+  "Demonic Embrace",  # 17
+  "Demonic Embrace",  # 18
+  "Demonic Embrace",  # 19
+  "Demonic Embrace",  # 20
+  "Demonic Embrace",  # 21
+  "Demonic Sacrifice",  # 22
+  "Suppression",  # 23
+  "Suppression",  # 24
+  "Suppression",  # 25
+  "Unholy Power",  # 26
+  "Unholy Power",  # 27
+  "Unholy Power",  # 28
+  "Unholy Power",  # 29
+  "Unholy Power",  # 30
+  "Demonic Aegis",  # 31
+  "Demonic Aegis",  # 32
+  "Improved Voidwalker",  # 33
+  "Improved Voidwalker",  # 34
+  "Improved Voidwalker",  # 35
+  "Fel Vitality",  # 36
+  "Fel Vitality",  # 37
+  "Fel Vitality",  # 38
+  "Demonic Energies",  # 39
+  "Master Demonologist",  # 40
+  "Improved Corruption",  # 41
+  "Malediction",  # 42
+  "Malediction",  # 43
+  "Malediction",  # 44
+  "Malediction",  # 45
+  "Malediction",  # 46
+  "Improved Bane of Agony",  # 47
+  "Improved Bane of Agony",  # 48
+  "Bane",  # 49
+  "Bane",  # 50
+  "Bane",  # 51
+  "Bane",  # 52
+  "Cataclysm",  # 53
+  "Improved Corruption",  # 54
+  "Improved Corruption",  # 55
+  "Master Demonologist",  # 56
+  "Master Demonologist",  # 57
+  "Master Demonologist",  # 58
+  "Master Demonologist",  # 59
+  "Improved Felhunter",  # 60
+]

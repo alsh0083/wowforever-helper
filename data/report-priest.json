@@ -936,6 +936,7 @@
    "origin": "model",
    "summary": "The model's alternative to Discipline Smite (PvP): Blackout 0->1, Power Infusion 1->0, Holy Reach 2->1, Shadow Focus 0->1. Scores +7.8% higher; not tried in game.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     110853,
@@ -1045,6 +1046,7 @@
     }
    },
    "sensitivity": [],
+   "mode": "endgame",
    "stat_weights": {
     "20": {
      "score": 0.0348,
@@ -1117,6 +1119,7 @@
    "origin": "community",
    "summary": "Discipline with Penance, Power Infusion, Power in Light and Mental Strength; Holy Specialization, Divine Fury, Holy Nova and Searing Light from Holy. Holy damage with Power Infusion: the community's damage Discipline build.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     110853,
@@ -1226,6 +1229,7 @@
     }
    },
    "sensitivity": [],
+   "mode": "endgame",
    "stat_weights": {
     "20": {
      "score": 0.0348,
@@ -1297,6 +1301,7 @@
    "origin": "community",
    "summary": "Discipline with Penance, Power Infusion, Divine Aegis and Renewed Hope; Holy Specialization, Divine Fury and Inspiration from Holy. The community's shield healer (routes only, unscored).",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105849,
@@ -1355,6 +1360,7 @@
    "open_points": 0,
    "scores": {},
    "sensitivity": [],
+   "mode": "endgame",
    "stat_weights": {
     "generic": {
      "spell_power": 1.0,
@@ -1379,6 +1385,7 @@
    "origin": "community",
    "summary": "51 points (Discipline 18 / Holy 33 / Shadow 0). Twin Disciplines is one of the spent talents. From the site's Holy Priest \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105849,
@@ -1437,6 +1444,7 @@
    "open_points": 0,
    "scores": {},
    "sensitivity": [],
+   "mode": "endgame",
    "stat_weights": {
     "generic": {
      "spell_power": 1.0,
@@ -1461,6 +1469,7 @@
    "origin": "community",
    "summary": "Holy with Prayer of Mending, Spiritual Guidance, Spiritual Healing and Spirit of Redemption; Inner Focus and Meditation from Discipline. The community's Holy healer (routes only, unscored).",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105849,
@@ -1519,6 +1528,7 @@
    "open_points": 0,
    "scores": {},
    "sensitivity": [],
+   "mode": "endgame",
    "stat_weights": {
     "generic": {
      "spell_power": 1.0,
@@ -1543,6 +1553,7 @@
    "origin": "model",
    "summary": "The model's alternative to Shadowform (PvP): Devouring Contagion 2->0, Silence 0->1, Blackout 0->1. Scores +8.8% higher; not tried in game.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105850,
@@ -1652,6 +1663,7 @@
     }
    },
    "sensitivity": [],
+   "mode": "endgame",
    "stat_weights": {
     "20": {
      "score": 0.0342,
@@ -1724,6 +1736,7 @@
    "origin": "community",
    "summary": "51 points (Discipline 18 / Holy 0 / Shadow 33). Shadow Focus is one of the spent talents. From the site's Shadow Priest \u00b7 Endgame \u00b7 PvE \u00b7 level 60 plan.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105849,
@@ -1833,6 +1846,7 @@
     }
    },
    "sensitivity": [],
+   "mode": "endgame",
    "stat_weights": {
     "20": {
      "score": 0.3479,
@@ -1904,6 +1918,7 @@
    "origin": "community",
    "summary": "Shadow with Shadowform, Vampiric Embrace, Shadow Weaving, Darkness and Improved Mind Flay; Twin Disciplines, Inner Focus and Meditation from Discipline. The most saved priest build and the community's PvP and leveling standard.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105850,
@@ -2013,6 +2028,7 @@
     }
    },
    "sensitivity": [],
+   "mode": "endgame",
    "stat_weights": {
     "20": {
      "score": 0.0342,
@@ -2074,6 +2090,956 @@
     "34 points in Shadow, with 14 in Discipline and 3 in Holy. Built for PvP. On this order the key talents arrive as follows: Mind Flay at 33, Vampiric Embrace at 41, Shadowform at 53 and Inner Focus at 58.",
     "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Mind Flay.",
     "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage."
+   ]
+  },
+  {
+   "id": "priest-discipline-leveling-pve",
+   "name": "Discipline leveling (PvE)",
+   "pair": "priest-discipline-leveling-pve",
+   "variant": "PvE",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "A Discipline talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    110853,
+    110853,
+    110853,
+    110853,
+    110853,
+    110852,
+    105850,
+    105850,
+    105849,
+    105849,
+    105843,
+    105843,
+    105843,
+    105842,
+    105842,
+    105842,
+    110851,
+    110851,
+    110851,
+    110855,
+    110855,
+    105849,
+    105849,
+    105849,
+    105848,
+    105848,
+    105848,
+    110852,
+    110852,
+    105846,
+    105840,
+    110851,
+    110851,
+    110855,
+    105832,
+    105832,
+    110855,
+    110855,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    105840,
+    105840,
+    105834,
+    105846,
+    105836,
+    105846,
+    105845,
+    105845
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 51.5,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 63.5,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 85.6,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 90.9,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 94.7,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "priest-discipline"
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 51.5,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.02,
+     "spell_power": 0.28,
+     "crit_rating": 0.04,
+     "hit_rating": 0.05,
+     "crit_pct": 0.1,
+     "hit_pct": 0.2
+    },
+    "30": {
+     "score": 63.5,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.05,
+     "spell_power": 0.19,
+     "crit_rating": 0.03,
+     "hit_rating": 0.0,
+     "crit_pct": 0.2,
+     "hit_pct": 0.0
+    },
+    "40": {
+     "score": 85.6,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.03,
+     "spell_power": 0.13,
+     "crit_rating": 0.03,
+     "hit_rating": 0.0,
+     "crit_pct": 0.2,
+     "hit_pct": 0.0
+    },
+    "50": {
+     "score": 90.9,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.02,
+     "spell_power": 0.09,
+     "crit_rating": 0.01,
+     "hit_rating": 0.0,
+     "crit_pct": 0.2,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 94.7,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.01,
+     "spell_power": 0.07,
+     "crit_rating": 0.01,
+     "hit_rating": 0.0,
+     "crit_pct": 0.2,
+     "hit_pct": 0.0
+    }
+   },
+   "about": [
+    "34 points in Discipline, with 10 in Holy and 7 in Shadow. Built for PvE. On this order the key talents arrive as follows: Penance at 55 and Power Infusion at 57.",
+    "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Smite.",
+    "Questing pace in the model, in kills per hour: 52 at 20, 64 at 30, 86 at 40, 91 at 50 and 95 at 60.",
+    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+   ]
+  },
+  {
+   "id": "priest-discipline-leveling-pvp",
+   "name": "Discipline leveling (PvP)",
+   "pair": "priest-discipline-leveling-pvp",
+   "variant": "PvP",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "A Discipline talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Discipline Smite (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    110855,
+    110853,
+    110853,
+    110853,
+    110853,
+    110853,
+    110852,
+    105850,
+    105850,
+    105849,
+    105849,
+    105843,
+    105843,
+    105843,
+    105842,
+    105842,
+    105842,
+    110855,
+    110855,
+    110855,
+    110855,
+    105849,
+    105849,
+    105849,
+    105848,
+    105848,
+    105848,
+    110852,
+    110852,
+    105844,
+    105837,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    105867,
+    105867,
+    105867,
+    105864,
+    105864,
+    105857,
+    105857,
+    110851,
+    105834,
+    105837,
+    105837,
+    105837,
+    105836,
+    105837,
+    105859
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 49.3,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 63.1,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 84.8,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 90.8,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 95.9,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "priest-discipline-smite",
+    "priest-discipline-smite-model"
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 49.3,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.27,
+     "crit_rating": 0.04,
+     "hit_rating": 0.05,
+     "crit_pct": 0.1,
+     "hit_pct": 0.2
+    },
+    "30": {
+     "score": 63.1,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.05,
+     "spell_power": 0.19,
+     "crit_rating": 0.03,
+     "hit_rating": 0.04,
+     "crit_pct": 0.2,
+     "hit_pct": 0.2
+    },
+    "40": {
+     "score": 84.8,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.03,
+     "spell_power": 0.12,
+     "crit_rating": 0.02,
+     "hit_rating": 0.04,
+     "crit_pct": 0.2,
+     "hit_pct": 0.3
+    },
+    "50": {
+     "score": 90.8,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.02,
+     "spell_power": 0.1,
+     "crit_rating": 0.02,
+     "hit_rating": 0.03,
+     "crit_pct": 0.2,
+     "hit_pct": 0.3
+    },
+    "60": {
+     "score": 95.9,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.01,
+     "spell_power": 0.07,
+     "crit_rating": 0.01,
+     "hit_rating": 0.0,
+     "crit_pct": 0.2,
+     "hit_pct": 0.0
+    }
+   },
+   "about": [
+    "32 points in Discipline, with 18 in Holy and 1 in Shadow. Built for PvP. On this order the key talents arrive as follows: Inner Focus at 39, Penance at 54 and Power Infusion at 58.",
+    "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Smite.",
+    "Questing pace in the model, in kills per hour: 49 at 20, 63 at 30, 85 at 40, 91 at 50 and 96 at 60.",
+    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+   ]
+  },
+  {
+   "id": "priest-holy-leveling-pve",
+   "name": "Holy leveling (PvE)",
+   "pair": "priest-holy-leveling-pve",
+   "variant": "PvE",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "A Holy talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    110855,
+    110855,
+    110855,
+    110855,
+    110855,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    110851,
+    110851,
+    110851,
+    105867,
+    105867,
+    105867,
+    105866,
+    105866,
+    105857,
+    105857,
+    105866,
+    105864,
+    105864,
+    105864,
+    105864,
+    105864,
+    105862,
+    105861,
+    105861,
+    105861,
+    105860,
+    110853,
+    110853,
+    110853,
+    110853,
+    110853,
+    110852,
+    105850,
+    105850,
+    105849,
+    105849,
+    105843,
+    105843,
+    105843,
+    105842,
+    105842,
+    105842,
+    105860,
+    105860,
+    105859,
+    105859
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 50.0,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 58.2,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 81.4,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 87.9,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 95.9,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "priest-holy"
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 50.0,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.28,
+     "crit_rating": 0.04,
+     "hit_rating": 0.11,
+     "crit_pct": 0.2,
+     "hit_pct": 0.5
+    },
+    "30": {
+     "score": 58.2,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.17,
+     "crit_rating": 0.02,
+     "hit_rating": 0.04,
+     "crit_pct": 0.1,
+     "hit_pct": 0.2
+    },
+    "40": {
+     "score": 81.4,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.13,
+     "crit_rating": 0.03,
+     "hit_rating": 0.03,
+     "crit_pct": 0.2,
+     "hit_pct": 0.3
+    },
+    "50": {
+     "score": 87.9,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.1,
+     "crit_rating": 0.02,
+     "hit_rating": 0.0,
+     "crit_pct": 0.2,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 95.9,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.01,
+     "spell_power": 0.07,
+     "crit_rating": 0.01,
+     "hit_rating": 0.0,
+     "crit_pct": 0.2,
+     "hit_pct": 0.0
+    }
+   },
+   "about": [
+    "32 points in Holy, with 16 in Discipline and 3 in Shadow. Built for PvE. On this order the key talents arrive as follows: Searing Light at 28 and Holy Nova at 36.",
+    "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Smite.",
+    "Questing pace in the model, in kills per hour: 50 at 20, 58 at 30, 81 at 40, 88 at 50 and 96 at 60.",
+    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+   ]
+  },
+  {
+   "id": "priest-holy-leveling-pvp",
+   "name": "Holy leveling (PvP)",
+   "pair": "priest-holy-leveling-pvp",
+   "variant": "PvP",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "A Holy talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Holy (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    110855,
+    110855,
+    110855,
+    110855,
+    110855,
+    105863,
+    105863,
+    105863,
+    105863,
+    105863,
+    105867,
+    105867,
+    105867,
+    105864,
+    105864,
+    105857,
+    105857,
+    105858,
+    105858,
+    105858,
+    105855,
+    105855,
+    105854,
+    105853,
+    105853,
+    105852,
+    105852,
+    105852,
+    105853,
+    105853,
+    105851,
+    105849,
+    105849,
+    105849,
+    105849,
+    105849,
+    110852,
+    105846,
+    105846,
+    105846,
+    105845,
+    105843,
+    105843,
+    105843,
+    105842,
+    105842,
+    105842,
+    110851,
+    105853,
+    105856,
+    105862
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 49.9,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 57.6,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 80.5,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 87.2,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 95.9,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "priest-holy-pvp"
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 49.9,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.28,
+     "crit_rating": 0.04,
+     "hit_rating": 0.12,
+     "crit_pct": 0.1,
+     "hit_pct": 0.4
+    },
+    "30": {
+     "score": 57.6,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.17,
+     "crit_rating": 0.02,
+     "hit_rating": 0.07,
+     "crit_pct": 0.1,
+     "hit_pct": 0.4
+    },
+    "40": {
+     "score": 80.5,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.12,
+     "crit_rating": 0.02,
+     "hit_rating": 0.06,
+     "crit_pct": 0.1,
+     "hit_pct": 0.5
+    },
+    "50": {
+     "score": 87.2,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.1,
+     "crit_rating": 0.01,
+     "hit_rating": 0.03,
+     "crit_pct": 0.2,
+     "hit_pct": 0.3
+    },
+    "60": {
+     "score": 95.9,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.01,
+     "spell_power": 0.07,
+     "crit_rating": 0.01,
+     "hit_rating": 0.0,
+     "crit_pct": 0.2,
+     "hit_pct": 0.0
+    }
+   },
+   "about": [
+    "34 points in Holy, with 16 in Discipline and 1 in Shadow. Built for PvP. On this order the key talents arrive as follows: Spirit of Redemption at 32, Prayer of Mending at 40, Binding Heal at 59 and Holy Nova at 60.",
+    "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Smite.",
+    "Questing pace in the model, in kills per hour: 50 at 20, 58 at 30, 80 at 40, 87 at 50 and 96 at 60.",
+    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+   ]
+  },
+  {
+   "id": "priest-shadow-leveling-pve",
+   "name": "Shadow leveling (PvE)",
+   "pair": "priest-shadow-leveling-pve",
+   "variant": "PvE",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "A Shadow talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    110851,
+    110851,
+    110851,
+    110855,
+    110855,
+    110855,
+    110855,
+    110855,
+    110851,
+    110851,
+    105832,
+    105832,
+    105832,
+    105832,
+    105832,
+    105826,
+    105825,
+    105825,
+    105833,
+    105833,
+    105821,
+    105821,
+    105821,
+    105833,
+    105833,
+    105833,
+    105831,
+    105831,
+    105831,
+    105830,
+    105818,
+    105818,
+    105818,
+    105818,
+    105818,
+    105830,
+    105827,
+    105827,
+    105827,
+    105827,
+    105827,
+    105829,
+    105829,
+    105828,
+    105828,
+    105823,
+    105823,
+    105820,
+    105817,
+    110854,
+    110854
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 49.5,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 63.8,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 89.6,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 100.4,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 120.1,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "priest-shadow-pve"
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 49.5,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.27,
+     "crit_rating": 0.04,
+     "hit_rating": 0.06,
+     "crit_pct": 0.1,
+     "hit_pct": 0.2
+    },
+    "30": {
+     "score": 63.8,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.14,
+     "crit_rating": 0.01,
+     "hit_rating": 0.0,
+     "crit_pct": 0.0,
+     "hit_pct": 0.0
+    },
+    "40": {
+     "score": 89.6,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.1,
+     "crit_rating": 0.01,
+     "hit_rating": 0.0,
+     "crit_pct": 0.1,
+     "hit_pct": 0.0
+    },
+    "50": {
+     "score": 100.4,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.07,
+     "crit_rating": 0.01,
+     "hit_rating": 0.0,
+     "crit_pct": 0.1,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 120.1,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.05,
+     "crit_rating": 0.02,
+     "hit_rating": 0.0,
+     "crit_pct": 0.3,
+     "hit_pct": 0.0
+    }
+   },
+   "about": [
+    "46 points in Shadow, with 5 in Holy. Built for PvE. On this order the key talents arrive as follows: Mind Flay at 25, Vampiric Embrace at 57 and Shadowform at 58.",
+    "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Mind Flay.",
+    "Questing pace in the model, in kills per hour: 50 at 20, 64 at 30, 90 at 40, 100 at 50 and 120 at 60.",
+    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+   ]
+  },
+  {
+   "id": "priest-shadow-leveling-pvp",
+   "name": "Shadow leveling (PvP)",
+   "pair": "priest-shadow-leveling-pvp",
+   "variant": "PvP",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "A Shadow talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Shadowform (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    110851,
+    110851,
+    110851,
+    110851,
+    110851,
+    105831,
+    105831,
+    105831,
+    105830,
+    105830,
+    105826,
+    105825,
+    105825,
+    105829,
+    105829,
+    105821,
+    105821,
+    105821,
+    105820,
+    105827,
+    105819,
+    105819,
+    105827,
+    105827,
+    105827,
+    105818,
+    105818,
+    105818,
+    105818,
+    105818,
+    105817,
+    105827,
+    110854,
+    110854,
+    105850,
+    105850,
+    105849,
+    105849,
+    105849,
+    105849,
+    105849,
+    105846,
+    105846,
+    105846,
+    105844,
+    105843,
+    105843,
+    105843,
+    105867,
+    105867,
+    105867
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 51.9,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 66.3,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 119.2,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 113.9,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 120.1,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "priest-shadow",
+    "priest-shadow-model"
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 51.9,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.23,
+     "crit_rating": 0.01,
+     "hit_rating": 0.0,
+     "crit_pct": 0.0,
+     "hit_pct": 0.0
+    },
+    "30": {
+     "score": 66.3,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.15,
+     "crit_rating": 0.01,
+     "hit_rating": 0.0,
+     "crit_pct": 0.1,
+     "hit_pct": 0.0
+    },
+    "40": {
+     "score": 119.2,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.11,
+     "crit_rating": 0.04,
+     "hit_rating": 0.0,
+     "crit_pct": 0.3,
+     "hit_pct": 0.0
+    },
+    "50": {
+     "score": 113.9,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.07,
+     "crit_rating": 0.02,
+     "hit_rating": 0.0,
+     "crit_pct": 0.3,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 120.1,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.05,
+     "crit_rating": 0.02,
+     "hit_rating": 0.0,
+     "crit_pct": 0.3,
+     "hit_pct": 0.0
+    }
+   },
+   "about": [
+    "34 points in Shadow, with 14 in Discipline and 3 in Holy. Built for PvP. On this order the key talents arrive as follows: Mind Flay at 20, Vampiric Embrace at 28, Shadowform at 40 and Inner Focus at 54.",
+    "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Mind Flay.",
+    "Questing pace in the model, in kills per hour: 52 at 20, 66 at 30, 119 at 40, 114 at 50 and 120 at 60.",
+    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
    ]
   }
  ],
@@ -2604,5 +3570,43 @@
  "checklist": [],
  "caveats": [
   "Caster model (#163): Shadow Word: Pain and Devouring Plague kept up, Mind Blast and Shadow Word: Death on cooldown, Mind Flay or Smite in between, with Classic hit, crit and mana rules. Shadow Weaving counts at full stacks; Vampiric Embrace's healing, Twin Disciplines and Improved Shadow Word: Pain's longer duration aren't modeled. Base stats are estimates; healer builds stay unscored."
+ ],
+ "leveling": [
+  {
+   "tree": "Discipline",
+   "focus": "PvE",
+   "build": "priest-discipline-leveling-pve",
+   "score": 77.2
+  },
+  {
+   "tree": "Discipline",
+   "focus": "PvP",
+   "build": "priest-discipline-leveling-pvp",
+   "score": 76.8
+  },
+  {
+   "tree": "Holy",
+   "focus": "PvE",
+   "build": "priest-holy-leveling-pve",
+   "score": 74.7
+  },
+  {
+   "tree": "Holy",
+   "focus": "PvP",
+   "build": "priest-holy-leveling-pvp",
+   "score": 74.2
+  },
+  {
+   "tree": "Shadow",
+   "focus": "PvE",
+   "build": "priest-shadow-leveling-pve",
+   "score": 84.7
+  },
+  {
+   "tree": "Shadow",
+   "focus": "PvP",
+   "build": "priest-shadow-leveling-pvp",
+   "score": 94.3
+  }
  ]
 }

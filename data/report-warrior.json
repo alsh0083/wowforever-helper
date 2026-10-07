@@ -987,6 +987,7 @@
     }
    },
    "sensitivity": [],
+   "mode": "endgame",
    "stat_weights": {
     "20": {
      "score": 0.3394,
@@ -1180,6 +1181,7 @@
     }
    },
    "sensitivity": [],
+   "mode": "endgame",
    "stat_weights": {
     "20": {
      "score": 0.0388,
@@ -1372,6 +1374,7 @@
     }
    },
    "sensitivity": [],
+   "mode": "endgame",
    "stat_weights": {
     "20": {
      "score": 0.3394,
@@ -1564,6 +1567,7 @@
     }
    },
    "sensitivity": [],
+   "mode": "endgame",
    "stat_weights": {
     "20": {
      "score": 0.0388,
@@ -1705,6 +1709,7 @@
    "open_points": 0,
    "scores": {},
    "sensitivity": [],
+   "mode": "endgame",
    "stat_weights": {
     "generic": {
      "strength": 1.0,
@@ -1792,6 +1797,7 @@
    "open_points": 0,
    "scores": {},
    "sensitivity": [],
+   "mode": "endgame",
    "stat_weights": {
     "generic": {
      "strength": 1.0,
@@ -1807,6 +1813,1014 @@
     "36 points in Protection, with 8 in Arms and 7 in Fury. Built for PvE. On this order the key talents arrive as follows: Last Stand at 37, Vanguard at 48, Concussion Blow at 51 and Shield Slam at 60.",
     "The community build leaves 5 points unspent at 60; the model fills them with Improved Heroic Strike 3 and Unbridled Wrath 2.",
     "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
+   ]
+  },
+  {
+   "id": "warrior-arms-leveling-pve",
+   "name": "Arms leveling (PvE)",
+   "pair": "warrior-arms-leveling-pve",
+   "variant": "PvE",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "A Arms talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    105939,
+    105939,
+    105939,
+    105939,
+    105939,
+    105958,
+    105958,
+    105958,
+    105957,
+    105957,
+    105957,
+    105957,
+    105957,
+    105956,
+    105956,
+    105956,
+    105950,
+    105950,
+    105950,
+    105955,
+    105948,
+    105948,
+    105948,
+    105947,
+    105947,
+    105955,
+    105954,
+    105954,
+    105954,
+    105954,
+    105954,
+    105951,
+    105952,
+    105952,
+    105949,
+    110524,
+    110524,
+    110524,
+    110524,
+    110524,
+    105945,
+    105941,
+    105937,
+    105937,
+    105937,
+    105937,
+    105937,
+    110858,
+    110858,
+    105942,
+    105942
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 62.1,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 55.4,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 65.7,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 56.2,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 54.9,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "warrior-arms-pve"
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 62.1,
+     "strength": 0.17,
+     "agility": 0.06,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.09,
+     "crit_rating": 0.13,
+     "hit_rating": 0.15,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5,
+     "weapon_dps": 1.2
+    },
+    "30": {
+     "score": 55.4,
+     "strength": 0.1,
+     "agility": 0.05,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.05,
+     "crit_rating": 0.08,
+     "hit_rating": 0.07,
+     "crit_pct": 0.5,
+     "hit_pct": 0.4,
+     "weapon_dps": 0.8
+    },
+    "40": {
+     "score": 65.7,
+     "strength": 0.1,
+     "agility": 0.05,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.05,
+     "crit_rating": 0.08,
+     "hit_rating": 0.06,
+     "crit_pct": 0.7,
+     "hit_pct": 0.6,
+     "weapon_dps": 0.75
+    },
+    "50": {
+     "score": 56.2,
+     "strength": 0.07,
+     "agility": 0.04,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.04,
+     "crit_rating": 0.06,
+     "hit_rating": 0.05,
+     "crit_pct": 0.6,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.55
+    },
+    "60": {
+     "score": 54.9,
+     "strength": 0.06,
+     "agility": 0.03,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.03,
+     "crit_rating": 0.05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.6,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.5
+    }
+   },
+   "about": [
+    "41 points in Arms, with 10 in Fury. Built for PvE. On this order the key talents arrive as follows: Anger Management at 41, Spearing Strike at 44, Sweeping Strikes at 50 and Mortal Strike at 51.",
+    "In the model's rotation its priority is Mortal Strike and Whirlwind. Damage comes from auto-attacks 53% and abilities 47%.",
+    "Questing pace in the model, in kills per hour: 62 at 20, 55 at 30, 66 at 40, 56 at 50 and 55 at 60.",
+    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+   ]
+  },
+  {
+   "id": "warrior-arms-leveling-pvp",
+   "name": "Arms leveling (PvP)",
+   "pair": "warrior-arms-leveling-pvp",
+   "variant": "PvP",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "A Arms talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Arms Mortal Strike (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    105939,
+    105939,
+    105939,
+    105939,
+    105939,
+    105958,
+    105958,
+    105958,
+    105956,
+    105956,
+    105956,
+    105954,
+    105954,
+    105954,
+    105954,
+    105950,
+    105950,
+    105950,
+    105954,
+    105951,
+    105948,
+    105948,
+    105948,
+    105947,
+    105947,
+    105952,
+    105952,
+    105949,
+    110524,
+    110524,
+    110524,
+    110524,
+    110524,
+    105945,
+    105944,
+    105941,
+    105937,
+    105937,
+    105937,
+    105937,
+    105937,
+    110858,
+    110858,
+    105944,
+    105944,
+    105944,
+    105944,
+    105935,
+    105938,
+    105938,
+    105938
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 62.1,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 55.9,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 66.4,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 60.2,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 54.9,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "warrior-arms"
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 62.1,
+     "strength": 0.17,
+     "agility": 0.06,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.09,
+     "crit_rating": 0.13,
+     "hit_rating": 0.15,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5,
+     "weapon_dps": 1.2
+    },
+    "30": {
+     "score": 55.9,
+     "strength": 0.11,
+     "agility": 0.05,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.05,
+     "crit_rating": 0.09,
+     "hit_rating": 0.08,
+     "crit_pct": 0.5,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.85
+    },
+    "40": {
+     "score": 66.4,
+     "strength": 0.09,
+     "agility": 0.05,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.04,
+     "crit_rating": 0.07,
+     "hit_rating": 0.06,
+     "crit_pct": 0.6,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.7
+    },
+    "50": {
+     "score": 60.2,
+     "strength": 0.08,
+     "agility": 0.04,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.04,
+     "crit_rating": 0.06,
+     "hit_rating": 0.05,
+     "crit_pct": 0.7,
+     "hit_pct": 0.6,
+     "weapon_dps": 0.6
+    },
+    "60": {
+     "score": 54.9,
+     "strength": 0.06,
+     "agility": 0.03,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.03,
+     "crit_rating": 0.05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.6,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.5
+    }
+   },
+   "about": [
+    "37 points in Arms, with 14 in Fury. Built for PvP. On this order the key talents arrive as follows: Anger Management at 29, Spearing Strike at 37, Sweeping Strikes at 43, Mortal Strike at 45 and Piercing Howl at 57.",
+    "In the model's rotation its priority is Mortal Strike and Whirlwind. Damage comes from auto-attacks 53% and abilities 47%.",
+    "Questing pace in the model, in kills per hour: 62 at 20, 56 at 30, 66 at 40, 60 at 50 and 55 at 60.",
+    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+   ]
+  },
+  {
+   "id": "warrior-fury-leveling-pve",
+   "name": "Fury leveling (PvE)",
+   "pair": "warrior-fury-leveling-pve",
+   "variant": "PvE",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "A Fury talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    105939,
+    105939,
+    105939,
+    105939,
+    105939,
+    105958,
+    105958,
+    105958,
+    105937,
+    105937,
+    105937,
+    105937,
+    105937,
+    105938,
+    105938,
+    105938,
+    105938,
+    105938,
+    105977,
+    110857,
+    110857,
+    110857,
+    110857,
+    105927,
+    110857,
+    105936,
+    105936,
+    105936,
+    105935,
+    105934,
+    105934,
+    105957,
+    105957,
+    105957,
+    105957,
+    105957,
+    105956,
+    105956,
+    105956,
+    105950,
+    105950,
+    105950,
+    105955,
+    105948,
+    105948,
+    105948,
+    105947,
+    105947,
+    105934,
+    105953,
+    105930
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 62.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 53.0,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 62.8,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 55.0,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 52.3,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "warrior-fury-pve"
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 62.2,
+     "strength": 0.17,
+     "agility": 0.06,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.08,
+     "crit_rating": 0.13,
+     "hit_rating": 0.15,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5,
+     "weapon_dps": 1.2
+    },
+    "30": {
+     "score": 53.0,
+     "strength": 0.11,
+     "agility": 0.04,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.05,
+     "crit_rating": 0.06,
+     "hit_rating": 0.07,
+     "crit_pct": 0.4,
+     "hit_pct": 0.4,
+     "weapon_dps": 0.75
+    },
+    "40": {
+     "score": 62.8,
+     "strength": 0.09,
+     "agility": 0.03,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.04,
+     "crit_rating": 0.05,
+     "hit_rating": 0.06,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.65
+    },
+    "50": {
+     "score": 55.0,
+     "strength": 0.07,
+     "agility": 0.03,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.04,
+     "crit_rating": 0.05,
+     "hit_rating": 0.04,
+     "crit_pct": 0.5,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.55
+    },
+    "60": {
+     "score": 52.3,
+     "strength": 0.05,
+     "agility": 0.02,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.02,
+     "crit_rating": 0.03,
+     "hit_rating": 0.0,
+     "crit_pct": 0.5,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.4
+    }
+   },
+   "about": [
+    "31 points in Fury, with 20 in Arms. Built for PvE. On this order the key talents arrive as follows: Raging Blows at 28, Death Wish at 33, Piercing Howl at 38 and Bloodthirst at 60.",
+    "In the model's rotation its priority is Whirlwind and Heroic Strike. Damage comes from auto-attacks 64% and abilities 36%.",
+    "Questing pace in the model, in kills per hour: 62 at 20, 53 at 30, 63 at 40, 55 at 50 and 52 at 60.",
+    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+   ]
+  },
+  {
+   "id": "warrior-fury-leveling-pvp",
+   "name": "Fury leveling (PvP)",
+   "pair": "warrior-fury-leveling-pvp",
+   "variant": "PvP",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "A Fury talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Fury (PvP, model), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    105939,
+    105939,
+    105939,
+    105939,
+    105939,
+    105958,
+    105958,
+    105958,
+    105937,
+    105937,
+    105937,
+    105937,
+    105937,
+    105936,
+    105936,
+    105936,
+    105935,
+    105934,
+    105977,
+    105934,
+    105934,
+    105931,
+    105931,
+    105927,
+    105931,
+    105931,
+    105931,
+    105929,
+    105928,
+    105928,
+    105928,
+    105956,
+    105956,
+    105956,
+    105954,
+    105954,
+    105954,
+    105954,
+    105950,
+    105950,
+    105950,
+    105954,
+    105951,
+    105948,
+    105948,
+    105948,
+    105947,
+    105947,
+    105928,
+    105928,
+    105929
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 62.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 53.0,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 62.8,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 56.1,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 53.0,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "warrior-fury-pvp"
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 62.2,
+     "strength": 0.17,
+     "agility": 0.06,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.08,
+     "crit_rating": 0.13,
+     "hit_rating": 0.15,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5,
+     "weapon_dps": 1.2
+    },
+    "30": {
+     "score": 53.0,
+     "strength": 0.11,
+     "agility": 0.04,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.05,
+     "crit_rating": 0.06,
+     "hit_rating": 0.07,
+     "crit_pct": 0.4,
+     "hit_pct": 0.4,
+     "weapon_dps": 0.75
+    },
+    "40": {
+     "score": 62.8,
+     "strength": 0.09,
+     "agility": 0.03,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.04,
+     "crit_rating": 0.05,
+     "hit_rating": 0.06,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.65
+    },
+    "50": {
+     "score": 56.1,
+     "strength": 0.06,
+     "agility": 0.03,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.03,
+     "crit_rating": 0.04,
+     "hit_rating": 0.04,
+     "crit_pct": 0.5,
+     "hit_pct": 0.4,
+     "weapon_dps": 0.5
+    },
+    "60": {
+     "score": 53.0,
+     "strength": 0.05,
+     "agility": 0.02,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.02,
+     "crit_rating": 0.04,
+     "hit_rating": 0.0,
+     "crit_pct": 0.5,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.4
+    }
+   },
+   "about": [
+    "31 points in Fury, with 20 in Arms. Built for PvP. On this order the key talents arrive as follows: Piercing Howl at 26, Raging Blows at 28, Death Wish at 33, Flurry at 38 and Anger Management at 52.",
+    "In the model's rotation its priority is Whirlwind and Heroic Strike. Damage comes from auto-attacks 63% and abilities 37%.",
+    "Questing pace in the model, in kills per hour: 62 at 20, 53 at 30, 63 at 40, 56 at 50 and 53 at 60.",
+    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+   ]
+  },
+  {
+   "id": "warrior-protection-leveling-pve",
+   "name": "Protection leveling (PvE)",
+   "pair": "warrior-protection-leveling-pve",
+   "variant": "PvE",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "A Protection talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    105939,
+    105939,
+    105939,
+    105939,
+    105939,
+    105976,
+    105976,
+    105976,
+    105976,
+    105976,
+    105975,
+    105975,
+    105975,
+    105975,
+    105975,
+    105974,
+    105974,
+    105973,
+    105973,
+    105973,
+    105973,
+    105973,
+    105972,
+    105972,
+    105972,
+    105970,
+    105971,
+    105971,
+    105969,
+    105969,
+    105969,
+    105958,
+    105958,
+    105958,
+    105957,
+    105957,
+    105957,
+    105957,
+    105957,
+    105956,
+    105956,
+    105956,
+    105950,
+    105950,
+    105950,
+    105937,
+    110856,
+    110856,
+    110856,
+    105968,
+    105968
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 61.4,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 52.2,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 60.3,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 50.8,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 48.4,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "warrior-protection"
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 61.4,
+     "strength": 0.18,
+     "agility": 0.06,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.09,
+     "crit_rating": 0.13,
+     "hit_rating": 0.15,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5,
+     "weapon_dps": 1.25
+    },
+    "30": {
+     "score": 52.2,
+     "strength": 0.11,
+     "agility": 0.04,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.06,
+     "crit_rating": 0.07,
+     "hit_rating": 0.08,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.75
+    },
+    "40": {
+     "score": 60.3,
+     "strength": 0.1,
+     "agility": 0.04,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.05,
+     "crit_rating": 0.06,
+     "hit_rating": 0.06,
+     "crit_pct": 0.5,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.65
+    },
+    "50": {
+     "score": 50.8,
+     "strength": 0.07,
+     "agility": 0.03,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.04,
+     "crit_rating": 0.04,
+     "hit_rating": 0.04,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.5
+    },
+    "60": {
+     "score": 48.4,
+     "strength": 0.05,
+     "agility": 0.03,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.03,
+     "crit_rating": 0.04,
+     "hit_rating": 0.0,
+     "crit_pct": 0.5,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.4
+    }
+   },
+   "about": [
+    "31 points in Protection, with 14 in Arms and 6 in Fury. Built for PvE. On this order the key talents arrive as follows: Last Stand at 35 and Improved Sunder Armor at 59.",
+    "In the model's rotation its priority is Whirlwind and Heroic Strike. Damage comes from auto-attacks 66% and abilities 34%.",
+    "Questing pace in the model, in kills per hour: 61 at 20, 52 at 30, 60 at 40, 51 at 50 and 48 at 60.",
+    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+   ]
+  },
+  {
+   "id": "warrior-protection-leveling-pvp",
+   "name": "Protection leveling (PvP)",
+   "pair": "warrior-protection-leveling-pvp",
+   "variant": "PvP",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "A Protection talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Protection (PvP, model), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    105939,
+    105939,
+    105939,
+    105939,
+    105939,
+    105976,
+    105976,
+    105976,
+    105976,
+    105976,
+    105975,
+    105975,
+    105975,
+    105975,
+    105975,
+    105974,
+    105974,
+    105970,
+    105971,
+    105971,
+    105969,
+    105969,
+    105969,
+    110856,
+    110856,
+    110856,
+    105968,
+    105968,
+    105968,
+    105966,
+    105964,
+    105937,
+    105937,
+    105958,
+    105958,
+    105958,
+    105957,
+    105957,
+    105957,
+    105957,
+    105957,
+    105956,
+    105956,
+    105956,
+    105950,
+    105950,
+    105961,
+    105961,
+    105961,
+    105964,
+    105965
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 61.4,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 52.2,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 60.3,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 50.9,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 47.6,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "warrior-protection-pvp"
+   ],
+   "stat_weights": {
+    "20": {
+     "score": 61.4,
+     "strength": 0.18,
+     "agility": 0.06,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.09,
+     "crit_rating": 0.13,
+     "hit_rating": 0.15,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5,
+     "weapon_dps": 1.25
+    },
+    "30": {
+     "score": 52.2,
+     "strength": 0.11,
+     "agility": 0.04,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.06,
+     "crit_rating": 0.07,
+     "hit_rating": 0.08,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.75
+    },
+    "40": {
+     "score": 60.3,
+     "strength": 0.1,
+     "agility": 0.04,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.05,
+     "crit_rating": 0.06,
+     "hit_rating": 0.06,
+     "crit_pct": 0.5,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.65
+    },
+    "50": {
+     "score": 50.9,
+     "strength": 0.07,
+     "agility": 0.03,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.04,
+     "crit_rating": 0.04,
+     "hit_rating": 0.04,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.5
+    },
+    "60": {
+     "score": 47.6,
+     "strength": 0.05,
+     "agility": 0.02,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.02,
+     "crit_rating": 0.03,
+     "hit_rating": 0.0,
+     "crit_pct": 0.4,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.35
+    }
+   },
+   "about": [
+    "31 points in Protection, with 13 in Arms and 7 in Fury. Built for PvP. On this order the key talents arrive as follows: Last Stand at 27, Vanguard at 39, Focused Rage at 56 and Concussion Blow at 60.",
+    "In the model's rotation its priority is Whirlwind and Heroic Strike. Damage comes from auto-attacks 67% and abilities 33%.",
+    "Questing pace in the model, in kills per hour: 61 at 20, 52 at 30, 60 at 40, 51 at 50 and 48 at 60.",
+    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
    ]
   }
  ],
@@ -2093,5 +3107,43 @@
  "checklist": [],
  "caveats": [
   "Warrior model (#162): a two-hander's white swings build Rage for Mortal Strike, Whirlwind and Heroic Strike, against Classic combat-table rules. Fury dual wield, Bloodthirst, Flurry, Execute, Overpower and Slam aren't modeled yet, and base stats are estimates. Protection stays unscored. PvP uses the mage's duel model from the warrior's side."
+ ],
+ "leveling": [
+  {
+   "tree": "Arms",
+   "focus": "PvE",
+   "build": "warrior-arms-leveling-pve",
+   "score": 58.9
+  },
+  {
+   "tree": "Arms",
+   "focus": "PvP",
+   "build": "warrior-arms-leveling-pvp",
+   "score": 59.9
+  },
+  {
+   "tree": "Fury",
+   "focus": "PvE",
+   "build": "warrior-fury-leveling-pve",
+   "score": 57.1
+  },
+  {
+   "tree": "Fury",
+   "focus": "PvP",
+   "build": "warrior-fury-leveling-pvp",
+   "score": 57.4
+  },
+  {
+   "tree": "Protection",
+   "focus": "PvE",
+   "build": "warrior-protection-leveling-pve",
+   "score": 54.6
+  },
+  {
+   "tree": "Protection",
+   "focus": "PvP",
+   "build": "warrior-protection-leveling-pvp",
+   "score": 54.5
+  }
  ]
 }

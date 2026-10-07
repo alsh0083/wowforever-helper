@@ -193,7 +193,9 @@ def render(payload: dict | Sequence[dict], icons: Mapping[str, bytes], *, gear: 
         for name, data in icons.items()
     }
     names = [p.get("class", "mage") for p in payloads]
-    matrices = "\n".join(f'<div class="class-matrix" data-class-matrix="{html.escape(n)}">{spec_matrix(p)}</div>'
+    matrices = "\n".join(f'<div class="class-matrix" data-class-matrix="{html.escape(n)}">'
+                          f'<div class="mode-endgame">{spec_matrix(p)}</div>'
+                          f'<div class="mode-leveling">{leveling_matrix(p)}</div></div>'
                           for n, p in zip(names, payloads))
     tabs = "".join(f'<a class="class-tab" href="?class={html.escape(n)}" data-class-tab="{html.escape(n)}">'
                    f'{html.escape(CLASS_THEMES.get(n, {}).get("label", n.title()))}</a>' for n in names)
@@ -343,6 +345,44 @@ def _pair_line(payload: Mapping) -> str:
             f'<span class="caption">Scores only; community standing and playstyle still decide.</span></p>')
 
 
+LEVELING_HELP = ("Average questing pace (kills per hour at levels 20-60) as a share of the class's best leveling "
+                 "build in this column (100% = best).")
+
+
+def leveling_matrix(payload: Mapping) -> str:
+    """The leveling builds (owner request, 2026-10-07): one row per tree, PvP and PvE columns."""
+    e = html.escape
+    rows = payload.get("leveling") or []
+    if not rows:
+        return '<p class="empty">No leveling builds for this class yet.</p>'
+    by_id = {b["id"]: b for b in payload["builds"]}
+    best = {focus: max((r["score"] for r in rows if r["focus"] == focus), default=0) for focus in ("PvP", "PvE")}
+    out = ['<div class="matrix" role="table" aria-label="Leveling builds by tree and focus">',
+           '<div class="mx-head" role="row"><span role="columnheader">Tree</span>'
+           '<span role="columnheader">PvP</span><span role="columnheader">PvE</span></div>']
+    for tree in [t["name"] for t in payload["trees"]]:
+        cells = []
+        for focus in ("PvP", "PvE"):
+            r = next((r for r in rows if r["tree"] == tree and r["focus"] == focus), None)
+            if r is None or r["build"] not in by_id:
+                cells.append('<div class="slot"><p class="empty">No leveling build</p></div>')
+                continue
+            b = by_id[r["build"]]
+            pct = (f'<span class="score-num" title="{LEVELING_HELP}">{r["score"] / best[focus] * 100:.0f}%</span>'
+                   if best[focus] else "")
+            respec = [by_id[x]["name"] for x in b.get("respec", []) if x in by_id]
+            cap = (f"Respec at 60 into {respec[0]}" + (f" or {len(respec) - 1} more" if len(respec) > 1 else "")
+                   if respec else "Model leveling path")
+            cells.append(f'<div class="slot"><div class="pick"><button class="build-btn" data-build="{e(b["id"])}">'
+                         f'{e(b["name"])}</button>{pct}<span class="tag">Model, unproven</span>'
+                         f'<span class="caption">{e(cap)}</span></div></div>')
+        out.append(f'<div class="mx-row" role="row"><div class="arch" data-archetype="deep {e(tree)}" '
+                   f'style="{_school_style("deep " + tree, payload.get("class", "mage"))}">{e(tree)}</div>'
+                   f'{"".join(cells)}</div>')
+    out.append("</div>")
+    return "\n".join(out)
+
+
 def spec_matrix(payload: Mapping) -> str:
     """The archetype x PvP/PvE matrix (#28): one row per archetype, cells in shortlist order.
 
@@ -363,7 +403,7 @@ def spec_matrix(payload: Mapping) -> str:
                    f'style="{_school_style(archetype, payload.get("class", "mage"))}">{e(archetype[:1].upper() + archetype[1:]).replace("/", "/<wbr>")}</div>{cells}</div>')
     out.append("</div>")
     out.append(_pair_line(payload))
-    rest = [b for b in payload["builds"] if b["id"] not in placed]
+    rest = [b for b in payload["builds"] if b["id"] not in placed and b.get("mode", "endgame") != "leveling"]
     if rest:
         out.append('<div class="unplaced"><span class="caption">Other builds</span>'
                    + build_buttons(rest) + "</div>")
