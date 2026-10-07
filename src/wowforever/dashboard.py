@@ -236,6 +236,14 @@ def _school_style(archetype: str, class_name: str = "mage") -> str:
     return f"--from:var({var[a]});--to:var({var[b]})"
 
 
+SCORE_HELP = {
+    "PvP": "Model score as a share of this class's best PvP build (100% = best): duels against 18 real "
+           "opponent builds plus battlegrounds, at level 60. Compare within the PvP column.",
+    "PvE": "Model score as a share of this class's best PvE build (100% = best): questing speed, dungeon "
+           "and raid damage, and AoE, at level 60. Compare within the PvE column.",
+}
+
+
 def _gain(slot: Mapping) -> float | None:
     """Model pick's gain over the standard, or over its seed build when there is no standard."""
     pick = slot.get("model_pick_score")
@@ -248,7 +256,7 @@ def _gain(slot: Mapping) -> float | None:
     return (pick / base - 1) * 100
 
 
-def _slot_cell(slot: Mapping, by_id: Mapping[str, Mapping]) -> str:
+def _slot_cell(slot: Mapping, by_id: Mapping[str, Mapping], best: Mapping[str, float]) -> str:
     e = html.escape
     cands = slot.get("candidates") if isinstance(slot.get("candidates"), Mapping) else {}
     parts = []
@@ -257,16 +265,18 @@ def _slot_cell(slot: Mapping, by_id: Mapping[str, Mapping]) -> str:
         b = by_id.get(bid)
         if b is None:
             return ""
-        yours = ('<span class="tag">Yours</span>' if b.get("origin") == "hand"
-                 else '<span class="tag">Model, unproven</span>' if b.get("origin") == "model" else "")
-        num = f'<span class="score-num">{score:.2f}</span>' if score is not None else ""
+        yours = '<span class="tag">Model, unproven</span>' if b.get("origin") == "model" else ""
+        top = best.get(slot["focus"])
+        num = (f'<span class="score-num" title="{SCORE_HELP[slot["focus"]]}">{score / top * 100:.0f}%</span>'
+               if score is not None and top else "")
         cap = f'<span class="caption">{caption}</span>' if caption else ""
         return (f'<div class="pick"><button class="build-btn" data-build="{e(bid)}">{e(b["name"])}</button>'
                 f'{num}{yours}{cap}</div>')
 
     if slot.get("standard"):
-        is_model = by_id.get(slot["standard"], {}).get("origin") == "model"
-        parts.append(build_line(slot["standard"], "Model build, no community plan yet" if is_model else "Community standard",
+        origin = by_id.get(slot["standard"], {}).get("origin")
+        parts.append(build_line(slot["standard"], {"model": "Model build, no community plan yet",
+                                                   "hand": "Custom build, no community plan yet"}.get(origin, "Community standard"),
                                 slot.get("standard_score")))
     else:
         parts.append('<p class="empty">No community standard yet</p>')
@@ -311,10 +321,8 @@ def _pair_line(payload: Mapping) -> str:
     names = {b["id"]: b["name"] for b in payload["builds"]}
     e = html.escape
     return (f'<p class="pair-line">Highest-scoring pair for dual spec from level 40: '
-            f'<button class="build-btn" data-build="{e(pvp[0])}">{e(names[pvp[0]])}</button> '
-            f'<span class="score-num">{pvp[1]:.2f}</span> with '
-            f'<button class="build-btn" data-build="{e(pve[0])}">{e(names[pve[0]])}</button> '
-            f'<span class="score-num">{pve[1]:.2f}</span>'
+            f'<button class="build-btn" data-build="{e(pvp[0])}">{e(names[pvp[0]])}</button> with '
+            f'<button class="build-btn" data-build="{e(pve[0])}">{e(names[pve[0]])}</button>'
             f'<span class="caption">Scores only; community standing and playstyle still decide.</span></p>')
 
 
@@ -328,11 +336,12 @@ def spec_matrix(payload: Mapping) -> str:
     for slot in payload.get("shortlist", []):
         rows.setdefault(slot["archetype"], []).append(slot)
     placed = {bid for s in payload.get("shortlist", []) for bid in [s.get("standard"), *s.get("qualifying", [])] if bid}
+    best = {focus: top[1] for focus, top in zip(("PvP", "PvE"), best_pair(payload)) if top}
     out = ['<div class="matrix" role="table" aria-label="Builds by archetype and focus">',
            '<div class="mx-head" role="row"><span role="columnheader">Archetype</span>'
            '<span role="columnheader">PvP</span><span role="columnheader">PvE</span></div>']
     for archetype, slots in rows.items():
-        cells = "".join(_slot_cell(s, by_id) for s in slots)
+        cells = "".join(_slot_cell(s, by_id, best) for s in slots)
         out.append(f'<div class="mx-row" role="row"><div class="arch" data-archetype="{e(archetype)}" '
                    f'style="{_school_style(archetype, payload.get("class", "mage"))}">{e(archetype[:1].upper() + archetype[1:]).replace("/", "/<wbr>")}</div>{cells}</div>')
     out.append("</div>")
