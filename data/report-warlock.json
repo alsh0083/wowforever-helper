@@ -1443,6 +1443,181 @@
    }
   },
   {
+   "id": "warlock-demonology-pve-model",
+   "name": "Demonology (PvE, model pick)",
+   "pair": "warlock-demonology-pve-model",
+   "variant": "PvE",
+   "origin": "model",
+   "summary": "The model's alternative to Demonology (PvE): Agonizing Flames 0->1, Conflagrate 0->1, Destructive Reach 2->0, Improved Shadow Bolt 5->2, Improved Corruption 0->1, Suppression 0->2. Scores +5.8% higher; not tried in game.",
+   "gives_up": [],
+   "must_have_by": {},
+   "order": [
+    105924,
+    105888,
+    105925,
+    105925,
+    105889,
+    105889,
+    105907,
+    105907,
+    105907,
+    105907,
+    105907,
+    105906,
+    105902,
+    105902,
+    105903,
+    105903,
+    105900,
+    105903,
+    105899,
+    105899,
+    105901,
+    105901,
+    105901,
+    105898,
+    105898,
+    105888,
+    105897,
+    105888,
+    105887,
+    105887,
+    105887,
+    105888,
+    105888,
+    105883,
+    105883,
+    105883,
+    105883,
+    105883,
+    105880,
+    105879,
+    105897,
+    105892,
+    105893,
+    105893,
+    105893,
+    105891,
+    105891,
+    105891,
+    105891,
+    105891,
+    105890
+   ],
+   "order_source": "optimized for questing kills/hour",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 60.6,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 66.5,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 81.5,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 88.6,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 95.5,
+      "unit": "kills/hour"
+     }
+    },
+    "dungeon": {
+     "20": {
+      "score": 44.2,
+      "unit": "dps"
+     },
+     "30": {
+      "score": 88.8,
+      "unit": "dps"
+     },
+     "40": {
+      "score": 136.6,
+      "unit": "dps"
+     },
+     "50": {
+      "score": 202.5,
+      "unit": "dps"
+     },
+     "60": {
+      "score": 345.7,
+      "unit": "dps"
+     }
+    },
+    "raid": {
+     "60": {
+      "score": 165.2,
+      "unit": "dps"
+     }
+    }
+   },
+   "sensitivity": [],
+   "stat_weights": {
+    "20": {
+     "score": 0.3873,
+     "stamina": 0.0,
+     "intellect": 4.6e-05,
+     "spirit": 0.0,
+     "spell_power": 0.002781,
+     "crit_rating": 0.000285,
+     "hit_rating": 0.000778,
+     "crit_pct": 0.000921,
+     "hit_pct": 0.003585
+    },
+    "30": {
+     "score": 0.5939,
+     "stamina": 0.0,
+     "intellect": 4.8e-05,
+     "spirit": 0.0,
+     "spell_power": 0.002653,
+     "crit_rating": 0.000244,
+     "hit_rating": 0.000857,
+     "crit_pct": 0.001447,
+     "hit_pct": 0.005743
+    },
+    "40": {
+     "score": 0.8162,
+     "stamina": 0.0,
+     "intellect": 0.000244,
+     "spirit": 0.0,
+     "spell_power": 0.00247,
+     "crit_rating": 0.000235,
+     "hit_rating": 0.000879,
+     "crit_pct": 0.002026,
+     "hit_pct": 0.007823
+    },
+    "50": {
+     "score": 1.0229,
+     "stamina": 0.0,
+     "intellect": 0.000417,
+     "spirit": 0.0,
+     "spell_power": 0.002209,
+     "crit_rating": 0.000305,
+     "hit_rating": 0.000735,
+     "crit_pct": 0.003451,
+     "hit_pct": 0.008261
+    },
+    "60": {
+     "score": 1.4537,
+     "stamina": 0.0,
+     "intellect": 0.000501,
+     "spirit": 0.0,
+     "spell_power": 0.001959,
+     "crit_rating": 0.000348,
+     "hit_rating": 0.000462,
+     "crit_pct": 0.004872,
+     "hit_pct": 0.005814
+    }
+   }
+  },
+  {
    "id": "warlock-demonology-pve",
    "name": "Demonology (PvE)",
    "pair": "warlock-demonology",
@@ -2216,10 +2391,12 @@
    },
    "model_pick_score": 1.4537348580417706,
    "candidates": {
+    "warlock-demonology-pve-model": 1.4537348580417706,
     "warlock-demonology-pve": 1.3745255708054327
    },
    "qualifying": [
-    "warlock-demonology-pve"
+    "warlock-demonology-pve",
+    "warlock-demonology-pve-model"
    ],
    "model_pick_changes": [
     {

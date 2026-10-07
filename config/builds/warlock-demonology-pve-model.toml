@@ -1,0 +1,36 @@
+# Model pick for the deep Demonology PvE slot (owner request, 2026-10-07): the
+# community standard warlock-demonology-pve hill-climbed under the PvE score, +5.8%.
+# Changes: Agonizing Flames 0->1, Conflagrate 0->1, Destructive Reach 2->0, Improved Shadow Bolt 5->2, Improved Corruption 0->1, Suppression 0->2.
+
+id = "warlock-demonology-pve-model"
+class = "warlock"
+name = "Demonology (PvE, model pick)"
+pair = "warlock-demonology-pve-model"
+variant = "PvE"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "The model's alternative to Demonology (PvE): Agonizing Flames 0->1, Conflagrate 0->1, Destructive Reach 2->0, Improved Shadow Bolt 5->2, Improved Corruption 0->1, Suppression 0->2. Scores +5.8% higher; not tried in game."
+
+[final]
+"Agonizing Flames" = 1
+"Bane" = 5
+"Cataclysm" = 3
+"Conflagrate" = 1
+"Decimation" = 2
+"Demonic Aegis" = 2
+"Demonic Embrace" = 5
+"Demonic Energies" = 2
+"Demonic Knowledge" = 3
+"Demonic Pact" = 1
+"Demonic Sacrifice" = 1
+"Fel Vitality" = 3
+"Improved Corruption" = 1
+"Improved Sayaad" = 3
+"Improved Shadow Bolt" = 2
+"Master Demonologist" = 5
+"Master Summoner" = 2
+"Ruin" = 5
+"Soul Link" = 1
+"Suppression" = 2
+"Unholy Power" = 1
