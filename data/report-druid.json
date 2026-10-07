@@ -957,11 +957,6 @@
     104936,
     104936,
     104937,
-    104933,
-    104933,
-    104933,
-    104933,
-    104933,
     104957,
     104957,
     104957,
@@ -973,6 +968,11 @@
     104922,
     104922,
     104928,
+    104933,
+    104933,
+    104933,
+    104933,
+    104933,
     104934,
     104935,
     104935,
@@ -995,11 +995,11 @@
       "unit": "kills/hour"
      },
      "50": {
-      "score": 95.5,
+      "score": 88.7,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 106.4,
+      "score": 97.7,
       "unit": "kills/hour"
      }
     },
@@ -1017,7 +1017,7 @@
       "unit": "dps"
      },
      "50": {
-      "score": 210.3,
+      "score": 198.8,
       "unit": "dps"
      },
      "60": {
@@ -1068,14 +1068,14 @@
      "hit_pct": 0.0
     },
     "50": {
-     "score": 0.3574,
-     "stamina": 0.001598,
-     "intellect": 2.6e-05,
+     "score": 0.3456,
+     "stamina": 0.001566,
+     "intellect": 2.5e-05,
      "spirit": 0.0,
-     "spell_power": 0.000483,
-     "crit_rating": 0.000117,
+     "spell_power": 0.000476,
+     "crit_rating": 0.000111,
      "hit_rating": 0.0,
-     "crit_pct": 0.001321,
+     "crit_pct": 0.001254,
      "hit_pct": 0.0
     },
     "60": {
@@ -1089,7 +1089,13 @@
      "crit_pct": 0.001431,
      "hit_pct": 0.0
     }
-   }
+   },
+   "about": [
+    "41 points in Balance, with 10 in Restoration. Built for PvP. On this order the key talents arrive as follows: Insect Swarm at 25, Moonkin Form at 40, Nature's Splendor at 51 and Nature's Grace at 57.",
+    "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Starfire.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and dungeon damage (100%), and weakest at raid damage (92%).",
+    "A model build: the calculator's pick for this slot, not yet tried in game."
+   ]
   },
   {
    "id": "druid-balance",
@@ -1115,39 +1121,39 @@
     104929,
     104927,
     104927,
-    104957,
-    104957,
-    104957,
-    104957,
-    104957,
-    104922,
-    104922,
-    104922,
-    104922,
-    104922,
-    104920,
-    104920,
-    104917,
-    104917,
-    104917,
     104928,
     104930,
     104932,
-    104933,
-    104933,
-    104933,
-    104933,
-    104933,
     104932,
     104932,
     104932,
+    104932,
+    104933,
+    104933,
+    104933,
+    104933,
     104936,
     104936,
     104936,
     104936,
     104936,
     104937,
-    104932,
+    104957,
+    104957,
+    104957,
+    104957,
+    104957,
+    104922,
+    104922,
+    104922,
+    104922,
+    104922,
+    104920,
+    104920,
+    104917,
+    104917,
+    104917,
+    104933,
     104934,
     104935,
     104935,
@@ -1162,19 +1168,19 @@
       "unit": "kills/hour"
      },
      "30": {
-      "score": 84.2,
+      "score": 85.0,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 91.9,
+      "score": 97.5,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 91.5,
+      "score": 87.8,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 105.6,
+      "score": 96.8,
       "unit": "kills/hour"
      }
     },
@@ -1184,15 +1190,15 @@
       "unit": "dps"
      },
      "30": {
-      "score": 78.5,
+      "score": 86.5,
       "unit": "dps"
      },
      "40": {
-      "score": 129.4,
+      "score": 145.8,
       "unit": "dps"
      },
      "50": {
-      "score": 196.0,
+      "score": 211.9,
       "unit": "dps"
      },
      "60": {
@@ -1221,50 +1227,55 @@
      "hit_pct": 0.003866
     },
     "30": {
-     "score": 0.6097,
+     "score": 0.6461,
      "stamina": 0.0,
-     "intellect": 6.8e-05,
+     "intellect": 0.000113,
      "spirit": 0.0,
-     "spell_power": 0.00269,
-     "crit_rating": 0.000347,
-     "hit_rating": 0.000478,
-     "crit_pct": 0.002054,
-     "hit_pct": 0.003558
+     "spell_power": 0.002844,
+     "crit_rating": 0.000573,
+     "hit_rating": 0.000527,
+     "crit_pct": 0.003394,
+     "hit_pct": 0.003922
     },
     "40": {
-     "score": 0.8493,
+     "score": 0.9343,
      "stamina": 0.0,
-     "intellect": 5.9e-05,
+     "intellect": 0.000202,
      "spirit": 0.0,
-     "spell_power": 0.002556,
-     "crit_rating": 0.000272,
-     "hit_rating": 0.000634,
-     "crit_pct": 0.002346,
-     "hit_pct": 0.005868
+     "spell_power": 0.002539,
+     "crit_rating": 0.000571,
+     "hit_rating": 0.000711,
+     "crit_pct": 0.004918,
+     "hit_pct": 0.006583
     },
     "50": {
-     "score": 1.1099,
+     "score": 1.1282,
      "stamina": 0.0,
-     "intellect": 0.000187,
-     "spirit": 6.9e-05,
-     "spell_power": 0.002281,
-     "crit_rating": 0.000513,
-     "hit_rating": 0.00046,
-     "crit_pct": 0.005804,
-     "hit_pct": 0.005091
+     "intellect": 0.00046,
+     "spirit": 0.0,
+     "spell_power": 0.002463,
+     "crit_rating": 0.000559,
+     "hit_rating": 0.000463,
+     "crit_pct": 0.006326,
+     "hit_pct": 0.005107
     },
     "60": {
-     "score": 1.726,
+     "score": 1.6966,
      "stamina": 0.0,
-     "intellect": 0.000589,
+     "intellect": 0.000588,
      "spirit": 0.00029,
-     "spell_power": 0.002273,
-     "crit_rating": 0.000691,
+     "spell_power": 0.002342,
+     "crit_rating": 0.000685,
      "hit_rating": 0.00048,
-     "crit_pct": 0.009677,
+     "crit_pct": 0.009583,
      "hit_pct": 0.006713
     }
-   }
+   },
+   "about": [
+    "36 points in Balance, with 15 in Restoration. Built for PvE. On this order the key talents arrive as follows: Nature's Splendor at 24, Insect Swarm at 25, Moonkin Form at 40 and Nature's Grace at 57.",
+    "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Starfire.",
+    "At level 60 it scores at or near the top of the class in raid damage, questing speed and dungeon damage."
+   ]
   },
   {
    "id": "druid-feral-bear",
@@ -1281,16 +1292,9 @@
     104938,
     104938,
     104938,
-    104924,
-    104924,
-    104924,
-    104924,
     104939,
-    104924,
     104939,
-    104927,
     104939,
-    104927,
     104939,
     104939,
     104946,
@@ -1313,6 +1317,13 @@
     104953,
     104953,
     104953,
+    104924,
+    104924,
+    104924,
+    104924,
+    104924,
+    104927,
+    104927,
     104929,
     104929,
     104942,
@@ -1342,7 +1353,11 @@
      "stamina": 0.15,
      "mp5": 0.5
     }
-   }
+   },
+   "about": [
+    "42 points in Feral Combat, with 9 in Balance. Built for PvE. On this order the key talents arrive as follows: Leader of the Pack at 30, Feral Charge at 51, Primal Bite at 52 and Berserk at 60.",
+    "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
+   ]
   },
   {
    "id": "druid-feral",
@@ -1359,34 +1374,20 @@
     104938,
     104938,
     104938,
-    104924,
-    104924,
-    104924,
-    104924,
     104939,
-    104924,
     104939,
-    104927,
     104939,
-    104927,
     104939,
     104939,
     104946,
     104946,
     104948,
     104948,
-    104958,
-    104958,
-    104958,
-    104958,
-    104958,
     104943,
     104952,
     104952,
     104952,
     104943,
-    104929,
-    104929,
     104944,
     104955,
     104950,
@@ -1398,6 +1399,20 @@
     104953,
     104953,
     104953,
+    104924,
+    104924,
+    104924,
+    104924,
+    104924,
+    104927,
+    104927,
+    104958,
+    104958,
+    104958,
+    104958,
+    104958,
+    104929,
+    104929,
     104956,
     104945,
     104945,
@@ -1408,19 +1423,19 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 75.2,
+      "score": 76.7,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 71.1,
+      "score": 73.2,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 71.9,
+      "score": 76.9,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 67.0,
+      "score": 69.7,
       "unit": "kills/hour"
      },
      "60": {
@@ -1430,19 +1445,19 @@
     },
     "dungeon": {
      "20": {
-      "score": 43.7,
+      "score": 45.0,
       "unit": "dps"
      },
      "30": {
-      "score": 68.7,
+      "score": 71.6,
       "unit": "dps"
      },
      "40": {
-      "score": 102.2,
+      "score": 112.5,
       "unit": "dps"
      },
      "50": {
-      "score": 143.3,
+      "score": 151.4,
       "unit": "dps"
      },
      "60": {
@@ -1460,55 +1475,55 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.0384,
-     "strength": 0.000123,
-     "agility": 0.000112,
-     "stamina": 0.00034,
+     "score": 0.0394,
+     "strength": 0.000126,
+     "agility": 0.000113,
+     "stamina": 0.000348,
      "intellect": 0.0,
-     "attack_power": 6.1e-05,
+     "attack_power": 6.3e-05,
      "crit_rating": 0.000102,
-     "hit_rating": 0.000111,
-     "crit_pct": 0.000331,
-     "hit_pct": 0.000361,
+     "hit_rating": 0.000112,
+     "crit_pct": 0.000329,
+     "hit_pct": 0.000363,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.101,
-     "strength": 0.000197,
-     "agility": 0.000175,
-     "stamina": 0.000784,
+     "score": 0.1046,
+     "strength": 0.000193,
+     "agility": 0.000176,
+     "stamina": 0.000811,
      "intellect": 0.0,
-     "attack_power": 9.9e-05,
-     "crit_rating": 0.000128,
-     "hit_rating": 0.000142,
-     "crit_pct": 0.000757,
-     "hit_pct": 0.000843,
+     "attack_power": 9.7e-05,
+     "crit_rating": 0.000133,
+     "hit_rating": 0.000147,
+     "crit_pct": 0.000786,
+     "hit_pct": 0.000872,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 0.1769,
-     "strength": 0.000199,
-     "agility": 0.00019,
-     "stamina": 0.001052,
+     "score": 0.1906,
+     "strength": 0.000209,
+     "agility": 0.000207,
+     "stamina": 0.00112,
      "intellect": 0.0,
-     "attack_power": 0.0001,
-     "crit_rating": 0.00014,
-     "hit_rating": 0.000167,
-     "crit_pct": 0.001204,
-     "hit_pct": 0.001436,
+     "attack_power": 0.000105,
+     "crit_rating": 0.000157,
+     "hit_rating": 0.000177,
+     "crit_pct": 0.001354,
+     "hit_pct": 0.001528,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 0.3025,
-     "strength": 0.000222,
-     "agility": 0.000219,
-     "stamina": 0.001097,
+     "score": 0.3136,
+     "strength": 0.000226,
+     "agility": 0.000223,
+     "stamina": 0.001121,
      "intellect": 0.0,
-     "attack_power": 0.000111,
-     "crit_rating": 0.000158,
-     "hit_rating": 0.000186,
-     "crit_pct": 0.001791,
-     "hit_pct": 0.002104,
+     "attack_power": 0.000113,
+     "crit_rating": 0.000161,
+     "hit_rating": 0.00019,
+     "crit_pct": 0.001825,
+     "hit_pct": 0.002144,
      "weapon_dps": 0.0
     },
     "60": {
@@ -1524,7 +1539,12 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
-   }
+   },
+   "about": [
+    "34 points in Feral Combat, with 9 in Balance and 5 in Restoration. Built for PvP. On this order the key talents arrive as follows: Feral Charge at 29, Leader of the Pack at 30 and Berserk at 54.",
+    "Fights in Cat Form, building combo points with Shred for finishers. Damage comes from auto-attacks 55% and abilities 45%.",
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (80%) and questing speed (69%), and weakest at dungeon damage (59%)."
+   ]
   },
   {
    "id": "druid-restoration-pvp",
@@ -1537,28 +1557,33 @@
    "must_have_by": {},
    "order": [
     104939,
-    104957,
     104939,
-    104957,
     104939,
-    104957,
     104939,
-    104957,
     104939,
-    104957,
     104943,
-    104922,
     104943,
-    104922,
     104942,
-    104922,
     104942,
-    104922,
     104942,
     104946,
     104946,
     104948,
     104948,
+    104945,
+    104945,
+    104952,
+    104952,
+    104952,
+    104957,
+    104957,
+    104957,
+    104957,
+    104957,
+    104922,
+    104922,
+    104922,
+    104922,
     104922,
     104917,
     104917,
@@ -1566,17 +1591,12 @@
     104916,
     104916,
     104918,
-    104945,
     104915,
-    104945,
-    104914,
-    104944,
     104914,
     104914,
-    104952,
-    104952,
+    104914,
     104912,
-    104952,
+    104944,
     104921,
     104911,
     104911,
@@ -1602,7 +1622,11 @@
      "stamina": 0.15,
      "mp5": 0.5
     }
-   }
+   },
+   "about": [
+    "31 points in Restoration, with 20 in Feral Combat. Built for PvP. On this order the key talents arrive as follows: Gift of the Earthmother at 44, Swiftmend at 49, Feral Charge at 50, Nature's Swiftness at 51 and Wild Growth at 60.",
+    "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
+   ]
   },
   {
    "id": "druid-restoration",
@@ -1615,20 +1639,24 @@
    "must_have_by": {},
    "order": [
     104939,
-    104957,
+    104924,
     104939,
-    104957,
     104924,
     104939,
     104957,
-    104924,
-    104939,
     104957,
+    104957,
+    104957,
+    104939,
     104924,
     104939,
     104957,
     104924,
     104922,
+    104924,
+    104925,
+    104925,
+    104925,
     104922,
     104922,
     104922,
@@ -1636,10 +1664,6 @@
     104917,
     104917,
     104917,
-    104924,
-    104925,
-    104925,
-    104925,
     104927,
     104927,
     104916,
@@ -1680,7 +1704,11 @@
      "stamina": 0.15,
      "mp5": 0.5
     }
-   }
+   },
+   "about": [
+    "35 points in Restoration, with 11 in Balance and 5 in Feral Combat. Built for PvE. On this order the key talents arrive as follows: Nature's Splendor at 43, Gift of the Earthmother at 44, Swiftmend at 48, Nature's Swiftness at 49 and Wild Growth at 60.",
+    "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
+   ]
   }
  ],
  "shortlist": [
@@ -1702,11 +1730,11 @@
    "archetype": "deep Balance",
    "focus": "PvE",
    "standard": "druid-balance",
-   "standard_score": 1.7260299008173785,
+   "standard_score": 1.6966109274107009,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "druid-balance": 1.7260299008173785
+    "druid-balance": 1.6966109274107009
    },
    "qualifying": [
     "druid-balance"

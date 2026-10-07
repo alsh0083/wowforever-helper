@@ -1,9 +1,12 @@
-"""Point-order optimizer: greedy point selection with deadline feasibility.
+"""Point-order optimizer: greedy point selection with unlock look-ahead and deadline feasibility.
 
 `optimize_order` turns a legal finished build into one talent id per point, the first point
-at `rules.first_talent_level`. Each point takes the legal candidate with the best `value`,
-dropping candidates that would leave a `must_have_by` deadline unreachable. Class-agnostic:
-all rules come from the schema and `wowforever.rules`.
+at `rules.first_talent_level`. Each point starts the best *path*: for every talent still to take,
+the shortest run of legal points that unlocks and takes it, scored by value gained per point. A
+talent that is legal now is a one-point path, so this is plain greedy unless spending a few points
+to unlock something (Mind Flay, a tree's 31-point talent) pays more per point. Candidates that
+would leave a `must_have_by` deadline unreachable are dropped. Class-agnostic: all rules come from
+the schema and `wowforever.rules`.
 """
 
 from __future__ import annotations
@@ -31,6 +34,14 @@ def optimize_order(
         raise ValueError("illegal final build:\n" + "\n".join(problems))
     by_id = {t.talent_id: t for t in cls.talents}
     ranks = {talent_id: 0 for talent_id in final}
+    memo: dict[tuple, float] = {}
+
+    def cached(r: Mapping[int, int], level: int) -> float:
+        key = (level, tuple(sorted((k, v) for k, v in r.items() if v)))
+        if key not in memo:
+            memo[key] = value(dict(r), level)
+        return memo[key]
+
     total = sum(final.values())
     order: list[int] = []
     for index in range(1, total + 1):
@@ -48,14 +59,51 @@ def optimize_order(
         ]
         if not survivors:
             raise _stuck(ranks, final, must_have_by, by_id, cls.rules, level)
-        scored = [
-            (-value({**ranks, talent.talent_id: ranks[talent.talent_id] + 1}, level), talent)
-            for talent in survivors
-        ]
-        best = min(scored, key=lambda pair: (pair[0], pair[1].row, pair[1].col, pair[1].talent_id))[1]
+        allowed = {talent.talent_id for talent in survivors}
+        now = cached(ranks, level)
+        options = []
+        for target in by_id.values():
+            if target.talent_id not in ranks or ranks[target.talent_id] >= final[target.talent_id]:
+                continue
+            path = _unlock_path(target, ranks, final, by_id, cls.rules, lambda r: cached(r, level))
+            if not path or path[0] not in allowed:
+                continue
+            after = dict(ranks)
+            for tid in path:
+                after[tid] += 1
+            first = by_id[path[0]]
+            options.append(((cached(after, level) - now) / len(path), len(path), first))
+        if options:
+            best = min(options, key=lambda o: (-o[0], o[1], o[2].row, o[2].col, o[2].talent_id))[2]
+        else:   # every path starts outside the deadline-safe set: fall back to one point
+            best = min(survivors, key=lambda t: (-cached({**ranks, t.talent_id: ranks[t.talent_id] + 1}, level),
+                                                 t.row, t.col, t.talent_id))
         ranks[best.talent_id] += 1
         order.append(best.talent_id)
     return order
+
+
+def _unlock_path(target: Talent, ranks: Mapping[int, int], final: Mapping[int, int],
+                 by_id: Mapping[int, Talent], rules: Rules, score: Callable[[dict[int, int]], float],
+                 limit: int = 15) -> list[int]:
+    """The points that unlock and take one rank of `target`: while it is locked, the best-scoring legal
+    point from the build that moves toward it (its prerequisite, or a point in a row above it in its
+    tree). Empty if it can't be reached within `limit` points."""
+    trial, path = dict(ranks), []
+    while len(path) < limit:
+        if _legal_now(target, trial, by_id, rules):
+            return path + [target.talent_id]
+        pre = target.prerequisite
+        steps = [by_id[tid] for tid in trial
+                 if trial[tid] < final[tid] and tid != target.talent_id and _legal_now(by_id[tid], trial, by_id, rules)
+                 and ((pre is not None and tid == pre.talent_id and trial[tid] < pre.rank)
+                      or (by_id[tid].tree_id == target.tree_id and by_id[tid].row < target.row))]
+        if not steps:
+            return []
+        step = max(steps, key=lambda t: (score({**trial, t.talent_id: trial[t.talent_id] + 1}), -t.row, -t.col, -t.talent_id))
+        trial[step.talent_id] += 1
+        path.append(step.talent_id)
+    return []
 
 
 def _legal_now(talent: Talent, ranks: Mapping[int, int], by_id: Mapping[int, Talent], rules: Rules) -> bool:

@@ -928,12 +928,19 @@
    "must_have_by": {},
    "order": [
     105924,
-    105925,
-    105925,
     105905,
     105905,
     105907,
     105907,
+    105907,
+    105907,
+    105907,
+    105902,
+    105902,
+    105903,
+    105900,
+    105925,
+    105925,
     105924,
     105924,
     105923,
@@ -942,24 +949,9 @@
     105924,
     105924,
     105919,
-    105907,
-    105907,
-    105907,
-    105902,
-    105902,
-    105903,
-    105900,
-    105903,
-    105903,
-    105899,
-    105899,
-    105901,
-    105901,
     105918,
     105918,
     105918,
-    105898,
-    105898,
     105916,
     110876,
     110876,
@@ -967,9 +959,7 @@
     110876,
     105914,
     105914,
-    105895,
     105913,
-    105892,
     105912,
     105911,
     105911,
@@ -977,26 +967,36 @@
     105910,
     105910,
     105910,
-    105910
+    105910,
+    105903,
+    105903,
+    105899,
+    105899,
+    105901,
+    105901,
+    105898,
+    105898,
+    105895,
+    105892
    ],
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 61.7,
+      "score": 64.8,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 63.0,
+      "score": 68.3,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 82.2,
+      "score": 82.7,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 86.4,
+      "score": 88.3,
       "unit": "kills/hour"
      },
      "60": {
@@ -1006,19 +1006,19 @@
     },
     "dungeon": {
      "20": {
-      "score": 44.2,
+      "score": 42.4,
       "unit": "dps"
      },
      "30": {
-      "score": 80.7,
+      "score": 89.5,
       "unit": "dps"
      },
      "40": {
-      "score": 132.3,
+      "score": 133.6,
       "unit": "dps"
      },
      "50": {
-      "score": 179.7,
+      "score": 185.9,
       "unit": "dps"
      },
      "60": {
@@ -1036,48 +1036,48 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.0363,
-     "stamina": 0.00034,
-     "intellect": 5e-06,
+     "score": 0.0349,
+     "stamina": 0.000327,
+     "intellect": 4e-06,
      "spirit": 0.0,
-     "spell_power": 0.000284,
+     "spell_power": 0.000274,
      "crit_rating": 2.8e-05,
-     "hit_rating": 3.5e-05,
-     "crit_pct": 9.1e-05,
-     "hit_pct": 0.00035
+     "hit_rating": 0.000103,
+     "crit_pct": 8.9e-05,
+     "hit_pct": 0.000344
     },
     "30": {
-     "score": 0.0847,
-     "stamina": 0.000537,
-     "intellect": 6e-06,
-     "spirit": 0.0,
-     "spell_power": 0.000368,
-     "crit_rating": 3.2e-05,
-     "hit_rating": 7.6e-05,
-     "crit_pct": 0.000192,
-     "hit_pct": 0.000761
-    },
-    "40": {
-     "score": 0.1383,
-     "stamina": 0.000883,
+     "score": 0.0927,
+     "stamina": 0.000582,
      "intellect": 7e-06,
      "spirit": 0.0,
-     "spell_power": 0.000378,
-     "crit_rating": 3.4e-05,
-     "hit_rating": 0.000114,
-     "crit_pct": 0.000289,
-     "hit_pct": 0.00114
+     "spell_power": 0.0004,
+     "crit_rating": 3.6e-05,
+     "hit_rating": 8.2e-05,
+     "crit_pct": 0.000211,
+     "hit_pct": 0.000822
+    },
+    "40": {
+     "score": 0.1393,
+     "stamina": 0.000888,
+     "intellect": 7e-06,
+     "spirit": 0.0,
+     "spell_power": 0.000381,
+     "crit_rating": 3.3e-05,
+     "hit_rating": 0.000115,
+     "crit_pct": 0.000288,
+     "hit_pct": 0.001147
     },
     "50": {
-     "score": 0.2074,
-     "stamina": 0.001176,
+     "score": 0.2127,
+     "stamina": 0.001201,
      "intellect": 8e-06,
      "spirit": 0.0,
-     "spell_power": 0.000392,
-     "crit_rating": 3.4e-05,
-     "hit_rating": 3.1e-05,
-     "crit_pct": 0.000382,
-     "hit_pct": 0.00031
+     "spell_power": 0.000399,
+     "crit_rating": 3.5e-05,
+     "hit_rating": 3.2e-05,
+     "crit_pct": 0.00039,
+     "hit_pct": 0.000316
     },
     "60": {
      "score": 0.3991,
@@ -1090,7 +1090,12 @@
      "crit_pct": 0.000575,
      "hit_pct": 0.0
     }
-   }
+   },
+   "about": [
+    "30 points in Affliction, with 21 in Demonology. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 21, Amplify Curse at 35, Curse of Exhaustion at 42, Siphon Life at 43, Shadow Mastery at 46 and Fel Domination at 59.",
+    "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (94%) and raid damage (92%), and weakest at dungeon damage (84%)."
+   ]
   },
   {
    "id": "warlock-affliction-pvp",
@@ -1104,42 +1109,42 @@
    "order": [
     105924,
     105888,
-    105925,
-    105925,
-    105925,
-    105925,
-    105923,
-    105923,
-    105923,
-    105923,
-    105923,
-    105919,
-    105919,
-    105924,
-    105924,
-    105924,
-    105888,
-    105924,
-    110876,
-    110876,
-    110876,
-    110876,
-    110876,
-    105925,
     105907,
     105907,
     105907,
     105907,
     105907,
     105902,
-    105888,
-    105888,
-    105888,
     105902,
     105903,
     105903,
     105903,
     105900,
+    105925,
+    105925,
+    105925,
+    105924,
+    105923,
+    105923,
+    105923,
+    105923,
+    105923,
+    105919,
+    105919,
+    105924,
+    105924,
+    105924,
+    110876,
+    110876,
+    110876,
+    110876,
+    105888,
+    105888,
+    105888,
+    105888,
+    110876,
+    105925,
+    105925,
     105920,
     105920,
     105920,
@@ -1159,15 +1164,15 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 62.1,
+      "score": 64.7,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 64.0,
+      "score": 68.5,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 78.5,
+      "score": 84.2,
       "unit": "kills/hour"
      },
      "50": {
@@ -1181,15 +1186,15 @@
     },
     "dungeon": {
      "20": {
-      "score": 46.3,
+      "score": 43.3,
       "unit": "dps"
      },
      "30": {
-      "score": 87.9,
+      "score": 92.0,
       "unit": "dps"
      },
      "40": {
-      "score": 133.9,
+      "score": 140.0,
       "unit": "dps"
      },
      "50": {
@@ -1211,36 +1216,36 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.0375,
-     "stamina": 0.000351,
+     "score": 0.0356,
+     "stamina": 0.000334,
      "intellect": 5e-06,
      "spirit": 0.0,
-     "spell_power": 0.000293,
+     "spell_power": 0.00028,
      "crit_rating": 2.9e-05,
-     "hit_rating": 0.0,
-     "crit_pct": 9.5e-05,
-     "hit_pct": 0.0
+     "hit_rating": 0.000105,
+     "crit_pct": 9.2e-05,
+     "hit_pct": 0.000351
     },
     "30": {
-     "score": 0.0905,
-     "stamina": 0.000569,
+     "score": 0.0949,
+     "stamina": 0.000593,
      "intellect": 7e-06,
      "spirit": 0.0,
-     "spell_power": 0.000391,
-     "crit_rating": 3.5e-05,
+     "spell_power": 0.000409,
+     "crit_rating": 3.7e-05,
      "hit_rating": 0.0,
-     "crit_pct": 0.000206,
+     "crit_pct": 0.000221,
      "hit_pct": 0.0
     },
     "40": {
-     "score": 0.1373,
-     "stamina": 0.000877,
+     "score": 0.1447,
+     "stamina": 0.000917,
      "intellect": 7e-06,
      "spirit": 0.0,
-     "spell_power": 0.000376,
-     "crit_rating": 3.4e-05,
+     "spell_power": 0.000392,
+     "crit_rating": 3.5e-05,
      "hit_rating": 0.0,
-     "crit_pct": 0.000292,
+     "crit_pct": 0.000298,
      "hit_pct": 0.0
     },
     "50": {
@@ -1265,7 +1270,13 @@
      "crit_pct": 0.000629,
      "hit_pct": 0.0
     }
-   }
+   },
+   "about": [
+    "35 points in Affliction, with 11 in Demonology and 5 in Destruction. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Shadow Mastery at 51 and Siphon Life at 59.",
+    "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (96%) and dungeon damage (96%), and weakest at raid damage (92%).",
+    "A model build: the calculator's pick for this slot, not yet tried in game."
+   ]
   },
   {
    "id": "warlock-affliction",
@@ -1278,27 +1289,6 @@
    "must_have_by": {},
    "order": [
     105924,
-    105925,
-    105925,
-    105925,
-    105925,
-    105923,
-    105923,
-    105924,
-    105923,
-    105923,
-    105919,
-    105919,
-    105923,
-    105924,
-    105924,
-    105924,
-    110876,
-    110876,
-    110876,
-    110876,
-    110876,
-    105925,
     105907,
     105907,
     105907,
@@ -1310,6 +1300,27 @@
     105903,
     105903,
     105900,
+    105925,
+    105925,
+    105925,
+    105924,
+    105923,
+    105923,
+    105923,
+    105923,
+    105923,
+    105919,
+    105919,
+    105924,
+    105924,
+    105924,
+    110876,
+    110876,
+    110876,
+    110876,
+    110876,
+    105925,
+    105925,
     105920,
     105920,
     105920,
@@ -1334,15 +1345,15 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 62.9,
-      "unit": "kills/hour"
-     },
-     "30": {
       "score": 64.8,
       "unit": "kills/hour"
      },
+     "30": {
+      "score": 68.8,
+      "unit": "kills/hour"
+     },
      "40": {
-      "score": 78.3,
+      "score": 84.2,
       "unit": "kills/hour"
      },
      "50": {
@@ -1356,15 +1367,15 @@
     },
     "dungeon": {
      "20": {
-      "score": 45.8,
+      "score": 42.4,
       "unit": "dps"
      },
      "30": {
-      "score": 84.8,
+      "score": 90.5,
       "unit": "dps"
      },
      "40": {
-      "score": 125.7,
+      "score": 137.5,
       "unit": "dps"
      },
      "50": {
@@ -1386,37 +1397,37 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.4019,
+     "score": 0.3934,
      "stamina": 0.0,
-     "intellect": 4.5e-05,
+     "intellect": 4.4e-05,
      "spirit": 0.0,
-     "spell_power": 0.002855,
-     "crit_rating": 0.000282,
-     "hit_rating": 0.000425,
-     "crit_pct": 0.000913,
-     "hit_pct": 0.002078
+     "spell_power": 0.00278,
+     "crit_rating": 0.000273,
+     "hit_rating": 0.001109,
+     "crit_pct": 0.000882,
+     "hit_pct": 0.003643
     },
     "30": {
-     "score": 0.5717,
+     "score": 0.6085,
      "stamina": 0.0,
-     "intellect": 4.2e-05,
+     "intellect": 4.6e-05,
      "spirit": 0.0,
-     "spell_power": 0.002537,
-     "crit_rating": 0.000217,
-     "hit_rating": 0.000517,
-     "crit_pct": 0.001283,
-     "hit_pct": 0.003844
+     "spell_power": 0.002711,
+     "crit_rating": 0.000235,
+     "hit_rating": 0.0007,
+     "crit_pct": 0.00139,
+     "hit_pct": 0.004145
     },
     "40": {
-     "score": 0.7754,
+     "score": 0.8426,
      "stamina": 0.0,
-     "intellect": 0.000236,
+     "intellect": 0.000257,
      "spirit": 0.0,
-     "spell_power": 0.002327,
-     "crit_rating": 0.000199,
-     "hit_rating": 0.00031,
-     "crit_pct": 0.001712,
-     "hit_pct": 0.00267
+     "spell_power": 0.002522,
+     "crit_rating": 0.000217,
+     "hit_rating": 0.000711,
+     "crit_pct": 0.001874,
+     "hit_pct": 0.006129
     },
     "50": {
      "score": 1.0368,
@@ -1440,7 +1451,12 @@
      "crit_pct": 0.003324,
      "hit_pct": 0.004517
     }
-   }
+   },
+   "about": [
+    "40 points in Affliction, with 11 in Demonology. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 21, Siphon Life at 56 and Wrack at 60.",
+    "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (97%) and questing speed (95%), and weakest at dungeon damage (86%)."
+   ]
   },
   {
    "id": "warlock-demonology-pve-model",
@@ -1454,10 +1470,6 @@
    "order": [
     105924,
     105888,
-    105925,
-    105925,
-    105889,
-    105889,
     105907,
     105907,
     105907,
@@ -1469,16 +1481,12 @@
     105903,
     105903,
     105900,
+    105925,
+    105925,
+    105889,
+    105889,
     105903,
-    105899,
-    105899,
-    105901,
-    105901,
-    105901,
-    105898,
-    105898,
     105888,
-    105897,
     105888,
     105887,
     105887,
@@ -1490,8 +1498,16 @@
     105883,
     105883,
     105883,
-    105880,
     105879,
+    105880,
+    105899,
+    105899,
+    105901,
+    105901,
+    105901,
+    105898,
+    105898,
+    105897,
     105897,
     105892,
     105893,
@@ -1509,15 +1525,15 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 60.6,
+      "score": 64.7,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 66.5,
+      "score": 67.9,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 81.5,
+      "score": 84.1,
       "unit": "kills/hour"
      },
      "50": {
@@ -1531,15 +1547,15 @@
     },
     "dungeon": {
      "20": {
-      "score": 44.2,
+      "score": 43.3,
       "unit": "dps"
      },
      "30": {
-      "score": 88.8,
+      "score": 93.0,
       "unit": "dps"
      },
      "40": {
-      "score": 136.6,
+      "score": 144.5,
       "unit": "dps"
      },
      "50": {
@@ -1561,37 +1577,37 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.3873,
+     "score": 0.3969,
      "stamina": 0.0,
-     "intellect": 4.6e-05,
+     "intellect": 4.5e-05,
      "spirit": 0.0,
-     "spell_power": 0.002781,
-     "crit_rating": 0.000285,
-     "hit_rating": 0.000778,
-     "crit_pct": 0.000921,
-     "hit_pct": 0.003585
+     "spell_power": 0.002815,
+     "crit_rating": 0.000279,
+     "hit_rating": 0.001122,
+     "crit_pct": 0.000902,
+     "hit_pct": 0.003684
     },
     "30": {
-     "score": 0.5939,
+     "score": 0.616,
      "stamina": 0.0,
-     "intellect": 4.8e-05,
+     "intellect": 5e-05,
      "spirit": 0.0,
-     "spell_power": 0.002653,
-     "crit_rating": 0.000244,
-     "hit_rating": 0.000857,
-     "crit_pct": 0.001447,
-     "hit_pct": 0.005743
+     "spell_power": 0.002774,
+     "crit_rating": 0.000253,
+     "hit_rating": 0.000892,
+     "crit_pct": 0.001501,
+     "hit_pct": 0.005957
     },
     "40": {
-     "score": 0.8162,
+     "score": 0.8438,
      "stamina": 0.0,
-     "intellect": 0.000244,
+     "intellect": 0.000257,
      "spirit": 0.0,
-     "spell_power": 0.00247,
-     "crit_rating": 0.000235,
-     "hit_rating": 0.000879,
-     "crit_pct": 0.002026,
-     "hit_pct": 0.007823
+     "spell_power": 0.002553,
+     "crit_rating": 0.00031,
+     "hit_rating": 0.000904,
+     "crit_pct": 0.002672,
+     "hit_pct": 0.008047
     },
     "50": {
      "score": 1.0229,
@@ -1615,7 +1631,13 @@
      "crit_pct": 0.004872,
      "hit_pct": 0.005814
     }
-   }
+   },
+   "about": [
+    "31 points in Demonology, with 17 in Destruction and 3 in Affliction. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Conflagrate at 41, Soul Link at 51 and Demonic Pact at 60.",
+    "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up, uses Conflagrate on cooldown and fills with Shadow Bolt.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (94%) and dungeon damage (91%), and weakest at raid damage (87%).",
+    "A model build: the calculator's pick for this slot, not yet tried in game."
+   ]
   },
   {
    "id": "warlock-demonology-pve",
@@ -1629,22 +1651,6 @@
    "order": [
     105888,
     105888,
-    105881,
-    105881,
-    105889,
-    105887,
-    105887,
-    105887,
-    105889,
-    105889,
-    105883,
-    105883,
-    105883,
-    105883,
-    105883,
-    105889,
-    105889,
-    105888,
     105907,
     105907,
     105907,
@@ -1652,12 +1658,28 @@
     105907,
     105906,
     105902,
-    105888,
     105902,
     105903,
-    105888,
     105903,
     105900,
+    105881,
+    105881,
+    105889,
+    105887,
+    105887,
+    105887,
+    105889,
+    105889,
+    105883,
+    105883,
+    105883,
+    105883,
+    105888,
+    105883,
+    105888,
+    105888,
+    105889,
+    105889,
     105903,
     105899,
     105899,
@@ -1684,15 +1706,15 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 60.2,
+      "score": 64.9,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 60.5,
+      "score": 69.7,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 80.4,
+      "score": 81.7,
       "unit": "kills/hour"
      },
      "50": {
@@ -1706,11 +1728,11 @@
     },
     "dungeon": {
      "20": {
-      "score": 43.4,
+      "score": 43.3,
       "unit": "dps"
      },
      "30": {
-      "score": 79.7,
+      "score": 87.3,
       "unit": "dps"
      },
      "40": {
@@ -1736,37 +1758,37 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.3822,
+     "score": 0.3978,
+     "stamina": 0.0,
+     "intellect": 4.5e-05,
+     "spirit": 0.0,
+     "spell_power": 0.002817,
+     "crit_rating": 0.000279,
+     "hit_rating": 0.001123,
+     "crit_pct": 0.000902,
+     "hit_pct": 0.003689
+    },
+    "30": {
+     "score": 0.5975,
      "stamina": 0.0,
      "intellect": 4.6e-05,
      "spirit": 0.0,
-     "spell_power": 0.002744,
-     "crit_rating": 0.000288,
-     "hit_rating": 0.001101,
-     "crit_pct": 0.000933,
-     "hit_pct": 0.003613
-    },
-    "30": {
-     "score": 0.5352,
-     "stamina": 0.0,
-     "intellect": 4.9e-05,
-     "spirit": 0.0,
-     "spell_power": 0.002404,
-     "crit_rating": 0.000249,
-     "hit_rating": 0.0009,
-     "crit_pct": 0.001477,
-     "hit_pct": 0.005336
+     "spell_power": 0.002656,
+     "crit_rating": 0.000237,
+     "hit_rating": 0.000985,
+     "crit_pct": 0.001405,
+     "hit_pct": 0.005839
     },
     "40": {
-     "score": 0.8103,
+     "score": 0.8144,
      "stamina": 0.0,
-     "intellect": 0.000242,
+     "intellect": 0.00025,
      "spirit": 0.0,
-     "spell_power": 0.002463,
-     "crit_rating": 0.000259,
-     "hit_rating": 0.000923,
-     "crit_pct": 0.002235,
-     "hit_pct": 0.007949
+     "spell_power": 0.00247,
+     "crit_rating": 0.000298,
+     "hit_rating": 0.000924,
+     "crit_pct": 0.002563,
+     "hit_pct": 0.007963
     },
     "50": {
      "score": 0.9608,
@@ -1790,7 +1812,12 @@
      "crit_pct": 0.00382,
      "hit_pct": 0.011858
     }
-   }
+   },
+   "about": [
+    "31 points in Demonology, with 20 in Destruction. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Soul Link at 51 and Demonic Pact at 60.",
+    "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (92%) and dungeon damage (85%), and weakest at raid damage (82%)."
+   ]
   },
   {
    "id": "warlock-demonology",
@@ -1804,40 +1831,40 @@
    "order": [
     105924,
     105888,
-    105881,
-    105881,
     105907,
     105907,
     105907,
     105907,
     105907,
     105902,
-    105924,
-    105924,
-    105924,
-    105924,
     105902,
     105904,
-    105888,
     105904,
     105904,
     105900,
+    105924,
+    105924,
+    105924,
+    105924,
+    105881,
+    105881,
     105903,
     105903,
     105903,
     105899,
     105899,
+    105898,
+    105888,
+    105898,
+    105888,
+    105888,
     105888,
     105885,
-    105888,
-    105888,
     105885,
     105885,
     105885,
     105885,
     105884,
-    105898,
-    105898,
     105897,
     105895,
     105894,
@@ -1859,11 +1886,11 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 59.6,
+      "score": 64.7,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 65.8,
+      "score": 66.5,
       "unit": "kills/hour"
      },
      "40": {
@@ -1881,11 +1908,11 @@
     },
     "dungeon": {
      "20": {
-      "score": 43.7,
+      "score": 43.3,
       "unit": "dps"
      },
      "30": {
-      "score": 90.3,
+      "score": 88.3,
       "unit": "dps"
      },
      "40": {
@@ -1911,26 +1938,26 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.0359,
-     "stamina": 0.000336,
+     "score": 0.0356,
+     "stamina": 0.000334,
      "intellect": 5e-06,
      "spirit": 0.0,
-     "spell_power": 0.000282,
+     "spell_power": 0.00028,
      "crit_rating": 2.9e-05,
-     "hit_rating": 0.000106,
-     "crit_pct": 9.3e-05,
-     "hit_pct": 0.000353
+     "hit_rating": 0.000105,
+     "crit_pct": 9.2e-05,
+     "hit_pct": 0.000351
     },
     "30": {
-     "score": 0.0935,
-     "stamina": 0.000586,
+     "score": 0.0917,
+     "stamina": 0.000576,
      "intellect": 7e-06,
      "spirit": 0.0,
-     "spell_power": 0.000405,
-     "crit_rating": 3.8e-05,
-     "hit_rating": 0.000143,
-     "crit_pct": 0.000223,
-     "hit_pct": 0.000845
+     "spell_power": 0.000398,
+     "crit_rating": 3.6e-05,
+     "hit_rating": 0.00014,
+     "crit_pct": 0.000215,
+     "hit_pct": 0.000831
     },
     "40": {
      "score": 0.147,
@@ -1965,7 +1992,12 @@
      "crit_pct": 0.000647,
      "hit_pct": 0.000485
     }
-   }
+   },
+   "about": [
+    "33 points in Demonology, with 13 in Destruction and 5 in Affliction. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Shadowburn at 45, Fel Domination at 47, Soul Link at 51 and Demonic Pact at 60.",
+    "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (92%) and dungeon damage (88%), and weakest at raid damage (81%)."
+   ]
   },
   {
    "id": "warlock-destruction-pve",
@@ -1979,37 +2011,7 @@
    "order": [
     105888,
     105888,
-    105925,
-    105925,
-    105925,
-    105881,
-    105921,
-    105921,
-    105888,
-    105923,
-    105923,
-    105889,
-    105887,
-    105887,
-    105887,
-    105889,
-    105889,
-    105883,
-    105883,
-    105883,
-    105883,
-    105883,
-    105880,
-    105879,
-    105879,
-    105879,
-    105889,
-    105889,
-    105925,
-    105925,
     105907,
-    105888,
-    105888,
     105907,
     105907,
     105907,
@@ -2020,6 +2022,30 @@
     105903,
     105903,
     105900,
+    105881,
+    105889,
+    105889,
+    105925,
+    105925,
+    105887,
+    105887,
+    105887,
+    105925,
+    105889,
+    105889,
+    105883,
+    105888,
+    105883,
+    105883,
+    105883,
+    105880,
+    105879,
+    105879,
+    105879,
+    105883,
+    105888,
+    105888,
+    105889,
     105884,
     105876,
     105875,
@@ -2027,6 +2053,12 @@
     105875,
     105875,
     105875,
+    105921,
+    105921,
+    105923,
+    105923,
+    105925,
+    105925,
     105874
    ],
    "order_source": "optimized for questing kills/hour",
@@ -2034,19 +2066,19 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 60.6,
+      "score": 64.9,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 62.3,
+      "score": 70.7,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 80.0,
+      "score": 85.1,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 88.7,
+      "score": 91.1,
       "unit": "kills/hour"
      },
      "60": {
@@ -2056,19 +2088,19 @@
     },
     "dungeon": {
      "20": {
-      "score": 46.2,
+      "score": 43.3,
       "unit": "dps"
      },
      "30": {
-      "score": 83.0,
+      "score": 89.2,
       "unit": "dps"
      },
      "40": {
-      "score": 137.4,
+      "score": 143.3,
       "unit": "dps"
      },
      "50": {
-      "score": 192.1,
+      "score": 209.9,
       "unit": "dps"
      },
      "60": {
@@ -2086,48 +2118,48 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.3959,
+     "score": 0.3978,
+     "stamina": 0.0,
+     "intellect": 4.5e-05,
+     "spirit": 0.0,
+     "spell_power": 0.002817,
+     "crit_rating": 0.000279,
+     "hit_rating": 0.001123,
+     "crit_pct": 0.000902,
+     "hit_pct": 0.003689
+    },
+    "30": {
+     "score": 0.6092,
      "stamina": 0.0,
      "intellect": 4.7e-05,
      "spirit": 0.0,
-     "spell_power": 0.002857,
-     "crit_rating": 0.000297,
-     "hit_rating": 0.00054,
-     "crit_pct": 0.000959,
-     "hit_pct": 0.002118
-    },
-    "30": {
-     "score": 0.556,
-     "stamina": 0.0,
-     "intellect": 4.9e-05,
-     "spirit": 0.0,
-     "spell_power": 0.002489,
-     "crit_rating": 0.000252,
-     "hit_rating": 0.000642,
-     "crit_pct": 0.001492,
-     "hit_pct": 0.003805
+     "spell_power": 0.002705,
+     "crit_rating": 0.000242,
+     "hit_rating": 0.000866,
+     "crit_pct": 0.001431,
+     "hit_pct": 0.005819
     },
     "40": {
-     "score": 0.8124,
+     "score": 0.852,
      "stamina": 0.0,
-     "intellect": 0.000263,
+     "intellect": 0.000273,
      "spirit": 0.0,
-     "spell_power": 0.002251,
-     "crit_rating": 0.000332,
-     "hit_rating": 0.000317,
-     "crit_pct": 0.00286,
-     "hit_pct": 0.00273
+     "spell_power": 0.00238,
+     "crit_rating": 0.00034,
+     "hit_rating": 0.000718,
+     "crit_pct": 0.002933,
+     "hit_pct": 0.00619
     },
     "50": {
-     "score": 1.0258,
+     "score": 1.0648,
      "stamina": 0.0,
-     "intellect": 0.000321,
+     "intellect": 0.000448,
      "spirit": 0.0,
-     "spell_power": 0.002105,
-     "crit_rating": 0.000453,
-     "hit_rating": 0.000302,
-     "crit_pct": 0.005124,
-     "hit_pct": 0.003416
+     "spell_power": 0.002264,
+     "crit_rating": 0.000344,
+     "hit_rating": 0.000722,
+     "crit_pct": 0.003893,
+     "hit_pct": 0.008164
     },
     "60": {
      "score": 1.5713,
@@ -2140,7 +2172,12 @@
      "crit_pct": 0.005206,
      "hit_pct": 0.004568
     }
-   }
+   },
+   "about": [
+    "31 points in Destruction, with 11 in Demonology and 9 in Affliction. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Conflagrate at 39, Shadowburn at 47, Bane of Havoc at 48 and Incinerate at 60.",
+    "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up, uses Conflagrate on cooldown and fills with Shadow Bolt.",
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage."
+   ]
   },
   {
    "id": "warlock-destruction",
@@ -2154,28 +2191,30 @@
    "order": [
     105888,
     105888,
-    105925,
-    105925,
-    105925,
+    105907,
+    105907,
+    105907,
+    105907,
+    105907,
+    105902,
+    105902,
+    105903,
+    105903,
+    105903,
+    105900,
     105881,
     105881,
-    105925,
     105888,
+    105925,
+    105925,
     105887,
     105887,
     105887,
     105925,
-    105907,
-    105907,
-    105907,
-    105907,
-    105907,
-    105902,
-    105902,
     105886,
     105886,
     105883,
-    105883,
+    105888,
     105883,
     105883,
     105883,
@@ -2183,7 +2222,7 @@
     105879,
     105879,
     105879,
-    105888,
+    105883,
     105877,
     105877,
     105877,
@@ -2194,12 +2233,10 @@
     105875,
     105875,
     105875,
+    105925,
+    105925,
     105886,
     105886,
-    105903,
-    105903,
-    105903,
-    105900,
     105884,
     105876,
     105874
@@ -2209,19 +2246,19 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 60.7,
+      "score": 64.9,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 61.8,
+      "score": 70.6,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 79.6,
+      "score": 85.1,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 89.1,
+      "score": 93.2,
       "unit": "kills/hour"
      },
      "60": {
@@ -2231,19 +2268,19 @@
     },
     "dungeon": {
      "20": {
-      "score": 46.3,
+      "score": 43.3,
       "unit": "dps"
      },
      "30": {
-      "score": 83.8,
+      "score": 91.3,
       "unit": "dps"
      },
      "40": {
-      "score": 136.2,
+      "score": 146.1,
       "unit": "dps"
      },
      "50": {
-      "score": 206.3,
+      "score": 217.2,
       "unit": "dps"
      },
      "60": {
@@ -2261,47 +2298,47 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.0375,
-     "stamina": 0.000351,
+     "score": 0.0356,
+     "stamina": 0.000334,
      "intellect": 5e-06,
      "spirit": 0.0,
-     "spell_power": 0.000295,
-     "crit_rating": 3.1e-05,
-     "hit_rating": 0.0,
-     "crit_pct": 9.9e-05,
-     "hit_pct": 0.0
+     "spell_power": 0.00028,
+     "crit_rating": 2.9e-05,
+     "hit_rating": 0.000105,
+     "crit_pct": 9.3e-05,
+     "hit_pct": 0.000351
     },
     "30": {
-     "score": 0.086,
-     "stamina": 0.000545,
-     "intellect": 7e-06,
+     "score": 0.0943,
+     "stamina": 0.00059,
+     "intellect": 8e-06,
      "spirit": 0.0,
-     "spell_power": 0.000375,
-     "crit_rating": 3.5e-05,
-     "hit_rating": 0.0,
-     "crit_pct": 0.000209,
-     "hit_pct": 0.0
+     "spell_power": 0.000408,
+     "crit_rating": 3.9e-05,
+     "hit_rating": 8.3e-05,
+     "crit_pct": 0.000228,
+     "hit_pct": 0.000834
     },
     "40": {
-     "score": 0.1392,
-     "stamina": 0.000887,
+     "score": 0.1497,
+     "stamina": 0.000944,
      "intellect": 1.1e-05,
      "spirit": 0.0,
-     "spell_power": 0.000349,
-     "crit_rating": 5.2e-05,
+     "spell_power": 0.000376,
+     "crit_rating": 5e-05,
      "hit_rating": 0.0,
-     "crit_pct": 0.000448,
+     "crit_pct": 0.000434,
      "hit_pct": 0.0
     },
     "50": {
-     "score": 0.226,
-     "stamina": 0.001261,
+     "score": 0.2365,
+     "stamina": 0.001308,
      "intellect": 1.2e-05,
      "spirit": 0.0,
-     "spell_power": 0.00038,
-     "crit_rating": 5.3e-05,
+     "spell_power": 0.000394,
+     "crit_rating": 5.4e-05,
      "hit_rating": 0.0,
-     "crit_pct": 0.000604,
+     "crit_pct": 0.000611,
      "hit_pct": 0.0
     },
     "60": {
@@ -2315,7 +2352,12 @@
      "crit_pct": 0.000819,
      "hit_pct": 0.0
     }
-   }
+   },
+   "about": [
+    "35 points in Destruction, with 11 in Demonology and 5 in Affliction. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Conflagrate at 39, Shadowburn at 58, Bane of Havoc at 59 and Incinerate at 60.",
+    "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up, uses Conflagrate on cooldown and fills with Shadow Bolt.",
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage."
+   ]
   }
  ],
  "shortlist": [
