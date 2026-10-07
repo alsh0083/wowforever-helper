@@ -32,7 +32,7 @@ that works for all nine classes.
 
 ![The talent layout of a rogue build](docs/images/talent-layout.png)
 
-![Recommended gear at level 25 for an Assassination rogue, with sources and crafted alternatives](docs/images/gear.png)
+![Recommended gear at level 25 for an Assassination rogue, with sources, crafted alternatives and a quest card open](docs/images/gear.png)
 
 ## Quick start
 
