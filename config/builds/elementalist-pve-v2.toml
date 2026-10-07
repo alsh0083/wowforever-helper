@@ -1,5 +1,5 @@
-# Offensive Elementalist, PvE version (#101). Model-derived, unproven: levels 10-40 are the
-# PvP route (dual spec from 40 keeps the shared leveling); the 20 points from 41 to 60 were
+# Offensive Elementalist, PvE version (#101). Model-derived, unproven: levels 10-40 follow the
+# former hand-made PvP route (dual spec from 40 keeps the shared leveling); the 20 points from 41 to 60 were
 # chosen by hill-climbing the PvE focus score (docs/planning/2026-10-05.md, Q1/Q6).
 
 id = "elementalist-pve-v2"
@@ -9,7 +9,7 @@ origin = "model"
 confidence = "low"
 primary_spell = "Frostbolt"  # the spell its leveling order is optimized around
 name = "Offensive Elementalist (PvE)"
-summary = "Same Frost-then-Fire route as the PvP build to level 40 (Ice Block 25, Cold Snap 30, Impact 40). From 41 the PvE spec takes Shatter-style sustain from the Fire/Frost Shatter standard: Frost Channeling 3 and Master of Elements 3 for mana, Piercing Ice 3, Winter's Chill 1, Improved Flamestrike 3 for packs, and drops Heating Up/Pyroblast, Burning Soul and Blast Wave. Model-derived (PvE score 1.71 vs 1.62 for Fire/Frost Shatter); not yet tried in game."
+summary = "A Frost-then-Fire route to level 40 (Ice Block 25, Cold Snap 30, Impact 40). From 41 the PvE spec takes Shatter-style sustain from the Fire/Frost Shatter standard: Frost Channeling 3 and Master of Elements 3 for mana, Piercing Ice 3, Winter's Chill 1, Improved Flamestrike 3 for packs, and drops Heating Up/Pyroblast, Burning Soul and Blast Wave. Model-derived (PvE score 1.71 vs 1.62 for Fire/Frost Shatter); not yet tried in game."
 gives_up = ["Ice Barrier", "Heating Up", "Pyroblast", "Burning Soul", "Blast Wave"]
 
 # One talent name per point, starting at level 10.

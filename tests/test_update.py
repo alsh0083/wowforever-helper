@@ -108,7 +108,7 @@ def test_new_build_with_a_changed_talent_is_diffed_and_flags_builds(data):
     assert s.build == "1.60.1.70300" and s.previous_build == "1.60.1.70205"
     assert s.changed
     assert any("Critical Mass" in str(c) for c in s.changes)
-    assert "elementalist-v4" in s.affected_builds and "deep-frost" not in s.affected_builds
+    assert "elementalist-pve-v2" in s.affected_builds and "deep-frost" not in s.affected_builds
     assert (data / "datasets" / "1.60.1.70300.json").exists()
     log = (data / "CHANGELOG.md").read_text(encoding="utf-8")
     assert log.index("1.60.1.70300") < log.index("1.60.1.70205")

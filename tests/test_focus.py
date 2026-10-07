@@ -21,7 +21,8 @@ CLS, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
                          wago_build="1.60.1.70205")
 CLS, _ = attach_effects(CLS, TALENT_EFFECTS, UNMODELED)
 CLS = replace(CLS, spells=class_spells(read_tables(FIX / "wago-1.60.1.70205-spells"), skill_lines=SKILL_LINES))
-B = {b.id: b.final_ids(CLS) for b in load_builds(class_name="mage")}
+# the owner's former hand-made Elementalist builds stay as fixtures (tests/fixtures/builds/)
+B = {b.id: b.final_ids(CLS) for b in [*load_builds(class_name="mage"), *load_builds(Path(__file__).parent / "fixtures" / "builds", class_name="mage")]}
 STATS, A = StatTable.load("mage").at(60), Assumptions.load()
 
 
