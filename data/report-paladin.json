@@ -960,7 +960,11 @@
      "spell_power": 0.2,
      "weapon_dps": 3.0
     }
-   }
+   },
+   "about": [
+    "33 points in Holy, with 18 in Protection. Built for PvP. On this order the key talents arrive as follows: Voice of Truth at 32, Divine Favor at 50, Holy Shock at 54 and Light's Vigil at 60.",
+    "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
+   ]
   },
   {
    "id": "paladin-holy",
@@ -1040,7 +1044,11 @@
      "spell_power": 0.2,
      "weapon_dps": 3.0
     }
-   }
+   },
+   "about": [
+    "36 points in Holy, with 10 in Protection and 5 in Retribution. Built for PvE. On this order the key talents arrive as follows: Voice of Truth at 37, Divine Favor at 50, Holy Shock at 54 and Light's Vigil at 60.",
+    "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
+   ]
   },
   {
    "id": "paladin-protection-pvp",
@@ -1120,7 +1128,11 @@
      "spell_power": 0.2,
      "weapon_dps": 3.0
     }
-   }
+   },
+   "about": [
+    "37 points in Protection, with 14 in Holy. Built for PvP. On this order the key talents arrive as follows: Voice of Truth at 32, Improved Seal of Fury at 33, Swift Judgement at 45, Templar's Bulwark at 49 and Holy Shield at 60.",
+    "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
+   ]
   },
   {
    "id": "paladin-protection",
@@ -1136,15 +1148,15 @@
     105630,
     105630,
     105630,
-    105707,
-    105707,
-    105707,
-    105707,
-    105707,
     105626,
     105638,
     105638,
     105638,
+    105707,
+    105707,
+    105707,
+    105707,
+    105707,
     105626,
     105626,
     105626,
@@ -1198,7 +1210,11 @@
      "spell_power": 0.2,
      "weapon_dps": 3.0
     }
-   }
+   },
+   "about": [
+    "42 points in Protection, with 7 in Retribution. Built for PvE. On this order the key talents arrive as follows: Improved Seal of Fury at 34, Swift Judgement at 43, Templar's Bulwark at 47 and Holy Shield at 58.",
+    "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
+   ]
   },
   {
    "id": "paladin-retribution-pvp",
@@ -1210,19 +1226,6 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
-    105630,
-    105630,
-    105630,
-    105630,
-    105630,
-    105638,
-    105638,
-    105638,
-    105639,
-    105639,
-    105639,
-    105639,
-    105639,
     105706,
     105706,
     105706,
@@ -1234,9 +1237,6 @@
     105703,
     105703,
     105696,
-    105334,
-    105334,
-    105334,
     105705,
     105705,
     105704,
@@ -1252,6 +1252,22 @@
     105697,
     105697,
     105697,
+    105639,
+    105639,
+    105639,
+    105639,
+    105639,
+    105334,
+    105334,
+    105334,
+    105630,
+    105630,
+    105630,
+    105630,
+    105630,
+    105638,
+    105638,
+    105638,
     105699,
     105699,
     105694,
@@ -1267,19 +1283,19 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 61.7,
+      "score": 83.3,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 54.3,
+      "score": 77.5,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 80.2,
+      "score": 83.0,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 77.8,
+      "score": 77.7,
       "unit": "kills/hour"
      },
      "60": {
@@ -1289,19 +1305,19 @@
     },
     "dungeon": {
      "20": {
-      "score": 31.9,
+      "score": 47.8,
       "unit": "dps"
      },
      "30": {
-      "score": 45.7,
+      "score": 71.9,
       "unit": "dps"
      },
      "40": {
-      "score": 109.5,
+      "score": 115.5,
       "unit": "dps"
      },
      "50": {
-      "score": 159.3,
+      "score": 159.0,
       "unit": "dps"
      },
      "60": {
@@ -1319,56 +1335,56 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.0291,
-     "strength": 0.000111,
-     "agility": 3.9e-05,
-     "stamina": 0.000258,
+     "score": 0.0498,
+     "strength": 0.00016,
+     "agility": 6.1e-05,
+     "stamina": 0.000429,
      "intellect": 0.0,
-     "attack_power": 5.6e-05,
-     "crit_rating": 8.1e-05,
-     "hit_rating": 5.5e-05,
-     "crit_pct": 0.000263,
-     "hit_pct": 0.000275,
-     "weapon_dps": 0.000785
+     "attack_power": 8e-05,
+     "crit_rating": 0.000126,
+     "hit_rating": 0.000147,
+     "crit_pct": 0.000407,
+     "hit_pct": 0.000476,
+     "weapon_dps": 0.001126
     },
     "30": {
-     "score": 0.0667,
-     "strength": 0.00017,
-     "agility": 5.7e-05,
-     "stamina": 0.000464,
+     "score": 0.1102,
+     "strength": 0.00022,
+     "agility": 8.5e-05,
+     "stamina": 0.000737,
      "intellect": 0.0,
-     "attack_power": 8.5e-05,
-     "crit_rating": 9.7e-05,
-     "hit_rating": 0.000101,
-     "crit_pct": 0.000573,
-     "hit_pct": 0.000597,
-     "weapon_dps": 0.001187
+     "attack_power": 0.00011,
+     "crit_rating": 0.000144,
+     "hit_rating": 0.000166,
+     "crit_pct": 0.000855,
+     "hit_pct": 0.000982,
+     "weapon_dps": 0.001535
     },
     "40": {
-     "score": 0.182,
-     "strength": 0.000225,
-     "agility": 9.5e-05,
-     "stamina": 0.000925,
-     "intellect": 0.0,
-     "attack_power": 0.000113,
-     "crit_rating": 0.000147,
-     "hit_rating": 0.000166,
-     "crit_pct": 0.001264,
-     "hit_pct": 0.001429,
-     "weapon_dps": 0.001571
-    },
-    "50": {
-     "score": 0.3035,
-     "strength": 0.000262,
-     "agility": 0.000107,
+     "score": 0.189,
+     "strength": 0.000236,
+     "agility": 9.9e-05,
      "stamina": 0.000953,
      "intellect": 0.0,
-     "attack_power": 0.000131,
-     "crit_rating": 0.000157,
-     "hit_rating": 0.000178,
-     "crit_pct": 0.001774,
-     "hit_pct": 0.002011,
-     "weapon_dps": 0.001858
+     "attack_power": 0.000118,
+     "crit_rating": 0.000153,
+     "hit_rating": 0.000175,
+     "crit_pct": 0.001323,
+     "hit_pct": 0.001509,
+     "weapon_dps": 0.00165
+    },
+    "50": {
+     "score": 0.3031,
+     "strength": 0.000263,
+     "agility": 0.000107,
+     "stamina": 0.000952,
+     "intellect": 0.0,
+     "attack_power": 0.000132,
+     "crit_rating": 0.000158,
+     "hit_rating": 0.000179,
+     "crit_pct": 0.001781,
+     "hit_pct": 0.002028,
+     "weapon_dps": 0.00186
     },
     "60": {
      "score": 0.415,
@@ -1383,7 +1399,12 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.001616
     }
-   }
+   },
+   "about": [
+    "35 points in Retribution, with 8 in Holy and 8 in Protection. Built for PvP. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25, Repentance at 54 and Twist of Light at 60.",
+    "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 55% and Holy damage 45%.",
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage."
+   ]
   },
   {
    "id": "paladin-retribution",
@@ -1395,16 +1416,6 @@
    "gives_up": [],
    "must_have_by": {},
    "order": [
-    105639,
-    105639,
-    105639,
-    105639,
-    105639,
-    105332,
-    105332,
-    105332,
-    105332,
-    105332,
     105706,
     105706,
     105706,
@@ -1416,9 +1427,6 @@
     105703,
     105703,
     105696,
-    105334,
-    105334,
-    105334,
     105705,
     105705,
     105704,
@@ -1436,6 +1444,19 @@
     105693,
     105693,
     105693,
+    105639,
+    105639,
+    105639,
+    105639,
+    105639,
+    105334,
+    105334,
+    105334,
+    105332,
+    105332,
+    105332,
+    105332,
+    105332,
     110882,
     110882,
     110882,
@@ -1448,15 +1469,15 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 60.4,
+      "score": 83.3,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 73.3,
+      "score": 76.5,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 79.7,
+      "score": 83.0,
       "unit": "kills/hour"
      },
      "50": {
@@ -1470,15 +1491,15 @@
     },
     "dungeon": {
      "20": {
-      "score": 30.9,
+      "score": 47.8,
       "unit": "dps"
      },
      "30": {
-      "score": 66.5,
+      "score": 70.6,
       "unit": "dps"
      },
      "40": {
-      "score": 108.1,
+      "score": 115.5,
       "unit": "dps"
      },
      "50": {
@@ -1500,43 +1521,43 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.3231,
-     "strength": 0.001096,
-     "agility": 0.000421,
+     "score": 0.4725,
+     "strength": 0.001354,
+     "agility": 0.000529,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000549,
-     "crit_rating": 0.000867,
-     "hit_rating": 0.000835,
-     "crit_pct": 0.002807,
-     "hit_pct": 0.00228,
-     "weapon_dps": 0.007714
+     "attack_power": 0.000679,
+     "crit_rating": 0.00109,
+     "hit_rating": 0.001134,
+     "crit_pct": 0.003531,
+     "hit_pct": 0.002989,
+     "weapon_dps": 0.009509
     },
     "30": {
-     "score": 0.524,
-     "strength": 0.001114,
-     "agility": 0.000438,
+     "score": 0.5523,
+     "strength": 0.001136,
+     "agility": 0.000457,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000558,
-     "crit_rating": 0.000739,
-     "hit_rating": 0.000676,
-     "crit_pct": 0.004379,
-     "hit_pct": 0.003381,
-     "weapon_dps": 0.007789
+     "attack_power": 0.000569,
+     "crit_rating": 0.000771,
+     "hit_rating": 0.000708,
+     "crit_pct": 0.004572,
+     "hit_pct": 0.00353,
+     "weapon_dps": 0.007944
     },
     "40": {
-     "score": 0.731,
-     "strength": 0.001041,
-     "agility": 0.000466,
+     "score": 0.7729,
+     "strength": 0.001118,
+     "agility": 0.000496,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000521,
-     "crit_rating": 0.000721,
-     "hit_rating": 0.000563,
-     "crit_pct": 0.006212,
-     "hit_pct": 0.004489,
-     "weapon_dps": 0.007281
+     "attack_power": 0.00056,
+     "crit_rating": 0.000767,
+     "hit_rating": 0.000589,
+     "crit_pct": 0.006607,
+     "hit_pct": 0.004688,
+     "weapon_dps": 0.007823
     },
     "50": {
      "score": 0.9322,
@@ -1564,7 +1585,12 @@
      "hit_pct": 0.002525,
      "weapon_dps": 0.007923
     }
-   }
+   },
+   "about": [
+    "34 points in Retribution, with 13 in Holy. Built for PvE. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25 and Twist of Light at 56.",
+    "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 55% and Holy damage 45%.",
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage."
+   ]
   }
  ],
  "shortlist": [
