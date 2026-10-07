@@ -57,3 +57,9 @@ def test_items_and_quests_have_hover_cards():
     html = render(MAGE, {}, gear=GEAR, gear_rules=RULES)
     assert "function itemCard(" in html and "function questCard(" in html and 'role="tooltip"' in html
     assert "itemCard(x.it,x.main)" in html and "function sourcePlain(" in html   # "Also" items name their source
+
+
+def test_header_mark_shows_the_picked_factions_crest():
+    html = render(MAGE, {}, gear=GEAR, gear_rules=RULES)
+    assert 'id="brand-mark"' in html and 'class="crest-a"' in html and 'class="crest-h"' in html
+    assert "function showCrest()" in html and "showCrest();renderGear()" in html
