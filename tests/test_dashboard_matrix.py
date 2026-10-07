@@ -19,7 +19,8 @@ def test_matrix_has_a_cell_per_slot_in_payload_order():
 def test_standards_owner_builds_and_model_picks_are_labelled():
     assert "Model pick, unproven" in HTML
     assert "Community standard" in HTML
-    assert "Yours" in HTML                       # hand-written builds that qualify
+    assert "Yours" not in HTML                   # owner request, 2026-10-07: no tag on hand-made builds
+    assert re.search(r'class="score-num" title="Model score as a share[^"]*">100%<', HTML)
     assert "No community standard yet" in HTML   # empty standard slots say so
 
 
