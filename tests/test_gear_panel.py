@@ -46,9 +46,9 @@ def test_boss_drops_carry_no_classic_tag():
     assert "Classic drop" not in render(MAGE, {}, gear=GEAR, gear_rules=RULES)
 
 
-def test_inferred_quest_factions_are_marked_likely():
+def test_inferred_quest_factions_keep_their_reason_on_hover():
     html = render(MAGE, {}, gear=GEAR, gear_rules=RULES)
-    assert "(likely)" in html and "s.fb" in html
+    assert "(likely)" not in html and "s.fb" in html   # the reason stays in the tag's hover text
 
 
 def test_items_and_quests_have_hover_cards():
