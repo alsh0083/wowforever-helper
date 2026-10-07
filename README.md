@@ -22,8 +22,6 @@ not a leveling guide: it tells you which talent to take at each level, not where
   slider, check-off progress saved in your browser, and the next point to take. The order is optimized
   for questing pace and looks ahead, so it heads for key talents (Moonkin Form, Seal of Command,
   Stormstrike) as early as they pay off.
-- **Compared with Icy Veins:** each build is checked against Icy Veins' level-30 guide builds for the same
-  tree: how many of their points it shares by level 30, what differs, and their full order.
 - **Legacy Talented:** set your rank of the Legacy perk (each rank starts talent points a level earlier)
   and every path shifts to match.
 - **About this build:** for every build, its talent split and when its key talents arrive, what its
@@ -78,7 +76,7 @@ python -m venv .venv
 | `wowforever dashboard` | Renders `dashboard/index.html` from all reports |
 | `wowforever gear-stats --class <class>` | Rebuilds a class's per-level stat table from real Forever items |
 | `wowforever gear-sources [--refresh]` | Rebuilds `data/items/gear.json` (where gear comes from); `--refresh` fetches wowforevertalent.com's item, dungeon and quest pages first |
-| `wowforever icy-veins [--refresh]` | Decodes Icy Veins' Forever guide talent builds into `data/icy-veins/builds.json`; `--refresh` fetches the guides first (about 28 requests, 2 s apart) |
+| `wowforever icy-veins [--refresh]` | Decodes Icy Veins' Forever guide talent builds into `data/icy-veins/builds.json` and prints how many of their level-30 points each talent path shares (a sanity check, not shown on the page); `--refresh` fetches the guides first (about 28 requests, 2 s apart) |
 | `wowforever import-logs <file.har>` | Summarizes Forever Logs pages you saved from your browser (no fetching) |
 | `wowforever validate-logs [--boss-only]` | Compares the model's dungeon DPS with Forever Logs statistics per class and spec, against the average and the strong (p75/p90) parses; `--boss-only` leaves out trash pulls |
 
@@ -116,8 +114,8 @@ Assumptions and their sources are in `config/` and `docs/research/`.
 - **[wago.tools](https://wago.tools/)**: DB2 exports of the WoW Forever client (talent trees, spells, items),
   and game files such as the faction emblems through its published API.
 - **[Icy Veins](https://www.icy-veins.com/wow-forever/)**: the level-30 talent builds in its WoW Forever spec
-  guides, decoded from their talent calculators for comparison. Only the builds (talents, order, date,
-  link) are kept, never guide text; each comparison links back to the guide.
+  guides, decoded from their talent calculators as a background check on the first points of each talent
+  path (their builds stop at level 30). Only the builds (talents, order, date, link) are kept, never guide text.
 - **[Forever Logs](https://foreverlogs.gg/)**: combat-log statistics through its
   [official public API](https://foreverlogs.gg/docs/api), used to check the damage models. Bring your own
   free key (`FOREVERLOGS_API_KEY` in `.env`). Responses are cached locally and not redistributed.

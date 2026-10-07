@@ -1,7 +1,8 @@
 # Talent paths vs Icy Veins' level-30 builds
 
 Checked 2026-10-07: each build's first 21 points against Icy Veins' level-30 guide build for the same main
-tree (`wowforever icy-veins`; the page shows the same comparison per build).
+tree (`wowforever icy-veins` prints this table; it's a background sanity check, not shown on the page, since
+the guide builds stop at level 30 while talent paths run to 60).
 
 | Agreement | Builds |
 |---|---|

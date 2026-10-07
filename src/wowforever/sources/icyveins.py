@@ -1,5 +1,5 @@
-"""Icy Veins' WoW Forever spec guides: their level-30 talent builds, as point-by-point orders (owner request,
-2026-10-07).
+"""Icy Veins' WoW Forever spec guides: their level-30 talent builds, as point-by-point orders, used as a
+background sanity check on the first points of each talent path (owner request, 2026-10-07).
 
 Each guide embeds its builds as read-only talent calculators whose `#tc-...` code is one character per
 point, in the order taken. A character indexes the class's talents in tree order, skipping the empty
@@ -80,6 +80,38 @@ def decode(code: str, calculator: Mapping[str, Any]) -> list[str]:
     """Talent names, one per point in the order taken."""
     talents = talent_list(calculator)
     return [talents[ALPHABET.index(ch)][1] for ch in code]
+
+
+def compare(dataset: Mapping[str, Any], reports: list[Mapping[str, Any]]) -> list[dict[str, Any]]:
+    """For every build in `reports`, how many of the matching guide build's points (same class and main
+    tree) its talent path shares by the same point count: a sanity check on the first points only,
+    since the guide builds stop at level 30 and talent paths spend only the final build's talents."""
+    from collections import Counter
+
+    rows = []
+    for report in reports:
+        cls = report.get("class", "mage")
+        tree = {t["name"]: t["tree"] for t in report["talents"].values()}
+
+        def main(order: list[str]) -> str:
+            return Counter(tree.get(n) for n in order).most_common(1)[0][0]
+
+        guides = [g for g in dataset["builds"] if g["class"] == cls and all(n in tree for n in g["order"])]
+        for b in report["builds"]:
+            ours = [report["talents"][str(t)]["name"] for t in b["order"]]
+            for g in [g for g in guides if main(g["order"]) == main(ours)][:1]:
+                n = len(g["order"])
+                mine, theirs = Counter(ours[:n]), Counter(g["order"])
+                rows.append({"class": cls, "build": b["id"], "guide": g["guide"], "title": g["title"], "points": n,
+                             "shared": sum(min(theirs[k], mine[k]) for k in theirs)})
+    return rows
+
+
+def markdown(rows: list[dict[str, Any]]) -> str:
+    lines = ["| Class | Build | Shared with Icy Veins | Guide build |", "|---|---|---|---|"]
+    lines += [f"| {r['class'].title()} | {r['build']} | {r['shared']} of {r['points']} | {r['guide']}: {r['title']} |"
+              for r in sorted(rows, key=lambda r: (r["class"], -r["shared"]))]
+    return "\n".join(lines)
 
 
 def build_dataset(cache_dir: Path, *, checked_at: str) -> dict[str, Any]:
