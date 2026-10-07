@@ -877,6 +877,7 @@
    "origin": "community",
    "summary": "51 points (Arms 40 / Fury 11 / Protection 0). Cruelty is one of the spent talents. From the site's Arms Warrior \u00b7 Solo leveling \u00b7 PvE \u00b7 levels 10\u201360 plan.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105939,
@@ -1067,6 +1068,9 @@
    "origin": "community",
    "summary": "Arms with Mortal Strike, Sweeping Strikes, Improved Overpower, Deep Wounds and Impale; Cruelty, Unbridled Wrath and Piercing Howl from Fury. Two-hander burst with a healing debuff and a slow: the community's PvP standard and its usual leveling spec.",
    "gives_up": [],
+   "model_filled": {
+    "Booming Voice": 3
+   },
    "must_have_by": {},
    "order": [
     105939,
@@ -1110,6 +1114,9 @@
     105945,
     105944,
     105941,
+    105938,
+    105938,
+    105938,
     105935,
     105944,
     105944,
@@ -1119,7 +1126,7 @@
     110858
    ],
    "order_source": "optimized for questing kills/hour",
-   "open_points": 3,
+   "open_points": 0,
    "scores": {
     "questing": {
      "20": {
@@ -1241,7 +1248,8 @@
     }
    },
    "about": [
-    "37 points in Arms, with 11 in Fury. Built for PvP. On this order the key talents arrive as follows: Anger Management at 29, Spearing Strike at 42, Sweeping Strikes at 48, Mortal Strike at 50 and Piercing Howl at 51.",
+    "37 points in Arms, with 14 in Fury. Built for PvP. On this order the key talents arrive as follows: Anger Management at 29, Spearing Strike at 42, Sweeping Strikes at 48, Mortal Strike at 50 and Piercing Howl at 54.",
+    "The community build leaves 3 points unspent at 60; the model fills them with Booming Voice 3.",
     "In the model's rotation its priority is Mortal Strike and Whirlwind. Damage comes from auto-attacks 53% and abilities 47%.",
     "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage."
    ]
@@ -1254,6 +1262,7 @@
    "origin": "model",
    "summary": "Model build for Fury PvE: popular build #4 without Furious Precision, Lingering Rage (site-only talents) and points the client tree doesn't allow, topped up and hill-climbed under the PvE score. Not a community standard.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105939,
@@ -1445,6 +1454,7 @@
    "origin": "model",
    "summary": "Model build for Fury PvP: popular build #4 without Furious Precision, Lingering Rage (site-only talents) and points the client tree doesn't allow, topped up and hill-climbed under the PvP score. Not a community standard.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105939,
@@ -1636,6 +1646,7 @@
    "origin": "model",
    "summary": "Model build for Protection PvP: hill-climbed from warrior-protection under the PvP score. Not a community standard.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105939,
@@ -1719,6 +1730,10 @@
    "origin": "community",
    "summary": "Protection with Shield Slam, Concussion Blow, Last Stand, Bastion and Focused Rage; Deflection and Cruelty on the way. The community's tank standard (routes only, unscored).",
    "gives_up": [],
+   "model_filled": {
+    "Improved Heroic Strike": 3,
+    "Unbridled Wrath": 2
+   },
    "must_have_by": {},
    "order": [
     105939,
@@ -1726,6 +1741,11 @@
     105939,
     105939,
     105939,
+    105958,
+    105958,
+    105958,
+    105937,
+    105937,
     105957,
     105957,
     105957,
@@ -1769,7 +1789,7 @@
     105959
    ],
    "order_source": "optimized for questing kills/hour",
-   "open_points": 5,
+   "open_points": 0,
    "scores": {},
    "sensitivity": [],
    "stat_weights": {
@@ -1784,7 +1804,8 @@
     }
    },
    "about": [
-    "36 points in Protection, with 5 in Fury and 5 in Arms. Built for PvE. On this order the key talents arrive as follows: Last Stand at 32, Vanguard at 43, Concussion Blow at 46 and Shield Slam at 55.",
+    "36 points in Protection, with 8 in Arms and 7 in Fury. Built for PvE. On this order the key talents arrive as follows: Last Stand at 37, Vanguard at 48, Concussion Blow at 51 and Shield Slam at 60.",
+    "The community build leaves 5 points unspent at 60; the model fills them with Improved Heroic Strike 3 and Unbridled Wrath 2.",
     "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
    ]
   }

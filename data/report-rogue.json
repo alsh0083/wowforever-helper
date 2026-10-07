@@ -927,6 +927,7 @@
    "origin": "model",
    "summary": "The model's alternative to Assassination (PvP): Improved Kidney Shot 2->0, Venom 1->0, Vile Poisons 5->2, Puncturing Wounds 0->3, Improved Sprint 2->0, Improved Kick 2->0, Precision 2->3, Improved Slice and Dice 0->3, Dual Wield Specialization 0->3. Scores +9.2% higher; not tried in game.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105722,
@@ -1118,6 +1119,7 @@
    "origin": "community",
    "summary": "51 points (Assassination 34 / Combat 17 / Subtlety 0). Malice is one of the spent talents. From the site's Assassination Rogue \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105722,
@@ -1308,6 +1310,7 @@
    "origin": "model",
    "summary": "Model build for Assassination/Subtlety PvE: the report's model pick for this slot. Not a community standard.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105741,
@@ -1499,6 +1502,7 @@
    "origin": "community",
    "summary": "Combat build #1 with Deflection 3 and Flawless Execution in place of Lightning Reflexes, keeping Improved Sprint 2 to break roots and slows: the PvP-leaning variant of the same spec.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105741,
@@ -1689,6 +1693,9 @@
    "origin": "community",
    "summary": "Most popular complete Forever rogue build: Combat with Hack and Slash, Aggression, Weapon Expertise, Blade Flurry and Adrenaline Rush over Assassination's Malice, Ruthlessness, Relentless Strikes and Lethality. Lightning Reflexes and Precision for sustained melee; the community's leveling and PvE standard.",
    "gives_up": [],
+   "model_filled": {
+    "Remorseless Attacks": 1
+   },
    "must_have_by": {},
    "order": [
     105741,
@@ -1698,10 +1705,10 @@
     105722,
     105722,
     105722,
+    105723,
     105739,
     105739,
     105739,
-    105721,
     105721,
     105759,
     105708,
@@ -1734,6 +1741,7 @@
     105730,
     105724,
     105721,
+    105721,
     105716,
     105716,
     105716,
@@ -1743,7 +1751,7 @@
     105727
    ],
    "order_source": "optimized for questing kills/hour",
-   "open_points": 1,
+   "open_points": 0,
    "scores": {
     "questing": {
      "20": {
@@ -1751,15 +1759,15 @@
       "unit": "kills/hour"
      },
      "30": {
-      "score": 78.3,
+      "score": 78.1,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 79.7,
+      "score": 79.4,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 74.0,
+      "score": 73.6,
       "unit": "kills/hour"
      },
      "60": {
@@ -1773,15 +1781,15 @@
       "unit": "dps"
      },
      "30": {
-      "score": 77.6,
+      "score": 77.3,
       "unit": "dps"
      },
      "40": {
-      "score": 116.1,
+      "score": 115.4,
       "unit": "dps"
      },
      "50": {
-      "score": 161.6,
+      "score": 160.4,
       "unit": "dps"
      },
      "60": {
@@ -1799,56 +1807,56 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.4996,
-     "strength": 0.000873,
-     "agility": 0.001328,
+     "score": 0.4993,
+     "strength": 0.000875,
+     "agility": 0.00133,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000873,
+     "attack_power": 0.000875,
      "crit_rating": 0.001336,
-     "hit_rating": 0.001358,
-     "crit_pct": 0.004332,
-     "hit_pct": 0.003597,
-     "weapon_dps": 0.009359
+     "hit_rating": 0.001357,
+     "crit_pct": 0.004331,
+     "hit_pct": 0.003593,
+     "weapon_dps": 0.00938
     },
     "30": {
-     "score": 0.5763,
-     "strength": 0.000769,
+     "score": 0.5744,
+     "strength": 0.00077,
      "agility": 0.00115,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000769,
-     "crit_rating": 0.00092,
-     "hit_rating": 0.001077,
-     "crit_pct": 0.005451,
-     "hit_pct": 0.006383,
-     "weapon_dps": 0.007301
+     "attack_power": 0.00077,
+     "crit_rating": 0.000918,
+     "hit_rating": 0.001071,
+     "crit_pct": 0.005439,
+     "hit_pct": 0.006347,
+     "weapon_dps": 0.007311
     },
     "40": {
-     "score": 0.7539,
-     "strength": 0.000697,
+     "score": 0.7499,
+     "strength": 0.000698,
      "agility": 0.001101,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000697,
-     "crit_rating": 0.000898,
-     "hit_rating": 0.001085,
-     "crit_pct": 0.007742,
-     "hit_pct": 0.009346,
-     "weapon_dps": 0.006488
+     "attack_power": 0.000698,
+     "crit_rating": 0.000895,
+     "hit_rating": 0.001076,
+     "crit_pct": 0.007714,
+     "hit_pct": 0.00927,
+     "weapon_dps": 0.006499
     },
     "50": {
-     "score": 0.948,
-     "strength": 0.000752,
-     "agility": 0.00115,
+     "score": 0.9414,
+     "strength": 0.000753,
+     "agility": 0.001149,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000752,
-     "crit_rating": 0.000843,
-     "hit_rating": 0.00106,
-     "crit_pct": 0.009532,
-     "hit_pct": 0.011987,
-     "weapon_dps": 0.007589
+     "attack_power": 0.000753,
+     "crit_rating": 0.000839,
+     "hit_rating": 0.001049,
+     "crit_pct": 0.009484,
+     "hit_pct": 0.011861,
+     "weapon_dps": 0.007601
     },
     "60": {
      "score": 1.3074,
@@ -1865,7 +1873,8 @@
     }
    },
    "about": [
-    "32 points in Combat, with 18 in Assassination. Built for PvE. On this order the key talents arrive as follows: Relentless Strikes at 22, Blade Flurry at 41, Adrenaline Rush at 51 and Cold Blood at 58.",
+    "32 points in Combat, with 19 in Assassination. Built for PvE. On this order the key talents arrive as follows: Relentless Strikes at 22, Blade Flurry at 41, Adrenaline Rush at 51 and Cold Blood at 59.",
+    "The community build leaves 1 point unspent at 60; the model fills it with Remorseless Attacks 1.",
     "Builds combo points with Sinister Strike and spends them on finishers, keeping Slice and Dice up. Damage comes from auto-attacks 60% and abilities and poisons 40%.",
     "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage."
    ]
@@ -1878,6 +1887,7 @@
    "origin": "community",
    "summary": "Assassination with Mutilate, Seal Fate, Vile and Improved Poisons, Venom and Murder; Combat for Lightning Reflexes, Precision and Opportunity. Poison and crit-driven combo points; the community's Assassination standard.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105722,
@@ -2068,6 +2078,7 @@
    "origin": "model",
    "summary": "The model's alternative to Subtlety Preparation (PvP): Cold Blood 1->0, Lethality 4->5, Puncturing Wounds 3->0, Murder 2->0, Ruthlessness 0->3, Improved Sprint 2->0, Precision 2->3, Improved Slice and Dice 0->3, Improved Gouge 3->2, Serrated Blades 2->3. Scores +6.5% higher; not tried in game.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105741,
@@ -2259,6 +2270,7 @@
    "origin": "community",
    "summary": "51 points (Assassination 20 / Combat 0 / Subtlety 31). Malice is one of the spent talents. From the site's Subtlety Rogue \u00b7 Endgame \u00b7 PvE \u00b7 level 60 plan.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105722,
@@ -2449,6 +2461,7 @@
    "origin": "model",
    "summary": "The model's alternative to Subtlety (PvP): Improved Eviscerate 0->3, Cold Blood 1->0, Murder 2->0, Ruthlessness 2->3, Improved Slice and Dice 0->3, Improved Gouge 3->0, Premeditation 1->0. Scores +5.7% higher; not tried in game.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105722,
@@ -2640,6 +2653,7 @@
    "origin": "community",
    "summary": "51 points (Assassination 19 / Combat 0 / Subtlety 32). Malice is one of the spent talents. From the site's Subtlety Rogue \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105722,
@@ -2830,6 +2844,7 @@
    "origin": "community",
    "summary": "Subtlety with Preparation, Premeditation, Initiative, Dirty Deeds and Serrated Blades; Improved Gouge, Cold Blood and Lethality from Assassination and Improved Sprint from Combat. Stealth openers, resets and control: the community's PvP standard.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105741,

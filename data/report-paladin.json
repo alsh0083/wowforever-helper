@@ -890,6 +890,7 @@
    "origin": "community",
    "summary": "51 points (Holy 33 / Protection 18 / Retribution 0). Divine Intellect is one of the spent talents. From the site's Holy Paladin \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105630,
@@ -974,6 +975,7 @@
    "origin": "community",
    "summary": "Holy with Holy Shock, Light's Vigil, Divine Favor and Illumination; Toughness and Precision from Protection, Benediction from Retribution. The community's healer standard (routes only, unscored).",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105630,
@@ -1058,6 +1060,7 @@
    "origin": "community",
    "summary": "51 points (Holy 14 / Protection 37 / Retribution 0). Divine Strength is one of the spent talents. From the site's Protection Paladin \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105630,
@@ -1142,6 +1145,9 @@
    "origin": "community",
    "summary": "Protection with Holy Shield, Templar's Bulwark, Reckoning and Iron Creed; Deflection and Improved Judgement from Retribution. The community's tank standard (routes only, unscored).",
    "gives_up": [],
+   "model_filled": {
+    "Conviction": 2
+   },
    "must_have_by": {},
    "order": [
     105630,
@@ -1157,6 +1163,8 @@
     105707,
     105707,
     105707,
+    105703,
+    105703,
     105626,
     105626,
     105626,
@@ -1195,7 +1203,7 @@
     105628
    ],
    "order_source": "optimized for questing kills/hour",
-   "open_points": 2,
+   "open_points": 0,
    "scores": {},
    "sensitivity": [],
    "stat_weights": {
@@ -1212,7 +1220,8 @@
     }
    },
    "about": [
-    "42 points in Protection, with 7 in Retribution. Built for PvE. On this order the key talents arrive as follows: Improved Seal of Fury at 34, Swift Judgement at 43, Templar's Bulwark at 47 and Holy Shield at 58.",
+    "42 points in Protection, with 9 in Retribution. Built for PvE. On this order the key talents arrive as follows: Improved Seal of Fury at 36, Swift Judgement at 45, Templar's Bulwark at 49 and Holy Shield at 60.",
+    "The community build leaves 2 points unspent at 60; the model fills them with Conviction 2.",
     "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
    ]
   },
@@ -1224,6 +1233,7 @@
    "origin": "community",
    "summary": "Retribution with Repentance, Seal of Command, Vengeance and Champion of the Light; Precision and Toughness from Protection and Pursuit of Justice for mobility. The community's PvP standard.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     105706,
@@ -1414,6 +1424,9 @@
    "origin": "community",
    "summary": "Retribution with Seal of Command, Sacred Arbiter, Vengeance and Twist of Light; Divine Intellect and Divine Strength from Holy. The most saved paladin build: the community's leveling and damage standard.",
    "gives_up": [],
+   "model_filled": {
+    "Redoubt": 4
+   },
    "must_have_by": {},
    "order": [
     105706,
@@ -1457,6 +1470,10 @@
     105332,
     105332,
     105332,
+    105626,
+    105626,
+    105626,
+    105626,
     110882,
     110882,
     110882,
@@ -1465,7 +1482,7 @@
     105692
    ],
    "order_source": "optimized for questing kills/hour",
-   "open_points": 4,
+   "open_points": 0,
    "scores": {
     "questing": {
      "20": {
@@ -1587,7 +1604,8 @@
     }
    },
    "about": [
-    "34 points in Retribution, with 13 in Holy. Built for PvE. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25 and Twist of Light at 56.",
+    "34 points in Retribution, with 13 in Holy and 4 in Protection. Built for PvE. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25 and Twist of Light at 60.",
+    "The community build leaves 4 points unspent at 60; the model fills them with Redoubt 4.",
     "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 55% and Holy damage 45%.",
     "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage."
    ]

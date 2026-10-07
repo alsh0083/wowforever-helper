@@ -924,6 +924,7 @@
    "origin": "model",
    "summary": "Model build for Balance PvP: the report's model pick for this slot. Not a community standard.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     104923,
@@ -1105,6 +1106,7 @@
    "origin": "community",
    "summary": "Balance with Moonkin Form, Insect Swarm, Eclipse, Nature's Grace, Vengeance and Moonfury; Nature's Focus, Naturalist and Reflection from Restoration. The community's caster damage standard.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     104923,
@@ -1285,6 +1287,7 @@
    "origin": "community",
    "summary": "Feral with Thick Hide, Natural Reaction, Primal Bite and Leader of the Pack: the community's bear tank build (routes only, unscored).",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     104938,
@@ -1367,14 +1370,21 @@
    "origin": "community",
    "summary": "Feral cat with Feral Charge, Feral Swiftness, Shredding Attacks, Berserk and Rend and Tear; Genesis and Nature's Majesty from Balance and Furor from Restoration. Mobility and burst from stealth: the community's most saved Feral build.",
    "gives_up": [],
+   "model_filled": {
+    "Improved Wrath": 3
+   },
    "must_have_by": {},
    "order": [
     104938,
+    104923,
+    104923,
+    104923,
     104938,
     104938,
     104938,
     104938,
     104939,
+    104924,
     104939,
     104939,
     104939,
@@ -1400,12 +1410,11 @@
     104953,
     104953,
     104924,
-    104924,
-    104924,
-    104924,
-    104924,
     104927,
     104927,
+    104924,
+    104924,
+    104924,
     104958,
     104958,
     104958,
@@ -1419,19 +1428,19 @@
     104945
    ],
    "order_source": "optimized for questing kills/hour",
-   "open_points": 3,
+   "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 76.7,
+      "score": 75.2,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 73.2,
+      "score": 71.0,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 76.9,
+      "score": 74.1,
       "unit": "kills/hour"
      },
      "50": {
@@ -1445,15 +1454,15 @@
     },
     "dungeon": {
      "20": {
-      "score": 45.0,
+      "score": 43.7,
       "unit": "dps"
      },
      "30": {
-      "score": 71.6,
+      "score": 68.4,
       "unit": "dps"
      },
      "40": {
-      "score": 112.5,
+      "score": 106.5,
       "unit": "dps"
      },
      "50": {
@@ -1475,42 +1484,42 @@
    "sensitivity": [],
    "stat_weights": {
     "20": {
-     "score": 0.0394,
-     "strength": 0.000126,
-     "agility": 0.000113,
-     "stamina": 0.000348,
+     "score": 0.0384,
+     "strength": 0.000123,
+     "agility": 0.000112,
+     "stamina": 0.00034,
      "intellect": 0.0,
-     "attack_power": 6.3e-05,
+     "attack_power": 6.1e-05,
      "crit_rating": 0.000102,
-     "hit_rating": 0.000112,
-     "crit_pct": 0.000329,
-     "hit_pct": 0.000363,
+     "hit_rating": 0.000111,
+     "crit_pct": 0.000331,
+     "hit_pct": 0.000361,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.1046,
-     "strength": 0.000193,
-     "agility": 0.000176,
-     "stamina": 0.000811,
+     "score": 0.1009,
+     "strength": 0.00019,
+     "agility": 0.000174,
+     "stamina": 0.000783,
      "intellect": 0.0,
-     "attack_power": 9.7e-05,
-     "crit_rating": 0.000133,
-     "hit_rating": 0.000147,
-     "crit_pct": 0.000786,
-     "hit_pct": 0.000872,
+     "attack_power": 9.5e-05,
+     "crit_rating": 0.000132,
+     "hit_rating": 0.000145,
+     "crit_pct": 0.000783,
+     "hit_pct": 0.000861,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 0.1906,
-     "strength": 0.000209,
-     "agility": 0.000207,
-     "stamina": 0.00112,
+     "score": 0.1828,
+     "strength": 0.000203,
+     "agility": 0.0002,
+     "stamina": 0.001082,
      "intellect": 0.0,
-     "attack_power": 0.000105,
-     "crit_rating": 0.000157,
-     "hit_rating": 0.000177,
-     "crit_pct": 0.001354,
-     "hit_pct": 0.001528,
+     "attack_power": 0.000101,
+     "crit_rating": 0.000152,
+     "hit_rating": 0.000172,
+     "crit_pct": 0.001314,
+     "hit_pct": 0.001482,
      "weapon_dps": 0.0
     },
     "50": {
@@ -1541,7 +1550,8 @@
     }
    },
    "about": [
-    "34 points in Feral Combat, with 9 in Balance and 5 in Restoration. Built for PvP. On this order the key talents arrive as follows: Feral Charge at 29, Leader of the Pack at 30 and Berserk at 54.",
+    "34 points in Feral Combat, with 12 in Balance and 5 in Restoration. Built for PvP. On this order the key talents arrive as follows: Feral Charge at 33, Leader of the Pack at 34 and Berserk at 57.",
+    "The community build leaves 3 points unspent at 60; the model fills them with Improved Wrath 3.",
     "Fights in Cat Form, building combo points with Shred for finishers. Damage comes from auto-attacks 55% and abilities 45%.",
     "Against the class's best build in each scenario at level 60 it is strongest at raid damage (80%) and questing speed (69%), and weakest at dungeon damage (59%)."
    ]
@@ -1554,6 +1564,7 @@
    "origin": "community",
    "summary": "51 points (Balance 0 / Feral Combat 20 / Restoration 31). Heart of the Wild is one of the spent talents. From the site's Restoration Druid \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     104939,
@@ -1636,6 +1647,7 @@
    "origin": "community",
    "summary": "Restoration with Swiftmend, Nature's Swiftness, Wild Growth and Gift of Nature; Genesis and Moonglow from Balance. The most saved druid build: the community's healer standard (routes only, unscored).",
    "gives_up": [],
+   "model_filled": {},
    "must_have_by": {},
    "order": [
     104939,
