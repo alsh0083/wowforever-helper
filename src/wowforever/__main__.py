@@ -24,6 +24,9 @@ def main(argv: list[str] | None = None) -> int:
     gsrc = sub.add_parser("gear-sources", help="build data/items/gear.json: where gear drops, quest rewards and crafted items come from (#188)")
     gsrc.add_argument("--refresh", action="store_true", help="fetch wowforevertalent.com's items, dungeons and quests pages first")
     gsrc.add_argument("--tables", default="data/cache/wago/1.60.1.70205", help="folder with the cached client tables")
+    gb = sub.add_parser("group-buffs", help="resolve config/group_buffs.toml against the client spell tables into data/buffs/group_buffs.json (#218)")
+    gb.add_argument("--dataset", default="data/datasets/1.60.1.70205.json")
+    gb.add_argument("--tables", default="data/cache/wago/1.60.1.70205", help="folder with the cached client tables")
     iv = sub.add_parser("icy-veins", help="decode Icy Veins' Forever guide talent builds into data/icy-veins/builds.json")
     iv.add_argument("--refresh", action="store_true", help="fetch the hub, the spec guides and the class talent data first")
     vl = sub.add_parser("validate-logs", help="compare the model's dungeon scores with cached Forever Logs statistics (#172)")
@@ -77,6 +80,25 @@ def main(argv: list[str] | None = None) -> int:
         rules = tomllib.loads(rules_path.read_text(encoding="utf-8")) if rules_path.exists() else None
         out.write_text(render(reports, icons, gear=gear, gear_rules=rules), encoding="utf-8", newline="\n")
         print(f"wrote {out}")
+        return 0
+    if args.command == "group-buffs":
+        import json
+        from pathlib import Path
+
+        from wowforever import group
+        from wowforever.classes import CLASSES
+        from wowforever.normalize import read_tables
+        from wowforever.schema import Dataset
+
+        ds = Dataset.load(Path(args.dataset))
+        data = group.build(read_tables(Path(args.tables)), group.talent_levels(ds, CLASSES), game_build=ds.game_build)
+        out = group.RESOLVED
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(data, indent=1), encoding="utf-8", newline="\n")
+        for b in data["buffs"]:
+            first = min(map(int, b["by_level"]), default=None)
+            print(f"{b['id']:28} {b['kind']:30} from {first}: {b['by_level'].get('60', {}).get('value')} at 60"
+                  + (f"  NOTE {'; '.join(b['notes'])}" if b["notes"] else ""))
         return 0
     if args.command == "icy-veins":
         import json
