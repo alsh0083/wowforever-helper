@@ -52,10 +52,7 @@ const BUILDS=DATA.builds;
 const TREE_CLASS=THEME.trees;
 const SCENARIO_LABEL={questing:'Questing',aoe:'AoE',raid:'Raid',dungeon:'Dungeon pull',battleground:'Battleground',survival:'Survival',control:'Control',wpvp_melee:'Duel vs melee',wpvp_melee_they_open:'Duel vs melee, they open',wpvp_caster:'Duel vs caster',stealth_ambush:'Stealth ambush'};
 const SELECTED_KEY=CLASS==='mage'?'wow-forever-selected-build':'wow-forever-selected-build-'+CLASS;
-const KEY_E4='wow-forever-elementalist-v4';
 const saveKey=id=>'wow-forever-save-v5-'+id;
-// One-off remap of pre-v4 Elementalist saves: old plan level -> current plan level.
-const MIGRATION={"10":10,"11":11,"12":12,"13":13,"14":14,"15":15,"16":16,"17":17,"18":18,"19":19,"20":20,"21":21,"22":22,"23":23,"24":24,"25":25,"26":26,"27":27,"28":28,"29":29,"30":30,"31":31,"32":32,"33":33,"34":34,"35":35,"36":58,"37":59,"38":36,"39":37,"40":41,"41":42,"42":43,"43":47,"44":49,"45":50,"46":51,"47":52,"48":48,"49":54,"50":null,"51":null,"52":null,"53":53,"54":55,"55":56,"56":57,"57":null,"58":null,"59":null,"60":null};
 
 let build=BUILDS[0],points=[],steps=[];
 let level=RULES.first_talent_level,checked=new Set(),storageOK=true,change=null;
@@ -74,17 +71,6 @@ function legacyChecks(levels){
  return checks;
 }
 function readLegacy(){
- if(build.id==='elementalist-v4'){
-  let version=4,raw=localStorage.getItem(KEY_E4);
-  while(raw===null&&version>1){version--;raw=localStorage.getItem('wow-forever-elementalist-v'+version)}
-  const s=JSON.parse(raw||'null');
-  if(!s)return null;
-  let valid=(Array.isArray(s.checked)?s.checked:[]).filter(n=>Number.isInteger(n));
-  if(version===1)valid=valid.map(n=>n===57?30:n>=30&&n<=56?n+1:n);
-  if(version<=2)valid=valid.map(n=>n===28?25:n>=25&&n<=27?n+1:n);
-  if(version<4)valid=valid.map(n=>MIGRATION[n]).filter(n=>n!==null&&n!==undefined);
-  return{level:s.level,checks:legacyChecks(valid)};
- }
  const s=JSON.parse(localStorage.getItem('wow-forever-'+build.id)||'null');
  if(!s)return null;
  return{level:s.level,checks:legacyChecks((Array.isArray(s.checked)?s.checked:[]).filter(n=>Number.isInteger(n)))};
@@ -458,7 +444,7 @@ $('checklist-section').hidden=!(DATA.checklist||[]).length;
 if(DATA.engine===false)$('matrix-caption').textContent='Community-standard builds for each tree, PvP and PvE. '+(DATA.scoring_note||'Scores and model picks come with the damage model.');
 let initial='';
 try{initial=localStorage.getItem(SELECTED_KEY)||''}catch(e){}
-if(!BUILDS.some(b=>b.id===initial))initial=BUILDS.some(b=>b.id==='elementalist-v4')?'elementalist-v4':BUILDS[0].id;
+if(!BUILDS.some(b=>b.id===initial))initial=BUILDS[0].id;
 selectBuild(initial,false);
 </script>
 </body>

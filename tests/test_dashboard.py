@@ -37,7 +37,7 @@ def test_footer_has_dataset_version_and_attribution():
 def test_saved_progress_keys_stay_compatible():
     html = render(PAYLOAD, ICONS)
     # the original single-route dashboard saved under this key; the Elementalist build keeps it
-    assert "wow-forever-elementalist-v4" in html
+    assert "wow-forever-elementalist-v4" not in html   # the hand-made build and its old save are gone
 
 
 def test_fetch_icons_caches_and_skips_known(tmp_path):

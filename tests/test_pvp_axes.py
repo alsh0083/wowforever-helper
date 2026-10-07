@@ -28,7 +28,8 @@ RAW, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
                          wago_build="1.60.1.70205")
 CLS, REPORT = attach_effects(RAW, TALENT_EFFECTS, UNMODELED)
 SPELLS = class_spells(read_tables(FIX / "wago-1.60.1.70205-spells"), skill_lines=SKILL_LINES)
-BUILDS = {b.id: b for b in load_builds(class_name="mage")}
+# the owner's former hand-made Elementalist builds stay as fixtures (tests/fixtures/builds/)
+BUILDS = {b.id: b for b in [*load_builds(class_name="mage"), *load_builds(Path(__file__).parent / "fixtures" / "builds", class_name="mage")]}
 STATS = Stats(60, intellect=270, spirit=190, stamina=220, spell_power=150, crit_pct=6, hit_pct=3,
               mana=3600, health=2900)
 FROSTBOLT = ranks_of(SPELLS, "Frostbolt")[-1]

@@ -51,7 +51,7 @@ def test_every_build_has_a_legal_order_meeting_its_deadlines(payload):
 def test_elementalist_variants_keep_their_hand_written_orders(payload):
     _, report = payload
     hand = [b for b in report["builds"] if b["id"].startswith("elementalist")]
-    assert len(hand) == 3 and all(b["order_source"] == "hand-written" and b["open_points"] == 0 for b in hand)
+    assert len(hand) == 1 and all(b["order_source"] == "hand-written" and b["open_points"] == 0 for b in hand)
     others = [b for b in report["builds"] if not b["id"].startswith("elementalist")]
     assert all(b["order_source"].startswith("optimized") and b["open_points"] == 0 for b in others)
 
@@ -96,7 +96,7 @@ def test_shortlist_in_payload(payload):
     slots = {(s["archetype"], s["focus"]): s for s in report["shortlist"]}
     assert len(slots) == 10                                  # 3 deep + 2 hybrids, x PvP/PvE
     ff = slots[("Fire/Frost", "PvE")]
-    assert ff["standard"] == "fire-frost-shatter" and "elementalist-pve" in ff["candidates"]
+    assert ff["standard"] == "fire-frost-shatter" and "elementalist-pve-v2" in ff["candidates"]
     for s in report["shortlist"]:
         if s["model_pick"]:
             assert s["model_pick_changes"] and sum(s["model_pick"].values()) == 51

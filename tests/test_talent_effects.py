@@ -22,7 +22,8 @@ RAW, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
                          parse_page((FIX / "wowforevertalent" / "mage.html").read_text(encoding="utf-8")),
                          wago_build="1.60.1.70205")
 CLS, REPORT = attach_effects(RAW, TALENT_EFFECTS, UNMODELED)
-BUILDS = {b.id: b for b in load_builds(class_name="mage")}
+# the owner's former hand-made Elementalist builds stay as fixtures (tests/fixtures/builds/)
+BUILDS = {b.id: b for b in [*load_builds(class_name="mage"), *load_builds(Path(__file__).parent / "fixtures" / "builds", class_name="mage")]}
 
 FIREBALL = SpellRank(25306, "Fireball", 12, 60, ("fire",), 3.5, mana_cost=410,
                      min_damage=596, max_damage=760, coefficient=1.0)
