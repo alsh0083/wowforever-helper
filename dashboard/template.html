@@ -295,11 +295,18 @@ const STAT_TEXT={stamina:n=>`+${n} Stamina`,intellect:n=>`+${n} Intellect`,spiri
  spell_crit_pct:n=>`+${n}% spell critical strike chance`,spell_hit_pct:n=>`+${n}% spell hit chance`,mp5:n=>`+${n} mana every 5 sec`};
 // Hover (or tap / keyboard focus) cards: an item's stats, a quest's start, end and chain
 function tip(label,card,cls=''){return `<span class="tip ${cls}" tabindex="0">${label}<span class="tip-card" role="tooltip">${card}</span></span>`}
-function itemCard(it){
+// A source as plain text for inside a card (no nested cards or tags)
+function sourcePlain(s){
+ if(s.t==='b'){const d=GEAR.dungeons[s.d];return `${s.b||'Boss'}, ${d?d.name:s.d}`}
+ if(s.t==='q'){const f={alliance:'Alliance',horde:'Horde',both:'Both factions'}[s.f];const at=s.ps||(s.p&&!/not recorded/i.test(s.p)?s.p:null);
+  return `Quest: ${s.n}${at?` (${at})`:''}${f?` · ${f}`:''}`}
+ return `Crafted: ${s.p}${s.k?`, about skill ${s.k}`:''}`;
+}
+function itemCard(it,srcs){
  const kind=[SLOT_NAMES[it.s]||'',it.w?it.w[0].toUpperCase()+it.w.slice(1):ARMOR_NAMES[it.a]||''].filter(Boolean).join(' · ');
  const lines=Object.entries(it.st||{}).map(([k,n])=>`<li>${STAT_TEXT[k]?STAT_TEXT[k](n):`+${n} ${esc(k.replace(/_/g,' '))}`}</li>`).join('');
  const wd=it.wd?`<p>${it.wd[0]} – ${it.wd[1]} damage · speed ${it.wd[2].toFixed(2)}<br><span class="tip-dim">${((it.wd[0]+it.wd[1])/2/it.wd[2]).toFixed(1)} damage per second</span></p>`:'';
- return `<b class="gear-name q${it.q||1}">${esc(it.n)}</b><span class="tip-dim">${esc(kind)}</span>${wd}${lines?`<ul>${lines}</ul>`:''}<span class="tip-dim">Requires level ${it.l}</span>`;
+ return `<b class="gear-name q${it.q||1}">${esc(it.n)}</b><span class="tip-dim">${esc(kind)}</span>${wd}${lines?`<ul>${lines}</ul>`:''}<span class="tip-dim">Requires level ${it.l}</span>${srcs&&srcs.length?`<dl><dt>From</dt><dd>${srcs.slice(0,3).map(s=>esc(sourcePlain(s))).join('<br>')}</dd></dl>`:''}`;
 }
 function questCard(s){
  const start=s.ps||(s.p&&!/not recorded/i.test(s.p)?s.p:null);
@@ -314,7 +321,7 @@ function sourceText(s){
 }
 function itemLine(it,score,wt,cls='gear-pick'){
  const gain=wt.base?`+${(score/wt.base*100).toFixed(1)}%`:`${score.toFixed(0)} pts`;
- return `<div class="${cls}"><span class="gear-name q${it.q||1}">${tip(esc(it.n),itemCard(it))}<span class="gear-gain" title="${wt.base?'Share of this build\'s score the item adds':'Generic gear weights (no engine score for this build)'}">${gain}</span></span><span class="gear-src">${sourceText(it.ms)}</span></div>`;
+ return `<div class="${cls}"><span class="gear-name q${it.q||1}">${tip(esc(it.n),itemCard(it,[it.ms]))}<span class="gear-gain" title="${wt.base?'Share of this build\'s score the item adds':'Generic gear weights (no engine score for this build)'}">${gain}</span></span><span class="gear-src">${sourceText(it.ms)}</span></div>`;
 }
 function renderGear(){
  const panel=$('gear-panel');
@@ -341,7 +348,7 @@ function renderGear(){
   shown++;
   const best=main[0];
   const bestHtml=best?itemLine({...best.it,ms:best.main[0]},best.v,wt):'<p class="gear-empty">No boss or quest item recorded for this slot yet</p>';
-  const runners=main.slice(1).map(x=>`<b>${tip(esc(x.it.n),itemCard(x.it))}</b> ${wt.base?`+${(x.v/wt.base*100).toFixed(1)}%`:''}`).join(' · ');
+  const runners=main.slice(1).map(x=>`<b>${tip(esc(x.it.n),itemCard(x.it,x.main))}</b> ${wt.base?`+${(x.v/wt.base*100).toFixed(1)}%`:''}`).join(' · ');
   const altHtml=alt?`<div class="gear-alt"><span class="gear-alt-label">Alternative</span>${itemLine({...alt.it,ms:alt.craft[0]},alt.v,wt,'gear-pick')}</div>`:'';
   return `<div class="gear-row"><div class="gear-slot">${label}</div><div>${bestHtml}${runners?`<div class="gear-alts">Also: ${runners}</div>`:''}</div>${altHtml||'<div></div>'}</div>`;
  }).join('');

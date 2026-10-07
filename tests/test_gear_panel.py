@@ -56,3 +56,4 @@ def test_items_and_quests_have_hover_cards():
     assert any(s["o"] for s in quests) and any(s["pe"] for s in quests)
     html = render(MAGE, {}, gear=GEAR, gear_rules=RULES)
     assert "function itemCard(" in html and "function questCard(" in html and 'role="tooltip"' in html
+    assert "itemCard(x.it,x.main)" in html and "function sourcePlain(" in html   # "Also" items name their source
