@@ -1006,24 +1006,55 @@
     },
     "dungeon": {
      "20": {
-      "score": 44.2,
-      "unit": "dps"
+      "score": 44.5,
+      "low": 44.2,
+      "high": 46.0,
+      "unbuffed": 44.2,
+      "top_buffs": [],
+      "unit": "dps",
+      "solo": 44.2
      },
      "30": {
-      "score": 86.8,
-      "unit": "dps"
+      "score": 87.8,
+      "low": 86.9,
+      "high": 92.1,
+      "unbuffed": 86.8,
+      "top_buffs": [],
+      "unit": "dps",
+      "solo": 86.8
      },
      "40": {
-      "score": 145.1,
-      "unit": "dps"
+      "score": 149.9,
+      "low": 147.9,
+      "high": 159.8,
+      "unbuffed": 145.1,
+      "top_buffs": [
+       "moonkin_aura"
+      ],
+      "unit": "dps",
+      "solo": 145.1
      },
      "50": {
-      "score": 198.8,
-      "unit": "dps"
+      "score": 205.9,
+      "low": 202.7,
+      "high": 223.0,
+      "unbuffed": 198.8,
+      "top_buffs": [
+       "moonkin_aura"
+      ],
+      "unit": "dps",
+      "solo": 198.8
      },
      "60": {
-      "score": 356.0,
-      "unit": "dps"
+      "score": 368.9,
+      "low": 363.1,
+      "high": 399.4,
+      "unbuffed": 356.0,
+      "top_buffs": [
+       "moonkin_aura"
+      ],
+      "unit": "dps",
+      "solo": 356.0
      }
     },
     "raid": {
@@ -1189,24 +1220,55 @@
     },
     "dungeon": {
      "20": {
-      "score": 44.2,
-      "unit": "dps"
+      "score": 44.5,
+      "low": 44.2,
+      "high": 46.0,
+      "unbuffed": 44.2,
+      "top_buffs": [],
+      "unit": "dps",
+      "solo": 44.2
      },
      "30": {
-      "score": 86.5,
-      "unit": "dps"
+      "score": 87.5,
+      "low": 86.6,
+      "high": 91.8,
+      "unbuffed": 86.5,
+      "top_buffs": [],
+      "unit": "dps",
+      "solo": 86.5
      },
      "40": {
-      "score": 145.8,
-      "unit": "dps"
+      "score": 150.6,
+      "low": 148.7,
+      "high": 160.6,
+      "unbuffed": 145.8,
+      "top_buffs": [
+       "moonkin_aura"
+      ],
+      "unit": "dps",
+      "solo": 145.8
      },
      "50": {
-      "score": 211.9,
-      "unit": "dps"
+      "score": 219.7,
+      "low": 216.3,
+      "high": 237.9,
+      "unbuffed": 211.9,
+      "top_buffs": [
+       "moonkin_aura"
+      ],
+      "unit": "dps",
+      "solo": 211.9
      },
      "60": {
-      "score": 351.3,
-      "unit": "dps"
+      "score": 364.2,
+      "low": 358.4,
+      "high": 394.2,
+      "unbuffed": 351.3,
+      "top_buffs": [
+       "moonkin_aura"
+      ],
+      "unit": "dps",
+      "solo": 351.3
      }
     },
     "raid": {
@@ -1220,58 +1282,58 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.456,
+     "score": 0.4568,
      "stamina": 0.0,
-     "intellect": 7.6e-05,
+     "intellect": 7.7e-05,
      "spirit": 0.0,
-     "spell_power": 0.002539,
+     "spell_power": 0.002544,
      "crit_rating": 0.000468,
-     "hit_rating": 0.000805,
-     "crit_pct": 0.001513,
-     "hit_pct": 0.003866
+     "hit_rating": 0.000808,
+     "crit_pct": 0.001516,
+     "hit_pct": 0.003875
     },
     "30": {
-     "score": 0.6461,
+     "score": 0.6485,
      "stamina": 0.0,
-     "intellect": 0.000113,
+     "intellect": 0.000116,
      "spirit": 0.0,
-     "spell_power": 0.002844,
-     "crit_rating": 0.000573,
-     "hit_rating": 0.000527,
-     "crit_pct": 0.003394,
-     "hit_pct": 0.003922
+     "spell_power": 0.002857,
+     "crit_rating": 0.000574,
+     "hit_rating": 0.00053,
+     "crit_pct": 0.003404,
+     "hit_pct": 0.003946
     },
     "40": {
-     "score": 0.9343,
+     "score": 0.9451,
      "stamina": 0.0,
-     "intellect": 0.000202,
+     "intellect": 0.000206,
      "spirit": 0.0,
-     "spell_power": 0.002539,
-     "crit_rating": 0.000571,
-     "hit_rating": 0.000711,
-     "crit_pct": 0.004918,
-     "hit_pct": 0.006583
+     "spell_power": 0.002572,
+     "crit_rating": 0.000573,
+     "hit_rating": 0.000722,
+     "crit_pct": 0.00494,
+     "hit_pct": 0.006694
     },
     "50": {
-     "score": 1.1282,
+     "score": 1.1456,
      "stamina": 0.0,
-     "intellect": 0.00046,
+     "intellect": 0.000464,
      "spirit": 0.0,
-     "spell_power": 0.002463,
-     "crit_rating": 0.000559,
-     "hit_rating": 0.000463,
-     "crit_pct": 0.006326,
-     "hit_pct": 0.005107
+     "spell_power": 0.002502,
+     "crit_rating": 0.000563,
+     "hit_rating": 0.000466,
+     "crit_pct": 0.006367,
+     "hit_pct": 0.005142
     },
     "60": {
-     "score": 1.6966,
+     "score": 1.7252,
      "stamina": 0.0,
-     "intellect": 0.000588,
+     "intellect": 0.000594,
      "spirit": 0.00029,
-     "spell_power": 0.002342,
-     "crit_rating": 0.000685,
+     "spell_power": 0.002382,
+     "crit_rating": 0.000689,
      "hit_rating": 0.00048,
-     "crit_pct": 0.009583,
+     "crit_pct": 0.00965,
      "hit_pct": 0.006713
     }
    },
@@ -1457,24 +1519,69 @@
     },
     "dungeon": {
      "20": {
-      "score": 43.7,
-      "unit": "dps"
+      "score": 47.7,
+      "low": 42.5,
+      "high": 53.7,
+      "unbuffed": 37.1,
+      "top_buffs": [
+       "faerie_fire",
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 43.7
      },
      "30": {
-      "score": 68.4,
-      "unit": "dps"
+      "score": 81.1,
+      "low": 67.8,
+      "high": 94.6,
+      "unbuffed": 57.0,
+      "top_buffs": [
+       "faerie_fire",
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 68.4
      },
      "40": {
-      "score": 106.5,
-      "unit": "dps"
+      "score": 128.7,
+      "low": 101.7,
+      "high": 162.1,
+      "unbuffed": 87.2,
+      "top_buffs": [
+       "faerie_fire",
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 106.5
      },
      "50": {
-      "score": 151.4,
-      "unit": "dps"
+      "score": 182.0,
+      "low": 142.7,
+      "high": 228.1,
+      "unbuffed": 121.7,
+      "top_buffs": [
+       "faerie_fire",
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 151.4
      },
      "60": {
-      "score": 209.2,
-      "unit": "dps"
+      "score": 256.3,
+      "low": 197.6,
+      "high": 324.2,
+      "unbuffed": 166.4,
+      "top_buffs": [
+       "battle_shout",
+       "faerie_fire",
+       "blessing_of_might"
+      ],
+      "unit": "dps",
+      "solo": 209.2
      }
     },
     "raid": {
@@ -1557,7 +1664,7 @@
     "34 points in Feral Combat, with 12 in Balance and 5 in Restoration. Built for PvP. On this order the key talents arrive as follows: Feral Charge at 33, Leader of the Pack at 34 and Berserk at 57.",
     "The community build leaves 3 points unspent at 60; the model fills them with Improved Wrath 3.",
     "Fights in Cat Form, building combo points with Shred for finishers. Damage comes from auto-attacks 55% and abilities 45%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (80%) and questing speed (69%), and weakest at dungeon damage (59%)."
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (80%) and dungeon damage (69%), and weakest at questing speed (69%)."
    ]
   },
   {
@@ -2716,11 +2823,11 @@
    "archetype": "deep Balance",
    "focus": "PvE",
    "standard": "druid-balance",
-   "standard_score": 1.6966109274107009,
+   "standard_score": 1.7252449803142234,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "druid-balance": 1.6966109274107009
+    "druid-balance": 1.7252449803142234
    },
    "qualifying": [
     "druid-balance"

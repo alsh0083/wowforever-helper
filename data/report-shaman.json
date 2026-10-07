@@ -982,24 +982,57 @@
     },
     "dungeon": {
      "20": {
-      "score": 33.9,
-      "unit": "dps"
+      "score": 35.9,
+      "low": 32.0,
+      "high": 39.1,
+      "unbuffed": 30.1,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout",
+       "strength_of_earth"
+      ],
+      "unit": "dps",
+      "solo": 33.9
      },
      "30": {
-      "score": 56.0,
-      "unit": "dps"
+      "score": 61.5,
+      "low": 52.7,
+      "high": 71.0,
+      "unbuffed": 49.0,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout",
+       "strength_of_earth"
+      ],
+      "unit": "dps",
+      "solo": 56.0
      },
      "40": {
-      "score": 142.5,
-      "unit": "dps"
+      "score": 144.4,
+      "low": 142.6,
+      "high": 154.0,
+      "unbuffed": 142.5,
+      "top_buffs": [],
+      "unit": "dps",
+      "solo": 142.5
      },
      "50": {
-      "score": 181.8,
-      "unit": "dps"
+      "score": 185.0,
+      "low": 182.2,
+      "high": 200.4,
+      "unbuffed": 181.8,
+      "top_buffs": [],
+      "unit": "dps",
+      "solo": 181.8
      },
      "60": {
-      "score": 292.0,
-      "unit": "dps"
+      "score": 297.2,
+      "low": 292.6,
+      "high": 321.8,
+      "unbuffed": 292.0,
+      "top_buffs": [],
+      "unit": "dps",
+      "solo": 292.0
      }
     },
     "raid": {
@@ -1013,63 +1046,63 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.3502,
-     "strength": 0.000981,
-     "agility": 0.000375,
+     "score": 0.354,
+     "strength": 0.000971,
+     "agility": 0.000381,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000492,
-     "crit_rating": 0.000773,
-     "hit_rating": 0.00087,
-     "crit_pct": 0.002502,
-     "hit_pct": 0.002511,
-     "weapon_dps": 0.006852
+     "attack_power": 0.000487,
+     "crit_rating": 0.000784,
+     "hit_rating": 0.000881,
+     "crit_pct": 0.002539,
+     "hit_pct": 0.002549,
+     "weapon_dps": 0.006785
     },
     "30": {
-     "score": 0.4428,
-     "strength": 0.000907,
-     "agility": 0.000347,
+     "score": 0.4534,
+     "strength": 0.000903,
+     "agility": 0.000357,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000454,
-     "crit_rating": 0.000585,
-     "hit_rating": 0.0006,
-     "crit_pct": 0.003466,
-     "hit_pct": 0.003187,
-     "weapon_dps": 0.006341
+     "attack_power": 0.000452,
+     "crit_rating": 0.000602,
+     "hit_rating": 0.000617,
+     "crit_pct": 0.003567,
+     "hit_pct": 0.003289,
+     "weapon_dps": 0.006315
     },
     "40": {
-     "score": 0.7284,
+     "score": 0.7327,
      "stamina": 0.0,
-     "intellect": 0.000354,
+     "intellect": 0.000357,
      "spirit": 0.0,
-     "spell_power": 0.00181,
-     "crit_rating": 0.000324,
-     "hit_rating": 0.000836,
-     "crit_pct": 0.002795,
-     "hit_pct": 0.007206
+     "spell_power": 0.001822,
+     "crit_rating": 0.000326,
+     "hit_rating": 0.000842,
+     "crit_pct": 0.00281,
+     "hit_pct": 0.007251
     },
     "50": {
-     "score": 0.8447,
+     "score": 0.8519,
      "stamina": 0.0,
-     "intellect": 0.000389,
+     "intellect": 0.000393,
      "spirit": 0.0,
-     "spell_power": 0.001833,
-     "crit_rating": 0.00048,
-     "hit_rating": 0.000732,
-     "crit_pct": 0.005431,
-     "hit_pct": 0.008278
+     "spell_power": 0.00185,
+     "crit_rating": 0.000484,
+     "hit_rating": 0.000739,
+     "crit_pct": 0.005471,
+     "hit_pct": 0.008354
     },
     "60": {
-     "score": 1.1799,
+     "score": 1.1916,
      "stamina": 0.0,
-     "intellect": 0.000477,
+     "intellect": 0.000483,
      "spirit": 0.0,
-     "spell_power": 0.001746,
-     "crit_rating": 0.000576,
-     "hit_rating": 0.000833,
-     "crit_pct": 0.008065,
-     "hit_pct": 0.011661
+     "spell_power": 0.001765,
+     "crit_rating": 0.000581,
+     "hit_rating": 0.000842,
+     "crit_pct": 0.008132,
+     "hit_pct": 0.011784
     }
    },
    "about": [
@@ -1169,24 +1202,57 @@
     },
     "dungeon": {
      "20": {
-      "score": 33.9,
-      "unit": "dps"
+      "score": 35.9,
+      "low": 32.0,
+      "high": 39.1,
+      "unbuffed": 30.1,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout",
+       "strength_of_earth"
+      ],
+      "unit": "dps",
+      "solo": 33.9
      },
      "30": {
-      "score": 56.0,
-      "unit": "dps"
+      "score": 61.5,
+      "low": 52.7,
+      "high": 71.0,
+      "unbuffed": 49.0,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout",
+       "strength_of_earth"
+      ],
+      "unit": "dps",
+      "solo": 56.0
      },
      "40": {
-      "score": 142.5,
-      "unit": "dps"
+      "score": 144.4,
+      "low": 142.6,
+      "high": 154.0,
+      "unbuffed": 142.5,
+      "top_buffs": [],
+      "unit": "dps",
+      "solo": 142.5
      },
      "50": {
-      "score": 181.8,
-      "unit": "dps"
+      "score": 185.0,
+      "low": 182.2,
+      "high": 200.4,
+      "unbuffed": 181.8,
+      "top_buffs": [],
+      "unit": "dps",
+      "solo": 181.8
      },
      "60": {
-      "score": 292.0,
-      "unit": "dps"
+      "score": 297.2,
+      "low": 292.6,
+      "high": 321.8,
+      "unbuffed": 292.0,
+      "top_buffs": [],
+      "unit": "dps",
+      "solo": 292.0
      }
     },
     "raid": {
@@ -1355,24 +1421,69 @@
     },
     "dungeon": {
      "20": {
-      "score": 36.4,
-      "unit": "dps"
+      "score": 38.4,
+      "low": 34.1,
+      "high": 42.1,
+      "unbuffed": 32.2,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout",
+       "strength_of_earth"
+      ],
+      "unit": "dps",
+      "solo": 36.4
      },
      "30": {
-      "score": 65.0,
-      "unit": "dps"
+      "score": 71.7,
+      "low": 60.6,
+      "high": 84.3,
+      "unbuffed": 56.4,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout",
+       "strength_of_earth"
+      ],
+      "unit": "dps",
+      "solo": 65.0
      },
      "40": {
-      "score": 128.3,
-      "unit": "dps"
+      "score": 141.2,
+      "low": 118.1,
+      "high": 166.8,
+      "unbuffed": 109.1,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout",
+       "strength_of_earth"
+      ],
+      "unit": "dps",
+      "solo": 128.3
      },
      "50": {
-      "score": 174.8,
-      "unit": "dps"
+      "score": 190.9,
+      "low": 158.6,
+      "high": 226.5,
+      "unbuffed": 147.5,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout",
+       "strength_of_earth"
+      ],
+      "unit": "dps",
+      "solo": 174.8
      },
      "60": {
-      "score": 214.7,
-      "unit": "dps"
+      "score": 242.3,
+      "low": 201.0,
+      "high": 286.6,
+      "unbuffed": 181.8,
+      "top_buffs": [
+       "battle_shout",
+       "blessing_of_might",
+       "strength_of_earth"
+      ],
+      "unit": "dps",
+      "solo": 214.7
      }
     },
     "raid": {
@@ -1386,75 +1497,75 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.3707,
-     "strength": 0.000961,
-     "agility": 0.000398,
+     "score": 0.3746,
+     "strength": 0.000952,
+     "agility": 0.000404,
      "stamina": 0.0,
-     "intellect": 0.000482,
-     "attack_power": 0.000482,
-     "crit_rating": 0.000821,
-     "hit_rating": 0.00091,
-     "crit_pct": 0.002658,
-     "hit_pct": 0.002613,
-     "weapon_dps": 0.006716
+     "intellect": 0.000477,
+     "attack_power": 0.000477,
+     "crit_rating": 0.000832,
+     "hit_rating": 0.000922,
+     "crit_pct": 0.002696,
+     "hit_pct": 0.00265,
+     "weapon_dps": 0.006649
     },
     "30": {
-     "score": 0.5032,
-     "strength": 0.000968,
-     "agility": 0.000558,
+     "score": 0.516,
+     "strength": 0.000966,
+     "agility": 0.000575,
      "stamina": 0.0,
-     "intellect": 0.000485,
-     "attack_power": 0.000485,
-     "crit_rating": 0.000942,
-     "hit_rating": 0.000665,
-     "crit_pct": 0.005584,
-     "hit_pct": 0.003499,
-     "weapon_dps": 0.006773
+     "intellect": 0.000484,
+     "attack_power": 0.000484,
+     "crit_rating": 0.000969,
+     "hit_rating": 0.000686,
+     "crit_pct": 0.005749,
+     "hit_pct": 0.003621,
+     "weapon_dps": 0.006755
     },
     "40": {
-     "score": 0.8313,
-     "strength": 0.00113,
-     "agility": 0.000662,
+     "score": 0.8545,
+     "strength": 0.001119,
+     "agility": 0.000682,
      "stamina": 0.0,
-     "intellect": 0.000565,
-     "attack_power": 0.000565,
-     "crit_rating": 0.001024,
-     "hit_rating": 0.000672,
-     "crit_pct": 0.008821,
-     "hit_pct": 0.005449,
-     "weapon_dps": 0.007904
+     "intellect": 0.00056,
+     "attack_power": 0.00056,
+     "crit_rating": 0.001054,
+     "hit_rating": 0.000699,
+     "crit_pct": 0.009084,
+     "hit_pct": 0.005677,
+     "weapon_dps": 0.007826
     },
     "50": {
-     "score": 1.021,
-     "strength": 0.001112,
-     "agility": 0.000649,
+     "score": 1.0487,
+     "strength": 0.001097,
+     "agility": 0.000667,
      "stamina": 0.0,
-     "intellect": 0.000556,
-     "attack_power": 0.000556,
-     "crit_rating": 0.000956,
-     "hit_rating": 0.000535,
-     "crit_pct": 0.01081,
-     "hit_pct": 0.005962,
-     "weapon_dps": 0.007959
+     "intellect": 0.000549,
+     "attack_power": 0.000549,
+     "crit_rating": 0.000982,
+     "hit_rating": 0.00054,
+     "crit_pct": 0.011106,
+     "hit_pct": 0.006016,
+     "weapon_dps": 0.007851
     },
     "60": {
-     "score": 1.1991,
-     "strength": 0.001069,
-     "agility": 0.000637,
+     "score": 1.2496,
+     "strength": 0.001052,
+     "agility": 0.000666,
      "stamina": 0.0,
-     "intellect": 0.000534,
-     "attack_power": 0.000534,
-     "crit_rating": 0.00091,
+     "intellect": 0.000526,
+     "attack_power": 0.000526,
+     "crit_rating": 0.000952,
      "hit_rating": 8.6e-05,
-     "crit_pct": 0.01273,
+     "crit_pct": 0.013323,
      "hit_pct": 0.001207,
-     "weapon_dps": 0.007761
+     "weapon_dps": 0.00764
     }
    },
    "about": [
     "33 points in Enhancement, with 10 in Restoration and 8 in Elemental. Built for PvE. On this order the key talents arrive as follows: Stormstrike at 30, Shamanistic Focus at 31, Spirit Weapons at 32 and Rage of the Farseer at 40.",
     "A melee shaman: auto-attacks and weapon procs carry it, with shocks and Stormstrike on top. Damage comes from auto-attacks 49%, abilities 32% and spells and procs 20%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and questing speed (84%), and weakest at dungeon damage (74%)."
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and questing speed (84%), and weakest at dungeon damage (82%)."
    ]
   },
   {
@@ -1547,24 +1658,69 @@
     },
     "dungeon": {
      "20": {
-      "score": 36.4,
-      "unit": "dps"
+      "score": 38.4,
+      "low": 34.1,
+      "high": 42.1,
+      "unbuffed": 32.2,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout",
+       "strength_of_earth"
+      ],
+      "unit": "dps",
+      "solo": 36.4
      },
      "30": {
-      "score": 65.0,
-      "unit": "dps"
+      "score": 71.7,
+      "low": 60.6,
+      "high": 84.3,
+      "unbuffed": 56.4,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout",
+       "strength_of_earth"
+      ],
+      "unit": "dps",
+      "solo": 65.0
      },
      "40": {
-      "score": 128.3,
-      "unit": "dps"
+      "score": 141.2,
+      "low": 118.1,
+      "high": 166.8,
+      "unbuffed": 109.1,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout",
+       "strength_of_earth"
+      ],
+      "unit": "dps",
+      "solo": 128.3
      },
      "50": {
-      "score": 167.7,
-      "unit": "dps"
+      "score": 183.1,
+      "low": 152.4,
+      "high": 217.1,
+      "unbuffed": 141.8,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout",
+       "strength_of_earth"
+      ],
+      "unit": "dps",
+      "solo": 167.7
      },
      "60": {
-      "score": 214.7,
-      "unit": "dps"
+      "score": 242.3,
+      "low": 201.0,
+      "high": 286.6,
+      "unbuffed": 181.8,
+      "top_buffs": [
+       "battle_shout",
+       "blessing_of_might",
+       "strength_of_earth"
+      ],
+      "unit": "dps",
+      "solo": 214.7
      }
     },
     "raid": {
@@ -1646,7 +1802,7 @@
    "about": [
     "33 points in Enhancement, with 18 in Elemental. Built for PvP. On this order the key talents arrive as follows: Stormstrike at 30, Shamanistic Focus at 31, Spirit Weapons at 32 and Rage of the Farseer at 40.",
     "A melee shaman: auto-attacks and weapon procs carry it, with shocks and Stormstrike on top. Damage comes from auto-attacks 49%, abilities 32% and spells and procs 20%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and questing speed (84%), and weakest at dungeon damage (74%)."
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and questing speed (84%), and weakest at dungeon damage (82%)."
    ]
   },
   {
@@ -2805,11 +2961,11 @@
    "archetype": "deep Elemental",
    "focus": "PvE",
    "standard": "shaman-elemental-pve",
-   "standard_score": 1.1798673599372487,
+   "standard_score": 1.1916469821781595,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "shaman-elemental-pve": 1.1798673599372487
+    "shaman-elemental-pve": 1.1916469821781595
    },
    "qualifying": [
     "shaman-elemental-pve"
@@ -2833,11 +2989,11 @@
    "archetype": "deep Enhancement",
    "focus": "PvE",
    "standard": "shaman-enhancement-pve",
-   "standard_score": 1.1990907478952237,
+   "standard_score": 1.2495924718085718,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "shaman-enhancement-pve": 1.1990907478952237
+    "shaman-enhancement-pve": 1.2495924718085718
    },
    "qualifying": [
     "shaman-enhancement-pve"

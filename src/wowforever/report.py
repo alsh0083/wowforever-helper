@@ -12,6 +12,7 @@ from collections.abc import Mapping, Sequence
 from dataclasses import asdict, replace
 from typing import Any
 
+from wowforever import group
 from wowforever.assumptions import Assumptions
 from wowforever.builds import Build
 from wowforever.calc.pvp_axes import control, survival
@@ -94,8 +95,9 @@ def score_build(order: Sequence[int], cls: ClassData, spells, stats: StatTable,
                 "score": round(result["score"], 3), "unit": "duel 0-1", "spell": result["spell"],
                 "matchups": {k: round(v, 3) for k, v in result["matchups"].items()}}
         d = raid(char, default_params("dungeon", level), assumptions)
-        scores.setdefault("dungeon", {})[level] = {"score": round(d.score, 1), "unit": "dps",
-                                                   "spell": d.details["spell"]}
+        g = group.grouped_dungeon("mage", stats.at(level), cls, ranks_at(order, level, cls))
+        scores.setdefault("dungeon", {})[level] = {**g, "unit": "dps", "spell": d.details["spell"],
+                                                   "solo": round(d.score, 1)}
         bg = best_battleground(char, fillers, assumptions)
         scores.setdefault("battleground", {})[level] = {
             "score": round(bg["score"], 3), "unit": "0-1", "spell": bg["spell"],
@@ -343,8 +345,10 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
             ranks = ranks_at(order, level, cls)
             stats = table.at(level)
             scores["questing"][level] = {"score": round(kills(ranks, level), 1), "unit": "kills/hour"}
-            scores["dungeon"][level] = {"score": round(ms.dungeon(class_name, stats, spells, cls, ranks), 1),
-                                        "unit": "dps"}
+            # with a weighted 5-player group (#220); "solo" is the old single-player scenario, which
+            # assumed a tank's Sunder Armor
+            scores["dungeon"][level] = {**group.grouped_dungeon(class_name, stats, cls, ranks), "unit": "dps",
+                                        "solo": round(ms.dungeon(class_name, stats, spells, cls, ranks), 1)}
             if level == top:
                 scores["raid"][level] = {"score": round(ms.raid(class_name, stats, spells, cls, ranks), 1),
                                          "unit": "dps"}
