@@ -75,3 +75,13 @@ def test_community_builds_cite_known_sources():
     assert len(community) == 6          # 5 from #23 plus the catalog's Frost PvE plan
     for b in community:
         assert b.sources and all(s in sources for s in b.sources) and b.confidence in ("low", "medium", "high")
+
+
+def test_model_filled_points_add_to_the_published_final(tmp_path):
+    from wowforever.builds import Build
+
+    path = tmp_path / "b.toml"
+    path.write_text('id = "b"\nname = "B (PvE)"\nsummary = "s"\norigin = "community"\n\n[final]\n"Ice Shards" = 3\n\n'
+                    '[model_filled]\n"Ice Shards" = 2\n"Frostbite" = 1\n', encoding="utf-8")
+    b = Build.load(path)
+    assert b.final == {"Ice Shards": 5, "Frostbite": 1} and b.model_filled == {"Ice Shards": 2, "Frostbite": 1}
