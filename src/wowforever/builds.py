@@ -33,17 +33,22 @@ class Build:
     sources: tuple[str, ...] = ()              # keys into config/consensus.toml [sources]
     confidence: str = ""                       # low | medium | high, for community builds
     class_name: str = "mage"                   # TOML key `class`
+    model_filled: dict[str, int] = field(default_factory=dict)  # points the model added to a community
+                                                                # build that leaves some open (in `final`)
 
     @classmethod
     def load(cls, path: Path) -> Build:
         raw = tomllib.loads(path.read_text(encoding="utf-8"))
         order = tuple(raw["order"]) if "order" in raw else None
         final = dict(Counter(order)) if order else dict(raw["final"])
+        filled = dict(raw.get("model_filled", {}))
+        for name, r in filled.items():
+            final[name] = final.get(name, 0) + r
         return cls(raw["id"], raw["name"], raw["summary"], final, order,
                    dict(raw.get("must_have_by", {})), tuple(raw.get("gives_up", ())),
                    raw.get("primary_spell", ""), raw.get("pair", raw["id"]), raw.get("variant", ""),
                    raw.get("origin", "hand"), tuple(raw.get("sources", ())), raw.get("confidence", ""),
-                   raw.get("class", "mage"))
+                   raw.get("class", "mage"), filled)
 
     def unknown_talents(self, cls: ClassData) -> list[str]:
         """Talent names in this build that the class doesn't have (e.g. renamed by a patch)."""

@@ -1,6 +1,6 @@
 # wowforever-helper
 
-Talent builds, leveling routes and build scoring for **World of Warcraft: Forever**, Blizzard's reimagined
+Talent builds, talent paths (the order to spend points while leveling) and build scoring for **World of Warcraft: Forever**, Blizzard's reimagined
 Classic. It reads the game client's own talent and spell data, collects the builds the community actually
 plays, and scores them for PvE and PvP with a deterministic model. The result is an offline dashboard
 that works for all nine classes.
@@ -15,7 +15,7 @@ that works for all nine classes.
 
 - **Every class and spec:** a matrix of each talent tree (plus the common hybrids) for PvP and PvE.
   Each slot holds the community standard, or a clearly labeled model build where no community plan exists.
-- **Leveling routes:** a legal point-by-point order for every build from level 10 to 60, with a level
+- **Talent paths:** a legal point-by-point order for every build from level 10 to 60, with a level
   slider, check-off progress saved in your browser, and the next point to take.
 - **Talent layout:** the finished build shown the way a talent calculator draws it.
 - **Recommended gear by level:** as you move through the journey, the best gear your class can use at

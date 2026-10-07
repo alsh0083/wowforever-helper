@@ -184,7 +184,7 @@ def build_report(cls: ClassData, spells: tuple[SpellRank, ...], builds: Sequence
             raise ValueError(f"{b.id}: illegal order: {problems}")
         payload_builds.append({
             "id": b.id, "name": b.name, "pair": b.pair, "variant": b.variant, "origin": b.origin,
-            "summary": b.summary, "gives_up": list(b.gives_up),
+            "summary": b.summary, "gives_up": list(b.gives_up), "model_filled": dict(b.model_filled),
             "must_have_by": b.must_have_by, "order": order, "order_source": how,
             "open_points": points_available(cls.rules.max_level, cls.rules) - len(order),
             "scores": score_build(order, cls, spells, stats, assumptions),
@@ -257,7 +257,7 @@ def route_report(cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any
             raise ValueError(f"{b.id}: illegal order: {problems}")
         payload_builds.append({
             "id": b.id, "name": b.name, "pair": b.pair, "variant": b.variant, "origin": b.origin,
-            "summary": b.summary, "gives_up": list(b.gives_up), "must_have_by": b.must_have_by,
+            "summary": b.summary, "gives_up": list(b.gives_up), "model_filled": dict(b.model_filled), "must_have_by": b.must_have_by,
             "order": order, "order_source": how,
             "open_points": points_available(cls.rules.max_level, cls.rules) - len(order),
             "scores": {}, "sensitivity": [],

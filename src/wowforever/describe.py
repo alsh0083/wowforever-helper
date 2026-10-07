@@ -198,6 +198,11 @@ def add_descriptions(class_name: str, cls: ClassData, report: dict[str, Any], va
     best = class_best(report["builds"])
     for b in report["builds"]:
         paragraphs = [shape(cls, b, variants.get(b["id"], ""))]
+        if b.get("model_filled"):
+            filled = [f"{name} {r}" for name, r in b["model_filled"].items()]
+            n = sum(b["model_filled"].values())
+            paragraphs.append(f"The community build leaves {n} point{'s' if n != 1 else ''} unspent at 60; the model "
+                              f"fills {'them' if n != 1 else 'it'} with {_join(filled)}.")
         if not b.get("scores"):
             paragraphs.append(UNSCORED_NOTE)
         else:
