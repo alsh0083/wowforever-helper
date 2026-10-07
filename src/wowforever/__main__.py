@@ -24,6 +24,8 @@ def main(argv: list[str] | None = None) -> int:
     gsrc = sub.add_parser("gear-sources", help="build data/items/gear.json: where gear drops, quest rewards and crafted items come from (#188)")
     gsrc.add_argument("--refresh", action="store_true", help="fetch wowforevertalent.com's items, dungeons and quests pages first")
     gsrc.add_argument("--tables", default="data/cache/wago/1.60.1.70205", help="folder with the cached client tables")
+    iv = sub.add_parser("icy-veins", help="decode Icy Veins' Forever guide talent builds into data/icy-veins/builds.json")
+    iv.add_argument("--refresh", action="store_true", help="fetch the hub, the spec guides and the class talent data first")
     vl = sub.add_parser("validate-logs", help="compare the model's dungeon scores with cached Forever Logs statistics (#172)")
     vl.add_argument("--boss-only", action="store_true",
                     help="compare with boss fights only (data/cache/foreverlogs/stats-boss-only/), which leaves out "
@@ -73,8 +75,27 @@ def main(argv: list[str] | None = None) -> int:
         gear_path, rules_path = Path("data/items/gear.json"), Path("config/gear_rules.toml")
         gear = json.loads(gear_path.read_text(encoding="utf-8")) if gear_path.exists() else None
         rules = tomllib.loads(rules_path.read_text(encoding="utf-8")) if rules_path.exists() else None
-        out.write_text(render(reports, icons, gear=gear, gear_rules=rules), encoding="utf-8", newline="\n")
+        iv_path = Path("data/icy-veins/builds.json")
+        icy = json.loads(iv_path.read_text(encoding="utf-8")) if iv_path.exists() else None
+        out.write_text(render(reports, icons, gear=gear, gear_rules=rules, icy_veins=icy), encoding="utf-8", newline="\n")
         print(f"wrote {out}")
+        return 0
+    if args.command == "icy-veins":
+        import json
+        from datetime import datetime, timezone
+        from pathlib import Path
+
+        from wowforever.sources import icyveins
+        from wowforever.sources.http import http_get
+
+        cache = Path("data/cache/icy-veins")
+        if args.refresh:
+            icyveins.fetch(cache, http_get)
+        dataset = icyveins.build_dataset(cache, checked_at=datetime.now(timezone.utc).date().isoformat())
+        out = Path("data/icy-veins/builds.json")
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(dataset, indent=1, ensure_ascii=False), encoding="utf-8", newline="\n")
+        print(f"wrote {out}: {len(dataset['builds'])} builds from {len({b['guide'] for b in dataset['builds']})} guides")
         return 0
     if args.command == "gear-sources":
         from pathlib import Path

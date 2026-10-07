@@ -39,3 +39,18 @@ Checked 2026-10-04 against Forever beta build 1.60.1.70205.
 
 - Published API ([wago.tools](https://wago.tools/), "APIs" page): `/api/builds` (versions per product; `update` uses it to find the latest build), `/api/casc/{fdid}` (a game file by file id), `/api/info/{fdid}` (a file's name and versions) and `/api/files` (the file list per version). `ICON_OVERRIDES` in `classes/warrior.py` were named through `/api/info/{fdid}`.
 - **Table CSVs are saved by hand.** The CSVs `update` reads (`/db2/<table>/csv?build=...`) are the site's download links, not part of the published API, and wago.tools' robots.txt disallows them. So `update` never downloads them: for a build missing from `data/cache/wago/<build>/` it stops (exit 2) and lists each link and the file to save it as. Open the links in a browser, save the files, and rerun; the manifest records their hashes (`"saved_by": "browser"`). Reading the same tables through the published `/api/casc/{fdid}` would need a DB2 parser; not done (owner, 2026-10-06: stay within their rules and stop there).
+
+## Icy Veins (WoW Forever guides)
+
+- 27 spec guides at `https://www.icy-veins.com/wow-forever/`, each with level-30 talent builds embedded as
+  read-only calculators. The `#tc-...` code is one character per point in the order taken, indexing the
+  class's talents in tree order (empty grid cells of `static.icy-veins.com/json/forever-talent-calculator/<class>.json`
+  skipped) through `0-9a-zA-Z`. `wowforever icy-veins` decodes them (`src/wowforever/sources/icyveins.py`).
+- robots.txt allows the site; the terms of use (VEDATIS SAS, updated Aug 4, 2026) don't restrict automated
+  reading (checked 2026-10-07). Fetching is on demand only, about 28 requests 2 s apart; raw pages stay in
+  `data/cache/icy-veins/` (gitignored). Only the decoded builds are committed, with links back.
+- Some guides add a 26-point version for the Legacy Talented perk (5 extra points by level 30).
+- Not used: Wowhead (its robots.txt blocks Claude's and other AI crawlers by name) and mobalytics.gg
+  (Cloudflare bot check). Raidbots and WoWAnalyzer have no Forever support yet. No Forever profile API in
+  Blizzard's developer portal yet (#191, #33).
+
