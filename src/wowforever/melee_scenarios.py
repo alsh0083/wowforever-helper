@@ -229,8 +229,11 @@ def raid(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
 
 
 def pve_score(class_name: str, stats_at_max: MeleeStats, spells, cls, ranks) -> float:
-    """Mean of questing, raid and dungeon, each divided by its reference."""
+    """Mean of questing, raid and dungeon (with a weighted 5-player group, #220), each divided by its
+    reference."""
+    from wowforever import group
+
     ref = _config()["references"]
     return (questing(class_name, stats_at_max, spells, cls, ranks) / ref["questing"]
             + raid(class_name, stats_at_max, spells, cls, ranks) / ref["raid"]
-            + dungeon(class_name, stats_at_max, spells, cls, ranks) / ref["dungeon"]) / 3
+            + group.typical_dungeon_dps(class_name, stats_at_max, cls, ranks) / ref["dungeon"]) / 3

@@ -1007,24 +1007,59 @@
     },
     "dungeon": {
      "20": {
-      "score": 42.4,
-      "unit": "dps"
+      "score": 44.1,
+      "low": 44.1,
+      "high": 44.2,
+      "unbuffed": 42.4,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 42.4
      },
      "30": {
-      "score": 89.5,
-      "unit": "dps"
+      "score": 95.0,
+      "low": 94.9,
+      "high": 95.0,
+      "unbuffed": 89.5,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 89.5
      },
      "40": {
-      "score": 133.6,
-      "unit": "dps"
+      "score": 144.4,
+      "low": 144.3,
+      "high": 144.5,
+      "unbuffed": 133.6,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 133.6
      },
      "50": {
-      "score": 185.9,
-      "unit": "dps"
+      "score": 204.8,
+      "low": 204.5,
+      "high": 204.9,
+      "unbuffed": 185.9,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 185.9
      },
      "60": {
-      "score": 320.0,
-      "unit": "dps"
+      "score": 352.5,
+      "low": 352.0,
+      "high": 352.8,
+      "unbuffed": 320.0,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 320.0
      }
     },
     "raid": {
@@ -1189,24 +1224,59 @@
     },
     "dungeon": {
      "20": {
-      "score": 43.3,
-      "unit": "dps"
+      "score": 45.1,
+      "low": 45.1,
+      "high": 45.1,
+      "unbuffed": 43.3,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 43.3
      },
      "30": {
-      "score": 92.0,
-      "unit": "dps"
+      "score": 97.6,
+      "low": 97.5,
+      "high": 97.7,
+      "unbuffed": 92.0,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 92.0
      },
      "40": {
-      "score": 140.0,
-      "unit": "dps"
+      "score": 151.4,
+      "low": 151.2,
+      "high": 151.5,
+      "unbuffed": 140.0,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 140.0
      },
      "50": {
-      "score": 209.5,
-      "unit": "dps"
+      "score": 230.7,
+      "low": 230.4,
+      "high": 230.9,
+      "unbuffed": 209.5,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 209.5
      },
      "60": {
-      "score": 362.5,
-      "unit": "dps"
+      "score": 399.4,
+      "low": 398.8,
+      "high": 399.8,
+      "unbuffed": 362.5,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 362.5
      }
     },
     "raid": {
@@ -1372,24 +1442,59 @@
     },
     "dungeon": {
      "20": {
-      "score": 42.4,
-      "unit": "dps"
+      "score": 44.1,
+      "low": 44.1,
+      "high": 44.2,
+      "unbuffed": 42.4,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 42.4
      },
      "30": {
-      "score": 90.5,
-      "unit": "dps"
+      "score": 96.0,
+      "low": 95.9,
+      "high": 96.1,
+      "unbuffed": 90.5,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 90.5
      },
      "40": {
-      "score": 137.5,
-      "unit": "dps"
+      "score": 148.6,
+      "low": 148.5,
+      "high": 148.7,
+      "unbuffed": 137.5,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 137.5
      },
      "50": {
-      "score": 193.6,
-      "unit": "dps"
+      "score": 213.3,
+      "low": 213.0,
+      "high": 213.4,
+      "unbuffed": 193.6,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 193.6
      },
      "60": {
-      "score": 326.2,
-      "unit": "dps"
+      "score": 359.3,
+      "low": 358.8,
+      "high": 359.6,
+      "unbuffed": 326.2,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 326.2
      }
     },
     "raid": {
@@ -1403,58 +1508,58 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.3934,
+     "score": 0.3973,
      "stamina": 0.0,
-     "intellect": 4.4e-05,
+     "intellect": 4.5e-05,
      "spirit": 0.0,
-     "spell_power": 0.00278,
-     "crit_rating": 0.000273,
-     "hit_rating": 0.001109,
-     "crit_pct": 0.000882,
-     "hit_pct": 0.003643
+     "spell_power": 0.002813,
+     "crit_rating": 0.000276,
+     "hit_rating": 0.001122,
+     "crit_pct": 0.000892,
+     "hit_pct": 0.003684
     },
     "30": {
-     "score": 0.6085,
+     "score": 0.6208,
      "stamina": 0.0,
-     "intellect": 4.6e-05,
+     "intellect": 4.8e-05,
      "spirit": 0.0,
-     "spell_power": 0.002711,
-     "crit_rating": 0.000235,
-     "hit_rating": 0.0007,
-     "crit_pct": 0.00139,
-     "hit_pct": 0.004145
+     "spell_power": 0.002772,
+     "crit_rating": 0.00024,
+     "hit_rating": 0.000721,
+     "crit_pct": 0.001422,
+     "hit_pct": 0.004271
     },
     "40": {
-     "score": 0.8426,
+     "score": 0.8674,
      "stamina": 0.0,
-     "intellect": 0.000257,
+     "intellect": 0.00026,
      "spirit": 0.0,
-     "spell_power": 0.002522,
-     "crit_rating": 0.000217,
-     "hit_rating": 0.000711,
-     "crit_pct": 0.001874,
-     "hit_pct": 0.006129
+     "spell_power": 0.002606,
+     "crit_rating": 0.000225,
+     "hit_rating": 0.000741,
+     "crit_pct": 0.001935,
+     "hit_pct": 0.006385
     },
     "50": {
-     "score": 1.0368,
+     "score": 1.0804,
      "stamina": 0.0,
-     "intellect": 0.000269,
+     "intellect": 0.000272,
      "spirit": 0.0,
-     "spell_power": 0.002373,
-     "crit_rating": 0.000201,
+     "spell_power": 0.002486,
+     "crit_rating": 0.000211,
      "hit_rating": 0.000307,
-     "crit_pct": 0.002278,
+     "crit_pct": 0.002384,
      "hit_pct": 0.003471
     },
     "60": {
-     "score": 1.4556,
+     "score": 1.5291,
      "stamina": 0.0,
-     "intellect": 0.000525,
+     "intellect": 0.00053,
      "spirit": 0.0,
-     "spell_power": 0.002054,
-     "crit_rating": 0.000237,
+     "spell_power": 0.002168,
+     "crit_rating": 0.00025,
      "hit_rating": 0.000323,
-     "crit_pct": 0.003324,
+     "crit_pct": 0.003506,
      "hit_pct": 0.004517
     }
    },
@@ -1554,24 +1659,59 @@
     },
     "dungeon": {
      "20": {
-      "score": 43.3,
-      "unit": "dps"
+      "score": 45.1,
+      "low": 45.1,
+      "high": 45.1,
+      "unbuffed": 43.3,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 43.3
      },
      "30": {
-      "score": 93.0,
-      "unit": "dps"
+      "score": 98.7,
+      "low": 98.6,
+      "high": 98.8,
+      "unbuffed": 93.0,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 93.0
      },
      "40": {
-      "score": 144.5,
-      "unit": "dps"
+      "score": 156.3,
+      "low": 156.1,
+      "high": 156.4,
+      "unbuffed": 144.5,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 144.5
      },
      "50": {
-      "score": 202.5,
-      "unit": "dps"
+      "score": 223.1,
+      "low": 222.7,
+      "high": 223.4,
+      "unbuffed": 202.5,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 202.5
      },
      "60": {
-      "score": 345.7,
-      "unit": "dps"
+      "score": 381.0,
+      "low": 380.3,
+      "high": 381.6,
+      "unbuffed": 345.7,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 345.7
      }
     },
     "raid": {
@@ -1585,59 +1725,59 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.3969,
+     "score": 0.4008,
      "stamina": 0.0,
-     "intellect": 4.5e-05,
+     "intellect": 4.6e-05,
      "spirit": 0.0,
-     "spell_power": 0.002815,
-     "crit_rating": 0.000279,
-     "hit_rating": 0.001122,
-     "crit_pct": 0.000902,
-     "hit_pct": 0.003684
+     "spell_power": 0.002848,
+     "crit_rating": 0.000282,
+     "hit_rating": 0.001135,
+     "crit_pct": 0.000913,
+     "hit_pct": 0.003727
     },
     "30": {
-     "score": 0.616,
+     "score": 0.6287,
      "stamina": 0.0,
-     "intellect": 5e-05,
+     "intellect": 5.2e-05,
      "spirit": 0.0,
-     "spell_power": 0.002774,
-     "crit_rating": 0.000253,
-     "hit_rating": 0.000892,
-     "crit_pct": 0.001501,
-     "hit_pct": 0.005957
+     "spell_power": 0.002838,
+     "crit_rating": 0.000259,
+     "hit_rating": 0.000914,
+     "crit_pct": 0.001536,
+     "hit_pct": 0.006089
     },
     "40": {
-     "score": 0.8438,
+     "score": 0.87,
      "stamina": 0.0,
-     "intellect": 0.000257,
+     "intellect": 0.000261,
      "spirit": 0.0,
-     "spell_power": 0.002553,
-     "crit_rating": 0.00031,
-     "hit_rating": 0.000904,
-     "crit_pct": 0.002672,
-     "hit_pct": 0.008047
+     "spell_power": 0.002643,
+     "crit_rating": 0.000319,
+     "hit_rating": 0.000936,
+     "crit_pct": 0.002752,
+     "hit_pct": 0.00832
     },
     "50": {
-     "score": 1.0229,
+     "score": 1.0688,
      "stamina": 0.0,
-     "intellect": 0.000417,
+     "intellect": 0.000423,
      "spirit": 0.0,
-     "spell_power": 0.002209,
-     "crit_rating": 0.000305,
-     "hit_rating": 0.000735,
-     "crit_pct": 0.003451,
-     "hit_pct": 0.008261
+     "spell_power": 0.00232,
+     "crit_rating": 0.00032,
+     "hit_rating": 0.000777,
+     "crit_pct": 0.003621,
+     "hit_pct": 0.008735
     },
     "60": {
-     "score": 1.4537,
+     "score": 1.5322,
      "stamina": 0.0,
-     "intellect": 0.000501,
+     "intellect": 0.000509,
      "spirit": 0.0,
-     "spell_power": 0.001959,
-     "crit_rating": 0.000348,
-     "hit_rating": 0.000462,
-     "crit_pct": 0.004872,
-     "hit_pct": 0.005814
+     "spell_power": 0.002075,
+     "crit_rating": 0.000368,
+     "hit_rating": 0.000479,
+     "crit_pct": 0.005154,
+     "hit_pct": 0.005981
     }
    },
    "about": [
@@ -1737,24 +1877,59 @@
     },
     "dungeon": {
      "20": {
-      "score": 43.3,
-      "unit": "dps"
+      "score": 45.1,
+      "low": 45.1,
+      "high": 45.2,
+      "unbuffed": 43.3,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 43.3
      },
      "30": {
-      "score": 87.3,
-      "unit": "dps"
+      "score": 92.6,
+      "low": 92.5,
+      "high": 92.7,
+      "unbuffed": 87.3,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 87.3
      },
      "40": {
-      "score": 138.2,
-      "unit": "dps"
+      "score": 149.5,
+      "low": 149.3,
+      "high": 149.6,
+      "unbuffed": 138.2,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 138.2
      },
      "50": {
-      "score": 185.7,
-      "unit": "dps"
+      "score": 204.5,
+      "low": 204.2,
+      "high": 204.7,
+      "unbuffed": 185.7,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 185.7
      },
      "60": {
-      "score": 321.9,
-      "unit": "dps"
+      "score": 354.6,
+      "low": 354.0,
+      "high": 355.0,
+      "unbuffed": 321.9,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 321.9
      }
     },
     "raid": {
@@ -1768,59 +1943,59 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.3978,
-     "stamina": 0.0,
-     "intellect": 4.5e-05,
-     "spirit": 0.0,
-     "spell_power": 0.002817,
-     "crit_rating": 0.000279,
-     "hit_rating": 0.001123,
-     "crit_pct": 0.000902,
-     "hit_pct": 0.003689
-    },
-    "30": {
-     "score": 0.5975,
+     "score": 0.4017,
      "stamina": 0.0,
      "intellect": 4.6e-05,
      "spirit": 0.0,
-     "spell_power": 0.002656,
-     "crit_rating": 0.000237,
-     "hit_rating": 0.000985,
-     "crit_pct": 0.001405,
-     "hit_pct": 0.005839
+     "spell_power": 0.00285,
+     "crit_rating": 0.000282,
+     "hit_rating": 0.001137,
+     "crit_pct": 0.000913,
+     "hit_pct": 0.003731
+    },
+    "30": {
+     "score": 0.6094,
+     "stamina": 0.0,
+     "intellect": 4.9e-05,
+     "spirit": 0.0,
+     "spell_power": 0.002716,
+     "crit_rating": 0.000243,
+     "hit_rating": 0.001007,
+     "crit_pct": 0.001437,
+     "hit_pct": 0.005965
     },
     "40": {
-     "score": 0.8144,
+     "score": 0.8395,
      "stamina": 0.0,
-     "intellect": 0.00025,
+     "intellect": 0.000253,
      "spirit": 0.0,
-     "spell_power": 0.00247,
-     "crit_rating": 0.000298,
-     "hit_rating": 0.000924,
-     "crit_pct": 0.002563,
-     "hit_pct": 0.007963
+     "spell_power": 0.002556,
+     "crit_rating": 0.000306,
+     "hit_rating": 0.000955,
+     "crit_pct": 0.00264,
+     "hit_pct": 0.00823
     },
     "50": {
-     "score": 0.9608,
+     "score": 1.0027,
      "stamina": 0.0,
-     "intellect": 0.000385,
+     "intellect": 0.000389,
      "spirit": 0.0,
-     "spell_power": 0.002228,
-     "crit_rating": 0.000231,
-     "hit_rating": 0.000831,
-     "crit_pct": 0.002613,
-     "hit_pct": 0.009395
+     "spell_power": 0.002336,
+     "crit_rating": 0.000242,
+     "hit_rating": 0.00087,
+     "crit_pct": 0.002738,
+     "hit_pct": 0.009837
     },
     "60": {
-     "score": 1.3745,
+     "score": 1.4473,
      "stamina": 0.0,
-     "intellect": 0.000462,
+     "intellect": 0.000468,
      "spirit": 0.0,
-     "spell_power": 0.00195,
-     "crit_rating": 0.000273,
-     "hit_rating": 0.000859,
-     "crit_pct": 0.00382,
-     "hit_pct": 0.011858
+     "spell_power": 0.002063,
+     "crit_rating": 0.000288,
+     "hit_rating": 0.000912,
+     "crit_pct": 0.004038,
+     "hit_pct": 0.01261
     }
    },
    "about": [
@@ -1919,24 +2094,59 @@
     },
     "dungeon": {
      "20": {
-      "score": 43.3,
-      "unit": "dps"
+      "score": 45.1,
+      "low": 45.1,
+      "high": 45.1,
+      "unbuffed": 43.3,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 43.3
      },
      "30": {
-      "score": 88.3,
-      "unit": "dps"
+      "score": 93.7,
+      "low": 93.6,
+      "high": 93.8,
+      "unbuffed": 88.3,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 88.3
      },
      "40": {
-      "score": 142.7,
-      "unit": "dps"
+      "score": 154.4,
+      "low": 154.2,
+      "high": 154.5,
+      "unbuffed": 142.7,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 142.7
      },
      "50": {
-      "score": 191.5,
-      "unit": "dps"
+      "score": 210.9,
+      "low": 210.6,
+      "high": 211.1,
+      "unbuffed": 191.5,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 191.5
      },
      "60": {
-      "score": 332.0,
-      "unit": "dps"
+      "score": 365.8,
+      "low": 365.2,
+      "high": 366.2,
+      "unbuffed": 332.0,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 332.0
      }
     },
     "raid": {
@@ -2101,24 +2311,59 @@
     },
     "dungeon": {
      "20": {
-      "score": 43.3,
-      "unit": "dps"
+      "score": 45.1,
+      "low": 45.1,
+      "high": 45.2,
+      "unbuffed": 43.3,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 43.3
      },
      "30": {
-      "score": 89.2,
-      "unit": "dps"
+      "score": 94.6,
+      "low": 94.5,
+      "high": 94.7,
+      "unbuffed": 89.2,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 89.2
      },
      "40": {
-      "score": 143.3,
-      "unit": "dps"
+      "score": 155.0,
+      "low": 154.8,
+      "high": 155.2,
+      "unbuffed": 143.3,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 143.3
      },
      "50": {
-      "score": 209.9,
-      "unit": "dps"
+      "score": 231.4,
+      "low": 230.9,
+      "high": 231.6,
+      "unbuffed": 209.9,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 209.9
      },
      "60": {
-      "score": 370.4,
-      "unit": "dps"
+      "score": 408.2,
+      "low": 407.4,
+      "high": 408.7,
+      "unbuffed": 370.4,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 370.4
      }
     },
     "raid": {
@@ -2132,58 +2377,58 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.3978,
+     "score": 0.4017,
      "stamina": 0.0,
-     "intellect": 4.5e-05,
+     "intellect": 4.6e-05,
      "spirit": 0.0,
-     "spell_power": 0.002817,
-     "crit_rating": 0.000279,
-     "hit_rating": 0.001123,
-     "crit_pct": 0.000902,
-     "hit_pct": 0.003689
+     "spell_power": 0.00285,
+     "crit_rating": 0.000282,
+     "hit_rating": 0.001137,
+     "crit_pct": 0.000913,
+     "hit_pct": 0.003731
     },
     "30": {
-     "score": 0.6092,
+     "score": 0.6213,
      "stamina": 0.0,
-     "intellect": 4.7e-05,
+     "intellect": 5e-05,
      "spirit": 0.0,
-     "spell_power": 0.002705,
-     "crit_rating": 0.000242,
-     "hit_rating": 0.000866,
-     "crit_pct": 0.001431,
-     "hit_pct": 0.005819
+     "spell_power": 0.002765,
+     "crit_rating": 0.000247,
+     "hit_rating": 0.000887,
+     "crit_pct": 0.001464,
+     "hit_pct": 0.005945
     },
     "40": {
-     "score": 0.852,
+     "score": 0.8781,
      "stamina": 0.0,
-     "intellect": 0.000273,
+     "intellect": 0.000277,
      "spirit": 0.0,
-     "spell_power": 0.00238,
-     "crit_rating": 0.00034,
-     "hit_rating": 0.000718,
-     "crit_pct": 0.002933,
-     "hit_pct": 0.00619
+     "spell_power": 0.002463,
+     "crit_rating": 0.000351,
+     "hit_rating": 0.00075,
+     "crit_pct": 0.003025,
+     "hit_pct": 0.006458
     },
     "50": {
-     "score": 1.0648,
+     "score": 1.1124,
      "stamina": 0.0,
-     "intellect": 0.000448,
+     "intellect": 0.000453,
      "spirit": 0.0,
-     "spell_power": 0.002264,
-     "crit_rating": 0.000344,
-     "hit_rating": 0.000722,
-     "crit_pct": 0.003893,
-     "hit_pct": 0.008164
+     "spell_power": 0.002378,
+     "crit_rating": 0.00036,
+     "hit_rating": 0.000765,
+     "crit_pct": 0.00407,
+     "hit_pct": 0.008651
     },
     "60": {
-     "score": 1.5713,
+     "score": 1.6554,
      "stamina": 0.0,
-     "intellect": 0.000561,
+     "intellect": 0.000569,
      "spirit": 0.0,
-     "spell_power": 0.002112,
-     "crit_rating": 0.000372,
+     "spell_power": 0.002236,
+     "crit_rating": 0.000393,
      "hit_rating": 0.000326,
-     "crit_pct": 0.005206,
+     "crit_pct": 0.005505,
      "hit_pct": 0.004568
     }
    },
@@ -2283,24 +2528,59 @@
     },
     "dungeon": {
      "20": {
-      "score": 43.3,
-      "unit": "dps"
+      "score": 45.1,
+      "low": 45.1,
+      "high": 45.2,
+      "unbuffed": 43.3,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 43.3
      },
      "30": {
-      "score": 91.3,
-      "unit": "dps"
+      "score": 96.9,
+      "low": 96.7,
+      "high": 97.0,
+      "unbuffed": 91.3,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 91.3
      },
      "40": {
-      "score": 146.1,
-      "unit": "dps"
+      "score": 158.1,
+      "low": 157.8,
+      "high": 158.2,
+      "unbuffed": 146.1,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 146.1
      },
      "50": {
-      "score": 217.2,
-      "unit": "dps"
+      "score": 239.4,
+      "low": 239.0,
+      "high": 239.7,
+      "unbuffed": 217.2,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 217.2
      },
      "60": {
-      "score": 378.8,
-      "unit": "dps"
+      "score": 417.5,
+      "low": 416.7,
+      "high": 418.0,
+      "unbuffed": 378.8,
+      "top_buffs": [
+       "curse_of_the_elements"
+      ],
+      "unit": "dps",
+      "solo": 378.8
      }
     },
     "raid": {
@@ -3344,11 +3624,11 @@
    "archetype": "deep Affliction",
    "focus": "PvE",
    "standard": "warlock-affliction",
-   "standard_score": 1.455580914533434,
+   "standard_score": 1.5291459148272823,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "warlock-affliction": 1.455580914533434
+    "warlock-affliction": 1.5291459148272823
    },
    "qualifying": [
     "warlock-affliction"
@@ -3372,7 +3652,7 @@
    "archetype": "deep Demonology",
    "focus": "PvE",
    "standard": "warlock-demonology-pve",
-   "standard_score": 1.3745255708054327,
+   "standard_score": 1.4473455026743658,
    "model_pick": {
     "Agonizing Flames": 1,
     "Conflagrate": 1,
@@ -3396,10 +3676,10 @@
     "Improved Corruption": 1,
     "Suppression": 2
    },
-   "model_pick_score": 1.4537348580417706,
+   "model_pick_score": 1.532239905132415,
    "candidates": {
-    "warlock-demonology-pve-model": 1.4537348580417706,
-    "warlock-demonology-pve": 1.3745255708054327
+    "warlock-demonology-pve-model": 1.532239905132415,
+    "warlock-demonology-pve": 1.4473455026743658
    },
    "qualifying": [
     "warlock-demonology-pve",
@@ -3457,11 +3737,11 @@
    "archetype": "deep Destruction",
    "focus": "PvE",
    "standard": "warlock-destruction-pve",
-   "standard_score": 1.5713341131788867,
+   "standard_score": 1.65541663652954,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "warlock-destruction-pve": 1.5713341131788867
+    "warlock-destruction-pve": 1.65541663652954
    },
    "qualifying": [
     "warlock-destruction-pve"

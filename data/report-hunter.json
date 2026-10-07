@@ -982,24 +982,59 @@
     },
     "dungeon": {
      "20": {
-      "score": 83.0,
-      "unit": "dps"
+      "score": 84.7,
+      "low": 77.0,
+      "high": 92.2,
+      "unbuffed": 74.7,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 83.0
      },
      "30": {
-      "score": 135.4,
-      "unit": "dps"
+      "score": 142.7,
+      "low": 125.3,
+      "high": 159.9,
+      "unbuffed": 120.2,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 135.4
      },
      "40": {
-      "score": 182.1,
-      "unit": "dps"
+      "score": 192.5,
+      "low": 168.9,
+      "high": 215.7,
+      "unbuffed": 160.5,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 182.1
      },
      "50": {
-      "score": 237.3,
-      "unit": "dps"
+      "score": 251.3,
+      "low": 217.7,
+      "high": 282.0,
+      "unbuffed": 209.4,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 237.3
      },
      "60": {
-      "score": 357.9,
-      "unit": "dps"
+      "score": 372.2,
+      "low": 318.8,
+      "high": 417.2,
+      "unbuffed": 312.5,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 357.9
      }
     },
     "raid": {
@@ -1175,24 +1210,61 @@
     },
     "dungeon": {
      "20": {
-      "score": 83.0,
-      "unit": "dps"
+      "score": 84.7,
+      "low": 77.0,
+      "high": 92.2,
+      "unbuffed": 74.7,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 83.0
      },
      "30": {
-      "score": 131.8,
-      "unit": "dps"
+      "score": 142.1,
+      "low": 124.8,
+      "high": 159.3,
+      "unbuffed": 117.1,
+      "top_buffs": [
+       "hunters_mark",
+       "trueshot_aura"
+      ],
+      "unit": "dps",
+      "solo": 131.8
      },
      "40": {
-      "score": 181.2,
-      "unit": "dps"
+      "score": 196.4,
+      "low": 172.9,
+      "high": 219.7,
+      "unbuffed": 160.4,
+      "top_buffs": [
+       "hunters_mark",
+       "trueshot_aura"
+      ],
+      "unit": "dps",
+      "solo": 181.2
      },
      "50": {
-      "score": 232.2,
-      "unit": "dps"
+      "score": 247.9,
+      "low": 219.3,
+      "high": 280.8,
+      "unbuffed": 204.5,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 232.2
      },
      "60": {
-      "score": 351.0,
-      "unit": "dps"
+      "score": 366.8,
+      "low": 316.5,
+      "high": 418.2,
+      "unbuffed": 305.5,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 351.0
      }
     },
     "raid": {
@@ -1206,67 +1278,67 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.6393,
+     "score": 0.6418,
      "strength": 0.0,
-     "agility": 0.001452,
+     "agility": 0.001435,
      "stamina": 0.0,
-     "intellect": 0.000385,
-     "attack_power": 0.000641,
-     "crit_rating": 0.000904,
-     "hit_rating": 0.001081,
-     "crit_pct": 0.002926,
-     "hit_pct": 0.002736,
+     "intellect": 0.00038,
+     "attack_power": 0.000632,
+     "crit_rating": 0.000911,
+     "hit_rating": 0.001089,
+     "crit_pct": 0.002947,
+     "hit_pct": 0.002762,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.8601,
+     "score": 0.8797,
      "strength": 0.0,
-     "agility": 0.001308,
+     "agility": 0.001306,
      "stamina": 0.0,
-     "intellect": 0.000571,
-     "attack_power": 0.000571,
-     "crit_rating": 0.000729,
-     "hit_rating": 0.000748,
-     "crit_pct": 0.00432,
-     "hit_pct": 0.003605,
+     "intellect": 0.000567,
+     "attack_power": 0.000567,
+     "crit_rating": 0.000756,
+     "hit_rating": 0.000783,
+     "crit_pct": 0.004482,
+     "hit_pct": 0.003814,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 1.1319,
+     "score": 1.1601,
      "strength": 0.0,
-     "agility": 0.001258,
+     "agility": 0.001251,
      "stamina": 0.0,
-     "intellect": 0.000552,
-     "attack_power": 0.000548,
-     "crit_rating": 0.000658,
-     "hit_rating": 0.000544,
-     "crit_pct": 0.005672,
-     "hit_pct": 0.004293,
+     "intellect": 0.000544,
+     "attack_power": 0.000541,
+     "crit_rating": 0.000687,
+     "hit_rating": 0.000579,
+     "crit_pct": 0.005916,
+     "hit_pct": 0.004593,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 1.3423,
+     "score": 1.3694,
      "strength": 0.0,
-     "agility": 0.001268,
+     "agility": 0.001258,
      "stamina": 0.0,
-     "intellect": 0.00072,
-     "attack_power": 0.000544,
-     "crit_rating": 0.000692,
-     "hit_rating": 0.000701,
-     "crit_pct": 0.007829,
-     "hit_pct": 0.008023,
+     "intellect": 0.000712,
+     "attack_power": 0.000536,
+     "crit_rating": 0.000715,
+     "hit_rating": 0.000727,
+     "crit_pct": 0.008079,
+     "hit_pct": 0.00831,
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 1.8047,
+     "score": 1.8269,
      "strength": 0.0,
-     "agility": 0.001315,
+     "agility": 0.0013,
      "stamina": 0.0,
-     "intellect": 0.00094,
-     "attack_power": 0.000553,
-     "crit_rating": 0.000785,
+     "intellect": 0.000931,
+     "attack_power": 0.000544,
+     "crit_rating": 0.000796,
      "hit_rating": 0.00035,
-     "crit_pct": 0.010991,
+     "crit_pct": 0.011149,
      "hit_pct": 0.004896,
      "weapon_dps": 0.0
     }
@@ -1367,24 +1439,59 @@
     },
     "dungeon": {
      "20": {
-      "score": 81.4,
-      "unit": "dps"
+      "score": 83.0,
+      "low": 75.7,
+      "high": 90.3,
+      "unbuffed": 73.4,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 81.4
      },
      "30": {
-      "score": 136.1,
-      "unit": "dps"
+      "score": 143.6,
+      "low": 125.8,
+      "high": 161.1,
+      "unbuffed": 120.6,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 136.1
      },
      "40": {
-      "score": 189.4,
-      "unit": "dps"
+      "score": 200.9,
+      "low": 175.0,
+      "high": 226.2,
+      "unbuffed": 165.9,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 189.4
      },
      "50": {
-      "score": 239.3,
-      "unit": "dps"
+      "score": 255.0,
+      "low": 218.0,
+      "high": 288.9,
+      "unbuffed": 209.0,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 239.3
      },
      "60": {
-      "score": 370.8,
-      "unit": "dps"
+      "score": 386.7,
+      "low": 325.7,
+      "high": 438.9,
+      "unbuffed": 318.7,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 370.8
      }
     },
     "raid": {
@@ -1398,67 +1505,67 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.6382,
+     "score": 0.6406,
      "strength": 0.0,
-     "agility": 0.00146,
+     "agility": 0.001443,
      "stamina": 0.0,
-     "intellect": 0.00013,
-     "attack_power": 0.000647,
-     "crit_rating": 0.000886,
-     "hit_rating": 0.001062,
-     "crit_pct": 0.002867,
-     "hit_pct": 0.002696,
+     "intellect": 0.000128,
+     "attack_power": 0.000638,
+     "crit_rating": 0.000892,
+     "hit_rating": 0.00107,
+     "crit_pct": 0.002887,
+     "hit_pct": 0.002721,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.8914,
+     "score": 0.9048,
      "strength": 0.0,
-     "agility": 0.001377,
+     "agility": 0.001374,
      "stamina": 0.0,
-     "intellect": 0.000583,
-     "attack_power": 0.000583,
-     "crit_rating": 0.000929,
-     "hit_rating": 0.000784,
-     "crit_pct": 0.005506,
-     "hit_pct": 0.003778,
+     "intellect": 0.000579,
+     "attack_power": 0.000579,
+     "crit_rating": 0.00095,
+     "hit_rating": 0.000808,
+     "crit_pct": 0.00563,
+     "hit_pct": 0.003919,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 1.1798,
+     "score": 1.1992,
      "strength": 0.0,
-     "agility": 0.001435,
+     "agility": 0.001425,
      "stamina": 0.0,
-     "intellect": 0.000608,
-     "attack_power": 0.000608,
-     "crit_rating": 0.000887,
-     "hit_rating": 0.000612,
-     "crit_pct": 0.007644,
-     "hit_pct": 0.004823,
+     "intellect": 0.0006,
+     "attack_power": 0.0006,
+     "crit_rating": 0.000909,
+     "hit_rating": 0.000636,
+     "crit_pct": 0.007831,
+     "hit_pct": 0.005029,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 1.3894,
+     "score": 1.4157,
      "strength": 0.0,
-     "agility": 0.001383,
+     "agility": 0.001371,
      "stamina": 0.0,
-     "intellect": 0.000812,
-     "attack_power": 0.000592,
-     "crit_rating": 0.000765,
-     "hit_rating": 0.000782,
-     "crit_pct": 0.008652,
-     "hit_pct": 0.008948,
+     "intellect": 0.000803,
+     "attack_power": 0.000584,
+     "crit_rating": 0.000786,
+     "hit_rating": 0.000806,
+     "crit_pct": 0.008888,
+     "hit_pct": 0.009226,
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 1.8655,
+     "score": 1.8864,
      "strength": 0.0,
-     "agility": 0.001419,
+     "agility": 0.001401,
      "stamina": 0.0,
-     "intellect": 0.001051,
-     "attack_power": 0.000592,
-     "crit_rating": 0.000882,
+     "intellect": 0.001041,
+     "attack_power": 0.000582,
+     "crit_rating": 0.000891,
      "hit_rating": 0.000388,
-     "crit_pct": 0.012343,
+     "crit_pct": 0.012477,
      "hit_pct": 0.005431,
      "weapon_dps": 0.0
     }
@@ -1560,24 +1667,59 @@
     },
     "dungeon": {
      "20": {
-      "score": 81.4,
-      "unit": "dps"
+      "score": 83.0,
+      "low": 75.7,
+      "high": 90.3,
+      "unbuffed": 73.4,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 81.4
      },
      "30": {
-      "score": 136.1,
-      "unit": "dps"
+      "score": 143.6,
+      "low": 125.8,
+      "high": 161.1,
+      "unbuffed": 120.6,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 136.1
      },
      "40": {
-      "score": 189.4,
-      "unit": "dps"
+      "score": 200.9,
+      "low": 175.0,
+      "high": 226.2,
+      "unbuffed": 165.9,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 189.4
      },
      "50": {
-      "score": 239.3,
-      "unit": "dps"
+      "score": 255.0,
+      "low": 218.0,
+      "high": 288.9,
+      "unbuffed": 209.0,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 239.3
      },
      "60": {
-      "score": 370.8,
-      "unit": "dps"
+      "score": 386.7,
+      "low": 325.7,
+      "high": 438.9,
+      "unbuffed": 318.7,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 370.8
      }
     },
     "raid": {
@@ -1753,24 +1895,59 @@
     },
     "dungeon": {
      "20": {
-      "score": 81.4,
-      "unit": "dps"
+      "score": 83.0,
+      "low": 75.7,
+      "high": 90.3,
+      "unbuffed": 73.4,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 81.4
      },
      "30": {
-      "score": 136.1,
-      "unit": "dps"
+      "score": 143.6,
+      "low": 125.8,
+      "high": 161.1,
+      "unbuffed": 120.6,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 136.1
      },
      "40": {
-      "score": 189.4,
-      "unit": "dps"
+      "score": 200.9,
+      "low": 175.0,
+      "high": 226.2,
+      "unbuffed": 165.9,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 189.4
      },
      "50": {
-      "score": 239.3,
-      "unit": "dps"
+      "score": 255.0,
+      "low": 218.0,
+      "high": 288.9,
+      "unbuffed": 209.0,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 239.3
      },
      "60": {
-      "score": 338.8,
-      "unit": "dps"
+      "score": 357.8,
+      "low": 288.3,
+      "high": 416.5,
+      "unbuffed": 280.1,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 338.8
      }
     },
     "raid": {
@@ -1784,67 +1961,67 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.6382,
+     "score": 0.6406,
      "strength": 0.0,
-     "agility": 0.00146,
+     "agility": 0.001443,
      "stamina": 0.0,
-     "intellect": 0.00013,
-     "attack_power": 0.000647,
-     "crit_rating": 0.000886,
-     "hit_rating": 0.001062,
-     "crit_pct": 0.002867,
-     "hit_pct": 0.002696,
+     "intellect": 0.000128,
+     "attack_power": 0.000638,
+     "crit_rating": 0.000892,
+     "hit_rating": 0.00107,
+     "crit_pct": 0.002887,
+     "hit_pct": 0.002721,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.8914,
+     "score": 0.9048,
      "strength": 0.0,
-     "agility": 0.001377,
+     "agility": 0.001374,
      "stamina": 0.0,
-     "intellect": 0.000583,
-     "attack_power": 0.000583,
-     "crit_rating": 0.000929,
-     "hit_rating": 0.000784,
-     "crit_pct": 0.005506,
-     "hit_pct": 0.003778,
+     "intellect": 0.000579,
+     "attack_power": 0.000579,
+     "crit_rating": 0.00095,
+     "hit_rating": 0.000808,
+     "crit_pct": 0.00563,
+     "hit_pct": 0.003919,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 1.1798,
+     "score": 1.1992,
      "strength": 0.0,
-     "agility": 0.001435,
+     "agility": 0.001425,
      "stamina": 0.0,
-     "intellect": 0.000608,
-     "attack_power": 0.000608,
-     "crit_rating": 0.000887,
-     "hit_rating": 0.000612,
-     "crit_pct": 0.007644,
-     "hit_pct": 0.004823,
+     "intellect": 0.0006,
+     "attack_power": 0.0006,
+     "crit_rating": 0.000909,
+     "hit_rating": 0.000636,
+     "crit_pct": 0.007831,
+     "hit_pct": 0.005029,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 1.3894,
+     "score": 1.4157,
      "strength": 0.0,
-     "agility": 0.001383,
+     "agility": 0.001371,
      "stamina": 0.0,
-     "intellect": 0.000812,
-     "attack_power": 0.000592,
-     "crit_rating": 0.000765,
-     "hit_rating": 0.000782,
-     "crit_pct": 0.008652,
-     "hit_pct": 0.008948,
+     "intellect": 0.000803,
+     "attack_power": 0.000584,
+     "crit_rating": 0.000786,
+     "hit_rating": 0.000806,
+     "crit_pct": 0.008888,
+     "hit_pct": 0.009226,
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 1.7095,
+     "score": 1.7352,
      "strength": 0.0,
-     "agility": 0.001703,
+     "agility": 0.001682,
      "stamina": 0.0,
-     "intellect": 0.001274,
-     "attack_power": 0.000714,
-     "crit_rating": 0.001029,
+     "intellect": 0.001263,
+     "attack_power": 0.000702,
+     "crit_rating": 0.001041,
      "hit_rating": 0.000467,
-     "crit_pct": 0.014398,
+     "crit_pct": 0.014571,
      "hit_pct": 0.006543,
      "weapon_dps": 0.0
     }
@@ -1852,7 +2029,7 @@
    "about": [
     "41 points in Marksmanship, with 5 in Beast Mastery and 5 in Survival. Built for PvE. On this order the key talents arrive as follows: Trueshot Aura at 25, Sniper Shot at 59 and Lone Wolf at 60.",
     "Fights at range with Auto Shot and its shots without a pet.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (93%) and dungeon damage (91%), and weakest at questing speed (87%)."
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (93%) and dungeon damage (93%), and weakest at questing speed (87%)."
    ]
   },
   {
@@ -1945,24 +2122,62 @@
     },
     "dungeon": {
      "20": {
-      "score": 82.2,
-      "unit": "dps"
+      "score": 83.9,
+      "low": 76.4,
+      "high": 91.2,
+      "unbuffed": 74.0,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 82.2
      },
      "30": {
-      "score": 129.2,
-      "unit": "dps"
+      "score": 139.4,
+      "low": 122.4,
+      "high": 156.2,
+      "unbuffed": 114.8,
+      "top_buffs": [
+       "hunters_mark",
+       "trueshot_aura"
+      ],
+      "unit": "dps",
+      "solo": 129.2
      },
      "40": {
-      "score": 173.5,
-      "unit": "dps"
+      "score": 184.6,
+      "low": 161.0,
+      "high": 210.2,
+      "unbuffed": 152.7,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 173.5
      },
      "50": {
-      "score": 220.3,
-      "unit": "dps"
+      "score": 238.9,
+      "low": 207.4,
+      "high": 277.5,
+      "unbuffed": 193.0,
+      "top_buffs": [
+       "hunters_mark",
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 220.3
      },
      "60": {
-      "score": 317.9,
-      "unit": "dps"
+      "score": 336.3,
+      "low": 269.5,
+      "high": 391.3,
+      "unbuffed": 262.0,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 317.9
      }
     },
     "raid": {
@@ -1976,67 +2191,67 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.6387,
+     "score": 0.6411,
      "strength": 0.0,
-     "agility": 0.001456,
+     "agility": 0.001439,
      "stamina": 0.0,
-     "intellect": 0.000258,
-     "attack_power": 0.000644,
-     "crit_rating": 0.000895,
-     "hit_rating": 0.001072,
-     "crit_pct": 0.002896,
-     "hit_pct": 0.002716,
+     "intellect": 0.000254,
+     "attack_power": 0.000635,
+     "crit_rating": 0.000901,
+     "hit_rating": 0.00108,
+     "crit_pct": 0.002917,
+     "hit_pct": 0.002742,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.8493,
+     "score": 0.8686,
      "strength": 0.0,
-     "agility": 0.001288,
+     "agility": 0.001287,
      "stamina": 0.0,
-     "intellect": 0.000563,
-     "attack_power": 0.000563,
-     "crit_rating": 0.000718,
-     "hit_rating": 0.000738,
-     "crit_pct": 0.004256,
-     "hit_pct": 0.003561,
+     "intellect": 0.000559,
+     "attack_power": 0.000559,
+     "crit_rating": 0.000745,
+     "hit_rating": 0.000773,
+     "crit_pct": 0.004414,
+     "hit_pct": 0.003766,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 1.0889,
+     "score": 1.1079,
      "strength": 0.0,
-     "agility": 0.001262,
+     "agility": 0.001251,
      "stamina": 0.0,
-     "intellect": 0.000553,
-     "attack_power": 0.000553,
-     "crit_rating": 0.000631,
-     "hit_rating": 0.000817,
-     "crit_pct": 0.005437,
-     "hit_pct": 0.007042,
+     "intellect": 0.000546,
+     "attack_power": 0.000546,
+     "crit_rating": 0.000649,
+     "hit_rating": 0.00084,
+     "crit_pct": 0.005589,
+     "hit_pct": 0.007237,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 1.3419,
-     "strength": 0.000126,
-     "agility": -0.004426,
+     "score": 1.3679,
+     "strength": 0.00043,
+     "agility": -0.004438,
      "stamina": 0.0,
-     "intellect": 0.000759,
-     "attack_power": 0.000578,
-     "crit_rating": 0.000609,
-     "hit_rating": 0.000761,
-     "crit_pct": 0.006886,
-     "hit_pct": 0.008605,
-     "weapon_dps": 0.001208
+     "intellect": 0.000833,
+     "attack_power": 0.000653,
+     "crit_rating": 0.000783,
+     "hit_rating": 0.00081,
+     "crit_pct": 0.00886,
+     "hit_pct": 0.009167,
+     "weapon_dps": 0.004185
     },
     "60": {
-     "score": 1.6151,
+     "score": 1.6401,
      "strength": 0.0,
-     "agility": 0.001734,
+     "agility": 0.001713,
      "stamina": 0.0,
-     "intellect": 0.00115,
-     "attack_power": 0.000662,
-     "crit_rating": 0.000946,
+     "intellect": 0.001139,
+     "attack_power": 0.000651,
+     "crit_rating": 0.000957,
      "hit_rating": 0.0,
-     "crit_pct": 0.013241,
+     "crit_pct": 0.013403,
      "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
@@ -2044,7 +2259,7 @@
    "about": [
     "31 points in Survival, with 20 in Marksmanship. Built for PvE. On this order the key talents arrive as follows: Lightning Reflexes at 49, Lone Wolf at 55 and Trueshot Aura at 56.",
     "Fights at range with Auto Shot and its shots without a pet.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (88%) and dungeon damage (86%), and weakest at questing speed (83%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (88%) and dungeon damage (87%), and weakest at questing speed (83%).",
     "A model build: the calculator's pick for this slot, not yet tried in game."
    ]
   },
@@ -2138,24 +2353,62 @@
     },
     "dungeon": {
      "20": {
-      "score": 84.9,
-      "unit": "dps"
+      "score": 86.6,
+      "low": 78.6,
+      "high": 94.4,
+      "unbuffed": 76.3,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 84.9
      },
      "30": {
-      "score": 130.1,
-      "unit": "dps"
+      "score": 140.3,
+      "low": 123.3,
+      "high": 157.1,
+      "unbuffed": 115.7,
+      "top_buffs": [
+       "hunters_mark",
+       "trueshot_aura"
+      ],
+      "unit": "dps",
+      "solo": 130.1
      },
      "40": {
-      "score": 175.0,
-      "unit": "dps"
+      "score": 187.1,
+      "low": 162.4,
+      "high": 213.7,
+      "unbuffed": 154.1,
+      "top_buffs": [
+       "hunters_mark",
+       "blessing_of_might",
+       "battle_shout"
+      ],
+      "unit": "dps",
+      "solo": 175.0
      },
      "50": {
-      "score": 225.0,
-      "unit": "dps"
+      "score": 242.6,
+      "low": 211.7,
+      "high": 280.0,
+      "unbuffed": 197.3,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 225.0
      },
      "60": {
-      "score": 349.1,
-      "unit": "dps"
+      "score": 363.7,
+      "low": 307.1,
+      "high": 410.6,
+      "unbuffed": 300.9,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 349.1
      }
     },
     "raid": {
@@ -2331,24 +2584,62 @@
     },
     "dungeon": {
      "20": {
-      "score": 84.6,
-      "unit": "dps"
+      "score": 86.3,
+      "low": 78.4,
+      "high": 94.2,
+      "unbuffed": 76.1,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 84.6
      },
      "30": {
-      "score": 130.2,
-      "unit": "dps"
+      "score": 137.9,
+      "low": 120.7,
+      "high": 156.9,
+      "unbuffed": 115.7,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 130.2
      },
      "40": {
-      "score": 179.7,
-      "unit": "dps"
+      "score": 191.3,
+      "low": 165.5,
+      "high": 219.1,
+      "unbuffed": 155.8,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout",
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 179.7
      },
      "50": {
-      "score": 223.2,
-      "unit": "dps"
+      "score": 241.9,
+      "low": 209.8,
+      "high": 281.2,
+      "unbuffed": 195.4,
+      "top_buffs": [
+       "hunters_mark",
+       "blessing_of_might"
+      ],
+      "unit": "dps",
+      "solo": 223.2
      },
      "60": {
-      "score": 304.2,
-      "unit": "dps"
+      "score": 326.6,
+      "low": 263.5,
+      "high": 393.6,
+      "unbuffed": 251.1,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 304.2
      }
     },
     "raid": {
@@ -2430,7 +2721,7 @@
    "about": [
     "35 points in Survival, with 11 in Marksmanship and 5 in Beast Mastery. Built for PvP. On this order the key talents arrive as follows: Lacerating Strikes at 51, Strider Kick at 59 and Lone Wolf at 60.",
     "Fights at range with Auto Shot and its shots without a pet.",
-    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (82%) and questing speed (81%), and weakest at raid damage (79%)."
+    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (84%) and questing speed (81%), and weakest at raid damage (79%)."
    ]
   },
   {
@@ -2523,24 +2814,62 @@
     },
     "dungeon": {
      "20": {
-      "score": 84.6,
-      "unit": "dps"
+      "score": 86.3,
+      "low": 78.4,
+      "high": 94.2,
+      "unbuffed": 76.1,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 84.6
      },
      "30": {
-      "score": 130.2,
-      "unit": "dps"
+      "score": 137.9,
+      "low": 120.7,
+      "high": 156.9,
+      "unbuffed": 115.7,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 130.2
      },
      "40": {
-      "score": 179.7,
-      "unit": "dps"
+      "score": 191.3,
+      "low": 165.5,
+      "high": 219.1,
+      "unbuffed": 155.8,
+      "top_buffs": [
+       "blessing_of_might",
+       "battle_shout",
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 179.7
      },
      "50": {
-      "score": 223.2,
-      "unit": "dps"
+      "score": 241.9,
+      "low": 209.8,
+      "high": 281.2,
+      "unbuffed": 195.4,
+      "top_buffs": [
+       "hunters_mark",
+       "blessing_of_might"
+      ],
+      "unit": "dps",
+      "solo": 223.2
      },
      "60": {
-      "score": 304.2,
-      "unit": "dps"
+      "score": 326.6,
+      "low": 263.5,
+      "high": 393.6,
+      "unbuffed": 251.1,
+      "top_buffs": [
+       "hunters_mark"
+      ],
+      "unit": "dps",
+      "solo": 304.2
      }
     },
     "raid": {
@@ -2554,67 +2883,67 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.6368,
+     "score": 0.6394,
      "strength": 0.0,
-     "agility": 0.001441,
+     "agility": 0.001424,
      "stamina": 0.0,
-     "intellect": 0.000635,
-     "attack_power": 0.000635,
-     "crit_rating": 0.000921,
-     "hit_rating": 0.001098,
-     "crit_pct": 0.002979,
-     "hit_pct": 0.002768,
+     "intellect": 0.000626,
+     "attack_power": 0.000626,
+     "crit_rating": 0.000927,
+     "hit_rating": 0.001106,
+     "crit_pct": 0.003,
+     "hit_pct": 0.002795,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.8377,
+     "score": 0.8516,
      "strength": 0.0,
-     "agility": 0.001289,
+     "agility": 0.001285,
      "stamina": 0.0,
-     "intellect": 0.000563,
-     "attack_power": 0.000563,
-     "crit_rating": 0.000718,
-     "hit_rating": 0.000931,
-     "crit_pct": 0.004257,
-     "hit_pct": 0.005519,
+     "intellect": 0.000559,
+     "attack_power": 0.000559,
+     "crit_rating": 0.000737,
+     "hit_rating": 0.000956,
+     "crit_pct": 0.004367,
+     "hit_pct": 0.005665,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 1.1805,
-     "strength": 0.000734,
-     "agility": 0.000981,
+     "score": 1.1992,
+     "strength": 0.000725,
+     "agility": 0.000978,
      "stamina": 0.0,
-     "intellect": 0.000734,
-     "attack_power": 0.000734,
-     "crit_rating": 0.001003,
-     "hit_rating": 0.000944,
-     "crit_pct": 0.008642,
-     "hit_pct": 0.008134,
-     "weapon_dps": 0.007775
+     "intellect": 0.000725,
+     "attack_power": 0.000725,
+     "crit_rating": 0.001026,
+     "hit_rating": 0.000967,
+     "crit_pct": 0.00884,
+     "hit_pct": 0.008332,
+     "weapon_dps": 0.007676
     },
     "50": {
-     "score": 1.275,
-     "strength": 0.00629,
-     "agility": 0.001325,
+     "score": 1.3015,
+     "strength": 0.006463,
+     "agility": 0.001312,
      "stamina": 0.0,
-     "intellect": 0.006896,
-     "attack_power": 0.006738,
-     "crit_rating": 0.006774,
-     "hit_rating": 0.00075,
-     "crit_pct": 0.068534,
-     "hit_pct": 0.008482,
-     "weapon_dps": 0.032023
+     "intellect": 0.006888,
+     "attack_power": 0.00673,
+     "crit_rating": 0.006816,
+     "hit_rating": 0.000774,
+     "crit_pct": 0.069188,
+     "hit_pct": 0.008753,
+     "weapon_dps": 0.03435
     },
     "60": {
-     "score": 1.5156,
+     "score": 1.5408,
      "strength": 0.0,
-     "agility": 0.001611,
+     "agility": 0.001589,
      "stamina": 0.0,
-     "intellect": 0.001044,
-     "attack_power": 0.000634,
-     "crit_rating": 0.000739,
+     "intellect": 0.001033,
+     "attack_power": 0.000623,
+     "crit_rating": 0.00075,
      "hit_rating": 0.0,
-     "crit_pct": 0.010345,
+     "crit_pct": 0.010498,
      "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
@@ -2622,7 +2951,7 @@
    "about": [
     "35 points in Survival, with 11 in Marksmanship and 5 in Beast Mastery. Built for PvE. On this order the key talents arrive as follows: Lacerating Strikes at 51, Strider Kick at 59 and Lone Wolf at 60.",
     "Fights at range with Auto Shot and its shots without a pet.",
-    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (82%) and questing speed (81%), and weakest at raid damage (79%)."
+    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (84%) and questing speed (81%), and weakest at raid damage (79%)."
    ]
   },
   {
@@ -3656,11 +3985,11 @@
    "archetype": "deep Beast Mastery",
    "focus": "PvE",
    "standard": "hunter-beast-mastery",
-   "standard_score": 1.8046924207690926,
+   "standard_score": 1.8268914193627843,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "hunter-beast-mastery": 1.8046924207690926
+    "hunter-beast-mastery": 1.8268914193627843
    },
    "qualifying": [
     "hunter-beast-mastery"
@@ -3684,7 +4013,7 @@
    "archetype": "deep Marksmanship",
    "focus": "PvE",
    "standard": "hunter-marksmanship",
-   "standard_score": 1.7094507862441237,
+   "standard_score": 1.7351897172955295,
    "model_pick": {
     "Deadly Aspects": 1,
     "Improved Tracking": 5,
@@ -3702,10 +4031,10 @@
     "Hawk Eye": 3,
     "Improved Stings": 3
    },
-   "model_pick_score": 1.8655383098815905,
+   "model_pick_score": 1.8864308895705133,
    "candidates": {
-    "hunter-marksmanship-model": 1.8655383098815905,
-    "hunter-marksmanship": 1.7094507862441237
+    "hunter-marksmanship-model": 1.8864308895705133,
+    "hunter-marksmanship": 1.7351897172955295
    },
    "qualifying": [
     "hunter-marksmanship",
@@ -3815,7 +4144,7 @@
    "archetype": "deep Survival",
    "focus": "PvE",
    "standard": "hunter-survival",
-   "standard_score": 1.5155601381288761,
+   "standard_score": 1.5408200061896953,
    "model_pick": {
     "Expose Prey": 2,
     "Surefooted": 3,
@@ -3834,10 +4163,10 @@
     "Survivalist's Discipline": 2,
     "Predator's Edge": 5
    },
-   "model_pick_score": 1.615121167089643,
+   "model_pick_score": 1.6400906659578876,
    "candidates": {
-    "hunter-survival-model": 1.615121167089643,
-    "hunter-survival": 1.5155601381288761
+    "hunter-survival-model": 1.6400906659578876,
+    "hunter-survival": 1.5408200061896953
    },
    "qualifying": [
     "hunter-survival",

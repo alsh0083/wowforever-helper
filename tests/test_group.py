@@ -83,3 +83,32 @@ def test_buffs_reach_the_builds_they_should():
     stats, cls, ranks = _engine("mage", "deep-frost")
     solo = dungeon_dps("mage", stats, cls, ranks, {})
     assert dungeon_dps("mage", stats, cls, ranks, buff("arcane_intellect", 31.0, "intellect", "casters")) > solo
+
+
+def test_compositions_cover_every_group_once_with_probabilities_summing_to_one():
+    from wowforever.group import compositions, load_weights
+
+    comps = compositions(load_weights())
+    assert abs(sum(p for p, _ in comps) - 1) < 1e-9
+    assert all(party[0].role == "tank" and party[1].role == "healer" for _, party in comps)
+
+
+def test_your_own_buffs_count_and_providers_pick_what_helps_you():
+    from wowforever.group import Member, distribution
+
+    # a warlock always has a curse of its own: the Elements for a caster
+    dist = distribution(Member("warlock", "Affliction"), "caster", 60)
+    assert all("curse_of_the_elements" in eff for _, eff in dist)
+    # for a melee build, a shaman in the group drops Windfury rather than Grace of Air
+    melee = distribution(Member("rogue", "Combat"), "melee", 60)
+    with_shaman = [eff for _, eff in melee if "strength_of_earth" in eff]
+    assert with_shaman and all("windfury_totem" in eff and "grace_of_air" not in eff for eff in with_shaman)
+
+
+def test_the_probability_weighted_set_lands_near_the_full_expectation():
+    from wowforever.group import grouped_dungeon, typical_dungeon_dps
+
+    stats, cls, ranks = _engine("rogue", "rogue-combat")
+    g = grouped_dungeon("rogue", stats, cls, ranks)
+    assert g["low"] <= g["score"] <= g["high"] and g["unbuffed"] < g["score"]
+    assert abs(typical_dungeon_dps("rogue", stats, cls, ranks) / g["score"] - 1) < 0.05
