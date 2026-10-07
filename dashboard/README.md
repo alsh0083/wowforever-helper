@@ -11,5 +11,5 @@ python -m wowforever dashboard                                  # writes dashboa
 ```
 
 - **Build switcher:** the current Elementalist route plus deep Frost, deep Fire and an Arcane reference build, each with its point order, scenario scores at levels 20-60, sensitivity to unknown mechanics, and caveats.
-- **Progress** is saved per build in this browser (localStorage). The Elementalist build keeps the original `wow-forever-elementalist-v4` save, including migration from older versions.
+- **Progress** is saved per build in this browser (localStorage).
 - Talent text and icons: [wowforevertalent.com](https://wowforevertalent.com/) (Creative Commons Attribution). Game data: wago.tools. Artwork belongs to its respective owners.

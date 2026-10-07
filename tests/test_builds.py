@@ -15,10 +15,12 @@ CLS, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
                          parse_page((FIX / "wowforevertalent" / "mage.html").read_text(encoding="utf-8")),
                          wago_build="1.60.1.70205")
 BUILDS = {b.id: b for b in load_builds(class_name="mage")}
+# the owner's former hand-made Elementalist builds, dropped from the app 2026-10-07, kept as fixtures
+FIXTURES = {b.id: b for b in load_builds(Path(__file__).parent / "fixtures" / "builds", class_name="mage")}
 
 
 def test_the_builds_exist_and_names_end_in_their_focus():
-    assert set(BUILDS) == {"elementalist-v4", "elementalist-pve", "elementalist-pve-v2", "deep-frost",
+    assert set(BUILDS) == {"elementalist-pve-v2", "deep-frost",
                            "deep-fire", "arcane-pom-pyro", "fire-frost-shatter", "deep-arcane",
                            # matrix fill (owner request, 2026-10-05): catalog plan and model builds
                            "mage-frost-pve", "mage-arcane-pvp", "mage-fire-pvp", "mage-fire-frost-pvp",
@@ -29,16 +31,10 @@ def test_the_builds_exist_and_names_end_in_their_focus():
 
 def test_elementalist_pair_shares_the_route_to_40():
     # #101: the revised PvE variant is the PvP build's pair; dual spec from 40 keeps levels 10-40
-    pvp, pve = BUILDS["elementalist-v4"], BUILDS["elementalist-pve-v2"]
+    pvp, pve = FIXTURES["elementalist-v4"], BUILDS["elementalist-pve-v2"]
     assert pvp.pair == pve.pair == "offensive-elementalist"
     assert pve.origin == "model" and pve.name == "Offensive Elementalist (PvE)"
     assert pvp.order[:31] == pve.order[:31] and pvp.order[31:] != pve.order[31:]
-
-
-def test_original_elementalist_pve_is_kept_for_comparison():
-    old = BUILDS["elementalist-pve"]
-    assert old.name == "Offensive Elementalist (PvE, original)" and old.pair == "elementalist-pve"
-    assert old.order[:-1] == BUILDS["elementalist-v4"].order[:-1] and old.order[-1] == "Elemental Precision"
 
 
 @pytest.mark.parametrize("build_id", sorted(BUILDS))
@@ -56,9 +52,8 @@ def test_reference_builds_spend_every_point(build_id):
     assert sum(BUILDS[build_id].final.values()) == points_available(60, CLS.rules)
 
 
-@pytest.mark.parametrize("build_id", ["elementalist-v4", "elementalist-pve"])
-def test_elementalist_order_is_legal_point_by_point_and_spends_60(build_id):
-    b = BUILDS[build_id]
+def test_elementalist_order_is_legal_point_by_point_and_spends_60():
+    b = BUILDS["elementalist-pve-v2"]
     assert check_order(CLS, b.order_ids(CLS)) == []
     assert len(b.order) == 51
     assert b.order.index("Ice Block") + 10 == 25 and b.order.index("Cold Snap") + 10 == 30
