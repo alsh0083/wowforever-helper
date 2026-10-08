@@ -466,7 +466,7 @@ def typical_dungeon_dps(class_name: str, stats, cls, ranks: Mapping[int, int]) -
 
 def grouped_dungeon(class_name: str, stats, cls, ranks: Mapping[int, int]) -> dict[str, Any]:
     """Expected dungeon DPS over every weighted group, its 10th-90th percentile range, the unbuffed value,
-    and the typical group's buffs that add most."""
+    and the buffs that add most on average (gain x how often the group has it)."""
     dist = _dist_for(class_name, stats, cls, ranks)
     results = sorted((dungeon_dps(class_name, stats, cls, ranks, eff), p) for p, eff in dist)
     total = sum(p for _, p in results) or 1.0
@@ -481,7 +481,7 @@ def grouped_dungeon(class_name: str, stats, cls, ranks: Mapping[int, int]) -> di
         return results[-1][0]
 
     base = dungeon_dps(class_name, stats, cls, ranks, {})
-    gains = {k: dungeon_dps(class_name, stats, cls, ranks, {k: v}) - base for k, v in typical(dist).items()}
+    gains = {k: dungeon_dps(class_name, stats, cls, ranks, {k: v}) - base for k, v in average(dist).items()}   # expected contribution
     top = [k for k, g in sorted(gains.items(), key=lambda kv: -kv[1]) if g > 0.01 * base][:3]
     return {"score": round(expected, 1), "low": round(pct(0.1), 1), "high": round(pct(0.9), 1),
             "unbuffed": round(base, 1), "top_buffs": top}

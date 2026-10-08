@@ -43,7 +43,10 @@ not a leveling guide: it tells you which talent to take at each level, not where
   ends and its chain. The emblem next to the title shows the faction you picked.
 - **Scores:** shown as a share of the class's best build in the same column (100% = best); hover a
   number for what goes into it.
-  - PvE: questing kills per hour, dungeon and raid DPS, and AoE.
+  - PvE: questing kills per hour, dungeon and raid DPS, and AoE. Dungeon DPS is with a 5-player group: every
+    tank, healer and DPS mix weighted by how often each shows up in Forever Logs, with Forever's own group
+    buff values from the game client, and how buffs stack (one Battle Shout, one totem per element and so on).
+    The score is the expected value, with the range across groups on hover.
   - PvP: an expected-value duel model against real class opponents, plus battlegrounds.
 - **Per-class look:** official class icons, in-game class colors, tree colors, real talent icons and the
   game's own faction emblems, working on desktop and phone.
@@ -84,6 +87,7 @@ python -m venv .venv
 | `wowforever dashboard` | Renders `dashboard/index.html` from all reports |
 | `wowforever gear-stats --class <class>` | Rebuilds a class's per-level stat table from real Forever items |
 | `wowforever gear-sources [--refresh]` | Rebuilds `data/items/gear.json` (where gear comes from); `--refresh` fetches wowforevertalent.com's item, dungeon and quest pages first |
+| `wowforever group-buffs` | Resolves the group buffs (`config/group_buffs.toml`) against the client's spell tables, and the group weights from cached Forever Logs statistics, into `data/buffs/` |
 | `wowforever icy-veins [--refresh]` | Decodes Icy Veins' Forever guide talent builds into `data/icy-veins/builds.json` and prints how many of their level-30 points each talent path shares (a sanity check, not shown on the page); `--refresh` fetches the guides first (about 28 requests, 2 s apart) |
 | `wowforever import-logs <file.har>` | Summarizes Forever Logs pages you saved from your browser (no fetching) |
 | `wowforever validate-logs [--boss-only]` | Compares the model's dungeon DPS with Forever Logs statistics per class and spec, against the average and the strong (p75/p90) parses; `--boss-only` leaves out trash pulls |
@@ -108,8 +112,8 @@ There are no scheduled jobs. Every network call happens only when you run `updat
 - **Community builds that spend fewer than 51 points** (their site build uses talents the client's tree
   doesn't have) get the rest filled by the model; the build's description says which.
 - **Reality check:** `validate-logs` compares the model with real beta parses (`--boss-only` for boss
-  fights). Ranged and caster DPS track the stronger boss parses; melee comes out low, most likely because
-  the model leaves out party buffs and totems ([findings](docs/research/log-calibration.md), [#172](https://github.com/alsh0083/wowforever-helper/issues/172)).
+  fights). Ranged and caster DPS track the stronger boss parses; with party buffs modelled, melee reaches
+  0.7-0.9 of them ([findings](docs/research/log-calibration.md), [#172](https://github.com/alsh0083/wowforever-helper/issues/172)).
 
 Each class's caveats (what isn't modeled yet) are shown on its dashboard page and live in its module.
 Assumptions and their sources are in `config/` and `docs/research/`.
