@@ -135,13 +135,16 @@ def main_tree(cls: ClassData, ranks: Mapping[int, int]) -> str:
 
 
 def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
-                    ranks: Mapping[int, int], target: Target, *, drink_mana_per_second: float | None = None) -> Output:
-    """The class rotation's DPS, mana use and out-of-mana fallback against `target`."""
+                    ranks: Mapping[int, int], target: Target, *, drink_mana_per_second: float | None = None,
+                    melee: bool | None = None) -> Output:
+    """The class rotation's DPS, mana use and out-of-mana fallback against `target`. For a hybrid,
+    `melee` fixes the playstyle (a Feral leveling path is a cat even while its points sit in Balance);
+    by default it follows the tree with most points."""
     from wowforever.classes import class_module
 
     module = class_module(class_name)
     if isinstance(stats, HybridStats):
-        if main_tree(cls, ranks) in module.MELEE_TREES:
+        if melee if melee is not None else main_tree(cls, ranks) in module.MELEE_TREES:
             if class_name == "druid":
                 from wowforever.classes.druid_rotation import cat_rotation
 
@@ -182,13 +185,13 @@ def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRa
     raise ValueError(f"no melee rotation for {class_name!r}")
 
 
-def questing(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
+def questing(class_name: str, stats: MeleeStats, spells, cls, ranks, *, melee: bool | None = None) -> float:
     """Kills per hour against same-level mobs: kill time + recovery downtime + travel."""
     level = stats.level
     q = default_params("questing", level)
     armor, mob_dps, eat = _anchor_at(_config()["questing"]["anchors"], level)
     out = rotation_output(class_name, stats, spells, cls, ranks, Target(0, armor),
-                          drink_mana_per_second=q.drink_mana_per_second)
+                          drink_mana_per_second=q.drink_mana_per_second, melee=melee)
     kill = q.mob_hp / out.dps
     if class_name != "hunter" or not _has_pet(cls, ranks):
         downtime = mob_dps * kill / eat

@@ -1126,7 +1126,7 @@
    "about": [
     "31 points in Beast Mastery, with 20 in Marksmanship. Built for PvP. On this order the key talents arrive as follows: Trueshot Aura at 25, Bestial Swiftness at 45, Summon Hawk at 51, Intimidation at 52 and Bestial Wrath at 60.",
     "Fights at range with Auto Shot and its shots alongside its pet, which does about 22% of the damage.",
-    "At level 60 it scores at or near the top of the class in raid damage, dungeon damage and questing speed.",
+    "At level 60 it scores at or near the top of the class in raid damage, questing speed and dungeon damage.",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 19% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game."
    ]
@@ -1365,7 +1365,7 @@
    "about": [
     "31 points in Beast Mastery, with 20 in Marksmanship. Built for PvE. On this order the key talents arrive as follows: Bestial Swiftness at 45, Summon Hawk at 51, Intimidation at 52 and Bestial Wrath at 60.",
     "Fights at range with Auto Shot and its shots alongside its pet, which does about 22% of the damage.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (98%) and questing speed (95%), and weakest at dungeon damage (95%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (98%) and questing speed (98%), and weakest at dungeon damage (95%).",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 20% more damage at 60 than unbuffed, on average across groups."
    ]
   },
@@ -2081,7 +2081,7 @@
    "about": [
     "41 points in Marksmanship, with 5 in Beast Mastery and 5 in Survival. Built for PvE. On this order the key talents arrive as follows: Trueshot Aura at 25, Sniper Shot at 59 and Lone Wolf at 60.",
     "Fights at range with Auto Shot and its shots without a pet.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (93%) and dungeon damage (93%), and weakest at questing speed (87%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (93%) and dungeon damage (93%), and weakest at questing speed (90%).",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 28% more damage at 60 than unbuffed, on average across groups."
    ]
   },
@@ -2319,7 +2319,7 @@
    "about": [
     "31 points in Survival, with 20 in Marksmanship. Built for PvE. On this order the key talents arrive as follows: Lightning Reflexes at 49, Lone Wolf at 55 and Trueshot Aura at 56.",
     "Fights at range with Auto Shot and its shots without a pet.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (88%) and dungeon damage (87%), and weakest at questing speed (83%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (88%) and dungeon damage (87%), and weakest at questing speed (86%).",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 28% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game."
    ]
@@ -2558,7 +2558,7 @@
    "about": [
     "31 points in Survival, with 20 in Marksmanship. Built for PvP. On this order the key talents arrive as follows: Lightning Reflexes at 47 and Trueshot Aura at 55.",
     "Fights at range with Auto Shot and its shots alongside its pet, which does about 17% of the damage.",
-    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (94%) and raid damage (91%), and weakest at questing speed (90%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (94%) and questing speed (92%), and weakest at raid damage (91%).",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 21% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game."
    ]
@@ -2797,7 +2797,7 @@
    "about": [
     "35 points in Survival, with 11 in Marksmanship and 5 in Beast Mastery. Built for PvP. On this order the key talents arrive as follows: Lacerating Strikes at 51, Strider Kick at 59 and Lone Wolf at 60.",
     "Fights at range with Auto Shot and its shots without a pet.",
-    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (84%) and questing speed (81%), and weakest at raid damage (79%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (84%) and questing speed (83%), and weakest at raid damage (79%).",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 30% more damage at 60 than unbuffed, on average across groups."
    ]
   },
@@ -3035,27 +3035,22 @@
    "about": [
     "35 points in Survival, with 11 in Marksmanship and 5 in Beast Mastery. Built for PvE. On this order the key talents arrive as follows: Lacerating Strikes at 51, Strider Kick at 59 and Lone Wolf at 60.",
     "Fights at range with Auto Shot and its shots without a pet.",
-    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (84%) and questing speed (81%), and weakest at raid damage (79%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (84%) and questing speed (83%), and weakest at raid damage (79%).",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 30% more damage at 60 than unbuffed, on average across groups."
    ]
   },
   {
-   "id": "hunter-beast-mastery-leveling-pve",
-   "name": "Beast Mastery leveling (PvE)",
-   "pair": "hunter-beast-mastery-leveling-pve",
+   "id": "hunter-beast-mastery-leveling",
+   "name": "Beast Mastery (PvE, leveling)",
+   "pair": "hunter-beast-mastery-leveling",
    "variant": "PvE",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Beast Mastery talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Beast Mastery (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Beast Mastery (PvE) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
-    105011,
-    105011,
-    105011,
-    105011,
-    105011,
     104960,
     104960,
     104960,
@@ -3071,60 +3066,65 @@
     104969,
     104969,
     104969,
-    104976,
-    104976,
-    104974,
-    104974,
-    104974,
-    104973,
-    104973,
-    104972,
-    104972,
+    104967,
+    104967,
+    104967,
+    105011,
+    105011,
+    105011,
+    105011,
+    105011,
+    105009,
+    105009,
+    105009,
+    105009,
+    105009,
+    104967,
+    104967,
+    104963,
+    104963,
+    104966,
     104970,
-    104968,
-    105009,
-    105009,
-    105009,
-    105009,
-    105009,
+    104964,
+    104962,
+    104962,
+    104976,
+    104976,
+    104974,
+    104961,
+    104962,
+    104962,
+    104962,
+    104972,
+    104972,
     105008,
     105008,
     105008,
     105008,
-    110870,
-    105004,
-    110870,
-    110870,
-    105008,
-    105002,
-    104968,
-    104967,
-    104967,
-    104967,
-    104967
+    105008
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 84.6,
+      "score": 84.2,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 86.7,
+      "score": 86.1,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 96.7,
+      "score": 101.3,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 101.6,
+      "score": 101.5,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 102.8,
+      "score": 101.7,
       "unit": "kills/hour"
      }
     }
@@ -3133,9 +3133,15 @@
    "respec": [
     "hunter-beast-mastery"
    ],
+   "levels_into": "hunter-beast-mastery",
+   "detours": {
+    "Endurance Training": 4,
+    "Efficiency": 2,
+    "Improved Aspect of the Monkey": 1
+   },
    "stat_weights": {
     "20": {
-     "score": 84.6,
+     "score": 84.2,
      "strength": 0.0,
      "agility": 0.15,
      "stamina": 0.0,
@@ -3148,7 +3154,7 @@
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 86.7,
+     "score": 86.1,
      "strength": 0.0,
      "agility": 0.09,
      "stamina": 0.0,
@@ -3157,11 +3163,11 @@
      "crit_rating": 0.05,
      "hit_rating": 0.06,
      "crit_pct": 0.3,
-     "hit_pct": 0.3,
+     "hit_pct": 0.4,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 96.7,
+     "score": 101.3,
      "strength": 0.0,
      "agility": 0.07,
      "stamina": 0.0,
@@ -3174,25 +3180,25 @@
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 101.6,
+     "score": 101.5,
      "strength": 0.0,
-     "agility": 0.05,
+     "agility": 0.06,
      "stamina": 0.0,
-     "intellect": 0.02,
-     "attack_power": 0.02,
-     "crit_rating": 0.02,
-     "hit_rating": 0.03,
+     "intellect": 0.0,
+     "attack_power": 0.03,
+     "crit_rating": 0.03,
+     "hit_rating": 0.04,
      "crit_pct": 0.3,
      "hit_pct": 0.4,
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 102.8,
+     "score": 101.7,
      "strength": 0.0,
      "agility": 0.04,
      "stamina": 0.0,
-     "intellect": 0.01,
-     "attack_power": 0.01,
+     "intellect": 0.02,
+     "attack_power": 0.02,
      "crit_rating": 0.02,
      "hit_rating": 0.0,
      "crit_pct": 0.3,
@@ -3201,20 +3207,194 @@
     }
    },
    "about": [
-    "31 points in Beast Mastery, with 20 in Marksmanship. Built for PvE. On this order the key talents arrive as follows: Bestial Swiftness at 39, Improved Mend Pet at 40 and Trueshot Aura at 51.",
-    "Fights at range with Auto Shot and its shots alongside its pet, which does about 21% of the damage.",
-    "Questing pace in the model, in kills per hour: 85 at 20, 87 at 30, 97 at 40, 102 at 50 and 103 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "36 points in Beast Mastery, with 15 in Marksmanship. Built for PvE. On this order the key talents arrive as follows: Summon Hawk at 42, Bestial Swiftness at 43, Intimidation at 44 and Bestial Wrath at 50.",
+    "Fights at range with Auto Shot and its shots alongside its pet, which does about 23% of the damage.",
+    "Questing pace in the model, in kills per hour: 84 at 20, 86 at 30, 101 at 40, 102 at 50 and 102 at 60.",
+    "While leveling it also takes Endurance Training 4, Efficiency 2 and Improved Aspect of the Monkey 1, which pay off for questing; respec those points into Beast Mastery (PvE) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "hunter-beast-mastery-leveling-pvp",
-   "name": "Beast Mastery leveling (PvP)",
-   "pair": "hunter-beast-mastery-leveling-pvp",
+   "id": "hunter-beast-mastery-pvp-leveling",
+   "name": "Beast Mastery (PvP, leveling, model)",
+   "pair": "hunter-beast-mastery-pvp-leveling",
    "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Beast Mastery talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Beast Mastery (PvP, model), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "summary": "Beast Mastery (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Beast Mastery (PvP, model) at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    104960,
+    104960,
+    104960,
+    104960,
+    104960,
+    104975,
+    104975,
+    104976,
+    104976,
+    104976,
+    104969,
+    104969,
+    104969,
+    104969,
+    104969,
+    105011,
+    105011,
+    105011,
+    105011,
+    105011,
+    110870,
+    110870,
+    110870,
+    105009,
+    105009,
+    105009,
+    105009,
+    105009,
+    105008,
+    105008,
+    105004,
+    104967,
+    104967,
+    104967,
+    104967,
+    104967,
+    104963,
+    104963,
+    104966,
+    104970,
+    104964,
+    104962,
+    104962,
+    104976,
+    104976,
+    104974,
+    104961,
+    104962,
+    104962,
+    104962,
+    104972
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 84.2,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 86.9,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 103.9,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 102.5,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 102.9,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "hunter-beast-mastery-pvp"
+   ],
+   "levels_into": "hunter-beast-mastery-pvp",
+   "detours": {
+    "Endurance Training": 4,
+    "Efficiency": 2,
+    "Improved Aspect of the Monkey": 1
+   },
+   "stat_weights": {
+    "20": {
+     "score": 84.2,
+     "strength": 0.0,
+     "agility": 0.15,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.07,
+     "crit_rating": 0.09,
+     "hit_rating": 0.12,
+     "crit_pct": 0.3,
+     "hit_pct": 0.4,
+     "weapon_dps": 0.0
+    },
+    "30": {
+     "score": 86.9,
+     "strength": 0.0,
+     "agility": 0.09,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.04,
+     "crit_rating": 0.04,
+     "hit_rating": 0.06,
+     "crit_pct": 0.3,
+     "hit_pct": 0.3,
+     "weapon_dps": 0.0
+    },
+    "40": {
+     "score": 103.9,
+     "strength": 0.0,
+     "agility": 0.07,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "attack_power": 0.04,
+     "crit_rating": 0.04,
+     "hit_rating": 0.05,
+     "crit_pct": 0.3,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.0
+    },
+    "50": {
+     "score": 102.5,
+     "strength": 0.0,
+     "agility": 0.06,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "attack_power": 0.03,
+     "crit_rating": 0.03,
+     "hit_rating": 0.04,
+     "crit_pct": 0.3,
+     "hit_pct": 0.4,
+     "weapon_dps": 0.0
+    },
+    "60": {
+     "score": 102.9,
+     "strength": 0.0,
+     "agility": 0.04,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.01,
+     "crit_rating": 0.02,
+     "hit_rating": 0.0,
+     "crit_pct": 0.2,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.0
+    }
+   },
+   "about": [
+    "35 points in Beast Mastery, with 16 in Marksmanship. Built for PvP. On this order the key talents arrive as follows: Trueshot Aura at 40, Summon Hawk at 48, Bestial Swiftness at 49, Intimidation at 50 and Bestial Wrath at 56.",
+    "Fights at range with Auto Shot and its shots alongside its pet, which does about 22% of the damage.",
+    "Questing pace in the model, in kills per hour: 84 at 20, 87 at 30, 104 at 40, 102 at 50 and 103 at 60.",
+    "While leveling it also takes Endurance Training 4, Efficiency 2 and Improved Aspect of the Monkey 1, which pay off for questing; respec those points into Beast Mastery (PvP, model) at 60. A model leveling path, not yet tried in game."
+   ]
+  },
+  {
+   "id": "hunter-marksmanship-leveling",
+   "name": "Marksmanship (PvE, leveling)",
+   "pair": "hunter-marksmanship-leveling",
+   "variant": "PvE",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "Marksmanship (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Marksmanship (PvE) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
@@ -3224,32 +3404,6 @@
     105011,
     105011,
     105011,
-    104960,
-    104960,
-    104960,
-    104960,
-    104960,
-    104975,
-    104975,
-    104976,
-    104976,
-    104976,
-    104969,
-    104969,
-    104969,
-    104969,
-    104969,
-    104976,
-    104976,
-    104972,
-    104972,
-    104970,
-    104967,
-    104967,
-    104967,
-    104967,
-    104967,
-    104966,
     105009,
     105009,
     105009,
@@ -3259,36 +3413,62 @@
     105008,
     105008,
     105008,
-    110870,
+    105008,
     105004,
-    110870,
-    110870,
-    105008,
     105002,
-    104964,
-    104963,
-    104963,
-    104962,
-    104961
+    105002,
+    105002,
+    105002,
+    105001,
+    105001,
+    105001,
+    105002,
+    110870,
+    104998,
+    104998,
+    104998,
+    104998,
+    104998,
+    110870,
+    110870,
+    104997,
+    105013,
+    105013,
+    105013,
+    105005,
+    105005,
+    104999,
+    104999,
+    105000,
+    105012,
+    105012,
+    105012,
+    105012,
+    105012,
+    105006,
+    104960,
+    104960,
+    104960,
+    104960
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 84.6,
+      "score": 90.8,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 86.7,
+      "score": 93.7,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 96.7,
+      "score": 106.0,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 101.6,
+      "score": 104.2,
       "unit": "kills/hour"
      },
      "60": {
@@ -3299,15 +3479,22 @@
    },
    "sensitivity": [],
    "respec": [
-    "hunter-beast-mastery-pvp"
+    "hunter-marksmanship",
+    "hunter-marksmanship-model"
    ],
+   "levels_into": "hunter-marksmanship",
+   "detours": {
+    "Scatter Shot": 1,
+    "Improved Concussive Shot": 5,
+    "Improved Arcane Shot": 1
+   },
    "stat_weights": {
     "20": {
-     "score": 84.6,
+     "score": 90.8,
      "strength": 0.0,
-     "agility": 0.15,
+     "agility": 0.16,
      "stamina": 0.0,
-     "intellect": 0.0,
+     "intellect": 0.01,
      "attack_power": 0.07,
      "crit_rating": 0.09,
      "hit_rating": 0.12,
@@ -3316,39 +3503,39 @@
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 86.7,
+     "score": 93.7,
      "strength": 0.0,
-     "agility": 0.09,
+     "agility": 0.1,
      "stamina": 0.0,
-     "intellect": 0.0,
+     "intellect": 0.04,
      "attack_power": 0.04,
-     "crit_rating": 0.05,
-     "hit_rating": 0.06,
-     "crit_pct": 0.3,
-     "hit_pct": 0.3,
+     "crit_rating": 0.07,
+     "hit_rating": 0.07,
+     "crit_pct": 0.4,
+     "hit_pct": 0.4,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 96.7,
+     "score": 106.0,
      "strength": 0.0,
-     "agility": 0.07,
+     "agility": 0.08,
      "stamina": 0.0,
-     "intellect": 0.0,
+     "intellect": 0.03,
      "attack_power": 0.03,
-     "crit_rating": 0.03,
-     "hit_rating": 0.04,
-     "crit_pct": 0.3,
+     "crit_rating": 0.04,
+     "hit_rating": 0.05,
+     "crit_pct": 0.4,
      "hit_pct": 0.4,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 101.6,
+     "score": 104.2,
      "strength": 0.0,
-     "agility": 0.05,
+     "agility": 0.06,
      "stamina": 0.0,
      "intellect": 0.02,
      "attack_power": 0.02,
-     "crit_rating": 0.02,
+     "crit_rating": 0.03,
      "hit_rating": 0.03,
      "crit_pct": 0.3,
      "hit_pct": 0.4,
@@ -3357,176 +3544,7 @@
     "60": {
      "score": 104.0,
      "strength": 0.0,
-     "agility": 0.04,
-     "stamina": 0.0,
-     "intellect": 0.02,
-     "attack_power": 0.02,
-     "crit_rating": 0.02,
-     "hit_rating": 0.0,
-     "crit_pct": 0.3,
-     "hit_pct": 0.0,
-     "weapon_dps": 0.0
-    }
-   },
-   "about": [
-    "31 points in Beast Mastery, with 20 in Marksmanship. Built for PvP. On this order the key talents arrive as follows: Bestial Swiftness at 34, Summon Hawk at 40, Trueshot Aura at 51, Intimidation at 56 and Bestial Wrath at 60.",
-    "Fights at range with Auto Shot and its shots alongside its pet, which does about 22% of the damage.",
-    "Questing pace in the model, in kills per hour: 85 at 20, 87 at 30, 97 at 40, 102 at 50 and 104 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
-   ]
-  },
-  {
-   "id": "hunter-marksmanship-leveling-pve",
-   "name": "Marksmanship leveling (PvE)",
-   "pair": "hunter-marksmanship-leveling-pve",
-   "variant": "PvE",
-   "origin": "model",
-   "mode": "leveling",
-   "summary": "A Marksmanship talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
-   "gives_up": [],
-   "model_filled": {},
-   "must_have_by": {},
-   "order": [
-    105011,
-    105011,
-    105011,
-    105011,
-    105011,
-    105009,
-    105009,
-    105009,
-    105009,
-    105009,
-    105008,
-    105008,
-    105008,
-    105008,
-    105008,
-    105004,
-    105002,
-    105002,
-    105002,
-    105002,
-    105001,
-    105001,
-    105001,
-    105002,
-    110870,
-    104998,
-    104998,
-    104998,
-    104998,
-    104998,
-    110870,
-    110870,
-    104960,
-    104960,
-    104960,
-    104960,
-    104960,
-    104975,
-    104975,
-    104976,
-    104976,
-    104976,
-    104969,
-    104969,
-    104969,
-    104969,
-    104969,
-    104997,
-    105000,
-    105013,
-    105013
-   ],
-   "order_source": "model leveling path (questing pace)",
-   "open_points": 0,
-   "scores": {
-    "questing": {
-     "20": {
-      "score": 90.8,
-      "unit": "kills/hour"
-     },
-     "30": {
-      "score": 93.7,
-      "unit": "kills/hour"
-     },
-     "40": {
-      "score": 106.0,
-      "unit": "kills/hour"
-     },
-     "50": {
-      "score": 105.2,
-      "unit": "kills/hour"
-     },
-     "60": {
-      "score": 107.2,
-      "unit": "kills/hour"
-     }
-    }
-   },
-   "sensitivity": [],
-   "respec": [
-    "hunter-marksmanship",
-    "hunter-marksmanship-model"
-   ],
-   "stat_weights": {
-    "20": {
-     "score": 90.8,
-     "strength": 0.0,
-     "agility": 0.16,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "attack_power": 0.07,
-     "crit_rating": 0.09,
-     "hit_rating": 0.12,
-     "crit_pct": 0.3,
-     "hit_pct": 0.4,
-     "weapon_dps": 0.0
-    },
-    "30": {
-     "score": 93.7,
-     "strength": 0.0,
-     "agility": 0.1,
-     "stamina": 0.0,
-     "intellect": 0.04,
-     "attack_power": 0.04,
-     "crit_rating": 0.07,
-     "hit_rating": 0.07,
-     "crit_pct": 0.4,
-     "hit_pct": 0.4,
-     "weapon_dps": 0.0
-    },
-    "40": {
-     "score": 106.0,
-     "strength": 0.0,
-     "agility": 0.08,
-     "stamina": 0.0,
-     "intellect": 0.03,
-     "attack_power": 0.03,
-     "crit_rating": 0.04,
-     "hit_rating": 0.05,
-     "crit_pct": 0.4,
-     "hit_pct": 0.4,
-     "weapon_dps": 0.0
-    },
-    "50": {
-     "score": 105.2,
-     "strength": 0.0,
-     "agility": 0.07,
-     "stamina": 0.0,
-     "intellect": 0.03,
-     "attack_power": 0.03,
-     "crit_rating": 0.04,
-     "hit_rating": 0.04,
-     "crit_pct": 0.4,
-     "hit_pct": 0.5,
-     "weapon_dps": 0.0
-    },
-    "60": {
-     "score": 107.2,
-     "strength": 0.0,
-     "agility": 0.04,
+     "agility": 0.05,
      "stamina": 0.0,
      "intellect": 0.02,
      "attack_power": 0.02,
@@ -3538,20 +3556,20 @@
     }
    },
    "about": [
-    "36 points in Marksmanship, with 15 in Beast Mastery. Built for PvE. On this order the key talents arrive as follows: Trueshot Aura at 25, Sniper Shot at 57 and Scatter Shot at 58.",
-    "Fights at range with Auto Shot and its shots alongside its pet, which does about 19% of the damage.",
-    "Questing pace in the model, in kills per hour: 91 at 20, 94 at 30, 106 at 40, 105 at 50 and 107 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "47 points in Marksmanship, with 4 in Beast Mastery. Built for PvE. On this order the key talents arrive as follows: Trueshot Aura at 25, Sniper Shot at 42 and Scatter Shot at 50.",
+    "Fights at range with Auto Shot and its shots alongside its pet, which does about 17% of the damage.",
+    "Questing pace in the model, in kills per hour: 91 at 20, 94 at 30, 106 at 40, 104 at 50 and 104 at 60.",
+    "While leveling it also takes Scatter Shot 1, Improved Concussive Shot 5 and Improved Arcane Shot 1, which pay off for questing; respec those points into Marksmanship (PvE) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "hunter-marksmanship-leveling-pvp",
-   "name": "Marksmanship leveling (PvP)",
-   "pair": "hunter-marksmanship-leveling-pvp",
+   "id": "hunter-marksmanship-pvp-leveling",
+   "name": "Marksmanship (PvP, leveling, model)",
+   "pair": "hunter-marksmanship-pvp-leveling",
    "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Marksmanship talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Marksmanship (PvP, model), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "summary": "Marksmanship (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Marksmanship (PvP, model) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
@@ -3566,70 +3584,70 @@
     105009,
     105009,
     105009,
-    105008,
-    105008,
-    105008,
-    105008,
-    105008,
+    105006,
+    105006,
+    105006,
+    105006,
+    105006,
     105004,
-    105002,
-    105002,
-    105002,
-    105002,
-    105001,
-    105001,
-    105001,
-    105002,
-    110870,
-    104998,
-    104998,
-    104998,
-    104998,
-    104998,
-    110870,
-    110870,
-    104960,
-    104960,
-    104960,
-    104960,
-    104960,
-    104975,
-    104975,
-    104997,
+    105008,
+    105008,
+    105008,
+    105008,
     105000,
+    105001,
+    105001,
+    105001,
+    105008,
+    104998,
+    104998,
+    104998,
+    104998,
+    104998,
+    105002,
+    105002,
+    110870,
+    110870,
+    110870,
+    105002,
+    105002,
+    105002,
+    104997,
+    105013,
+    105013,
+    105013,
     105005,
     105005,
     104999,
     104999,
-    105013,
-    105013,
-    104976,
-    104976,
-    104976,
-    104969
+    105012,
+    105012,
+    105012,
+    105012,
+    105012
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 90.8,
+      "score": 89.8,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 93.7,
+      "score": 89.0,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 106.0,
+      "score": 102.7,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 105.2,
+      "score": 103.4,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 105.6,
+      "score": 103.5,
       "unit": "kills/hour"
      }
     }
@@ -3638,13 +3656,17 @@
    "respec": [
     "hunter-marksmanship-pvp"
    ],
+   "levels_into": "hunter-marksmanship-pvp",
+   "detours": {
+    "Improved Concussive Shot": 5
+   },
    "stat_weights": {
     "20": {
-     "score": 90.8,
+     "score": 89.8,
      "strength": 0.0,
      "agility": 0.16,
      "stamina": 0.0,
-     "intellect": 0.01,
+     "intellect": 0.0,
      "attack_power": 0.07,
      "crit_rating": 0.09,
      "hit_rating": 0.12,
@@ -3653,48 +3675,48 @@
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 93.7,
+     "score": 89.0,
      "strength": 0.0,
-     "agility": 0.1,
+     "agility": 0.09,
      "stamina": 0.0,
-     "intellect": 0.04,
+     "intellect": 0.03,
      "attack_power": 0.04,
-     "crit_rating": 0.07,
+     "crit_rating": 0.05,
      "hit_rating": 0.07,
-     "crit_pct": 0.4,
+     "crit_pct": 0.3,
      "hit_pct": 0.4,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 106.0,
-     "strength": 0.0,
-     "agility": 0.08,
-     "stamina": 0.0,
-     "intellect": 0.03,
-     "attack_power": 0.03,
-     "crit_rating": 0.04,
-     "hit_rating": 0.05,
-     "crit_pct": 0.4,
-     "hit_pct": 0.4,
-     "weapon_dps": 0.0
-    },
-    "50": {
-     "score": 105.2,
+     "score": 102.7,
      "strength": 0.0,
      "agility": 0.07,
      "stamina": 0.0,
      "intellect": 0.03,
      "attack_power": 0.03,
      "crit_rating": 0.04,
+     "hit_rating": 0.05,
+     "crit_pct": 0.3,
+     "hit_pct": 0.4,
+     "weapon_dps": 0.0
+    },
+    "50": {
+     "score": 103.4,
+     "strength": 0.0,
+     "agility": 0.06,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "attack_power": 0.02,
+     "crit_rating": 0.03,
      "hit_rating": 0.04,
      "crit_pct": 0.4,
-     "hit_pct": 0.5,
+     "hit_pct": 0.4,
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 105.6,
+     "score": 103.5,
      "strength": 0.0,
-     "agility": 0.04,
+     "agility": 0.05,
      "stamina": 0.0,
      "intellect": 0.02,
      "attack_power": 0.02,
@@ -3706,98 +3728,98 @@
     }
    },
    "about": [
-    "40 points in Marksmanship, with 11 in Beast Mastery. Built for PvP. On this order the key talents arrive as follows: Trueshot Aura at 25, Sniper Shot at 49 and Scatter Shot at 50.",
-    "Fights at range with Auto Shot and its shots alongside its pet, which does about 17% of the damage.",
-    "Questing pace in the model, in kills per hour: 91 at 20, 94 at 30, 106 at 40, 105 at 50 and 106 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "51 points in Marksmanship. Built for PvP. On this order the key talents arrive as follows: Trueshot Aura at 25, Scatter Shot at 30 and Sniper Shot at 48.",
+    "Fights at range with Auto Shot and its shots alongside its pet, which does about 16% of the damage.",
+    "Questing pace in the model, in kills per hour: 90 at 20, 89 at 30, 103 at 40, 103 at 50 and 104 at 60.",
+    "While leveling it also takes Improved Concussive Shot 5, which pay off for questing; respec those points into Marksmanship (PvP, model) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "hunter-survival-leveling-pve",
-   "name": "Survival leveling (PvE)",
-   "pair": "hunter-survival-leveling-pve",
+   "id": "hunter-survival-leveling",
+   "name": "Survival Lone Wolf (PvE, leveling)",
+   "pair": "hunter-survival-leveling",
    "variant": "PvE",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Survival talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Survival Lone Wolf (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Survival Lone Wolf (PvE) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
-    105011,
-    105011,
-    105011,
-    105011,
-    105011,
     104996,
     104996,
     104996,
     104996,
     104996,
     104995,
-    104995,
-    104995,
-    104995,
-    104995,
-    104987,
-    104987,
-    104987,
-    104994,
-    104994,
-    104994,
-    104994,
-    104994,
     104993,
     104993,
-    104992,
-    104992,
-    104992,
-    104992,
-    104992,
+    104995,
+    104995,
+    104987,
+    104987,
+    104987,
+    104991,
+    104991,
+    104988,
+    104988,
+    110861,
+    110861,
+    110861,
+    104983,
+    104995,
+    110861,
+    110861,
+    104995,
     110859,
-    105009,
-    105009,
-    105009,
-    105009,
-    105009,
-    105008,
-    105008,
-    105008,
-    105008,
-    110870,
-    105004,
-    110870,
-    110870,
-    105008,
-    105002,
+    105011,
     110859,
     110859,
     110859,
     110859,
-    104983
+    104983,
+    104985,
+    104985,
+    104984,
+    110860,
+    110860,
+    104981,
+    104992,
+    104992,
+    104992,
+    104986,
+    104989,
+    105011,
+    105011,
+    105011,
+    105011,
+    105008,
+    105008,
+    105008,
+    105008
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 84.1,
+      "score": 83.0,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 84.2,
+      "score": 82.6,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 94.3,
+      "score": 119.2,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 99.2,
+      "score": 114.1,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 100.8,
+      "score": 94.4,
       "unit": "kills/hour"
      }
     }
@@ -3807,66 +3829,72 @@
     "hunter-survival",
     "hunter-survival-model"
    ],
+   "levels_into": "hunter-survival",
+   "detours": {
+    "Deflection": 5,
+    "Deterrence": 1,
+    "Counterattack": 1
+   },
    "stat_weights": {
     "20": {
-     "score": 84.1,
+     "score": 83.0,
      "strength": 0.0,
-     "agility": 0.15,
+     "agility": 0.14,
      "stamina": 0.0,
      "intellect": 0.0,
      "attack_power": 0.06,
      "crit_rating": 0.09,
      "hit_rating": 0.11,
-     "crit_pct": 0.2,
+     "crit_pct": 0.3,
      "hit_pct": 0.3,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 84.2,
+     "score": 82.6,
      "strength": 0.0,
-     "agility": 0.09,
+     "agility": 0.1,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.04,
-     "crit_rating": 0.05,
-     "hit_rating": 0.06,
-     "crit_pct": 0.3,
-     "hit_pct": 0.3,
+     "attack_power": 0.05,
+     "crit_rating": 0.06,
+     "hit_rating": 0.07,
+     "crit_pct": 0.4,
+     "hit_pct": 0.4,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 94.3,
-     "strength": 0.0,
-     "agility": 0.07,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "attack_power": 0.03,
-     "crit_rating": 0.03,
-     "hit_rating": 0.04,
-     "crit_pct": 0.3,
-     "hit_pct": 0.4,
-     "weapon_dps": 0.0
-    },
-    "50": {
-     "score": 99.2,
-     "strength": 0.0,
+     "score": 119.2,
+     "strength": 0.04,
      "agility": 0.06,
      "stamina": 0.0,
-     "intellect": 0.02,
-     "attack_power": 0.03,
-     "crit_rating": 0.03,
-     "hit_rating": 0.04,
-     "crit_pct": 0.3,
+     "intellect": 0.0,
+     "attack_power": 0.04,
+     "crit_rating": 0.06,
+     "hit_rating": 0.05,
+     "crit_pct": 0.5,
      "hit_pct": 0.4,
-     "weapon_dps": 0.0
+     "weapon_dps": 0.45
+    },
+    "50": {
+     "score": 114.1,
+     "strength": 0.04,
+     "agility": 0.06,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.04,
+     "crit_rating": 0.04,
+     "hit_rating": 0.04,
+     "crit_pct": 0.5,
+     "hit_pct": 0.4,
+     "weapon_dps": 0.4
     },
     "60": {
-     "score": 100.8,
+     "score": 94.4,
      "strength": 0.0,
-     "agility": 0.04,
+     "agility": 0.05,
      "stamina": 0.0,
      "intellect": 0.01,
-     "attack_power": 0.01,
+     "attack_power": 0.02,
      "crit_rating": 0.02,
      "hit_rating": 0.0,
      "crit_pct": 0.3,
@@ -3875,29 +3903,24 @@
     }
    },
    "about": [
-    "31 points in Survival, with 20 in Marksmanship. Built for PvE. On this order the key talents arrive as follows: Lightning Reflexes at 40 and Trueshot Aura at 51.",
-    "Fights at range with Auto Shot and its shots alongside its pet, which does about 18% of the damage.",
-    "Questing pace in the model, in kills per hour: 84 at 20, 84 at 30, 94 at 40, 99 at 50 and 101 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "42 points in Survival, with 9 in Marksmanship. Built for PvE. On this order the key talents arrive as follows: Lacerating Strikes at 44, Strider Kick at 47, Deterrence at 51 and Counterattack at 52.",
+    "Fights at range with Auto Shot and its shots alongside its pet, which does about 19% of the damage.",
+    "Questing pace in the model, in kills per hour: 83 at 20, 83 at 30, 119 at 40, 114 at 50 and 94 at 60.",
+    "While leveling it also takes Deflection 5, Deterrence 1 and Counterattack 1, which pay off for questing; respec those points into Survival Lone Wolf (PvE) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "hunter-survival-leveling-pvp",
-   "name": "Survival leveling (PvP)",
-   "pair": "hunter-survival-leveling-pvp",
+   "id": "hunter-survival-pvp-leveling",
+   "name": "Survival Lone Wolf (PvP, leveling)",
+   "pair": "hunter-survival-pvp-leveling",
    "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Survival talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Survival Lone Wolf (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "summary": "Survival Lone Wolf (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Survival Lone Wolf (PvP) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
-    105011,
-    105011,
-    105011,
-    105011,
-    105011,
     104996,
     104996,
     104996,
@@ -3906,67 +3929,72 @@
     104994,
     104994,
     104994,
-    104994,
-    104994,
+    104995,
+    104995,
     104987,
     104987,
     104987,
-    104993,
-    104993,
     104991,
     104991,
     104988,
     104988,
     110861,
-    110861,
-    110861,
-    110861,
-    110861,
+    104995,
+    104995,
+    104995,
+    104994,
+    104994,
+    104993,
+    104993,
+    110859,
+    110859,
+    110859,
+    110859,
+    110859,
     104983,
-    110859,
-    105008,
-    105008,
-    105008,
-    110859,
-    110859,
-    110859,
-    110859,
     104983,
     104985,
     104985,
     104984,
+    110860,
+    110860,
+    104981,
+    110861,
+    110861,
+    110861,
+    110861,
+    105011,
+    105011,
+    105011,
+    105011,
+    105011,
     105008,
     105008,
-    104960,
-    104960,
-    104960,
-    104960,
-    104960,
-    104975,
-    105009
+    105008,
+    105008
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 84.1,
+      "score": 83.0,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 84.2,
+      "score": 82.6,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 120.2,
+      "score": 94.0,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 95.8,
+      "score": 112.6,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 96.0,
+      "score": 94.4,
       "unit": "kills/hour"
      }
     }
@@ -3976,65 +4004,70 @@
     "hunter-survival-pvp",
     "hunter-survival-pvp-model"
    ],
+   "levels_into": "hunter-survival-pvp",
+   "detours": {
+    "Entrapment": 2,
+    "Deflection": 5
+   },
    "stat_weights": {
     "20": {
-     "score": 84.1,
+     "score": 83.0,
      "strength": 0.0,
-     "agility": 0.15,
+     "agility": 0.14,
      "stamina": 0.0,
      "intellect": 0.0,
      "attack_power": 0.06,
      "crit_rating": 0.09,
      "hit_rating": 0.11,
-     "crit_pct": 0.2,
-     "hit_pct": 0.3,
-     "weapon_dps": 0.0
-    },
-    "30": {
-     "score": 84.2,
-     "strength": 0.0,
-     "agility": 0.09,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "attack_power": 0.04,
-     "crit_rating": 0.05,
-     "hit_rating": 0.06,
      "crit_pct": 0.3,
      "hit_pct": 0.3,
      "weapon_dps": 0.0
     },
+    "30": {
+     "score": 82.6,
+     "strength": 0.0,
+     "agility": 0.1,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.05,
+     "crit_rating": 0.06,
+     "hit_rating": 0.07,
+     "crit_pct": 0.4,
+     "hit_pct": 0.4,
+     "weapon_dps": 0.0
+    },
     "40": {
-     "score": 120.2,
+     "score": 94.0,
+     "strength": 0.0,
+     "agility": 0.08,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.03,
+     "crit_rating": 0.03,
+     "hit_rating": 0.04,
+     "crit_pct": 0.3,
+     "hit_pct": 0.4,
+     "weapon_dps": 0.0
+    },
+    "50": {
+     "score": 112.6,
      "strength": 0.04,
      "agility": 0.06,
      "stamina": 0.0,
      "intellect": 0.0,
      "attack_power": 0.04,
-     "crit_rating": 0.05,
-     "hit_rating": 0.05,
+     "crit_rating": 0.04,
+     "hit_rating": 0.04,
      "crit_pct": 0.5,
      "hit_pct": 0.4,
-     "weapon_dps": 0.45
-    },
-    "50": {
-     "score": 95.8,
-     "strength": 0.0,
-     "agility": 0.06,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "attack_power": 0.02,
-     "crit_rating": 0.02,
-     "hit_rating": 0.03,
-     "crit_pct": 0.3,
-     "hit_pct": 0.4,
-     "weapon_dps": 9.45
+     "weapon_dps": 0.4
     },
     "60": {
-     "score": 96.0,
+     "score": 94.4,
      "strength": 0.0,
-     "agility": 0.04,
+     "agility": 0.05,
      "stamina": 0.0,
-     "intellect": 0.02,
+     "intellect": 0.01,
      "attack_power": 0.02,
      "crit_rating": 0.02,
      "hit_rating": 0.0,
@@ -4044,10 +4077,10 @@
     }
    },
    "about": [
-    "34 points in Survival, with 11 in Marksmanship and 6 in Beast Mastery. Built for PvP. On this order the key talents arrive as follows: Lacerating Strikes at 51.",
+    "42 points in Survival, with 9 in Marksmanship. Built for PvP. On this order the key talents arrive as follows: Lacerating Strikes at 44 and Strider Kick at 47.",
     "Fights at range with Auto Shot and its shots alongside its pet, which does about 19% of the damage.",
-    "Questing pace in the model, in kills per hour: 84 at 20, 84 at 30, 120 at 40, 96 at 50 and 96 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 83 at 20, 83 at 30, 94 at 40, 113 at 50 and 94 at 60.",
+    "While leveling it also takes Entrapment 2 and Deflection 5, which pay off for questing; respec those points into Survival Lone Wolf (PvP) at 60. A model leveling path, not yet tried in game."
    ]
   }
  ],
@@ -4497,40 +4530,40 @@
  ],
  "leveling": [
   {
-   "tree": "Beast Mastery",
+   "archetype": "deep Beast Mastery",
    "focus": "PvE",
-   "build": "hunter-beast-mastery-leveling-pve",
-   "score": 94.5
+   "build": "hunter-beast-mastery-leveling",
+   "score": 95.0
   },
   {
-   "tree": "Beast Mastery",
+   "archetype": "deep Beast Mastery",
    "focus": "PvP",
-   "build": "hunter-beast-mastery-leveling-pvp",
-   "score": 94.7
-  },
-  {
-   "tree": "Marksmanship",
-   "focus": "PvE",
-   "build": "hunter-marksmanship-leveling-pve",
-   "score": 100.6
-  },
-  {
-   "tree": "Marksmanship",
-   "focus": "PvP",
-   "build": "hunter-marksmanship-leveling-pvp",
-   "score": 100.3
-  },
-  {
-   "tree": "Survival",
-   "focus": "PvE",
-   "build": "hunter-survival-leveling-pve",
-   "score": 92.5
-  },
-  {
-   "tree": "Survival",
-   "focus": "PvP",
-   "build": "hunter-survival-leveling-pvp",
+   "build": "hunter-beast-mastery-pvp-leveling",
    "score": 96.1
+  },
+  {
+   "archetype": "deep Marksmanship",
+   "focus": "PvE",
+   "build": "hunter-marksmanship-leveling",
+   "score": 99.7
+  },
+  {
+   "archetype": "deep Marksmanship",
+   "focus": "PvP",
+   "build": "hunter-marksmanship-pvp-leveling",
+   "score": 97.7
+  },
+  {
+   "archetype": "deep Survival",
+   "focus": "PvE",
+   "build": "hunter-survival-leveling",
+   "score": 98.7
+  },
+  {
+   "archetype": "deep Survival",
+   "focus": "PvP",
+   "build": "hunter-survival-pvp-leveling",
+   "score": 93.3
   }
  ]
 }

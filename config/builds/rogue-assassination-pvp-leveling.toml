@@ -1,0 +1,68 @@
+# Leveling version of rogue-assassination-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "rogue-assassination-pvp-leveling"
+class = "rogue"
+name = "Assassination (PvP, leveling)"
+pair = "rogue-assassination-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "rogue-assassination-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Assassination (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Assassination (PvP) at 60."
+
+order = [
+  "Improved Gouge",  # 10
+  "Improved Gouge",  # 11
+  "Improved Gouge",  # 12
+  "Malice",  # 13
+  "Malice",  # 14
+  "Malice",  # 15
+  "Malice",  # 16
+  "Malice",  # 17
+  "Remorseless Attacks",  # 18
+  "Remorseless Attacks",  # 19
+  "Relentless Strikes",  # 20
+  "Lethality",  # 21
+  "Lethality",  # 22
+  "Lethality",  # 23
+  "Lethality",  # 24
+  "Lethality",  # 25
+  "Murder",  # 26
+  "Murder",  # 27
+  "Improved Slice and Dice",  # 28
+  "Improved Slice and Dice",  # 29
+  "Mutilate",  # 30
+  "Improved Kidney Shot",  # 31
+  "Improved Kidney Shot",  # 32
+  "Improved Slice and Dice",  # 33
+  "Ruthlessness",  # 34
+  "Ruthlessness",  # 35
+  "Ruthlessness",  # 36
+  "Seal Fate",  # 37
+  "Seal Fate",  # 38
+  "Opportunity",  # 39
+  "Seal Fate",  # 40
+  "Seal Fate",  # 41
+  "Seal Fate",  # 42
+  "Opportunity",  # 43
+  "Venom",  # 44
+  "Vile Poisons",  # 45
+  "Vile Poisons",  # 46
+  "Vile Poisons",  # 47
+  "Improved Eviscerate",  # 48
+  "Improved Eviscerate",  # 49
+  "Improved Eviscerate",  # 50
+  "Vile Poisons",  # 51
+  "Vile Poisons",  # 52
+  "Cold Blood",  # 53
+  "Lightning Reflexes",  # 54
+  "Lightning Reflexes",  # 55
+  "Deflection",  # 56
+  "Deflection",  # 57
+  "Deflection",  # 58
+  "Precision",  # 59
+  "Precision",  # 60
+]

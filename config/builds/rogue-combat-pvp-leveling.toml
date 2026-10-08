@@ -1,0 +1,68 @@
+# Leveling version of rogue-combat-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "rogue-combat-pvp-leveling"
+class = "rogue"
+name = "Combat Swords (PvP, leveling)"
+pair = "rogue-combat-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "rogue-combat-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Combat Swords (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Combat Swords (PvP) at 60."
+
+order = [
+  "Improved Sinister Strike",  # 10
+  "Improved Sinister Strike",  # 11
+  "Improved Eviscerate",  # 12
+  "Improved Eviscerate",  # 13
+  "Improved Eviscerate",  # 14
+  "Deflection",  # 15
+  "Deflection",  # 16
+  "Deflection",  # 17
+  "Precision",  # 18
+  "Precision",  # 19
+  "Precision",  # 20
+  "Lightning Reflexes",  # 21
+  "Lightning Reflexes",  # 22
+  "Lightning Reflexes",  # 23
+  "Lightning Reflexes",  # 24
+  "Flawless Execution",  # 25
+  "Dual Wield Specialization",  # 26
+  "Dual Wield Specialization",  # 27
+  "Dual Wield Specialization",  # 28
+  "Dual Wield Specialization",  # 29
+  "Blade Flurry",  # 30
+  "Dual Wield Specialization",  # 31
+  "Lightning Reflexes",  # 32
+  "Puncturing Wounds",  # 33
+  "Puncturing Wounds",  # 34
+  "Weapon Expertise",  # 35
+  "Weapon Expertise",  # 36
+  "Aggression",  # 37
+  "Aggression",  # 38
+  "Aggression",  # 39
+  "Adrenaline Rush",  # 40
+  "Malice",  # 41
+  "Malice",  # 42
+  "Malice",  # 43
+  "Malice",  # 44
+  "Malice",  # 45
+  "Improved Slice and Dice",  # 46
+  "Improved Slice and Dice",  # 47
+  "Improved Slice and Dice",  # 48
+  "Ruthlessness",  # 49
+  "Ruthlessness",  # 50
+  "Relentless Strikes",  # 51
+  "Ruthlessness",  # 52
+  "Hack and Slash",  # 53
+  "Hack and Slash",  # 54
+  "Hack and Slash",  # 55
+  "Hack and Slash",  # 56
+  "Hack and Slash",  # 57
+  "Endurance",  # 58
+  "Endurance",  # 59
+  "Improved Sprint",  # 60
+]

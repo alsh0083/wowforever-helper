@@ -1845,171 +1845,13 @@
    ]
   },
   {
-   "id": "druid-balance-leveling-pve",
-   "name": "Balance leveling (PvE)",
-   "pair": "druid-balance-leveling-pve",
+   "id": "druid-balance-leveling",
+   "name": "Balance Moonkin (PvE, leveling)",
+   "pair": "druid-balance-leveling",
    "variant": "PvE",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Balance talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
-   "gives_up": [],
-   "model_filled": {},
-   "must_have_by": {},
-   "order": [
-    104938,
-    104923,
-    104923,
-    104923,
-    104923,
-    104923,
-    104925,
-    104925,
-    104925,
-    104929,
-    104931,
-    104931,
-    104929,
-    104927,
-    104927,
-    104924,
-    104930,
-    104932,
-    104932,
-    104932,
-    104932,
-    104932,
-    104924,
-    104924,
-    104924,
-    104924,
-    104936,
-    104936,
-    104936,
-    104936,
-    104936,
-    104937,
-    104957,
-    104957,
-    104957,
-    104957,
-    104957,
-    104922,
-    104922,
-    104922,
-    104922,
-    104922,
-    110844,
-    110844,
-    104934,
-    104935,
-    104935,
-    104935,
-    104933,
-    104933,
-    104933
-   ],
-   "order_source": "model leveling path (questing pace)",
-   "open_points": 0,
-   "scores": {
-    "questing": {
-     "20": {
-      "score": 80.7,
-      "unit": "kills/hour"
-     },
-     "30": {
-      "score": 84.8,
-      "unit": "kills/hour"
-     },
-     "40": {
-      "score": 97.5,
-      "unit": "kills/hour"
-     },
-     "50": {
-      "score": 88.2,
-      "unit": "kills/hour"
-     },
-     "60": {
-      "score": 97.7,
-      "unit": "kills/hour"
-     }
-    }
-   },
-   "sensitivity": [],
-   "respec": [
-    "druid-balance"
-   ],
-   "stat_weights": {
-    "20": {
-     "score": 80.7,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.37,
-     "crit_rating": 0.07,
-     "hit_rating": 0.06,
-     "crit_pct": 0.2,
-     "hit_pct": 0.6
-    },
-    "30": {
-     "score": 84.8,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.28,
-     "crit_rating": 0.05,
-     "hit_rating": 0.0,
-     "crit_pct": 0.3,
-     "hit_pct": 0.0
-    },
-    "40": {
-     "score": 97.5,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "spirit": 0.0,
-     "spell_power": 0.2,
-     "crit_rating": 0.04,
-     "hit_rating": 0.0,
-     "crit_pct": 0.3,
-     "hit_pct": 0.0
-    },
-    "50": {
-     "score": 88.2,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.16,
-     "crit_rating": 0.03,
-     "hit_rating": 0.0,
-     "crit_pct": 0.3,
-     "hit_pct": 0.0
-    },
-    "60": {
-     "score": 97.7,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.11,
-     "crit_rating": 0.02,
-     "hit_rating": 0.0,
-     "crit_pct": 0.3,
-     "hit_pct": 0.0
-    }
-   },
-   "about": [
-    "40 points in Balance, with 10 in Restoration and 1 in Feral Combat. Built for PvE. On this order the key talents arrive as follows: Insect Swarm at 26, Moonkin Form at 41 and Nature's Grace at 54.",
-    "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Starfire.",
-    "Questing pace in the model, in kills per hour: 81 at 20, 85 at 30, 98 at 40, 88 at 50 and 98 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
-   ]
-  },
-  {
-   "id": "druid-balance-leveling-pvp",
-   "name": "Balance leveling (PvP)",
-   "pair": "druid-balance-leveling-pvp",
-   "variant": "PvP",
-   "origin": "model",
-   "mode": "leveling",
-   "summary": "A Balance talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Balance (PvP, model), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "summary": "Balance Moonkin (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Balance Moonkin (PvE) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
@@ -2045,16 +1887,6 @@
     104936,
     104936,
     104937,
-    104957,
-    104957,
-    104957,
-    104957,
-    104957,
-    104922,
-    104922,
-    104922,
-    104922,
-    104922,
     104934,
     104935,
     104935,
@@ -2064,7 +1896,17 @@
     104933,
     104933,
     104933,
-    104928
+    104928,
+    110844,
+    110844,
+    104957,
+    104957,
+    104957,
+    104957,
+    104957,
+    104922,
+    104922,
+    104922
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
@@ -2083,19 +1925,24 @@
       "unit": "kills/hour"
      },
      "50": {
-      "score": 88.7,
+      "score": 86.3,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 97.7,
+      "score": 96.7,
       "unit": "kills/hour"
      }
     }
    },
    "sensitivity": [],
    "respec": [
-    "druid-balance-pvp"
+    "druid-balance"
    ],
+   "levels_into": "druid-balance",
+   "detours": {
+    "Genesis": 5,
+    "Overgrowth": 2
+   },
    "stat_weights": {
     "20": {
      "score": 81.3,
@@ -2131,9 +1978,9 @@
      "hit_pct": 0.0
     },
     "50": {
-     "score": 88.7,
+     "score": 86.3,
      "stamina": 0.0,
-     "intellect": 0.0,
+     "intellect": 0.01,
      "spirit": 0.0,
      "spell_power": 0.16,
      "crit_rating": 0.03,
@@ -2142,32 +1989,195 @@
      "hit_pct": 0.0
     },
     "60": {
-     "score": 97.7,
+     "score": 96.7,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
      "spell_power": 0.11,
-     "crit_rating": 0.02,
+     "crit_rating": 0.03,
      "hit_rating": 0.0,
      "crit_pct": 0.3,
      "hit_pct": 0.0
     }
    },
    "about": [
-    "41 points in Balance, with 10 in Restoration. Built for PvP. On this order the key talents arrive as follows: Insect Swarm at 25, Moonkin Form at 40, Nature's Grace at 51 and Nature's Splendor at 60.",
+    "43 points in Balance, with 8 in Restoration. Built for PvE. On this order the key talents arrive as follows: Insect Swarm at 25, Moonkin Form at 40, Nature's Grace at 41 and Nature's Splendor at 50.",
     "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Starfire.",
-    "Questing pace in the model, in kills per hour: 81 at 20, 85 at 30, 98 at 40, 89 at 50 and 98 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 81 at 20, 85 at 30, 98 at 40, 86 at 50 and 97 at 60.",
+    "While leveling it also takes Genesis 5 and Overgrowth 2, which pay off for questing; respec those points into Balance Moonkin (PvE) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "druid-feral-combat-leveling-pve",
-   "name": "Feral Combat leveling (PvE)",
-   "pair": "druid-feral-combat-leveling-pve",
+   "id": "druid-balance-pvp-leveling",
+   "name": "Balance (PvP, leveling, model)",
+   "pair": "druid-balance-pvp-leveling",
+   "variant": "PvP",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "Balance (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Balance (PvP, model) at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    104923,
+    104923,
+    104923,
+    104923,
+    104923,
+    104925,
+    104925,
+    104925,
+    104924,
+    104924,
+    104924,
+    104924,
+    104924,
+    104929,
+    104931,
+    104930,
+    104931,
+    104929,
+    104927,
+    104932,
+    104927,
+    104932,
+    104932,
+    104932,
+    104932,
+    104936,
+    104936,
+    104936,
+    104936,
+    104936,
+    104937,
+    104934,
+    104935,
+    104935,
+    104935,
+    104933,
+    104933,
+    104933,
+    104933,
+    104933,
+    104928,
+    110844,
+    110844,
+    104926,
+    104926,
+    104926,
+    104957,
+    104957,
+    104957,
+    104957,
+    104957
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 79.3,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 84.2,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 98.5,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 86.3,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 95.2,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "druid-balance-pvp"
+   ],
+   "levels_into": "druid-balance-pvp",
+   "detours": {
+    "Overgrowth": 2,
+    "Improved Entangling Roots": 3
+   },
+   "stat_weights": {
+    "20": {
+     "score": 79.3,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "spirit": 0.0,
+     "spell_power": 0.37,
+     "crit_rating": 0.07,
+     "hit_rating": 0.17,
+     "crit_pct": 0.3,
+     "hit_pct": 0.6
+    },
+    "30": {
+     "score": 84.2,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.28,
+     "crit_rating": 0.04,
+     "hit_rating": 0.0,
+     "crit_pct": 0.2,
+     "hit_pct": 0.0
+    },
+    "40": {
+     "score": 98.5,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.2,
+     "crit_rating": 0.04,
+     "hit_rating": 0.0,
+     "crit_pct": 0.4,
+     "hit_pct": 0.0
+    },
+    "50": {
+     "score": 86.3,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.16,
+     "crit_rating": 0.03,
+     "hit_rating": 0.0,
+     "crit_pct": 0.3,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 95.2,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.11,
+     "crit_rating": 0.03,
+     "hit_rating": 0.0,
+     "crit_pct": 0.3,
+     "hit_pct": 0.0
+    }
+   },
+   "about": [
+    "46 points in Balance, with 5 in Restoration. Built for PvP. On this order the key talents arrive as follows: Insect Swarm at 25, Moonkin Form at 40, Nature's Grace at 41 and Nature's Splendor at 50.",
+    "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Starfire.",
+    "Questing pace in the model, in kills per hour: 79 at 20, 84 at 30, 98 at 40, 86 at 50 and 95 at 60.",
+    "While leveling it also takes Overgrowth 2 and Improved Entangling Roots 3, which pay off for questing; respec those points into Balance (PvP, model) at 60. A model leveling path, not yet tried in game."
+   ]
+  },
+  {
+   "id": "druid-feral-bear-leveling",
+   "name": "Feral Bear (PvE, leveling)",
+   "pair": "druid-feral-bear-leveling",
    "variant": "PvE",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Feral Combat talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Feral Bear (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Feral Bear (PvE) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
@@ -2203,13 +2213,6 @@
     104953,
     104953,
     104941,
-    104923,
-    104923,
-    104923,
-    104923,
-    104923,
-    104927,
-    104927,
     104941,
     104942,
     104942,
@@ -2222,7 +2225,14 @@
     104954,
     104954,
     104954,
-    104954
+    104954,
+    104954,
+    104949,
+    104947,
+    104947,
+    104951,
+    104924,
+    104924
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
@@ -2241,11 +2251,11 @@
       "unit": "kills/hour"
      },
      "50": {
-      "score": 69.7,
+      "score": 68.4,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 67.7,
+      "score": 66.0,
       "unit": "kills/hour"
      }
     }
@@ -2254,6 +2264,13 @@
    "respec": [
     "druid-feral-bear"
    ],
+   "levels_into": "druid-feral-bear",
+   "detours": {
+    "Brutal Impact": 2,
+    "Thick Hide": 1,
+    "Shredding Attacks": 3,
+    "Shifting Power": 1
+   },
    "stat_weights": {
     "20": {
      "score": 76.7,
@@ -2295,7 +2312,7 @@
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 69.7,
+     "score": 68.4,
      "strength": 0.06,
      "agility": 0.06,
      "stamina": 0.0,
@@ -2303,14 +2320,14 @@
      "attack_power": 0.03,
      "crit_rating": 0.04,
      "hit_rating": 0.05,
-     "crit_pct": 0.5,
+     "crit_pct": 0.4,
      "hit_pct": 0.5,
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 67.7,
+     "score": 66.0,
      "strength": 0.05,
-     "agility": 0.04,
+     "agility": 0.05,
      "stamina": 0.0,
      "intellect": 0.0,
      "attack_power": 0.02,
@@ -2322,20 +2339,20 @@
     }
    },
    "about": [
-    "44 points in Feral Combat, with 7 in Balance. Built for PvE. On this order the key talents arrive as follows: Leader of the Pack at 30, Feral Charge at 52 and Berserk at 56.",
+    "49 points in Feral Combat, with 2 in Balance. Built for PvE. On this order the key talents arrive as follows: Leader of the Pack at 30, Feral Charge at 45, Berserk at 49, Primal Bite at 55 and Shifting Power at 58.",
     "Fights in Cat Form, building combo points with Shred for finishers. Damage comes from auto-attacks 55% and abilities 45%.",
-    "Questing pace in the model, in kills per hour: 77 at 20, 73 at 30, 77 at 40, 70 at 50 and 68 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 77 at 20, 73 at 30, 77 at 40, 68 at 50 and 66 at 60.",
+    "While leveling it also takes Brutal Impact 2, Thick Hide 1, Shredding Attacks 3 and Shifting Power 1, which pay off for questing; respec those points into Feral Bear (PvE) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "druid-feral-combat-leveling-pvp",
-   "name": "Feral Combat leveling (PvP)",
-   "pair": "druid-feral-combat-leveling-pvp",
+   "id": "druid-feral-leveling",
+   "name": "Feral Cat (PvP, leveling)",
+   "pair": "druid-feral-leveling",
    "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Feral Combat talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Feral Cat (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "summary": "Feral Cat (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Feral Cat (PvP) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
@@ -2359,38 +2376,38 @@
     104952,
     104952,
     104943,
-    104944,
+    104940,
     104955,
     104950,
     104950,
-    104947,
-    104947,
-    104953,
-    104953,
-    104953,
-    104953,
-    104953,
-    104956,
-    104923,
-    104923,
-    104923,
-    104923,
-    104923,
-    104927,
-    104927,
-    104929,
-    104929,
-    104924,
-    104924,
-    104924,
-    104924,
     104940,
     104940,
-    104940,
-    104941,
-    104924,
+    104953,
+    104953,
+    104953,
+    104953,
+    104953,
+    104923,
+    104923,
+    104923,
     104958,
-    104958
+    104958,
+    104958,
+    104958,
+    104958,
+    104956,
+    104947,
+    104947,
+    104944,
+    104954,
+    104954,
+    104954,
+    104954,
+    104924,
+    104924,
+    104927,
+    104927,
+    104929
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
@@ -2409,7 +2426,7 @@
       "unit": "kills/hour"
      },
      "50": {
-      "score": 69.7,
+      "score": 67.9,
       "unit": "kills/hour"
      },
      "60": {
@@ -2422,6 +2439,11 @@
    "respec": [
     "druid-feral"
    ],
+   "levels_into": "druid-feral",
+   "detours": {
+    "Feral Instinct": 3,
+    "Natural Reaction": 4
+   },
    "stat_weights": {
     "20": {
      "score": 76.7,
@@ -2463,7 +2485,7 @@
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 69.7,
+     "score": 67.9,
      "strength": 0.06,
      "agility": 0.06,
      "stamina": 0.0,
@@ -2490,31 +2512,34 @@
     }
    },
    "about": [
-    "35 points in Feral Combat, with 14 in Balance and 2 in Restoration. Built for PvP. On this order the key talents arrive as follows: Feral Charge at 29, Leader of the Pack at 30 and Berserk at 40.",
+    "38 points in Feral Combat, with 8 in Balance and 5 in Restoration. Built for PvP. On this order the key talents arrive as follows: Leader of the Pack at 30, Berserk at 48 and Feral Charge at 51.",
     "Fights in Cat Form, building combo points with Claw for finishers. Damage comes from auto-attacks 55% and abilities 45%.",
-    "Questing pace in the model, in kills per hour: 77 at 20, 73 at 30, 77 at 40, 70 at 50 and 68 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 77 at 20, 73 at 30, 77 at 40, 68 at 50 and 68 at 60.",
+    "While leveling it also takes Feral Instinct 3 and Natural Reaction 4, which pay off for questing; respec those points into Feral Cat (PvP) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "druid-restoration-leveling-pve",
-   "name": "Restoration leveling (PvE)",
-   "pair": "druid-restoration-leveling-pve",
+   "id": "druid-restoration-leveling",
+   "name": "Restoration (PvE, leveling)",
+   "pair": "druid-restoration-leveling",
    "variant": "PvE",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Restoration talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Restoration (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Restoration (PvE) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
-    104938,
+    104923,
     104957,
+    104923,
+    104923,
+    104923,
+    104923,
+    104925,
+    104925,
+    104925,
     104957,
-    104938,
-    104938,
-    104938,
-    104938,
     104957,
     104957,
     104957,
@@ -2523,65 +2548,62 @@
     104922,
     104922,
     104922,
+    104929,
     104917,
     104917,
     104917,
-    104958,
-    104958,
-    104958,
-    104958,
-    104958,
-    104920,
-    104920,
+    104916,
+    104916,
+    104914,
+    104914,
+    104914,
+    104931,
+    104912,
+    104916,
     104921,
     104911,
     104911,
     104911,
-    104920,
-    104919,
-    104924,
-    104924,
-    104924,
-    104924,
-    104924,
-    104925,
-    104929,
-    104931,
-    104931,
+    104909,
+    104913,
+    104913,
+    104913,
     104927,
     104927,
-    104929,
-    104919,
-    104919,
-    104916,
-    104916,
+    104913,
+    104913,
     104910,
+    104909,
     104916,
     104916,
-    104916
+    104918,
+    104924,
+    104924,
+    104924,
+    104924
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 51.3,
+      "score": 79.1,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 59.2,
+      "score": 83.0,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 73.3,
+      "score": 85.3,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 79.5,
+      "score": 74.6,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 87.7,
+      "score": 83.7,
       "unit": "kills/hour"
      }
     }
@@ -2590,156 +2612,162 @@
    "respec": [
     "druid-restoration"
    ],
+   "levels_into": "druid-restoration",
+   "detours": {
+    "Improved Wrath": 5,
+    "Nature's Reach": 1,
+    "Improved Moonfire": 1
+   },
    "stat_weights": {
     "20": {
-     "score": 51.3,
+     "score": 79.1,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
-     "spell_power": 0.27,
-     "crit_rating": 0.05,
-     "hit_rating": 0.12,
+     "spell_power": 0.36,
+     "crit_rating": 0.07,
+     "hit_rating": 0.16,
      "crit_pct": 0.2,
-     "hit_pct": 0.4
+     "hit_pct": 0.5
     },
     "30": {
-     "score": 59.2,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.04,
-     "spell_power": 0.2,
-     "crit_rating": 0.03,
-     "hit_rating": 0.08,
-     "crit_pct": 0.2,
-     "hit_pct": 0.5
-    },
-    "40": {
-     "score": 73.3,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.03,
-     "spell_power": 0.15,
-     "crit_rating": 0.03,
-     "hit_rating": 0.06,
-     "crit_pct": 0.2,
-     "hit_pct": 0.5
-    },
-    "50": {
-     "score": 79.5,
+     "score": 83.0,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
-     "spell_power": 0.12,
+     "spell_power": 0.29,
+     "crit_rating": 0.04,
+     "hit_rating": 0.06,
+     "crit_pct": 0.2,
+     "hit_pct": 0.6
+    },
+    "40": {
+     "score": 85.3,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.2,
+     "crit_rating": 0.03,
+     "hit_rating": 0.06,
+     "crit_pct": 0.3,
+     "hit_pct": 0.6
+    },
+    "50": {
+     "score": 74.6,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.16,
      "crit_rating": 0.02,
      "hit_rating": 0.01,
      "crit_pct": 0.2,
      "hit_pct": 0.1
     },
     "60": {
-     "score": 87.7,
+     "score": 83.7,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.0,
-     "spell_power": 0.08,
-     "crit_rating": 0.01,
+     "spell_power": 0.1,
+     "crit_rating": 0.02,
      "hit_rating": 0.0,
      "crit_pct": 0.2,
      "hit_pct": 0.0
     }
    },
    "about": [
-    "34 points in Restoration, with 12 in Balance and 5 in Feral Combat. Built for PvE. On this order the key talents arrive as follows: Nature's Swiftness at 35 and Wild Growth at 57.",
+    "35 points in Restoration, with 16 in Balance. Built for PvE. On this order the key talents arrive as follows: Swiftmend at 38, Nature's Swiftness at 40, Wild Growth at 52 and Gift of the Earthmother at 56.",
     "In the model's rotation it keeps Moonfire up and fills with Starfire.",
-    "Questing pace in the model, in kills per hour: 51 at 20, 59 at 30, 73 at 40, 80 at 50 and 88 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 79 at 20, 83 at 30, 85 at 40, 75 at 50 and 84 at 60.",
+    "While leveling it also takes Improved Wrath 5, Nature's Reach 1 and Improved Moonfire 1, which pay off for questing; respec those points into Restoration (PvE) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "druid-restoration-leveling-pvp",
-   "name": "Restoration leveling (PvP)",
-   "pair": "druid-restoration-leveling-pvp",
+   "id": "druid-restoration-pvp-leveling",
+   "name": "Restoration (PvP, leveling)",
+   "pair": "druid-restoration-pvp-leveling",
    "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Restoration talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Restoration (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "summary": "Restoration (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Restoration (PvP) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
-    104939,
+    104923,
     104957,
-    104957,
-    104939,
-    104939,
-    104957,
-    104939,
-    104957,
-    104957,
-    104939,
-    104922,
-    104922,
-    104922,
-    104922,
-    104922,
-    104917,
-    104917,
-    104917,
-    104916,
-    104916,
-    104916,
-    104916,
-    104916,
-    104918,
-    104915,
-    104915,
-    104915,
-    104915,
-    104915,
-    104914,
-    104914,
-    104924,
-    104924,
-    104924,
-    104924,
-    104924,
+    104923,
+    104923,
+    104923,
+    104923,
     104925,
-    104929,
-    104931,
-    104931,
-    104927,
-    104927,
+    104925,
+    104957,
+    104957,
+    104957,
+    104957,
+    104922,
+    104922,
+    104922,
+    104922,
+    104922,
+    104917,
+    104917,
+    104917,
+    104916,
+    104916,
+    104915,
+    104914,
+    104914,
+    104914,
+    104912,
     104921,
     104911,
     104911,
     104911,
+    104918,
+    104913,
+    104913,
+    104913,
+    104913,
+    104913,
     104910,
-    104914,
-    104913,
-    104913,
-    104913
+    104939,
+    104939,
+    104939,
+    104939,
+    104939,
+    104943,
+    104943,
+    104942,
+    104942,
+    104942,
+    104945,
+    104945,
+    104948
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 51.3,
+      "score": 77.0,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 59.2,
+      "score": 81.9,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 73.3,
+      "score": 83.5,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 79.5,
+      "score": 72.1,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 87.7,
+      "score": 80.8,
       "unit": "kills/hour"
      }
     }
@@ -2748,68 +2776,73 @@
    "respec": [
     "druid-restoration-pvp"
    ],
+   "levels_into": "druid-restoration-pvp",
+   "detours": {
+    "Improved Wrath": 5,
+    "Moonglow": 2
+   },
    "stat_weights": {
     "20": {
-     "score": 51.3,
+     "score": 77.0,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
-     "spell_power": 0.27,
-     "crit_rating": 0.05,
-     "hit_rating": 0.12,
+     "spell_power": 0.36,
+     "crit_rating": 0.07,
+     "hit_rating": 0.16,
      "crit_pct": 0.2,
-     "hit_pct": 0.4
+     "hit_pct": 0.5
     },
     "30": {
-     "score": 59.2,
+     "score": 81.9,
      "stamina": 0.0,
      "intellect": 0.01,
-     "spirit": 0.04,
-     "spell_power": 0.2,
-     "crit_rating": 0.03,
-     "hit_rating": 0.08,
+     "spirit": 0.0,
+     "spell_power": 0.28,
+     "crit_rating": 0.04,
+     "hit_rating": 0.09,
      "crit_pct": 0.2,
-     "hit_pct": 0.5
+     "hit_pct": 0.6
     },
     "40": {
-     "score": 73.3,
+     "score": 83.5,
      "stamina": 0.0,
      "intellect": 0.01,
-     "spirit": 0.03,
-     "spell_power": 0.15,
+     "spirit": 0.0,
+     "spell_power": 0.19,
      "crit_rating": 0.03,
-     "hit_rating": 0.06,
+     "hit_rating": 0.07,
+     "crit_pct": 0.2,
+     "hit_pct": 0.6
+    },
+    "50": {
+     "score": 72.1,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.15,
+     "crit_rating": 0.02,
+     "hit_rating": 0.05,
      "crit_pct": 0.2,
      "hit_pct": 0.5
     },
-    "50": {
-     "score": 79.5,
+    "60": {
+     "score": 80.8,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
-     "spell_power": 0.12,
+     "spell_power": 0.1,
      "crit_rating": 0.02,
-     "hit_rating": 0.01,
+     "hit_rating": 0.04,
      "crit_pct": 0.2,
-     "hit_pct": 0.1
-    },
-    "60": {
-     "score": 87.7,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "spirit": 0.0,
-     "spell_power": 0.08,
-     "crit_rating": 0.01,
-     "hit_rating": 0.0,
-     "crit_pct": 0.2,
-     "hit_pct": 0.0
+     "hit_pct": 0.6
     }
    },
    "about": [
-    "35 points in Restoration, with 11 in Balance and 5 in Feral Combat. Built for PvP. On this order the key talents arrive as follows: Gift of the Earthmother at 33, Nature's Swiftness at 52 and Wild Growth at 56.",
+    "31 points in Restoration, with 13 in Feral Combat and 7 in Balance. Built for PvP. On this order the key talents arrive as follows: Swiftmend at 36, Nature's Swiftness at 37, Gift of the Earthmother at 41 and Wild Growth at 47.",
     "In the model's rotation it keeps Moonfire up and fills with Starfire.",
-    "Questing pace in the model, in kills per hour: 51 at 20, 59 at 30, 73 at 40, 80 at 50 and 88 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 77 at 20, 82 at 30, 84 at 40, 72 at 50 and 81 at 60.",
+    "While leveling it also takes Improved Wrath 5 and Moonglow 2, which pay off for questing; respec those points into Restoration (PvP) at 60. A model leveling path, not yet tried in game."
    ]
   }
  ],
@@ -3208,40 +3241,40 @@
  ],
  "leveling": [
   {
-   "tree": "Balance",
+   "archetype": "deep Balance",
    "focus": "PvE",
-   "build": "druid-balance-leveling-pve",
-   "score": 89.8
+   "build": "druid-balance-leveling",
+   "score": 89.6
   },
   {
-   "tree": "Balance",
+   "archetype": "deep Balance",
    "focus": "PvP",
-   "build": "druid-balance-leveling-pvp",
-   "score": 90.3
+   "build": "druid-balance-pvp-leveling",
+   "score": 88.7
   },
   {
-   "tree": "Feral Combat",
+   "archetype": "deep Feral Combat",
    "focus": "PvE",
-   "build": "druid-feral-combat-leveling-pve",
-   "score": 72.8
+   "build": "druid-feral-bear-leveling",
+   "score": 72.2
   },
   {
-   "tree": "Feral Combat",
+   "archetype": "deep Feral Combat",
    "focus": "PvP",
-   "build": "druid-feral-combat-leveling-pvp",
-   "score": 72.8
+   "build": "druid-feral-leveling",
+   "score": 72.5
   },
   {
-   "tree": "Restoration",
+   "archetype": "deep Restoration",
    "focus": "PvE",
-   "build": "druid-restoration-leveling-pve",
-   "score": 70.2
+   "build": "druid-restoration-leveling",
+   "score": 81.1
   },
   {
-   "tree": "Restoration",
+   "archetype": "deep Restoration",
    "focus": "PvP",
-   "build": "druid-restoration-leveling-pvp",
-   "score": 70.2
+   "build": "druid-restoration-pvp-leveling",
+   "score": 79.1
   }
  ]
 }

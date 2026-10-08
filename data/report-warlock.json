@@ -1568,7 +1568,7 @@
    "about": [
     "40 points in Affliction, with 11 in Demonology. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 21, Siphon Life at 56 and Wrack at 60.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (97%) and questing speed (94%), and weakest at dungeon damage (86%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (97%) and questing speed (95%), and weakest at dungeon damage (86%).",
     "In a dungeon group it gains most from Curse of the Elements: about 10% more damage at 60 than unbuffed, on average across groups."
    ]
   },
@@ -2659,84 +2659,84 @@
    "about": [
     "35 points in Destruction, with 11 in Demonology and 5 in Affliction. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Conflagrate at 39, Shadowburn at 58, Bane of Havoc at 59 and Incinerate at 60.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up, uses Conflagrate on cooldown and fills with Shadow Bolt.",
-    "At level 60 it scores at or near the top of the class in dungeon damage, raid damage and questing speed.",
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage.",
     "In a dungeon group it gains most from Curse of the Elements: about 10% more damage at 60 than unbuffed, on average across groups."
    ]
   },
   {
-   "id": "warlock-affliction-leveling-pve",
-   "name": "Affliction leveling (PvE)",
-   "pair": "warlock-affliction-leveling-pve",
+   "id": "warlock-affliction-leveling",
+   "name": "Affliction Siphon Life (PvE, leveling)",
+   "pair": "warlock-affliction-leveling",
    "variant": "PvE",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Affliction talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Affliction Siphon Life (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Affliction Siphon Life (PvE) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
     105924,
-    105888,
     105925,
     105925,
     105925,
     105921,
     105923,
     105923,
-    105923,
+    105924,
     105923,
     105923,
     105919,
     105919,
+    105923,
     105924,
     105924,
     105924,
-    105924,
-    110876,
-    110876,
-    110876,
     110876,
     110876,
     105921,
     105925,
     105925,
     105922,
+    105922,
+    105920,
+    110876,
     105910,
     105910,
     105910,
     105910,
     105910,
-    105905,
-    105905,
-    105908,
-    105908,
-    105908,
-    105907,
-    105907,
-    105907,
-    105907,
-    105907,
-    105900,
-    105888,
-    105888,
-    105888,
-    105888,
-    105887,
-    105887,
-    105887,
+    110876,
+    110876,
     105912,
-    105909
+    105911,
+    105911,
+    105911,
+    105914,
+    105914,
+    105917,
+    105917,
+    105917,
+    105920,
+    105920,
+    105918,
+    105918,
+    105909,
+    105918,
+    105907,
+    105907,
+    105907,
+    105907
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 67.4,
+      "score": 67.7,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 67.6,
+      "score": 67.7,
       "unit": "kills/hour"
      },
      "40": {
@@ -2744,11 +2744,11 @@
       "unit": "kills/hour"
      },
      "50": {
-      "score": 83.9,
+      "score": 83.7,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 98.8,
+      "score": 90.1,
       "unit": "kills/hour"
      }
     }
@@ -2757,9 +2757,15 @@
    "respec": [
     "warlock-affliction"
    ],
+   "levels_into": "warlock-affliction",
+   "detours": {
+    "Improved Life Tap": 2,
+    "Soul Harvest": 2,
+    "Fel Concentration": 3
+   },
    "stat_weights": {
     "20": {
-     "score": 67.4,
+     "score": 67.7,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
@@ -2770,14 +2776,14 @@
      "hit_pct": 0.0
     },
     "30": {
-     "score": 67.6,
+     "score": 67.7,
      "stamina": 0.0,
-     "intellect": 0.01,
+     "intellect": 0.0,
      "spirit": 0.0,
-     "spell_power": 0.25,
+     "spell_power": 0.24,
      "crit_rating": 0.02,
      "hit_rating": 0.0,
-     "crit_pct": 0.2,
+     "crit_pct": 0.1,
      "hit_pct": 0.0
     },
     "40": {
@@ -2792,121 +2798,121 @@
      "hit_pct": 0.0
     },
     "50": {
-     "score": 83.9,
+     "score": 83.7,
      "stamina": 0.0,
-     "intellect": 0.01,
+     "intellect": 0.0,
      "spirit": 0.0,
-     "spell_power": 0.14,
-     "crit_rating": 0.02,
+     "spell_power": 0.13,
+     "crit_rating": 0.01,
      "hit_rating": 0.0,
-     "crit_pct": 0.2,
+     "crit_pct": 0.1,
      "hit_pct": 0.0
     },
     "60": {
-     "score": 98.8,
+     "score": 90.1,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.0,
      "spell_power": 0.09,
      "crit_rating": 0.01,
      "hit_rating": 0.0,
-     "crit_pct": 0.2,
+     "crit_pct": 0.1,
      "hit_pct": 0.0
     }
    },
    "about": [
-    "32 points in Affliction, with 11 in Demonology and 8 in Destruction. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 51, Siphon Life at 59 and Wrack at 60.",
+    "47 points in Affliction, with 4 in Demonology. Built for PvE. On this order the key talents arrive as follows: Siphon Life at 42 and Wrack at 55.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
-    "Questing pace in the model, in kills per hour: 67 at 20, 68 at 30, 81 at 40, 84 at 50 and 99 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 68 at 20, 68 at 30, 81 at 40, 84 at 50 and 90 at 60.",
+    "While leveling it also takes Improved Life Tap 2, Soul Harvest 2 and Fel Concentration 3, which pay off for questing; respec those points into Affliction Siphon Life (PvE) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "warlock-affliction-leveling-pvp",
-   "name": "Affliction leveling (PvP)",
-   "pair": "warlock-affliction-leveling-pvp",
+   "id": "warlock-affliction-pvp-leveling",
+   "name": "Affliction (PvP, leveling, model)",
+   "pair": "warlock-affliction-pvp-leveling",
    "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Affliction talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Affliction (PvP, model), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "summary": "Affliction (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Affliction (PvP, model) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
     105924,
+    105925,
+    105925,
+    105925,
+    105921,
+    105923,
+    105923,
+    105924,
+    105923,
+    105923,
     105888,
-    105925,
-    105925,
-    105925,
-    105925,
-    105923,
-    105923,
-    105923,
-    105923,
-    105923,
+    105888,
+    105888,
+    105888,
+    105888,
     105919,
     105919,
+    105923,
+    105887,
+    105887,
+    105887,
     105924,
     105924,
     105924,
-    105924,
     110876,
     110876,
     110876,
     110876,
-    110876,
+    105921,
     105925,
-    105920,
-    105920,
-    105920,
+    105925,
+    105922,
+    105922,
     105910,
     105910,
     105910,
-    105910,
-    105910,
-    105907,
-    105907,
-    105907,
-    105907,
-    105907,
-    105902,
-    105902,
-    105903,
-    105903,
-    105903,
-    105900,
-    105888,
-    105888,
-    105888,
-    105888,
+    110876,
     105912,
     105911,
-    105911,
-    105911,
-    105914
+    105914,
+    105914,
+    105917,
+    105917,
+    105917,
+    105920,
+    105920,
+    105920,
+    105907,
+    105907,
+    105907,
+    105907
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 67.4,
+      "score": 67.2,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 67.6,
+      "score": 70.8,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 81.0,
+      "score": 83.3,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 83.9,
+      "score": 85.0,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 98.3,
+      "score": 91.6,
       "unit": "kills/hour"
      }
     }
@@ -2915,31 +2921,37 @@
    "respec": [
     "warlock-affliction-pvp"
    ],
+   "levels_into": "warlock-affliction-pvp",
+   "detours": {
+    "Improved Life Tap": 2,
+    "Cataclysm": 3,
+    "Soul Harvest": 2
+   },
    "stat_weights": {
     "20": {
-     "score": 67.4,
+     "score": 67.2,
      "stamina": 0.0,
-     "intellect": 0.01,
+     "intellect": 0.0,
      "spirit": 0.0,
-     "spell_power": 0.4,
-     "crit_rating": 0.04,
+     "spell_power": 0.39,
+     "crit_rating": 0.03,
      "hit_rating": 0.0,
      "crit_pct": 0.1,
      "hit_pct": 0.0
     },
     "30": {
-     "score": 67.6,
+     "score": 70.8,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
      "spell_power": 0.25,
      "crit_rating": 0.02,
      "hit_rating": 0.0,
-     "crit_pct": 0.2,
+     "crit_pct": 0.1,
      "hit_pct": 0.0
     },
     "40": {
-     "score": 81.0,
+     "score": 83.3,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.0,
@@ -2950,18 +2962,18 @@
      "hit_pct": 0.0
     },
     "50": {
-     "score": 83.9,
+     "score": 85.0,
      "stamina": 0.0,
-     "intellect": 0.01,
+     "intellect": 0.0,
      "spirit": 0.0,
-     "spell_power": 0.14,
-     "crit_rating": 0.02,
+     "spell_power": 0.13,
+     "crit_rating": 0.01,
      "hit_rating": 0.0,
-     "crit_pct": 0.2,
+     "crit_pct": 0.1,
      "hit_pct": 0.0
     },
     "60": {
-     "score": 98.3,
+     "score": 91.6,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.0,
@@ -2973,26 +2985,188 @@
     }
    },
    "about": [
-    "35 points in Affliction, with 11 in Demonology and 5 in Destruction. Built for PvP. On this order the key talents arrive as follows: Shadow Mastery at 36, Demonic Sacrifice at 51 and Siphon Life at 56.",
+    "39 points in Affliction, with 8 in Destruction and 4 in Demonology. Built for PvP. On this order the key talents arrive as follows: Shadow Mastery at 43 and Siphon Life at 47.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
-    "Questing pace in the model, in kills per hour: 67 at 20, 68 at 30, 81 at 40, 84 at 50 and 98 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 67 at 20, 71 at 30, 83 at 40, 85 at 50 and 92 at 60.",
+    "While leveling it also takes Improved Life Tap 2, Cataclysm 3 and Soul Harvest 2, which pay off for questing; respec those points into Affliction (PvP, model) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "warlock-demonology-leveling-pve",
-   "name": "Demonology leveling (PvE)",
-   "pair": "warlock-demonology-leveling-pve",
-   "variant": "PvE",
+   "id": "warlock-demonology-leveling",
+   "name": "Demonology Soul Link (PvP, leveling)",
+   "pair": "warlock-demonology-leveling",
+   "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Demonology talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Demonology Soul Link (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Demonology Soul Link (PvP) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
+    105905,
+    105905,
+    105908,
+    105908,
+    105908,
+    105904,
+    105904,
+    105904,
+    105907,
+    105907,
+    105900,
+    105907,
+    105907,
+    105907,
+    105898,
+    105897,
+    105898,
+    105895,
+    105906,
+    105906,
+    105894,
+    105894,
+    105894,
     105924,
+    105924,
+    105924,
+    105924,
+    105924,
+    105892,
+    105893,
+    105891,
+    105891,
     105888,
+    105888,
+    105888,
+    105888,
+    105888,
+    105885,
+    105885,
+    105885,
+    105885,
+    105885,
+    105884,
+    105891,
+    105891,
+    105891,
+    105890,
+    105893,
+    105893,
+    105902,
+    105902
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 67.6,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 66.0,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 80.0,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 85.4,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 93.6,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "warlock-demonology"
+   ],
+   "levels_into": "warlock-demonology",
+   "detours": {
+    "Improved Health Funnel": 2,
+    "Improved Imp": 3,
+    "Unholy Power": 2
+   },
+   "stat_weights": {
+    "20": {
+     "score": 67.6,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.4,
+     "crit_rating": 0.03,
+     "hit_rating": 0.15,
+     "crit_pct": 0.1,
+     "hit_pct": 0.5
+    },
+    "30": {
+     "score": 66.0,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.24,
+     "crit_rating": 0.02,
+     "hit_rating": 0.08,
+     "crit_pct": 0.1,
+     "hit_pct": 0.5
+    },
+    "40": {
+     "score": 80.0,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.18,
+     "crit_rating": 0.01,
+     "hit_rating": 0.06,
+     "crit_pct": 0.1,
+     "hit_pct": 0.5
+    },
+    "50": {
+     "score": 85.4,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.14,
+     "crit_rating": 0.01,
+     "hit_rating": 0.05,
+     "crit_pct": 0.2,
+     "hit_pct": 0.6
+    },
+    "60": {
+     "score": 93.6,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.09,
+     "crit_rating": 0.01,
+     "hit_rating": 0.01,
+     "crit_pct": 0.2,
+     "hit_pct": 0.1
+    }
+   },
+   "about": [
+    "35 points in Demonology, with 11 in Destruction and 5 in Affliction. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 20, Fel Domination at 27, Soul Link at 38, Shadowburn at 52 and Demonic Pact at 56.",
+    "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
+    "Questing pace in the model, in kills per hour: 68 at 20, 66 at 30, 80 at 40, 85 at 50 and 94 at 60.",
+    "While leveling it also takes Improved Health Funnel 2, Improved Imp 3 and Unholy Power 2, which pay off for questing; respec those points into Demonology Soul Link (PvP) at 60. A model leveling path, not yet tried in game."
+   ]
+  },
+  {
+   "id": "warlock-demonology-pve-leveling",
+   "name": "Demonology (PvE, leveling)",
+   "pair": "warlock-demonology-pve-leveling",
+   "variant": "PvE",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "Demonology (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Demonology (PvE) at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
     105905,
     105905,
     105908,
@@ -3004,67 +3178,69 @@
     105907,
     105907,
     105900,
-    105925,
-    105925,
-    105925,
+    105901,
     105906,
-    105906,
-    105906,
-    105906,
-    105906,
+    105901,
+    105901,
+    105897,
+    105897,
+    105898,
+    105898,
     105902,
+    105892,
+    105893,
+    105893,
+    105893,
     105902,
-    105904,
-    105904,
-    105904,
+    105891,
+    105891,
+    105891,
+    105925,
+    105925,
+    105891,
+    105891,
+    105890,
     105903,
     105903,
     105903,
     105899,
-    105891,
-    105924,
-    105923,
-    105923,
-    105923,
-    105923,
-    105923,
-    105919,
-    105919,
+    105899,
+    105888,
     105888,
     105888,
     105888,
     105888,
     105887,
-    105924,
-    105924,
-    105891,
-    105891,
-    105891,
-    105891,
-    105894
+    105887,
+    105887,
+    105881,
+    105881,
+    105883,
+    105883,
+    105883
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 64.7,
+      "score": 67.6,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 67.4,
+      "score": 66.0,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 81.1,
+      "score": 80.2,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 87.5,
+      "score": 84.8,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 95.5,
+      "score": 93.2,
       "unit": "kills/hour"
      }
     }
@@ -3074,200 +3250,48 @@
     "warlock-demonology-pve",
     "warlock-demonology-pve-model"
    ],
+   "levels_into": "warlock-demonology-pve",
+   "detours": {
+    "Improved Health Funnel": 2,
+    "Improved Imp": 3,
+    "Suppression": 2
+   },
    "stat_weights": {
     "20": {
-     "score": 64.7,
+     "score": 67.6,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.0,
-     "spell_power": 0.39,
+     "spell_power": 0.4,
      "crit_rating": 0.03,
-     "hit_rating": 0.14,
+     "hit_rating": 0.15,
      "crit_pct": 0.1,
      "hit_pct": 0.5
     },
     "30": {
-     "score": 67.4,
+     "score": 66.0,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.0,
      "spell_power": 0.24,
      "crit_rating": 0.02,
-     "hit_rating": 0.0,
+     "hit_rating": 0.08,
      "crit_pct": 0.1,
-     "hit_pct": 0.0
+     "hit_pct": 0.5
     },
     "40": {
-     "score": 81.1,
+     "score": 80.2,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.0,
      "spell_power": 0.18,
-     "crit_rating": 0.02,
-     "hit_rating": 0.0,
-     "crit_pct": 0.1,
-     "hit_pct": 0.0
-    },
-    "50": {
-     "score": 87.5,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "spirit": 0.0,
-     "spell_power": 0.14,
      "crit_rating": 0.01,
-     "hit_rating": 0.0,
-     "crit_pct": 0.1,
-     "hit_pct": 0.0
-    },
-    "60": {
-     "score": 95.5,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.09,
-     "crit_rating": 0.02,
-     "hit_rating": 0.0,
-     "crit_pct": 0.2,
-     "hit_pct": 0.0
-    }
-   },
-   "about": [
-    "31 points in Demonology, with 14 in Affliction and 6 in Destruction. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 22 and Master Demonologist at 40.",
-    "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
-    "Questing pace in the model, in kills per hour: 65 at 20, 67 at 30, 81 at 40, 88 at 50 and 96 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
-   ]
-  },
-  {
-   "id": "warlock-demonology-leveling-pvp",
-   "name": "Demonology leveling (PvP)",
-   "pair": "warlock-demonology-leveling-pvp",
-   "variant": "PvP",
-   "origin": "model",
-   "mode": "leveling",
-   "summary": "A Demonology talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Demonology Soul Link (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
-   "gives_up": [],
-   "model_filled": {},
-   "must_have_by": {},
-   "order": [
-    105924,
-    105888,
-    105907,
-    105907,
-    105907,
-    105907,
-    105907,
-    105902,
-    105902,
-    105904,
-    105904,
-    105904,
-    105900,
-    105924,
-    105924,
-    105924,
-    105903,
-    105903,
-    105903,
-    105899,
-    105899,
-    105898,
-    105898,
-    105897,
-    105897,
-    105895,
-    105894,
-    105894,
-    105894,
-    105892,
-    105893,
-    105925,
-    105925,
-    105888,
-    105888,
-    105888,
-    105888,
-    105924,
-    105891,
-    105891,
-    105923,
-    105923,
-    105923,
-    105919,
-    105919,
-    105891,
-    105891,
-    105890,
-    105891,
-    105893,
-    105893
-   ],
-   "order_source": "model leveling path (questing pace)",
-   "open_points": 0,
-   "scores": {
-    "questing": {
-     "20": {
-      "score": 64.7,
-      "unit": "kills/hour"
-     },
-     "30": {
-      "score": 66.3,
-      "unit": "kills/hour"
-     },
-     "40": {
-      "score": 79.9,
-      "unit": "kills/hour"
-     },
-     "50": {
-      "score": 86.8,
-      "unit": "kills/hour"
-     },
-     "60": {
-      "score": 95.1,
-      "unit": "kills/hour"
-     }
-    }
-   },
-   "sensitivity": [],
-   "respec": [
-    "warlock-demonology"
-   ],
-   "stat_weights": {
-    "20": {
-     "score": 64.7,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "spirit": 0.0,
-     "spell_power": 0.39,
-     "crit_rating": 0.03,
-     "hit_rating": 0.14,
+     "hit_rating": 0.05,
      "crit_pct": 0.1,
      "hit_pct": 0.5
-    },
-    "30": {
-     "score": 66.3,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.24,
-     "crit_rating": 0.02,
-     "hit_rating": 0.09,
-     "crit_pct": 0.1,
-     "hit_pct": 0.5
-    },
-    "40": {
-     "score": 79.9,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.18,
-     "crit_rating": 0.02,
-     "hit_rating": 0.07,
-     "crit_pct": 0.2,
-     "hit_pct": 0.6
     },
     "50": {
-     "score": 86.8,
+     "score": 84.8,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.0,
@@ -3278,165 +3302,172 @@
      "hit_pct": 0.1
     },
     "60": {
-     "score": 95.1,
+     "score": 93.2,
      "stamina": 0.0,
-     "intellect": 0.0,
+     "intellect": 0.01,
      "spirit": 0.0,
      "spell_power": 0.09,
-     "crit_rating": 0.01,
+     "crit_rating": 0.02,
      "hit_rating": 0.0,
      "crit_pct": 0.2,
      "hit_pct": 0.0
     }
    },
    "about": [
-    "34 points in Demonology, with 12 in Affliction and 5 in Destruction. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Fel Domination at 35, Soul Link at 39 and Demonic Pact at 57.",
+    "36 points in Demonology, with 13 in Destruction and 2 in Affliction. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 20, Soul Link at 30 and Demonic Pact at 42.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
-    "Questing pace in the model, in kills per hour: 65 at 20, 66 at 30, 80 at 40, 87 at 50 and 95 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 68 at 20, 66 at 30, 80 at 40, 85 at 50 and 93 at 60.",
+    "While leveling it also takes Improved Health Funnel 2, Improved Imp 3 and Suppression 2, which pay off for questing; respec those points into Demonology (PvE) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "warlock-destruction-leveling-pve",
-   "name": "Destruction leveling (PvE)",
-   "pair": "warlock-destruction-leveling-pve",
-   "variant": "PvE",
+   "id": "warlock-destruction-leveling",
+   "name": "Destruction Conflagrate (PvP, leveling)",
+   "pair": "warlock-destruction-leveling",
+   "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Destruction talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Destruction Conflagrate (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Destruction Conflagrate (PvP) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
-    105924,
     105888,
-    105925,
-    105925,
-    105925,
+    105888,
     105881,
     105881,
     105889,
-    105889,
+    105886,
+    105886,
+    105886,
+    105886,
+    105886,
     105887,
     105887,
     105887,
-    105889,
-    105889,
     105883,
     105883,
-    105883,
-    105883,
-    105883,
+    105879,
     105880,
     105879,
     105879,
-    105879,
-    105888,
+    105883,
     105877,
     105877,
     105877,
-    105924,
+    105883,
+    105883,
+    105875,
+    105875,
+    105875,
+    105875,
+    105875,
     105888,
     105888,
-    105875,
-    105875,
-    105875,
-    105875,
-    105875,
-    105923,
-    105923,
-    105923,
-    105923,
-    105923,
-    105919,
-    105919,
-    105924,
-    105924,
-    105924,
+    105925,
+    105925,
     105888,
     105876,
     105874,
+    105884,
     105882,
-    105889,
-    105885
+    105882,
+    105882,
+    105878,
+    105878,
+    105924,
+    105925,
+    105925,
+    105925,
+    105907,
+    105907,
+    105907,
+    105907
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 69.1,
+      "score": 66.3,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 71.8,
+      "score": 72.8,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 88.4,
+      "score": 87.4,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 93.8,
+      "score": 91.7,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 101.8,
+      "score": 99.5,
       "unit": "kills/hour"
      }
     }
    },
    "sensitivity": [],
    "respec": [
-    "warlock-destruction-pve"
+    "warlock-destruction"
    ],
+   "levels_into": "warlock-destruction",
+   "detours": {
+    "Improved Shadow Bolt": 1,
+    "Intensity": 3,
+    "Pyroclasm": 2,
+    "Improved Corruption": 1
+   },
    "stat_weights": {
     "20": {
-     "score": 69.1,
+     "score": 66.3,
      "stamina": 0.0,
-     "intellect": 0.0,
+     "intellect": 0.01,
      "spirit": 0.0,
      "spell_power": 0.4,
-     "crit_rating": 0.03,
-     "hit_rating": 0.0,
-     "crit_pct": 0.1,
-     "hit_pct": 0.0
+     "crit_rating": 0.04,
+     "hit_rating": 0.15,
+     "crit_pct": 0.2,
+     "hit_pct": 0.5
     },
     "30": {
-     "score": 71.8,
+     "score": 72.8,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
      "spell_power": 0.24,
-     "crit_rating": 0.05,
-     "hit_rating": 0.0,
-     "crit_pct": 0.3,
-     "hit_pct": 0.0
+     "crit_rating": 0.04,
+     "hit_rating": 0.09,
+     "crit_pct": 0.2,
+     "hit_pct": 0.5
     },
     "40": {
-     "score": 88.4,
+     "score": 87.4,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
      "spell_power": 0.17,
      "crit_rating": 0.04,
-     "hit_rating": 0.0,
+     "hit_rating": 0.07,
      "crit_pct": 0.3,
-     "hit_pct": 0.0
+     "hit_pct": 0.6
     },
     "50": {
-     "score": 93.8,
+     "score": 91.7,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
      "spell_power": 0.13,
      "crit_rating": 0.03,
-     "hit_rating": 0.0,
+     "hit_rating": 0.01,
      "crit_pct": 0.3,
-     "hit_pct": 0.0
+     "hit_pct": 0.1
     },
     "60": {
-     "score": 101.8,
+     "score": 99.5,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.0,
@@ -3448,90 +3479,90 @@
     }
    },
    "about": [
-    "36 points in Destruction, with 15 in Affliction. Built for PvE. On this order the key talents arrive as follows: Conflagrate at 29, Bane of Havoc at 56 and Incinerate at 57.",
+    "41 points in Destruction, with 6 in Affliction and 4 in Demonology. Built for PvP. On this order the key talents arrive as follows: Conflagrate at 26, Bane of Havoc at 45, Incinerate at 46 and Shadowburn at 47.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up, uses Conflagrate on cooldown and fills with Incinerate.",
-    "Questing pace in the model, in kills per hour: 69 at 20, 72 at 30, 88 at 40, 94 at 50 and 102 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 66 at 20, 73 at 30, 87 at 40, 92 at 50 and 100 at 60.",
+    "While leveling it also takes Improved Shadow Bolt 1, Intensity 3, Pyroclasm 2 and Improved Corruption 1, which pay off for questing; respec those points into Destruction Conflagrate (PvP) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "warlock-destruction-leveling-pvp",
-   "name": "Destruction leveling (PvP)",
-   "pair": "warlock-destruction-leveling-pvp",
-   "variant": "PvP",
+   "id": "warlock-destruction-pve-leveling",
+   "name": "Destruction (PvE, leveling)",
+   "pair": "warlock-destruction-pve-leveling",
+   "variant": "PvE",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Destruction talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Destruction Conflagrate (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "summary": "Destruction (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Destruction (PvE) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
     105888,
     105888,
-    105925,
-    105925,
-    105925,
     105881,
     105881,
-    105888,
+    105889,
     105887,
     105887,
     105887,
-    105886,
-    105886,
+    105889,
+    105889,
     105883,
     105883,
     105883,
     105883,
     105883,
+    105879,
     105880,
     105879,
     105879,
-    105879,
-    105886,
+    105889,
     105877,
     105877,
     105877,
+    105889,
+    105885,
+    105875,
+    105875,
+    105875,
+    105875,
+    105875,
     105888,
     105888,
-    105875,
-    105875,
-    105875,
-    105875,
-    105875,
-    105907,
-    105907,
-    105907,
-    105907,
-    105907,
-    105902,
-    105902,
-    105903,
-    105903,
-    105903,
-    105900,
-    105924,
+    105925,
+    105925,
+    105888,
     105876,
     105874,
     105884,
-    105886,
-    105886,
-    105925
+    105882,
+    105882,
+    105925,
+    105921,
+    105921,
+    105923,
+    105923,
+    105925,
+    105925,
+    105907,
+    105907,
+    105907,
+    105907
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 71.3,
+      "score": 70.0,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 73.1,
+      "score": 73.2,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 88.6,
+      "score": 87.4,
       "unit": "kills/hour"
      },
      "50": {
@@ -3539,48 +3570,55 @@
       "unit": "kills/hour"
      },
      "60": {
-      "score": 101.8,
+      "score": 99.5,
       "unit": "kills/hour"
      }
     }
    },
    "sensitivity": [],
    "respec": [
-    "warlock-destruction"
+    "warlock-destruction-pve"
    ],
+   "levels_into": "warlock-destruction-pve",
+   "detours": {
+    "Destructive Reach": 1,
+    "Fire and Brimstone": 3,
+    "Molten Skin": 1,
+    "Intensity": 2
+   },
    "stat_weights": {
     "20": {
-     "score": 71.3,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "spirit": 0.0,
-     "spell_power": 0.41,
-     "crit_rating": 0.04,
-     "hit_rating": 0.0,
-     "crit_pct": 0.1,
-     "hit_pct": 0.0
-    },
-    "30": {
-     "score": 73.1,
+     "score": 70.0,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
-     "spell_power": 0.23,
+     "spell_power": 0.41,
      "crit_rating": 0.05,
-     "hit_rating": 0.0,
+     "hit_rating": 0.15,
+     "crit_pct": 0.2,
+     "hit_pct": 0.5
+    },
+    "30": {
+     "score": 73.2,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.24,
+     "crit_rating": 0.05,
+     "hit_rating": 0.09,
      "crit_pct": 0.3,
-     "hit_pct": 0.0
+     "hit_pct": 0.6
     },
     "40": {
-     "score": 88.6,
+     "score": 87.4,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
      "spell_power": 0.17,
      "crit_rating": 0.04,
-     "hit_rating": 0.0,
+     "hit_rating": 0.07,
      "crit_pct": 0.3,
-     "hit_pct": 0.0
+     "hit_pct": 0.6
     },
     "50": {
      "score": 91.8,
@@ -3594,22 +3632,22 @@
      "hit_pct": 0.0
     },
     "60": {
-     "score": 101.8,
+     "score": 99.5,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.0,
      "spell_power": 0.08,
-     "crit_rating": 0.01,
+     "crit_rating": 0.02,
      "hit_rating": 0.0,
-     "crit_pct": 0.2,
+     "crit_pct": 0.3,
      "hit_pct": 0.0
     }
    },
    "about": [
-    "35 points in Destruction, with 11 in Demonology and 5 in Affliction. Built for PvP. On this order the key talents arrive as follows: Conflagrate at 28, Demonic Sacrifice at 53, Bane of Havoc at 55, Incinerate at 56 and Shadowburn at 57.",
-    "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up, uses Conflagrate on cooldown and fills with Shadow Bolt.",
-    "Questing pace in the model, in kills per hour: 71 at 20, 73 at 30, 89 at 40, 92 at 50 and 102 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "38 points in Destruction, with 9 in Affliction and 4 in Demonology. Built for PvE. On this order the key talents arrive as follows: Conflagrate at 26, Bane of Havoc at 45, Incinerate at 46 and Shadowburn at 47.",
+    "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up, uses Conflagrate on cooldown and fills with Incinerate.",
+    "Questing pace in the model, in kills per hour: 70 at 20, 73 at 30, 87 at 40, 92 at 50 and 100 at 60.",
+    "While leveling it also takes Destructive Reach 1, Fire and Brimstone 3, Molten Skin 1 and Intensity 2, which pay off for questing; respec those points into Destruction (PvE) at 60. A model leveling path, not yet tried in game."
    ]
   }
  ],
@@ -4116,40 +4154,40 @@
  ],
  "leveling": [
   {
-   "tree": "Affliction",
+   "archetype": "deep Affliction",
    "focus": "PvE",
-   "build": "warlock-affliction-leveling-pve",
-   "score": 79.7
+   "build": "warlock-affliction-leveling",
+   "score": 78.0
   },
   {
-   "tree": "Affliction",
+   "archetype": "deep Affliction",
    "focus": "PvP",
-   "build": "warlock-affliction-leveling-pvp",
+   "build": "warlock-affliction-pvp-leveling",
    "score": 79.6
   },
   {
-   "tree": "Demonology",
-   "focus": "PvE",
-   "build": "warlock-demonology-leveling-pve",
-   "score": 79.2
-  },
-  {
-   "tree": "Demonology",
+   "archetype": "deep Demonology",
    "focus": "PvP",
-   "build": "warlock-demonology-leveling-pvp",
-   "score": 78.6
+   "build": "warlock-demonology-leveling",
+   "score": 78.5
   },
   {
-   "tree": "Destruction",
+   "archetype": "deep Demonology",
    "focus": "PvE",
-   "build": "warlock-destruction-leveling-pve",
-   "score": 85.0
+   "build": "warlock-demonology-pve-leveling",
+   "score": 78.4
   },
   {
-   "tree": "Destruction",
+   "archetype": "deep Destruction",
    "focus": "PvP",
-   "build": "warlock-destruction-leveling-pvp",
-   "score": 85.3
+   "build": "warlock-destruction-leveling",
+   "score": 83.5
+  },
+  {
+   "archetype": "deep Destruction",
+   "focus": "PvE",
+   "build": "warlock-destruction-pve-leveling",
+   "score": 84.4
   }
  ]
 }

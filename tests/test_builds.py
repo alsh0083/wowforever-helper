@@ -88,12 +88,16 @@ def test_model_filled_points_add_to_the_published_final(tmp_path):
     assert b.final == {"Ice Shards": 5, "Frostbite": 1} and b.model_filled == {"Ice Shards": 2, "Frostbite": 1}
 
 
-def test_every_tree_has_a_leveling_build_per_focus_with_a_full_legal_path():
-    # owner request, 2026-10-07: Leveling mode; paths may use any talent but stay deep in the tree
-    leveling = {b.id: b for b in BUILDS.values() if b.mode == "leveling"}
-    assert set(leveling) == {f"mage-{t}-leveling-{f}" for t in ("arcane", "fire", "frost") for f in ("pve", "pvp")}
-    for b in leveling.values():
+def test_leveling_builds_follow_their_endgame_build_with_few_detours():
+    # owner feedback, 2026-10-07: a leveling build is its endgame build's path, plus at most 7
+    # leveling-only points at a time (respecced at 60)
+    leveling = [b for b in BUILDS.values() if b.mode == "leveling"]
+    assert {b.levels_into for b in leveling} >= {"deep-frost", "fire-frost-shatter", "mage-fire-frost-pvp"}
+    for b in leveling:
+        target = BUILDS[b.levels_into].final_ids(CLS)
         ids = b.order_ids(CLS)
-        assert check_order(CLS, ids) == [] and len(ids) == points_available(60, CLS.rules)
-        trees = Counter(CLS.talent(t).tree_id for t in ids)
-        assert max(trees.values()) >= 31 and b.origin == "model", b.id
+        assert check_order(CLS, ids) == [] and len(ids) == points_available(60, CLS.rules), b.id
+        ranks = Counter()
+        for tid in ids:
+            ranks[tid] += 1
+            assert sum(max(0, n - target.get(t, 0)) for t, n in ranks.items()) <= 7, b.id

@@ -1,0 +1,68 @@
+# Leveling version of warlock-demonology-pve (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "warlock-demonology-pve-leveling"
+class = "warlock"
+name = "Demonology (PvE, leveling)"
+pair = "warlock-demonology-pve-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "warlock-demonology-pve"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Demonology (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Demonology (PvE) at 60."
+
+order = [
+  "Improved Health Funnel",  # 10
+  "Improved Health Funnel",  # 11
+  "Improved Imp",  # 12
+  "Improved Imp",  # 13
+  "Improved Imp",  # 14
+  "Demonic Embrace",  # 15
+  "Demonic Embrace",  # 16
+  "Demonic Embrace",  # 17
+  "Demonic Embrace",  # 18
+  "Demonic Embrace",  # 19
+  "Demonic Sacrifice",  # 20
+  "Improved Sayaad",  # 21
+  "Unholy Power",  # 22
+  "Improved Sayaad",  # 23
+  "Improved Sayaad",  # 24
+  "Decimation",  # 25
+  "Decimation",  # 26
+  "Master Summoner",  # 27
+  "Master Summoner",  # 28
+  "Demonic Aegis",  # 29
+  "Soul Link",  # 30
+  "Demonic Knowledge",  # 31
+  "Demonic Knowledge",  # 32
+  "Demonic Knowledge",  # 33
+  "Demonic Aegis",  # 34
+  "Master Demonologist",  # 35
+  "Master Demonologist",  # 36
+  "Master Demonologist",  # 37
+  "Suppression",  # 38
+  "Suppression",  # 39
+  "Master Demonologist",  # 40
+  "Master Demonologist",  # 41
+  "Demonic Pact",  # 42
+  "Fel Vitality",  # 43
+  "Fel Vitality",  # 44
+  "Fel Vitality",  # 45
+  "Demonic Energies",  # 46
+  "Demonic Energies",  # 47
+  "Bane",  # 48
+  "Bane",  # 49
+  "Bane",  # 50
+  "Bane",  # 51
+  "Bane",  # 52
+  "Cataclysm",  # 53
+  "Cataclysm",  # 54
+  "Cataclysm",  # 55
+  "Destructive Reach",  # 56
+  "Destructive Reach",  # 57
+  "Ruin",  # 58
+  "Ruin",  # 59
+  "Ruin",  # 60
+]

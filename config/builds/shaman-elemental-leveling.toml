@@ -1,0 +1,68 @@
+# Leveling version of shaman-elemental (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "shaman-elemental-leveling"
+class = "shaman"
+name = "Elemental Lava Burst (PvP, leveling)"
+pair = "shaman-elemental-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "shaman-elemental"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Elemental Lava Burst (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Elemental Lava Burst (PvP) at 60."
+
+order = [
+  "Convection",  # 10
+  "Convection",  # 11
+  "Convection",  # 12
+  "Convection",  # 13
+  "Convection",  # 14
+  "Call of Flame",  # 15
+  "Call of Flame",  # 16
+  "Call of Flame",  # 17
+  "Concussion",  # 18
+  "Concussion",  # 19
+  "Elemental Alacrity",  # 20
+  "Elemental Alacrity",  # 21
+  "Elemental Alacrity",  # 22
+  "Concussion",  # 23
+  "Concussion",  # 24
+  "Call of Thunder",  # 25
+  "Concussion",  # 26
+  "Elemental Warding",  # 27
+  "Elemental Warding",  # 28
+  "Elemental Warding",  # 29
+  "Lightning Overload",  # 30
+  "Lightning Overload",  # 31
+  "Lightning Overload",  # 32
+  "Reverberation",  # 33
+  "Reverberation",  # 34
+  "Elemental Fury",  # 35
+  "Elemental Fury",  # 36
+  "Elemental Fury",  # 37
+  "Elemental Fury",  # 38
+  "Elemental Fury",  # 39
+  "Elemental Reach",  # 40
+  "Elemental Reach",  # 41
+  "Earthbound",  # 42
+  "Eye of the Storm",  # 43
+  "Lava Burst",  # 44
+  "Thundering Strikes",  # 45
+  "Thundering Strikes",  # 46
+  "Thundering Strikes",  # 47
+  "Thundering Strikes",  # 48
+  "Thundering Strikes",  # 49
+  "Eye of the Storm",  # 50
+  "Eye of the Storm",  # 51
+  "Elemental Focus",  # 52
+  "Reverberation",  # 53
+  "Reverberation",  # 54
+  "Reverberation",  # 55
+  "Improved Fire Nova",  # 56
+  "Improved Fire Nova",  # 57
+  "Elemental Devastation",  # 58
+  "Elemental Devastation",  # 59
+  "Improved Ghost Wolf",  # 60
+]

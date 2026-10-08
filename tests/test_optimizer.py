@@ -100,3 +100,13 @@ def test_free_order_picks_talents_by_value_and_caps_off_tree_points():
     order = optimize_free_order(CLS, weighted({X1: 10, A2: 2, A1: 1, B1: 1, C1: 50}), main_tree=1, max_off_tree=2, total=8)
     assert order.count(X1) == 2 and order[:2] == [X1, X1]
     assert check_order(CLS, order) == []
+
+
+def test_toward_a_build_takes_a_paying_detour_but_no_more_than_allowed():
+    from wowforever.optimizer import optimize_toward
+
+    # the target is all tree One; X1 (not in it) pays most, but only 2 detour points are allowed
+    target = {A1: 5, A2: 3, B1: 2, C1: 1}
+    order = optimize_toward(CLS, weighted({X1: 10, A2: 2, A1: 1, B1: 1, C1: 50}), target, max_detour=2, total=11)
+    assert order.count(X1) == 2 and order[:2] == [X1, X1]
+    assert check_order(CLS, order) == []

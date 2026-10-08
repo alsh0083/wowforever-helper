@@ -1,0 +1,68 @@
+# Leveling version of rogue-subtlety-pve (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "rogue-subtlety-pve-leveling"
+class = "rogue"
+name = "Subtlety (PvE, leveling)"
+pair = "rogue-subtlety-pve-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "rogue-subtlety-pve"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Subtlety (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Subtlety (PvE) at 60."
+
+order = [
+  "Master of Deception",  # 10
+  "Camouflage",  # 11
+  "Camouflage",  # 12
+  "Camouflage",  # 13
+  "Camouflage",  # 14
+  "Camouflage",  # 15
+  "Master of Deception",  # 16
+  "Master of Deception",  # 17
+  "Opportunity",  # 18
+  "Opportunity",  # 19
+  "Setup",  # 20
+  "Setup",  # 21
+  "Setup",  # 22
+  "Elusiveness",  # 23
+  "Elusiveness",  # 24
+  "Serrated Blades",  # 25
+  "Serrated Blades",  # 26
+  "Serrated Blades",  # 27
+  "Heightened Senses",  # 28
+  "Heightened Senses",  # 29
+  "Dirty Deeds",  # 30
+  "Hemorrhage",  # 31
+  "Malice",  # 32
+  "Malice",  # 33
+  "Malice",  # 34
+  "Malice",  # 35
+  "Malice",  # 36
+  "Improved Slice and Dice",  # 37
+  "Improved Slice and Dice",  # 38
+  "Improved Slice and Dice",  # 39
+  "Ruthlessness",  # 40
+  "Ruthlessness",  # 41
+  "Relentless Strikes",  # 42
+  "Dirty Deeds",  # 43
+  "Preparation",  # 44
+  "Premeditation",  # 45
+  "Quietus",  # 46
+  "Quietus",  # 47
+  "Ruthlessness",  # 48
+  "Quietus",  # 49
+  "Quietus",  # 50
+  "Quietus",  # 51
+  "Thousand Cuts",  # 52
+  "Initiative",  # 53
+  "Initiative",  # 54
+  "Initiative",  # 55
+  "Ghostly Strike",  # 56
+  "Improved Ambush",  # 57
+  "Improved Ambush",  # 58
+  "Improved Ambush",  # 59
+  "Lethality",  # 60
+]

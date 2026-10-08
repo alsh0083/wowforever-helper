@@ -1,0 +1,68 @@
+# Leveling version of warlock-demonology (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "warlock-demonology-leveling"
+class = "warlock"
+name = "Demonology Soul Link (PvP, leveling)"
+pair = "warlock-demonology-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "warlock-demonology"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Demonology Soul Link (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Demonology Soul Link (PvP) at 60."
+
+order = [
+  "Improved Health Funnel",  # 10
+  "Improved Health Funnel",  # 11
+  "Improved Imp",  # 12
+  "Improved Imp",  # 13
+  "Improved Imp",  # 14
+  "Improved Voidwalker",  # 15
+  "Improved Voidwalker",  # 16
+  "Improved Voidwalker",  # 17
+  "Demonic Embrace",  # 18
+  "Demonic Embrace",  # 19
+  "Demonic Sacrifice",  # 20
+  "Demonic Embrace",  # 21
+  "Demonic Embrace",  # 22
+  "Demonic Embrace",  # 23
+  "Master Summoner",  # 24
+  "Decimation",  # 25
+  "Master Summoner",  # 26
+  "Fel Domination",  # 27
+  "Unholy Power",  # 28
+  "Unholy Power",  # 29
+  "Improved Felhunter",  # 30
+  "Improved Felhunter",  # 31
+  "Improved Felhunter",  # 32
+  "Improved Corruption",  # 33
+  "Improved Corruption",  # 34
+  "Improved Corruption",  # 35
+  "Improved Corruption",  # 36
+  "Improved Corruption",  # 37
+  "Soul Link",  # 38
+  "Demonic Knowledge",  # 39
+  "Master Demonologist",  # 40
+  "Master Demonologist",  # 41
+  "Bane",  # 42
+  "Bane",  # 43
+  "Bane",  # 44
+  "Bane",  # 45
+  "Bane",  # 46
+  "Molten Skin",  # 47
+  "Molten Skin",  # 48
+  "Molten Skin",  # 49
+  "Molten Skin",  # 50
+  "Molten Skin",  # 51
+  "Shadowburn",  # 52
+  "Master Demonologist",  # 53
+  "Master Demonologist",  # 54
+  "Master Demonologist",  # 55
+  "Demonic Pact",  # 56
+  "Demonic Knowledge",  # 57
+  "Demonic Knowledge",  # 58
+  "Demonic Aegis",  # 59
+  "Demonic Aegis",  # 60
+]

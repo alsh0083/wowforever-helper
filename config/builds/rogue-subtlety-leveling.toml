@@ -1,0 +1,68 @@
+# Leveling version of rogue-subtlety (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "rogue-subtlety-leveling"
+class = "rogue"
+name = "Subtlety Preparation (PvP, leveling)"
+pair = "rogue-subtlety-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "rogue-subtlety"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Subtlety Preparation (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Subtlety Preparation (PvP) at 60."
+
+order = [
+  "Camouflage",  # 10
+  "Camouflage",  # 11
+  "Camouflage",  # 12
+  "Camouflage",  # 13
+  "Camouflage",  # 14
+  "Master of Deception",  # 15
+  "Master of Deception",  # 16
+  "Master of Deception",  # 17
+  "Opportunity",  # 18
+  "Opportunity",  # 19
+  "Setup",  # 20
+  "Setup",  # 21
+  "Setup",  # 22
+  "Elusiveness",  # 23
+  "Elusiveness",  # 24
+  "Serrated Blades",  # 25
+  "Serrated Blades",  # 26
+  "Improved Sinister Strike",  # 27
+  "Improved Sinister Strike",  # 28
+  "Improved Eviscerate",  # 29
+  "Improved Eviscerate",  # 30
+  "Improved Eviscerate",  # 31
+  "Puncturing Wounds",  # 32
+  "Puncturing Wounds",  # 33
+  "Puncturing Wounds",  # 34
+  "Precision",  # 35
+  "Precision",  # 36
+  "Improved Sprint",  # 37
+  "Improved Sprint",  # 38
+  "Malice",  # 39
+  "Malice",  # 40
+  "Malice",  # 41
+  "Malice",  # 42
+  "Malice",  # 43
+  "Murder",  # 44
+  "Murder",  # 45
+  "Heightened Senses",  # 46
+  "Improved Gouge",  # 47
+  "Improved Gouge",  # 48
+  "Improved Gouge",  # 49
+  "Relentless Strikes",  # 50
+  "Heightened Senses",  # 51
+  "Premeditation",  # 52
+  "Dirty Deeds",  # 53
+  "Dirty Deeds",  # 54
+  "Preparation",  # 55
+  "Initiative",  # 56
+  "Initiative",  # 57
+  "Dirty Tricks",  # 58
+  "Dirty Tricks",  # 59
+  "Improved Ambush",  # 60
+]

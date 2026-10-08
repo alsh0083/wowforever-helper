@@ -1,0 +1,68 @@
+# Leveling version of priest-holy-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "priest-holy-pvp-leveling"
+class = "priest"
+name = "Holy (PvP, leveling)"
+pair = "priest-holy-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "priest-holy-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Holy (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Holy (PvP) at 60."
+
+order = [
+  "Twilight Focus",  # 10
+  "Twilight Focus",  # 11
+  "Twilight Focus",  # 12
+  "Holy Specialization",  # 13
+  "Holy Specialization",  # 14
+  "Spell Warding",  # 15
+  "Spell Warding",  # 16
+  "Spell Warding",  # 17
+  "Spell Warding",  # 18
+  "Spell Warding",  # 19
+  "Blessed Recovery",  # 20
+  "Blessed Recovery",  # 21
+  "Blessed Recovery",  # 22
+  "Divine Fury",  # 23
+  "Divine Fury",  # 24
+  "Binding Heal",  # 25
+  "Divine Fury",  # 26
+  "Divine Fury",  # 27
+  "Divine Fury",  # 28
+  "Searing Light",  # 29
+  "Searing Light",  # 30
+  "Holy Specialization",  # 31
+  "Holy Specialization",  # 32
+  "Holy Specialization",  # 33
+  "Litany of Light",  # 34
+  "Spiritual Healing",  # 35
+  "Spiritual Healing",  # 36
+  "Spiritual Healing",  # 37
+  "Spirit of Redemption",  # 38
+  "Spiritual Guidance",  # 39
+  "Prayer of Mending",  # 40
+  "Spiritual Guidance",  # 41
+  "Spiritual Guidance",  # 42
+  "Improved Healing",  # 43
+  "Improved Healing",  # 44
+  "Improved Healing",  # 45
+  "Holy Nova",  # 46
+  "Inspiration",  # 47
+  "Litany of Light",  # 48
+  "Spiritual Guidance",  # 49
+  "Twin Disciplines",  # 50
+  "Twin Disciplines",  # 51
+  "Twin Disciplines",  # 52
+  "Twin Disciplines",  # 53
+  "Twin Disciplines",  # 54
+  "Martyrdom",  # 55
+  "Martyrdom",  # 56
+  "Improved Power Word: Shield",  # 57
+  "Improved Power Word: Shield",  # 58
+  "Improved Power Word: Shield",  # 59
+  "Mental Agility",  # 60
+]

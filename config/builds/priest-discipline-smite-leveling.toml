@@ -1,0 +1,68 @@
+# Leveling version of priest-discipline-smite (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "priest-discipline-smite-leveling"
+class = "priest"
+name = "Discipline Smite (PvP, leveling)"
+pair = "priest-discipline-smite-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "priest-discipline-smite"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Discipline Smite (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Discipline Smite (PvP) at 60."
+
+order = [
+  "Power in Light",  # 10
+  "Power in Light",  # 11
+  "Power in Light",  # 12
+  "Power in Light",  # 13
+  "Power in Light",  # 14
+  "Holy Precision",  # 15
+  "Wand Specialization",  # 16
+  "Wand Specialization",  # 17
+  "Holy Precision",  # 18
+  "Holy Precision",  # 19
+  "Meditation",  # 20
+  "Meditation",  # 21
+  "Meditation",  # 22
+  "Mental Agility",  # 23
+  "Mental Agility",  # 24
+  "Mental Agility",  # 25
+  "Twin Disciplines",  # 26
+  "Twin Disciplines",  # 27
+  "Twin Disciplines",  # 28
+  "Twin Disciplines",  # 29
+  "Twin Disciplines",  # 30
+  "Silent Resolve",  # 31
+  "Silent Resolve",  # 32
+  "Silent Resolve",  # 33
+  "Penance",  # 34
+  "Mental Strength",  # 35
+  "Mental Strength",  # 36
+  "Twilight Focus",  # 37
+  "Twilight Focus",  # 38
+  "Twilight Focus",  # 39
+  "Mental Strength",  # 40
+  "Mental Strength",  # 41
+  "Mental Strength",  # 42
+  "Power Infusion",  # 43
+  "Inner Focus",  # 44
+  "Divine Aegis",  # 45
+  "Divine Aegis",  # 46
+  "Divine Aegis",  # 47
+  "Improved Inner Fire",  # 48
+  "Improved Inner Fire",  # 49
+  "Improved Inner Fire",  # 50
+  "Improved Mana Burn",  # 51
+  "Holy Specialization",  # 52
+  "Holy Specialization",  # 53
+  "Spell Warding",  # 54
+  "Divine Fury",  # 55
+  "Divine Fury",  # 56
+  "Divine Fury",  # 57
+  "Divine Fury",  # 58
+  "Holy Nova",  # 59
+  "Divine Fury",  # 60
+]

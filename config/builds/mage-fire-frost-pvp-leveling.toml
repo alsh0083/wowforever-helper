@@ -1,0 +1,68 @@
+# Leveling version of mage-fire-frost-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "mage-fire-frost-pvp-leveling"
+class = "mage"
+name = "Fire/Frost (PvP, leveling, model)"
+pair = "mage-fire-frost-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "mage-fire-frost-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Fire/Frost (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Fire/Frost (PvP, model) at 60."
+
+order = [
+  "Improved Fireball",  # 10
+  "Improved Fireball",  # 11
+  "Improved Fireball",  # 12
+  "Improved Fireball",  # 13
+  "Improved Fireball",  # 14
+  "Ignite",  # 15
+  "Ignite",  # 16
+  "Ignite",  # 17
+  "Ignite",  # 18
+  "Ignite",  # 19
+  "Incineration",  # 20
+  "Incineration",  # 21
+  "Incineration",  # 22
+  "Flame Throwing",  # 23
+  "Flame Throwing",  # 24
+  "Master of Elements",  # 25
+  "Master of Elements",  # 26
+  "Master of Elements",  # 27
+  "Impact",  # 28
+  "Impact",  # 29
+  "Critical Mass",  # 30
+  "Critical Mass",  # 31
+  "Critical Mass",  # 32
+  "Wake of Fire",  # 33
+  "Wake of Fire",  # 34
+  "Fire Power",  # 35
+  "Fire Power",  # 36
+  "Elemental Precision",  # 37
+  "Blast Wave",  # 38
+  "Burning Soul",  # 39
+  "Burning Soul",  # 40
+  "Burning Soul",  # 41
+  "Pyroblast",  # 42
+  "Heating Up",  # 43
+  "Impact",  # 44
+  "Improved Frostbolt",  # 45
+  "Improved Frostbolt",  # 46
+  "Improved Frostbolt",  # 47
+  "Improved Frostbolt",  # 48
+  "Permafrost",  # 49
+  "Improved Frost Nova",  # 50
+  "Ice Shards",  # 51
+  "Ice Shards",  # 52
+  "Ice Shards",  # 53
+  "Piercing Ice",  # 54
+  "Ice Lance",  # 55
+  "Ice Shards",  # 56
+  "Frostbite",  # 57
+  "Frostbite",  # 58
+  "Ice Block",  # 59
+  "Shatter",  # 60
+]

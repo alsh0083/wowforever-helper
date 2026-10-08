@@ -422,7 +422,7 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
     else:
         report = {"class": class_name, "engine": True,
                   **build_report(cls, cls.spells, builds, StatTable.load(class_name), Assumptions.load(), meta)}
-    add_leveling(class_name, cls, leveling, report)
+    add_leveling(class_name, cls, leveling, report, builds)
     if report.get("engine", True):
         report.setdefault("caveats", []).append(GROUP_CAVEAT)
     builds = builds + leveling
@@ -452,10 +452,12 @@ def questing_at(class_name: str, cls: ClassData):
                                  "unit": "kills/hour"}
 
 
-def add_leveling(class_name: str, cls: ClassData, leveling: Sequence[Build], report: dict[str, Any]) -> None:
-    """Leveling builds (owner request, 2026-10-07): each gets its path and questing pace at every
-    checkpoint, and `report["leveling"]` lists them by tree and focus with the endgame builds to respec
-    into at 60 (the same tree and focus in the endgame matrix)."""
+def add_leveling(class_name: str, cls: ClassData, leveling: Sequence[Build], report: dict[str, Any],
+                 endgame: Sequence[Build] = ()) -> None:
+    """Leveling builds (owner request and feedback, 2026-10-07): each is the leveling path of an endgame
+    build (`levels_into`). It gets questing pace at every checkpoint, the leveling-only talents it takes
+    (`detours`, respecced at 60), and the builds to respec into: its endgame build, then that slot's model
+    pick. `report["leveling"]` lists them by the endgame slot's archetype and focus."""
     from wowforever import melee_scenarios as ms
 
     for b in report["builds"]:
@@ -474,17 +476,21 @@ def add_leveling(class_name: str, cls: ClassData, leveling: Sequence[Build], rep
         if problems:
             raise ValueError(f"{b.id}: illegal order: {problems}")
         scores = {"questing": {lvl: run(table.at(lvl), ranks_at(order, lvl, cls)) for lvl in CHECKPOINTS}}
-        tree = Counter(cls.talent(t).tree_id for t in order).most_common(1)[0][0]
-        tree_name = next(t.name for t in cls.trees if t.tree_id == tree)
-        slot = slots.get((f"deep {tree_name}", b.variant), {})
-        respec = [x for x in [slot.get("standard"), f'{slot.get("standard")}-model', *slot.get("qualifying", [])]
-                  if x and x in known]
+        slot = next((s for s in slots.values() if s.get("standard") == b.levels_into), {})
+        respec = [x for x in [b.levels_into, f"{b.levels_into}-model"] if x and x in known]
+        target = next((e for e in endgame if e.id == b.levels_into), None)
+        final = Counter(order)
+        detours = {}
+        if target is not None:
+            want = target.final_ids(cls)
+            detours = {cls.talent(t).name: n - want.get(t, 0) for t, n in final.items() if n > want.get(t, 0)}
         report["builds"].append({
             "id": b.id, "name": b.name, "pair": b.pair, "variant": b.variant, "origin": b.origin, "mode": "leveling",
             "summary": b.summary, "gives_up": [], "model_filled": {}, "must_have_by": {}, "order": order,
             "order_source": "model leveling path (questing pace)", "open_points": 0, "scores": scores,
-            "sensitivity": [], "respec": list(dict.fromkeys(respec))})
-        rows.append({"tree": tree_name, "focus": b.variant, "build": b.id,
+            "sensitivity": [], "respec": list(dict.fromkeys(respec)), "levels_into": b.levels_into,
+            "detours": detours})
+        rows.append({"archetype": slot.get("archetype", ""), "focus": b.variant, "build": b.id,
                      "score": round(sum(c["score"] for c in scores["questing"].values()) / len(CHECKPOINTS), 1)})
     report["leveling"] = rows
 

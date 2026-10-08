@@ -1,0 +1,68 @@
+# Leveling version of priest-shadow (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "priest-shadow-leveling"
+class = "priest"
+name = "Shadowform (PvP, leveling)"
+pair = "priest-shadow-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "priest-shadow"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Shadowform (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Shadowform (PvP) at 60."
+
+order = [
+  "Shadow Focus",  # 10
+  "Shadow Focus",  # 11
+  "Shadow Focus",  # 12
+  "Shadow Focus",  # 13
+  "Shadow Focus",  # 14
+  "Shadow Reach",  # 15
+  "Shadow Reach",  # 16
+  "Blackout",  # 17
+  "Blackout",  # 18
+  "Blackout",  # 19
+  "Mind Flay",  # 20
+  "Improved Mind Flay",  # 21
+  "Improved Mind Flay",  # 22
+  "Blackout",  # 23
+  "Blackout",  # 24
+  "Shadow Weaving",  # 25
+  "Shadow Weaving",  # 26
+  "Shadow Weaving",  # 27
+  "Twilight Focus",  # 28
+  "Twilight Focus",  # 29
+  "Twilight Focus",  # 30
+  "Wand Specialization",  # 31
+  "Wand Specialization",  # 32
+  "Vampiric Embrace",  # 33
+  "Shadow Affinity",  # 34
+  "Devouring Contagion",  # 35
+  "Devouring Contagion",  # 36
+  "Shadow Affinity",  # 37
+  "Spirit Tap",  # 38
+  "Spirit Tap",  # 39
+  "Darkness",  # 40
+  "Darkness",  # 41
+  "Darkness",  # 42
+  "Darkness",  # 43
+  "Darkness",  # 44
+  "Shadowform",  # 45
+  "Improved Mind Blast",  # 46
+  "Improved Mind Blast",  # 47
+  "Improved Mind Blast",  # 48
+  "Improved Mind Blast",  # 49
+  "Improved Mind Blast",  # 50
+  "Early Demise",  # 51
+  "Early Demise",  # 52
+  "Shadow Affinity",  # 53
+  "Improved Shadow Word: Pain",  # 54
+  "Improved Shadow Word: Pain",  # 55
+  "Twin Disciplines",  # 56
+  "Twin Disciplines",  # 57
+  "Twin Disciplines",  # 58
+  "Improved Power Word: Shield",  # 59
+  "Improved Power Word: Shield",  # 60
+]

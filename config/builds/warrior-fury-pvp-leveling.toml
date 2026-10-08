@@ -1,0 +1,68 @@
+# Leveling version of warrior-fury-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "warrior-fury-pvp-leveling"
+class = "warrior"
+name = "Fury (PvP, leveling, model)"
+pair = "warrior-fury-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "warrior-fury-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Fury (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Fury (PvP, model) at 60."
+
+order = [
+  "Cruelty",  # 10
+  "Cruelty",  # 11
+  "Cruelty",  # 12
+  "Cruelty",  # 13
+  "Cruelty",  # 14
+  "Unbridled Wrath",  # 15
+  "Unbridled Wrath",  # 16
+  "Unbridled Wrath",  # 17
+  "Unbridled Wrath",  # 18
+  "Unbridled Wrath",  # 19
+  "Booming Voice",  # 20
+  "Booming Voice",  # 21
+  "Booming Voice",  # 22
+  "Booming Voice",  # 23
+  "Booming Voice",  # 24
+  "Raging Blows",  # 25
+  "Enrage",  # 26
+  "Enrage",  # 27
+  "Iron Will",  # 28
+  "Iron Will",  # 29
+  "Death Wish",  # 30
+  "Precision",  # 31
+  "Precision",  # 32
+  "Precision",  # 33
+  "Improved Intercept",  # 34
+  "Improved Intercept",  # 35
+  "Enrage",  # 36
+  "Enrage",  # 37
+  "Enrage",  # 38
+  "Flurry",  # 39
+  "Flurry",  # 40
+  "Flurry",  # 41
+  "Flurry",  # 42
+  "Improved Cleave",  # 43
+  "Piercing Howl",  # 44
+  "Blood Craze",  # 45
+  "Blood Craze",  # 46
+  "Blood Craze",  # 47
+  "Improved Heroic Strike",  # 48
+  "Improved Heroic Strike",  # 49
+  "Improved Heroic Strike",  # 50
+  "Improved Rend",  # 51
+  "Improved Rend",  # 52
+  "Improved Tactical Mastery",  # 53
+  "Improved Tactical Mastery",  # 54
+  "Improved Tactical Mastery",  # 55
+  "Improved Tactical Mastery",  # 56
+  "Improved Tactical Mastery",  # 57
+  "Anger Management",  # 58
+  "Improved Rend",  # 59
+  "Deep Wounds",  # 60
+]

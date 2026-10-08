@@ -1,0 +1,68 @@
+# Leveling version of paladin-holy-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "paladin-holy-pvp-leveling"
+class = "paladin"
+name = "Holy (PvP, leveling)"
+pair = "paladin-holy-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "paladin-holy-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Holy (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Holy (PvP) at 60."
+
+order = [
+  "Divine Intellect",  # 10
+  "Divine Intellect",  # 11
+  "Divine Intellect",  # 12
+  "Divine Intellect",  # 13
+  "Divine Intellect",  # 14
+  "Healing Light",  # 15
+  "Healing Light",  # 16
+  "Healing Light",  # 17
+  "Spiritual Focus",  # 18
+  "Spiritual Focus",  # 19
+  "Voice of Truth",  # 20
+  "Reverence",  # 21
+  "Reverence",  # 22
+  "Reverence",  # 23
+  "Redoubt",  # 24
+  "Redoubt",  # 25
+  "Redoubt",  # 26
+  "Purifying Power",  # 27
+  "Toughness",  # 28
+  "Toughness",  # 29
+  "Precision",  # 30
+  "Precision",  # 31
+  "Precision",  # 32
+  "Toughness",  # 33
+  "Toughness",  # 34
+  "Improved Righteous Fury",  # 35
+  "Improved Righteous Fury",  # 36
+  "Improved Righteous Fury",  # 37
+  "Sacred Duty",  # 38
+  "Sacred Duty",  # 39
+  "Improved Hammer of Justice",  # 40
+  "Improved Hammer of Justice",  # 41
+  "Improved Hammer of Justice",  # 42
+  "Infusion of Light",  # 43
+  "Infusion of Light",  # 44
+  "Illumination",  # 45
+  "Illumination",  # 46
+  "Illumination",  # 47
+  "Holy Shock",  # 48
+  "Illumination",  # 49
+  "Illumination",  # 50
+  "Divine Favor",  # 51
+  "Purifying Power",  # 52
+  "Holy Power",  # 53
+  "Holy Power",  # 54
+  "Holy Power",  # 55
+  "Holy Power",  # 56
+  "Holy Power",  # 57
+  "Light's Vigil",  # 58
+  "Unyielding Faith",  # 59
+  "Unyielding Faith",  # 60
+]

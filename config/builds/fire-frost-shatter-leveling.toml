@@ -1,0 +1,68 @@
+# Leveling version of fire-frost-shatter (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "fire-frost-shatter-leveling"
+class = "mage"
+name = "Fire/Frost Shatter (PvE, leveling)"
+pair = "fire-frost-shatter-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "fire-frost-shatter"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Fire/Frost Shatter (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Fire/Frost Shatter (PvE) at 60."
+
+order = [
+  "Improved Fireball",  # 10
+  "Improved Fireball",  # 11
+  "Improved Fireball",  # 12
+  "Improved Fireball",  # 13
+  "Improved Fireball",  # 14
+  "Ignite",  # 15
+  "Ignite",  # 16
+  "Ignite",  # 17
+  "Ignite",  # 18
+  "Ignite",  # 19
+  "Incineration",  # 20
+  "Incineration",  # 21
+  "Incineration",  # 22
+  "Flame Throwing",  # 23
+  "Flame Throwing",  # 24
+  "Master of Elements",  # 25
+  "Master of Elements",  # 26
+  "Master of Elements",  # 27
+  "Impact",  # 28
+  "Impact",  # 29
+  "Critical Mass",  # 30
+  "Critical Mass",  # 31
+  "Critical Mass",  # 32
+  "Wake of Fire",  # 33
+  "Improved Scorch",  # 34
+  "Fire Power",  # 35
+  "Fire Power",  # 36
+  "Fire Power",  # 37
+  "Fire Power",  # 38
+  "Elemental Precision",  # 39
+  "Elemental Precision",  # 40
+  "Improved Scorch",  # 41
+  "Improved Scorch",  # 42
+  "Burning Soul",  # 43
+  "Burning Soul",  # 44
+  "Burning Soul",  # 45
+  "Pyroblast",  # 46
+  "Heating Up",  # 47
+  "Elemental Precision",  # 48
+  "Elemental Precision",  # 49
+  "Elemental Precision",  # 50
+  "Ice Shards",  # 51
+  "Ice Shards",  # 52
+  "Ice Shards",  # 53
+  "Ice Shards",  # 54
+  "Ice Shards",  # 55
+  "Piercing Ice",  # 56
+  "Piercing Ice",  # 57
+  "Piercing Ice",  # 58
+  "Frost Channeling",  # 59
+  "Frost Channeling",  # 60
+]

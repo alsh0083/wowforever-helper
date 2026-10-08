@@ -1,0 +1,68 @@
+# Leveling version of paladin-holy (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "paladin-holy-leveling"
+class = "paladin"
+name = "Holy Shock (PvE, leveling)"
+pair = "paladin-holy-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "paladin-holy"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Holy Shock (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Holy Shock (PvE) at 60."
+
+order = [
+  "Divine Intellect",  # 10
+  "Divine Intellect",  # 11
+  "Divine Intellect",  # 12
+  "Divine Intellect",  # 13
+  "Divine Intellect",  # 14
+  "Healing Light",  # 15
+  "Healing Light",  # 16
+  "Healing Light",  # 17
+  "Spiritual Focus",  # 18
+  "Spiritual Focus",  # 19
+  "Voice of Truth",  # 20
+  "Reverence",  # 21
+  "Reverence",  # 22
+  "Reverence",  # 23
+  "Purifying Power",  # 24
+  "Infusion of Light",  # 25
+  "Infusion of Light",  # 26
+  "Illumination",  # 27
+  "Illumination",  # 28
+  "Illumination",  # 29
+  "Divine Precision",  # 30
+  "Divine Precision",  # 31
+  "Divine Precision",  # 32
+  "Holy Shock",  # 33
+  "Illumination",  # 34
+  "Holy Power",  # 35
+  "Holy Power",  # 36
+  "Holy Power",  # 37
+  "Holy Power",  # 38
+  "Holy Power",  # 39
+  "Light's Vigil",  # 40
+  "Illumination",  # 41
+  "Divine Favor",  # 42
+  "Purifying Power",  # 43
+  "Unyielding Faith",  # 44
+  "Unyielding Faith",  # 45
+  "Consecrated Ground",  # 46
+  "Consecrated Ground",  # 47
+  "Improved Seals",  # 48
+  "Improved Seals",  # 49
+  "Improved Seals",  # 50
+  "Divine Strength",  # 51
+  "Divine Strength",  # 52
+  "Toughness",  # 53
+  "Toughness",  # 54
+  "Toughness",  # 55
+  "Toughness",  # 56
+  "Toughness",  # 57
+  "Precision",  # 58
+  "Precision",  # 59
+  "Precision",  # 60
+]

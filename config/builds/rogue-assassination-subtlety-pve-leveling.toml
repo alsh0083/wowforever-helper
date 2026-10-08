@@ -1,0 +1,68 @@
+# Leveling version of rogue-assassination-subtlety-pve (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "rogue-assassination-subtlety-pve-leveling"
+class = "rogue"
+name = "Assassination/Subtlety (PvE, leveling, model)"
+pair = "rogue-assassination-subtlety-pve-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "rogue-assassination-subtlety-pve"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Assassination/Subtlety (PvE, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Assassination/Subtlety (PvE, model) at 60."
+
+order = [
+  "Camouflage",  # 10
+  "Camouflage",  # 11
+  "Camouflage",  # 12
+  "Camouflage",  # 13
+  "Camouflage",  # 14
+  "Master of Deception",  # 15
+  "Master of Deception",  # 16
+  "Master of Deception",  # 17
+  "Opportunity",  # 18
+  "Opportunity",  # 19
+  "Setup",  # 20
+  "Setup",  # 21
+  "Setup",  # 22
+  "Elusiveness",  # 23
+  "Elusiveness",  # 24
+  "Serrated Blades",  # 25
+  "Serrated Blades",  # 26
+  "Serrated Blades",  # 27
+  "Improved Sinister Strike",  # 28
+  "Heightened Senses",  # 29
+  "Heightened Senses",  # 30
+  "Dirty Deeds",  # 31
+  "Dirty Deeds",  # 32
+  "Preparation",  # 33
+  "Improved Sinister Strike",  # 34
+  "Malice",  # 35
+  "Malice",  # 36
+  "Malice",  # 37
+  "Malice",  # 38
+  "Malice",  # 39
+  "Premeditation",  # 40
+  "Initiative",  # 41
+  "Initiative",  # 42
+  "Dirty Tricks",  # 43
+  "Dirty Tricks",  # 44
+  "Improved Ambush",  # 45
+  "Improved Ambush",  # 46
+  "Improved Ambush",  # 47
+  "Improved Eviscerate",  # 48
+  "Improved Eviscerate",  # 49
+  "Improved Eviscerate",  # 50
+  "Precision",  # 51
+  "Precision",  # 52
+  "Precision",  # 53
+  "Improved Slice and Dice",  # 54
+  "Improved Slice and Dice",  # 55
+  "Improved Slice and Dice",  # 56
+  "Ruthlessness",  # 57
+  "Ruthlessness",  # 58
+  "Relentless Strikes",  # 59
+  "Ruthlessness",  # 60
+]

@@ -1,0 +1,68 @@
+# Leveling version of hunter-survival (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "hunter-survival-leveling"
+class = "hunter"
+name = "Survival Lone Wolf (PvE, leveling)"
+pair = "hunter-survival-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "hunter-survival"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Survival Lone Wolf (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Survival Lone Wolf (PvE) at 60."
+
+order = [
+  "Improved Tracking",  # 10
+  "Improved Tracking",  # 11
+  "Improved Tracking",  # 12
+  "Improved Tracking",  # 13
+  "Improved Tracking",  # 14
+  "Deflection",  # 15
+  "Savage Strikes",  # 16
+  "Savage Strikes",  # 17
+  "Deflection",  # 18
+  "Deflection",  # 19
+  "Surefooted",  # 20
+  "Surefooted",  # 21
+  "Surefooted",  # 22
+  "Clever Traps",  # 23
+  "Clever Traps",  # 24
+  "Survival Tactics",  # 25
+  "Survival Tactics",  # 26
+  "Predator's Edge",  # 27
+  "Predator's Edge",  # 28
+  "Predator's Edge",  # 29
+  "Resourcefulness",  # 30
+  "Deflection",  # 31
+  "Predator's Edge",  # 32
+  "Predator's Edge",  # 33
+  "Deflection",  # 34
+  "Lightning Reflexes",  # 35
+  "Lethal Attacks",  # 36
+  "Lightning Reflexes",  # 37
+  "Lightning Reflexes",  # 38
+  "Lightning Reflexes",  # 39
+  "Lightning Reflexes",  # 40
+  "Resourcefulness",  # 41
+  "Expose Prey",  # 42
+  "Expose Prey",  # 43
+  "Lacerating Strikes",  # 44
+  "Survivalist's Discipline",  # 45
+  "Survivalist's Discipline",  # 46
+  "Strider Kick",  # 47
+  "Survivalist",  # 48
+  "Survivalist",  # 49
+  "Survivalist",  # 50
+  "Deterrence",  # 51
+  "Counterattack",  # 52
+  "Lethal Attacks",  # 53
+  "Lethal Attacks",  # 54
+  "Lethal Attacks",  # 55
+  "Lethal Attacks",  # 56
+  "Careful Aim",  # 57
+  "Careful Aim",  # 58
+  "Careful Aim",  # 59
+  "Careful Aim",  # 60
+]

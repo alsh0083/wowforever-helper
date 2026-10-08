@@ -1,0 +1,68 @@
+# Leveling version of druid-restoration-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "druid-restoration-pvp-leveling"
+class = "druid"
+name = "Restoration (PvP, leveling)"
+pair = "druid-restoration-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "druid-restoration-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Restoration (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Restoration (PvP) at 60."
+
+order = [
+  "Improved Wrath",  # 10
+  "Nature's Focus",  # 11
+  "Improved Wrath",  # 12
+  "Improved Wrath",  # 13
+  "Improved Wrath",  # 14
+  "Improved Wrath",  # 15
+  "Moonglow",  # 16
+  "Moonglow",  # 17
+  "Nature's Focus",  # 18
+  "Nature's Focus",  # 19
+  "Nature's Focus",  # 20
+  "Nature's Focus",  # 21
+  "Naturalist",  # 22
+  "Naturalist",  # 23
+  "Naturalist",  # 24
+  "Naturalist",  # 25
+  "Naturalist",  # 26
+  "Reflection",  # 27
+  "Reflection",  # 28
+  "Reflection",  # 29
+  "Gift of Nature",  # 30
+  "Gift of Nature",  # 31
+  "Tranquil Spirit",  # 32
+  "Improved Rejuvenation",  # 33
+  "Improved Rejuvenation",  # 34
+  "Improved Rejuvenation",  # 35
+  "Swiftmend",  # 36
+  "Nature's Swiftness",  # 37
+  "Living Spirit",  # 38
+  "Living Spirit",  # 39
+  "Living Spirit",  # 40
+  "Gift of the Earthmother",  # 41
+  "Improved Regrowth",  # 42
+  "Improved Regrowth",  # 43
+  "Improved Regrowth",  # 44
+  "Improved Regrowth",  # 45
+  "Improved Regrowth",  # 46
+  "Wild Growth",  # 47
+  "Heart of the Wild",  # 48
+  "Heart of the Wild",  # 49
+  "Heart of the Wild",  # 50
+  "Heart of the Wild",  # 51
+  "Heart of the Wild",  # 52
+  "Feral Swiftness",  # 53
+  "Feral Swiftness",  # 54
+  "Thick Hide",  # 55
+  "Thick Hide",  # 56
+  "Thick Hide",  # 57
+  "Shredding Attacks",  # 58
+  "Shredding Attacks",  # 59
+  "Savage Fury",  # 60
+]

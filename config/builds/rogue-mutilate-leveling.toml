@@ -1,0 +1,68 @@
+# Leveling version of rogue-mutilate (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "rogue-mutilate-leveling"
+class = "rogue"
+name = "Mutilate Seal Fate (PvE, leveling)"
+pair = "rogue-mutilate-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "rogue-mutilate"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Mutilate Seal Fate (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Mutilate Seal Fate (PvE) at 60."
+
+order = [
+  "Malice",  # 10
+  "Malice",  # 11
+  "Malice",  # 12
+  "Malice",  # 13
+  "Malice",  # 14
+  "Improved Gouge",  # 15
+  "Improved Gouge",  # 16
+  "Improved Gouge",  # 17
+  "Remorseless Attacks",  # 18
+  "Remorseless Attacks",  # 19
+  "Relentless Strikes",  # 20
+  "Lethality",  # 21
+  "Lethality",  # 22
+  "Lethality",  # 23
+  "Lethality",  # 24
+  "Lethality",  # 25
+  "Murder",  # 26
+  "Murder",  # 27
+  "Improved Sinister Strike",  # 28
+  "Improved Slice and Dice",  # 29
+  "Improved Slice and Dice",  # 30
+  "Improved Slice and Dice",  # 31
+  "Mutilate",  # 32
+  "Ruthlessness",  # 33
+  "Ruthlessness",  # 34
+  "Ruthlessness",  # 35
+  "Seal Fate",  # 36
+  "Seal Fate",  # 37
+  "Seal Fate",  # 38
+  "Seal Fate",  # 39
+  "Seal Fate",  # 40
+  "Opportunity",  # 41
+  "Opportunity",  # 42
+  "Venom",  # 43
+  "Vigor",  # 44
+  "Vigor",  # 45
+  "Vile Poisons",  # 46
+  "Vile Poisons",  # 47
+  "Improved Eviscerate",  # 48
+  "Improved Eviscerate",  # 49
+  "Improved Eviscerate",  # 50
+  "Vile Poisons",  # 51
+  "Vile Poisons",  # 52
+  "Vile Poisons",  # 53
+  "Cold Blood",  # 54
+  "Improved Poisons",  # 55
+  "Improved Poisons",  # 56
+  "Improved Poisons",  # 57
+  "Improved Poisons",  # 58
+  "Improved Poisons",  # 59
+  "Lightning Reflexes",  # 60
+]

@@ -1,0 +1,68 @@
+# Leveling version of priest-shadow-pve (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "priest-shadow-pve-leveling"
+class = "priest"
+name = "Shadow (PvE, leveling)"
+pair = "priest-shadow-pve-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "priest-shadow-pve"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Shadow (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Shadow (PvE) at 60."
+
+order = [
+  "Shadow Focus",  # 10
+  "Shadow Focus",  # 11
+  "Shadow Focus",  # 12
+  "Shadow Focus",  # 13
+  "Shadow Focus",  # 14
+  "Blackout",  # 15
+  "Blackout",  # 16
+  "Blackout",  # 17
+  "Blackout",  # 18
+  "Blackout",  # 19
+  "Mind Flay",  # 20
+  "Improved Mind Flay",  # 21
+  "Improved Mind Flay",  # 22
+  "Spirit Tap",  # 23
+  "Spirit Tap",  # 24
+  "Shadow Weaving",  # 25
+  "Shadow Weaving",  # 26
+  "Shadow Weaving",  # 27
+  "Vampiric Embrace",  # 28
+  "Shadow Affinity",  # 29
+  "Silence",  # 30
+  "Devouring Contagion",  # 31
+  "Devouring Contagion",  # 32
+  "Shadow Affinity",  # 33
+  "Shadow Affinity",  # 34
+  "Darkness",  # 35
+  "Darkness",  # 36
+  "Darkness",  # 37
+  "Darkness",  # 38
+  "Darkness",  # 39
+  "Shadowform",  # 40
+  "Improved Mind Blast",  # 41
+  "Improved Mind Blast",  # 42
+  "Improved Mind Blast",  # 43
+  "Improved Mind Blast",  # 44
+  "Improved Mind Blast",  # 45
+  "Early Demise",  # 46
+  "Early Demise",  # 47
+  "Improved Shadow Word: Pain",  # 48
+  "Improved Shadow Word: Pain",  # 49
+  "Twin Disciplines",  # 50
+  "Twin Disciplines",  # 51
+  "Twin Disciplines",  # 52
+  "Twin Disciplines",  # 53
+  "Twin Disciplines",  # 54
+  "Silent Resolve",  # 55
+  "Silent Resolve",  # 56
+  "Silent Resolve",  # 57
+  "Improved Power Word: Shield",  # 58
+  "Improved Power Word: Shield",  # 59
+  "Mental Agility",  # 60
+]

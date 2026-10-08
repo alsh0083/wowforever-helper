@@ -1,0 +1,68 @@
+# Leveling version of hunter-marksmanship (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "hunter-marksmanship-leveling"
+class = "hunter"
+name = "Marksmanship (PvE, leveling)"
+pair = "hunter-marksmanship-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "hunter-marksmanship"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Marksmanship (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Marksmanship (PvE) at 60."
+
+order = [
+  "Lethal Attacks",  # 10
+  "Lethal Attacks",  # 11
+  "Lethal Attacks",  # 12
+  "Lethal Attacks",  # 13
+  "Lethal Attacks",  # 14
+  "Efficiency",  # 15
+  "Efficiency",  # 16
+  "Efficiency",  # 17
+  "Efficiency",  # 18
+  "Efficiency",  # 19
+  "Careful Aim",  # 20
+  "Careful Aim",  # 21
+  "Careful Aim",  # 22
+  "Careful Aim",  # 23
+  "Careful Aim",  # 24
+  "Trueshot Aura",  # 25
+  "Mortal Shots",  # 26
+  "Mortal Shots",  # 27
+  "Mortal Shots",  # 28
+  "Mortal Shots",  # 29
+  "Barrage",  # 30
+  "Barrage",  # 31
+  "Barrage",  # 32
+  "Mortal Shots",  # 33
+  "Improved Stings",  # 34
+  "Ranged Weapon Specialization",  # 35
+  "Ranged Weapon Specialization",  # 36
+  "Ranged Weapon Specialization",  # 37
+  "Ranged Weapon Specialization",  # 38
+  "Ranged Weapon Specialization",  # 39
+  "Improved Stings",  # 40
+  "Improved Stings",  # 41
+  "Sniper Shot",  # 42
+  "Hawk Eye",  # 43
+  "Hawk Eye",  # 44
+  "Hawk Eye",  # 45
+  "Rapid Killing",  # 46
+  "Rapid Killing",  # 47
+  "Rapid Recuperation",  # 48
+  "Rapid Recuperation",  # 49
+  "Scatter Shot",  # 50
+  "Improved Concussive Shot",  # 51
+  "Improved Concussive Shot",  # 52
+  "Improved Concussive Shot",  # 53
+  "Improved Concussive Shot",  # 54
+  "Improved Concussive Shot",  # 55
+  "Improved Arcane Shot",  # 56
+  "Deadly Aspects",  # 57
+  "Deadly Aspects",  # 58
+  "Deadly Aspects",  # 59
+  "Deadly Aspects",  # 60
+]
