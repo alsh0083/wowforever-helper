@@ -1324,6 +1324,7 @@
       "high": 55.6,
       "unbuffed": 43.5,
       "top_buffs": [
+       "major_armor",
        "blessing_of_might",
        "battle_shout"
       ],
@@ -1336,8 +1337,9 @@
       "high": 89.8,
       "unbuffed": 65.3,
       "top_buffs": [
+       "major_armor",
        "blessing_of_might",
-       "battle_shout"
+       "flametongue_totem"
       ],
       "unit": "dps",
       "solo": 71.9
@@ -1348,8 +1350,9 @@
       "high": 159.7,
       "unbuffed": 103.8,
       "top_buffs": [
+       "major_armor",
        "blessing_of_might",
-       "battle_shout"
+       "windfury_totem"
       ],
       "unit": "dps",
       "solo": 115.5
@@ -1360,8 +1363,9 @@
       "high": 217.8,
       "unbuffed": 143.3,
       "top_buffs": [
+       "major_armor",
        "blessing_of_might",
-       "battle_shout"
+       "windfury_totem"
       ],
       "unit": "dps",
       "solo": 159.0
@@ -1372,8 +1376,9 @@
       "high": 303.0,
       "unbuffed": 193.7,
       "top_buffs": [
-       "battle_shout",
-       "blessing_of_might"
+       "blessing_of_might",
+       "major_armor",
+       "battle_shout"
       ],
       "unit": "dps",
       "solo": 214.4
@@ -1458,7 +1463,8 @@
    "about": [
     "35 points in Retribution, with 8 in Holy and 8 in Protection. Built for PvP. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25, Repentance at 54 and Twist of Light at 60.",
     "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 55% and Holy damage 45%.",
-    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage."
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage.",
+    "In a dungeon group it gains most from Blessing of Might, Sunder Armor and Battle Shout: about 32% more damage at 60 than unbuffed, on average across groups."
    ]
   },
   {
@@ -1558,6 +1564,7 @@
       "high": 55.6,
       "unbuffed": 43.5,
       "top_buffs": [
+       "major_armor",
        "blessing_of_might",
        "battle_shout"
       ],
@@ -1570,8 +1577,9 @@
       "high": 88.3,
       "unbuffed": 64.0,
       "top_buffs": [
+       "major_armor",
        "blessing_of_might",
-       "battle_shout"
+       "flametongue_totem"
       ],
       "unit": "dps",
       "solo": 70.6
@@ -1582,8 +1590,9 @@
       "high": 159.7,
       "unbuffed": 103.8,
       "top_buffs": [
+       "major_armor",
        "blessing_of_might",
-       "battle_shout"
+       "windfury_totem"
       ],
       "unit": "dps",
       "solo": 115.5
@@ -1594,8 +1603,9 @@
       "high": 213.8,
       "unbuffed": 140.3,
       "top_buffs": [
+       "major_armor",
        "blessing_of_might",
-       "battle_shout"
+       "windfury_totem"
       ],
       "unit": "dps",
       "solo": 155.6
@@ -1606,8 +1616,9 @@
       "high": 303.0,
       "unbuffed": 193.7,
       "top_buffs": [
-       "battle_shout",
-       "blessing_of_might"
+       "blessing_of_might",
+       "major_armor",
+       "battle_shout"
       ],
       "unit": "dps",
       "solo": 214.4
@@ -1693,7 +1704,8 @@
     "34 points in Retribution, with 13 in Holy and 4 in Protection. Built for PvE. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25 and Twist of Light at 60.",
     "The community build leaves 4 points unspent at 60; the model fills them with Redoubt 4.",
     "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 55% and Holy damage 45%.",
-    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage."
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage.",
+    "In a dungeon group it gains most from Blessing of Might, Sunder Armor and Battle Shout: about 32% more damage at 60 than unbuffed, on average across groups."
    ]
   },
   {
@@ -2873,7 +2885,8 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Retribution model (#175): a two-hander's white swings with Seal of Command procs, Judgement and Holy Strike on cooldown; Holy damage ignores armor. Seal of Command's proc rate and Judgement of Command's damage are Classic values. Consecration, Exorcism, Hammer of Wrath, Vindication, Divine Strength and mana aren't modeled; base stats are estimates. Holy and Protection stay unscored."
+  "Retribution model (#175): a two-hander's white swings with Seal of Command procs, Judgement and Holy Strike on cooldown; Holy damage ignores armor. Seal of Command's proc rate and Judgement of Command's damage are Classic values. Consecration, Exorcism, Hammer of Wrath, Vindication, Divine Strength and mana aren't modeled; base stats are estimates. Holy and Protection stay unscored.",
+  "Dungeon scores assume a 5-player group (#220): a tank, a healer, two more DPS and you, weighted by how often each class and spec shows up in Forever Logs. Group buffs come from the game client at your level; each provider uses the option that helps your build type (Might and Windfury for physical damage, Kings and the Elements for casters); a warrior tank keeps 5 Sunders up. Shadow Weaving, Improved Scorch and Winter's Chill only help their own caster in Forever, so they aren't group buffs. Raids and questing are unbuffed."
  ],
  "leveling": [
   {

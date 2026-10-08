@@ -66,3 +66,39 @@ dungeons include trash pulls where AoE multiplies DPS.
 
 Refresh: the statistics are fetched on demand with the owner's key (about 40 requests per mode,
 free tier). Raw responses stay in `data/cache/foreverlogs/` and are not redistributed.
+
+## With party buffs (#218-#221, 2026-10-07)
+
+The dungeon score now models a weighted 5-player group with Forever's own buff values (see
+docs/planning/2026-10-07-party-buffs.md). Same logs (1,265 parses; 1,253 boss-only), rows with 25+ parses:
+
+| Spec | Level | Parses | Model / p90 (all fights) | Model / p90 (bosses only) | Bosses only, before |
+|---|---|---|---|---|---|
+| Hunter Marksmanship | 20 | 74 | 0.99 | 1.04 | 1.02 |
+| Hunter Marksmanship | 30 | 35 | 0.85 | 0.94 | 0.89 |
+| Hunter Beast Mastery | 20 | 57 | 1.17 | 1.32 | 1.29 |
+| Hunter Beast Mastery | 30 | 39 | 1.23 | 1.36 | 1.28 |
+| Mage Frost | 20 | 28 | 0.66 | 1.16 | 1.02 |
+| Mage Arcane | 20 | 30 | 0.82 | 1.42 | 1.24 |
+| Mage Fire | 20 | 25 | 0.97 | 1.19 | 1.07 |
+| Warlock Affliction | 20 | 43 | 1.13 | 1.23 | 1.18 |
+| Druid Feral Combat | 20 | 69 | 0.97 | 0.99 | 0.93 |
+| Rogue Combat | 20 | 60 | 0.70 | 0.74 | 0.71 |
+| Rogue Combat | 30 | 40 | 0.66 | 0.88 | 0.76 |
+| Rogue Assassination | 20 | 85 | 0.71 | 0.71 | 0.67 |
+| Rogue Assassination | 30 | 45 | 0.67 | 0.67 | 0.60 |
+| Shaman Enhancement | 20 | 107 | 0.62 | 0.71 | 0.68 |
+| Shaman Enhancement | 30 | 78 | 0.71 | 0.76 | 0.69 |
+| Paladin Retribution | 20 | 91 | 0.73 | 0.80 | 0.75 |
+| Paladin Retribution | 30 | 65 | 0.83 | 0.89 | 0.79 |
+| Warrior Arms | 20 | 51 | 0.31 | 0.51 | 0.48 |
+| Warrior Arms | 30 | 26 | 0.34 | 0.81 | 0.71 |
+
+- **Melee moved up most at level 30**, where Windfury Totem, Grace of Air and stronger shouts arrive.
+  At 20 few group buffs exist yet, so the gain is small.
+- **Casters went from about 1.0 to 1.2-1.4 at level 20.** That's mostly Arcane Intellect, Kings and
+  Curse of the Elements, which a level-20 pug often lacks in practice.
+- **Still open:** melee is 0.7-0.9 of the strong boss parses, and Arms warrior at 20 is 0.51. Arms'
+  Rage model is the next suspect. Logs bucket players by the dungeon's typical level, so over-levelled
+  players also raise the logged numbers.
+

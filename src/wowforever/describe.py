@@ -117,6 +117,18 @@ def strengths(build: Mapping[str, Any], best: Mapping[str, float]) -> str:
             f"weakest at {SCENARIO_LABELS[low[0]]} ({low[1]:.0%}).")
 
 
+def group_line(build: Mapping[str, Any], names: Mapping[str, str]) -> str:
+    """The dungeon group buffs that help most (#221), from the level-60 grouped dungeon score."""
+    cells = build.get("scores", {}).get("dungeon", {})
+    cell = cells.get("60") or cells.get(60) or {}
+    top = [names.get(b, b) for b in cell.get("top_buffs", [])]
+    if not top or cell.get("unbuffed") is None:
+        return ""
+    gain = cell["score"] / cell["unbuffed"] - 1 if cell["unbuffed"] else 0
+    return (f"In a dungeon group it gains most from {_join(top)}: about {gain:.0%} more damage at 60 than "
+            f"unbuffed, on average across groups.")
+
+
 def pace(build: Mapping[str, Any]) -> str:
     """A leveling build's questing pace by level."""
     cells = build.get("scores", {}).get("questing", {})
@@ -202,10 +214,19 @@ def rotation_facts(class_name: str, cls: ClassData, ranks: Mapping[int, int], st
     return {}
 
 
+def _buff_names() -> dict[str, str]:
+    from .group import load_catalog
+
+    out = {b["id"]: b.get("cast") or b["spell"] for b in load_catalog()}
+    out.update({b["stack"]: b.get("cast") or b["spell"] for b in load_catalog()})   # effective sets key by stack
+    return out
+
+
 def add_descriptions(class_name: str, cls: ClassData, report: dict[str, Any], variants: Mapping[str, str],
                      stats_at_60: Any) -> None:
     """Sets `about` (a list of paragraphs) on every build in `report`."""
     best = class_best(report["builds"])
+    buff_names = _buff_names()
     for b in report["builds"]:
         paragraphs = [shape(cls, b, variants.get(b["id"], ""))]
         if b.get("model_filled"):
@@ -224,7 +245,8 @@ def add_descriptions(class_name: str, cls: ClassData, report: dict[str, Any], va
             except Exception:   # an engine that can't run this build at 60 just gets no playstyle line
                 facts = {}
             paragraphs += [p for p in (playstyle(class_name, facts),
-                                       pace(b) if b.get("mode") == "leveling" else strengths(b, best)) if p]
+                                       pace(b) if b.get("mode") == "leveling" else strengths(b, best),
+                                       group_line(b, buff_names) if b.get("mode") != "leveling" else "") if p]
         if b.get("mode") == "leveling":
             paragraphs.append("A model leveling path, not yet tried in game. It isn't tied to an endgame build: "
                               "respec at 60 into one of the builds suggested below.")
