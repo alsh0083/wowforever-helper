@@ -62,7 +62,7 @@ try{talented=Math.max(0,Math.min(5,parseInt(localStorage.getItem('wow-forever-ta
 RULES.first_talent_level=BASE_FIRST_LEVEL-talented;
 const BUILDS=DATA.builds;
 const TREE_CLASS=THEME.trees;
-const SCENARIO_LABEL={questing:'Questing',aoe:'AoE',raid:'Raid',dungeon:'Dungeon pull',battleground:'Battleground',survival:'Survival',control:'Control',wpvp_melee:'Duel vs melee',wpvp_melee_they_open:'Duel vs melee, they open',wpvp_caster:'Duel vs caster',stealth_ambush:'Stealth ambush'};
+const SCENARIO_LABEL={questing:'Questing',aoe:'AoE',raid:'Raid',dungeon:'Dungeon (5-player group)',battleground:'Battleground',survival:'Survival',control:'Control',wpvp_melee:'Duel vs melee',wpvp_melee_they_open:'Duel vs melee, they open',wpvp_caster:'Duel vs caster',stealth_ambush:'Stealth ambush'};
 const SELECTED_KEY=CLASS==='mage'?'wow-forever-selected-build':'wow-forever-selected-build-'+CLASS;
 const saveKey=id=>'wow-forever-save-v5-'+id;
 
@@ -206,7 +206,7 @@ function renderScores(){
   return `<div class="score-block"><h3>${SCENARIO_LABEL[name]||name}</h3><table class="score"><thead><tr><th>Level</th><th>Score</th><th>Spell</th></tr></thead><tbody>${levels.map(lv=>{
    const r=rows[lv],best=bestAt(name,lv),isBest=best.winners.some(b=>b.id===build.id);
    const title=isBest?(best.winners.length>1?`Tied for best (${best.winners.length} builds)`:'Best build at this level'):`Best at this level: ${best.winners.map(b=>b.name).join(' + ')} at ${fmt(best.score)} ${r.unit}`;
-   return `<tr class="${isBest?'best':''}" title="${title}"><td>${lv}</td><td>${fmt(r.score)}<span class="unit">${r.unit}</span>${isBest?'<span class="best-badge">★ best</span>':''}${r.raw_dps!==undefined?`<div class="unit" title="Before the mana budget; sustained ${r.unit} counts Evocation, potions and running dry">raw ${fmt(r.raw_dps)}${r.fallback_spell?`, then ${r.fallback_spell}`:''}</div>`:''}</td><td>${r.spell||'—'}</td></tr>`;
+   return `<tr class="${isBest?'best':''}" title="${title}"><td>${lv}</td><td>${fmt(r.score)}<span class="unit">${r.unit}</span>${isBest?'<span class="best-badge">★ best</span>':''}${r.low!==undefined?`<div class="unit" title="Expected over every weighted 5-player group (tank, healer, two more DPS and you) with their buffs; 10th to 90th percentile group. Unbuffed: ${fmt(r.unbuffed)}.">${fmt(r.low)}–${fmt(r.high)} by group</div>`:''}${r.raw_dps!==undefined?`<div class="unit" title="Before the mana budget; sustained ${r.unit} counts Evocation, potions and running dry">raw ${fmt(r.raw_dps)}${r.fallback_spell?`, then ${r.fallback_spell}`:''}</div>`:''}</td><td>${r.spell||'—'}</td></tr>`;
   }).join('')}</tbody></table></div>`;
  }).join('');
 }

@@ -224,6 +224,14 @@ def build_report(cls: ClassData, spells: tuple[SpellRank, ...], builds: Sequence
     }
 
 
+GROUP_CAVEAT = ("Dungeon scores assume a 5-player group (#220): a tank, a healer, two more DPS and you, weighted by "
+                "how often each class and spec shows up in Forever Logs. Group buffs come from the game client at "
+                "your level; each provider uses the option that helps your build type (Might and Windfury for "
+                "physical damage, Kings and the Elements for casters); a warrior tank keeps 5 Sunders up. Shadow "
+                "Weaving, Improved Scorch and Winter's Chill only help their own caster in Forever, so they aren't "
+                "group buffs. Raids and questing are unbuffed.")
+
+
 ROUTE_CAVEAT = ("Routes only: this class's builds are community standards in a legal point order "
                 "(top rows first). Scores, model picks and optimized orders wait on the melee and "
                 "ranged damage engine (#111).")
@@ -415,6 +423,8 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
         report = {"class": class_name, "engine": True,
                   **build_report(cls, cls.spells, builds, StatTable.load(class_name), Assumptions.load(), meta)}
     add_leveling(class_name, cls, leveling, report)
+    if report.get("engine", True):
+        report.setdefault("caveats", []).append(GROUP_CAVEAT)
     builds = builds + leveling
     add_stat_weights(class_name, cls, builds, report)
     from wowforever import melee_scenarios as ms

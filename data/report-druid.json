@@ -1029,7 +1029,8 @@
       "high": 159.8,
       "unbuffed": 145.1,
       "top_buffs": [
-       "moonkin_aura"
+       "moonkin_aura",
+       "curse_of_the_elements"
       ],
       "unit": "dps",
       "solo": 145.1
@@ -1040,7 +1041,8 @@
       "high": 223.0,
       "unbuffed": 198.8,
       "top_buffs": [
-       "moonkin_aura"
+       "moonkin_aura",
+       "curse_of_the_elements"
       ],
       "unit": "dps",
       "solo": 198.8
@@ -1051,7 +1053,8 @@
       "high": 399.4,
       "unbuffed": 356.0,
       "top_buffs": [
-       "moonkin_aura"
+       "moonkin_aura",
+       "curse_of_the_elements"
       ],
       "unit": "dps",
       "solo": 356.0
@@ -1127,6 +1130,7 @@
     "41 points in Balance, with 10 in Restoration. Built for PvP. On this order the key talents arrive as follows: Insect Swarm at 25, Moonkin Form at 40, Nature's Splendor at 51 and Nature's Grace at 57.",
     "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Starfire.",
     "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and dungeon damage (100%), and weakest at raid damage (92%).",
+    "In a dungeon group it gains most from Moonkin Aura and Curse of the Elements: about 4% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game."
    ]
   },
@@ -1243,7 +1247,8 @@
       "high": 160.6,
       "unbuffed": 145.8,
       "top_buffs": [
-       "moonkin_aura"
+       "moonkin_aura",
+       "curse_of_the_elements"
       ],
       "unit": "dps",
       "solo": 145.8
@@ -1254,7 +1259,8 @@
       "high": 237.9,
       "unbuffed": 211.9,
       "top_buffs": [
-       "moonkin_aura"
+       "moonkin_aura",
+       "curse_of_the_elements"
       ],
       "unit": "dps",
       "solo": 211.9
@@ -1265,7 +1271,8 @@
       "high": 394.2,
       "unbuffed": 351.3,
       "top_buffs": [
-       "moonkin_aura"
+       "moonkin_aura",
+       "curse_of_the_elements"
       ],
       "unit": "dps",
       "solo": 351.3
@@ -1340,7 +1347,8 @@
    "about": [
     "36 points in Balance, with 15 in Restoration. Built for PvE. On this order the key talents arrive as follows: Nature's Splendor at 24, Insect Swarm at 25, Moonkin Form at 40 and Nature's Grace at 57.",
     "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Starfire.",
-    "At level 60 it scores at or near the top of the class in raid damage, questing speed and dungeon damage."
+    "At level 60 it scores at or near the top of the class in raid damage, questing speed and dungeon damage.",
+    "In a dungeon group it gains most from Moonkin Aura and Curse of the Elements: about 4% more damage at 60 than unbuffed, on average across groups."
    ]
   },
   {
@@ -1524,9 +1532,9 @@
       "high": 53.7,
       "unbuffed": 37.1,
       "top_buffs": [
+       "major_armor",
        "faerie_fire",
-       "blessing_of_might",
-       "battle_shout"
+       "mark_of_the_wild"
       ],
       "unit": "dps",
       "solo": 43.7
@@ -1537,9 +1545,9 @@
       "high": 94.6,
       "unbuffed": 57.0,
       "top_buffs": [
+       "major_armor",
        "faerie_fire",
-       "blessing_of_might",
-       "battle_shout"
+       "mark_of_the_wild"
       ],
       "unit": "dps",
       "solo": 68.4
@@ -1550,9 +1558,9 @@
       "high": 162.1,
       "unbuffed": 87.2,
       "top_buffs": [
+       "major_armor",
        "faerie_fire",
-       "blessing_of_might",
-       "battle_shout"
+       "windfury_totem"
       ],
       "unit": "dps",
       "solo": 106.5
@@ -1563,9 +1571,9 @@
       "high": 228.1,
       "unbuffed": 121.7,
       "top_buffs": [
+       "major_armor",
        "faerie_fire",
-       "blessing_of_might",
-       "battle_shout"
+       "windfury_totem"
       ],
       "unit": "dps",
       "solo": 151.4
@@ -1576,7 +1584,7 @@
       "high": 324.2,
       "unbuffed": 166.4,
       "top_buffs": [
-       "battle_shout",
+       "major_armor",
        "faerie_fire",
        "blessing_of_might"
       ],
@@ -1664,7 +1672,8 @@
     "34 points in Feral Combat, with 12 in Balance and 5 in Restoration. Built for PvP. On this order the key talents arrive as follows: Feral Charge at 33, Leader of the Pack at 34 and Berserk at 57.",
     "The community build leaves 3 points unspent at 60; the model fills them with Improved Wrath 3.",
     "Fights in Cat Form, building combo points with Shred for finishers. Damage comes from auto-attacks 55% and abilities 45%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (80%) and dungeon damage (69%), and weakest at questing speed (69%)."
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (80%) and dungeon damage (69%), and weakest at questing speed (69%).",
+    "In a dungeon group it gains most from Sunder Armor, Faerie Fire and Blessing of Might: about 54% more damage at 60 than unbuffed, on average across groups."
    ]
   },
   {
@@ -3194,7 +3203,8 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Balance (#166): Moonfire and Insect Swarm kept up, then Starfire or Wrath on the caster engine; Eclipse, Nature's Grace and Omen of Clarity aren't modeled. Feral cat (#175): paw swings and a Shred or Claw to Ferocious Bite energy cycle on the melee engine, Classic paw damage; Rake and Rip bleeds, Tiger's Fury and powershifting aren't modeled. The bear tank and Restoration stay unscored. Base stats are estimates."
+  "Balance (#166): Moonfire and Insect Swarm kept up, then Starfire or Wrath on the caster engine; Eclipse, Nature's Grace and Omen of Clarity aren't modeled. Feral cat (#175): paw swings and a Shred or Claw to Ferocious Bite energy cycle on the melee engine, Classic paw damage; Rake and Rip bleeds, Tiger's Fury and powershifting aren't modeled. The bear tank and Restoration stay unscored. Base stats are estimates.",
+  "Dungeon scores assume a 5-player group (#220): a tank, a healer, two more DPS and you, weighted by how often each class and spec shows up in Forever Logs. Group buffs come from the game client at your level; each provider uses the option that helps your build type (Might and Windfury for physical damage, Kings and the Elements for casters); a warrior tank keeps 5 Sunders up. Shadow Weaving, Improved Scorch and Winter's Chill only help their own caster in Forever, so they aren't group buffs. Raids and questing are unbuffed."
  ],
  "leveling": [
   {
