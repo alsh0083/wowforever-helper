@@ -1,0 +1,68 @@
+# Leveling version of mage-frost-pve (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "mage-frost-pve-leveling"
+class = "mage"
+name = "Frost (PvE, leveling)"
+pair = "mage-frost-pve-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "mage-frost-pve"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Frost (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Frost (PvE) at 60."
+
+order = [
+  "Improved Frostbolt",  # 10
+  "Improved Frostbolt",  # 11
+  "Improved Frostbolt",  # 12
+  "Elemental Precision",  # 13
+  "Improved Frostbolt",  # 14
+  "Improved Frostbolt",  # 15
+  "Elemental Precision",  # 16
+  "Elemental Precision",  # 17
+  "Ice Shards",  # 18
+  "Ice Shards",  # 19
+  "Frost Channeling",  # 20
+  "Frost Channeling",  # 21
+  "Frost Channeling",  # 22
+  "Piercing Ice",  # 23
+  "Piercing Ice",  # 24
+  "Piercing Ice",  # 25
+  "Ice Shards",  # 26
+  "Ice Shards",  # 27
+  "Ice Shards",  # 28
+  "Arctic Reach",  # 29
+  "Improved Cone of Cold",  # 30
+  "Improved Cone of Cold",  # 31
+  "Improved Cone of Cold",  # 32
+  "Cold Snap",  # 33
+  "Arctic Reach",  # 34
+  "Ice Block",  # 35
+  "Improved Blizzard",  # 36
+  "Improved Blizzard",  # 37
+  "Improved Blizzard",  # 38
+  "Permafrost",  # 39
+  "Ice Barrier",  # 40
+  "Permafrost",  # 41
+  "Frostbite",  # 42
+  "Ice Lance",  # 43
+  "Fingers of Frost",  # 44
+  "Permafrost",  # 45
+  "Improved Frost Nova",  # 46
+  "Improved Frost Nova",  # 47
+  "Arcane Focus",  # 48
+  "Arcane Focus",  # 49
+  "Arcane Focus",  # 50
+  "Arcane Focus",  # 51
+  "Arcane Focus",  # 52
+  "Arcane Concentration",  # 53
+  "Arcane Concentration",  # 54
+  "Arcane Concentration",  # 55
+  "Arcane Concentration",  # 56
+  "Arcane Concentration",  # 57
+  "Arcane Impact",  # 58
+  "Arcane Impact",  # 59
+  "Arcane Impact",  # 60
+]

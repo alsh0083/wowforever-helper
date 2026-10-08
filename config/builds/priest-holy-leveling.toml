@@ -1,0 +1,68 @@
+# Leveling version of priest-holy (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "priest-holy-leveling"
+class = "priest"
+name = "Holy Prayer of Mending (PvE, leveling)"
+pair = "priest-holy-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "priest-holy"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Holy Prayer of Mending (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Holy Prayer of Mending (PvE) at 60."
+
+order = [
+  "Holy Specialization",  # 10
+  "Holy Specialization",  # 11
+  "Holy Specialization",  # 12
+  "Holy Specialization",  # 13
+  "Holy Specialization",  # 14
+  "Divine Fury",  # 15
+  "Divine Fury",  # 16
+  "Divine Fury",  # 17
+  "Divine Fury",  # 18
+  "Divine Fury",  # 19
+  "Twilight Focus",  # 20
+  "Twilight Focus",  # 21
+  "Twilight Focus",  # 22
+  "Improved Renew",  # 23
+  "Improved Renew",  # 24
+  "Searing Light",  # 25
+  "Searing Light",  # 26
+  "Improved Renew",  # 27
+  "Improved Healing",  # 28
+  "Improved Healing",  # 29
+  "Litany of Light",  # 30
+  "Litany of Light",  # 31
+  "Spirit of Redemption",  # 32
+  "Spiritual Guidance",  # 33
+  "Spiritual Guidance",  # 34
+  "Spiritual Healing",  # 35
+  "Spiritual Healing",  # 36
+  "Spiritual Healing",  # 37
+  "Spiritual Guidance",  # 38
+  "Spiritual Guidance",  # 39
+  "Prayer of Mending",  # 40
+  "Spiritual Guidance",  # 41
+  "Improved Healing",  # 42
+  "Holy Nova",  # 43
+  "Inspiration",  # 44
+  "Inspiration",  # 45
+  "Inspiration",  # 46
+  "Holy Reach",  # 47
+  "Holy Reach",  # 48
+  "Twin Disciplines",  # 49
+  "Twin Disciplines",  # 50
+  "Twin Disciplines",  # 51
+  "Twin Disciplines",  # 52
+  "Twin Disciplines",  # 53
+  "Silent Resolve",  # 54
+  "Silent Resolve",  # 55
+  "Silent Resolve",  # 56
+  "Improved Power Word: Shield",  # 57
+  "Improved Power Word: Shield",  # 58
+  "Meditation",  # 59
+  "Meditation",  # 60
+]

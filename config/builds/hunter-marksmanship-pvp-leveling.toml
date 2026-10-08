@@ -1,0 +1,68 @@
+# Leveling version of hunter-marksmanship-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "hunter-marksmanship-pvp-leveling"
+class = "hunter"
+name = "Marksmanship (PvP, leveling, model)"
+pair = "hunter-marksmanship-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "hunter-marksmanship-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Marksmanship (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Marksmanship (PvP, model) at 60."
+
+order = [
+  "Lethal Attacks",  # 10
+  "Lethal Attacks",  # 11
+  "Lethal Attacks",  # 12
+  "Lethal Attacks",  # 13
+  "Lethal Attacks",  # 14
+  "Efficiency",  # 15
+  "Efficiency",  # 16
+  "Efficiency",  # 17
+  "Efficiency",  # 18
+  "Efficiency",  # 19
+  "Improved Arcane Shot",  # 20
+  "Improved Arcane Shot",  # 21
+  "Improved Arcane Shot",  # 22
+  "Improved Arcane Shot",  # 23
+  "Improved Arcane Shot",  # 24
+  "Trueshot Aura",  # 25
+  "Careful Aim",  # 26
+  "Careful Aim",  # 27
+  "Careful Aim",  # 28
+  "Careful Aim",  # 29
+  "Scatter Shot",  # 30
+  "Barrage",  # 31
+  "Barrage",  # 32
+  "Barrage",  # 33
+  "Careful Aim",  # 34
+  "Ranged Weapon Specialization",  # 35
+  "Ranged Weapon Specialization",  # 36
+  "Ranged Weapon Specialization",  # 37
+  "Ranged Weapon Specialization",  # 38
+  "Ranged Weapon Specialization",  # 39
+  "Mortal Shots",  # 40
+  "Mortal Shots",  # 41
+  "Improved Stings",  # 42
+  "Improved Stings",  # 43
+  "Improved Stings",  # 44
+  "Mortal Shots",  # 45
+  "Mortal Shots",  # 46
+  "Mortal Shots",  # 47
+  "Sniper Shot",  # 48
+  "Hawk Eye",  # 49
+  "Hawk Eye",  # 50
+  "Hawk Eye",  # 51
+  "Rapid Killing",  # 52
+  "Rapid Killing",  # 53
+  "Rapid Recuperation",  # 54
+  "Rapid Recuperation",  # 55
+  "Improved Concussive Shot",  # 56
+  "Improved Concussive Shot",  # 57
+  "Improved Concussive Shot",  # 58
+  "Improved Concussive Shot",  # 59
+  "Improved Concussive Shot",  # 60
+]

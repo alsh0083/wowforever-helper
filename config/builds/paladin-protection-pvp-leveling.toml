@@ -1,0 +1,68 @@
+# Leveling version of paladin-protection-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "paladin-protection-pvp-leveling"
+class = "paladin"
+name = "Protection (PvP, leveling)"
+pair = "paladin-protection-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "paladin-protection-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Protection (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Protection (PvP) at 60."
+
+order = [
+  "Toughness",  # 10
+  "Toughness",  # 11
+  "Toughness",  # 12
+  "Toughness",  # 13
+  "Toughness",  # 14
+  "Guardian's Favor",  # 15
+  "Guardian's Favor",  # 16
+  "Precision",  # 17
+  "Precision",  # 18
+  "Precision",  # 19
+  "Redoubt",  # 20
+  "Redoubt",  # 21
+  "Redoubt",  # 22
+  "Redoubt",  # 23
+  "Redoubt",  # 24
+  "Improved Hammer of Justice",  # 25
+  "Improved Hammer of Justice",  # 26
+  "Improved Hammer of Justice",  # 27
+  "Divine Strength",  # 28
+  "Improved Seal of Fury",  # 29
+  "Divine Strength",  # 30
+  "Divine Strength",  # 31
+  "Swift Judgement",  # 32
+  "Divine Strength",  # 33
+  "Divine Strength",  # 34
+  "Healing Light",  # 35
+  "Spiritual Focus",  # 36
+  "Spiritual Focus",  # 37
+  "Unyielding Faith",  # 38
+  "Unyielding Faith",  # 39
+  "Voice of Truth",  # 40
+  "Reverence",  # 41
+  "Reverence",  # 42
+  "Reverence",  # 43
+  "Templar's Bulwark",  # 44
+  "Reckoning",  # 45
+  "Reckoning",  # 46
+  "Reckoning",  # 47
+  "Reckoning",  # 48
+  "Iron Creed",  # 49
+  "Iron Creed",  # 50
+  "Iron Creed",  # 51
+  "Iron Creed",  # 52
+  "Iron Creed",  # 53
+  "Holy Shield",  # 54
+  "Reckoning",  # 55
+  "Improved Righteous Fury",  # 56
+  "Improved Righteous Fury",  # 57
+  "Improved Righteous Fury",  # 58
+  "Shield Specialization",  # 59
+  "Shield Specialization",  # 60
+]

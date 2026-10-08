@@ -1,0 +1,68 @@
+# Leveling version of paladin-retribution-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "paladin-retribution-pvp-leveling"
+class = "paladin"
+name = "Retribution Repentance (PvP, leveling)"
+pair = "paladin-retribution-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "paladin-retribution-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Retribution Repentance (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Retribution Repentance (PvP) at 60."
+
+order = [
+  "Deflection",  # 10
+  "Deflection",  # 11
+  "Deflection",  # 12
+  "Deflection",  # 13
+  "Deflection",  # 14
+  "Conviction",  # 15
+  "Conviction",  # 16
+  "Conviction",  # 17
+  "Conviction",  # 18
+  "Conviction",  # 19
+  "Seal of Command",  # 20
+  "Pursuit of Justice",  # 21
+  "Pursuit of Justice",  # 22
+  "Improved Judgement",  # 23
+  "Improved Judgement",  # 24
+  "Sacred Arbiter",  # 25
+  "Toughness",  # 26
+  "Toughness",  # 27
+  "Toughness",  # 28
+  "Toughness",  # 29
+  "Toughness",  # 30
+  "Precision",  # 31
+  "Precision",  # 32
+  "Precision",  # 33
+  "Benediction",  # 34
+  "Benediction",  # 35
+  "Benediction",  # 36
+  "Benediction",  # 37
+  "Repentance",  # 38
+  "Two-Handed Weapon Specialization",  # 39
+  "Two-Handed Weapon Specialization",  # 40
+  "Two-Handed Weapon Specialization",  # 41
+  "Benediction",  # 42
+  "Holy Conduit",  # 43
+  "Holy Conduit",  # 44
+  "Vindication",  # 45
+  "Vindication",  # 46
+  "Vindication",  # 47
+  "Sanctified Judgement",  # 48
+  "Sanctified Judgement",  # 49
+  "Sanctified Judgement",  # 50
+  "Vengeance",  # 51
+  "Vengeance",  # 52
+  "Vengeance",  # 53
+  "Twist of Light",  # 54
+  "Champion of the Light",  # 55
+  "Champion of the Light",  # 56
+  "Champion of the Light",  # 57
+  "Instrument of Law",  # 58
+  "Instrument of Law",  # 59
+  "Divine Strength",  # 60
+]

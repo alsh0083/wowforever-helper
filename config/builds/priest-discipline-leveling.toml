@@ -1,0 +1,68 @@
+# Leveling version of priest-discipline (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "priest-discipline-leveling"
+class = "priest"
+name = "Discipline Divine Aegis (PvE, leveling)"
+pair = "priest-discipline-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "priest-discipline"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Discipline Divine Aegis (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Discipline Divine Aegis (PvE) at 60."
+
+order = [
+  "Power in Light",  # 10
+  "Power in Light",  # 11
+  "Power in Light",  # 12
+  "Power in Light",  # 13
+  "Power in Light",  # 14
+  "Holy Precision",  # 15
+  "Silent Resolve",  # 16
+  "Silent Resolve",  # 17
+  "Improved Power Word: Shield",  # 18
+  "Wand Specialization",  # 19
+  "Meditation",  # 20
+  "Meditation",  # 21
+  "Meditation",  # 22
+  "Mental Agility",  # 23
+  "Mental Agility",  # 24
+  "Mental Agility",  # 25
+  "Mental Strength",  # 26
+  "Mental Strength",  # 27
+  "Mental Strength",  # 28
+  "Mental Strength",  # 29
+  "Penance",  # 30
+  "Mental Strength",  # 31
+  "Inner Focus",  # 32
+  "Improved Power Word: Shield",  # 33
+  "Improved Power Word: Shield",  # 34
+  "Divine Aegis",  # 35
+  "Divine Aegis",  # 36
+  "Divine Aegis",  # 37
+  "Soul Warding",  # 38
+  "Renewed Hope",  # 39
+  "Power Infusion",  # 40
+  "Renewed Hope",  # 41
+  "Renewed Hope",  # 42
+  "Renewed Hope",  # 43
+  "Renewed Hope",  # 44
+  "Twin Disciplines",  # 45
+  "Twin Disciplines",  # 46
+  "Twin Disciplines",  # 47
+  "Twin Disciplines",  # 48
+  "Twin Disciplines",  # 49
+  "Holy Specialization",  # 50
+  "Holy Specialization",  # 51
+  "Holy Specialization",  # 52
+  "Holy Specialization",  # 53
+  "Holy Specialization",  # 54
+  "Divine Fury",  # 55
+  "Divine Fury",  # 56
+  "Divine Fury",  # 57
+  "Divine Fury",  # 58
+  "Divine Fury",  # 59
+  "Inspiration",  # 60
+]

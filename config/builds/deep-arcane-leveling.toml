@@ -1,0 +1,68 @@
+# Leveling version of deep-arcane (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "deep-arcane-leveling"
+class = "mage"
+name = "Deep Arcane (PvE, leveling)"
+pair = "deep-arcane-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "deep-arcane"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Deep Arcane (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Deep Arcane (PvE) at 60."
+
+order = [
+  "Arcane Focus",  # 10
+  "Wand Specialization",  # 11
+  "Wand Specialization",  # 12
+  "Arcane Focus",  # 13
+  "Arcane Focus",  # 14
+  "Arcane Concentration",  # 15
+  "Arcane Concentration",  # 16
+  "Arcane Concentration",  # 17
+  "Arcane Concentration",  # 18
+  "Arcane Concentration",  # 19
+  "Arcane Impact",  # 20
+  "Arcane Impact",  # 21
+  "Arcane Impact",  # 22
+  "Arcane Focus",  # 23
+  "Arcane Focus",  # 24
+  "Improved Channeling",  # 25
+  "Improved Channeling",  # 26
+  "Improved Channeling",  # 27
+  "Improved Channeling",  # 28
+  "Improved Channeling",  # 29
+  "Arcane Mind",  # 30
+  "Arcane Mind",  # 31
+  "Arcane Mind",  # 32
+  "Arcane Mind",  # 33
+  "Arcane Mind",  # 34
+  "Arcane Instability",  # 35
+  "Arcane Instability",  # 36
+  "Arcane Instability",  # 37
+  "Incineration",  # 38
+  "Incineration",  # 39
+  "Incineration",  # 40
+  "Presence of Mind",  # 41
+  "Arcane Shielding",  # 42
+  "Arcane Power",  # 43
+  "Arcane Shielding",  # 44
+  "Improved Counterspell",  # 45
+  "Improved Counterspell",  # 46
+  "Arcane Meditation",  # 47
+  "Arcane Meditation",  # 48
+  "Arcane Meditation",  # 49
+  "Missile Barrage",  # 50
+  "Arcane Geometry",  # 51
+  "Arcane Geometry",  # 52
+  "Arcane Blast",  # 53
+  "Arcane Subtlety",  # 54
+  "Arcane Subtlety",  # 55
+  "Magic Absorption",  # 56
+  "Magic Absorption",  # 57
+  "Arcane Resilience",  # 58
+  "Arcane Resilience",  # 59
+  "Wake of Fire",  # 60
+]

@@ -1,0 +1,68 @@
+# Leveling version of warrior-arms (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "warrior-arms-leveling"
+class = "warrior"
+name = "Arms Mortal Strike (PvP, leveling)"
+pair = "warrior-arms-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "warrior-arms"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Arms Mortal Strike (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arms Mortal Strike (PvP) at 60."
+
+order = [
+  "Improved Heroic Strike",  # 10
+  "Improved Heroic Strike",  # 11
+  "Improved Heroic Strike",  # 12
+  "Deflection",  # 13
+  "Deflection",  # 14
+  "Deflection",  # 15
+  "Deflection",  # 16
+  "Deflection",  # 17
+  "Booming Voice",  # 18
+  "Booming Voice",  # 19
+  "Booming Voice",  # 20
+  "Improved Rend",  # 21
+  "Improved Rend",  # 22
+  "Improved Rend",  # 23
+  "Deep Wounds",  # 24
+  "Deep Wounds",  # 25
+  "Deep Wounds",  # 26
+  "Improved Charge",  # 27
+  "Two-Handed Weapon Specialization",  # 28
+  "Two-Handed Weapon Specialization",  # 29
+  "Two-Handed Weapon Specialization",  # 30
+  "Impale",  # 31
+  "Impale",  # 32
+  "Improved Charge",  # 33
+  "Improved Tactical Mastery",  # 34
+  "Improved Tactical Mastery",  # 35
+  "Improved Tactical Mastery",  # 36
+  "Improved Tactical Mastery",  # 37
+  "Improved Slam",  # 38
+  "Improved Slam",  # 39
+  "Improved Tactical Mastery",  # 40
+  "Anger Management",  # 41
+  "Improved Overpower",  # 42
+  "Improved Overpower",  # 43
+  "Spearing Strike",  # 44
+  "Bloodthrill",  # 45
+  "Bloodthrill",  # 46
+  "Bloodthrill",  # 47
+  "Bloodthrill",  # 48
+  "Bloodthrill",  # 49
+  "Sweeping Strikes",  # 50
+  "Mortal Strike",  # 51
+  "Cruelty",  # 52
+  "Cruelty",  # 53
+  "Cruelty",  # 54
+  "Cruelty",  # 55
+  "Cruelty",  # 56
+  "Weaponmaster",  # 57
+  "Weaponmaster",  # 58
+  "Weaponmaster",  # 59
+  "Weaponmaster",  # 60
+]

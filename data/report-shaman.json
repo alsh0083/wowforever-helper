@@ -1114,7 +1114,7 @@
    "about": [
     "38 points in Elemental, with 13 in Enhancement. Built for PvE. On this order the key talents arrive as follows: Call of Thunder at 37, Lava Burst at 52, Elemental Focus at 53, Shamanistic Focus at 54 and Earthbound at 60.",
     "In the model's rotation it keeps Flame Shock up, uses Lava Burst and Chain Lightning on cooldown and fills with Lightning Bolt.",
-    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (100%) and questing speed (97%), and weakest at raid damage (53%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and dungeon damage (100%), and weakest at raid damage (53%).",
     "In a dungeon group it gains most from Curse of the Elements: about 2% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game."
    ]
@@ -1341,7 +1341,7 @@
    "about": [
     "38 points in Elemental, with 13 in Enhancement. Built for PvP. On this order the key talents arrive as follows: Call of Thunder at 37, Lava Burst at 52, Elemental Focus at 53, Shamanistic Focus at 54 and Earthbound at 60.",
     "In the model's rotation it keeps Flame Shock up, uses Lava Burst and Chain Lightning on cooldown and fills with Lightning Bolt.",
-    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (100%) and questing speed (97%), and weakest at raid damage (53%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and dungeon damage (100%), and weakest at raid damage (53%).",
     "In a dungeon group it gains most from Curse of the Elements: about 2% more damage at 60 than unbuffed, on average across groups."
    ]
   },
@@ -1579,7 +1579,7 @@
    "about": [
     "33 points in Enhancement, with 10 in Restoration and 8 in Elemental. Built for PvE. On this order the key talents arrive as follows: Stormstrike at 30, Shamanistic Focus at 31, Spirit Weapons at 32 and Rage of the Farseer at 40.",
     "A melee shaman: auto-attacks and weapon procs carry it, with shocks and Stormstrike on top. Damage comes from auto-attacks 49%, abilities 32% and spells and procs 20%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and questing speed (84%), and weakest at dungeon damage (82%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and questing speed (86%), and weakest at dungeon damage (82%).",
     "In a dungeon group it gains most from Sunder Armor, Strength of Earth Totem and Blessing of Might: about 33% more damage at 60 than unbuffed, on average across groups."
    ]
   },
@@ -1817,7 +1817,7 @@
    "about": [
     "33 points in Enhancement, with 18 in Elemental. Built for PvP. On this order the key talents arrive as follows: Stormstrike at 30, Shamanistic Focus at 31, Spirit Weapons at 32 and Rage of the Farseer at 40.",
     "A melee shaman: auto-attacks and weapon procs carry it, with shocks and Stormstrike on top. Damage comes from auto-attacks 49%, abilities 32% and spells and procs 20%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and questing speed (84%), and weakest at dungeon damage (82%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and questing speed (86%), and weakest at dungeon damage (82%).",
     "In a dungeon group it gains most from Sunder Armor, Strength of Earth Totem and Blessing of Might: about 33% more damage at 60 than unbuffed, on average across groups."
    ]
   },
@@ -1990,180 +1990,17 @@
    ]
   },
   {
-   "id": "shaman-elemental-leveling-pve",
-   "name": "Elemental leveling (PvE)",
-   "pair": "shaman-elemental-leveling-pve",
-   "variant": "PvE",
-   "origin": "model",
-   "mode": "leveling",
-   "summary": "A Elemental talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
-   "gives_up": [],
-   "model_filled": {},
-   "must_have_by": {},
-   "order": [
-    104753,
-    104753,
-    104753,
-    104753,
-    104753,
-    104773,
-    104773,
-    104773,
-    104773,
-    104773,
-    104770,
-    104770,
-    104770,
-    104772,
-    104772,
-    104765,
-    104765,
-    104765,
-    104772,
-    104772,
-    104762,
-    104772,
-    104771,
-    104771,
-    104771,
-    104759,
-    104759,
-    104759,
-    104767,
-    104767,
-    104766,
-    104766,
-    104766,
-    104766,
-    104766,
-    104739,
-    104739,
-    104739,
-    104739,
-    104739,
-    104734,
-    104734,
-    104734,
-    104735,
-    104735,
-    104761,
-    104758,
-    104761,
-    104760,
-    104764,
-    104764
-   ],
-   "order_source": "model leveling path (questing pace)",
-   "open_points": 0,
-   "scores": {
-    "questing": {
-     "20": {
-      "score": 56.4,
-      "unit": "kills/hour"
-     },
-     "30": {
-      "score": 60.9,
-      "unit": "kills/hour"
-     },
-     "40": {
-      "score": 73.7,
-      "unit": "kills/hour"
-     },
-     "50": {
-      "score": 77.7,
-      "unit": "kills/hour"
-     },
-     "60": {
-      "score": 86.1,
-      "unit": "kills/hour"
-     }
-    }
-   },
-   "sensitivity": [],
-   "respec": [
-    "shaman-elemental-pve"
-   ],
-   "stat_weights": {
-    "20": {
-     "score": 56.4,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.29,
-     "crit_rating": 0.05,
-     "hit_rating": 0.13,
-     "crit_pct": 0.2,
-     "hit_pct": 0.4
-    },
-    "30": {
-     "score": 60.9,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.22,
-     "crit_rating": 0.03,
-     "hit_rating": 0.08,
-     "crit_pct": 0.2,
-     "hit_pct": 0.5
-    },
-    "40": {
-     "score": 73.7,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "spirit": 0.0,
-     "spell_power": 0.14,
-     "crit_rating": 0.03,
-     "hit_rating": 0.06,
-     "crit_pct": 0.2,
-     "hit_pct": 0.5
-    },
-    "50": {
-     "score": 77.7,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.13,
-     "crit_rating": 0.04,
-     "hit_rating": 0.05,
-     "crit_pct": 0.4,
-     "hit_pct": 0.6
-    },
-    "60": {
-     "score": 86.1,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.01,
-     "spell_power": 0.09,
-     "crit_rating": 0.03,
-     "hit_rating": 0.0,
-     "crit_pct": 0.4,
-     "hit_pct": 0.0
-    }
-   },
-   "about": [
-    "36 points in Elemental, with 10 in Restoration and 5 in Enhancement. Built for PvE. On this order the key talents arrive as follows: Call of Thunder at 30, Lava Burst at 56 and Earthbound at 58.",
-    "In the model's rotation it keeps Flame Shock up, uses Lava Burst and Chain Lightning on cooldown and fills with Lightning Bolt.",
-    "Questing pace in the model, in kills per hour: 56 at 20, 61 at 30, 74 at 40, 78 at 50 and 86 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
-   ]
-  },
-  {
-   "id": "shaman-elemental-leveling-pvp",
-   "name": "Elemental leveling (PvP)",
-   "pair": "shaman-elemental-leveling-pvp",
+   "id": "shaman-elemental-leveling",
+   "name": "Elemental Lava Burst (PvP, leveling)",
+   "pair": "shaman-elemental-leveling",
    "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Elemental talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Elemental Lava Burst (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "summary": "Elemental Lava Burst (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Elemental Lava Burst (PvP) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
-    104753,
-    104753,
-    104753,
-    104753,
-    104753,
     104773,
     104773,
     104773,
@@ -2181,9 +2018,9 @@
     104772,
     104762,
     104772,
-    104767,
-    104767,
-    104767,
+    104771,
+    104771,
+    104771,
     104759,
     104759,
     104759,
@@ -2194,29 +2031,34 @@
     104766,
     104766,
     104766,
-    104758,
-    104739,
-    104739,
-    104739,
-    104739,
-    104739,
-    104734,
-    104734,
-    104734,
-    104735,
-    104735,
     104761,
     104761,
     104760,
     104763,
-    104763
+    104758,
+    104753,
+    104753,
+    104753,
+    104753,
+    104753,
+    104763,
+    104763,
+    104768,
+    104767,
+    104767,
+    104767,
+    104764,
+    104764,
+    104769,
+    104769,
+    104752
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 56.4,
+      "score": 57.8,
       "unit": "kills/hour"
      },
      "30": {
@@ -2224,7 +2066,7 @@
       "unit": "kills/hour"
      },
      "40": {
-      "score": 73.7,
+      "score": 73.9,
       "unit": "kills/hour"
      },
      "50": {
@@ -2232,7 +2074,7 @@
       "unit": "kills/hour"
      },
      "60": {
-      "score": 86.1,
+      "score": 83.4,
       "unit": "kills/hour"
      }
     }
@@ -2241,38 +2083,44 @@
    "respec": [
     "shaman-elemental"
    ],
+   "levels_into": "shaman-elemental",
+   "detours": {
+    "Elemental Warding": 3,
+    "Improved Fire Nova": 2,
+    "Elemental Devastation": 2
+   },
    "stat_weights": {
     "20": {
-     "score": 56.4,
+     "score": 57.8,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
-     "spell_power": 0.29,
+     "spell_power": 0.3,
      "crit_rating": 0.05,
      "hit_rating": 0.13,
-     "crit_pct": 0.2,
+     "crit_pct": 0.1,
      "hit_pct": 0.4
     },
     "30": {
      "score": 60.9,
      "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.22,
-     "crit_rating": 0.03,
-     "hit_rating": 0.08,
-     "crit_pct": 0.2,
-     "hit_pct": 0.5
-    },
-    "40": {
-     "score": 73.7,
-     "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.0,
-     "spell_power": 0.14,
+     "spell_power": 0.21,
      "crit_rating": 0.03,
+     "hit_rating": 0.08,
+     "crit_pct": 0.1,
+     "hit_pct": 0.4
+    },
+    "40": {
+     "score": 73.9,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.14,
+     "crit_rating": 0.05,
      "hit_rating": 0.06,
-     "crit_pct": 0.2,
+     "crit_pct": 0.4,
      "hit_pct": 0.5
     },
     "50": {
@@ -2287,200 +2135,196 @@
      "hit_pct": 0.5
     },
     "60": {
-     "score": 86.1,
+     "score": 83.4,
      "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.01,
+     "intellect": 0.0,
+     "spirit": 0.0,
      "spell_power": 0.09,
      "crit_rating": 0.03,
-     "hit_rating": 0.0,
+     "hit_rating": 0.04,
      "crit_pct": 0.4,
-     "hit_pct": 0.0
+     "hit_pct": 0.5
     }
    },
    "about": [
-    "36 points in Elemental, with 10 in Restoration and 5 in Enhancement. Built for PvP. On this order the key talents arrive as follows: Call of Thunder at 30, Lava Burst at 45 and Earthbound at 58.",
+    "45 points in Elemental, with 6 in Enhancement. Built for PvP. On this order the key talents arrive as follows: Call of Thunder at 25, Earthbound at 42, Lava Burst at 44 and Elemental Focus at 52.",
     "In the model's rotation it keeps Flame Shock up, uses Lava Burst and Chain Lightning on cooldown and fills with Lightning Bolt.",
-    "Questing pace in the model, in kills per hour: 56 at 20, 61 at 30, 74 at 40, 77 at 50 and 86 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 58 at 20, 61 at 30, 74 at 40, 77 at 50 and 83 at 60.",
+    "While leveling it also takes Elemental Warding 3, Improved Fire Nova 2 and Elemental Devastation 2, which pay off for questing; respec those points into Elemental Lava Burst (PvP) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "shaman-enhancement-leveling-pve",
-   "name": "Enhancement leveling (PvE)",
-   "pair": "shaman-enhancement-leveling-pve",
+   "id": "shaman-elemental-pve-leveling",
+   "name": "Elemental (PvE, leveling, model)",
+   "pair": "shaman-elemental-pve-leveling",
    "variant": "PvE",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Enhancement talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Elemental (PvE, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Elemental (PvE, model) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
+    104773,
+    104773,
+    104773,
+    104773,
+    104773,
+    104770,
+    104770,
+    104770,
+    104772,
+    104772,
+    104765,
+    104765,
+    104765,
+    104772,
+    104772,
+    104762,
+    104772,
+    104771,
+    104771,
+    104771,
+    104759,
+    104759,
+    104759,
+    104767,
+    104767,
+    104766,
+    104766,
+    104766,
+    104766,
+    104766,
+    104761,
+    104761,
+    104760,
+    104763,
+    104758,
     104753,
     104753,
     104753,
     104753,
     104753,
-    104755,
-    104755,
-    104755,
-    104757,
-    104757,
-    104750,
-    104750,
-    104750,
-    104756,
-    104756,
-    104747,
-    104747,
-    104747,
-    104747,
-    104747,
-    104743,
-    104756,
-    104756,
-    104756,
-    104754,
-    104741,
-    104741,
-    104741,
-    104741,
-    104741,
-    104745,
-    104739,
-    104739,
-    104739,
-    104739,
-    104739,
-    104735,
-    104735,
-    104735,
-    104735,
-    104735,
-    104744,
-    104744,
-    104740,
-    104742,
-    104742,
-    104746,
-    104746,
-    104746,
-    104746,
-    104746
+    104763,
+    104763,
+    104768,
+    104767,
+    104767,
+    104767,
+    104764,
+    104764,
+    104769,
+    104769,
+    104752
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 68.1,
+      "score": 57.8,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 71.0,
+      "score": 60.9,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 84.7,
+      "score": 73.9,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 78.0,
+      "score": 76.9,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 72.1,
+      "score": 83.4,
       "unit": "kills/hour"
      }
     }
    },
    "sensitivity": [],
    "respec": [
-    "shaman-enhancement-pve"
+    "shaman-elemental-pve"
    ],
+   "levels_into": "shaman-elemental-pve",
+   "detours": {
+    "Elemental Warding": 3,
+    "Improved Fire Nova": 2,
+    "Elemental Devastation": 2
+   },
    "stat_weights": {
     "20": {
-     "score": 68.1,
-     "strength": 0.15,
-     "agility": 0.06,
+     "score": 57.8,
      "stamina": 0.0,
-     "intellect": 0.08,
-     "attack_power": 0.08,
-     "crit_rating": 0.12,
-     "hit_rating": 0.14,
-     "crit_pct": 0.4,
-     "hit_pct": 0.5,
-     "weapon_dps": 1.05
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.3,
+     "crit_rating": 0.05,
+     "hit_rating": 0.13,
+     "crit_pct": 0.1,
+     "hit_pct": 0.4
     },
     "30": {
-     "score": 71.0,
-     "strength": 0.11,
-     "agility": 0.06,
+     "score": 60.9,
      "stamina": 0.0,
-     "intellect": 0.06,
-     "attack_power": 0.06,
-     "crit_rating": 0.1,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.21,
+     "crit_rating": 0.03,
      "hit_rating": 0.08,
-     "crit_pct": 0.6,
-     "hit_pct": 0.5,
-     "weapon_dps": 0.8
+     "crit_pct": 0.1,
+     "hit_pct": 0.4
     },
     "40": {
-     "score": 84.7,
-     "strength": 0.08,
-     "agility": 0.05,
+     "score": 73.9,
      "stamina": 0.0,
-     "intellect": 0.04,
-     "attack_power": 0.04,
-     "crit_rating": 0.07,
-     "hit_rating": 0.07,
-     "crit_pct": 0.6,
-     "hit_pct": 0.6,
-     "weapon_dps": 0.6
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.14,
+     "crit_rating": 0.05,
+     "hit_rating": 0.06,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5
     },
     "50": {
-     "score": 78.0,
-     "strength": 0.06,
-     "agility": 0.04,
+     "score": 76.9,
      "stamina": 0.0,
-     "intellect": 0.03,
-     "attack_power": 0.03,
-     "crit_rating": 0.05,
-     "hit_rating": 0.01,
-     "crit_pct": 0.6,
-     "hit_pct": 0.2,
-     "weapon_dps": 0.45
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.12,
+     "crit_rating": 0.04,
+     "hit_rating": 0.05,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5
     },
     "60": {
-     "score": 72.1,
-     "strength": 0.05,
-     "agility": 0.03,
+     "score": 83.4,
      "stamina": 0.0,
-     "intellect": 0.02,
-     "attack_power": 0.02,
-     "crit_rating": 0.04,
-     "hit_rating": 0.0,
-     "crit_pct": 0.5,
-     "hit_pct": 0.0,
-     "weapon_dps": 0.35
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.09,
+     "crit_rating": 0.03,
+     "hit_rating": 0.04,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5
     }
    },
    "about": [
-    "41 points in Enhancement, with 10 in Restoration. Built for PvE. On this order the key talents arrive as follows: Stormstrike at 30, Spirit Weapons at 40 and Rage of the Farseer at 53.",
-    "A melee shaman: auto-attacks and weapon procs carry it, with shocks and Stormstrike on top. Damage comes from auto-attacks 49%, abilities 32% and spells and procs 20%.",
-    "Questing pace in the model, in kills per hour: 68 at 20, 71 at 30, 85 at 40, 78 at 50 and 72 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "45 points in Elemental, with 6 in Enhancement. Built for PvE. On this order the key talents arrive as follows: Call of Thunder at 25, Earthbound at 42, Lava Burst at 44 and Elemental Focus at 52.",
+    "In the model's rotation it keeps Flame Shock up, uses Lava Burst and Chain Lightning on cooldown and fills with Lightning Bolt.",
+    "Questing pace in the model, in kills per hour: 58 at 20, 61 at 30, 74 at 40, 77 at 50 and 83 at 60.",
+    "While leveling it also takes Elemental Warding 3, Improved Fire Nova 2 and Elemental Devastation 2, which pay off for questing; respec those points into Elemental (PvE, model) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "shaman-enhancement-leveling-pvp",
-   "name": "Enhancement leveling (PvP)",
-   "pair": "shaman-enhancement-leveling-pvp",
+   "id": "shaman-enhancement-leveling",
+   "name": "Enhancement Stormstrike (PvP, leveling)",
+   "pair": "shaman-enhancement-leveling",
    "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Enhancement talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Enhancement Stormstrike (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "summary": "Enhancement Stormstrike (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Enhancement Stormstrike (PvP) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
@@ -2493,8 +2337,8 @@
     104755,
     104755,
     104755,
-    104756,
-    104756,
+    104757,
+    104757,
     104750,
     104750,
     104750,
@@ -2506,21 +2350,25 @@
     104747,
     104747,
     104743,
-    104756,
-    104752,
-    104752,
-    104749,
     104745,
     104744,
     104744,
-    104742,
-    104742,
+    104756,
+    104756,
+    104756,
+    104754,
+    104754,
+    104752,
     104740,
     104741,
     104741,
     104741,
     104741,
     104741,
+    104742,
+    104742,
+    104749,
+    104752,
     104772,
     104772,
     104772,
@@ -2531,11 +2379,7 @@
     104767,
     104767,
     104767,
-    104770,
-    104770,
-    104770,
-    104769,
-    104769
+    104770
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
@@ -2567,6 +2411,12 @@
    "respec": [
     "shaman-enhancement"
    ],
+   "levels_into": "shaman-enhancement",
+   "detours": {
+    "Earth's Grasp": 2,
+    "Ancestral Knowledge": 3,
+    "Guardian Totems": 2
+   },
    "stat_weights": {
     "20": {
      "score": 68.1,
@@ -2635,20 +2485,20 @@
     }
    },
    "about": [
-    "36 points in Enhancement, with 15 in Elemental. Built for PvP. On this order the key talents arrive as follows: Stormstrike at 30, Shamanistic Focus at 34, Spirit Weapons at 35 and Rage of the Farseer at 40.",
+    "40 points in Enhancement, with 11 in Elemental. Built for PvP. On this order the key talents arrive as follows: Stormstrike at 30, Spirit Weapons at 31, Rage of the Farseer at 40 and Shamanistic Focus at 48.",
     "A melee shaman: auto-attacks and weapon procs carry it, with shocks and Stormstrike on top. Damage comes from auto-attacks 49%, abilities 32% and spells and procs 20%.",
     "Questing pace in the model, in kills per hour: 68 at 20, 71 at 30, 86 at 40, 78 at 50 and 72 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "While leveling it also takes Earth's Grasp 2, Ancestral Knowledge 3 and Guardian Totems 2, which pay off for questing; respec those points into Enhancement Stormstrike (PvP) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "shaman-restoration-leveling-pve",
-   "name": "Restoration leveling (PvE)",
-   "pair": "shaman-restoration-leveling-pve",
+   "id": "shaman-enhancement-pve-leveling",
+   "name": "Enhancement (PvE, leveling)",
+   "pair": "shaman-enhancement-pve-leveling",
    "variant": "PvE",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Restoration talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Enhancement (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Enhancement (PvE) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
@@ -2658,75 +2508,249 @@
     104753,
     104753,
     104753,
-    104739,
-    104739,
-    104739,
-    104739,
-    104739,
-    104734,
-    104734,
-    104734,
-    104735,
-    104735,
-    104735,
+    104755,
+    104755,
+    104755,
+    104757,
+    104757,
+    104750,
+    104750,
+    104750,
+    104756,
+    104756,
+    104747,
+    104747,
+    104747,
+    104747,
+    104747,
+    104743,
+    104745,
+    104744,
+    104744,
+    104756,
+    104756,
+    104756,
+    104754,
+    104754,
+    104752,
+    104740,
+    104741,
+    104741,
+    104741,
+    104741,
+    104741,
+    104742,
+    104742,
+    104749,
+    104752,
     104729,
     104729,
     104729,
     104729,
     104729,
-    104736,
-    104736,
-    104736,
     104735,
     104735,
-    104737,
-    104737,
-    104731,
-    104731,
-    104725,
-    104773,
-    104773,
-    104773,
-    104773,
-    104773,
-    104770,
-    104770,
-    104770,
-    104772,
-    104772,
-    104765,
-    104765,
-    104765,
-    104772,
-    104772,
-    104725,
-    104725,
-    104725,
-    104725,
-    104727
+    104735,
+    104735,
+    104735,
+    104772
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 55.4,
+      "score": 68.1,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 58.6,
+      "score": 71.0,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 62.6,
+      "score": 86.1,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 66.2,
+      "score": 77.6,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 78.5,
+      "score": 72.1,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "shaman-enhancement-pve"
+   ],
+   "levels_into": "shaman-enhancement-pve",
+   "detours": {
+    "Earth's Grasp": 2,
+    "Ancestral Knowledge": 3,
+    "Guardian Totems": 2
+   },
+   "stat_weights": {
+    "20": {
+     "score": 68.1,
+     "strength": 0.15,
+     "agility": 0.06,
+     "stamina": 0.0,
+     "intellect": 0.08,
+     "attack_power": 0.08,
+     "crit_rating": 0.12,
+     "hit_rating": 0.14,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5,
+     "weapon_dps": 1.05
+    },
+    "30": {
+     "score": 71.0,
+     "strength": 0.11,
+     "agility": 0.06,
+     "stamina": 0.0,
+     "intellect": 0.06,
+     "attack_power": 0.06,
+     "crit_rating": 0.1,
+     "hit_rating": 0.08,
+     "crit_pct": 0.6,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.8
+    },
+    "40": {
+     "score": 86.1,
+     "strength": 0.08,
+     "agility": 0.05,
+     "stamina": 0.0,
+     "intellect": 0.04,
+     "attack_power": 0.04,
+     "crit_rating": 0.07,
+     "hit_rating": 0.07,
+     "crit_pct": 0.6,
+     "hit_pct": 0.6,
+     "weapon_dps": 0.6
+    },
+    "50": {
+     "score": 77.6,
+     "strength": 0.06,
+     "agility": 0.04,
+     "stamina": 0.0,
+     "intellect": 0.03,
+     "attack_power": 0.03,
+     "crit_rating": 0.06,
+     "hit_rating": 0.05,
+     "crit_pct": 0.6,
+     "hit_pct": 0.6,
+     "weapon_dps": 0.45
+    },
+    "60": {
+     "score": 72.1,
+     "strength": 0.05,
+     "agility": 0.03,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "attack_power": 0.02,
+     "crit_rating": 0.04,
+     "hit_rating": 0.0,
+     "crit_pct": 0.5,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.35
+    }
+   },
+   "about": [
+    "40 points in Enhancement, with 10 in Restoration and 1 in Elemental. Built for PvE. On this order the key talents arrive as follows: Stormstrike at 30, Spirit Weapons at 31, Rage of the Farseer at 40 and Shamanistic Focus at 48.",
+    "A melee shaman: auto-attacks and weapon procs carry it, with shocks and Stormstrike on top. Damage comes from auto-attacks 49%, abilities 32% and spells and procs 20%.",
+    "Questing pace in the model, in kills per hour: 68 at 20, 71 at 30, 86 at 40, 78 at 50 and 72 at 60.",
+    "While leveling it also takes Earth's Grasp 2, Ancestral Knowledge 3 and Guardian Totems 2, which pay off for questing; respec those points into Enhancement (PvE) at 60. A model leveling path, not yet tried in game."
+   ]
+  },
+  {
+   "id": "shaman-restoration-leveling",
+   "name": "Restoration Riptide (PvE, leveling)",
+   "pair": "shaman-restoration-leveling",
+   "variant": "PvE",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "Restoration Riptide (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Restoration Riptide (PvE) at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    104739,
+    104739,
+    104739,
+    104739,
+    104739,
+    104734,
+    104734,
+    104734,
+    104735,
+    104735,
+    104735,
+    104773,
+    104731,
+    104731,
+    104773,
+    104731,
+    104773,
+    104773,
+    104773,
+    104733,
+    104738,
+    104738,
+    104738,
+    104738,
+    104738,
+    104727,
+    104727,
+    104727,
+    104726,
+    104730,
+    104770,
+    104770,
+    104725,
+    104725,
+    104725,
+    104725,
+    104725,
+    104724,
+    104730,
+    104730,
+    104730,
+    104730,
+    104728,
+    104733,
+    104733,
+    104732,
+    104735,
+    104735,
+    104753,
+    104753,
+    104753
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 61.9,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 61.3,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 65.5,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 64.0,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 69.5,
       "unit": "kills/hour"
      }
     }
@@ -2735,45 +2759,50 @@
    "respec": [
     "shaman-restoration"
    ],
+   "levels_into": "shaman-restoration",
+   "detours": {
+    "Convection": 5,
+    "Call of Flame": 2
+   },
    "stat_weights": {
     "20": {
-     "score": 55.4,
+     "score": 61.9,
      "stamina": 0.0,
      "intellect": 0.01,
-     "spirit": 0.02,
-     "spell_power": 0.29,
+     "spirit": 0.08,
+     "spell_power": 0.32,
      "crit_rating": 0.06,
-     "hit_rating": 0.13,
+     "hit_rating": 0.0,
      "crit_pct": 0.2,
-     "hit_pct": 0.5
+     "hit_pct": 0.0
     },
     "30": {
-     "score": 58.6,
+     "score": 61.3,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.04,
      "spell_power": 0.21,
      "crit_rating": 0.03,
      "hit_rating": 0.0,
-     "crit_pct": 0.1,
+     "crit_pct": 0.2,
      "hit_pct": 0.0
     },
     "40": {
-     "score": 62.6,
+     "score": 65.5,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.02,
      "spell_power": 0.13,
-     "crit_rating": 0.02,
+     "crit_rating": 0.03,
      "hit_rating": 0.0,
      "crit_pct": 0.2,
      "hit_pct": 0.0
     },
     "50": {
-     "score": 66.2,
+     "score": 64.0,
      "stamina": 0.0,
      "intellect": 0.01,
-     "spirit": 0.01,
+     "spirit": 0.02,
      "spell_power": 0.12,
      "crit_rating": 0.02,
      "hit_rating": 0.0,
@@ -2781,45 +2810,40 @@
      "hit_pct": 0.0
     },
     "60": {
-     "score": 78.5,
+     "score": 69.5,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.01,
-     "spell_power": 0.09,
-     "crit_rating": 0.02,
+     "spell_power": 0.08,
+     "crit_rating": 0.01,
      "hit_rating": 0.0,
      "crit_pct": 0.2,
      "hit_pct": 0.0
     }
    },
    "about": [
-    "31 points in Restoration, with 15 in Elemental and 5 in Enhancement. Built for PvE. On this order the key talents arrive as follows: Purification at 40.",
+    "41 points in Restoration, with 7 in Elemental and 3 in Enhancement. Built for PvE. On this order the key talents arrive as follows: Nature's Swiftness at 38, Riptide at 47, Mana Tide Totem at 52 and Water Shield at 55.",
     "In the model's rotation it keeps Flame Shock up, uses Chain Lightning on cooldown and fills with Lightning Bolt.",
-    "Questing pace in the model, in kills per hour: 55 at 20, 59 at 30, 63 at 40, 66 at 50 and 78 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 62 at 20, 61 at 30, 66 at 40, 64 at 50 and 70 at 60.",
+    "While leveling it also takes Convection 5 and Call of Flame 2, which pay off for questing; respec those points into Restoration Riptide (PvE) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "shaman-restoration-leveling-pvp",
-   "name": "Restoration leveling (PvP)",
-   "pair": "shaman-restoration-leveling-pvp",
+   "id": "shaman-restoration-pvp-leveling",
+   "name": "Restoration (PvP, leveling)",
+   "pair": "shaman-restoration-pvp-leveling",
    "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Restoration talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Restoration (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "summary": "Restoration (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Restoration (PvP) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
-    104757,
+    104729,
+    104729,
+    104729,
     104739,
-    104757,
-    104739,
-    104756,
-    104739,
-    104756,
-    104739,
-    104756,
     104739,
     104734,
     104734,
@@ -2827,64 +2851,69 @@
     104735,
     104735,
     104735,
-    104729,
-    104729,
-    104729,
-    104729,
-    104729,
-    104735,
-    104735,
+    104773,
     104731,
     104731,
-    104731,
+    104773,
     104733,
+    104773,
+    104773,
+    104773,
+    104757,
+    104757,
     104733,
+    104738,
+    104738,
+    104738,
+    104738,
+    104738,
+    104727,
+    104727,
+    104727,
+    104770,
+    104770,
+    104726,
+    104728,
+    104725,
+    104725,
+    104725,
+    104725,
+    104725,
+    104724,
     104733,
     104732,
-    104738,
-    104773,
-    104773,
-    104773,
-    104773,
-    104773,
-    104770,
-    104770,
-    104770,
-    104772,
-    104772,
-    104765,
-    104765,
-    104765,
-    104772,
-    104772,
-    104725,
-    104725,
-    104725,
-    104725,
-    104725
+    104735,
+    104735,
+    104739,
+    104756,
+    104756,
+    104756,
+    104754,
+    104754,
+    104752
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 54.5,
+      "score": 61.9,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 57.6,
+      "score": 61.3,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 61.6,
+      "score": 65.5,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 65.2,
+      "score": 64.0,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 77.4,
+      "score": 68.9,
       "unit": "kills/hour"
      }
     }
@@ -2893,31 +2922,36 @@
    "respec": [
     "shaman-restoration-pvp"
    ],
+   "levels_into": "shaman-restoration-pvp",
+   "detours": {
+    "Convection": 5,
+    "Call of Flame": 2
+   },
    "stat_weights": {
     "20": {
-     "score": 54.5,
+     "score": 61.9,
      "stamina": 0.0,
      "intellect": 0.01,
-     "spirit": 0.02,
-     "spell_power": 0.29,
+     "spirit": 0.08,
+     "spell_power": 0.32,
      "crit_rating": 0.06,
-     "hit_rating": 0.13,
+     "hit_rating": 0.0,
      "crit_pct": 0.2,
-     "hit_pct": 0.5
+     "hit_pct": 0.0
     },
     "30": {
-     "score": 57.6,
+     "score": 61.3,
      "stamina": 0.0,
-     "intellect": 0.01,
+     "intellect": 0.0,
      "spirit": 0.04,
      "spell_power": 0.21,
-     "crit_rating": 0.04,
+     "crit_rating": 0.03,
      "hit_rating": 0.0,
      "crit_pct": 0.2,
      "hit_pct": 0.0
     },
     "40": {
-     "score": 61.6,
+     "score": 65.5,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.02,
@@ -2928,33 +2962,33 @@
      "hit_pct": 0.0
     },
     "50": {
-     "score": 65.2,
+     "score": 64.0,
      "stamina": 0.0,
      "intellect": 0.01,
-     "spirit": 0.01,
-     "spell_power": 0.11,
+     "spirit": 0.02,
+     "spell_power": 0.12,
      "crit_rating": 0.02,
      "hit_rating": 0.0,
      "crit_pct": 0.2,
      "hit_pct": 0.0
     },
     "60": {
-     "score": 77.4,
+     "score": 68.9,
      "stamina": 0.0,
-     "intellect": 0.01,
+     "intellect": 0.0,
      "spirit": 0.01,
-     "spell_power": 0.09,
-     "crit_rating": 0.02,
+     "spell_power": 0.08,
+     "crit_rating": 0.01,
      "hit_rating": 0.0,
      "crit_pct": 0.2,
      "hit_pct": 0.0
     }
    },
    "about": [
-    "31 points in Restoration, with 15 in Elemental and 5 in Enhancement. Built for PvP. On this order the key talents arrive as follows: Water Shield at 39 and Purification at 56.",
+    "36 points in Restoration, with 8 in Enhancement and 7 in Elemental. Built for PvP. On this order the key talents arrive as follows: Nature's Swiftness at 42, Mana Tide Totem at 43, Riptide at 49 and Water Shield at 51.",
     "In the model's rotation it keeps Flame Shock up, uses Chain Lightning on cooldown and fills with Lightning Bolt.",
-    "Questing pace in the model, in kills per hour: 54 at 20, 58 at 30, 62 at 40, 65 at 50 and 77 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 62 at 20, 61 at 30, 66 at 40, 64 at 50 and 69 at 60.",
+    "While leveling it also takes Convection 5 and Call of Flame 2, which pay off for questing; respec those points into Restoration (PvP) at 60. A model leveling path, not yet tried in game."
    ]
   }
  ],
@@ -3250,40 +3284,40 @@
  ],
  "leveling": [
   {
-   "tree": "Elemental",
-   "focus": "PvE",
-   "build": "shaman-elemental-leveling-pve",
-   "score": 71.0
-  },
-  {
-   "tree": "Elemental",
+   "archetype": "deep Elemental",
    "focus": "PvP",
-   "build": "shaman-elemental-leveling-pvp",
-   "score": 70.8
+   "build": "shaman-elemental-leveling",
+   "score": 70.6
   },
   {
-   "tree": "Enhancement",
+   "archetype": "deep Elemental",
    "focus": "PvE",
-   "build": "shaman-enhancement-leveling-pve",
-   "score": 74.8
+   "build": "shaman-elemental-pve-leveling",
+   "score": 70.6
   },
   {
-   "tree": "Enhancement",
+   "archetype": "deep Enhancement",
    "focus": "PvP",
-   "build": "shaman-enhancement-leveling-pvp",
+   "build": "shaman-enhancement-leveling",
    "score": 75.0
   },
   {
-   "tree": "Restoration",
+   "archetype": "deep Enhancement",
    "focus": "PvE",
-   "build": "shaman-restoration-leveling-pve",
-   "score": 64.3
+   "build": "shaman-enhancement-pve-leveling",
+   "score": 75.0
   },
   {
-   "tree": "Restoration",
+   "archetype": "deep Restoration",
+   "focus": "PvE",
+   "build": "shaman-restoration-leveling",
+   "score": 64.4
+  },
+  {
+   "archetype": "deep Restoration",
    "focus": "PvP",
-   "build": "shaman-restoration-leveling-pvp",
-   "score": 63.3
+   "build": "shaman-restoration-pvp-leveling",
+   "score": 64.3
   }
  ]
 }

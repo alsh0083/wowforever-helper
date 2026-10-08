@@ -1,0 +1,68 @@
+# Leveling version of warrior-protection-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "warrior-protection-pvp-leveling"
+class = "warrior"
+name = "Protection (PvP, leveling, model)"
+pair = "warrior-protection-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "warrior-protection-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Protection (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Protection (PvP, model) at 60."
+
+order = [
+  "Shield Specialization",  # 10
+  "Shield Specialization",  # 11
+  "Shield Specialization",  # 12
+  "Shield Specialization",  # 13
+  "Shield Specialization",  # 14
+  "Anticipation",  # 15
+  "Anticipation",  # 16
+  "Anticipation",  # 17
+  "Anticipation",  # 18
+  "Anticipation",  # 19
+  "Improved Bloodrage",  # 20
+  "Improved Bloodrage",  # 21
+  "Last Stand",  # 22
+  "Master of Defense",  # 23
+  "Master of Defense",  # 24
+  "Improved Sunder Armor",  # 25
+  "Improved Sunder Armor",  # 26
+  "Vanguard",  # 27
+  "Improved Revenge",  # 28
+  "Improved Revenge",  # 29
+  "Improved Shield Wall",  # 30
+  "Improved Shield Wall",  # 31
+  "Concussion Blow",  # 32
+  "Bastion",  # 33
+  "Bastion",  # 34
+  "Cruelty",  # 35
+  "Cruelty",  # 36
+  "Cruelty",  # 37
+  "Cruelty",  # 38
+  "Cruelty",  # 39
+  "Focused Rage",  # 40
+  "Focused Rage",  # 41
+  "Focused Rage",  # 42
+  "Bastion",  # 43
+  "Bastion",  # 44
+  "Shield Slam",  # 45
+  "Bastion",  # 46
+  "Improved Revenge",  # 47
+  "Defiance",  # 48
+  "Defiance",  # 49
+  "Defiance",  # 50
+  "Improved Shield Bash",  # 51
+  "Improved Shield Bash",  # 52
+  "Improved Sunder Armor",  # 53
+  "Improved Disarm",  # 54
+  "Improved Disarm",  # 55
+  "Improved Disarm",  # 56
+  "Toughness",  # 57
+  "Unbridled Wrath",  # 58
+  "Unbridled Wrath",  # 59
+  "Unbridled Wrath",  # 60
+]

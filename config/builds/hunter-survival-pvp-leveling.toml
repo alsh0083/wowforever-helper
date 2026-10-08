@@ -1,0 +1,68 @@
+# Leveling version of hunter-survival-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "hunter-survival-pvp-leveling"
+class = "hunter"
+name = "Survival Lone Wolf (PvP, leveling)"
+pair = "hunter-survival-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "hunter-survival-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Survival Lone Wolf (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Survival Lone Wolf (PvP) at 60."
+
+order = [
+  "Improved Tracking",  # 10
+  "Improved Tracking",  # 11
+  "Improved Tracking",  # 12
+  "Improved Tracking",  # 13
+  "Improved Tracking",  # 14
+  "Entrapment",  # 15
+  "Entrapment",  # 16
+  "Entrapment",  # 17
+  "Deflection",  # 18
+  "Deflection",  # 19
+  "Surefooted",  # 20
+  "Surefooted",  # 21
+  "Surefooted",  # 22
+  "Clever Traps",  # 23
+  "Clever Traps",  # 24
+  "Survival Tactics",  # 25
+  "Survival Tactics",  # 26
+  "Predator's Edge",  # 27
+  "Deflection",  # 28
+  "Deflection",  # 29
+  "Deflection",  # 30
+  "Entrapment",  # 31
+  "Entrapment",  # 32
+  "Savage Strikes",  # 33
+  "Savage Strikes",  # 34
+  "Lightning Reflexes",  # 35
+  "Lightning Reflexes",  # 36
+  "Lightning Reflexes",  # 37
+  "Lightning Reflexes",  # 38
+  "Lightning Reflexes",  # 39
+  "Resourcefulness",  # 40
+  "Resourcefulness",  # 41
+  "Expose Prey",  # 42
+  "Expose Prey",  # 43
+  "Lacerating Strikes",  # 44
+  "Survivalist's Discipline",  # 45
+  "Survivalist's Discipline",  # 46
+  "Strider Kick",  # 47
+  "Predator's Edge",  # 48
+  "Predator's Edge",  # 49
+  "Predator's Edge",  # 50
+  "Predator's Edge",  # 51
+  "Lethal Attacks",  # 52
+  "Lethal Attacks",  # 53
+  "Lethal Attacks",  # 54
+  "Lethal Attacks",  # 55
+  "Lethal Attacks",  # 56
+  "Careful Aim",  # 57
+  "Careful Aim",  # 58
+  "Careful Aim",  # 59
+  "Careful Aim",  # 60
+]

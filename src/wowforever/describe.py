@@ -227,6 +227,7 @@ def add_descriptions(class_name: str, cls: ClassData, report: dict[str, Any], va
     """Sets `about` (a list of paragraphs) on every build in `report`."""
     best = class_best(report["builds"])
     buff_names = _buff_names()
+    names = {b["id"]: b["name"] for b in report["builds"]}
     for b in report["builds"]:
         paragraphs = [shape(cls, b, variants.get(b["id"], ""))]
         if b.get("model_filled"):
@@ -248,8 +249,12 @@ def add_descriptions(class_name: str, cls: ClassData, report: dict[str, Any], va
                                        pace(b) if b.get("mode") == "leveling" else strengths(b, best),
                                        group_line(b, buff_names) if b.get("mode") != "leveling" else "") if p]
         if b.get("mode") == "leveling":
-            paragraphs.append("A model leveling path, not yet tried in game. It isn't tied to an endgame build: "
-                              "respec at 60 into one of the builds suggested below.")
+            detours = [f"{name} {n}" for name, n in (b.get("detours") or {}).items()]
+            into = names.get(b.get("levels_into") or "", "its endgame build")
+            paragraphs.append((f"While leveling it also takes {_join(detours)}, which pay off for questing; respec "
+                               f"those points into {into} at 60. " if detours else
+                               f"It takes only {into}'s own talents, so no respec is needed at 60. ")
+                              + "A model leveling path, not yet tried in game.")
         elif b.get("origin") == "model":
             paragraphs.append("A model build: the calculator's pick for this slot, not yet tried in game.")
         b["about"] = paragraphs

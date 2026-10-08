@@ -1,0 +1,68 @@
+# Leveling version of warlock-affliction-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "warlock-affliction-pvp-leveling"
+class = "warlock"
+name = "Affliction (PvP, leveling, model)"
+pair = "warlock-affliction-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "warlock-affliction-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Affliction (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Affliction (PvP, model) at 60."
+
+order = [
+  "Improved Corruption",  # 10
+  "Suppression",  # 11
+  "Suppression",  # 12
+  "Suppression",  # 13
+  "Improved Life Tap",  # 14
+  "Malediction",  # 15
+  "Malediction",  # 16
+  "Improved Corruption",  # 17
+  "Malediction",  # 18
+  "Malediction",  # 19
+  "Bane",  # 20
+  "Bane",  # 21
+  "Bane",  # 22
+  "Bane",  # 23
+  "Bane",  # 24
+  "Improved Bane of Agony",  # 25
+  "Improved Bane of Agony",  # 26
+  "Malediction",  # 27
+  "Cataclysm",  # 28
+  "Cataclysm",  # 29
+  "Cataclysm",  # 30
+  "Improved Corruption",  # 31
+  "Improved Corruption",  # 32
+  "Improved Corruption",  # 33
+  "Malevolence",  # 34
+  "Malevolence",  # 35
+  "Malevolence",  # 36
+  "Malevolence",  # 37
+  "Improved Life Tap",  # 38
+  "Suppression",  # 39
+  "Suppression",  # 40
+  "Soul Harvest",  # 41
+  "Soul Harvest",  # 42
+  "Shadow Mastery",  # 43
+  "Shadow Mastery",  # 44
+  "Shadow Mastery",  # 45
+  "Malevolence",  # 46
+  "Siphon Life",  # 47
+  "Soul Siphon",  # 48
+  "Nightfall",  # 49
+  "Nightfall",  # 50
+  "Pandemic",  # 51
+  "Pandemic",  # 52
+  "Pandemic",  # 53
+  "Improved Drains",  # 54
+  "Improved Drains",  # 55
+  "Improved Drains",  # 56
+  "Demonic Embrace",  # 57
+  "Demonic Embrace",  # 58
+  "Demonic Embrace",  # 59
+  "Demonic Embrace",  # 60
+]

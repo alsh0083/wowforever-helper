@@ -1,0 +1,68 @@
+# Leveling version of shaman-restoration (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "shaman-restoration-leveling"
+class = "shaman"
+name = "Restoration Riptide (PvE, leveling)"
+pair = "shaman-restoration-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "shaman-restoration"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Restoration Riptide (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Restoration Riptide (PvE) at 60."
+
+order = [
+  "Improved Healing Wave",  # 10
+  "Improved Healing Wave",  # 11
+  "Improved Healing Wave",  # 12
+  "Improved Healing Wave",  # 13
+  "Improved Healing Wave",  # 14
+  "Mindfulness",  # 15
+  "Mindfulness",  # 16
+  "Mindfulness",  # 17
+  "Tidal Focus",  # 18
+  "Tidal Focus",  # 19
+  "Tidal Focus",  # 20
+  "Convection",  # 21
+  "Ancestral Healing",  # 22
+  "Ancestral Healing",  # 23
+  "Convection",  # 24
+  "Ancestral Healing",  # 25
+  "Convection",  # 26
+  "Convection",  # 27
+  "Convection",  # 28
+  "Healing Focus",  # 29
+  "Tidal Mastery",  # 30
+  "Tidal Mastery",  # 31
+  "Tidal Mastery",  # 32
+  "Tidal Mastery",  # 33
+  "Tidal Mastery",  # 34
+  "Healing Way",  # 35
+  "Healing Way",  # 36
+  "Healing Way",  # 37
+  "Nature's Swiftness",  # 38
+  "Restorative Totems",  # 39
+  "Call of Flame",  # 40
+  "Call of Flame",  # 41
+  "Purification",  # 42
+  "Purification",  # 43
+  "Purification",  # 44
+  "Purification",  # 45
+  "Purification",  # 46
+  "Riptide",  # 47
+  "Restorative Totems",  # 48
+  "Restorative Totems",  # 49
+  "Restorative Totems",  # 50
+  "Restorative Totems",  # 51
+  "Mana Tide Totem",  # 52
+  "Healing Focus",  # 53
+  "Healing Focus",  # 54
+  "Water Shield",  # 55
+  "Tidal Focus",  # 56
+  "Tidal Focus",  # 57
+  "Thundering Strikes",  # 58
+  "Thundering Strikes",  # 59
+  "Thundering Strikes",  # 60
+]

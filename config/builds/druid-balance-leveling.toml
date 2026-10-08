@@ -1,0 +1,68 @@
+# Leveling version of druid-balance (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "druid-balance-leveling"
+class = "druid"
+name = "Balance Moonkin (PvE, leveling)"
+pair = "druid-balance-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "druid-balance"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Balance Moonkin (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Balance Moonkin (PvE) at 60."
+
+order = [
+  "Improved Wrath",  # 10
+  "Improved Wrath",  # 11
+  "Improved Wrath",  # 12
+  "Improved Wrath",  # 13
+  "Improved Wrath",  # 14
+  "Moonglow",  # 15
+  "Moonglow",  # 16
+  "Moonglow",  # 17
+  "Nature's Reach",  # 18
+  "Improved Moonfire",  # 19
+  "Improved Moonfire",  # 20
+  "Nature's Reach",  # 21
+  "Nature's Majesty",  # 22
+  "Nature's Majesty",  # 23
+  "Genesis",  # 24
+  "Insect Swarm",  # 25
+  "Vengeance",  # 26
+  "Vengeance",  # 27
+  "Vengeance",  # 28
+  "Vengeance",  # 29
+  "Vengeance",  # 30
+  "Genesis",  # 31
+  "Genesis",  # 32
+  "Genesis",  # 33
+  "Genesis",  # 34
+  "Moonfury",  # 35
+  "Moonfury",  # 36
+  "Moonfury",  # 37
+  "Moonfury",  # 38
+  "Moonfury",  # 39
+  "Moonkin Form",  # 40
+  "Nature's Grace",  # 41
+  "Eclipse",  # 42
+  "Eclipse",  # 43
+  "Eclipse",  # 44
+  "Improved Starfire",  # 45
+  "Improved Starfire",  # 46
+  "Improved Starfire",  # 47
+  "Improved Starfire",  # 48
+  "Improved Starfire",  # 49
+  "Nature's Splendor",  # 50
+  "Overgrowth",  # 51
+  "Overgrowth",  # 52
+  "Nature's Focus",  # 53
+  "Nature's Focus",  # 54
+  "Nature's Focus",  # 55
+  "Nature's Focus",  # 56
+  "Nature's Focus",  # 57
+  "Naturalist",  # 58
+  "Naturalist",  # 59
+  "Naturalist",  # 60
+]

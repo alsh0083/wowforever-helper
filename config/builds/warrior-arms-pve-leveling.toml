@@ -1,0 +1,68 @@
+# Leveling version of warrior-arms-pve (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "warrior-arms-pve-leveling"
+class = "warrior"
+name = "Arms (PvE, leveling)"
+pair = "warrior-arms-pve-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "warrior-arms-pve"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Arms (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arms (PvE) at 60."
+
+order = [
+  "Improved Heroic Strike",  # 10
+  "Improved Heroic Strike",  # 11
+  "Improved Heroic Strike",  # 12
+  "Deflection",  # 13
+  "Deflection",  # 14
+  "Deflection",  # 15
+  "Deflection",  # 16
+  "Deflection",  # 17
+  "Improved Rend",  # 18
+  "Improved Rend",  # 19
+  "Improved Rend",  # 20
+  "Deep Wounds",  # 21
+  "Deep Wounds",  # 22
+  "Deep Wounds",  # 23
+  "Improved Charge",  # 24
+  "Two-Handed Weapon Specialization",  # 25
+  "Two-Handed Weapon Specialization",  # 26
+  "Two-Handed Weapon Specialization",  # 27
+  "Impale",  # 28
+  "Impale",  # 29
+  "Improved Charge",  # 30
+  "Improved Tactical Mastery",  # 31
+  "Improved Tactical Mastery",  # 32
+  "Improved Tactical Mastery",  # 33
+  "Improved Tactical Mastery",  # 34
+  "Improved Tactical Mastery",  # 35
+  "Anger Management",  # 36
+  "Cruelty",  # 37
+  "Cruelty",  # 38
+  "Cruelty",  # 39
+  "Improved Overpower",  # 40
+  "Improved Overpower",  # 41
+  "Spearing Strike",  # 42
+  "Bloodthrill",  # 43
+  "Bloodthrill",  # 44
+  "Bloodthrill",  # 45
+  "Bloodthrill",  # 46
+  "Bloodthrill",  # 47
+  "Sweeping Strikes",  # 48
+  "Mortal Strike",  # 49
+  "Cruelty",  # 50
+  "Cruelty",  # 51
+  "Improved Hamstring",  # 52
+  "Improved Hamstring",  # 53
+  "Improved Hamstring",  # 54
+  "Weaponmaster",  # 55
+  "Weaponmaster",  # 56
+  "Weaponmaster",  # 57
+  "Weaponmaster",  # 58
+  "Weaponmaster",  # 59
+  "Improved Slam",  # 60
+]

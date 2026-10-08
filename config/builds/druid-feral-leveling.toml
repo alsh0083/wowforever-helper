@@ -1,0 +1,68 @@
+# Leveling version of druid-feral (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "druid-feral-leveling"
+class = "druid"
+name = "Feral Cat (PvP, leveling)"
+pair = "druid-feral-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "druid-feral"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Feral Cat (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Feral Cat (PvP) at 60."
+
+order = [
+  "Ferocity",  # 10
+  "Ferocity",  # 11
+  "Ferocity",  # 12
+  "Ferocity",  # 13
+  "Ferocity",  # 14
+  "Heart of the Wild",  # 15
+  "Heart of the Wild",  # 16
+  "Heart of the Wild",  # 17
+  "Heart of the Wild",  # 18
+  "Heart of the Wild",  # 19
+  "Sharpened Claws",  # 20
+  "Sharpened Claws",  # 21
+  "Savage Fury",  # 22
+  "Savage Fury",  # 23
+  "Feral Swiftness",  # 24
+  "Predatory Strikes",  # 25
+  "Predatory Strikes",  # 26
+  "Predatory Strikes",  # 27
+  "Feral Swiftness",  # 28
+  "Feral Instinct",  # 29
+  "Leader of the Pack",  # 30
+  "Predatory Instincts",  # 31
+  "Predatory Instincts",  # 32
+  "Feral Instinct",  # 33
+  "Feral Instinct",  # 34
+  "Rend and Tear",  # 35
+  "Rend and Tear",  # 36
+  "Rend and Tear",  # 37
+  "Rend and Tear",  # 38
+  "Rend and Tear",  # 39
+  "Improved Wrath",  # 40
+  "Improved Wrath",  # 41
+  "Improved Wrath",  # 42
+  "Furor",  # 43
+  "Furor",  # 44
+  "Furor",  # 45
+  "Furor",  # 46
+  "Furor",  # 47
+  "Berserk",  # 48
+  "Blood Frenzy",  # 49
+  "Blood Frenzy",  # 50
+  "Feral Charge",  # 51
+  "Natural Reaction",  # 52
+  "Natural Reaction",  # 53
+  "Natural Reaction",  # 54
+  "Natural Reaction",  # 55
+  "Genesis",  # 56
+  "Genesis",  # 57
+  "Nature's Majesty",  # 58
+  "Nature's Majesty",  # 59
+  "Nature's Reach",  # 60
+]

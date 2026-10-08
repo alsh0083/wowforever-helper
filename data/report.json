@@ -4463,7 +4463,7 @@
    "about": [
     "51 points in Frost. Built for PvP. On this order the key talents arrive as follows: Ice Lance at 42, Ice Block at 50, Cold Snap at 54 and Ice Barrier at 60.",
     "In the model it levels with Frostbolt, pulls packs with Flamestrike and duels with Frostbolt as its main spell.",
-    "At level 60 it scores at or near the top of the class in AoE pulls, raid damage, survivability, crowd control, duels against melee, duels where melee opens, surviving stealth openers, dungeon damage, battlegrounds, duels against casters and questing speed.",
+    "At level 60 it scores at or near the top of the class in AoE pulls, raid damage, survivability, crowd control, duels against melee, duels where melee opens, surviving stealth openers, dungeon damage, battlegrounds, questing speed and duels against casters.",
     "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 16% more damage at 60 than unbuffed, on average across groups."
    ]
   },
@@ -5182,7 +5182,7 @@
    "about": [
     "30 points in Frost, with 21 in Fire. Built for PvE. On this order the key talents arrive as follows: Ice Lance at 20, Ice Block at 25, Cold Snap at 30 and Winter's Chill at 47.",
     "In the model it levels with Frostbolt, pulls packs with Flamestrike and duels with Frostfire Bolt as its main spell.",
-    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and questing speed (99%), and weakest at survivability (47%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and AoE pulls (100%), and weakest at survivability (47%).",
     "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 12% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game."
    ]
@@ -5886,7 +5886,7 @@
    "about": [
     "29 points in Fire, with 22 in Frost. Built for PvE. On this order the key talents arrive as follows: Pyroblast at 27, Heating Up at 37, Fire Power at 38 and Ice Lance at 55.",
     "In the model it levels with Frostfire Bolt, pulls packs with Flamestrike and duels with Frostfire Bolt as its main spell.",
-    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and raid damage (89%), and weakest at survivability (34%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and questing speed (90%), and weakest at survivability (34%).",
     "In a dungeon group it gains most from Arcane Intellect and Curse of the Elements: about 11% more damage at 60 than unbuffed, on average across groups."
    ]
   },
@@ -10135,24 +10135,56 @@
    ]
   },
   {
-   "id": "mage-arcane-leveling-pve",
-   "name": "Arcane leveling (PvE)",
-   "pair": "mage-arcane-leveling-pve",
-   "variant": "PvE",
+   "id": "arcane-pom-pyro-leveling",
+   "name": "Arcane/Fire PoM-Pyro (PvP, leveling)",
+   "pair": "arcane-pom-pyro-leveling",
+   "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Arcane talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Arcane/Fire PoM-Pyro (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arcane/Fire PoM-Pyro (PvP) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
-    105779,
-    105779,
-    105779,
+    105795,
+    105795,
+    105795,
+    105795,
+    105795,
+    105794,
+    105794,
+    105794,
+    105794,
+    105794,
+    105796,
+    105796,
+    105796,
+    105793,
+    105793,
+    105785,
+    105785,
+    105785,
+    105792,
+    105792,
+    105784,
+    105784,
+    105784,
+    105797,
+    105783,
+    105782,
+    105788,
     105778,
-    105779,
-    105815,
-    105815,
+    105778,
+    105788,
+    105788,
+    105789,
+    105789,
+    105789,
+    105790,
+    105786,
+    105792,
+    105814,
+    105814,
     105814,
     105814,
     105814,
@@ -10161,71 +10193,208 @@
     105810,
     105810,
     105810,
-    105814,
-    105814,
-    105813,
-    105813,
-    105813,
-    105813,
-    105813,
+    105806,
     105812,
     105812,
-    105811,
-    105811,
-    105809,
-    105809,
-    105808,
-    105808,
-    105799,
-    105779,
-    105778,
-    105778,
-    105777,
-    105777,
-    105772,
-    105772,
-    105772,
-    105773,
-    105773,
-    105773,
-    105799,
-    105799,
-    105777,
-    105777,
-    105777,
-    105807,
-    105807,
-    105807,
-    105806
+    105809
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 49.6,
+      "score": 47.4,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "30": {
+      "score": 56.4,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "40": {
+      "score": 80.8,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "50": {
+      "score": 90.7,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "60": {
+      "score": 103.4,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "arcane-pom-pyro"
+   ],
+   "levels_into": "arcane-pom-pyro",
+   "detours": {
+    "Incineration": 3,
+    "Master of Elements": 3,
+    "Wake of Fire": 1
+   },
+   "stat_weights": {
+    "20": {
+     "score": 47.4,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "spirit": 0.0,
+     "spell_power": 0.24,
+     "crit_rating": 0.11,
+     "hit_rating": 0.12,
+     "crit_pct": 0.4,
+     "hit_pct": 0.4
+    },
+    "30": {
+     "score": 56.4,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "spirit": 0.0,
+     "spell_power": 0.15,
+     "crit_rating": 0.09,
+     "hit_rating": 0.08,
+     "crit_pct": 0.5,
+     "hit_pct": 0.5
+    },
+    "40": {
+     "score": 80.8,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.12,
+     "crit_rating": 0.07,
+     "hit_rating": 0.05,
+     "crit_pct": 0.6,
+     "hit_pct": 0.5
+    },
+    "50": {
+     "score": 90.7,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.09,
+     "crit_rating": 0.05,
+     "hit_rating": 0.01,
+     "crit_pct": 0.6,
+     "hit_pct": 0.1
+    },
+    "60": {
+     "score": 103.4,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.06,
+     "crit_rating": 0.05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.6,
+     "hit_pct": 0.0
+    }
+   },
+   "about": [
+    "35 points in Fire, with 14 in Arcane and 2 in Frost. Built for PvP. On this order the key talents arrive as follows: Blast Wave at 34, Fire Power at 35, Pyroblast at 44, Heating Up at 45 and Arcane Blast at 57.",
+    "In the model it levels with Fireball.",
+    "Questing pace in the model, in kills per hour: 47 at 20, 56 at 30, 81 at 40, 91 at 50 and 103 at 60.",
+    "While leveling it also takes Incineration 3, Master of Elements 3 and Wake of Fire 1, which pay off for questing; respec those points into Arcane/Fire PoM-Pyro (PvP) at 60. A model leveling path, not yet tried in game."
+   ]
+  },
+  {
+   "id": "deep-arcane-leveling",
+   "name": "Deep Arcane (PvE, leveling)",
+   "pair": "deep-arcane-leveling",
+   "variant": "PvE",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "Deep Arcane (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Deep Arcane (PvE) at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    105814,
+    105815,
+    105815,
+    105814,
+    105814,
+    105810,
+    105810,
+    105810,
+    105810,
+    105810,
+    105807,
+    105807,
+    105807,
+    105814,
+    105814,
+    105813,
+    105813,
+    105813,
+    105813,
+    105813,
+    105800,
+    105800,
+    105800,
+    105800,
+    105800,
+    105799,
+    105799,
+    105799,
+    105796,
+    105796,
+    105796,
+    105801,
+    105805,
+    105798,
+    105805,
+    105804,
+    105804,
+    105803,
+    105803,
+    105803,
+    105802,
+    105808,
+    105808,
+    105806,
+    105812,
+    105812,
+    105811,
+    105811,
+    105809,
+    105809,
+    105797
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 49.8,
       "unit": "kills/hour",
       "spell": "Frostbolt"
      },
      "30": {
-      "score": 59.8,
+      "score": 57.0,
       "unit": "kills/hour",
       "spell": "Frostbolt"
      },
      "40": {
-      "score": 79.3,
+      "score": 79.9,
       "unit": "kills/hour",
-      "spell": "Frostbolt"
+      "spell": "Arcane Missiles"
      },
      "50": {
-      "score": 97.2,
+      "score": 86.1,
       "unit": "kills/hour",
-      "spell": "Frostbolt"
+      "spell": "Arcane Missiles"
      },
      "60": {
-      "score": 112.1,
+      "score": 94.6,
       "unit": "kills/hour",
-      "spell": "Frostbolt"
+      "spell": "Arcane Missiles"
      }
     }
    },
@@ -10234,172 +10403,11 @@
     "deep-arcane",
     "deep-arcane-model"
    ],
+   "levels_into": "deep-arcane",
+   "detours": {},
    "stat_weights": {
     "20": {
-     "score": 49.6,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.3,
-     "crit_rating": 0.06,
-     "hit_rating": 0.08,
-     "crit_pct": 0.2,
-     "hit_pct": 0.4
-    },
-    "30": {
-     "score": 59.8,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.21,
-     "crit_rating": 0.04,
-     "hit_rating": 0.08,
-     "crit_pct": 0.3,
-     "hit_pct": 0.5
-    },
-    "40": {
-     "score": 79.3,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "spirit": 0.0,
-     "spell_power": 0.14,
-     "crit_rating": 0.03,
-     "hit_rating": 0.06,
-     "crit_pct": 0.2,
-     "hit_pct": 0.5
-    },
-    "50": {
-     "score": 97.2,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "spirit": 0.0,
-     "spell_power": 0.1,
-     "crit_rating": 0.03,
-     "hit_rating": 0.0,
-     "crit_pct": 0.4,
-     "hit_pct": 0.0
-    },
-    "60": {
-     "score": 112.1,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.07,
-     "crit_rating": 0.04,
-     "hit_rating": 0.0,
-     "crit_pct": 0.5,
-     "hit_pct": 0.0
-    }
-   },
-   "about": [
-    "32 points in Arcane, with 19 in Frost. Built for PvE. On this order the key talents arrive as follows: Arcane Instability at 40 and Arcane Blast at 60.",
-    "In the model it levels with Frostbolt.",
-    "Questing pace in the model, in kills per hour: 50 at 20, 60 at 30, 79 at 40, 97 at 50 and 112 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
-   ]
-  },
-  {
-   "id": "mage-arcane-leveling-pvp",
-   "name": "Arcane leveling (PvP)",
-   "pair": "mage-arcane-leveling-pvp",
-   "variant": "PvP",
-   "origin": "model",
-   "mode": "leveling",
-   "summary": "A Arcane talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Arcane (PvP, model), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
-   "gives_up": [],
-   "model_filled": {},
-   "must_have_by": {},
-   "order": [
-    105779,
-    105779,
-    105779,
-    105815,
-    105779,
-    105779,
-    105815,
-    105814,
-    105814,
-    105814,
-    105810,
-    105810,
-    105810,
-    105810,
-    105810,
-    105814,
-    105814,
-    105813,
-    105813,
-    105813,
-    105813,
-    105813,
-    105812,
-    105812,
-    105811,
-    105811,
-    105809,
-    105809,
-    105808,
-    105808,
-    105799,
-    105778,
-    105778,
-    105778,
-    105776,
-    105777,
-    105772,
-    105772,
-    105772,
-    105773,
-    105773,
-    105773,
-    105799,
-    105799,
-    105777,
-    105777,
-    105777,
-    105777,
-    105805,
-    105805,
-    105804
-   ],
-   "order_source": "model leveling path (questing pace)",
-   "open_points": 0,
-   "scores": {
-    "questing": {
-     "20": {
-      "score": 49.7,
-      "unit": "kills/hour",
-      "spell": "Frostbolt"
-     },
-     "30": {
-      "score": 60.0,
-      "unit": "kills/hour",
-      "spell": "Frostbolt"
-     },
-     "40": {
-      "score": 79.7,
-      "unit": "kills/hour",
-      "spell": "Frostbolt"
-     },
-     "50": {
-      "score": 96.8,
-      "unit": "kills/hour",
-      "spell": "Frostbolt"
-     },
-     "60": {
-      "score": 112.1,
-      "unit": "kills/hour",
-      "spell": "Frostbolt"
-     }
-    }
-   },
-   "sensitivity": [],
-   "respec": [
-    "mage-arcane-pvp"
-   ],
-   "stat_weights": {
-    "20": {
-     "score": 49.7,
+     "score": 49.8,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
@@ -10410,65 +10418,235 @@
      "hit_pct": 0.4
     },
     "30": {
-     "score": 60.0,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.21,
-     "crit_rating": 0.04,
-     "hit_rating": 0.08,
-     "crit_pct": 0.2,
-     "hit_pct": 0.5
-    },
-    "40": {
-     "score": 79.7,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.14,
-     "crit_rating": 0.03,
-     "hit_rating": 0.06,
-     "crit_pct": 0.3,
-     "hit_pct": 0.6
-    },
-    "50": {
-     "score": 96.8,
+     "score": 57.0,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.0,
-     "spell_power": 0.1,
+     "spell_power": 0.2,
      "crit_rating": 0.03,
+     "hit_rating": 0.07,
+     "crit_pct": 0.2,
+     "hit_pct": 0.4
+    },
+    "40": {
+     "score": 79.9,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.11,
+     "crit_rating": 0.0,
      "hit_rating": 0.0,
-     "crit_pct": 0.3,
+     "crit_pct": 0.0,
+     "hit_pct": 0.0
+    },
+    "50": {
+     "score": 86.1,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.08,
+     "crit_rating": 0.0,
+     "hit_rating": 0.0,
+     "crit_pct": 0.0,
      "hit_pct": 0.0
     },
     "60": {
-     "score": 112.1,
+     "score": 94.6,
      "stamina": 0.0,
-     "intellect": 0.01,
+     "intellect": 0.0,
      "spirit": 0.0,
-     "spell_power": 0.07,
-     "crit_rating": 0.04,
+     "spell_power": 0.06,
+     "crit_rating": 0.0,
      "hit_rating": 0.0,
-     "crit_pct": 0.5,
+     "crit_pct": 0.0,
      "hit_pct": 0.0
     }
    },
    "about": [
-    "31 points in Arcane, with 20 in Frost. Built for PvP. On this order the key talents arrive as follows: Arcane Instability at 40.",
-    "In the model it levels with Frostbolt.",
-    "Questing pace in the model, in kills per hour: 50 at 20, 60 at 30, 80 at 40, 97 at 50 and 112 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "47 points in Arcane, with 4 in Fire. Built for PvE. On this order the key talents arrive as follows: Presence of Mind at 41, Arcane Power at 43, Missile Barrage at 50 and Arcane Blast at 53.",
+    "In the model it levels with Arcane Missiles.",
+    "Questing pace in the model, in kills per hour: 50 at 20, 57 at 30, 80 at 40, 86 at 50 and 95 at 60.",
+    "It takes only Deep Arcane (PvE)'s own talents, so no respec is needed at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "mage-fire-leveling-pve",
-   "name": "Fire leveling (PvE)",
-   "pair": "mage-fire-leveling-pve",
+   "id": "deep-fire-leveling",
+   "name": "Deep Fire Combustion (PvE, leveling)",
+   "pair": "deep-fire-leveling",
    "variant": "PvE",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Fire talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Deep Fire Combustion (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Deep Fire Combustion (PvE) at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    105795,
+    105795,
+    105795,
+    105795,
+    105795,
+    105794,
+    105794,
+    105794,
+    105794,
+    105794,
+    105796,
+    105796,
+    105796,
+    105793,
+    105793,
+    105785,
+    105785,
+    105785,
+    105792,
+    105792,
+    105784,
+    105784,
+    105784,
+    105797,
+    105797,
+    105782,
+    105782,
+    105782,
+    105782,
+    105782,
+    105778,
+    105778,
+    105781,
+    105788,
+    105788,
+    105788,
+    105789,
+    105790,
+    105786,
+    105783,
+    105778,
+    105814,
+    105814,
+    105814,
+    105814,
+    105814,
+    105810,
+    105810,
+    105810,
+    105812,
+    105812
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 47.4,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "30": {
+      "score": 56.4,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "40": {
+      "score": 84.5,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "50": {
+      "score": 95.6,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "60": {
+      "score": 106.8,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "deep-fire"
+   ],
+   "levels_into": "deep-fire",
+   "detours": {
+    "Flame Throwing": 2,
+    "Impact": 2,
+    "Wake of Fire": 2,
+    "Blast Wave": 1
+   },
+   "stat_weights": {
+    "20": {
+     "score": 47.4,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "spirit": 0.0,
+     "spell_power": 0.24,
+     "crit_rating": 0.11,
+     "hit_rating": 0.12,
+     "crit_pct": 0.4,
+     "hit_pct": 0.4
+    },
+    "30": {
+     "score": 56.4,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "spirit": 0.0,
+     "spell_power": 0.15,
+     "crit_rating": 0.09,
+     "hit_rating": 0.08,
+     "crit_pct": 0.5,
+     "hit_pct": 0.5
+    },
+    "40": {
+     "score": 84.5,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "spirit": 0.0,
+     "spell_power": 0.12,
+     "crit_rating": 0.07,
+     "hit_rating": 0.07,
+     "crit_pct": 0.6,
+     "hit_pct": 0.6
+    },
+    "50": {
+     "score": 95.6,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.09,
+     "crit_rating": 0.05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.6,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 106.8,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.06,
+     "crit_rating": 0.05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.6,
+     "hit_pct": 0.0
+    }
+   },
+   "about": [
+    "38 points in Fire, with 10 in Arcane and 3 in Frost. Built for PvE. On this order the key talents arrive as follows: Combustion at 42, Pyroblast at 47, Heating Up at 48 and Blast Wave at 49.",
+    "In the model it levels with Fireball.",
+    "Questing pace in the model, in kills per hour: 47 at 20, 56 at 30, 84 at 40, 96 at 50 and 107 at 60.",
+    "While leveling it also takes Flame Throwing 2, Impact 2, Wake of Fire 2 and Blast Wave 1, which pay off for questing; respec those points into Deep Fire Combustion (PvE) at 60. A model leveling path, not yet tried in game."
+   ]
+  },
+  {
+   "id": "deep-frost-leveling",
+   "name": "Deep Frost Control (PvP, leveling)",
+   "pair": "deep-frost-leveling",
+   "variant": "PvP",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "Deep Frost Control (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Deep Frost Control (PvP) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
@@ -10478,69 +10656,406 @@
     105779,
     105778,
     105779,
-    105797,
-    105797,
-    105796,
-    105796,
-    105796,
-    105795,
-    105795,
-    105795,
-    105795,
-    105795,
-    105794,
-    105794,
-    105794,
-    105794,
-    105794,
-    105785,
-    105785,
-    105785,
-    105793,
-    105793,
-    105784,
-    105784,
-    105784,
-    105792,
-    105792,
-    105782,
-    105782,
-    105782,
-    105782,
-    105782,
+    105776,
+    105776,
+    105776,
+    105775,
+    105775,
+    105772,
+    105772,
+    105772,
+    105773,
+    105773,
+    105769,
+    105773,
+    105779,
     105778,
-    105815,
-    105815,
-    105814,
-    105814,
-    105814,
-    105810,
-    105810,
-    105810,
-    105810,
-    105810,
-    105781,
-    105783,
-    105788,
-    105788,
-    105788
+    105778,
+    105766,
+    105777,
+    105777,
+    105777,
+    105777,
+    105777,
+    105780,
+    105780,
+    105778,
+    105778,
+    105774,
+    105768,
+    105767,
+    105764,
+    105764,
+    105768,
+    105768,
+    105774,
+    105774,
+    105762,
+    105763,
+    105763,
+    105763,
+    105763,
+    105763,
+    105765,
+    105765,
+    105765,
+    105770,
+    105770,
+    105771
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 49.0,
+      "score": 50.5,
       "unit": "kills/hour",
       "spell": "Frostbolt"
      },
      "30": {
-      "score": 56.9,
+      "score": 65.8,
       "unit": "kills/hour",
       "spell": "Frostbolt"
      },
      "40": {
-      "score": 80.4,
+      "score": 86.3,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "50": {
+      "score": 115.9,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "60": {
+      "score": 124.0,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "deep-frost"
+   ],
+   "levels_into": "deep-frost",
+   "detours": {
+    "Frost Warding": 2
+   },
+   "stat_weights": {
+    "20": {
+     "score": 50.5,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.31,
+     "crit_rating": 0.06,
+     "hit_rating": 0.08,
+     "crit_pct": 0.2,
+     "hit_pct": 0.4
+    },
+    "30": {
+     "score": 65.8,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.22,
+     "crit_rating": 0.04,
+     "hit_rating": 0.0,
+     "crit_pct": 0.3,
+     "hit_pct": 0.0
+    },
+    "40": {
+     "score": 86.3,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "spirit": 0.0,
+     "spell_power": 0.15,
+     "crit_rating": 0.07,
+     "hit_rating": 0.0,
+     "crit_pct": 0.6,
+     "hit_pct": 0.0
+    },
+    "50": {
+     "score": 115.9,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.07,
+     "crit_rating": 0.04,
+     "hit_rating": 0.0,
+     "crit_pct": 0.5,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 124.0,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.04,
+     "crit_rating": 0.03,
+     "hit_rating": 0.0,
+     "crit_pct": 0.5,
+     "hit_pct": 0.0
+    }
+   },
+   "about": [
+    "51 points in Frost. Built for PvP. On this order the key talents arrive as follows: Ice Block at 25, Cold Snap at 30, Ice Lance at 42 and Ice Barrier at 49.",
+    "In the model it levels with Frostbolt.",
+    "Questing pace in the model, in kills per hour: 50 at 20, 66 at 30, 86 at 40, 116 at 50 and 124 at 60.",
+    "While leveling it also takes Frost Warding 2, which pay off for questing; respec those points into Deep Frost Control (PvP) at 60. A model leveling path, not yet tried in game."
+   ]
+  },
+  {
+   "id": "fire-frost-shatter-leveling",
+   "name": "Fire/Frost Shatter (PvE, leveling)",
+   "pair": "fire-frost-shatter-leveling",
+   "variant": "PvE",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "Fire/Frost Shatter (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Fire/Frost Shatter (PvE) at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    105795,
+    105795,
+    105795,
+    105795,
+    105795,
+    105794,
+    105794,
+    105794,
+    105794,
+    105794,
+    105796,
+    105796,
+    105796,
+    105793,
+    105793,
+    105785,
+    105785,
+    105785,
+    105792,
+    105792,
+    105784,
+    105784,
+    105784,
+    105797,
+    105788,
+    105782,
+    105782,
+    105782,
+    105782,
+    105778,
+    105778,
+    105788,
+    105788,
+    105789,
+    105789,
+    105789,
+    105790,
+    105786,
+    105778,
+    105778,
+    105778,
+    105777,
+    105777,
+    105777,
+    105777,
+    105777,
+    105773,
+    105773,
+    105773,
+    105772,
+    105772
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 47.4,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "30": {
+      "score": 56.4,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "40": {
+      "score": 83.8,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "50": {
+      "score": 94.1,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "60": {
+      "score": 103.6,
+      "unit": "kills/hour",
+      "spell": "Frostfire Bolt"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "fire-frost-shatter"
+   ],
+   "levels_into": "fire-frost-shatter",
+   "detours": {
+    "Incineration": 3,
+    "Flame Throwing": 1,
+    "Impact": 2,
+    "Wake of Fire": 1
+   },
+   "stat_weights": {
+    "20": {
+     "score": 47.4,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "spirit": 0.0,
+     "spell_power": 0.24,
+     "crit_rating": 0.11,
+     "hit_rating": 0.12,
+     "crit_pct": 0.4,
+     "hit_pct": 0.4
+    },
+    "30": {
+     "score": 56.4,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "spirit": 0.0,
+     "spell_power": 0.15,
+     "crit_rating": 0.09,
+     "hit_rating": 0.08,
+     "crit_pct": 0.5,
+     "hit_pct": 0.5
+    },
+    "40": {
+     "score": 83.8,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "spirit": 0.0,
+     "spell_power": 0.13,
+     "crit_rating": 0.08,
+     "hit_rating": 0.06,
+     "crit_pct": 0.7,
+     "hit_pct": 0.6
+    },
+    "50": {
+     "score": 94.1,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.09,
+     "crit_rating": 0.05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.6,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 103.6,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.07,
+     "crit_rating": 0.06,
+     "hit_rating": 0.0,
+     "crit_pct": 0.8,
+     "hit_pct": 0.0
+    }
+   },
+   "about": [
+    "36 points in Fire, with 15 in Frost. Built for PvE. On this order the key talents arrive as follows: Fire Power at 35, Pyroblast at 46 and Heating Up at 47.",
+    "In the model it levels with Frostfire Bolt.",
+    "Questing pace in the model, in kills per hour: 47 at 20, 56 at 30, 84 at 40, 94 at 50 and 104 at 60.",
+    "While leveling it also takes Incineration 3, Flame Throwing 1, Impact 2 and Wake of Fire 1, which pay off for questing; respec those points into Fire/Frost Shatter (PvE) at 60. A model leveling path, not yet tried in game."
+   ]
+  },
+  {
+   "id": "mage-arcane-fire-pve-leveling",
+   "name": "Arcane/Fire (PvE, leveling, model)",
+   "pair": "mage-arcane-fire-pve-leveling",
+   "variant": "PvE",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "Arcane/Fire (PvE, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arcane/Fire (PvE, model) at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    105795,
+    105795,
+    105795,
+    105795,
+    105795,
+    105794,
+    105794,
+    105794,
+    105794,
+    105794,
+    105796,
+    105796,
+    105796,
+    105793,
+    105793,
+    105785,
+    105785,
+    105785,
+    105792,
+    105792,
+    105784,
+    105784,
+    105784,
+    105797,
+    105797,
+    105782,
+    105782,
+    105782,
+    105782,
+    105782,
+    105778,
+    105778,
+    105788,
+    105788,
+    105791,
+    105790,
+    105786,
+    105814,
+    105814,
+    105814,
+    105814,
+    105814,
+    105810,
+    105810,
+    105810,
+    105810,
+    105810,
+    105806,
+    105812,
+    105812,
+    105809
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 47.4,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "30": {
+      "score": 56.4,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "40": {
+      "score": 84.5,
       "unit": "kills/hour",
       "spell": "Fireball"
      },
@@ -10558,33 +11073,39 @@
    },
    "sensitivity": [],
    "respec": [
-    "deep-fire"
+    "mage-arcane-fire-pve"
    ],
+   "levels_into": "mage-arcane-fire-pve",
+   "detours": {
+    "Incineration": 3,
+    "Wake of Fire": 2,
+    "Elemental Precision": 2
+   },
    "stat_weights": {
     "20": {
-     "score": 49.0,
+     "score": 47.4,
      "stamina": 0.0,
-     "intellect": 0.01,
+     "intellect": 0.02,
      "spirit": 0.0,
-     "spell_power": 0.3,
-     "crit_rating": 0.06,
-     "hit_rating": 0.08,
-     "crit_pct": 0.2,
+     "spell_power": 0.24,
+     "crit_rating": 0.11,
+     "hit_rating": 0.12,
+     "crit_pct": 0.4,
      "hit_pct": 0.4
     },
     "30": {
-     "score": 56.9,
+     "score": 56.4,
      "stamina": 0.0,
-     "intellect": 0.01,
+     "intellect": 0.02,
      "spirit": 0.0,
-     "spell_power": 0.2,
-     "crit_rating": 0.04,
+     "spell_power": 0.15,
+     "crit_rating": 0.09,
      "hit_rating": 0.08,
-     "crit_pct": 0.3,
+     "crit_pct": 0.5,
      "hit_pct": 0.5
     },
     "40": {
-     "score": 80.4,
+     "score": 84.5,
      "stamina": 0.0,
      "intellect": 0.02,
      "spirit": 0.0,
@@ -10618,102 +11139,271 @@
     }
    },
    "about": [
-    "35 points in Fire, with 10 in Arcane and 6 in Frost. Built for PvE. On this order the key talents arrive as follows: Combustion at 56 and Blast Wave at 57.",
+    "35 points in Fire, with 14 in Arcane and 2 in Frost. Built for PvE. On this order the key talents arrive as follows: Fire Power at 35, Pyroblast at 45, Heating Up at 46 and Arcane Blast at 57.",
     "In the model it levels with Fireball.",
-    "Questing pace in the model, in kills per hour: 49 at 20, 57 at 30, 80 at 40, 96 at 50 and 108 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 47 at 20, 56 at 30, 84 at 40, 96 at 50 and 108 at 60.",
+    "While leveling it also takes Incineration 3, Wake of Fire 2 and Elemental Precision 2, which pay off for questing; respec those points into Arcane/Fire (PvE, model) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "mage-fire-leveling-pvp",
-   "name": "Fire leveling (PvP)",
-   "pair": "mage-fire-leveling-pvp",
+   "id": "mage-arcane-pvp-leveling",
+   "name": "Arcane (PvP, leveling, model)",
+   "pair": "mage-arcane-pvp-leveling",
    "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Fire talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Fire (PvP, model), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "summary": "Arcane (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arcane (PvP, model) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
-    105778,
-    105778,
-    105778,
     105814,
-    105796,
-    105796,
-    105796,
-    105795,
-    105795,
-    105795,
-    105795,
-    105794,
-    105794,
-    105794,
+    105815,
+    105815,
+    105814,
+    105814,
+    105810,
+    105810,
+    105810,
+    105810,
     105779,
-    105794,
-    105795,
-    105794,
-    105792,
-    105792,
-    105785,
-    105785,
-    105785,
-    105792,
-    105789,
-    105784,
-    105784,
-    105784,
-    105789,
-    105789,
-    105782,
-    105782,
-    105782,
-    105782,
-    105782,
+    105779,
+    105779,
+    105779,
+    105779,
+    105776,
+    105775,
+    105775,
+    105810,
+    105778,
+    105778,
+    105772,
+    105772,
+    105772,
+    105773,
+    105773,
+    105773,
+    105808,
+    105808,
+    105807,
+    105807,
+    105807,
+    105805,
     105814,
     105814,
-    105814,
-    105814,
-    105810,
-    105810,
-    105810,
-    105810,
-    105810,
-    105797,
-    105797,
-    105788,
-    105788,
-    105788,
-    105790,
-    105786
+    105813,
+    105813,
+    105813,
+    105813,
+    105813,
+    105812,
+    105812,
+    105799,
+    105799,
+    105805,
+    105804,
+    105804,
+    105803,
+    105803,
+    105803,
+    105806,
+    105811
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 48.1,
+      "score": 50.1,
       "unit": "kills/hour",
       "spell": "Frostbolt"
      },
      "30": {
-      "score": 56.5,
+      "score": 62.6,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "40": {
+      "score": 88.3,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "50": {
+      "score": 96.5,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     },
+     "60": {
+      "score": 107.4,
+      "unit": "kills/hour",
+      "spell": "Frostbolt"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "mage-arcane-pvp"
+   ],
+   "levels_into": "mage-arcane-pvp",
+   "detours": {
+    "Elemental Precision": 2,
+    "Frost Channeling": 3,
+    "Arcane Instability": 2
+   },
+   "stat_weights": {
+    "20": {
+     "score": 50.1,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.3,
+     "crit_rating": 0.06,
+     "hit_rating": 0.12,
+     "crit_pct": 0.2,
+     "hit_pct": 0.4
+    },
+    "30": {
+     "score": 62.6,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.21,
+     "crit_rating": 0.04,
+     "hit_rating": 0.05,
+     "crit_pct": 0.2,
+     "hit_pct": 0.5
+    },
+    "40": {
+     "score": 88.3,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.15,
+     "crit_rating": 0.03,
+     "hit_rating": 0.06,
+     "crit_pct": 0.3,
+     "hit_pct": 0.6
+    },
+    "50": {
+     "score": 96.5,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.1,
+     "crit_rating": 0.03,
+     "hit_rating": 0.01,
+     "crit_pct": 0.3,
+     "hit_pct": 0.1
+    },
+    "60": {
+     "score": 107.4,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "spirit": 0.0,
+     "spell_power": 0.06,
+     "crit_rating": 0.02,
+     "hit_rating": 0.0,
+     "crit_pct": 0.3,
+     "hit_pct": 0.0
+    }
+   },
+   "about": [
+    "35 points in Arcane, with 16 in Frost. Built for PvP. On this order the key talents arrive as follows: Arcane Instability at 51 and Arcane Blast at 59.",
+    "In the model it levels with Frostbolt.",
+    "Questing pace in the model, in kills per hour: 50 at 20, 63 at 30, 88 at 40, 96 at 50 and 107 at 60.",
+    "While leveling it also takes Elemental Precision 2, Frost Channeling 3 and Arcane Instability 2, which pay off for questing; respec those points into Arcane (PvP, model) at 60. A model leveling path, not yet tried in game."
+   ]
+  },
+  {
+   "id": "mage-fire-frost-pvp-leveling",
+   "name": "Fire/Frost (PvP, leveling, model)",
+   "pair": "mage-fire-frost-pvp-leveling",
+   "variant": "PvP",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "Fire/Frost (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Fire/Frost (PvP, model) at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    105795,
+    105795,
+    105795,
+    105795,
+    105795,
+    105794,
+    105794,
+    105794,
+    105794,
+    105794,
+    105796,
+    105796,
+    105796,
+    105793,
+    105793,
+    105785,
+    105785,
+    105785,
+    105792,
+    105792,
+    105784,
+    105784,
+    105784,
+    105797,
+    105797,
+    105782,
+    105782,
+    105778,
+    105783,
+    105789,
+    105789,
+    105789,
+    105790,
+    105786,
+    105792,
+    105779,
+    105779,
+    105779,
+    105779,
+    105776,
+    105775,
+    105777,
+    105777,
+    105777,
+    105773,
+    105767,
+    105777,
+    105774,
+    105774,
+    105769,
+    105768
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 47.4,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "30": {
+      "score": 56.4,
       "unit": "kills/hour",
       "spell": "Fireball"
      },
      "40": {
-      "score": 81.1,
+      "score": 81.5,
       "unit": "kills/hour",
       "spell": "Fireball"
      },
      "50": {
-      "score": 96.0,
+      "score": 91.7,
       "unit": "kills/hour",
       "spell": "Fireball"
      },
      "60": {
-      "score": 108.2,
+      "score": 101.6,
       "unit": "kills/hour",
       "spell": "Fireball"
      }
@@ -10721,55 +11411,61 @@
    },
    "sensitivity": [],
    "respec": [
-    "mage-fire-pvp"
+    "mage-fire-frost-pvp"
    ],
+   "levels_into": "mage-fire-frost-pvp",
+   "detours": {
+    "Flame Throwing": 2,
+    "Master of Elements": 3,
+    "Fire Power": 2
+   },
    "stat_weights": {
     "20": {
-     "score": 48.1,
+     "score": 47.4,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "spirit": 0.0,
+     "spell_power": 0.24,
+     "crit_rating": 0.11,
+     "hit_rating": 0.12,
+     "crit_pct": 0.4,
+     "hit_pct": 0.4
+    },
+    "30": {
+     "score": 56.4,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "spirit": 0.0,
+     "spell_power": 0.15,
+     "crit_rating": 0.09,
+     "hit_rating": 0.08,
+     "crit_pct": 0.5,
+     "hit_pct": 0.5
+    },
+    "40": {
+     "score": 81.5,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
-     "spell_power": 0.29,
-     "crit_rating": 0.06,
-     "hit_rating": 0.0,
-     "crit_pct": 0.2,
-     "hit_pct": 0.0
-    },
-    "30": {
-     "score": 56.5,
-     "stamina": 0.0,
-     "intellect": 0.02,
-     "spirit": 0.0,
-     "spell_power": 0.16,
-     "crit_rating": 0.08,
-     "hit_rating": 0.0,
-     "crit_pct": 0.5,
-     "hit_pct": 0.0
-    },
-    "40": {
-     "score": 81.1,
-     "stamina": 0.0,
-     "intellect": 0.02,
-     "spirit": 0.0,
-     "spell_power": 0.13,
+     "spell_power": 0.12,
      "crit_rating": 0.07,
-     "hit_rating": 0.0,
+     "hit_rating": 0.06,
      "crit_pct": 0.6,
-     "hit_pct": 0.0
+     "hit_pct": 0.5
     },
     "50": {
-     "score": 96.0,
+     "score": 91.7,
      "stamina": 0.0,
-     "intellect": 0.02,
+     "intellect": 0.01,
      "spirit": 0.0,
-     "spell_power": 0.1,
-     "crit_rating": 0.06,
-     "hit_rating": 0.0,
-     "crit_pct": 0.7,
-     "hit_pct": 0.0
+     "spell_power": 0.09,
+     "crit_rating": 0.05,
+     "hit_rating": 0.05,
+     "crit_pct": 0.6,
+     "hit_pct": 0.6
     },
     "60": {
-     "score": 108.2,
+     "score": 101.6,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
@@ -10781,20 +11477,190 @@
     }
    },
    "about": [
-    "37 points in Fire, with 10 in Arcane and 4 in Frost. Built for PvP. On this order the key talents arrive as follows: Fire Power at 40, Pyroblast at 59 and Heating Up at 60.",
+    "34 points in Fire, with 17 in Frost. Built for PvP. On this order the key talents arrive as follows: Fire Power at 35, Blast Wave at 38, Pyroblast at 42, Heating Up at 43, Ice Lance at 55 and Ice Block at 59.",
     "In the model it levels with Fireball.",
-    "Questing pace in the model, in kills per hour: 48 at 20, 56 at 30, 81 at 40, 96 at 50 and 108 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 47 at 20, 56 at 30, 82 at 40, 92 at 50 and 102 at 60.",
+    "While leveling it also takes Flame Throwing 2, Master of Elements 3 and Fire Power 2, which pay off for questing; respec those points into Fire/Frost (PvP, model) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "mage-frost-leveling-pve",
-   "name": "Frost leveling (PvE)",
-   "pair": "mage-frost-leveling-pve",
+   "id": "mage-fire-pvp-leveling",
+   "name": "Fire (PvP, leveling, model)",
+   "pair": "mage-fire-pvp-leveling",
+   "variant": "PvP",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "Fire (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Fire (PvP, model) at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    105795,
+    105795,
+    105795,
+    105795,
+    105795,
+    105794,
+    105794,
+    105794,
+    105778,
+    105778,
+    105778,
+    105780,
+    105780,
+    105776,
+    105775,
+    105794,
+    105796,
+    105794,
+    105796,
+    105796,
+    105797,
+    105797,
+    105785,
+    105785,
+    105785,
+    105793,
+    105793,
+    105784,
+    105784,
+    105784,
+    105792,
+    105792,
+    105782,
+    105782,
+    105782,
+    105788,
+    105788,
+    105788,
+    105789,
+    105789,
+    105790,
+    105786,
+    105792,
+    105774,
+    105774,
+    105814,
+    105814,
+    105814,
+    105814,
+    105814,
+    105810
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 48.1,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "30": {
+      "score": 56.4,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "40": {
+      "score": 80.5,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "50": {
+      "score": 93.5,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     },
+     "60": {
+      "score": 103.3,
+      "unit": "kills/hour",
+      "spell": "Fireball"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "mage-fire-pvp"
+   ],
+   "levels_into": "mage-fire-pvp",
+   "detours": {
+    "Frost Warding": 2,
+    "Wake of Fire": 2,
+    "Flame Throwing": 2,
+    "Fire Power": 1
+   },
+   "stat_weights": {
+    "20": {
+     "score": 48.1,
+     "stamina": 0.0,
+     "intellect": 0.02,
+     "spirit": 0.0,
+     "spell_power": 0.29,
+     "crit_rating": 0.09,
+     "hit_rating": 0.0,
+     "crit_pct": 0.3,
+     "hit_pct": 0.0
+    },
+    "30": {
+     "score": 56.4,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.14,
+     "crit_rating": 0.07,
+     "hit_rating": 0.0,
+     "crit_pct": 0.4,
+     "hit_pct": 0.0
+    },
+    "40": {
+     "score": 80.5,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.12,
+     "crit_rating": 0.07,
+     "hit_rating": 0.0,
+     "crit_pct": 0.6,
+     "hit_pct": 0.0
+    },
+    "50": {
+     "score": 93.5,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.09,
+     "crit_rating": 0.05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.6,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 103.3,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.06,
+     "crit_rating": 0.05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.6,
+     "hit_pct": 0.0
+    }
+   },
+   "about": [
+    "36 points in Fire, with 9 in Frost and 6 in Arcane. Built for PvP. On this order the key talents arrive as follows: Fire Power at 42, Pyroblast at 50 and Heating Up at 51.",
+    "In the model it levels with Fireball.",
+    "Questing pace in the model, in kills per hour: 48 at 20, 56 at 30, 80 at 40, 94 at 50 and 103 at 60.",
+    "While leveling it also takes Frost Warding 2, Wake of Fire 2, Flame Throwing 2 and Fire Power 1, which pay off for questing; respec those points into Fire (PvP, model) at 60. A model leveling path, not yet tried in game."
+   ]
+  },
+  {
+   "id": "mage-frost-pve-leveling",
+   "name": "Frost (PvE, leveling)",
+   "pair": "mage-frost-pve-leveling",
    "variant": "PvE",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Frost talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Frost (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Frost (PvE) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
@@ -10818,29 +11684,27 @@
     105777,
     105777,
     105777,
-    105780,
-    105780,
-    105778,
-    105778,
+    105770,
+    105765,
+    105765,
+    105765,
+    105766,
+    105770,
+    105769,
+    105771,
+    105771,
+    105771,
     105776,
+    105762,
     105776,
-    105776,
-    105775,
-    105775,
     105774,
-    105768,
-    105774,
-    105768,
     105767,
     105764,
-    105764,
-    105768,
-    105774,
-    105796,
-    105796,
-    105796,
-    105815,
-    105815,
+    105776,
+    105775,
+    105775,
+    105814,
+    105814,
     105814,
     105814,
     105814,
@@ -10849,7 +11713,9 @@
     105810,
     105810,
     105810,
-    105771
+    105807,
+    105807,
+    105807
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
@@ -10866,17 +11732,17 @@
       "spell": "Frostbolt"
      },
      "40": {
-      "score": 88.0,
+      "score": 86.3,
       "unit": "kills/hour",
       "spell": "Frostbolt"
      },
      "50": {
-      "score": 116.9,
+      "score": 98.7,
       "unit": "kills/hour",
       "spell": "Frostbolt"
      },
      "60": {
-      "score": 127.8,
+      "score": 111.4,
       "unit": "kills/hour",
       "spell": "Frostbolt"
      }
@@ -10887,6 +11753,13 @@
     "mage-frost-pve",
     "mage-frost-pve-model"
    ],
+   "levels_into": "mage-frost-pve",
+   "detours": {
+    "Ice Shards": 4,
+    "Frostbite": 1,
+    "Ice Lance": 1,
+    "Fingers of Frost": 1
+   },
    "stat_weights": {
     "20": {
      "score": 52.1,
@@ -10911,207 +11784,44 @@
      "hit_pct": 0.0
     },
     "40": {
-     "score": 88.0,
+     "score": 86.3,
      "stamina": 0.0,
      "intellect": 0.02,
      "spirit": 0.0,
      "spell_power": 0.15,
-     "crit_rating": 0.06,
+     "crit_rating": 0.07,
      "hit_rating": 0.0,
-     "crit_pct": 0.5,
+     "crit_pct": 0.6,
      "hit_pct": 0.0
     },
     "50": {
-     "score": 116.9,
+     "score": 98.7,
+     "stamina": 0.0,
+     "intellect": 0.01,
+     "spirit": 0.0,
+     "spell_power": 0.09,
+     "crit_rating": 0.05,
+     "hit_rating": 0.0,
+     "crit_pct": 0.6,
+     "hit_pct": 0.0
+    },
+    "60": {
+     "score": 111.4,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
      "spell_power": 0.06,
      "crit_rating": 0.04,
      "hit_rating": 0.0,
-     "crit_pct": 0.4,
-     "hit_pct": 0.0
-    },
-    "60": {
-     "score": 127.8,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.04,
-     "crit_rating": 0.03,
-     "hit_rating": 0.0,
-     "crit_pct": 0.4,
+     "crit_pct": 0.6,
      "hit_pct": 0.0
     }
    },
    "about": [
-    "38 points in Frost, with 10 in Arcane and 3 in Fire. Built for PvE. On this order the key talents arrive as follows: Ice Lance at 42 and Fingers of Frost at 43.",
+    "38 points in Frost, with 13 in Arcane. Built for PvE. On this order the key talents arrive as follows: Cold Snap at 33, Ice Block at 35, Ice Barrier at 40 and Ice Lance at 43.",
     "In the model it levels with Frostbolt.",
-    "Questing pace in the model, in kills per hour: 52 at 20, 67 at 30, 88 at 40, 117 at 50 and 128 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
-   ]
-  },
-  {
-   "id": "mage-frost-leveling-pvp",
-   "name": "Frost leveling (PvP)",
-   "pair": "mage-frost-leveling-pvp",
-   "variant": "PvP",
-   "origin": "model",
-   "mode": "leveling",
-   "summary": "A Frost talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Deep Frost Control (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
-   "gives_up": [],
-   "model_filled": {},
-   "must_have_by": {},
-   "order": [
-    105779,
-    105779,
-    105779,
-    105778,
-    105779,
-    105779,
-    105778,
-    105778,
-    105777,
-    105777,
-    105772,
-    105772,
-    105772,
-    105773,
-    105773,
-    105773,
-    105777,
-    105777,
-    105777,
-    105778,
-    105778,
-    105776,
-    105776,
-    105776,
-    105775,
-    105775,
-    105774,
-    105768,
-    105774,
-    105768,
-    105768,
-    105774,
-    105767,
-    105764,
-    105764,
-    105771,
-    105771,
-    105771,
-    105770,
-    105770,
-    105769,
-    105765,
-    105765,
-    105765,
-    105766,
-    105762,
-    105763,
-    105763,
-    105763,
-    105763,
-    105763
-   ],
-   "order_source": "model leveling path (questing pace)",
-   "open_points": 0,
-   "scores": {
-    "questing": {
-     "20": {
-      "score": 52.1,
-      "unit": "kills/hour",
-      "spell": "Frostbolt"
-     },
-     "30": {
-      "score": 66.7,
-      "unit": "kills/hour",
-      "spell": "Frostbolt"
-     },
-     "40": {
-      "score": 91.2,
-      "unit": "kills/hour",
-      "spell": "Frostbolt"
-     },
-     "50": {
-      "score": 115.9,
-      "unit": "kills/hour",
-      "spell": "Frostbolt"
-     },
-     "60": {
-      "score": 124.0,
-      "unit": "kills/hour",
-      "spell": "Frostbolt"
-     }
-    }
-   },
-   "sensitivity": [],
-   "respec": [
-    "deep-frost"
-   ],
-   "stat_weights": {
-    "20": {
-     "score": 52.1,
-     "stamina": 0.0,
-     "intellect": 0.02,
-     "spirit": 0.0,
-     "spell_power": 0.32,
-     "crit_rating": 0.09,
-     "hit_rating": 0.0,
-     "crit_pct": 0.3,
-     "hit_pct": 0.0
-    },
-    "30": {
-     "score": 66.7,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.22,
-     "crit_rating": 0.08,
-     "hit_rating": 0.0,
-     "crit_pct": 0.4,
-     "hit_pct": 0.0
-    },
-    "40": {
-     "score": 91.2,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.15,
-     "crit_rating": 0.06,
-     "hit_rating": 0.0,
-     "crit_pct": 0.5,
-     "hit_pct": 0.0
-    },
-    "50": {
-     "score": 115.9,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.07,
-     "crit_rating": 0.04,
-     "hit_rating": 0.0,
-     "crit_pct": 0.5,
-     "hit_pct": 0.0
-    },
-    "60": {
-     "score": 124.0,
-     "stamina": 0.0,
-     "intellect": 0.01,
-     "spirit": 0.0,
-     "spell_power": 0.04,
-     "crit_rating": 0.03,
-     "hit_rating": 0.0,
-     "crit_pct": 0.5,
-     "hit_pct": 0.0
-    }
-   },
-   "about": [
-    "51 points in Frost. Built for PvP. On this order the key talents arrive as follows: Ice Lance at 42, Ice Block at 50, Cold Snap at 54 and Ice Barrier at 55.",
-    "In the model it levels with Frostbolt.",
-    "Questing pace in the model, in kills per hour: 52 at 20, 67 at 30, 91 at 40, 116 at 50 and 124 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 52 at 20, 67 at 30, 86 at 40, 99 at 50 and 111 at 60.",
+    "While leveling it also takes Ice Shards 4, Frostbite 1, Ice Lance 1 and Fingers of Frost 1, which pay off for questing; respec those points into Frost (PvE) at 60. A model leveling path, not yet tried in game."
    ]
   }
  ],
@@ -12179,40 +12889,64 @@
  ],
  "leveling": [
   {
-   "tree": "Arcane",
-   "focus": "PvE",
-   "build": "mage-arcane-leveling-pve",
-   "score": 79.6
-  },
-  {
-   "tree": "Arcane",
+   "archetype": "Arcane/Fire",
    "focus": "PvP",
-   "build": "mage-arcane-leveling-pvp",
-   "score": 79.7
+   "build": "arcane-pom-pyro-leveling",
+   "score": 75.7
   },
   {
-   "tree": "Fire",
+   "archetype": "deep Arcane",
    "focus": "PvE",
-   "build": "mage-fire-leveling-pve",
-   "score": 78.0
+   "build": "deep-arcane-leveling",
+   "score": 73.5
   },
   {
-   "tree": "Fire",
-   "focus": "PvP",
-   "build": "mage-fire-leveling-pvp",
-   "score": 78.0
-  },
-  {
-   "tree": "Frost",
+   "archetype": "deep Fire",
    "focus": "PvE",
-   "build": "mage-frost-leveling-pve",
-   "score": 90.3
+   "build": "deep-fire-leveling",
+   "score": 78.1
   },
   {
-   "tree": "Frost",
+   "archetype": "deep Frost",
    "focus": "PvP",
-   "build": "mage-frost-leveling-pvp",
-   "score": 90.0
+   "build": "deep-frost-leveling",
+   "score": 88.5
+  },
+  {
+   "archetype": "Fire/Frost",
+   "focus": "PvE",
+   "build": "fire-frost-shatter-leveling",
+   "score": 77.1
+  },
+  {
+   "archetype": "Arcane/Fire",
+   "focus": "PvE",
+   "build": "mage-arcane-fire-pve-leveling",
+   "score": 78.4
+  },
+  {
+   "archetype": "deep Arcane",
+   "focus": "PvP",
+   "build": "mage-arcane-pvp-leveling",
+   "score": 81.0
+  },
+  {
+   "archetype": "Fire/Frost",
+   "focus": "PvP",
+   "build": "mage-fire-frost-pvp-leveling",
+   "score": 75.7
+  },
+  {
+   "archetype": "deep Fire",
+   "focus": "PvP",
+   "build": "mage-fire-pvp-leveling",
+   "score": 76.4
+  },
+  {
+   "archetype": "deep Frost",
+   "focus": "PvE",
+   "build": "mage-frost-pve-leveling",
+   "score": 83.0
   }
  ]
 }

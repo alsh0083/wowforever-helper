@@ -1,0 +1,68 @@
+# Leveling version of warlock-destruction (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "warlock-destruction-leveling"
+class = "warlock"
+name = "Destruction Conflagrate (PvP, leveling)"
+pair = "warlock-destruction-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "warlock-destruction"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Destruction Conflagrate (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Destruction Conflagrate (PvP) at 60."
+
+order = [
+  "Bane",  # 10
+  "Bane",  # 11
+  "Destructive Reach",  # 12
+  "Destructive Reach",  # 13
+  "Improved Shadow Bolt",  # 14
+  "Aftermath",  # 15
+  "Aftermath",  # 16
+  "Aftermath",  # 17
+  "Aftermath",  # 18
+  "Aftermath",  # 19
+  "Cataclysm",  # 20
+  "Cataclysm",  # 21
+  "Cataclysm",  # 22
+  "Ruin",  # 23
+  "Ruin",  # 24
+  "Agonizing Flames",  # 25
+  "Conflagrate",  # 26
+  "Agonizing Flames",  # 27
+  "Agonizing Flames",  # 28
+  "Ruin",  # 29
+  "Fire and Brimstone",  # 30
+  "Fire and Brimstone",  # 31
+  "Fire and Brimstone",  # 32
+  "Ruin",  # 33
+  "Ruin",  # 34
+  "Shadow and Flame",  # 35
+  "Shadow and Flame",  # 36
+  "Shadow and Flame",  # 37
+  "Shadow and Flame",  # 38
+  "Shadow and Flame",  # 39
+  "Bane",  # 40
+  "Bane",  # 41
+  "Suppression",  # 42
+  "Suppression",  # 43
+  "Bane",  # 44
+  "Bane of Havoc",  # 45
+  "Incinerate",  # 46
+  "Shadowburn",  # 47
+  "Intensity",  # 48
+  "Intensity",  # 49
+  "Intensity",  # 50
+  "Pyroclasm",  # 51
+  "Pyroclasm",  # 52
+  "Improved Corruption",  # 53
+  "Suppression",  # 54
+  "Suppression",  # 55
+  "Suppression",  # 56
+  "Demonic Embrace",  # 57
+  "Demonic Embrace",  # 58
+  "Demonic Embrace",  # 59
+  "Demonic Embrace",  # 60
+]

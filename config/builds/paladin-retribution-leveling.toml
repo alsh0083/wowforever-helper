@@ -1,0 +1,68 @@
+# Leveling version of paladin-retribution (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "paladin-retribution-leveling"
+class = "paladin"
+name = "Retribution (PvE, leveling)"
+pair = "paladin-retribution-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "paladin-retribution"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Retribution (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Retribution (PvE) at 60."
+
+order = [
+  "Deflection",  # 10
+  "Deflection",  # 11
+  "Deflection",  # 12
+  "Deflection",  # 13
+  "Deflection",  # 14
+  "Conviction",  # 15
+  "Conviction",  # 16
+  "Conviction",  # 17
+  "Conviction",  # 18
+  "Conviction",  # 19
+  "Seal of Command",  # 20
+  "Improved Judgement",  # 21
+  "Improved Judgement",  # 22
+  "Benediction",  # 23
+  "Benediction",  # 24
+  "Sacred Arbiter",  # 25
+  "Benediction",  # 26
+  "Benediction",  # 27
+  "Benediction",  # 28
+  "Holy Conduit",  # 29
+  "Two-Handed Weapon Specialization",  # 30
+  "Two-Handed Weapon Specialization",  # 31
+  "Two-Handed Weapon Specialization",  # 32
+  "Holy Conduit",  # 33
+  "Vindication",  # 34
+  "Vindication",  # 35
+  "Vindication",  # 36
+  "Sanctified Judgement",  # 37
+  "Sanctified Judgement",  # 38
+  "Sanctified Judgement",  # 39
+  "Vengeance",  # 40
+  "Vengeance",  # 41
+  "Vengeance",  # 42
+  "Twist of Light",  # 43
+  "Champion of the Light",  # 44
+  "Champion of the Light",  # 45
+  "Champion of the Light",  # 46
+  "Instrument of Law",  # 47
+  "Instrument of Law",  # 48
+  "Repentance",  # 49
+  "Eye for an Eye",  # 50
+  "Divine Strength",  # 51
+  "Divine Strength",  # 52
+  "Divine Strength",  # 53
+  "Divine Strength",  # 54
+  "Divine Strength",  # 55
+  "Improved Seals",  # 56
+  "Improved Seals",  # 57
+  "Improved Seals",  # 58
+  "Divine Intellect",  # 59
+  "Divine Intellect",  # 60
+]

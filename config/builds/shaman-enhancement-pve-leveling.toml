@@ -1,0 +1,68 @@
+# Leveling version of shaman-enhancement-pve (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "shaman-enhancement-pve-leveling"
+class = "shaman"
+name = "Enhancement (PvE, leveling)"
+pair = "shaman-enhancement-pve-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "shaman-enhancement-pve"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Enhancement (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Enhancement (PvE) at 60."
+
+order = [
+  "Thundering Strikes",  # 10
+  "Thundering Strikes",  # 11
+  "Thundering Strikes",  # 12
+  "Thundering Strikes",  # 13
+  "Thundering Strikes",  # 14
+  "Mental Dexterity",  # 15
+  "Mental Dexterity",  # 16
+  "Mental Dexterity",  # 17
+  "Earth's Grasp",  # 18
+  "Earth's Grasp",  # 19
+  "Elemental Weapons",  # 20
+  "Elemental Weapons",  # 21
+  "Elemental Weapons",  # 22
+  "Ancestral Knowledge",  # 23
+  "Ancestral Knowledge",  # 24
+  "Flurry",  # 25
+  "Flurry",  # 26
+  "Flurry",  # 27
+  "Flurry",  # 28
+  "Flurry",  # 29
+  "Stormstrike",  # 30
+  "Spirit Weapons",  # 31
+  "Mental Quickness",  # 32
+  "Mental Quickness",  # 33
+  "Ancestral Knowledge",  # 34
+  "Ancestral Knowledge",  # 35
+  "Ancestral Knowledge",  # 36
+  "Guardian Totems",  # 37
+  "Guardian Totems",  # 38
+  "Improved Ghost Wolf",  # 39
+  "Rage of the Farseer",  # 40
+  "Maelstrom Weapon",  # 41
+  "Maelstrom Weapon",  # 42
+  "Maelstrom Weapon",  # 43
+  "Maelstrom Weapon",  # 44
+  "Maelstrom Weapon",  # 45
+  "Improved Stormstrike",  # 46
+  "Improved Stormstrike",  # 47
+  "Shamanistic Focus",  # 48
+  "Improved Ghost Wolf",  # 49
+  "Totemic Focus",  # 50
+  "Totemic Focus",  # 51
+  "Totemic Focus",  # 52
+  "Totemic Focus",  # 53
+  "Totemic Focus",  # 54
+  "Tidal Focus",  # 55
+  "Tidal Focus",  # 56
+  "Tidal Focus",  # 57
+  "Tidal Focus",  # 58
+  "Tidal Focus",  # 59
+  "Concussion",  # 60
+]

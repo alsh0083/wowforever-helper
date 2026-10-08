@@ -1709,22 +1709,17 @@
    ]
   },
   {
-   "id": "paladin-holy-leveling-pve",
-   "name": "Holy leveling (PvE)",
-   "pair": "paladin-holy-leveling-pve",
+   "id": "paladin-holy-leveling",
+   "name": "Holy Shock (PvE, leveling)",
+   "pair": "paladin-holy-leveling",
    "variant": "PvE",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Holy talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Holy Shock (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Holy Shock (PvE) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
-    105639,
-    105639,
-    105639,
-    105639,
-    105639,
     105332,
     105332,
     105332,
@@ -1735,42 +1730,47 @@
     105333,
     105335,
     105335,
-    105334,
-    105334,
-    105334,
-    105331,
-    105331,
     105330,
     110871,
     110871,
     110871,
     105327,
-    105327,
     110873,
     110873,
     105329,
     105329,
     105329,
-    105707,
-    105707,
-    105707,
-    105707,
-    105707,
-    105703,
-    105703,
-    105703,
-    105703,
-    105703,
-    105696,
-    105705,
-    105705,
-    105706,
-    105706,
-    105700,
+    105324,
+    105324,
+    105324,
+    105323,
     105329,
+    105321,
+    105321,
+    105321,
+    105321,
+    105321,
+    105320,
     105329,
     105325,
-    105324
+    105327,
+    105331,
+    105331,
+    110872,
+    110872,
+    105334,
+    105334,
+    105334,
+    105639,
+    105639,
+    105630,
+    105630,
+    105630,
+    105630,
+    105630,
+    105638,
+    105638,
+    105638
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
@@ -1789,11 +1789,11 @@
       "unit": "kills/hour"
      },
      "50": {
-      "score": 47.0,
+      "score": 45.2,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 69.9,
+      "score": 42.9,
       "unit": "kills/hour"
      }
     }
@@ -1802,6 +1802,12 @@
    "respec": [
     "paladin-holy"
    ],
+   "levels_into": "paladin-holy",
+   "detours": {
+    "Consecrated Ground": 2,
+    "Improved Seals": 3,
+    "Divine Strength": 2
+   },
    "stat_weights": {
     "20": {
      "score": 60.4,
@@ -1843,47 +1849,47 @@
      "weapon_dps": 0.55
     },
     "50": {
-     "score": 47.0,
-     "strength": 0.05,
+     "score": 45.2,
+     "strength": 0.06,
      "agility": 0.02,
      "stamina": 0.0,
      "intellect": 0.0,
      "attack_power": 0.03,
      "crit_rating": 0.03,
      "hit_rating": 0.03,
-     "crit_pct": 0.3,
-     "hit_pct": 0.3,
+     "crit_pct": 0.4,
+     "hit_pct": 0.4,
      "weapon_dps": 0.4
     },
     "60": {
-     "score": 69.9,
+     "score": 42.9,
      "strength": 0.05,
      "agility": 0.02,
      "stamina": 0.0,
      "intellect": 0.0,
      "attack_power": 0.02,
-     "crit_rating": 0.03,
+     "crit_rating": 0.02,
      "hit_rating": 0.0,
-     "crit_pct": 0.4,
+     "crit_pct": 0.3,
      "hit_pct": 0.0,
-     "weapon_dps": 0.35
+     "weapon_dps": 0.3
     }
    },
    "about": [
-    "35 points in Holy, with 16 in Retribution. Built for PvE. On this order the key talents arrive as follows: Voice of Truth at 30, Seal of Command at 51, Sacred Arbiter at 56, Divine Favor at 59 and Divine Precision at 60.",
-    "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 53% and Holy damage 47%.",
-    "Questing pace in the model, in kills per hour: 60 at 20, 52 at 30, 53 at 40, 47 at 50 and 70 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "43 points in Holy, with 8 in Protection. Built for PvE. On this order the key talents arrive as follows: Voice of Truth at 20, Holy Shock at 33, Light's Vigil at 40 and Divine Favor at 42.",
+    "In the model's rotation its priority is Holy Strike. Damage comes from auto-attacks 83% and Holy damage 17%.",
+    "Questing pace in the model, in kills per hour: 60 at 20, 52 at 30, 53 at 40, 45 at 50 and 43 at 60.",
+    "While leveling it also takes Consecrated Ground 2, Improved Seals 3 and Divine Strength 2, which pay off for questing; respec those points into Holy Shock (PvE) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "paladin-holy-leveling-pvp",
-   "name": "Holy leveling (PvP)",
-   "pair": "paladin-holy-leveling-pvp",
+   "id": "paladin-holy-pvp-leveling",
+   "name": "Holy (PvP, leveling)",
+   "pair": "paladin-holy-pvp-leveling",
    "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Holy talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Holy (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "summary": "Holy (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Holy (PvP) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
@@ -1898,47 +1904,47 @@
     105333,
     105335,
     105335,
-    105331,
-    105331,
     105330,
     110871,
     110871,
     110871,
+    105626,
+    105626,
+    105626,
     105327,
-    105327,
+    105630,
+    105630,
+    105638,
+    105638,
+    105638,
+    105630,
+    105630,
+    105634,
+    105634,
+    105634,
+    105632,
+    105632,
+    105633,
+    105633,
+    105633,
     110873,
     110873,
     105329,
     105329,
     105329,
+    105323,
     105329,
     105329,
     105325,
-    105323,
+    105327,
+    105321,
+    105321,
     105321,
     105321,
     105321,
     105320,
-    105707,
-    105707,
-    105707,
-    105707,
-    105707,
-    105703,
-    105703,
-    105703,
-    105703,
-    105703,
-    105696,
-    105334,
-    105334,
-    105334,
-    105705,
-    105705,
-    105706,
-    105706,
-    105700,
-    105321
+    105331,
+    105331
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
@@ -1949,19 +1955,19 @@
       "unit": "kills/hour"
      },
      "30": {
-      "score": 51.9,
+      "score": 52.3,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 52.7,
+      "score": 54.0,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 47.0,
+      "score": 46.3,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 69.9,
+      "score": 42.9,
       "unit": "kills/hour"
      }
     }
@@ -1970,6 +1976,10 @@
    "respec": [
     "paladin-holy-pvp"
    ],
+   "levels_into": "paladin-holy-pvp",
+   "detours": {
+    "Precision": 3
+   },
    "stat_weights": {
     "20": {
      "score": 60.4,
@@ -1985,8 +1995,8 @@
      "weapon_dps": 1.25
     },
     "30": {
-     "score": 51.9,
-     "strength": 0.11,
+     "score": 52.3,
+     "strength": 0.12,
      "agility": 0.04,
      "stamina": 0.0,
      "intellect": 0.0,
@@ -1998,60 +2008,60 @@
      "weapon_dps": 0.8
     },
     "40": {
-     "score": 52.7,
+     "score": 54.0,
      "strength": 0.08,
      "agility": 0.03,
      "stamina": 0.0,
      "intellect": 0.0,
      "attack_power": 0.04,
-     "crit_rating": 0.05,
+     "crit_rating": 0.04,
      "hit_rating": 0.05,
      "crit_pct": 0.4,
      "hit_pct": 0.4,
      "weapon_dps": 0.55
     },
     "50": {
-     "score": 47.0,
-     "strength": 0.05,
+     "score": 46.3,
+     "strength": 0.06,
      "agility": 0.02,
      "stamina": 0.0,
      "intellect": 0.0,
      "attack_power": 0.03,
      "crit_rating": 0.03,
      "hit_rating": 0.03,
-     "crit_pct": 0.3,
-     "hit_pct": 0.3,
+     "crit_pct": 0.4,
+     "hit_pct": 0.4,
      "weapon_dps": 0.4
     },
     "60": {
-     "score": 69.9,
+     "score": 42.9,
      "strength": 0.05,
      "agility": 0.02,
      "stamina": 0.0,
      "intellect": 0.0,
      "attack_power": 0.02,
-     "crit_rating": 0.03,
+     "crit_rating": 0.02,
      "hit_rating": 0.0,
-     "crit_pct": 0.4,
+     "crit_pct": 0.3,
      "hit_pct": 0.0,
-     "weapon_dps": 0.35
+     "weapon_dps": 0.3
     }
    },
    "about": [
-    "35 points in Holy, with 16 in Retribution. Built for PvP. On this order the key talents arrive as follows: Voice of Truth at 22, Divine Favor at 35, Holy Shock at 36, Light's Vigil at 40, Seal of Command at 51 and Sacred Arbiter at 59.",
-    "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 53% and Holy damage 47%.",
-    "Questing pace in the model, in kills per hour: 60 at 20, 52 at 30, 53 at 40, 47 at 50 and 70 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "33 points in Holy, with 18 in Protection. Built for PvP. On this order the key talents arrive as follows: Voice of Truth at 20, Holy Shock at 48, Divine Favor at 51 and Light's Vigil at 58.",
+    "In the model's rotation its priority is Holy Strike. Damage comes from auto-attacks 83% and Holy damage 17%.",
+    "Questing pace in the model, in kills per hour: 60 at 20, 52 at 30, 54 at 40, 46 at 50 and 43 at 60.",
+    "While leveling it also takes Precision 3, which pay off for questing; respec those points into Holy (PvP) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "paladin-protection-leveling-pve",
-   "name": "Protection leveling (PvE)",
-   "pair": "paladin-protection-leveling-pve",
+   "id": "paladin-protection-leveling",
+   "name": "Protection Holy Shield (PvE, leveling)",
+   "pair": "paladin-protection-leveling",
    "variant": "PvE",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Protection talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Protection Holy Shield (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Protection Holy Shield (PvE) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
@@ -2066,27 +2076,6 @@
     105638,
     105626,
     105626,
-    105626,
-    105626,
-    105626,
-    105637,
-    105637,
-    105636,
-    105636,
-    105636,
-    105636,
-    105636,
-    110875,
-    105634,
-    105634,
-    105634,
-    110874,
-    110874,
-    110874,
-    105632,
-    105632,
-    110878,
-    105629,
     105707,
     105707,
     105707,
@@ -2098,15 +2087,210 @@
     105703,
     105703,
     105696,
+    110875,
+    105634,
     105705,
     105705,
-    105706,
-    105706,
-    105700,
+    105634,
+    105634,
+    105632,
+    110878,
     105629,
     105629,
+    105629,
+    105632,
+    105625,
+    105627,
+    105627,
+    105627,
+    105627,
+    110879,
+    110879,
+    110879,
+    110879,
+    110879,
+    105628,
+    105627,
+    105636,
+    105636,
+    105636,
+    105636,
+    105636,
+    105626
+   ],
+   "order_source": "model leveling path (questing pace)",
+   "open_points": 0,
+   "scores": {
+    "questing": {
+     "20": {
+      "score": 61.7,
+      "unit": "kills/hour"
+     },
+     "30": {
+      "score": 74.9,
+      "unit": "kills/hour"
+     },
+     "40": {
+      "score": 77.4,
+      "unit": "kills/hour"
+     },
+     "50": {
+      "score": 68.8,
+      "unit": "kills/hour"
+     },
+     "60": {
+      "score": 65.7,
+      "unit": "kills/hour"
+     }
+    }
+   },
+   "sensitivity": [],
+   "respec": [
+    "paladin-protection"
+   ],
+   "levels_into": "paladin-protection",
+   "detours": {
+    "Toughness": 1,
+    "Conviction": 3,
+    "Seal of Command": 1
+   },
+   "stat_weights": {
+    "20": {
+     "score": 61.7,
+     "strength": 0.19,
+     "agility": 0.07,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.1,
+     "crit_rating": 0.14,
+     "hit_rating": 0.09,
+     "crit_pct": 0.5,
+     "hit_pct": 0.5,
+     "weapon_dps": 1.3
+    },
+    "30": {
+     "score": 74.9,
+     "strength": 0.13,
+     "agility": 0.05,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.06,
+     "crit_rating": 0.08,
+     "hit_rating": 0.09,
+     "crit_pct": 0.5,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.9
+    },
+    "40": {
+     "score": 77.4,
+     "strength": 0.09,
+     "agility": 0.04,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.04,
+     "crit_rating": 0.06,
+     "hit_rating": 0.06,
+     "crit_pct": 0.5,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.6
+    },
+    "50": {
+     "score": 68.8,
+     "strength": 0.06,
+     "agility": 0.03,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.03,
+     "crit_rating": 0.04,
+     "hit_rating": 0.04,
+     "crit_pct": 0.4,
+     "hit_pct": 0.5,
+     "weapon_dps": 0.45
+    },
+    "60": {
+     "score": 65.7,
+     "strength": 0.05,
+     "agility": 0.02,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.02,
+     "crit_rating": 0.03,
+     "hit_rating": 0.0,
+     "crit_pct": 0.4,
+     "hit_pct": 0.0,
+     "weapon_dps": 0.35
+    }
+   },
+   "about": [
+    "38 points in Protection, with 13 in Retribution. Built for PvE. On this order the key talents arrive as follows: Seal of Command at 30, Improved Seal of Fury at 31, Swift Judgement at 38, Templar's Bulwark at 43 and Holy Shield at 53.",
+    "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 57% and Holy damage 43%.",
+    "Questing pace in the model, in kills per hour: 62 at 20, 75 at 30, 77 at 40, 69 at 50 and 66 at 60.",
+    "While leveling it also takes Toughness 1, Conviction 3 and Seal of Command 1, which pay off for questing; respec those points into Protection Holy Shield (PvE) at 60. A model leveling path, not yet tried in game."
+   ]
+  },
+  {
+   "id": "paladin-protection-pvp-leveling",
+   "name": "Protection (PvP, leveling)",
+   "pair": "paladin-protection-pvp-leveling",
+   "variant": "PvP",
+   "origin": "model",
+   "mode": "leveling",
+   "summary": "Protection (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Protection (PvP) at 60.",
+   "gives_up": [],
+   "model_filled": {},
+   "must_have_by": {},
+   "order": [
+    105630,
+    105630,
+    105630,
+    105630,
+    105630,
+    105637,
+    105637,
+    105638,
+    105638,
+    105638,
+    105626,
+    105626,
+    105626,
+    105626,
+    105626,
     105633,
-    105633
+    105633,
+    105633,
+    105639,
+    110875,
+    105639,
+    105639,
+    110878,
+    105639,
+    105639,
+    105333,
+    105335,
+    105335,
+    105331,
+    105331,
+    105330,
+    110871,
+    110871,
+    110871,
+    105625,
+    105627,
+    105627,
+    105627,
+    105627,
+    110879,
+    110879,
+    110879,
+    110879,
+    110879,
+    105628,
+    105627,
+    105634,
+    105634,
+    105634,
+    110874,
+    110874
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
@@ -2125,19 +2309,23 @@
       "unit": "kills/hour"
      },
      "50": {
-      "score": 48.1,
+      "score": 46.3,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 67.1,
+      "score": 42.9,
       "unit": "kills/hour"
      }
     }
    },
    "sensitivity": [],
    "respec": [
-    "paladin-protection"
+    "paladin-protection-pvp"
    ],
+   "levels_into": "paladin-protection-pvp",
+   "detours": {
+    "Precision": 3
+   },
    "stat_weights": {
     "20": {
      "score": 61.7,
@@ -2179,7 +2367,7 @@
      "weapon_dps": 0.55
     },
     "50": {
-     "score": 48.1,
+     "score": 46.3,
      "strength": 0.06,
      "agility": 0.02,
      "stamina": 0.0,
@@ -2187,207 +2375,39 @@
      "attack_power": 0.03,
      "crit_rating": 0.03,
      "hit_rating": 0.03,
-     "crit_pct": 0.3,
-     "hit_pct": 0.3,
+     "crit_pct": 0.4,
+     "hit_pct": 0.4,
      "weapon_dps": 0.4
     },
     "60": {
-     "score": 67.1,
+     "score": 42.9,
      "strength": 0.05,
-     "agility": 0.03,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "attack_power": 0.03,
-     "crit_rating": 0.03,
-     "hit_rating": 0.0,
-     "crit_pct": 0.5,
-     "hit_pct": 0.0,
-     "weapon_dps": 0.35
-    }
-   },
-   "about": [
-    "35 points in Protection, with 16 in Retribution. Built for PvE. On this order the key talents arrive as follows: Improved Seal of Fury at 30, Swift Judgement at 39, Seal of Command at 51 and Sacred Arbiter at 56.",
-    "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 56% and Holy damage 44%.",
-    "Questing pace in the model, in kills per hour: 62 at 20, 53 at 30, 54 at 40, 48 at 50 and 67 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
-   ]
-  },
-  {
-   "id": "paladin-protection-leveling-pvp",
-   "name": "Protection leveling (PvP)",
-   "pair": "paladin-protection-leveling-pvp",
-   "variant": "PvP",
-   "origin": "model",
-   "mode": "leveling",
-   "summary": "A Protection talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Protection (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
-   "gives_up": [],
-   "model_filled": {},
-   "must_have_by": {},
-   "order": [
-    105630,
-    105630,
-    105630,
-    105630,
-    105630,
-    105626,
-    105626,
-    105626,
-    105626,
-    105626,
-    105637,
-    105637,
-    110875,
-    105634,
-    105634,
-    105634,
-    105638,
-    105638,
-    105638,
-    110878,
-    105625,
-    105627,
-    105627,
-    105627,
-    105627,
-    110879,
-    110879,
-    110879,
-    110879,
-    110879,
-    105628,
-    105707,
-    105707,
-    105707,
-    105707,
-    105707,
-    105703,
-    105703,
-    105703,
-    105703,
-    105703,
-    105696,
-    105705,
-    105705,
-    105706,
-    105706,
-    105700,
-    105627,
-    105633,
-    105633,
-    105633
-   ],
-   "order_source": "model leveling path (questing pace)",
-   "open_points": 0,
-   "scores": {
-    "questing": {
-     "20": {
-      "score": 60.4,
-      "unit": "kills/hour"
-     },
-     "30": {
-      "score": 53.1,
-      "unit": "kills/hour"
-     },
-     "40": {
-      "score": 54.0,
-      "unit": "kills/hour"
-     },
-     "50": {
-      "score": 48.1,
-      "unit": "kills/hour"
-     },
-     "60": {
-      "score": 67.1,
-      "unit": "kills/hour"
-     }
-    }
-   },
-   "sensitivity": [],
-   "respec": [
-    "paladin-protection-pvp"
-   ],
-   "stat_weights": {
-    "20": {
-     "score": 60.4,
-     "strength": 0.18,
-     "agility": 0.06,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "attack_power": 0.09,
-     "crit_rating": 0.13,
-     "hit_rating": 0.14,
-     "crit_pct": 0.4,
-     "hit_pct": 0.4,
-     "weapon_dps": 1.25
-    },
-    "30": {
-     "score": 53.1,
-     "strength": 0.12,
-     "agility": 0.04,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "attack_power": 0.06,
-     "crit_rating": 0.07,
-     "hit_rating": 0.07,
-     "crit_pct": 0.4,
-     "hit_pct": 0.5,
-     "weapon_dps": 0.85
-    },
-    "40": {
-     "score": 54.0,
-     "strength": 0.08,
-     "agility": 0.03,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "attack_power": 0.04,
-     "crit_rating": 0.04,
-     "hit_rating": 0.05,
-     "crit_pct": 0.4,
-     "hit_pct": 0.4,
-     "weapon_dps": 0.55
-    },
-    "50": {
-     "score": 48.1,
-     "strength": 0.06,
      "agility": 0.02,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.03,
-     "crit_rating": 0.03,
-     "hit_rating": 0.03,
-     "crit_pct": 0.3,
-     "hit_pct": 0.3,
-     "weapon_dps": 0.4
-    },
-    "60": {
-     "score": 67.1,
-     "strength": 0.05,
-     "agility": 0.03,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "attack_power": 0.03,
-     "crit_rating": 0.03,
+     "attack_power": 0.02,
+     "crit_rating": 0.02,
      "hit_rating": 0.0,
-     "crit_pct": 0.5,
+     "crit_pct": 0.3,
      "hit_pct": 0.0,
-     "weapon_dps": 0.35
+     "weapon_dps": 0.3
     }
    },
    "about": [
-    "35 points in Protection, with 16 in Retribution. Built for PvP. On this order the key talents arrive as follows: Improved Seal of Fury at 22, Swift Judgement at 29, Templar's Bulwark at 30, Holy Shield at 40, Seal of Command at 51 and Sacred Arbiter at 56.",
-    "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 56% and Holy damage 44%.",
-    "Questing pace in the model, in kills per hour: 60 at 20, 53 at 30, 54 at 40, 48 at 50 and 67 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "37 points in Protection, with 14 in Holy. Built for PvP. On this order the key talents arrive as follows: Improved Seal of Fury at 29, Swift Judgement at 32, Voice of Truth at 40, Templar's Bulwark at 44 and Holy Shield at 54.",
+    "In the model's rotation its priority is Holy Strike. Damage comes from auto-attacks 83% and Holy damage 17%.",
+    "Questing pace in the model, in kills per hour: 62 at 20, 53 at 30, 54 at 40, 46 at 50 and 43 at 60.",
+    "While leveling it also takes Precision 3, which pay off for questing; respec those points into Protection (PvP) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "paladin-retribution-leveling-pve",
-   "name": "Retribution leveling (PvE)",
-   "pair": "paladin-retribution-leveling-pve",
+   "id": "paladin-retribution-leveling",
+   "name": "Retribution (PvE, leveling)",
+   "pair": "paladin-retribution-leveling",
    "variant": "PvE",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Retribution talent path for leveling to 60, chosen by the model for questing pace at every level. Not tied to an endgame build; respec at 60.",
+   "summary": "Retribution (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Retribution (PvE) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
@@ -2425,24 +2445,24 @@
     105693,
     105693,
     105693,
-    105639,
-    105639,
-    105639,
-    105639,
-    105639,
-    105334,
-    105334,
-    105334,
-    105630,
-    105630,
-    105630,
-    105630,
-    105630,
     105692,
     110882,
     110882,
     110882,
-    110880
+    110880,
+    110880,
+    105694,
+    105698,
+    105639,
+    105639,
+    105639,
+    105639,
+    105639,
+    105334,
+    105334,
+    105334,
+    105332,
+    105332
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
@@ -2461,7 +2481,7 @@
       "unit": "kills/hour"
      },
      "50": {
-      "score": 76.6,
+      "score": 74.1,
       "unit": "kills/hour"
      },
      "60": {
@@ -2474,6 +2494,12 @@
    "respec": [
     "paladin-retribution"
    ],
+   "levels_into": "paladin-retribution",
+   "detours": {
+    "Deflection": 5,
+    "Repentance": 1,
+    "Eye for an Eye": 1
+   },
    "stat_weights": {
     "20": {
      "score": 83.3,
@@ -2515,7 +2541,7 @@
      "weapon_dps": 0.6
     },
     "50": {
-     "score": 76.6,
+     "score": 74.1,
      "strength": 0.07,
      "agility": 0.03,
      "stamina": 0.0,
@@ -2542,75 +2568,75 @@
     }
    },
    "about": [
-    "38 points in Retribution, with 8 in Holy and 5 in Protection. Built for PvE. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25 and Twist of Light at 56.",
+    "41 points in Retribution, with 10 in Holy. Built for PvE. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25, Twist of Light at 43 and Repentance at 49.",
     "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 55% and Holy damage 45%.",
-    "Questing pace in the model, in kills per hour: 83 at 20, 76 at 30, 80 at 40, 77 at 50 and 75 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "Questing pace in the model, in kills per hour: 83 at 20, 76 at 30, 80 at 40, 74 at 50 and 75 at 60.",
+    "While leveling it also takes Deflection 5, Repentance 1 and Eye for an Eye 1, which pay off for questing; respec those points into Retribution (PvE) at 60. A model leveling path, not yet tried in game."
    ]
   },
   {
-   "id": "paladin-retribution-leveling-pvp",
-   "name": "Retribution leveling (PvP)",
-   "pair": "paladin-retribution-leveling-pvp",
+   "id": "paladin-retribution-pvp-leveling",
+   "name": "Retribution Repentance (PvP, leveling)",
+   "pair": "paladin-retribution-pvp-leveling",
    "variant": "PvP",
    "origin": "model",
    "mode": "leveling",
-   "summary": "A Retribution talent path for leveling to 60, chosen by the model for questing pace at every level, leaning toward the talents of Retribution Repentance (PvP), the tree's endgame PvP build. Not tied to an endgame build; respec at 60.",
+   "summary": "Retribution Repentance (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Retribution Repentance (PvP) at 60.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
    "order": [
-    105706,
-    105706,
-    105706,
-    105706,
-    105706,
+    105707,
+    105707,
+    105707,
+    105707,
+    105707,
     105703,
     105703,
     105703,
     105703,
     105703,
     105696,
+    105699,
+    105699,
     105705,
     105705,
-    105704,
-    105704,
     105700,
-    105702,
-    105702,
-    105702,
-    105701,
-    105697,
-    105697,
-    105697,
-    105701,
-    105701,
-    105693,
-    105693,
-    105693,
-    105699,
-    105699,
-    105692,
-    105639,
-    105639,
-    105639,
-    105639,
-    105639,
-    105334,
-    105334,
-    105334,
     105630,
     105630,
     105630,
     105630,
     105630,
     105638,
+    105638,
+    105638,
+    105706,
+    105706,
+    105706,
+    105706,
+    105694,
+    105697,
+    105697,
+    105697,
+    105706,
+    105704,
+    105704,
+    105702,
+    105702,
+    105702,
+    105701,
+    105701,
+    105701,
+    105693,
+    105693,
+    105693,
+    105692,
     110882,
     110882,
     110882,
     110880,
     110880,
-    105694
+    105639
    ],
    "order_source": "model leveling path (questing pace)",
    "open_points": 0,
@@ -2621,19 +2647,19 @@
       "unit": "kills/hour"
      },
      "30": {
-      "score": 76.5,
+      "score": 76.0,
       "unit": "kills/hour"
      },
      "40": {
-      "score": 83.0,
+      "score": 79.7,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 76.6,
+      "score": 71.5,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 75.1,
+      "score": 72.5,
       "unit": "kills/hour"
      }
     }
@@ -2642,6 +2668,11 @@
    "respec": [
     "paladin-retribution-pvp"
    ],
+   "levels_into": "paladin-retribution-pvp",
+   "detours": {
+    "Deflection": 5,
+    "Vindication": 2
+   },
    "stat_weights": {
     "20": {
      "score": 83.3,
@@ -2657,33 +2688,33 @@
      "weapon_dps": 1.35
     },
     "30": {
-     "score": 76.5,
-     "strength": 0.13,
+     "score": 76.0,
+     "strength": 0.12,
      "agility": 0.05,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.07,
+     "attack_power": 0.06,
      "crit_rating": 0.08,
-     "hit_rating": 0.1,
+     "hit_rating": 0.09,
      "crit_pct": 0.5,
-     "hit_pct": 0.6,
-     "weapon_dps": 0.9
+     "hit_pct": 0.5,
+     "weapon_dps": 0.85
     },
     "40": {
-     "score": 83.0,
+     "score": 79.7,
      "strength": 0.09,
-     "agility": 0.04,
+     "agility": 0.03,
      "stamina": 0.0,
      "intellect": 0.0,
      "attack_power": 0.04,
-     "crit_rating": 0.06,
+     "crit_rating": 0.05,
      "hit_rating": 0.06,
      "crit_pct": 0.5,
      "hit_pct": 0.5,
      "weapon_dps": 0.6
     },
     "50": {
-     "score": 76.6,
+     "score": 71.5,
      "strength": 0.07,
      "agility": 0.03,
      "stamina": 0.0,
@@ -2692,11 +2723,11 @@
      "crit_rating": 0.04,
      "hit_rating": 0.05,
      "crit_pct": 0.5,
-     "hit_pct": 0.6,
+     "hit_pct": 0.5,
      "weapon_dps": 0.5
     },
     "60": {
-     "score": 75.1,
+     "score": 72.5,
      "strength": 0.05,
      "agility": 0.02,
      "stamina": 0.0,
@@ -2710,10 +2741,10 @@
     }
    },
    "about": [
-    "37 points in Retribution, with 8 in Holy and 6 in Protection. Built for PvP. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25, Twist of Light at 40 and Repentance at 60.",
-    "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 55% and Holy damage 45%.",
-    "Questing pace in the model, in kills per hour: 83 at 20, 76 at 30, 83 at 40, 77 at 50 and 75 at 60.",
-    "A model leveling path, not yet tried in game. It isn't tied to an endgame build: respec at 60 into one of the builds suggested below."
+    "42 points in Retribution, with 8 in Protection and 1 in Holy. Built for PvP. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25, Repentance at 38 and Twist of Light at 54.",
+    "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 57% and Holy damage 43%.",
+    "Questing pace in the model, in kills per hour: 83 at 20, 76 at 30, 80 at 40, 72 at 50 and 72 at 60.",
+    "While leveling it also takes Deflection 5 and Vindication 2, which pay off for questing; respec those points into Retribution Repentance (PvP) at 60. A model leveling path, not yet tried in game."
    ]
   }
  ],
@@ -2890,40 +2921,40 @@
  ],
  "leveling": [
   {
-   "tree": "Holy",
+   "archetype": "deep Holy",
    "focus": "PvE",
-   "build": "paladin-holy-leveling-pve",
-   "score": 56.4
+   "build": "paladin-holy-leveling",
+   "score": 50.6
   },
   {
-   "tree": "Holy",
+   "archetype": "deep Holy",
    "focus": "PvP",
-   "build": "paladin-holy-leveling-pvp",
-   "score": 56.4
+   "build": "paladin-holy-pvp-leveling",
+   "score": 51.2
   },
   {
-   "tree": "Protection",
+   "archetype": "deep Protection",
    "focus": "PvE",
-   "build": "paladin-protection-leveling-pve",
-   "score": 56.8
+   "build": "paladin-protection-leveling",
+   "score": 69.7
   },
   {
-   "tree": "Protection",
+   "archetype": "deep Protection",
    "focus": "PvP",
-   "build": "paladin-protection-leveling-pvp",
-   "score": 56.5
+   "build": "paladin-protection-pvp-leveling",
+   "score": 51.6
   },
   {
-   "tree": "Retribution",
+   "archetype": "deep Retribution",
    "focus": "PvE",
-   "build": "paladin-retribution-leveling-pve",
-   "score": 78.3
+   "build": "paladin-retribution-leveling",
+   "score": 77.8
   },
   {
-   "tree": "Retribution",
+   "archetype": "deep Retribution",
    "focus": "PvP",
-   "build": "paladin-retribution-leveling-pvp",
-   "score": 78.9
+   "build": "paladin-retribution-pvp-leveling",
+   "score": 76.6
   }
  ]
 }

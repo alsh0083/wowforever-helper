@@ -1,0 +1,68 @@
+# Leveling version of mage-fire-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "mage-fire-pvp-leveling"
+class = "mage"
+name = "Fire (PvP, leveling, model)"
+pair = "mage-fire-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "mage-fire-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Fire (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Fire (PvP, model) at 60."
+
+order = [
+  "Improved Fireball",  # 10
+  "Improved Fireball",  # 11
+  "Improved Fireball",  # 12
+  "Improved Fireball",  # 13
+  "Improved Fireball",  # 14
+  "Ignite",  # 15
+  "Ignite",  # 16
+  "Ignite",  # 17
+  "Elemental Precision",  # 18
+  "Elemental Precision",  # 19
+  "Elemental Precision",  # 20
+  "Frost Warding",  # 21
+  "Frost Warding",  # 22
+  "Permafrost",  # 23
+  "Improved Frost Nova",  # 24
+  "Ignite",  # 25
+  "Incineration",  # 26
+  "Ignite",  # 27
+  "Incineration",  # 28
+  "Incineration",  # 29
+  "Wake of Fire",  # 30
+  "Wake of Fire",  # 31
+  "Master of Elements",  # 32
+  "Master of Elements",  # 33
+  "Master of Elements",  # 34
+  "Flame Throwing",  # 35
+  "Flame Throwing",  # 36
+  "Critical Mass",  # 37
+  "Critical Mass",  # 38
+  "Critical Mass",  # 39
+  "Impact",  # 40
+  "Impact",  # 41
+  "Fire Power",  # 42
+  "Fire Power",  # 43
+  "Fire Power",  # 44
+  "Improved Scorch",  # 45
+  "Improved Scorch",  # 46
+  "Improved Scorch",  # 47
+  "Burning Soul",  # 48
+  "Burning Soul",  # 49
+  "Pyroblast",  # 50
+  "Heating Up",  # 51
+  "Impact",  # 52
+  "Frostbite",  # 53
+  "Frostbite",  # 54
+  "Arcane Focus",  # 55
+  "Arcane Focus",  # 56
+  "Arcane Focus",  # 57
+  "Arcane Focus",  # 58
+  "Arcane Focus",  # 59
+  "Arcane Concentration",  # 60
+]

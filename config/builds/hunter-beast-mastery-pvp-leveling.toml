@@ -1,0 +1,68 @@
+# Leveling version of hunter-beast-mastery-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "hunter-beast-mastery-pvp-leveling"
+class = "hunter"
+name = "Beast Mastery (PvP, leveling, model)"
+pair = "hunter-beast-mastery-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "hunter-beast-mastery-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Beast Mastery (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Beast Mastery (PvP, model) at 60."
+
+order = [
+  "Deadly Aspects",  # 10
+  "Deadly Aspects",  # 11
+  "Deadly Aspects",  # 12
+  "Deadly Aspects",  # 13
+  "Deadly Aspects",  # 14
+  "Focused Fire",  # 15
+  "Focused Fire",  # 16
+  "Endurance Training",  # 17
+  "Endurance Training",  # 18
+  "Endurance Training",  # 19
+  "Unleashed Fury",  # 20
+  "Unleashed Fury",  # 21
+  "Unleashed Fury",  # 22
+  "Unleashed Fury",  # 23
+  "Unleashed Fury",  # 24
+  "Lethal Attacks",  # 25
+  "Lethal Attacks",  # 26
+  "Lethal Attacks",  # 27
+  "Lethal Attacks",  # 28
+  "Lethal Attacks",  # 29
+  "Improved Stings",  # 30
+  "Improved Stings",  # 31
+  "Improved Stings",  # 32
+  "Efficiency",  # 33
+  "Efficiency",  # 34
+  "Efficiency",  # 35
+  "Efficiency",  # 36
+  "Efficiency",  # 37
+  "Careful Aim",  # 38
+  "Careful Aim",  # 39
+  "Trueshot Aura",  # 40
+  "Ferocity",  # 41
+  "Ferocity",  # 42
+  "Ferocity",  # 43
+  "Ferocity",  # 44
+  "Ferocity",  # 45
+  "Bestial Discipline",  # 46
+  "Bestial Discipline",  # 47
+  "Summon Hawk",  # 48
+  "Bestial Swiftness",  # 49
+  "Intimidation",  # 50
+  "Frenzy",  # 51
+  "Frenzy",  # 52
+  "Endurance Training",  # 53
+  "Endurance Training",  # 54
+  "Improved Aspect of the Monkey",  # 55
+  "Bestial Wrath",  # 56
+  "Frenzy",  # 57
+  "Frenzy",  # 58
+  "Frenzy",  # 59
+  "Improved Revive Pet",  # 60
+]

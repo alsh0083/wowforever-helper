@@ -1,0 +1,68 @@
+# Leveling version of druid-restoration (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "druid-restoration-leveling"
+class = "druid"
+name = "Restoration (PvE, leveling)"
+pair = "druid-restoration-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "druid-restoration"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Restoration (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Restoration (PvE) at 60."
+
+order = [
+  "Improved Wrath",  # 10
+  "Nature's Focus",  # 11
+  "Improved Wrath",  # 12
+  "Improved Wrath",  # 13
+  "Improved Wrath",  # 14
+  "Improved Wrath",  # 15
+  "Moonglow",  # 16
+  "Moonglow",  # 17
+  "Moonglow",  # 18
+  "Nature's Focus",  # 19
+  "Nature's Focus",  # 20
+  "Nature's Focus",  # 21
+  "Nature's Focus",  # 22
+  "Naturalist",  # 23
+  "Naturalist",  # 24
+  "Naturalist",  # 25
+  "Naturalist",  # 26
+  "Naturalist",  # 27
+  "Nature's Reach",  # 28
+  "Reflection",  # 29
+  "Reflection",  # 30
+  "Reflection",  # 31
+  "Gift of Nature",  # 32
+  "Gift of Nature",  # 33
+  "Improved Rejuvenation",  # 34
+  "Improved Rejuvenation",  # 35
+  "Improved Rejuvenation",  # 36
+  "Improved Moonfire",  # 37
+  "Swiftmend",  # 38
+  "Gift of Nature",  # 39
+  "Nature's Swiftness",  # 40
+  "Living Spirit",  # 41
+  "Living Spirit",  # 42
+  "Living Spirit",  # 43
+  "Improved Tranquility",  # 44
+  "Improved Regrowth",  # 45
+  "Improved Regrowth",  # 46
+  "Improved Regrowth",  # 47
+  "Nature's Majesty",  # 48
+  "Nature's Majesty",  # 49
+  "Improved Regrowth",  # 50
+  "Improved Regrowth",  # 51
+  "Wild Growth",  # 52
+  "Improved Tranquility",  # 53
+  "Gift of Nature",  # 54
+  "Gift of Nature",  # 55
+  "Gift of the Earthmother",  # 56
+  "Genesis",  # 57
+  "Genesis",  # 58
+  "Genesis",  # 59
+  "Genesis",  # 60
+]

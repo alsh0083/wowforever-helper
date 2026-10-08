@@ -1,0 +1,68 @@
+# Leveling version of rogue-combat (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "rogue-combat-leveling"
+class = "rogue"
+name = "Combat Swords (PvE, leveling)"
+pair = "rogue-combat-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "rogue-combat"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Combat Swords (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Combat Swords (PvE) at 60."
+
+order = [
+  "Improved Sinister Strike",  # 10
+  "Improved Sinister Strike",  # 11
+  "Improved Eviscerate",  # 12
+  "Improved Eviscerate",  # 13
+  "Improved Eviscerate",  # 14
+  "Precision",  # 15
+  "Precision",  # 16
+  "Precision",  # 17
+  "Lightning Reflexes",  # 18
+  "Lightning Reflexes",  # 19
+  "Lightning Reflexes",  # 20
+  "Lightning Reflexes",  # 21
+  "Lightning Reflexes",  # 22
+  "Puncturing Wounds",  # 23
+  "Puncturing Wounds",  # 24
+  "Dual Wield Specialization",  # 25
+  "Dual Wield Specialization",  # 26
+  "Dual Wield Specialization",  # 27
+  "Dual Wield Specialization",  # 28
+  "Dual Wield Specialization",  # 29
+  "Blade Flurry",  # 30
+  "Hack and Slash",  # 31
+  "Puncturing Wounds",  # 32
+  "Deflection",  # 33
+  "Deflection",  # 34
+  "Weapon Expertise",  # 35
+  "Weapon Expertise",  # 36
+  "Aggression",  # 37
+  "Aggression",  # 38
+  "Aggression",  # 39
+  "Adrenaline Rush",  # 40
+  "Malice",  # 41
+  "Malice",  # 42
+  "Malice",  # 43
+  "Malice",  # 44
+  "Malice",  # 45
+  "Improved Slice and Dice",  # 46
+  "Improved Slice and Dice",  # 47
+  "Improved Slice and Dice",  # 48
+  "Ruthlessness",  # 49
+  "Ruthlessness",  # 50
+  "Relentless Strikes",  # 51
+  "Ruthlessness",  # 52
+  "Hack and Slash",  # 53
+  "Hack and Slash",  # 54
+  "Hack and Slash",  # 55
+  "Hack and Slash",  # 56
+  "Endurance",  # 57
+  "Endurance",  # 58
+  "Improved Sprint",  # 59
+  "Improved Sprint",  # 60
+]

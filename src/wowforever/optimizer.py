@@ -240,3 +240,67 @@ def optimize_free_order(
         ranks[best.talent_id] += 1
         order.append(best.talent_id)
     return order
+
+
+def optimize_toward(
+    cls: ClassData,
+    value: Callable[[dict[int, int], int], float],
+    target: Mapping[int, int],
+    *,
+    max_detour: int,
+    total: int,
+) -> list[int]:
+    """A leveling path that heads for an endgame build (owner feedback, 2026-10-07): each point starts the
+    best legal path by `value` (as `optimize_order`), from any talent of the class, but at most
+    `max_detour` points at a time go beyond `target` (leveling-only talents, respecced at 60). Ties go to
+    the target's own talents, then deeper rows, so the path stays the endgame build's path wherever a
+    detour doesn't pay."""
+    by_id = {t.talent_id: t for t in cls.talents}
+    final = {t.talent_id: t.max_rank for t in cls.talents}
+    ranks = {tid: 0 for tid in final}
+    memo: dict[tuple, float] = {}
+
+    def cached(r: Mapping[int, int], level: int) -> float:
+        key = (level, tuple(sorted((k, v) for k, v in r.items() if v)))
+        if key not in memo:
+            memo[key] = value(dict(r), level)
+        return memo[key]
+
+    def detour(r: Mapping[int, int]) -> int:
+        return sum(max(0, n - target.get(t, 0)) for t, n in r.items())
+
+    order: list[int] = []
+    for index in range(1, total + 1):
+        level = cls.rules.first_talent_level + index - 1
+        now_detour = detour(ranks)
+        allowed = {t.talent_id for t in cls.talents
+                   if ranks[t.talent_id] < t.max_rank and _legal_now(t, ranks, by_id, cls.rules)
+                   and (ranks[t.talent_id] < target.get(t.talent_id, 0) or now_detour < max_detour)}
+        if not allowed:
+            raise ValueError(f"no legal point left at level {level}")
+        now = cached(ranks, level)
+        options = []
+        for goal in by_id.values():
+            if ranks[goal.talent_id] >= goal.max_rank:
+                continue
+            path = _unlock_path(goal, ranks, final, by_id, cls.rules, lambda r: cached(r, level))
+            if not path or path[0] not in allowed:
+                continue
+            after = dict(ranks)
+            for tid in path:
+                after[tid] += 1
+            if detour(after) > max_detour:
+                continue
+            first = by_id[path[0]]
+            on_target = ranks[first.talent_id] < target.get(first.talent_id, 0)
+            rate = (cached(after, level) - now) / len(path)
+            options.append((round(rate, 9), on_target, goal.row, -len(path), -first.row, -first.col,
+                            -first.talent_id, first))
+        if options:
+            best = max(options, key=lambda o: o[:7])[7]
+        else:
+            best = min((by_id[tid] for tid in allowed),
+                       key=lambda t: (ranks[t.talent_id] >= target.get(t.talent_id, 0), t.row, t.col, t.talent_id))
+        ranks[best.talent_id] += 1
+        order.append(best.talent_id)
+    return order

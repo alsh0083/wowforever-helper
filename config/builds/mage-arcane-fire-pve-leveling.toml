@@ -1,0 +1,68 @@
+# Leveling version of mage-arcane-fire-pve (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "mage-arcane-fire-pve-leveling"
+class = "mage"
+name = "Arcane/Fire (PvE, leveling, model)"
+pair = "mage-arcane-fire-pve-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "mage-arcane-fire-pve"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Arcane/Fire (PvE, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arcane/Fire (PvE, model) at 60."
+
+order = [
+  "Improved Fireball",  # 10
+  "Improved Fireball",  # 11
+  "Improved Fireball",  # 12
+  "Improved Fireball",  # 13
+  "Improved Fireball",  # 14
+  "Ignite",  # 15
+  "Ignite",  # 16
+  "Ignite",  # 17
+  "Ignite",  # 18
+  "Ignite",  # 19
+  "Incineration",  # 20
+  "Incineration",  # 21
+  "Incineration",  # 22
+  "Flame Throwing",  # 23
+  "Flame Throwing",  # 24
+  "Master of Elements",  # 25
+  "Master of Elements",  # 26
+  "Master of Elements",  # 27
+  "Impact",  # 28
+  "Impact",  # 29
+  "Critical Mass",  # 30
+  "Critical Mass",  # 31
+  "Critical Mass",  # 32
+  "Wake of Fire",  # 33
+  "Wake of Fire",  # 34
+  "Fire Power",  # 35
+  "Fire Power",  # 36
+  "Fire Power",  # 37
+  "Fire Power",  # 38
+  "Fire Power",  # 39
+  "Elemental Precision",  # 40
+  "Elemental Precision",  # 41
+  "Improved Scorch",  # 42
+  "Improved Scorch",  # 43
+  "Improved Flamestrike",  # 44
+  "Pyroblast",  # 45
+  "Heating Up",  # 46
+  "Arcane Focus",  # 47
+  "Arcane Focus",  # 48
+  "Arcane Focus",  # 49
+  "Arcane Focus",  # 50
+  "Arcane Focus",  # 51
+  "Arcane Concentration",  # 52
+  "Arcane Concentration",  # 53
+  "Arcane Concentration",  # 54
+  "Arcane Concentration",  # 55
+  "Arcane Concentration",  # 56
+  "Arcane Blast",  # 57
+  "Arcane Subtlety",  # 58
+  "Arcane Subtlety",  # 59
+  "Arcane Resilience",  # 60
+]

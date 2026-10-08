@@ -1,0 +1,68 @@
+# Leveling version of deep-frost (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "deep-frost-leveling"
+class = "mage"
+name = "Deep Frost Control (PvP, leveling)"
+pair = "deep-frost-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "deep-frost"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Deep Frost Control (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Deep Frost Control (PvP) at 60."
+
+order = [
+  "Improved Frostbolt",  # 10
+  "Improved Frostbolt",  # 11
+  "Improved Frostbolt",  # 12
+  "Elemental Precision",  # 13
+  "Improved Frostbolt",  # 14
+  "Permafrost",  # 15
+  "Permafrost",  # 16
+  "Permafrost",  # 17
+  "Improved Frost Nova",  # 18
+  "Improved Frost Nova",  # 19
+  "Frost Channeling",  # 20
+  "Frost Channeling",  # 21
+  "Frost Channeling",  # 22
+  "Piercing Ice",  # 23
+  "Piercing Ice",  # 24
+  "Ice Block",  # 25
+  "Piercing Ice",  # 26
+  "Improved Frostbolt",  # 27
+  "Elemental Precision",  # 28
+  "Elemental Precision",  # 29
+  "Cold Snap",  # 30
+  "Ice Shards",  # 31
+  "Ice Shards",  # 32
+  "Ice Shards",  # 33
+  "Ice Shards",  # 34
+  "Ice Shards",  # 35
+  "Frost Warding",  # 36
+  "Frost Warding",  # 37
+  "Elemental Precision",  # 38
+  "Elemental Precision",  # 39
+  "Frostbite",  # 40
+  "Shatter",  # 41
+  "Ice Lance",  # 42
+  "Fingers of Frost",  # 43
+  "Fingers of Frost",  # 44
+  "Shatter",  # 45
+  "Shatter",  # 46
+  "Frostbite",  # 47
+  "Frostbite",  # 48
+  "Ice Barrier",  # 49
+  "Winter's Chill",  # 50
+  "Winter's Chill",  # 51
+  "Winter's Chill",  # 52
+  "Winter's Chill",  # 53
+  "Winter's Chill",  # 54
+  "Improved Cone of Cold",  # 55
+  "Improved Cone of Cold",  # 56
+  "Improved Cone of Cold",  # 57
+  "Arctic Reach",  # 58
+  "Arctic Reach",  # 59
+  "Improved Blizzard",  # 60
+]

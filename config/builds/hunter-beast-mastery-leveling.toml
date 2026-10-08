@@ -1,0 +1,68 @@
+# Leveling version of hunter-beast-mastery (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "hunter-beast-mastery-leveling"
+class = "hunter"
+name = "Beast Mastery (PvE, leveling)"
+pair = "hunter-beast-mastery-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "hunter-beast-mastery"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Beast Mastery (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Beast Mastery (PvE) at 60."
+
+order = [
+  "Deadly Aspects",  # 10
+  "Deadly Aspects",  # 11
+  "Deadly Aspects",  # 12
+  "Deadly Aspects",  # 13
+  "Deadly Aspects",  # 14
+  "Focused Fire",  # 15
+  "Focused Fire",  # 16
+  "Endurance Training",  # 17
+  "Endurance Training",  # 18
+  "Endurance Training",  # 19
+  "Unleashed Fury",  # 20
+  "Unleashed Fury",  # 21
+  "Unleashed Fury",  # 22
+  "Unleashed Fury",  # 23
+  "Unleashed Fury",  # 24
+  "Ferocity",  # 25
+  "Ferocity",  # 26
+  "Ferocity",  # 27
+  "Lethal Attacks",  # 28
+  "Lethal Attacks",  # 29
+  "Lethal Attacks",  # 30
+  "Lethal Attacks",  # 31
+  "Lethal Attacks",  # 32
+  "Efficiency",  # 33
+  "Efficiency",  # 34
+  "Efficiency",  # 35
+  "Efficiency",  # 36
+  "Efficiency",  # 37
+  "Ferocity",  # 38
+  "Ferocity",  # 39
+  "Bestial Discipline",  # 40
+  "Bestial Discipline",  # 41
+  "Summon Hawk",  # 42
+  "Bestial Swiftness",  # 43
+  "Intimidation",  # 44
+  "Frenzy",  # 45
+  "Frenzy",  # 46
+  "Endurance Training",  # 47
+  "Endurance Training",  # 48
+  "Improved Aspect of the Monkey",  # 49
+  "Bestial Wrath",  # 50
+  "Frenzy",  # 51
+  "Frenzy",  # 52
+  "Frenzy",  # 53
+  "Improved Revive Pet",  # 54
+  "Improved Revive Pet",  # 55
+  "Careful Aim",  # 56
+  "Careful Aim",  # 57
+  "Careful Aim",  # 58
+  "Careful Aim",  # 59
+  "Careful Aim",  # 60
+]

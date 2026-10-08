@@ -1,0 +1,68 @@
+# Leveling version of rogue-subtlety-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "rogue-subtlety-pvp-leveling"
+class = "rogue"
+name = "Subtlety (PvP, leveling)"
+pair = "rogue-subtlety-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "rogue-subtlety-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Subtlety (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Subtlety (PvP) at 60."
+
+order = [
+  "Camouflage",  # 10
+  "Camouflage",  # 11
+  "Camouflage",  # 12
+  "Camouflage",  # 13
+  "Camouflage",  # 14
+  "Dirty Tricks",  # 15
+  "Dirty Tricks",  # 16
+  "Master of Deception",  # 17
+  "Master of Deception",  # 18
+  "Master of Deception",  # 19
+  "Opportunity",  # 20
+  "Opportunity",  # 21
+  "Setup",  # 22
+  "Setup",  # 23
+  "Setup",  # 24
+  "Serrated Blades",  # 25
+  "Serrated Blades",  # 26
+  "Serrated Blades",  # 27
+  "Improved Gouge",  # 28
+  "Improved Gouge",  # 29
+  "Improved Gouge",  # 30
+  "Improved Sinister Strike",  # 31
+  "Heightened Senses",  # 32
+  "Heightened Senses",  # 33
+  "Dirty Deeds",  # 34
+  "Improved Sinister Strike",  # 35
+  "Malice",  # 36
+  "Malice",  # 37
+  "Malice",  # 38
+  "Malice",  # 39
+  "Malice",  # 40
+  "Dirty Deeds",  # 41
+  "Preparation",  # 42
+  "Premeditation",  # 43
+  "Initiative",  # 44
+  "Quietus",  # 45
+  "Quietus",  # 46
+  "Quietus",  # 47
+  "Quietus",  # 48
+  "Quietus",  # 49
+  "Thousand Cuts",  # 50
+  "Initiative",  # 51
+  "Initiative",  # 52
+  "Ghostly Strike",  # 53
+  "Elusiveness",  # 54
+  "Elusiveness",  # 55
+  "Murder",  # 56
+  "Murder",  # 57
+  "Relentless Strikes",  # 58
+  "Lethality",  # 59
+  "Lethality",  # 60
+]

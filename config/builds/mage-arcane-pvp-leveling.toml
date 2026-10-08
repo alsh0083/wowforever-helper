@@ -1,0 +1,68 @@
+# Leveling version of mage-arcane-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "mage-arcane-pvp-leveling"
+class = "mage"
+name = "Arcane (PvP, leveling, model)"
+pair = "mage-arcane-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "mage-arcane-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Arcane (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arcane (PvP, model) at 60."
+
+order = [
+  "Arcane Focus",  # 10
+  "Wand Specialization",  # 11
+  "Wand Specialization",  # 12
+  "Arcane Focus",  # 13
+  "Arcane Focus",  # 14
+  "Arcane Concentration",  # 15
+  "Arcane Concentration",  # 16
+  "Arcane Concentration",  # 17
+  "Arcane Concentration",  # 18
+  "Improved Frostbolt",  # 19
+  "Improved Frostbolt",  # 20
+  "Improved Frostbolt",  # 21
+  "Improved Frostbolt",  # 22
+  "Improved Frostbolt",  # 23
+  "Permafrost",  # 24
+  "Improved Frost Nova",  # 25
+  "Improved Frost Nova",  # 26
+  "Arcane Concentration",  # 27
+  "Elemental Precision",  # 28
+  "Elemental Precision",  # 29
+  "Frost Channeling",  # 30
+  "Frost Channeling",  # 31
+  "Frost Channeling",  # 32
+  "Piercing Ice",  # 33
+  "Piercing Ice",  # 34
+  "Piercing Ice",  # 35
+  "Arcane Geometry",  # 36
+  "Arcane Geometry",  # 37
+  "Arcane Impact",  # 38
+  "Arcane Impact",  # 39
+  "Arcane Impact",  # 40
+  "Arcane Shielding",  # 41
+  "Arcane Focus",  # 42
+  "Arcane Focus",  # 43
+  "Improved Channeling",  # 44
+  "Improved Channeling",  # 45
+  "Improved Channeling",  # 46
+  "Improved Channeling",  # 47
+  "Improved Channeling",  # 48
+  "Arcane Subtlety",  # 49
+  "Arcane Subtlety",  # 50
+  "Arcane Instability",  # 51
+  "Arcane Instability",  # 52
+  "Arcane Shielding",  # 53
+  "Improved Counterspell",  # 54
+  "Improved Counterspell",  # 55
+  "Arcane Meditation",  # 56
+  "Arcane Meditation",  # 57
+  "Arcane Meditation",  # 58
+  "Arcane Blast",  # 59
+  "Magic Absorption",  # 60
+]

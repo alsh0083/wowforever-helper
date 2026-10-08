@@ -1,0 +1,68 @@
+# Leveling version of shaman-restoration-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "shaman-restoration-pvp-leveling"
+class = "shaman"
+name = "Restoration (PvP, leveling)"
+pair = "shaman-restoration-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "shaman-restoration-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Restoration (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Restoration (PvP) at 60."
+
+order = [
+  "Totemic Focus",  # 10
+  "Totemic Focus",  # 11
+  "Totemic Focus",  # 12
+  "Improved Healing Wave",  # 13
+  "Improved Healing Wave",  # 14
+  "Mindfulness",  # 15
+  "Mindfulness",  # 16
+  "Mindfulness",  # 17
+  "Tidal Focus",  # 18
+  "Tidal Focus",  # 19
+  "Tidal Focus",  # 20
+  "Convection",  # 21
+  "Ancestral Healing",  # 22
+  "Ancestral Healing",  # 23
+  "Convection",  # 24
+  "Healing Focus",  # 25
+  "Convection",  # 26
+  "Convection",  # 27
+  "Convection",  # 28
+  "Earth's Grasp",  # 29
+  "Earth's Grasp",  # 30
+  "Healing Focus",  # 31
+  "Tidal Mastery",  # 32
+  "Tidal Mastery",  # 33
+  "Tidal Mastery",  # 34
+  "Tidal Mastery",  # 35
+  "Tidal Mastery",  # 36
+  "Healing Way",  # 37
+  "Healing Way",  # 38
+  "Healing Way",  # 39
+  "Call of Flame",  # 40
+  "Call of Flame",  # 41
+  "Nature's Swiftness",  # 42
+  "Mana Tide Totem",  # 43
+  "Purification",  # 44
+  "Purification",  # 45
+  "Purification",  # 46
+  "Purification",  # 47
+  "Purification",  # 48
+  "Riptide",  # 49
+  "Healing Focus",  # 50
+  "Water Shield",  # 51
+  "Tidal Focus",  # 52
+  "Tidal Focus",  # 53
+  "Improved Healing Wave",  # 54
+  "Ancestral Knowledge",  # 55
+  "Ancestral Knowledge",  # 56
+  "Ancestral Knowledge",  # 57
+  "Guardian Totems",  # 58
+  "Guardian Totems",  # 59
+  "Improved Ghost Wolf",  # 60
+]
