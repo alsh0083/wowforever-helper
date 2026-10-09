@@ -101,3 +101,11 @@ def test_leveling_builds_follow_their_endgame_build_with_few_detours():
         for tid in ids:
             ranks[tid] += 1
             assert sum(max(0, n - target.get(t, 0)) for t, n in ranks.items()) <= 7, b.id
+
+
+def test_renamed_talents_resolve_under_either_name():
+    from wowforever.schema import talent_aliases
+
+    assert talent_aliases("Natural Instinct") == {"natural instinct", "predatory instincts"}
+    assert talent_aliases("Predatory Instincts") == {"natural instinct", "predatory instincts"}
+    assert talent_aliases("Frostbite") == {"frostbite"}
