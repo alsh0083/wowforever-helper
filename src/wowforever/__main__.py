@@ -57,7 +57,6 @@ def main(argv: list[str] | None = None) -> int:
         from pathlib import Path
 
         from wowforever.dashboard import fetch_icons, render
-        from wowforever.sources.http import http_get_bytes
 
         from wowforever.classes import CLASSES
 
@@ -201,6 +200,7 @@ def main(argv: list[str] | None = None) -> int:
 
         from wowforever.classes import CLASSES
 
+        from wowforever.sources.http import http_get_bytes
         from wowforever.sources.wago import MissingTables
 
         now = update.datetime.now(update.timezone.utc).isoformat()
@@ -208,7 +208,7 @@ def main(argv: list[str] | None = None) -> int:
             try:
                 summary = update.check_for_updates(
                     update.default_http_get, data_dir=Path(args.data_dir), delay=args.delay, now=now,
-                    class_name=class_name,
+                    class_name=class_name, file_get=update.default_file_get,
                 )
             except MissingTables as missing:
                 print(missing)

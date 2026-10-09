@@ -119,7 +119,8 @@ def test_cli_entry_point(data, capsys, monkeypatch):
     from wowforever.__main__ import main
     monkeypatch.setattr(update, "default_http_get", FakeHttp())
     monkeypatch.setattr("wowforever.classes.CLASSES", {"mage": "wowforever.classes.mage"})  # fake serves mage only
-    # no cached tables: update downloads nothing and lists what to save from wago.tools
+    # no cached tables and no game-file reader: update lists what to save from wago.tools
+    monkeypatch.setattr(update, "default_file_get", None)
     assert main(["update", "--data-dir", str(data), "--delay", "0"]) == 2
     out = capsys.readouterr().out
     assert "wago.tools doesn't allow automated downloads" in out and "db2/TraitNode/csv?build=1.60.1.70205" in out

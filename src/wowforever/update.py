@@ -27,6 +27,7 @@ from wowforever.revisions import Change
 from wowforever.schema import ClassData, Dataset, Provenance
 from wowforever.sources import wago, wowforevertalent
 from wowforever.sources.http import http_get as default_http_get
+from wowforever.sources.http import http_get_bytes as default_file_get
 
 WAGO_BUILDS_URL = "https://wago.tools/api/builds"
 MAX_LISTED_CHANGES = 20
@@ -112,6 +113,7 @@ def check_for_updates(
     now: str | None = None,
     class_name: str = "mage",
     table_http_get: Callable[[str], str] | None = None,
+    file_get: Callable[[str], bytes] | None = None,
 ) -> UpdateSummary:
     """Fetch both sources, normalize `class_name`, and diff it against the last dataset.
 
@@ -123,11 +125,13 @@ def check_for_updates(
         now = datetime.now(timezone.utc).isoformat()
 
     build = wago.latest_build(json.loads(http_get(WAGO_BUILDS_URL)))
-    # table CSVs aren't in wago.tools' published API: they come from the cache, saved by hand
-    # (wago.MissingTables says which); only tests pass a table_http_get
+    # table CSVs aren't in wago.tools' published API: missing ones are read from the game files
+    # through it (`file_get`, #234), else saved by hand (wago.MissingTables); only tests pass a
+    # table_http_get
     manifest_path = wago.fetch_build(
         build,
         http_get=table_http_get,
+        file_get=file_get,
         cache_dir=data_dir / "cache" / "wago",
         manifest_dir=data_dir / "raw" / "wago",
         delay=delay,
