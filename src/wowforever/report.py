@@ -218,7 +218,7 @@ def build_report(cls: ClassData, spells: tuple[SpellRank, ...], builds: Sequence
             "Stats, mob HP and mana budgets are rough Classic-era defaults (low confidence).",
             "Respecs: Dual Specialization reportedly unlocks at 40, so a PvP and a PvE build can be "
             "carried together from then on. Before 40 a respec costs gold at a class trainer; the "
-            "launch price is unpublished (beta charges 1 silver; guides assume Classic's 1g, 5g, then "
+            "launch price is unpublished (the beta's cheapest respec is 1 silver since Oct 8; guides assume Classic's 1g, 5g, then "
             "+5g per respec up to 50g). See docs/research/forever-facts.md.",
         ],
     }
