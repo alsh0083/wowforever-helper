@@ -57,6 +57,7 @@ def main(argv: list[str] | None = None) -> int:
         from pathlib import Path
 
         from wowforever.dashboard import fetch_icons, render
+        from wowforever.sources.http import http_get_bytes
 
         from wowforever.classes import CLASSES
 
@@ -200,7 +201,6 @@ def main(argv: list[str] | None = None) -> int:
 
         from wowforever.classes import CLASSES
 
-        from wowforever.sources.http import http_get_bytes
         from wowforever.sources.wago import MissingTables
 
         now = update.datetime.now(update.timezone.utc).isoformat()
