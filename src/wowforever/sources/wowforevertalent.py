@@ -108,14 +108,18 @@ def snapshot(page_html: str, raw_dir: Path, *, url: str) -> Path:
 
     Writes raw_dir/<page_data_version>/<class_id>.html with the page's exact UTF-8 bytes
     and <class_id>.manifest.json beside it (one manifest per class page, #104). Same content already present returns the path
-    untouched; different content at the same path raises `SnapshotConflict`.
+    untouched; different talent trees at the same path raise `SnapshotConflict` (a page whose popular builds
+    alone changed is refreshed).
     """
     page = parse_page(page_html)
     path = raw_dir / page.page_data_version / f"{page.class_id}.html"
     if path.exists():
-        if path.read_bytes() == page_html.encode("utf-8"):
+        saved = path.read_bytes()
+        if saved == page_html.encode("utf-8"):
             return path
-        raise SnapshotConflict(f"{path} already holds different content")
+        if parse_page(saved.decode("utf-8")).trees != page.trees:
+            raise SnapshotConflict(f"{path} already holds different content")
+        # same trees: only the live popular builds moved (#237), so refresh the snapshot below
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8", newline="") as handle:
         handle.write(page_html)

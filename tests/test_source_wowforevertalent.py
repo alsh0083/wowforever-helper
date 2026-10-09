@@ -111,3 +111,14 @@ def test_popular_builds_with_talent_names():
     assert first["points"] == [0, 29, 22] and first["saved"] == 172
     assert first["final"]["Heating Up"] == 1 and first["final"]["Fingers of Frost"] == 2
     assert sum(first["final"].values()) == 51
+
+
+def test_snapshot_refreshes_when_only_popular_builds_change(tmp_path):
+    import re
+
+    path = snapshot(HTML, tmp_path, url="u")
+    found = re.compile(r"\d{3,}").search(HTML, HTML.index("initialPopular"))
+    changed = HTML[:found.start()] + str(int(found.group()) + 1) + HTML[found.end():]
+    assert parse_page(changed).popular != parse_page(HTML).popular
+    assert snapshot(changed, tmp_path, url="u") == path
+    assert path.read_text(encoding="utf-8") == changed
