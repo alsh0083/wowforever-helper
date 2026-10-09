@@ -3,8 +3,8 @@
  "engine": true,
  "scoring_note": "",
  "dataset": {
-  "version": "1.60.1.70205",
-  "game_build": "1.60.1.70205",
+  "version": "1.60.1.70291",
+  "game_build": "1.60.1.70291",
   "sources": [
    {
     "source": "wago.tools",
@@ -119,6 +119,48 @@
     "game_build": "1.60.1.70170",
     "data_version": "beta-20261004-652acfd6",
     "fetched_at": "2026-10-05T22:22:26.957252+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70291",
+    "data_version": "1.60.1.70291",
+    "fetched_at": "2026-10-09T02:57:31.928963+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-09T02:57:31.928963+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-09T02:57:31.928963+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-09T02:57:31.928963+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-09T02:57:31.928963+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-09T02:57:31.928963+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-09T02:57:31.928963+00:00"
    }
   ]
  },
@@ -914,13 +956,13 @@
     104773,
     104756,
     104773,
+    104770,
+    104756,
+    104770,
+    104756,
+    104770,
     104756,
     104772,
-    104770,
-    104756,
-    104770,
-    104756,
-    104770,
     104756,
     104772,
     104752,
@@ -1141,13 +1183,13 @@
     104773,
     104756,
     104773,
+    104770,
+    104756,
+    104770,
+    104756,
+    104770,
     104756,
     104772,
-    104770,
-    104756,
-    104770,
-    104756,
-    104770,
     104756,
     104772,
     104752,
@@ -1842,31 +1884,31 @@
     104729,
     104756,
     104729,
+    104734,
     104756,
-    104735,
     104734,
     104734,
-    104734,
     104735,
-    104756,
     104735,
-    104754,
-    104754,
-    104752,
-    104752,
-    104749,
     104735,
-    104748,
-    104735,
-    104748,
     104729,
-    104748,
+    104756,
+    104754,
+    104754,
+    104735,
+    104735,
+    104752,
+    104752,
     104731,
     104731,
     104733,
     104733,
     104733,
     104732,
+    104749,
+    104748,
+    104748,
+    104748,
     104738,
     104738,
     104738,
@@ -1901,7 +1943,7 @@
     }
    },
    "about": [
-    "36 points in Restoration, with 15 in Enhancement. Built for PvP. On this order the key talents arrive as follows: Shamanistic Focus at 32, Water Shield at 44, Mana Tide Totem at 50, Nature's Swiftness at 54 and Riptide at 60.",
+    "36 points in Restoration, with 15 in Enhancement. Built for PvP. On this order the key talents arrive as follows: Water Shield at 40, Shamanistic Focus at 41, Mana Tide Totem at 50, Nature's Swiftness at 54 and Riptide at 60.",
     "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order."
    ]
   },
@@ -2058,11 +2100,11 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 57.8,
+      "score": 59.5,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 60.9,
+      "score": 63.2,
       "unit": "kills/hour"
      },
      "40": {
@@ -2091,26 +2133,26 @@
    },
    "stat_weights": {
     "20": {
-     "score": 57.8,
+     "score": 59.5,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
      "spell_power": 0.3,
-     "crit_rating": 0.05,
-     "hit_rating": 0.13,
-     "crit_pct": 0.1,
-     "hit_pct": 0.4
+     "crit_rating": 0.06,
+     "hit_rating": 0.14,
+     "crit_pct": 0.2,
+     "hit_pct": 0.5
     },
     "30": {
-     "score": 60.9,
+     "score": 63.2,
      "stamina": 0.0,
-     "intellect": 0.0,
+     "intellect": 0.01,
      "spirit": 0.0,
-     "spell_power": 0.21,
-     "crit_rating": 0.03,
-     "hit_rating": 0.08,
-     "crit_pct": 0.1,
-     "hit_pct": 0.4
+     "spell_power": 0.22,
+     "crit_rating": 0.04,
+     "hit_rating": 0.09,
+     "crit_pct": 0.2,
+     "hit_pct": 0.5
     },
     "40": {
      "score": 73.9,
@@ -2149,7 +2191,7 @@
    "about": [
     "45 points in Elemental, with 6 in Enhancement. Built for PvP. On this order the key talents arrive as follows: Call of Thunder at 25, Earthbound at 42, Lava Burst at 44 and Elemental Focus at 52.",
     "In the model's rotation it keeps Flame Shock up, uses Lava Burst and Chain Lightning on cooldown and fills with Lightning Bolt.",
-    "Questing pace in the model, in kills per hour: 58 at 20, 61 at 30, 74 at 40, 77 at 50 and 83 at 60.",
+    "Questing pace in the model, in kills per hour: 60 at 20, 63 at 30, 74 at 40, 77 at 50 and 83 at 60.",
     "While leveling it also takes Elemental Warding 3, Improved Fire Nova 2 and Elemental Devastation 2, which pay off for questing; respec those points into Elemental Lava Burst (PvP) at 60. A model leveling path, not yet tried in game."
    ]
   },
@@ -2222,11 +2264,11 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 57.8,
+      "score": 59.5,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 60.9,
+      "score": 63.2,
       "unit": "kills/hour"
      },
      "40": {
@@ -2255,26 +2297,26 @@
    },
    "stat_weights": {
     "20": {
-     "score": 57.8,
+     "score": 59.5,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
      "spell_power": 0.3,
-     "crit_rating": 0.05,
-     "hit_rating": 0.13,
-     "crit_pct": 0.1,
-     "hit_pct": 0.4
+     "crit_rating": 0.06,
+     "hit_rating": 0.14,
+     "crit_pct": 0.2,
+     "hit_pct": 0.5
     },
     "30": {
-     "score": 60.9,
+     "score": 63.2,
      "stamina": 0.0,
-     "intellect": 0.0,
+     "intellect": 0.01,
      "spirit": 0.0,
-     "spell_power": 0.21,
-     "crit_rating": 0.03,
-     "hit_rating": 0.08,
-     "crit_pct": 0.1,
-     "hit_pct": 0.4
+     "spell_power": 0.22,
+     "crit_rating": 0.04,
+     "hit_rating": 0.09,
+     "crit_pct": 0.2,
+     "hit_pct": 0.5
     },
     "40": {
      "score": 73.9,
@@ -2313,7 +2355,7 @@
    "about": [
     "45 points in Elemental, with 6 in Enhancement. Built for PvE. On this order the key talents arrive as follows: Call of Thunder at 25, Earthbound at 42, Lava Burst at 44 and Elemental Focus at 52.",
     "In the model's rotation it keeps Flame Shock up, uses Lava Burst and Chain Lightning on cooldown and fills with Lightning Bolt.",
-    "Questing pace in the model, in kills per hour: 58 at 20, 61 at 30, 74 at 40, 77 at 50 and 83 at 60.",
+    "Questing pace in the model, in kills per hour: 60 at 20, 63 at 30, 74 at 40, 77 at 50 and 83 at 60.",
     "While leveling it also takes Elemental Warding 3, Improved Fire Nova 2 and Elemental Devastation 2, which pay off for questing; respec those points into Elemental (PvE, model) at 60. A model leveling path, not yet tried in game."
    ]
   },
@@ -2691,8 +2733,8 @@
     104773,
     104731,
     104731,
-    104773,
     104731,
+    104773,
     104773,
     104773,
     104773,
@@ -2734,11 +2776,11 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 61.9,
+      "score": 63.8,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 61.3,
+      "score": 63.6,
       "unit": "kills/hour"
      },
      "40": {
@@ -2766,20 +2808,20 @@
    },
    "stat_weights": {
     "20": {
-     "score": 61.9,
+     "score": 63.8,
      "stamina": 0.0,
      "intellect": 0.01,
-     "spirit": 0.08,
-     "spell_power": 0.32,
+     "spirit": 0.07,
+     "spell_power": 0.31,
      "crit_rating": 0.06,
      "hit_rating": 0.0,
      "crit_pct": 0.2,
      "hit_pct": 0.0
     },
     "30": {
-     "score": 61.3,
+     "score": 63.6,
      "stamina": 0.0,
-     "intellect": 0.0,
+     "intellect": 0.01,
      "spirit": 0.04,
      "spell_power": 0.21,
      "crit_rating": 0.03,
@@ -2824,7 +2866,7 @@
    "about": [
     "41 points in Restoration, with 7 in Elemental and 3 in Enhancement. Built for PvE. On this order the key talents arrive as follows: Nature's Swiftness at 38, Riptide at 47, Mana Tide Totem at 52 and Water Shield at 55.",
     "In the model's rotation it keeps Flame Shock up, uses Chain Lightning on cooldown and fills with Lightning Bolt.",
-    "Questing pace in the model, in kills per hour: 62 at 20, 61 at 30, 66 at 40, 64 at 50 and 70 at 60.",
+    "Questing pace in the model, in kills per hour: 64 at 20, 64 at 30, 66 at 40, 64 at 50 and 70 at 60.",
     "While leveling it also takes Convection 5 and Call of Flame 2, which pay off for questing; respec those points into Restoration Riptide (PvE) at 60. A model leveling path, not yet tried in game."
    ]
   },
@@ -2854,8 +2896,8 @@
     104773,
     104731,
     104731,
-    104773,
     104733,
+    104773,
     104773,
     104773,
     104773,
@@ -2897,11 +2939,11 @@
    "scores": {
     "questing": {
      "20": {
-      "score": 61.9,
+      "score": 63.8,
       "unit": "kills/hour"
      },
      "30": {
-      "score": 61.3,
+      "score": 63.6,
       "unit": "kills/hour"
      },
      "40": {
@@ -2929,20 +2971,20 @@
    },
    "stat_weights": {
     "20": {
-     "score": 61.9,
+     "score": 63.8,
      "stamina": 0.0,
      "intellect": 0.01,
-     "spirit": 0.08,
-     "spell_power": 0.32,
+     "spirit": 0.07,
+     "spell_power": 0.31,
      "crit_rating": 0.06,
      "hit_rating": 0.0,
      "crit_pct": 0.2,
      "hit_pct": 0.0
     },
     "30": {
-     "score": 61.3,
+     "score": 63.6,
      "stamina": 0.0,
-     "intellect": 0.0,
+     "intellect": 0.01,
      "spirit": 0.04,
      "spell_power": 0.21,
      "crit_rating": 0.03,
@@ -2987,7 +3029,7 @@
    "about": [
     "36 points in Restoration, with 8 in Enhancement and 7 in Elemental. Built for PvP. On this order the key talents arrive as follows: Nature's Swiftness at 42, Mana Tide Totem at 43, Riptide at 49 and Water Shield at 51.",
     "In the model's rotation it keeps Flame Shock up, uses Chain Lightning on cooldown and fills with Lightning Bolt.",
-    "Questing pace in the model, in kills per hour: 62 at 20, 61 at 30, 66 at 40, 64 at 50 and 69 at 60.",
+    "Questing pace in the model, in kills per hour: 64 at 20, 64 at 30, 66 at 40, 64 at 50 and 69 at 60.",
     "While leveling it also takes Convection 5 and Call of Flame 2, which pay off for questing; respec those points into Restoration (PvP) at 60. A model leveling path, not yet tried in game."
    ]
   }
@@ -3287,13 +3329,13 @@
    "archetype": "deep Elemental",
    "focus": "PvP",
    "build": "shaman-elemental-leveling",
-   "score": 70.6
+   "score": 71.4
   },
   {
    "archetype": "deep Elemental",
    "focus": "PvE",
    "build": "shaman-elemental-pve-leveling",
-   "score": 70.6
+   "score": 71.4
   },
   {
    "archetype": "deep Enhancement",
@@ -3311,13 +3353,13 @@
    "archetype": "deep Restoration",
    "focus": "PvE",
    "build": "shaman-restoration-leveling",
-   "score": 64.4
+   "score": 65.3
   },
   {
    "archetype": "deep Restoration",
    "focus": "PvP",
    "build": "shaman-restoration-pvp-leveling",
-   "score": 64.3
+   "score": 65.2
   }
  ]
 }

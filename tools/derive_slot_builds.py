@@ -21,17 +21,18 @@ from wowforever.melee_scenarios import pve_score, stat_table
 from wowforever.pvp.class_pvp import pvp_score
 from wowforever.pvp.duel import load_kits
 from wowforever.rules import check_build, points_available
-from wowforever.schema import Dataset
+from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.shortlist import improve
 
 ROOT = Path(__file__).resolve().parents[1]
-DS = Dataset.load(ROOT / "data" / "datasets" / "1.60.1.70205.json")
+DS = Dataset.load(latest_dataset_path())
 
 # Slots with no build of the other focus to start from: seed from a popular build instead,
 # (class, tree, focus) -> ("popular", popularity rank, [site-only talents to drop])
 SEEDED = {
-    ("warrior", "Fury", "PvE"): ("popular", 4, ["Furious Precision", "Lingering Rage"]),
-    ("warrior", "Fury", "PvP"): ("popular", 4, ["Furious Precision", "Lingering Rage"]),
+    # Furious Precision and Lingering Rage were site-only until build 1.60.1.70291 added them (#239)
+    ("warrior", "Fury", "PvE"): ("popular", 4, []),
+    ("warrior", "Fury", "PvP"): ("popular", 4, []),
 }
 
 
@@ -110,7 +111,8 @@ def popular_seed(c, cls, fn, rank, drop, *, focus):
             trial[tid] = trial.get(tid, 0) + 1
             if not check_build(cls, trial, None):
                 ranks = trial
-    return ranks, (f"popular build #{rank} without {', '.join(drop)} (site-only talents) and points the client "
+    dropped = f"{', '.join(drop)} (site-only talents) and " if drop else ""
+    return ranks, (f"popular build #{rank} without {dropped}points the client "
                    f"tree doesn't allow, topped up and hill-climbed under the {focus} score")
 
 

@@ -3,6 +3,7 @@ legal point orders for the tracker, placed in the archetype x focus matrix witho
 
 from pathlib import Path
 
+from wowforever.schema import latest_dataset_path
 from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
@@ -10,7 +11,7 @@ from wowforever.report import report_from_dataset, route_report
 from wowforever.rules import check_order
 from wowforever.schema import Dataset
 
-DATASET = Path(__file__).resolve().parents[1] / "data" / "datasets" / "1.60.1.70205.json"
+DATASET = latest_dataset_path()
 _ROGUE = class_module("rogue")
 _CLS, _ = attach_effects(Dataset.load(DATASET).class_data("rogue"), _ROGUE.TALENT_EFFECTS, _ROGUE.UNMODELED)
 # routes-only reports stay available for classes without an engine; the rogue is a stand-in here

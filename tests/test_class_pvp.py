@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pytest
 
+from wowforever.schema import latest_dataset_path
 from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
@@ -14,7 +15,7 @@ from wowforever.pvp.class_pvp import class_side, pvp_score
 from wowforever.pvp.duel import Control, load_kits, lockout_seconds
 from wowforever.schema import Dataset
 
-DATASET = Path(__file__).resolve().parents[1] / "data" / "datasets" / "1.60.1.70205.json"
+DATASET = latest_dataset_path()
 
 
 def loaded(class_name):

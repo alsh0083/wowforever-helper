@@ -23,10 +23,10 @@ def main(argv: list[str] | None = None) -> int:
     il.add_argument("--out", default="data/logs/foreverlogs.json")
     gsrc = sub.add_parser("gear-sources", help="build data/items/gear.json: where gear drops, quest rewards and crafted items come from (#188)")
     gsrc.add_argument("--refresh", action="store_true", help="fetch wowforevertalent.com's items, dungeons and quests pages first")
-    gsrc.add_argument("--tables", default="data/cache/wago/1.60.1.70205", help="folder with the cached client tables")
+    gsrc.add_argument("--tables", help="folder with the cached client tables (default: the newest saved dataset's build)")
     gb = sub.add_parser("group-buffs", help="resolve config/group_buffs.toml against the client spell tables into data/buffs/group_buffs.json (#218)")
-    gb.add_argument("--dataset", default="data/datasets/1.60.1.70205.json")
-    gb.add_argument("--tables", default="data/cache/wago/1.60.1.70205", help="folder with the cached client tables")
+    gb.add_argument("--dataset", help="default: the newest saved dataset")
+    gb.add_argument("--tables", help="folder with the cached client tables (default: the dataset's build)")
     iv = sub.add_parser("icy-veins", help="decode Icy Veins' Forever guide talent builds into data/icy-veins/builds.json")
     iv.add_argument("--refresh", action="store_true", help="fetch the hub, the spec guides and the class talent data first")
     vl = sub.add_parser("validate-logs", help="compare the model's dungeon scores with cached Forever Logs statistics (#172)")
@@ -41,6 +41,15 @@ def main(argv: list[str] | None = None) -> int:
     upd.add_argument("--data-dir", default="data")
     upd.add_argument("--delay", type=float, default=1.0, help="seconds between table downloads")
     args = parser.parse_args(argv)
+    if args.command in ("gear-sources", "group-buffs"):
+        from pathlib import Path
+
+        from wowforever.schema import latest_dataset_path
+
+        dataset = Path(getattr(args, "dataset", None) or latest_dataset_path())
+        if hasattr(args, "dataset"):
+            args.dataset = str(dataset)
+        args.tables = args.tables or f"data/cache/wago/{dataset.stem}"
     if args.command == "report":
         import json
         from pathlib import Path

@@ -46,4 +46,17 @@ Checked 2026-10-04. Recheck at launch (2026-11-04) and whenever a patch touches 
   the tool doesn't model dungeon leveling.
 - City of Dalaran dungeon open for testing; dungeon quest rewards went from Rare to Uncommon with new stats;
   Truthseeker's Bow requires level 40. **Plan impact:** gear sources refresh (#230).
+- Found in the client tables, not in the patch notes (`wowforever update`, read through the DB2 reader, #234):
+  - Low-rank nukes retuned: Fireball, Frostbolt, Wrath, Smite, Shadow Bolt and Lightning Bolt gain less
+    damage per level above the rank's level (e.g. Fireball rank 1 0.6 -> 0.2 per level), and some ranks'
+    base damage moved. Penance costs more mana (rank 1 100 -> 150). Mana Tide Totem is learned at 25
+    instead of 40. **Plan impact:** leveling scores shift; reports and leveling paths regenerated (#228).
+  - Warrior Fury and Protection reworked (#239): Boundless Rage became Furious Precision (off-hand hit),
+    Iron Will became Lingering Rage and a new Iron Will sits in Protection, Gore Drinker is new, Improved
+    Cleave, Precision and Toughness are gone, Flurry now requires Death Wish and Bloodthirst no longer does.
+    **Plan impact:** warrior rules and the affected builds updated.
+  - Feral's Predatory Instincts is now Natural Instinct (#229). **Plan impact:** lookups accept both names.
+  - Armor buffs and debuffs (Sunder Armor, Faerie Fire, Curse of Recklessness, Expose Armor, Devotion Aura,
+    Mark of the Wild) moved from aura 22 to aura 674, the client's armor change that other armor modifiers
+    don't scale. **Plan impact:** the party-buff catalog treats both as flat armor; values unchanged.
 - Sources: [Blizzard beta development notes, Oct 8](https://us.forums.blizzard.com/en/wow/t/wow-forever-beta-development-notes-%E2%80%93-updated-october-8/2360696/5), [foreverchanges.pro class changes](https://foreverchanges.pro/patch-notes)

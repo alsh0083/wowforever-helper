@@ -123,7 +123,9 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--write", action="store_true")
     args = ap.parse_args()
-    ds = Dataset.load(ROOT / "data" / "datasets" / "1.60.1.70205.json")
+    from wowforever.schema import latest_dataset_path
+
+    ds = Dataset.load(latest_dataset_path())
     plans = catalog()
     for cls, tree, focus in empty_slots():
         plan = data = None

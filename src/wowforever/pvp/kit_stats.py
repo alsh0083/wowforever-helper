@@ -16,10 +16,10 @@ from wowforever.classes import class_module
 from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import build_stats, rotation_output, stat_table
 from wowforever.physical import Target
-from wowforever.schema import Dataset
+from wowforever.schema import Dataset, latest_dataset_path
 
 ROOT = Path(__file__).resolve().parents[3]
-DATASET = ROOT / "data" / "datasets" / "1.60.1.70205.json"
+DATASET = latest_dataset_path()
 
 # kit id (config/opponents/<kit>.toml) -> community build id (config/builds/<build>.toml)
 KIT_BUILDS: dict[str, str] = {
