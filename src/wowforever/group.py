@@ -9,11 +9,12 @@ provider for blessings, totems, curses, auras and judgements.
 from __future__ import annotations
 
 import json
-import tomllib
 from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
+
+from wowforever.toml_cache import load_toml
 
 ROOT = Path(__file__).resolve().parents[2]
 CATALOG = ROOT / "config" / "group_buffs.toml"
@@ -32,7 +33,7 @@ STATS = {-1: "all_stats", 0: "strength", 1: "agility", 2: "stamina", 3: "intelle
 
 
 def load_catalog(path: Path = CATALOG) -> list[dict[str, Any]]:
-    return tomllib.loads(path.read_text(encoding="utf-8"))["buff"]
+    return load_toml(path)["buff"]
 
 
 @dataclass

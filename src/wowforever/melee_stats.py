@@ -4,7 +4,6 @@ and weapons the class can use, with Classic attack power and crit rules from con
 from __future__ import annotations
 
 import csv
-import tomllib
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 from pathlib import Path
@@ -12,6 +11,7 @@ from pathlib import Path
 from wowforever.gear import (HEALTH_PER_STAMINA, MANA_PER_INT, Item, _interpolate_base, _read_base_rows, _usable,
                              best_set, crit_pct_from_rating, hit_pct_from_rating, set_totals, weighted)
 from wowforever.weapons import Weapon
+from wowforever.toml_cache import load_toml
 
 ROOT = Path(__file__).resolve().parents[2]
 CONFIG = ROOT / "config" / "melee.toml"
@@ -40,7 +40,7 @@ class MeleeStats:
 
 def class_config(class_name: str) -> dict:
     """The class's section of config/melee.toml."""
-    return tomllib.loads(CONFIG.read_text(encoding="utf-8"))[class_name]
+    return load_toml(CONFIG)[class_name]
 
 
 def _allowed_armor(cfg: Mapping, level: int) -> frozenset[int]:

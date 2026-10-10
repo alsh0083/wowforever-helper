@@ -11,7 +11,6 @@ Omen of Clarity, powershifting and Shifting Power.
 
 from __future__ import annotations
 
-import tomllib
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
@@ -20,6 +19,7 @@ from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Attacker, Target, land_chance, white_swing, yellow_attack
 from wowforever.scenarios import _anchor_at, best_rank
 from wowforever.schema import ClassData, SpellRank
+from wowforever.toml_cache import load_toml
 
 CONFIG = Path(__file__).resolve().parents[3] / "config" / "druid.toml"
 
@@ -35,7 +35,7 @@ class CatRotation:
 def cat_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
                  ranks: Mapping[int, int], target: Target) -> CatRotation:
     """Sustained cat DPS against `target` with the druid's talents `ranks`."""
-    c = tomllib.loads(CONFIG.read_text(encoding="utf-8"))
+    c = load_toml(CONFIG)
     level = stats.level
     by_name = {t.name: t for t in cls.talents}
 

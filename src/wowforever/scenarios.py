@@ -8,7 +8,6 @@ come from `config/scenarios.toml`.
 from __future__ import annotations
 
 import math
-import tomllib
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, replace
 from pathlib import Path
@@ -20,6 +19,7 @@ from wowforever.schema import ClassData, SpellRank
 from wowforever.stats import Stats
 
 from wowforever.calc.talents import modifiers_for
+from wowforever.toml_cache import load_toml
 
 
 CONFIG = Path(__file__).resolve().parents[2] / "config" / "scenarios.toml"
@@ -326,7 +326,7 @@ def _rotation(char: Character, spell: SpellRank, target_level: int,
 
 def default_params(scenario: str, level: int) -> QuestingParams | AoeParams | RaidParams:
     """Default parameters for a scenario at `level`, from config/scenarios.toml."""
-    raw = tomllib.loads(CONFIG.read_text(encoding="utf-8"))
+    raw = load_toml(CONFIG)
     fillers = tuple(raw["fillers"])
     if scenario == "questing":
         section = raw["questing"]
