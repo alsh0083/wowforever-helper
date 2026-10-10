@@ -142,6 +142,8 @@ def _parse_changelog(text: str, source: object) -> list[_Section]:
             sections[-1].items.append(line)
         elif line and sections:                     # note paragraph (`> ` lines)
             sections[-1].note += (line,)
+        elif line:
+            raise ValueError(f"{source}: text before the first section: {line!r}")
     return sections
 
 

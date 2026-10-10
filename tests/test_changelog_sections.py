@@ -94,3 +94,10 @@ def test_collapse_is_idempotent_and_keeps_an_empty_changelog():
 def test_repo_changelog_is_collapsed():
     text = (Path(__file__).resolve().parent.parent / "data" / "CHANGELOG.md").read_text(encoding="utf-8")
     assert collapse_changelog(text) == text
+
+
+def test_text_before_the_first_section_is_an_error_not_dropped():
+    import pytest
+
+    with pytest.raises(ValueError):
+        collapse_changelog(HEADER + "\nA hand-written paragraph.\n\n## 1.60.1.70291 (2026-10-09)\n\n- a\n")
