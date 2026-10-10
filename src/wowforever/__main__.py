@@ -208,7 +208,7 @@ def main(argv: list[str] | None = None) -> int:
             try:
                 summary = update.check_for_updates(
                     update.default_http_get, data_dir=Path(args.data_dir), delay=args.delay, now=now,
-                    class_name=class_name,
+                    class_name=class_name, file_get=update.default_file_get,
                 )
             except MissingTables as missing:
                 print(missing)

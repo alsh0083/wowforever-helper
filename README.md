@@ -80,7 +80,7 @@ python -m venv .venv
 
 | Command | What it does |
 |---|---|
-| `wowforever update` | On-demand patch check: finds the latest build (wago.tools API), reads the client tables from the local cache, fetches the wowforevertalent.com pages, diffs against the saved dataset and records changes in `data/CHANGELOG.md`. For a new build it lists the table CSVs to save from wago.tools in a browser first |
+| `wowforever update` | On-demand patch check: finds the latest build (wago.tools API), reads the client tables (for a new build, from the game files through wago.tools' file API), fetches the wowforevertalent.com pages, diffs against the saved dataset and records changes in `data/CHANGELOG.md` |
 | `wowforever report --class <class>` | Scores every build of a class and writes the dashboard payload |
 | `tools/derive_leveling_builds.py [--missing] [class ...]` | Regenerates the leveling builds (one per endgame matrix slot); rerun the reports after |
 | `wowforever dashboard` | Renders `dashboard/index.html` from all reports |
@@ -133,8 +133,8 @@ Assumptions and their sources are in `config/` and `docs/research/`.
 - **Community guides and forums** cited per build and per assumption in `config/consensus.toml`.
 
 Sources are used through their published APIs or where robots.txt allows, and never otherwise:
-wago.tools' table CSVs aren't in its published API, so the tool doesn't download them; you save them
-in a browser when a new game build arrives (`update` lists the links). Gold, boosting and carry
+wago.tools' table CSVs aren't in its published API, so the tool reads the game's table files through
+that API instead (`/api/casc`, with WoWDBDefs for the column layout). Gold, boosting and carry
 sellers are excluded. See `docs/research/data-sources.md`.
 
 World of Warcraft, WoW Forever and related names and game icons are trademarks or property of Blizzard
