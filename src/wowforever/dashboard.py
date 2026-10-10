@@ -9,6 +9,7 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path
 
 TEMPLATE = Path(__file__).resolve().parents[2] / "dashboard" / "template.html"
+FAVICON = TEMPLATE.parent / "favicon.png"
 ICON_URL = "https://wowforevertalent.com/assets/icons/{}.jpg"
 
 
@@ -176,7 +177,7 @@ def compact_gear(gear: Mapping | None) -> dict | None:
 
 
 def render(payload: dict | Sequence[dict], icons: Mapping[str, bytes], *, gear: Mapping | None = None,
-           gear_rules: Mapping | None = None) -> str:
+           gear_rules: Mapping | None = None, favicon: bytes | None = None) -> str:
     """Fill the template placeholders and return the complete HTML page.
 
     `payload` is one class's report or a list of them (#102): the first is the page's default
@@ -185,7 +186,8 @@ def render(payload: dict | Sequence[dict], icons: Mapping[str, bytes], *, gear: 
     first, others = payloads[0], payloads[1:]
     template = TEMPLATE.read_text(encoding="utf-8")
     for placeholder in ("/*__PAYLOAD__*/null", "/*__ICONS__*/{}", "<!--__BUILD_BUTTONS__-->",
-                        "/*__OTHERS__*/{}", "/*__THEMES__*/{}", "/*__THEME_CSS__*/", "<!--__CLASS_TABS__-->"):
+                        "/*__OTHERS__*/{}", "/*__THEMES__*/{}", "/*__THEME_CSS__*/", "<!--__CLASS_TABS__-->",
+                        "<!--__FAVICON__-->"):
         if placeholder not in template:
             raise ValueError(f"dashboard template is missing {placeholder}")
     icon_map = {
@@ -202,13 +204,16 @@ def render(payload: dict | Sequence[dict], icons: Mapping[str, bytes], *, gear: 
     themes = {n: {k: v for k, v in CLASS_THEMES[n].items() if k != "crest_bg"} for n in names if n in CLASS_THEMES}
     template = (template.replace("/*__GEAR__*/null", json.dumps(compact_gear(gear), separators=(",", ":")))
                 .replace("/*__GEAR_RULES__*/{}", json.dumps(gear_rules or {})))
+    favicon_html = ('<link rel="icon" type="image/png" href="data:image/png;base64,'
+                    + base64.b64encode(favicon).decode("ascii") + '">') if favicon is not None else ""
     return (template.replace("/*__PAYLOAD__*/null", json.dumps(first))
             .replace("/*__OTHERS__*/{}", json.dumps({p.get("class", "mage"): p for p in others}))
             .replace("/*__THEMES__*/{}", json.dumps(themes))
             .replace("/*__THEME_CSS__*/", theme_css())
             .replace("<!--__CLASS_TABS__-->", tabs)
             .replace("/*__ICONS__*/{}", json.dumps(icon_map))
-            .replace("<!--__BUILD_BUTTONS__-->", matrices))
+            .replace("<!--__BUILD_BUTTONS__-->", matrices)
+            .replace("<!--__FAVICON__-->", favicon_html))
 
 
 def build_buttons(builds: Sequence[Mapping]) -> str:

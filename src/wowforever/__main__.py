@@ -65,7 +65,7 @@ def main(argv: list[str] | None = None) -> int:
         import json
         from pathlib import Path
 
-        from wowforever.dashboard import fetch_icons, render
+        from wowforever.dashboard import FAVICON, fetch_icons, render
         from wowforever.sources.http import http_get_bytes
 
         from wowforever.classes import CLASSES
@@ -87,7 +87,7 @@ def main(argv: list[str] | None = None) -> int:
         gear_path, rules_path = Path("data/items/gear.json"), Path("config/gear_rules.toml")
         gear = json.loads(gear_path.read_text(encoding="utf-8")) if gear_path.exists() else None
         rules = tomllib.loads(rules_path.read_text(encoding="utf-8")) if rules_path.exists() else None
-        out.write_text(render(reports, icons, gear=gear, gear_rules=rules), encoding="utf-8", newline="\n")
+        out.write_text(render(reports, icons, gear=gear, gear_rules=rules, favicon=FAVICON.read_bytes() if FAVICON.exists() else None), encoding="utf-8", newline="\n")
         print(f"wrote {out}")
         return 0
     if args.command == "group-buffs":
