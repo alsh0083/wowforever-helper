@@ -5,11 +5,12 @@ from pathlib import Path
 
 import pytest
 
+from wowforever.schema import latest_dataset_path
 from wowforever.report import report_from_dataset
 from wowforever.rules import check_order
 from wowforever.schema import Dataset
 
-DATASET = Path(__file__).resolve().parents[1] / "data" / "datasets" / "1.60.1.70205.json"
+DATASET = latest_dataset_path()
 
 
 @pytest.fixture(scope="module", params=["rogue", "hunter"])

@@ -31,6 +31,16 @@ def talent_aliases(name: str) -> set[str]:
 
 
 SCHEMA_VERSION = 1
+DATASETS_DIR = Path(__file__).resolve().parents[2] / "data" / "datasets"
+
+
+def latest_dataset_path(datasets_dir: Path = DATASETS_DIR) -> Path:
+    """The saved dataset with the newest game build (data/datasets/<build>.json): what reports, tools
+    and the PvP kit read unless told otherwise."""
+    paths = [p for p in datasets_dir.glob("*.json") if all(part.isdigit() for part in p.stem.split("."))]
+    if not paths:
+        raise FileNotFoundError(f"no saved dataset in {datasets_dir}; run `wowforever update`")
+    return max(paths, key=lambda p: tuple(int(part) for part in p.stem.split(".")))
 
 # Effect kinds the calculator understands. Extend here (one place) when a new kind is needed.
 EFFECT_KINDS = frozenset({

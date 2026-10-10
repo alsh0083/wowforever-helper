@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import Any
 
 from wowforever.classes import TraitLayout, TreeBand
-from wowforever.schema import CLASSIC_STATUS, ClassData, Prerequisite, Rules, Talent, Tree
+from wowforever.schema import CLASSIC_STATUS, ClassData, Prerequisite, Rules, Talent, Tree, talent_aliases
 from wowforever.sources.wowforevertalent import WftPage
 
 Tables = dict[str, list[dict[str, str]]]
@@ -177,7 +177,8 @@ def normalize_class(tables: Tables, layout: TraitLayout, page: WftPage, *,
             report.unmatched_wago.append(f"{band_name[p.tree_id]}/{p.name}")
         else:
             matched.add(matched_key)
-            if str(page_talent["name"]).lower() != p.name.lower():
+            # a declared rename (config/talent_renames.toml) is the same talent while the site lags
+            if str(page_talent["name"]).lower() not in talent_aliases(p.name):
                 report.name_mismatches.append(
                     f"{band_name[p.tree_id]}/{p.name}: wowforevertalent.com has {page_talent['name']}")
             else:
@@ -188,7 +189,8 @@ def normalize_class(tables: Tables, layout: TraitLayout, page: WftPage, *,
                 classic_status = status if status in CLASSIC_STATUS else None
                 icon = page_talent.get("icon") or ""
         if not icon:
-            icon = icon_by_name.get(p.name.lower(), "") or (icon_overrides or {}).get(p.name, "")
+            icon = next((icon_by_name[a] for a in talent_aliases(p.name) if icon_by_name.get(a)), "") \
+                or (icon_overrides or {}).get(p.name, "")
         talents.append(Talent(
             talent_id=p.talent_id, name=p.name, tree_id=p.tree_id, row=p.row, col=p.col,
             max_rank=p.max_rank, rank_spell_ids=(), rank_text=rank_text,

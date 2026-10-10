@@ -25,10 +25,10 @@ from wowforever.classes import CLASSES, class_module
 from wowforever.effects import attach_effects
 from wowforever.optimizer import optimize_toward
 from wowforever.rules import check_order, points_available
-from wowforever.schema import Dataset
+from wowforever.schema import Dataset, latest_dataset_path
 
 ROOT = Path(__file__).resolve().parents[1]
-DS = Dataset.load(ROOT / "data" / "datasets" / "1.60.1.70205.json")
+DS = Dataset.load(latest_dataset_path())
 MAX_DETOUR = 7   # leveling-only points at a time (Spirit Tap 5 + Wand Specialization 2)
 PVP_LEAN = 0.15  # PvP builds: up to +15% value once their PvP talents are taken (so they come earlier)
 

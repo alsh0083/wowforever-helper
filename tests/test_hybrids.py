@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pytest
 
+from wowforever.schema import latest_dataset_path
 from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.druid_rotation import cat_rotation
@@ -15,7 +16,7 @@ from wowforever.physical import Target
 from wowforever.schema import Dataset
 
 ROOT = Path(__file__).resolve().parents[1]
-DATASET = Dataset.load(ROOT / "data" / "datasets" / "1.60.1.70205.json")
+DATASET = Dataset.load(latest_dataset_path())
 BOSS = Target(3, 976)
 
 

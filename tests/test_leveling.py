@@ -5,12 +5,13 @@ from pathlib import Path
 
 import pytest
 
+from wowforever.schema import latest_dataset_path
 from wowforever.builds import load_builds
 from wowforever.classes import CLASSES
 from wowforever.melee_scenarios import main_tree
 from wowforever.schema import Dataset
 
-DS = Dataset.load(Path(__file__).parents[1] / "data" / "datasets" / "1.60.1.70205.json")
+DS = Dataset.load(latest_dataset_path())
 
 
 @pytest.mark.parametrize("class_name", CLASSES)

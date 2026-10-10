@@ -22,9 +22,9 @@ from wowforever.sources.wowforevertalent import parse_page
 ROOT = Path(__file__).resolve().parents[1]
 FIX = ROOT / "tests" / "fixtures"
 W = class_module("warrior")
-TABLES = read_tables(FIX / "wago-1.60.1.70205-warrior")
+TABLES = read_tables(FIX / "wago-1.60.1.70291-warrior")
 RAW, _ = normalize_class(TABLES, W.LAYOUT, parse_page((FIX / "wowforevertalent" / "warrior.html").read_text(encoding="utf-8")),
-                         wago_build="1.60.1.70205")
+                         wago_build="1.60.1.70291")
 CLS, REPORT = attach_effects(RAW, W.TALENT_EFFECTS, W.UNMODELED)
 SPELLS = class_spells(TABLES, skill_lines=W.SKILL_LINES)
 STATS = MeleeStatTable.load("warrior").at(60)

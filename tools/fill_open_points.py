@@ -20,10 +20,10 @@ from wowforever.melee_scenarios import pve_score, stat_table
 from wowforever.pvp.class_pvp import pvp_score
 from wowforever.pvp.duel import load_kits
 from wowforever.rules import check_build, points_available
-from wowforever.schema import Dataset
+from wowforever.schema import Dataset, latest_dataset_path
 
 ROOT = Path(__file__).resolve().parents[1]
-DS = Dataset.load(ROOT / "data" / "datasets" / "1.60.1.70205.json")
+DS = Dataset.load(latest_dataset_path())
 
 
 def run() -> int:

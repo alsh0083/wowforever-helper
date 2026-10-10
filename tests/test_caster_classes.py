@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pytest
 
+from wowforever.schema import latest_dataset_path
 from wowforever.builds import load_builds
 from wowforever.caster import caster_rotation
 from wowforever.classes import class_module
@@ -15,7 +16,7 @@ from wowforever.pvp.class_pvp import class_side
 from wowforever.schema import Dataset
 
 ROOT = Path(__file__).resolve().parents[1]
-DATASET = Dataset.load(ROOT / "data" / "datasets" / "1.60.1.70205.json")
+DATASET = Dataset.load(latest_dataset_path())
 BOSS = Target(3, 0)
 
 

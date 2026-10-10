@@ -1,6 +1,6 @@
 # Model pick for the deep Arcane PvE slot (owner request, 2026-10-07): the
-# community standard deep-arcane hill-climbed under the PvE score, +15.6%.
-# Changes: Frost Channeling 0->3, Piercing Ice 0->1, Ice Shards 0->5, Improved Frostbolt 0->5, Incineration 3->0, Wake of Fire 1->0, Arcane Power 1->0, Arcane Mind 5->0, Presence of Mind 1->0, Missile Barrage 1->0, Arcane Meditation 3->1.
+# community standard deep-arcane hill-climbed under the PvE score, +14.7%.
+# Changes: Frost Channeling 0->1, Piercing Ice 0->3, Ice Shards 0->5, Improved Frostbolt 0->5, Incineration 3->0, Wake of Fire 1->0, Arcane Power 1->0, Arcane Mind 5->0, Presence of Mind 1->0, Missile Barrage 1->0, Arcane Meditation 3->1.
 
 id = "deep-arcane-model"
 class = "mage"
@@ -10,7 +10,7 @@ variant = "PvE"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "The model's alternative to Deep Arcane (PvE): Frost Channeling 0->3, Piercing Ice 0->1, Ice Shards 0->5, Improved Frostbolt 0->5, Incineration 3->0, Wake of Fire 1->0, Arcane Power 1->0, Arcane Mind 5->0, Presence of Mind 1->0, Missile Barrage 1->0, Arcane Meditation 3->1. Scores +15.6% higher; not tried in game."
+summary = "The model's alternative to Deep Arcane (PvE): Frost Channeling 0->1, Piercing Ice 0->3, Ice Shards 0->5, Improved Frostbolt 0->5, Incineration 3->0, Wake of Fire 1->0, Arcane Power 1->0, Arcane Mind 5->0, Presence of Mind 1->0, Missile Barrage 1->0, Arcane Meditation 3->1. Scores +14.7% higher; not tried in game."
 
 [final]
 "Arcane Blast" = 1
@@ -23,11 +23,11 @@ summary = "The model's alternative to Deep Arcane (PvE): Frost Channeling 0->3, 
 "Arcane Resilience" = 2
 "Arcane Shielding" = 2
 "Arcane Subtlety" = 2
-"Frost Channeling" = 3
+"Frost Channeling" = 1
 "Ice Shards" = 5
 "Improved Channeling" = 5
 "Improved Counterspell" = 2
 "Improved Frostbolt" = 5
 "Magic Absorption" = 2
-"Piercing Ice" = 1
+"Piercing Ice" = 3
 "Wand Specialization" = 2

@@ -12,19 +12,15 @@ from wowforever.sources.wowforevertalent import parse_page
 
 FIX = Path(__file__).parent / "fixtures"
 WARRIOR = class_module("warrior")
-TABLES = read_tables(FIX / "wago-1.60.1.70205-warrior")
+TABLES = read_tables(FIX / "wago-1.60.1.70291-warrior")
 PAGE = parse_page((FIX / "wowforevertalent" / "warrior.html").read_text(encoding="utf-8"))
-RAW, NORMALIZED = normalize_class(TABLES, WARRIOR.LAYOUT, PAGE, wago_build="1.60.1.70205")
+RAW, NORMALIZED = normalize_class(TABLES, WARRIOR.LAYOUT, PAGE, wago_build="1.60.1.70291")
 CLS, REPORT = attach_effects(RAW, WARRIOR.TALENT_EFFECTS, WARRIOR.UNMODELED)
 
 CATEGORIES = ("melee damage", "rage", "defensive", "control", "mobility", "threat", "shout",
               "utility", "proc")
 
-# The page (build 1.60.1.70170) predates the client tables (70205): Fury and Protection were
-# reshuffled, so these talents have no rank text until wowforevertalent.com catches up.
-NO_RANK_TEXT = {"Iron Will", "Improved Cleave", "Boundless Rage", "Precision", "Improved Berserker Rage",
-                "Flurry", "Anticipation", "Improved Bloodrage", "Toughness", "Improved Revenge",
-                "Improved Disarm", "Vanguard", "Improved Shield Bash", "Bastion", "Focused Rage"}
+# Build 1.60.1.70291 reworked Fury and Protection (#239); the page now has rank text for every talent.
 
 
 def test_warrior_is_registered_with_its_trait_tree_and_skill_lines():
@@ -33,15 +29,17 @@ def test_warrior_is_registered_with_its_trait_tree_and_skill_lines():
 
 
 def test_three_trees_load_with_every_talent():
-    assert len(CLS.talents) == 53
-    assert {t.name: len(t.talent_ids) for t in CLS.trees} == {"Arms": 17, "Fury": 18, "Protection": 18}
+    assert len(CLS.talents) == 52
+    assert {t.name: len(t.talent_ids) for t in CLS.trees} == {"Arms": 17, "Fury": 17, "Protection": 18}
     names = {t.name for t in CLS.talents}
     assert {"Mortal Strike", "Bloodthirst", "Shield Slam", "Sweeping Strikes", "Death Wish",
             "Improved Hamstring", "Concussion Blow", "Spearing Strike"} <= names
 
 
-def test_talents_without_rank_text_are_the_page_drift():
-    assert {t.name for t in CLS.talents if not t.rank_text} == NO_RANK_TEXT
+def test_every_talent_has_rank_text_after_the_rework():
+    assert all(t.rank_text for t in CLS.talents)
+    assert {"Lingering Rage", "Furious Precision", "Gore Drinker"} <= {t.name for t in CLS.talents}
+    assert not {"Improved Cleave", "Precision", "Toughness", "Boundless Rage"} & {t.name for t in CLS.talents}
     assert "source builds disagree" in (NORMALIZED.build_mismatch or "")
 
 
@@ -50,13 +48,12 @@ def test_every_talent_is_classified_exactly_once():
 
 
 def test_unmodeled_reasons_name_a_category():
-    # "<category>: <what the talent does>", or "grants_spell"; talents without rank text say so
+    # "<category>: <what the talent does>", or "grants_spell"
     for name, reason in WARRIOR.UNMODELED.items():
         if reason == "grants_spell":
             continue
         category, _, what = reason.partition(": ")
         assert category in CATEGORIES and what, (name, reason)
-        assert reason.endswith("(no rank text)") == (name in NO_RANK_TEXT), (name, reason)
 
 
 def test_talents_that_teach_an_ability_are_grants_spell():
@@ -90,6 +87,6 @@ def test_warrior_arms_kit_matches_the_spell_data():
 def test_every_warrior_talent_has_an_icon():
     # page icons by position, then by name for talents the site shows elsewhere, then the client's icon
     # file ids for the four the site lacks (ICON_OVERRIDES)
-    cls, _ = normalize_class(TABLES, WARRIOR.LAYOUT, PAGE, wago_build="1.60.1.70205",
+    cls, _ = normalize_class(TABLES, WARRIOR.LAYOUT, PAGE, wago_build="1.60.1.70291",
                              icon_overrides=WARRIOR.ICON_OVERRIDES)
     assert all(t.icon for t in cls.talents)

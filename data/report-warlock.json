@@ -3,8 +3,8 @@
  "engine": true,
  "scoring_note": "",
  "dataset": {
-  "version": "1.60.1.70205",
-  "game_build": "1.60.1.70205",
+  "version": "1.60.1.70291",
+  "game_build": "1.60.1.70291",
   "sources": [
    {
     "source": "wago.tools",
@@ -119,6 +119,48 @@
     "game_build": "1.60.1.70170",
     "data_version": "beta-20261004-652acfd6",
     "fetched_at": "2026-10-05T22:22:26.957252+00:00"
+   },
+   {
+    "source": "wago.tools",
+    "game_build": "1.60.1.70291",
+    "data_version": "1.60.1.70291",
+    "fetched_at": "2026-10-09T02:57:31.928963+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-09T02:57:31.928963+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-09T02:57:31.928963+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-09T02:57:31.928963+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-09T02:57:31.928963+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-09T02:57:31.928963+00:00"
+   },
+   {
+    "source": "wowforevertalent.com",
+    "game_build": "1.60.1.70170",
+    "data_version": "beta-20261004-652acfd6",
+    "fetched_at": "2026-10-09T02:57:31.928963+00:00"
    }
   ]
  },
@@ -1007,15 +1049,15 @@
     },
     "dungeon": {
      "20": {
-      "score": 44.1,
-      "low": 44.1,
-      "high": 44.2,
-      "unbuffed": 42.4,
+      "score": 44.6,
+      "low": 44.6,
+      "high": 44.6,
+      "unbuffed": 42.9,
       "top_buffs": [
        "curse_of_the_elements"
       ],
       "unit": "dps",
-      "solo": 42.4
+      "solo": 42.9
      },
      "30": {
       "score": 95.0,
@@ -1073,15 +1115,15 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.0349,
-     "stamina": 0.000327,
+     "score": 0.0352,
+     "stamina": 0.00033,
      "intellect": 4e-06,
      "spirit": 0.0,
      "spell_power": 0.000274,
      "crit_rating": 2.8e-05,
-     "hit_rating": 0.000103,
-     "crit_pct": 8.9e-05,
-     "hit_pct": 0.000344
+     "hit_rating": 0.000104,
+     "crit_pct": 9.1e-05,
+     "hit_pct": 0.000348
     },
     "30": {
      "score": 0.0927,
@@ -1225,15 +1267,15 @@
     },
     "dungeon": {
      "20": {
-      "score": 45.1,
-      "low": 45.1,
-      "high": 45.1,
-      "unbuffed": 43.3,
+      "score": 45.6,
+      "low": 45.5,
+      "high": 45.6,
+      "unbuffed": 43.8,
       "top_buffs": [
        "curse_of_the_elements"
       ],
       "unit": "dps",
-      "solo": 43.3
+      "solo": 43.8
      },
      "30": {
       "score": 97.6,
@@ -1291,15 +1333,15 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.0356,
-     "stamina": 0.000334,
+     "score": 0.036,
+     "stamina": 0.000337,
      "intellect": 5e-06,
      "spirit": 0.0,
      "spell_power": 0.00028,
      "crit_rating": 2.9e-05,
-     "hit_rating": 0.000105,
-     "crit_pct": 9.2e-05,
-     "hit_pct": 0.000351
+     "hit_rating": 0.000106,
+     "crit_pct": 9.4e-05,
+     "hit_pct": 0.000354
     },
     "30": {
      "score": 0.0949,
@@ -1444,15 +1486,15 @@
     },
     "dungeon": {
      "20": {
-      "score": 44.1,
-      "low": 44.1,
-      "high": 44.2,
-      "unbuffed": 42.4,
+      "score": 44.6,
+      "low": 44.6,
+      "high": 44.6,
+      "unbuffed": 42.9,
       "top_buffs": [
        "curse_of_the_elements"
       ],
       "unit": "dps",
-      "solo": 42.4
+      "solo": 42.9
      },
      "30": {
       "score": 96.0,
@@ -1510,15 +1552,15 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.3973,
+     "score": 0.3992,
      "stamina": 0.0,
      "intellect": 4.5e-05,
      "spirit": 0.0,
      "spell_power": 0.002813,
-     "crit_rating": 0.000276,
-     "hit_rating": 0.001122,
-     "crit_pct": 0.000892,
-     "hit_pct": 0.003684
+     "crit_rating": 0.000279,
+     "hit_rating": 0.001129,
+     "crit_pct": 0.000902,
+     "hit_pct": 0.003706
     },
     "30": {
      "score": 0.6208,
@@ -1578,7 +1620,7 @@
    "pair": "warlock-demonology-pve-model",
    "variant": "PvE",
    "origin": "model",
-   "summary": "The model's alternative to Demonology (PvE): Agonizing Flames 0->1, Conflagrate 0->1, Destructive Reach 2->0, Improved Shadow Bolt 5->2, Improved Corruption 0->1, Suppression 0->2. Scores +5.8% higher; not tried in game.",
+   "summary": "The model's alternative to Demonology (PvE): Agonizing Flames 0->1, Conflagrate 0->1, Destructive Reach 2->0, Improved Shadow Bolt 5->2, Improved Corruption 0->1, Suppression 0->2. Scores +5.9% higher; not tried in game.",
    "gives_up": [],
    "model_filled": {},
    "must_have_by": {},
@@ -1662,15 +1704,15 @@
     },
     "dungeon": {
      "20": {
-      "score": 45.1,
-      "low": 45.1,
-      "high": 45.1,
-      "unbuffed": 43.3,
+      "score": 45.6,
+      "low": 45.5,
+      "high": 45.6,
+      "unbuffed": 43.8,
       "top_buffs": [
        "curse_of_the_elements"
       ],
       "unit": "dps",
-      "solo": 43.3
+      "solo": 43.8
      },
      "30": {
       "score": 98.7,
@@ -1728,15 +1770,15 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4008,
+     "score": 0.4028,
      "stamina": 0.0,
-     "intellect": 4.6e-05,
+     "intellect": 4.7e-05,
      "spirit": 0.0,
      "spell_power": 0.002848,
-     "crit_rating": 0.000282,
-     "hit_rating": 0.001135,
-     "crit_pct": 0.000913,
-     "hit_pct": 0.003727
+     "crit_rating": 0.000285,
+     "hit_rating": 0.001142,
+     "crit_pct": 0.000922,
+     "hit_pct": 0.003749
     },
     "30": {
      "score": 0.6286,
@@ -1881,15 +1923,15 @@
     },
     "dungeon": {
      "20": {
-      "score": 45.1,
-      "low": 45.1,
-      "high": 45.2,
-      "unbuffed": 43.3,
+      "score": 45.6,
+      "low": 45.6,
+      "high": 45.7,
+      "unbuffed": 43.8,
       "top_buffs": [
        "curse_of_the_elements"
       ],
       "unit": "dps",
-      "solo": 43.3
+      "solo": 43.8
      },
      "30": {
       "score": 92.6,
@@ -1947,15 +1989,15 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4017,
+     "score": 0.4037,
      "stamina": 0.0,
-     "intellect": 4.6e-05,
+     "intellect": 4.7e-05,
      "spirit": 0.0,
      "spell_power": 0.00285,
-     "crit_rating": 0.000282,
-     "hit_rating": 0.001137,
-     "crit_pct": 0.000913,
-     "hit_pct": 0.003731
+     "crit_rating": 0.000285,
+     "hit_rating": 0.001144,
+     "crit_pct": 0.000923,
+     "hit_pct": 0.003754
     },
     "30": {
      "score": 0.6094,
@@ -2099,15 +2141,15 @@
     },
     "dungeon": {
      "20": {
-      "score": 45.1,
-      "low": 45.1,
-      "high": 45.1,
-      "unbuffed": 43.3,
+      "score": 45.6,
+      "low": 45.5,
+      "high": 45.6,
+      "unbuffed": 43.8,
       "top_buffs": [
        "curse_of_the_elements"
       ],
       "unit": "dps",
-      "solo": 43.3
+      "solo": 43.8
      },
      "30": {
       "score": 93.7,
@@ -2165,15 +2207,15 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.0356,
-     "stamina": 0.000334,
+     "score": 0.036,
+     "stamina": 0.000337,
      "intellect": 5e-06,
      "spirit": 0.0,
      "spell_power": 0.00028,
      "crit_rating": 2.9e-05,
-     "hit_rating": 0.000105,
-     "crit_pct": 9.2e-05,
-     "hit_pct": 0.000351
+     "hit_rating": 0.000106,
+     "crit_pct": 9.4e-05,
+     "hit_pct": 0.000354
     },
     "30": {
      "score": 0.0917,
@@ -2317,15 +2359,15 @@
     },
     "dungeon": {
      "20": {
-      "score": 45.1,
-      "low": 45.1,
-      "high": 45.2,
-      "unbuffed": 43.3,
+      "score": 45.6,
+      "low": 45.6,
+      "high": 45.7,
+      "unbuffed": 43.8,
       "top_buffs": [
        "curse_of_the_elements"
       ],
       "unit": "dps",
-      "solo": 43.3
+      "solo": 43.8
      },
      "30": {
       "score": 94.6,
@@ -2383,15 +2425,15 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4017,
+     "score": 0.4037,
      "stamina": 0.0,
-     "intellect": 4.6e-05,
+     "intellect": 4.7e-05,
      "spirit": 0.0,
      "spell_power": 0.00285,
-     "crit_rating": 0.000282,
-     "hit_rating": 0.001137,
-     "crit_pct": 0.000913,
-     "hit_pct": 0.003731
+     "crit_rating": 0.000285,
+     "hit_rating": 0.001144,
+     "crit_pct": 0.000923,
+     "hit_pct": 0.003754
     },
     "30": {
      "score": 0.6213,
@@ -2535,15 +2577,15 @@
     },
     "dungeon": {
      "20": {
-      "score": 45.1,
-      "low": 45.1,
-      "high": 45.2,
-      "unbuffed": 43.3,
+      "score": 45.6,
+      "low": 45.6,
+      "high": 45.7,
+      "unbuffed": 43.8,
       "top_buffs": [
        "curse_of_the_elements"
       ],
       "unit": "dps",
-      "solo": 43.3
+      "solo": 43.8
      },
      "30": {
       "score": 96.9,
@@ -2601,15 +2643,15 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.0356,
-     "stamina": 0.000334,
+     "score": 0.036,
+     "stamina": 0.000337,
      "intellect": 5e-06,
      "spirit": 0.0,
      "spell_power": 0.00028,
      "crit_rating": 2.9e-05,
-     "hit_rating": 0.000105,
-     "crit_pct": 9.3e-05,
-     "hit_pct": 0.000351
+     "hit_rating": 0.000106,
+     "crit_pct": 9.5e-05,
+     "hit_pct": 0.000355
     },
     "30": {
      "score": 0.0943,

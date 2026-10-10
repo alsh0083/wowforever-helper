@@ -1,5 +1,6 @@
 """Group buffs, phase 1 (#218): resolved client values and the effective buff set of a party."""
 
+from wowforever.schema import latest_dataset_path
 from wowforever.group import Member, effective, load_resolved, options
 
 BUFFS = load_resolved()["buffs"]
@@ -53,7 +54,7 @@ def _engine(class_name, build_id):
     from wowforever.stats import StatTable
 
     m = class_module(class_name)
-    cls, _ = attach_effects(Dataset.load(Path(__file__).parents[1] / "data" / "datasets" / "1.60.1.70205.json")
+    cls, _ = attach_effects(Dataset.load(latest_dataset_path())
                             .class_data(class_name), m.TALENT_EFFECTS, m.UNMODELED)
     b = {x.id: x for x in load_builds(class_name=class_name)}[build_id]
     stats = StatTable.load("mage").at(60) if class_name == "mage" else ms.stat_table(class_name).at(60)

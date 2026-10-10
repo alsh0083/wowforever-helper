@@ -11,7 +11,8 @@ FIX = Path(__file__).parent / "fixtures"
 
 
 def spells(name):
-    return {s.name: s for s in class_spells(read_tables(FIX / f"wago-1.60.1.70205-{name}"),
+    folder = max(FIX.glob(f"wago-*-{name}"))           # the class's newest trimmed tables
+    return {s.name: s for s in class_spells(read_tables(folder),
                                             skill_lines=class_module(name).SKILL_LINES)}
 
 

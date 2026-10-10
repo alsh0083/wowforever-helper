@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pytest
 
+from wowforever.schema import latest_dataset_path
 from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.paladin_rotation import paladin_rotation
@@ -16,7 +17,7 @@ from wowforever.schema import Dataset
 
 ROOT = Path(__file__).resolve().parents[1]
 M = class_module("paladin")
-CLS, PROBLEMS = attach_effects(Dataset.load(ROOT / "data" / "datasets" / "1.60.1.70205.json").class_data("paladin"),
+CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("paladin"),
                                M.TALENT_EFFECTS, M.UNMODELED)
 RET = {b.id: b.final_ids(CLS) for b in load_builds(class_name="paladin")}["paladin-retribution"]
 STATS = stat_table("paladin").at(60)

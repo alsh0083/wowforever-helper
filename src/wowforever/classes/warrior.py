@@ -51,8 +51,7 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     ),
 }
 
-# Every warrior talent, with why it isn't modeled. Talents marked "(no rank text)" are
-# classified from the name: wowforevertalent.com is a build behind the client for them.
+# Every warrior talent, with why it isn't modeled (trees as reworked in build 1.60.1.70291, #239).
 UNMODELED: dict[str, str] = {
     # Arms
     "Deflection": "defensive: +5% parry",
@@ -69,37 +68,36 @@ UNMODELED: dict[str, str] = {
     "Mortal Strike": "grants_spell",
     # Fury
     "Booming Voice": "shout: shouts reach 50% farther and cost 25% less",
-    "Iron Will": "defensive: resist stuns and charms (no rank text)",
-    "Improved Cleave": "melee damage: Cleave deals more damage (no rank text)",
+    "Lingering Rage": "rage: Rage starts decaying up to 10 s later out of combat",
     "Piercing Howl": "grants_spell",
     "Blood Craze": "defensive: regenerate health after being crit",
-    "Boundless Rage": "rage: more Rage (no rank text)",
+    "Furious Precision": "melee damage: up to +10% off-hand hit (dual wield isn't modeled)",
     "Dual Wield Specialization": "melee damage: +25% off-hand damage and Rage",
     "Enrage": "melee damage: +10% Physical damage after being hit",
-    "Precision": "melee damage: more melee hit (no rank text)",
     "Death Wish": "grants_spell",
     "Improved Intercept": "mobility: Intercept cooldown -10 s",
-    "Improved Berserker Rage": "rage: Berserker Rage generates Rage (no rank text)",
-    "Flurry": "melee damage: attack speed after a crit (no rank text)",
+    "Improved Berserker Rage": "rage: Berserker Rage generates 10 Rage and frees movement",
+    "Flurry": "melee damage: +25% attack speed for 3 swings after a crit (not modeled yet)",
+    "Gore Drinker": "defensive: rage abilities make the next 3 swings heal up to 1% Health",
     "Bloodthirst": "grants_spell",
     # Protection
     "Shield Specialization": "defensive: +5% block, Rage on block",
-    "Anticipation": "defensive: more defense or dodge (no rank text)",
-    "Improved Bloodrage": "rage: Bloodrage generates more Rage (no rank text)",
-    "Toughness": "defensive: more armor (no rank text)",
+    "Improved Bloodrage": "rage: Bloodrage generates up to 50% more Rage",
+    "Anticipation": "defensive: up to +20 Defense",
+    "Iron Will": "defensive: stun and fear durations up to -15%",
     "Improved Thunder Clap": "rage: Thunder Clap costs 6 less Rage",
     "Last Stand": "grants_spell",
     "Master of Defense": "rage: 5 Rage on dodge or parry with a shield",
-    "Improved Revenge": "proc: Revenge can stun (no rank text)",
+    "Improved Revenge": "melee damage: Revenge deals up to 60% more damage",
     "Defiance": "threat: +15% threat in Defensive Stance with a shield",
     "Improved Sunder Armor": "rage: Sunder Armor costs 3 less Rage",
-    "Improved Disarm": "control: longer Disarm (no rank text)",
-    "Vanguard": "defensive: shield and armor bonus (no rank text)",
+    "Improved Disarm": "control: Disarm cooldown up to -20 s",
+    "Vanguard": "mobility: Charge usable in Defensive Stance",
     "Improved Shield Wall": "defensive: Shield Wall cooldown -11 min",
     "Concussion Blow": "grants_spell",
-    "Improved Shield Bash": "control: Shield Bash also silences (no rank text)",
-    "Bastion": "defensive: shield defense bonus (no rank text)",
-    "Focused Rage": "rage: abilities cost less Rage (no rank text)",
+    "Improved Shield Bash": "control: Shield Bash silences for 3 s",
+    "Bastion": "melee damage: up to +10% damage with a shield (Protection is unscored)",
+    "Focused Rage": "rage: offensive abilities cost up to 3 less Rage",
     "Shield Slam": "grants_spell",
 }
 
@@ -117,11 +115,7 @@ CAVEAT = ("Warrior model (#162): a two-hander's white swings build Rage for Mort
           "Overpower and Slam aren't modeled yet, and base stats are estimates. Protection stays unscored. "
           "PvP uses the mage's duel model from the warrior's side.")
 
-# Icons for talents wowforevertalent.com doesn't show (its page is a build behind, #149), by the client's
-# SpellMisc.SpellIconFileDataID, named through wago.tools' documented file-info API (/api/info/{fdid}).
-ICON_OVERRIDES = {
-    "Improved Cleave": "ability_warrior_cleave",          # file 132338
-    "Precision": "ability_marksmanship",                  # file 132222
-    "Toughness": "spell_holy_devotion",                   # file 135892
-    "Boundless Rage": "ability_warrior_intensifyrage",    # file 236310
-}
+# Icons for talents wowforevertalent.com doesn't show, by the client's SpellMisc.SpellIconFileDataID, named
+# through wago.tools' documented file-info API (/api/info/{fdid}). Empty since build 1.60.1.70291: the four
+# it held (Improved Cleave, Precision, Toughness, Boundless Rage) left the trees (#239).
+ICON_OVERRIDES: dict[str, str] = {}

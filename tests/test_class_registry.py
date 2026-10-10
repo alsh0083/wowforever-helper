@@ -6,13 +6,14 @@ from pathlib import Path
 
 import pytest
 
+from wowforever.schema import latest_dataset_path
 from wowforever.builds import Build, load_builds
 from wowforever.classes import CLASSES, class_module
 from wowforever.classes import mage
 from wowforever.schema import Dataset, Provenance
 from wowforever.update import merge_class
 
-DATASET = Path(__file__).resolve().parents[1] / "data" / "datasets" / "1.60.1.70205.json"
+DATASET = latest_dataset_path()
 
 
 def test_registry_maps_names_to_class_modules():

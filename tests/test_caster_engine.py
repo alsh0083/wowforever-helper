@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pytest
 
+from wowforever.schema import latest_dataset_path
 from wowforever.builds import load_builds
 from wowforever.caster import caster_rotation, spirit_regen
 from wowforever.classes import class_module
@@ -16,7 +17,7 @@ from wowforever.schema import Dataset
 from wowforever.stats import Stats
 
 ROOT = Path(__file__).resolve().parents[1]
-DATASET = Dataset.load(ROOT / "data" / "datasets" / "1.60.1.70205.json")
+DATASET = Dataset.load(latest_dataset_path())
 P = class_module("priest")
 CLS, PROBLEMS = attach_effects(DATASET.class_data("priest"), P.TALENT_EFFECTS, P.UNMODELED)
 BUILDS = {b.id: b.final_ids(CLS) for b in load_builds(class_name="priest")}
