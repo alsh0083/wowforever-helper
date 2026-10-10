@@ -12,7 +12,7 @@ from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from wowforever.schema import ClassData
+from wowforever.schema import ClassData, talent_aliases
 
 CONFIG_DIR = Path(__file__).resolve().parents[2] / "config" / "builds"
 
@@ -56,7 +56,7 @@ class Build:
         """Talent names in this build that the class doesn't have (e.g. renamed by a patch)."""
         known = {t.name.lower() for t in cls.talents}
         names = set(self.final) | set(self.must_have_by) | set(self.order or ())
-        return sorted(n for n in names if n.lower() not in known)
+        return sorted(n for n in names if not (talent_aliases(n) & known))
 
     def final_ids(self, cls: ClassData) -> dict[int, int]:
         return {cls.talent_named(n).talent_id: r for n, r in self.final.items()}

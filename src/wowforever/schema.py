@@ -15,6 +15,21 @@ from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
 
+RENAMES_FILE = Path(__file__).resolve().parents[2] / "config" / "talent_renames.toml"
+
+
+def talent_aliases(name: str) -> set[str]:
+    """`name` and every name a patch renamed it from or to (config/talent_renames.toml), lowercased."""
+    import tomllib
+
+    renames = tomllib.loads(RENAMES_FILE.read_text(encoding="utf-8")) if RENAMES_FILE.exists() else {}
+    out = {name.lower()}
+    for old, new in renames.items():
+        if name.lower() in (old.lower(), new.lower()):
+            out |= {old.lower(), new.lower()}
+    return out
+
+
 SCHEMA_VERSION = 1
 
 # Effect kinds the calculator understands. Extend here (one place) when a new kind is needed.
@@ -166,7 +181,8 @@ class ClassData:
         raise KeyError(talent_id)
 
     def talent_named(self, name: str) -> Talent:
-        matches = [t for t in self.talents if t.name.lower() == name.lower()]
+        names = talent_aliases(name)
+        matches = [t for t in self.talents if t.name.lower() in names]
         if len(matches) != 1:
             raise KeyError(f"{name!r}: {len(matches)} matches")
         return matches[0]
