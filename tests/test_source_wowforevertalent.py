@@ -96,9 +96,9 @@ def test_fetch_uses_injected_http_get(tmp_path):
         calls.append(url)
         return HTML
 
-    path = fetch("mage", http_get=http_get, raw_dir=tmp_path)
+    path, page = fetch("mage", http_get=http_get, raw_dir=tmp_path)
     assert calls == ["https://wowforevertalent.com/mage/"]
-    assert path.exists()
+    assert path.exists() and page.class_id == "mage"
 
 
 def test_popular_builds_with_talent_names():
@@ -113,12 +113,17 @@ def test_popular_builds_with_talent_names():
     assert sum(first["final"].values()) == 51
 
 
-def test_snapshot_refreshes_when_only_popular_builds_change(tmp_path):
+def test_snapshot_kept_when_only_popular_builds_change(tmp_path):
     import re
 
     path = snapshot(HTML, tmp_path, url="u")
+    manifest = path.with_suffix(".manifest.json").read_bytes()
     found = re.compile(r"\d{3,}").search(HTML, HTML.index("initialPopular"))
     changed = HTML[:found.start()] + str(int(found.group()) + 1) + HTML[found.end():]
     assert parse_page(changed).popular != parse_page(HTML).popular
     assert snapshot(changed, tmp_path, url="u") == path
-    assert path.read_text(encoding="utf-8") == changed
+    assert path.read_text(encoding="utf-8") == HTML                       # immutable once saved
+    assert path.with_suffix(".manifest.json").read_bytes() == manifest
+
+    fetched, page = fetch("mage", http_get=lambda url: changed, raw_dir=tmp_path)
+    assert fetched == path and page.popular == parse_page(changed).popular   # live popularity

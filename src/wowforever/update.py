@@ -137,10 +137,9 @@ def check_for_updates(
         delay=delay,
     )
     module = class_module(class_name)
-    page_path = wowforevertalent.fetch(
+    page_path, page = wowforevertalent.fetch(
         class_name, http_get=http_get, raw_dir=data_dir / "raw" / "wowforevertalent"
     )
-    page = wowforevertalent.parse_page(page_path.read_text(encoding="utf-8"))
 
     tables = normalize_module.read_tables(data_dir / "cache" / "wago" / build)
     cls, report = normalize_module.normalize_class(tables, module.LAYOUT, page, wago_build=build,
