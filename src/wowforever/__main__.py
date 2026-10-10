@@ -33,6 +33,9 @@ def main(argv: list[str] | None = None) -> int:
     vl.add_argument("--boss-only", action="store_true",
                     help="compare with boss fights only (data/cache/foreverlogs/stats-boss-only/), which leaves out "
                          "trash pulls where AoE inflates DPS; the model scores one target")
+    fl = sub.add_parser("foreverlogs-refresh", help="refresh the cached Forever Logs statistics (#172); about 37 requests per variant, owner's key")
+    fl.add_argument("--variant", action="append", help="cache folder to refresh (repeatable; default: all four)")
+    fl.add_argument("--delay", type=float, default=2.0, help="seconds between requests")
     gs = sub.add_parser("gear-stats", help="rebuild config/stats/<class>.csv from real Forever gear")
     gs.add_argument("--tables", required=True, help="folder with ItemSparse/Item/RandPropPoints CSVs")
     gs.add_argument("--class", dest="class_name", default="mage", choices=("mage", "rogue", "hunter", "warrior", "paladin", "priest", "warlock", "druid", "shaman",
@@ -160,6 +163,23 @@ def main(argv: list[str] | None = None) -> int:
 
         stats = STATS_DIR.parent / "stats-boss-only" if args.boss_only else STATS_DIR
         print(markdown(compare(reports, log_averages(stats), log_percentiles(stats))))
+        return 0
+    if args.command == "foreverlogs-refresh":
+        import os
+        from pathlib import Path
+
+        from wowforever.sources import foreverlogs_api
+        from wowforever.sources.http import http_get_with_headers
+
+        cache = Path("data/cache/foreverlogs")
+        locations = [line.strip() for line in (cache / "locations.txt").read_text(encoding="utf-8").splitlines() if line.strip()]
+        variants = args.variant or list(foreverlogs_api.VARIANTS)
+        key = foreverlogs_api.read_api_key(os.environ, Path(".env"))
+        written = foreverlogs_api.fetch_statistics(cache, key, variants=variants, locations=locations,
+                                                   get=http_get_with_headers, delay=args.delay)
+        print(f"wrote {len(written)} files")
+        for variant in variants:
+            print(f"{variant}: {sum(p.parent.name == variant for p in written)} files")
         return 0
     if args.command == "import-logs":
         from pathlib import Path
