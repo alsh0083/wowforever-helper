@@ -13,6 +13,7 @@ from wowforever.builds import Build
 from wowforever.schema import ClassData, Prerequisite, SpellRank, Talent
 
 _CHANGELOG_HEADER = "# Data changelog\n"
+_NO_CHANGES = "- No talent or spell changes."
 _RENAMED_PREFIX = "renamed to "
 _SPELL_DIFF_FIELDS = tuple(
     f for f in fields(SpellRank) if f.name not in ("spell_id", "name", "rank")
@@ -121,20 +122,72 @@ def affected_builds(changes: Sequence[Change], builds: Sequence[Build]) -> list[
     return affected
 
 
+@dataclass
+class _Section:
+    """One changelog section: `## <build> (<date>)`, an optional hand-written note, its items."""
+
+    heading: str
+    note: tuple[str, ...]
+    items: list[str]
+
+
+def _parse_changelog(text: str, source: object) -> list[_Section]:
+    if text and not text.startswith(_CHANGELOG_HEADER):
+        raise ValueError(f"{source} is not a data changelog")
+    sections: list[_Section] = []
+    for line in text[len(_CHANGELOG_HEADER):].splitlines():
+        if line.startswith("## "):
+            sections.append(_Section(line, (), []))
+        elif line.startswith("- ") and sections:
+            sections[-1].items.append(line)
+        elif line and sections:                     # note paragraph (`> ` lines)
+            sections[-1].note += (line,)
+        elif line:
+            raise ValueError(f"{source}: text before the first section: {line!r}")
+    return sections
+
+
+def _merged_items(*groups: Sequence[str]) -> list[str]:
+    """Sorted, unique items; the no-changes line only when there's nothing else."""
+    items = sorted({item for group in groups for item in group} - {_NO_CHANGES})
+    return items or [_NO_CHANGES]
+
+
+def _render_changelog(sections: Sequence[_Section]) -> str:
+    out = [_CHANGELOG_HEADER]
+    for section in sections:
+        out.append(f"\n{section.heading}\n\n")
+        if section.note:
+            out.append("".join(f"{line}\n" for line in section.note) + "\n")
+        out.append("".join(f"{item}\n" for item in section.items))
+    return "".join(out)
+
+
 def append_changelog(path: Path | str, build: str, changes: Sequence[Change], *,
                      date: str) -> None:
-    """Insert a newest-first dated section for `build` into the changelog at `path`."""
+    """Insert a newest-first dated section for `build` into the changelog at `path`. Each class
+    of one update check lands in the same section (#241), unless that section carries a note."""
     path = Path(path)
-    text = path.read_text(encoding="utf-8") if path.exists() else ""
-    if text and not text.startswith(_CHANGELOG_HEADER):
-        raise ValueError(f"{path} is not a data changelog")
-    body = text[len(_CHANGELOG_HEADER):]
-    if changes:
-        lines = "".join(f"- {line}\n" for line in sorted(str(change) for change in changes))
+    sections = _parse_changelog(path.read_text(encoding="utf-8") if path.exists() else "", path)
+    heading = f"## {build} ({date})"
+    new = [f"- {change}" for change in changes]
+    if sections and sections[0].heading == heading and not sections[0].note:
+        sections[0].items = _merged_items(sections[0].items, new)
     else:
-        lines = "- No talent or spell changes.\n"
-    path.write_text(_CHANGELOG_HEADER + f"\n## {build} ({date})\n\n" + lines + body,
-                    encoding="utf-8", newline="\n")
+        sections.insert(0, _Section(heading, (), _merged_items(new)))
+    path.write_text(_render_changelog(sections), encoding="utf-8", newline="\n")
+
+
+def collapse_changelog(text: str) -> str:
+    """Merge sections with the same heading and note into the first of them (#241)."""
+    merged: dict[tuple[str, tuple[str, ...]], _Section] = {}
+    for section in _parse_changelog(text, "text"):
+        key = (section.heading, section.note)
+        if key in merged:
+            merged[key].items = _merged_items(merged[key].items, section.items)
+        else:
+            merged[key] = _Section(section.heading, section.note, _merged_items(section.items))
+    return _render_changelog(list(merged.values()))
 
 
 def record_check(path: Path | str, build: str, *, changed: bool, dataset: str | None,

@@ -2,106 +2,11 @@
 
 ## 1.60.1.70291 (2026-10-09)
 
-- Shadow Bolt rank 1: damage_per_level 0.30000001192 -> 0.20000000298
-- Shadow Bolt rank 2: damage_per_level 0.60000002384 -> 0.30000001192
-- Shadow Bolt rank 2: max_damage 27.884615399 -> 25.65384616708
-- Shadow Bolt rank 2: min_damage 22.115384601 -> 20.34615383292
-- Shadow Bolt rank 3: damage_per_level 0.69999998808 -> 0.60000002384
-- Shadow Bolt rank 3: max_damage 44.15384627139 -> 43.0769231916
-- Shadow Bolt rank 3: min_damage 37.84615372861 -> 36.9230768084
-- Shadow Bolt rank 4: damage_per_level 0.89999997616 -> 0.80000001192
-- Shadow Bolt rank 4: max_damage 59.652173876679996 -> 61.78260865799
-- Shadow Bolt rank 4: min_damage 52.347826123320004 -> 54.21739134201
-
-## 1.60.1.70291 (2026-10-09)
-
-- Lightning Bolt rank 1: damage_per_level 0.40000000596 -> 0.10000000149
-- Lightning Bolt rank 1: max_damage 15.00000004468 -> 16.0714286193
-- Lightning Bolt rank 1: min_damage 12.99999995532 -> 13.928571380700001
-- Lightning Bolt rank 2: damage_per_level 0.5 -> 0.10000000149
-- Lightning Bolt rank 2: max_damage 31.07142866398 -> 28.928571514740003
-- Lightning Bolt rank 2: min_damage 26.928571336020003 -> 25.07142848526
-- Lightning Bolt rank 3: damage_per_level 0.60000002384 -> 0.30000001192
-- Lightning Bolt rank 4: damage_per_level 0.60000002384 -> 0.40000000596
-- Lightning Bolt rank 4: max_damage 59.77528083324 -> 65.11235947906499
-- Lightning Bolt rank 4: min_damage 52.22471916676 -> 56.887640520935
-- Lightning Bolt rank 5: damage_per_level 0.69999998808 -> 0.5
-- Lightning Bolt rank 5: max_damage 76.83582115188 -> 87.50746297853
-- Lightning Bolt rank 5: min_damage 67.16417884812 -> 76.49253702147
-- Mana Tide Totem rank 1: level 40 -> 25
-
-## 1.60.1.70291 (2026-10-09)
-
-- Penance rank 1: mana_cost 100 -> 150
-- Penance rank 2: mana_cost 185 -> 220
-- Penance rank 4: mana_cost 355 -> 385
-- Smite rank 1: damage_per_level 0.5 -> 0.10000000149
-- Smite rank 2: damage_per_level 0.60000002384 -> 0.30000001192
-- Smite rank 2: max_damage 31.00000002974 -> 29.892857171535
-- Smite rank 2: min_damage 24.99999997026 -> 24.107142828465
-- Smite rank 3: damage_per_level 0.80000001192 -> 0.5
-- Smite rank 3: max_damage 49.172413781310006 -> 48.103448264325
-- Smite rank 3: min_damage 42.82758621869 -> 41.896551735675004
-- Smite rank 4: damage_per_level 1.0 -> 0.69999998808
-- Smite rank 4: max_damage 63.21428590258 -> 64.2857144772
-- Smite rank 4: min_damage 54.785714097420005 -> 55.714285522800004
-
-## 1.60.1.70291 (2026-10-09)
-
-- Feral Combat/Predatory Instincts: renamed to Natural Instinct
-- Thick Hide rank 1: new spell rank
-- Wrath rank 1: damage_per_level 0.40000000596 -> 0.20000000298
-- Wrath rank 2: damage_per_level 0.60000002384 -> 0.30000001192
-- Wrath rank 2: max_damage 24.703703716375 -> 22.555555567124998
-- Wrath rank 2: min_damage 21.296296283625 -> 19.444444432875
-- Wrath rank 3: damage_per_level 0.69999998808 -> 0.5
-- Wrath rank 4: damage_per_level 0.89999997616 -> 0.60000002384
-- Wrath rank 4: max_damage 40.79411776373 -> 39.72058834889501
-- Wrath rank 4: min_damage 35.20588223627 -> 34.279411651105
-- Wrath rank 5: damage_per_level 0.89999997616 -> 0.69999998808
-
-## 1.60.1.70291 (2026-10-09)
-
-- Arms/Impale: prerequisite none -> Deep Wounds (rank 3)
-- Berserker Rage rank 1: level 32 -> 30
-- Fury/Bloodthirst: prerequisite Death Wish (rank 1) -> none
-- Fury/Boundless Rage: moved from row 3 col 4 to row 3 col 1
-- Fury/Boundless Rage: rank text changed
-- Fury/Boundless Rage: renamed to Furious Precision
-- Fury/Flurry: moved from row 6 col 3 to row 6 col 2
-- Fury/Flurry: prerequisite Enrage (rank 5) -> Death Wish (rank 1)
-- Fury/Flurry: rank text changed
-- Fury/Gore Drinker: new talent
-- Fury/Improved Berserker Rage: moved from row 6 col 1 to row 5 col 1
-- Fury/Improved Berserker Rage: rank text changed
-- Fury/Improved Cleave: removed
-- Fury/Iron Will: rank text changed
-- Fury/Iron Will: renamed to Lingering Rage
-- Fury/Precision: removed
-- Protection/Anticipation: moved from row 1 col 3 to row 2 col 1
-- Protection/Anticipation: rank text changed
-- Protection/Bastion: moved from row 5 col 4 to row 6 col 3
-- Protection/Bastion: rank text changed
-- Protection/Focused Rage: moved from row 6 col 3 to row 5 col 3
-- Protection/Focused Rage: rank text changed
-- Protection/Improved Bloodrage: moved from row 2 col 1 to row 1 col 1
-- Protection/Improved Bloodrage: rank text changed
-- Protection/Improved Disarm: moved from row 4 col 2 to row 3 col 3
-- Protection/Improved Disarm: rank text changed
-- Protection/Improved Revenge: moved from row 3 col 3 to row 2 col 3
-- Protection/Improved Revenge: rank text changed
-- Protection/Improved Shield Bash: moved from row 5 col 3 to row 4 col 3
-- Protection/Improved Shield Bash: rank text changed
-- Protection/Iron Will: new talent
-- Protection/Last Stand: prerequisite Improved Bloodrage (rank 2) -> none
-- Protection/Toughness: removed
-- Protection/Vanguard: moved from row 4 col 3 to row 4 col 2
-- Protection/Vanguard: rank text changed
-
-## 1.60.1.70291 (2026-10-09)
-
 - Arcane Missiles rank 2: periodic_damage 124.0 -> 136.0
 - Arcane Missiles rank 3: periodic_damage 220.0 -> 235.0
+- Arms/Impale: prerequisite none -> Deep Wounds (rank 3)
+- Berserker Rage rank 1: level 32 -> 30
+- Feral Combat/Predatory Instincts: renamed to Natural Instinct
 - Fireball rank 1: damage_per_level 0.60000002384 -> 0.20000000298
 - Fireball rank 2: damage_per_level 0.69999998808 -> 0.30000001192
 - Fireball rank 2: max_damage 43.815789386705 -> 37.89473676688
@@ -126,6 +31,86 @@
 - Frostbolt rank 5: damage_per_level 1.5 -> 1.29999995232
 - Frostbolt rank 5: max_damage 99.31818194695 -> 108.72727286824001
 - Frostbolt rank 5: min_damage 90.68181805305 -> 99.27272713175999
+- Fury/Bloodthirst: prerequisite Death Wish (rank 1) -> none
+- Fury/Boundless Rage: moved from row 3 col 4 to row 3 col 1
+- Fury/Boundless Rage: rank text changed
+- Fury/Boundless Rage: renamed to Furious Precision
+- Fury/Flurry: moved from row 6 col 3 to row 6 col 2
+- Fury/Flurry: prerequisite Enrage (rank 5) -> Death Wish (rank 1)
+- Fury/Flurry: rank text changed
+- Fury/Gore Drinker: new talent
+- Fury/Improved Berserker Rage: moved from row 6 col 1 to row 5 col 1
+- Fury/Improved Berserker Rage: rank text changed
+- Fury/Improved Cleave: removed
+- Fury/Iron Will: rank text changed
+- Fury/Iron Will: renamed to Lingering Rage
+- Fury/Precision: removed
+- Lightning Bolt rank 1: damage_per_level 0.40000000596 -> 0.10000000149
+- Lightning Bolt rank 1: max_damage 15.00000004468 -> 16.0714286193
+- Lightning Bolt rank 1: min_damage 12.99999995532 -> 13.928571380700001
+- Lightning Bolt rank 2: damage_per_level 0.5 -> 0.10000000149
+- Lightning Bolt rank 2: max_damage 31.07142866398 -> 28.928571514740003
+- Lightning Bolt rank 2: min_damage 26.928571336020003 -> 25.07142848526
+- Lightning Bolt rank 3: damage_per_level 0.60000002384 -> 0.30000001192
+- Lightning Bolt rank 4: damage_per_level 0.60000002384 -> 0.40000000596
+- Lightning Bolt rank 4: max_damage 59.77528083324 -> 65.11235947906499
+- Lightning Bolt rank 4: min_damage 52.22471916676 -> 56.887640520935
+- Lightning Bolt rank 5: damage_per_level 0.69999998808 -> 0.5
+- Lightning Bolt rank 5: max_damage 76.83582115188 -> 87.50746297853
+- Lightning Bolt rank 5: min_damage 67.16417884812 -> 76.49253702147
+- Mana Tide Totem rank 1: level 40 -> 25
+- Penance rank 1: mana_cost 100 -> 150
+- Penance rank 2: mana_cost 185 -> 220
+- Penance rank 4: mana_cost 355 -> 385
+- Protection/Anticipation: moved from row 1 col 3 to row 2 col 1
+- Protection/Anticipation: rank text changed
+- Protection/Bastion: moved from row 5 col 4 to row 6 col 3
+- Protection/Bastion: rank text changed
+- Protection/Focused Rage: moved from row 6 col 3 to row 5 col 3
+- Protection/Focused Rage: rank text changed
+- Protection/Improved Bloodrage: moved from row 2 col 1 to row 1 col 1
+- Protection/Improved Bloodrage: rank text changed
+- Protection/Improved Disarm: moved from row 4 col 2 to row 3 col 3
+- Protection/Improved Disarm: rank text changed
+- Protection/Improved Revenge: moved from row 3 col 3 to row 2 col 3
+- Protection/Improved Revenge: rank text changed
+- Protection/Improved Shield Bash: moved from row 5 col 3 to row 4 col 3
+- Protection/Improved Shield Bash: rank text changed
+- Protection/Iron Will: new talent
+- Protection/Last Stand: prerequisite Improved Bloodrage (rank 2) -> none
+- Protection/Toughness: removed
+- Protection/Vanguard: moved from row 4 col 3 to row 4 col 2
+- Protection/Vanguard: rank text changed
+- Shadow Bolt rank 1: damage_per_level 0.30000001192 -> 0.20000000298
+- Shadow Bolt rank 2: damage_per_level 0.60000002384 -> 0.30000001192
+- Shadow Bolt rank 2: max_damage 27.884615399 -> 25.65384616708
+- Shadow Bolt rank 2: min_damage 22.115384601 -> 20.34615383292
+- Shadow Bolt rank 3: damage_per_level 0.69999998808 -> 0.60000002384
+- Shadow Bolt rank 3: max_damage 44.15384627139 -> 43.0769231916
+- Shadow Bolt rank 3: min_damage 37.84615372861 -> 36.9230768084
+- Shadow Bolt rank 4: damage_per_level 0.89999997616 -> 0.80000001192
+- Shadow Bolt rank 4: max_damage 59.652173876679996 -> 61.78260865799
+- Shadow Bolt rank 4: min_damage 52.347826123320004 -> 54.21739134201
+- Smite rank 1: damage_per_level 0.5 -> 0.10000000149
+- Smite rank 2: damage_per_level 0.60000002384 -> 0.30000001192
+- Smite rank 2: max_damage 31.00000002974 -> 29.892857171535
+- Smite rank 2: min_damage 24.99999997026 -> 24.107142828465
+- Smite rank 3: damage_per_level 0.80000001192 -> 0.5
+- Smite rank 3: max_damage 49.172413781310006 -> 48.103448264325
+- Smite rank 3: min_damage 42.82758621869 -> 41.896551735675004
+- Smite rank 4: damage_per_level 1.0 -> 0.69999998808
+- Smite rank 4: max_damage 63.21428590258 -> 64.2857144772
+- Smite rank 4: min_damage 54.785714097420005 -> 55.714285522800004
+- Thick Hide rank 1: new spell rank
+- Wrath rank 1: damage_per_level 0.40000000596 -> 0.20000000298
+- Wrath rank 2: damage_per_level 0.60000002384 -> 0.30000001192
+- Wrath rank 2: max_damage 24.703703716375 -> 22.555555567124998
+- Wrath rank 2: min_damage 21.296296283625 -> 19.444444432875
+- Wrath rank 3: damage_per_level 0.69999998808 -> 0.5
+- Wrath rank 4: damage_per_level 0.89999997616 -> 0.60000002384
+- Wrath rank 4: max_damage 40.79411776373 -> 39.72058834889501
+- Wrath rank 4: min_damage 35.20588223627 -> 34.279411651105
+- Wrath rank 5: damage_per_level 0.89999997616 -> 0.69999998808
 
 ## 1.60.1.70205 (2026-10-05)
 
@@ -149,71 +134,6 @@
 - Aimed Shot rank 6: weapon_bonus 0.0 -> 166.0
 - Aimed Shot rank 6: weapon_hits 0 -> 1
 - Aimed Shot rank 6: weapon_normalized False -> True
-- Auto Shot rank 1: weapon_hits 0 -> 1
-- Counterattack rank 1: weapon_bonus 0.0 -> 26.0
-- Counterattack rank 1: weapon_hits 0 -> 1
-- Counterattack rank 1: weapon_normalized False -> True
-- Counterattack rank 1: weapon_pct 0.0 -> 50.0
-- Counterattack rank 2: weapon_bonus 0.0 -> 40.0
-- Counterattack rank 2: weapon_hits 0 -> 1
-- Counterattack rank 2: weapon_normalized False -> True
-- Counterattack rank 2: weapon_pct 0.0 -> 50.0
-- Counterattack rank 3: weapon_bonus 0.0 -> 70.0
-- Counterattack rank 3: weapon_hits 0 -> 1
-- Counterattack rank 3: weapon_normalized False -> True
-- Counterattack rank 3: weapon_pct 0.0 -> 50.0
-- Counterattack rank 4: weapon_bonus 0.0 -> 110.0
-- Counterattack rank 4: weapon_hits 0 -> 1
-- Counterattack rank 4: weapon_normalized False -> True
-- Counterattack rank 4: weapon_pct 0.0 -> 50.0
-- Mongoose Bite rank 1: weapon_bonus 0.0 -> 15.0
-- Mongoose Bite rank 1: weapon_hits 0 -> 1
-- Mongoose Bite rank 1: weapon_normalized False -> True
-- Mongoose Bite rank 2: weapon_bonus 0.0 -> 22.0
-- Mongoose Bite rank 2: weapon_hits 0 -> 1
-- Mongoose Bite rank 2: weapon_normalized False -> True
-- Mongoose Bite rank 3: weapon_bonus 0.0 -> 37.0
-- Mongoose Bite rank 3: weapon_hits 0 -> 1
-- Mongoose Bite rank 3: weapon_normalized False -> True
-- Mongoose Bite rank 4: weapon_bonus 0.0 -> 57.0
-- Mongoose Bite rank 4: weapon_hits 0 -> 1
-- Mongoose Bite rank 4: weapon_normalized False -> True
-- Multi-Shot rank 1: weapon_hits 0 -> 1
-- Multi-Shot rank 1: weapon_normalized False -> True
-- Rapid Fire rank 1: haste_pct 0.0 -> 40.0
-- Raptor Strike rank 1: weapon_bonus 0.0 -> 5.0
-- Raptor Strike rank 1: weapon_hits 0 -> 1
-- Raptor Strike rank 2: weapon_bonus 0.0 -> 11.0
-- Raptor Strike rank 2: weapon_hits 0 -> 1
-- Raptor Strike rank 3: weapon_bonus 0.0 -> 21.0
-- Raptor Strike rank 3: weapon_hits 0 -> 1
-- Raptor Strike rank 4: weapon_bonus 0.0 -> 30.0
-- Raptor Strike rank 4: weapon_hits 0 -> 1
-- Raptor Strike rank 5: weapon_bonus 0.0 -> 35.0
-- Raptor Strike rank 5: weapon_hits 0 -> 1
-- Raptor Strike rank 6: weapon_bonus 0.0 -> 40.0
-- Raptor Strike rank 6: weapon_hits 0 -> 1
-- Raptor Strike rank 7: weapon_bonus 0.0 -> 55.0
-- Raptor Strike rank 7: weapon_hits 0 -> 1
-- Raptor Strike rank 8: weapon_bonus 0.0 -> 70.0
-- Raptor Strike rank 8: weapon_hits 0 -> 1
-- Sniper Shot rank 1: weapon_bonus 0.0 -> 160.0
-- Sniper Shot rank 1: weapon_hits 0 -> 1
-- Sniper Shot rank 1: weapon_normalized False -> True
-- Sniper Shot rank 2: weapon_bonus 0.0 -> 225.0
-- Sniper Shot rank 2: weapon_hits 0 -> 1
-- Sniper Shot rank 2: weapon_normalized False -> True
-- Sniper Shot rank 3: weapon_bonus 0.0 -> 295.0
-- Sniper Shot rank 3: weapon_hits 0 -> 1
-- Sniper Shot rank 3: weapon_normalized False -> True
-- Strider Kick rank 1: weapon_hits 0 -> 1
-- Strider Kick rank 1: weapon_normalized False -> True
-- Strider Kick rank 1: weapon_pct 0.0 -> 100.0
-
-## 1.60.1.70205 (2026-10-05)
-
-> Not a game change: same build, but the tool started recording weapon-damage abilities (weapon bonus and percent, normalized strikes, triggered hits, combo points, damage per combo point, melee haste; #131), so they show up as 0 -> value.
-
 - Ambush rank 1: combo_points 0 -> 1
 - Ambush rank 1: weapon_bonus 0.0 -> 28.0
 - Ambush rank 1: weapon_hits 0 -> 1
@@ -244,6 +164,7 @@
 - Ambush rank 6: weapon_hits 0 -> 1
 - Ambush rank 6: weapon_normalized False -> True
 - Ambush rank 6: weapon_pct 0.0 -> 250.0
+- Auto Shot rank 1: weapon_hits 0 -> 1
 - Backstab rank 1: combo_points 0 -> 1
 - Backstab rank 1: weapon_bonus 0.0 -> 10.0
 - Backstab rank 1: weapon_hits 0 -> 1
@@ -291,6 +212,22 @@
 - Backstab rank 9: weapon_pct 0.0 -> 150.0
 - Blade Flurry rank 1: haste_pct 0.0 -> 20.0
 - Cheap Shot rank 1: combo_points 0 -> 2
+- Counterattack rank 1: weapon_bonus 0.0 -> 26.0
+- Counterattack rank 1: weapon_hits 0 -> 1
+- Counterattack rank 1: weapon_normalized False -> True
+- Counterattack rank 1: weapon_pct 0.0 -> 50.0
+- Counterattack rank 2: weapon_bonus 0.0 -> 40.0
+- Counterattack rank 2: weapon_hits 0 -> 1
+- Counterattack rank 2: weapon_normalized False -> True
+- Counterattack rank 2: weapon_pct 0.0 -> 50.0
+- Counterattack rank 3: weapon_bonus 0.0 -> 70.0
+- Counterattack rank 3: weapon_hits 0 -> 1
+- Counterattack rank 3: weapon_normalized False -> True
+- Counterattack rank 3: weapon_pct 0.0 -> 50.0
+- Counterattack rank 4: weapon_bonus 0.0 -> 110.0
+- Counterattack rank 4: weapon_hits 0 -> 1
+- Counterattack rank 4: weapon_normalized False -> True
+- Counterattack rank 4: weapon_pct 0.0 -> 50.0
 - Eviscerate rank 1: per_combo_point 0.0 -> 5.0
 - Eviscerate rank 2: per_combo_point 0.0 -> 11.0
 - Eviscerate rank 3: per_combo_point 0.0 -> 19.0
@@ -315,6 +252,20 @@
 - Hemorrhage rank 1: weapon_hits 0 -> 1
 - Hemorrhage rank 1: weapon_normalized False -> True
 - Hemorrhage rank 1: weapon_pct 0.0 -> 100.0
+- Mongoose Bite rank 1: weapon_bonus 0.0 -> 15.0
+- Mongoose Bite rank 1: weapon_hits 0 -> 1
+- Mongoose Bite rank 1: weapon_normalized False -> True
+- Mongoose Bite rank 2: weapon_bonus 0.0 -> 22.0
+- Mongoose Bite rank 2: weapon_hits 0 -> 1
+- Mongoose Bite rank 2: weapon_normalized False -> True
+- Mongoose Bite rank 3: weapon_bonus 0.0 -> 37.0
+- Mongoose Bite rank 3: weapon_hits 0 -> 1
+- Mongoose Bite rank 3: weapon_normalized False -> True
+- Mongoose Bite rank 4: weapon_bonus 0.0 -> 57.0
+- Mongoose Bite rank 4: weapon_hits 0 -> 1
+- Mongoose Bite rank 4: weapon_normalized False -> True
+- Multi-Shot rank 1: weapon_hits 0 -> 1
+- Multi-Shot rank 1: weapon_normalized False -> True
 - Mutilate rank 1: combo_points 0 -> 2
 - Mutilate rank 1: weapon_bonus 0.0 -> 23.0
 - Mutilate rank 1: weapon_hits 0 -> 2
@@ -336,6 +287,23 @@
 - Mutilate rank 4: weapon_normalized False -> True
 - Mutilate rank 4: weapon_pct 0.0 -> 75.0
 - Premeditation rank 1: combo_points 0 -> 2
+- Rapid Fire rank 1: haste_pct 0.0 -> 40.0
+- Raptor Strike rank 1: weapon_bonus 0.0 -> 5.0
+- Raptor Strike rank 1: weapon_hits 0 -> 1
+- Raptor Strike rank 2: weapon_bonus 0.0 -> 11.0
+- Raptor Strike rank 2: weapon_hits 0 -> 1
+- Raptor Strike rank 3: weapon_bonus 0.0 -> 21.0
+- Raptor Strike rank 3: weapon_hits 0 -> 1
+- Raptor Strike rank 4: weapon_bonus 0.0 -> 30.0
+- Raptor Strike rank 4: weapon_hits 0 -> 1
+- Raptor Strike rank 5: weapon_bonus 0.0 -> 35.0
+- Raptor Strike rank 5: weapon_hits 0 -> 1
+- Raptor Strike rank 6: weapon_bonus 0.0 -> 40.0
+- Raptor Strike rank 6: weapon_hits 0 -> 1
+- Raptor Strike rank 7: weapon_bonus 0.0 -> 55.0
+- Raptor Strike rank 7: weapon_hits 0 -> 1
+- Raptor Strike rank 8: weapon_bonus 0.0 -> 70.0
+- Raptor Strike rank 8: weapon_hits 0 -> 1
 - Sinister Strike rank 1: combo_points 0 -> 1
 - Sinister Strike rank 1: weapon_bonus 0.0 -> 3.0
 - Sinister Strike rank 1: weapon_hits 0 -> 1
@@ -370,6 +338,18 @@
 - Sinister Strike rank 8: weapon_normalized False -> True
 - Slice and Dice rank 1: haste_pct 0.0 -> 20.0
 - Slice and Dice rank 2: haste_pct 0.0 -> 30.0
+- Sniper Shot rank 1: weapon_bonus 0.0 -> 160.0
+- Sniper Shot rank 1: weapon_hits 0 -> 1
+- Sniper Shot rank 1: weapon_normalized False -> True
+- Sniper Shot rank 2: weapon_bonus 0.0 -> 225.0
+- Sniper Shot rank 2: weapon_hits 0 -> 1
+- Sniper Shot rank 2: weapon_normalized False -> True
+- Sniper Shot rank 3: weapon_bonus 0.0 -> 295.0
+- Sniper Shot rank 3: weapon_hits 0 -> 1
+- Sniper Shot rank 3: weapon_normalized False -> True
+- Strider Kick rank 1: weapon_hits 0 -> 1
+- Strider Kick rank 1: weapon_normalized False -> True
+- Strider Kick rank 1: weapon_pct 0.0 -> 100.0
 
 ## 1.60.1.70205 (2026-10-05)
 
@@ -459,9 +439,6 @@
 ## 1.60.1.70205 (2026-10-05)
 
 - hunter/(class): class added
-
-## 1.60.1.70205 (2026-10-05)
-
 - rogue/(class): class added
 
 ## 1.60.1.70205 (2026-10-05)
@@ -532,7 +509,3 @@
 - Polymorph rank 5: incapacitate 0.0 -> 50.0
 - Polymorph rank 6: incapacitate 0.0 -> 50.0
 - Polymorph: Cow rank 1: incapacitate 0.0 -> 50.0
-
-## 1.60.1.70205 (2026-10-05)
-
-- No talent or spell changes.
