@@ -11,7 +11,6 @@ Lightning Shield orbs, totems, and mana (shocks are the main cost).
 
 from __future__ import annotations
 
-import tomllib
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, replace
 from pathlib import Path
@@ -21,6 +20,7 @@ from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Attacker, Target, white_swing, yellow_attack, yellow_crit_chance
 from wowforever.scenarios import _anchor_at, best_rank
 from wowforever.schema import ClassData, SpellRank
+from wowforever.toml_cache import load_toml
 
 CONFIG = Path(__file__).resolve().parents[3] / "config" / "shaman.toml"
 
@@ -36,7 +36,7 @@ class EnhancementRotation:
 def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
                          ranks: Mapping[int, int], target: Target) -> EnhancementRotation:
     """Sustained Enhancement DPS against `target` with the shaman's talents `ranks`."""
-    c = tomllib.loads(CONFIG.read_text(encoding="utf-8"))
+    c = load_toml(CONFIG)
     level = stats.level
     by_name = {t.name: t for t in cls.talents}
 

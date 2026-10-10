@@ -1,7 +1,8 @@
-"""Config TOML is parsed once per file version (#254): reports re-read config/*.toml ~218k times."""
+"""Config TOML is parsed once per process (#254): reports re-read config/*.toml ~218k times."""
 
-import os
+import tomllib
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
@@ -17,15 +18,14 @@ MIGRATED = ["melee_stats.py", "melee_scenarios.py", "scenarios.py", "group.py", 
 
 @pytest.fixture
 def parses(monkeypatch):
-    """Count real parses: wrap the tomllib.loads that toml_cache calls."""
-    count = [0]
-    real = toml_cache.tomllib.loads
+    """Count toml_cache's own parses (other modules' tomllib calls, e.g. at import, don't count)."""
+    count: list[str] = []          # the text of every parse
 
     def counting(text):
-        count[0] += 1
-        return real(text)
+        count.append(text)
+        return tomllib.loads(text)
 
-    monkeypatch.setattr(toml_cache.tomllib, "loads", counting)
+    monkeypatch.setattr(toml_cache, "tomllib", SimpleNamespace(loads=counting))
     toml_cache.clear()
     yield count
     toml_cache.clear()
@@ -35,18 +35,18 @@ def test_a_file_is_parsed_once(tmp_path, parses):
     path = tmp_path / "a.toml"
     path.write_text("x = 1\n[s]\ny = [1, 2]\n", encoding="utf-8")
     assert [load_toml(path) for _ in range(5)] == [{"x": 1, "s": {"y": [1, 2]}}] * 5
-    assert parses[0] == 1
+    assert len(parses) == 1
 
 
-def test_a_changed_file_is_parsed_again(tmp_path, parses):
+def test_clear_forgets_parsed_files(tmp_path, parses):
     path = tmp_path / "a.toml"
     path.write_text("x = 1\n", encoding="utf-8")
     assert load_toml(path) == {"x": 1}
     path.write_text("x = 22\n", encoding="utf-8")
-    st = path.stat()
-    os.utime(path, ns=(st.st_atime_ns, st.st_mtime_ns + 1_000_000_000))
+    assert load_toml(path) == {"x": 1}          # no re-check within a run
+    toml_cache.clear()
     assert load_toml(path) == {"x": 22}
-    assert parses[0] == 2
+    assert len(parses) == 2
 
 
 def test_callers_get_their_own_copy(tmp_path, parses):
@@ -64,7 +64,7 @@ def test_hot_loaders_parse_each_file_once(parses):
         melee_stats.class_config("rogue")
         melee_scenarios._config()
         scenarios.default_params("questing", 20)
-    assert parses[0] == 3
+    assert parses and len(parses) == len(set(parses))     # no file parsed twice (imports may parse others once)
 
 
 @pytest.mark.parametrize("name", MIGRATED)

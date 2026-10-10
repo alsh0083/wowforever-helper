@@ -10,7 +10,6 @@ from __future__ import annotations
 
 import csv
 import math
-import tomllib
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, fields
 from pathlib import Path
@@ -20,6 +19,7 @@ from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Target
 from wowforever.scenarios import _anchor_at, default_params
 from wowforever.schema import ClassData, SpellRank
+from wowforever.toml_cache import load_toml
 
 ROOT = Path(__file__).resolve().parents[2]
 CONFIG = ROOT / "config" / "melee_scenarios.toml"
@@ -66,7 +66,7 @@ class Output:
 
 
 def _config() -> dict:
-    return tomllib.loads(CONFIG.read_text(encoding="utf-8"))
+    return load_toml(CONFIG)
 
 
 def _has_pet(cls: ClassData, ranks: Mapping[int, int]) -> bool:
