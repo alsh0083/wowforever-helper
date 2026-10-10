@@ -108,18 +108,17 @@ def snapshot(page_html: str, raw_dir: Path, *, url: str) -> Path:
 
     Writes raw_dir/<page_data_version>/<class_id>.html with the page's exact UTF-8 bytes
     and <class_id>.manifest.json beside it (one manifest per class page, #104). Same content already present returns the path
-    untouched; different talent trees at the same path raise `SnapshotConflict` (a page whose popular builds
-    alone changed is refreshed).
+    untouched, and so does a page whose live popular builds alone changed (#237: snapshots are immutable,
+    and popularity is recorded in data/popularity/); different talent trees at the same path raise
+    `SnapshotConflict`.
     """
     page = parse_page(page_html)
     path = raw_dir / page.page_data_version / f"{page.class_id}.html"
     if path.exists():
         saved = path.read_bytes()
-        if saved == page_html.encode("utf-8"):
+        if saved == page_html.encode("utf-8") or parse_page(saved.decode("utf-8")).trees == page.trees:
             return path
-        if parse_page(saved.decode("utf-8")).trees != page.trees:
-            raise SnapshotConflict(f"{path} already holds different content")
-        # same trees: only the live popular builds moved (#237), so refresh the snapshot below
+        raise SnapshotConflict(f"{path} already holds different content")
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8", newline="") as handle:
         handle.write(page_html)
@@ -150,9 +149,12 @@ def manifest_for(page_path: Path) -> dict[str, Any]:
     return legacy
 
 
-def fetch(class_id: str, *, http_get: Callable[[str], str] | None = None, raw_dir: Path) -> Path:
-    """Download one class page and snapshot it under raw_dir."""
+def fetch(class_id: str, *, http_get: Callable[[str], str] | None = None,
+          raw_dir: Path) -> tuple[Path, WftPage]:
+    """Download one class page and snapshot it under raw_dir: the snapshot's path and the live page
+    (whose popular builds can be newer than the snapshot's)."""
     if http_get is None:
         http_get = default_http_get
     url = f"{BASE_URL}/{class_id}/"
-    return snapshot(http_get(url), raw_dir, url=url)
+    page_html = http_get(url)
+    return snapshot(page_html, raw_dir, url=url), parse_page(page_html)
