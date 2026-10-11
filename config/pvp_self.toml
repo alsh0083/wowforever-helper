@@ -7,6 +7,8 @@ player_armor = 2500
 # opponent kit DPS assumes a cloth target; physical kits hit these classes by the armor ratio
 cloth_armor = 1000
 own_armor = { rogue = 2500, hunter = 3500, warrior = 5000, paladin = 5000, priest = 1000, warlock = 1000, druid = 2500, shaman = 3000 }
+# melee hits a melee opponent lands per second (swings plus instant attacks): Thorns returns damage per hit (#265). Estimate.
+opponent_melee_hits_per_second = 1.0
 
 [rogue]
 energy_per_minute = 600

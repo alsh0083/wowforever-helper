@@ -57,3 +57,11 @@ why = "Classic cuts the spell power coefficient of spells learned below level 20
 source = "warcraft.wiki.gg/wiki/downranking; issue #91"
 tested = ""
 talents = ["Frostbolt", "Fireball"]
+
+[thorns_spell_power_coefficient]
+value = 0.0
+options = [0.0, 0.168]
+why = "The client gives Thorns (damage shield, aura 15) no spell power coefficient, but damage-shield scaling can be server-side; Forever's spell power gear may make Thorns scale (owner question, #265)."
+source = "client SpellEffect 9910 EffectBonusCoefficient 0 (build 1.60.1.70338); 0.168 is a later expansion's value, used only as the alternative to test"
+tested = ""
+talents = ["Thorns"]
