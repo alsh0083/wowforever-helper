@@ -175,6 +175,11 @@ class SpellRank:
     combo_points: int = 0              # combo points awarded (effect 30 with EffectMiscValue_0 == 4)
     damage_shield: float = 0.0         # damage per melee hit taken (aura 15: Thorns), base points (#261)
     damage_shield_coefficient: float = 0.0  # spell power coefficient of that damage
+    heal_min: float = 0.0                  # direct heal (Effect 10), with variance like damage (#270)
+    heal_max: float = 0.0
+    heal_coefficient: float = 0.0
+    periodic_heal: float = 0.0             # heal over time (aura 8), total over the duration
+    periodic_heal_coefficient: float = 0.0  # its spell power coefficient, total over the duration
     haste_pct: float = 0.0             # melee haste aura (aura 319) base points
 
 

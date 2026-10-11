@@ -32,6 +32,7 @@ EFFECT_NORMALIZED_WEAPON = 121  # normalized weapon damage (speed set by weapon 
 EFFECT_WEAPON_DAMAGE_NOSCHOOL = 17  # weapon damage plus a flat bonus (Heroic Strike, #162)
 _STRIKES = (str(EFFECT_NORMALIZED_WEAPON), str(EFFECT_WEAPON_DAMAGE), str(EFFECT_WEAPON_DAMAGE_NOSCHOOL))
 AURA_DOT = 3                 # periodic damage over time
+AURA_PERIODIC_HEAL = 8       # heal over time (Rejuvenation, Regrowth)
 AURA_PERIODIC_TRIGGER = 23   # periodic trigger: fires EffectTriggerSpell every EffectAuraPeriod
 AURA_SLOW = 33               # movement speed mod (negative base points = slow)
 AURA_AREA_PERIODIC = 226     # marker for an area-triggered periodic
@@ -48,6 +49,7 @@ AURA_MELEE_HASTE = 319       # melee haste (Slice and Dice)
 EFFECT_INTERRUPT = 68        # interrupt + school lockout (Counterspell)
 EFFECT_DUMMY = 3             # server-scripted effect (Fire Nova)
 EFFECT_HEAL = 10             # direct heal (Holy Nova's heal half)
+EFFECT_AREA_AURA = 35        # apply area aura (Tranquility)
 
 _ACQUIRE_RUNE = 3            # SkillLineAbility.AcquireMethod: Season of Discovery rune
 _ATTR1_CHANNELED = 0x4 | 0x40  # SpellMisc.Attributes_1 channel flags (Arcane Missiles / Blizzard)
@@ -333,6 +335,20 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
     damage_shield = _f(shield["EffectBasePointsF"]) if shield is not None else 0.0
     damage_shield_coefficient = _f(shield["EffectBonusCoefficient"]) if shield is not None else 0.0
 
+    heal = next((e for e in effects if e["Effect"] == str(EFFECT_HEAL)), None)
+    heal_min = heal_max = heal_coefficient = 0.0
+    if heal is not None:
+        base, variance = _f(heal["EffectBasePointsF"]), _f(heal["Variance"])
+        heal_min, heal_max = base * (1 - variance / 2), base * (1 + variance / 2)
+        heal_coefficient = _f(heal["EffectBonusCoefficient"])
+    hot = next((e for e in effects if e["Effect"] in (str(EFFECT_AURA), str(EFFECT_AREA_AURA))
+                and e["EffectAura"] == str(AURA_PERIODIC_HEAL)), None)
+    periodic_heal = periodic_heal_coefficient = 0.0
+    if hot is not None:
+        ticks = _ticks(duration, _f(hot["EffectAuraPeriod"]) / 1000.0)
+        periodic_heal = _f(hot["EffectBasePointsF"]) * ticks
+        periodic_heal_coefficient = _f(hot["EffectBonusCoefficient"]) * ticks
+
     return SpellRank(
         spell_id=spell_id, name=name, rank=rank, level=level, schools=schools,
         cast_time=cast_time, cooldown=cooldown, mana_cost=mana_cost, energy_cost=energy_cost,
@@ -347,6 +363,8 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
         per_combo_point=per_combo_point, combo_points=combo_points, haste_pct=haste_pct,
         weapon_bonus=weapon_bonus, weapon_normalized=weapon_normalized, weapon_pct=weapon_pct,
         weapon_hits=weapon_hits, damage_shield=damage_shield, damage_shield_coefficient=damage_shield_coefficient,
+        heal_min=heal_min, heal_max=heal_max, heal_coefficient=heal_coefficient,
+        periodic_heal=periodic_heal, periodic_heal_coefficient=periodic_heal_coefficient,
     )
 
 
