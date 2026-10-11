@@ -30,7 +30,7 @@ Run tasks for the same model back to back; switching models reloads the GPU serv
 
 ## 3. Review (Claude)
 
-- Run the full suite: `.venv/Scripts/python -m pytest`.
+- Run the full suite before merging: `.venv/Scripts/python -m pytest` (about 10 minutes). While iterating, `-m "not slow"` skips the full-report tests (about 20 s).
 - Read the diff for: changed or deleted tests (reject), files outside the spec, hidden network calls, swallowed errors, copied magic numbers that belong in data or config.
 - Stop a run that starts repairing the environment or touching files outside the repo; fix the environment yourself.
 - Not done: re-run the agent with specific feedback appended to the spec, up to two times. After that Claude finishes the work and notes it in the PR.

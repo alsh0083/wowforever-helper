@@ -10,6 +10,8 @@ from wowforever.report import report_from_dataset
 from wowforever.rules import check_order
 from wowforever.schema import Dataset
 
+pytestmark = pytest.mark.slow
+
 DATASET = latest_dataset_path()
 
 

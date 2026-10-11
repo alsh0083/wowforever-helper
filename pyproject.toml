@@ -22,3 +22,4 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q -p no:cacheprovider --basetemp=.pytest-tmp"
+markers = ["slow: builds whole class reports (minutes); skip with -m \"not slow\""]

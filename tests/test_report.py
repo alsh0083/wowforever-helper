@@ -18,6 +18,8 @@ from wowforever.rules import check_order
 from wowforever.sources.wowforevertalent import parse_page
 from wowforever.stats import StatTable
 
+pytestmark = pytest.mark.slow
+
 FIX = Path(__file__).parent / "fixtures"
 
 
