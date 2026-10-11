@@ -8,11 +8,12 @@ report can show which unknowns change a ranking.
 from __future__ import annotations
 
 import itertools
-import tomllib
 from collections.abc import Iterator, Mapping
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
+
+from wowforever.toml_cache import load_toml
 
 CONFIG = Path(__file__).resolve().parents[2] / "config" / "assumptions.toml"
 
@@ -35,7 +36,7 @@ class Assumptions:
 
     @classmethod
     def load(cls, path: Path = CONFIG) -> Assumptions:
-        raw = tomllib.loads(path.read_text(encoding="utf-8"))
+        raw = load_toml(path)
         entries = {
             name: Assumption(name, e["value"], tuple(e["options"]), e["why"], e["source"],
                              e.get("tested", ""), tuple(e.get("talents", ())))

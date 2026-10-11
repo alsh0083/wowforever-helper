@@ -15,7 +15,7 @@ from pathlib import Path
 
 from wowforever.normalize import Tables
 from wowforever.stats import Stats
-from wowforever.toml_cache import load_toml
+from wowforever.toml_cache import load_section, load_toml
 
 CONFIG = Path(__file__).resolve().parents[2] / "config" / "gear.toml"
 MAGE_BASE = Path(__file__).resolve().parents[2] / "config" / "stats" / "mage_base.csv"
@@ -261,7 +261,7 @@ CASTERS = Path(__file__).resolve().parents[2] / "config" / "casters.toml"
 
 def caster_config(class_name: str) -> dict:
     """The class's section of config/casters.toml (#163)."""
-    return load_toml(CASTERS)[class_name]
+    return load_section(CASTERS, class_name)
 
 
 def caster_stat_table(class_name: str, items: list[Item], levels: Iterable[int]) -> list[Stats]:

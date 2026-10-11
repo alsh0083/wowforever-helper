@@ -12,13 +12,23 @@ from typing import Any
 _CACHE: dict[Path, dict[str, Any]] = {}
 
 
-def load_toml(path: Path) -> dict[str, Any]:
-    """`path` parsed as TOML, parsed on first use only; each caller gets a deep copy to change freely."""
+def _parsed(path: Path) -> dict[str, Any]:
+    """The cached parse of `path`, parsing on first use only."""
     path = Path(path)
     parsed = _CACHE.get(path)
     if parsed is None:
         parsed = _CACHE[path] = tomllib.loads(path.read_text(encoding="utf-8"))
-    return copy.deepcopy(parsed)
+    return parsed
+
+
+def load_toml(path: Path) -> dict[str, Any]:
+    """`path` parsed as TOML, parsed on first use only; each caller gets a deep copy to change freely."""
+    return copy.deepcopy(_parsed(path))
+
+
+def load_section(path: Path, key: str) -> Any:
+    """A deep copy of the top-level table `key` of `path` (KeyError when missing), without copying the rest."""
+    return copy.deepcopy(_parsed(path)[key])
 
 
 def clear() -> None:
