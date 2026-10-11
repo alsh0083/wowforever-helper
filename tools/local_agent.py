@@ -71,6 +71,17 @@ def build_command(codex: Path, model: str, last_message: Path) -> list[str]:
     ]
 
 
+def echo(text: str, stream=None) -> None:
+    """Write text and a newline to stream (default sys.stdout), replacing characters its encoding can't hold."""
+    stream = sys.stdout if stream is None else stream
+    encoding = getattr(stream, "encoding", None)
+    if encoding is None:
+        stream.write(text)
+    else:
+        stream.write(text.encode(encoding, errors="replace").decode(encoding))
+    stream.write("\n")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--model", default="qwen3.8-27b", choices=MODELS)
@@ -101,7 +112,7 @@ def main() -> int:
 
     print(f"log: {log_dir.relative_to(REPO)}  exit: {result.returncode}")
     if last_message.exists():
-        print(last_message.read_text(encoding="utf-8"))
+        echo(last_message.read_text(encoding="utf-8"))
     return result.returncode
 
 
