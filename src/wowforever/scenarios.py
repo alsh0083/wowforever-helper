@@ -7,6 +7,7 @@ come from `config/scenarios.toml`.
 
 from __future__ import annotations
 
+import functools
 import math
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, replace
@@ -78,6 +79,7 @@ class ScenarioResult:
     assumptions: dict[str, Any]
 
 
+@functools.lru_cache(maxsize=None)
 def scaled(spell: SpellRank, caster_level: int) -> SpellRank:
     """Base damage of `spell` at `caster_level`, adding per-level scaling up to its cap."""
     if spell.damage_per_level <= 0:

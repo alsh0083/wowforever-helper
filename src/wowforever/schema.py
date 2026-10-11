@@ -10,24 +10,31 @@ and names can change between patches. Rows and columns are 0-indexed.
 
 from __future__ import annotations
 
+import functools
 import json
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Any
 
+from wowforever.toml_cache import load_toml
+
 RENAMES_FILE = Path(__file__).resolve().parents[2] / "config" / "talent_renames.toml"
+
+
+@functools.lru_cache(maxsize=None)
+def _aliases(name: str, renames_file: Path) -> frozenset[str]:
+    """Lowercased `name` plus every name config/talent_renames.toml renames it from or to."""
+    renames = load_toml(renames_file) if renames_file.exists() else {}
+    out = {name}
+    for old, new in renames.items():
+        if name in (old.lower(), new.lower()):
+            out |= {old.lower(), new.lower()}
+    return frozenset(out)
 
 
 def talent_aliases(name: str) -> set[str]:
     """`name` and every name a patch renamed it from or to (config/talent_renames.toml), lowercased."""
-    import tomllib
-
-    renames = tomllib.loads(RENAMES_FILE.read_text(encoding="utf-8")) if RENAMES_FILE.exists() else {}
-    out = {name.lower()}
-    for old, new in renames.items():
-        if name.lower() in (old.lower(), new.lower()):
-            out |= {old.lower(), new.lower()}
-    return out
+    return set(_aliases(name.lower(), RENAMES_FILE))
 
 
 SCHEMA_VERSION = 1
@@ -184,15 +191,22 @@ class ClassData:
     spells: tuple[SpellRank, ...] = ()
     rules: Rules = field(default_factory=Rules)
 
-    def talent(self, talent_id: int) -> Talent:
+    @functools.cached_property
+    def _talents_by_id(self) -> dict[int, Talent]:
+        return {t.talent_id: t for t in self.talents}
+
+    @functools.cached_property
+    def _talents_by_name(self) -> dict[str, list[Talent]]:
+        out: dict[str, list[Talent]] = {}
         for t in self.talents:
-            if t.talent_id == talent_id:
-                return t
-        raise KeyError(talent_id)
+            out.setdefault(t.name.lower(), []).append(t)
+        return out
+
+    def talent(self, talent_id: int) -> Talent:
+        return self._talents_by_id[talent_id]
 
     def talent_named(self, name: str) -> Talent:
-        names = talent_aliases(name)
-        matches = [t for t in self.talents if t.name.lower() in names]
+        matches = [t for alias in talent_aliases(name) for t in self._talents_by_name.get(alias, [])]
         if len(matches) != 1:
             raise KeyError(f"{name!r}: {len(matches)} matches")
         return matches[0]

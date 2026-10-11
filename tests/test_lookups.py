@@ -52,4 +52,6 @@ def test_scaled_is_memoized_and_unchanged():
     for spell in spells:
         for level in (1, 10, 20, 30, 40, 50, 60):
             assert scaled(spell, level) == scaled.__wrapped__(spell, level)
-    assert scaled.cache_info().hits > 0
+    before = scaled.cache_info().hits
+    assert scaled(spells[0], 60) == scaled.__wrapped__(spells[0], 60)
+    assert scaled.cache_info().hits == before + 1
