@@ -70,3 +70,36 @@ def test_hot_loaders_parse_each_file_once(parses):
 @pytest.mark.parametrize("name", MIGRATED)
 def test_config_reads_go_through_the_cache(name):
     assert "tomllib.loads(" not in (SRC / name).read_text(encoding="utf-8"), name
+
+
+def test_a_section_is_a_copy_of_just_that_table(tmp_path, parses):
+    from wowforever.toml_cache import load_section
+    path = tmp_path / "a.toml"
+    path.write_text("[mage]\nx = [1]\n[rogue]\nx = [2]\n", encoding="utf-8")
+    section = load_section(path, "mage")
+    assert section == {"x": [1]}
+    section["x"].append(9)
+    assert load_section(path, "mage") == {"x": [1]} and load_toml(path)["rogue"] == {"x": [2]}
+    with pytest.raises(KeyError):
+        load_section(path, "priest")
+    assert len(parses) == 1
+
+
+def test_assumptions_and_consensus_parse_once(parses):
+    from wowforever.assumptions import Assumptions
+    from wowforever.consensus import Consensus
+    for _ in range(10):
+        assert Assumptions.load()["sub20_spell_penalty"] in (True, False)
+        Consensus.load()
+    assert len(parses) == 2
+
+
+@pytest.mark.parametrize("name", ["assumptions.py", "consensus.py"])
+def test_loaders_read_through_the_cache(name):
+    assert "tomllib.loads(" not in (SRC / name).read_text(encoding="utf-8"), name
+
+
+def test_class_sections_read_only_their_section():
+    for name in ("gear.py", "melee_stats.py"):
+        text = (SRC / name).read_text(encoding="utf-8")
+        assert "load_section(" in text and "load_toml(CASTERS)[" not in text and "load_toml(CONFIG)[class_name]" not in text, name
