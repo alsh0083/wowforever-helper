@@ -43,8 +43,11 @@ AURA_IMMUNITY = 39           # school immunity (Ice Block)
 AURA_TRANSFORM = 56          # transform / incapacitate (Polymorph)
 AURA_ABSORB = 69             # school damage absorb (Ice Barrier, Fire/Frost Ward)
 AURA_MANA_SHIELD = 97        # absorb paid with mana (Mana Shield)
+AURA_DAMAGE_SHIELD = 15      # damage dealt to melee attackers (Thorns)
 AURA_MELEE_HASTE = 319       # melee haste (Slice and Dice)
 EFFECT_INTERRUPT = 68        # interrupt + school lockout (Counterspell)
+EFFECT_DUMMY = 3             # server-scripted effect (Fire Nova)
+EFFECT_HEAL = 10             # direct heal (Holy Nova's heal half)
 
 _ACQUIRE_RUNE = 3            # SkillLineAbility.AcquireMethod: Season of Discovery rune
 _ATTR1_CHANNELED = 0x4 | 0x40  # SpellMisc.Attributes_1 channel flags (Arcane Missiles / Blizzard)
@@ -79,13 +82,16 @@ def class_spells(tables: Tables, *, skill_lines: Sequence[int]) -> tuple[SpellRa
 
     trainable.sort()
     indexes = _index_tables(tables)
+    trainable = _damage_over_heal(trainable, indexes)
     tick_damage = _tick_damage_index(tables, sla_spells, names, levels)
+    sibling_damage = _sibling_damage_index(tables, sla_spells, names, levels)
 
     ranks: list[SpellRank] = []
     rank_of_name: dict[str, int] = {}
     for name, level, spell_id in trainable:
         rank_of_name[name] = rank_of_name.get(name, 0) + 1
-        ranks.append(_build_rank(spell_id, name, rank_of_name[name], level, indexes, tick_damage))
+        ranks.append(_build_rank(spell_id, name, rank_of_name[name], level, indexes, tick_damage,
+                                 sibling_damage=sibling_damage))
     return tuple(ranks)
 
 
@@ -172,8 +178,49 @@ def _tick_damage_index(tables: Tables, sla_spells: set[int], names: dict[int, st
     return {key: (base_points, coefficient) for key, (_, base_points, coefficient) in best.items()}
 
 
+def _damage_over_heal(trainable: list[tuple[str, int, int]], indexes: _Indexes) -> list[tuple[str, int, int]]:
+    """Drop the heal spells of a (name, level) group that also has a damage spell (#261).
+
+    Holy Nova trains a damage spell and a heal spell under one name at each level; without this both
+    become ranks and the top "rank" is a heal. Only heals (Effect 10) go: a buff trained beside its
+    damage proc (Lightning Shield, Shadowguard) and groups of damage spells (Fireball's two level-60
+    ranks) are kept whole."""
+    def has(spell_id: int, effect: int) -> bool:
+        return any(e["Effect"] == str(effect) for e in indexes.effects.get(spell_id, []))
+
+    groups: dict[tuple[str, int], list[int]] = {}
+    for name, level, spell_id in trainable:
+        groups.setdefault((name, level), []).append(spell_id)
+    with_damage = {key for key, ids in groups.items() if any(has(i, EFFECT_DAMAGE) for i in ids)}
+    return [(name, level, spell_id) for name, level, spell_id in trainable
+            if (name, level) not in with_damage or has(spell_id, EFFECT_DAMAGE) or not has(spell_id, EFFECT_HEAL)]
+
+
+def _sibling_damage_index(tables: Tables, sla_spells: set[int], names: dict[int, str],
+                          levels: dict[int, dict[str, str]]) -> dict[tuple[str, int], list[tuple[int, float, float, float]]]:
+    """(name, BaseLevel) -> [(spell id, base points, variance, coefficient)] of the non-trainable
+    spells with a damage effect (#261): Fire Nova's trainable spell is a server-scripted dummy whose
+    damage sits in such a same-name spell at the same level."""
+    out: dict[tuple[str, int], list[tuple[int, float, float, float]]] = {}
+    for row in tables["SpellEffect"]:
+        if not _is_base_difficulty(row) or row["Effect"] != str(EFFECT_DAMAGE):
+            continue
+        spell_id = int(row["SpellID"])
+        if spell_id in sla_spells:
+            continue
+        level_row = levels.get(spell_id)
+        name = names.get(spell_id)
+        if level_row is None or name is None:
+            continue
+        out.setdefault((name, int(_f(level_row["BaseLevel"]))), []).append(
+            (spell_id, _f(row["EffectBasePointsF"]), _f(row["Variance"]), _f(row["EffectBonusCoefficient"])))
+    return out
+
+
 def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Indexes,
-                tick_damage: dict[tuple[str, int], tuple[float, float]]) -> SpellRank:
+                tick_damage: dict[tuple[str, int], tuple[float, float]], *,
+                sibling_damage: dict[tuple[str, int], list[tuple[int, float, float, float]]] | None = None
+                ) -> SpellRank:
     """Fill one SpellRank from the joined rows of a single spell."""
     level_row = indexes.levels[spell_id]
     misc_row = indexes.misc.get(spell_id) or {}
@@ -274,6 +321,18 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
                 periodic_damage = tick[0] * ticks
                 periodic_coefficient = tick[1] * ticks
 
+    siblings = (sibling_damage or {}).get((name, level))
+    dummy_only = bool(effects) and all(e["Effect"] == str(EFFECT_DUMMY) for e in effects)
+    if siblings and dummy_only and min_damage == 0 and periodic_damage == 0:
+        # a dummy spell (Fire Nova): the nearest-id same-name damage spell at its level carries the damage
+        _, base, variance, coefficient = min(siblings, key=lambda s: abs(s[0] - spell_id))
+        min_damage, max_damage = base * (1 - variance / 2), base * (1 + variance / 2)
+
+    shield = next((e for e in effects
+                   if e["Effect"] == str(EFFECT_AURA) and e["EffectAura"] == str(AURA_DAMAGE_SHIELD)), None)
+    damage_shield = _f(shield["EffectBasePointsF"]) if shield is not None else 0.0
+    damage_shield_coefficient = _f(shield["EffectBonusCoefficient"]) if shield is not None else 0.0
+
     return SpellRank(
         spell_id=spell_id, name=name, rank=rank, level=level, schools=schools,
         cast_time=cast_time, cooldown=cooldown, mana_cost=mana_cost, energy_cost=energy_cost,
@@ -287,7 +346,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
         interrupt_lockout=interrupt_lockout, fear=fear, disorient=disorient,
         per_combo_point=per_combo_point, combo_points=combo_points, haste_pct=haste_pct,
         weapon_bonus=weapon_bonus, weapon_normalized=weapon_normalized, weapon_pct=weapon_pct,
-        weapon_hits=weapon_hits,
+        weapon_hits=weapon_hits, damage_shield=damage_shield, damage_shield_coefficient=damage_shield_coefficient,
     )
 
 

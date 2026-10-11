@@ -173,6 +173,8 @@ class SpellRank:
     weapon_hits: int = 0               # weapon strikes per use: 1 for a direct effect, or the triggered count
     per_combo_point: float = 0.0       # extra damage per combo point (EffectPointsPerResource of the damage effect)
     combo_points: int = 0              # combo points awarded (effect 30 with EffectMiscValue_0 == 4)
+    damage_shield: float = 0.0         # damage per melee hit taken (aura 15: Thorns), base points (#261)
+    damage_shield_coefficient: float = 0.0  # spell power coefficient of that damage
     haste_pct: float = 0.0             # melee haste aura (aura 319) base points
 
 

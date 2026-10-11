@@ -80,3 +80,21 @@ def test_thorns_is_a_damage_shield():
     thorns = ranks_of(spells, "Thorns")[0]
     assert thorns.damage_shield == pytest.approx(18) and thorns.damage_shield_coefficient == 0
     assert (thorns.min_damage, thorns.periodic_damage) == (0, 0)
+
+
+def test_a_buff_trained_beside_its_damage_proc_keeps_both():
+    # Lightning Shield: the shield (aura) and its proc (Effect 2) are both trainable at one level
+    spells = _spells(
+        trainable=[(324, "Lightning Shield", 8), (26364, "Lightning Shield", 8)],
+        effects=[{"SpellID": 324, "Effect": 6, "EffectAura": 42, "EffectBasePointsF": 1},
+                 {"SpellID": 26364, "Effect": 2, "EffectBasePointsF": 13, "EffectBonusCoefficient": 0.33}])
+    assert [s.spell_id for s in ranks_of(spells, "Lightning Shield")] == [324, 26364]
+
+
+def test_only_dummy_spells_take_sibling_damage():
+    # Magma Totem summons a totem (Effect 28) whose pulses carry the damage; a pulse isn't one cast's damage
+    spells = _spells(
+        trainable=[(10587, "Magma Totem", 56)], other=[(10581, "Magma Totem", 56)],
+        effects=[{"SpellID": 10587, "Effect": 28, "EffectBasePointsF": 5},
+                 {"SpellID": 10581, "Effect": 2, "EffectBasePointsF": 73, "EffectBonusCoefficient": 0.033}])
+    assert ranks_of(spells, "Magma Totem")[0].min_damage == 0

@@ -14,11 +14,7 @@ Three spells carry no damage in the normalized dataset (#261 has the client rows
    damage_shield: float = 0.0             # damage per melee hit taken (aura 15: Thorns), base points
    damage_shield_coefficient: float = 0.0  # spell power coefficient of that damage
    ```
-2. **`normalize_spells.py`, `class_spells`, after `trainable.sort()`:** keep one spell per `(name, level)`:
-   ```python
-   trainable = _one_per_level(trainable, indexes) ...
-   ```
-   Move `indexes = _index_tables(tables)` above this so `_one_per_level` can use it. `_one_per_level(trainable, indexes)` walks the sorted `(name, level, spell_id)` list, groups entries with the same `(name, level)`, and keeps one per group: the first whose `indexes.effects.get(spell_id, [])` has an `Effect == "2"` row, else the first (the lowest id, since the list is sorted). Return the kept entries in their original order.
+2. **`normalize_spells.py`, `class_spells`, after `trainable.sort()`:** in a `(name, level)` group that has both damage spells (an `Effect == "2"` row) and spells without damage, drop the ones without damage (Holy Nova's heal half). Groups of damage spells (Fireball's two level-60 ranks, 10151 and 25306) and groups without any damage stay whole. *(Revised during the run: the first version said "keep one spell per (name, level)", which would drop a real Fireball rank. qwen3.8-27b caught this.)*
 3. **Sibling damage:** add `_sibling_damage_index(tables, sla_spells, names, levels) -> dict[tuple[str, int], list[tuple[int, float, float, float]]]`, built like `_tick_damage_index`: for each base-difficulty SpellEffect row with `Effect == "2"` whose spell is NOT in `sla_spells` and has a name and a SpellLevels row, append `(spell_id, base points, Variance, coefficient)` under `(name, BaseLevel)`. Pass it to `_build_rank` as a new keyword `sibling_damage`. In `_build_rank`, after the periodic block, if `min_damage == 0` and `periodic_damage == 0` and `weapon_hits == 0` and `(name, level)` has siblings, take the sibling whose id is closest to `spell_id` (`min(..., key=lambda s: abs(s[0] - spell_id))`) and set `min_damage = base * (1 - variance / 2)`, `max_damage = base * (1 + variance / 2)` and `coefficient`.
 4. **Damage shield:** in `_build_rank`, find the effect with `Effect == str(EFFECT_AURA)` and `EffectAura == "15"`. Add a constant `AURA_DAMAGE_SHIELD = 15` next to the other aura constants and use it. If found, set `damage_shield = _f(EffectBasePointsF)` and `damage_shield_coefficient = _f(EffectBonusCoefficient)`, and pass both to `SpellRank(...)`.
 
