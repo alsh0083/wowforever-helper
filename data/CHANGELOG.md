@@ -1,5 +1,15 @@
 # Data changelog
 
+## 1.60.1.70291 heal import (2026-10-11)
+
+Not a game change: the spell importer now reads heals (#270), re-normalized from the cached tables as for #261 (hunter kept as committed, #268). No report score changed.
+
+- Druid: Healing Touch, Regrowth, Rejuvenation, Swiftmend, Tranquility and Wild Growth gain heal_* and periodic_heal_* values
+- Paladin: Flash of Light and Holy Light gain heal values
+- Priest: Binding Heal, Desperate Prayer, Divine Grace, Flash Heal, Greater Heal, Heal, Lesser Heal, Prayer of Healing and Renew gain heal values
+- Shaman: Chain Heal, Healing Wave, Lesser Healing Wave and Riptide gain heal values
+- Warlock: Health Funnel gains periodic heal values
+
 ## 1.60.1.70291 importer fix (2026-10-11)
 
 Not a game change: the spell importer now reads data it used to drop (#261). Dataset 1.60.1.70291 was re-normalized from the cached tables; hunter's spells were kept as committed (#268). No report score changed: no rotation casts these spells yet.

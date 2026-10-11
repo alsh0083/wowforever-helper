@@ -12819,6 +12819,11 @@
    "value": true,
    "why": "Classic cuts the spell power coefficient of spells learned below level 20 by 3.75% per level under 20; Forever client coefficients don't carry it (it's server-side).",
    "tested": ""
+  },
+  "thorns_spell_power_coefficient": {
+   "value": 0.0,
+   "why": "The client gives Thorns (damage shield, aura 15) no spell power coefficient, but damage-shield scaling can be server-side; Forever's spell power gear may make Thorns scale (owner question, #265).",
+   "tested": ""
   }
  },
  "checklist": [
@@ -12925,6 +12930,20 @@
    "talents": [
     "Frostbolt",
     "Fireball"
+   ],
+   "status": "untested",
+   "result": ""
+  },
+  {
+   "name": "thorns_spell_power_coefficient",
+   "question": "The client gives Thorns (damage shield, aura 15) no spell power coefficient, but damage-shield scaling can be server-side; Forever's spell power gear may make Thorns scale (owner question, #265).",
+   "assumed": 0.0,
+   "options": [
+    0.0,
+    0.168
+   ],
+   "talents": [
+    "Thorns"
    ],
    "status": "untested",
    "result": ""
