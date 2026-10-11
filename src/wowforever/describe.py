@@ -20,6 +20,12 @@ SCENARIO_LABELS = {
     "wpvp_melee_they_open": "duels where melee opens", "wpvp_caster": "duels against casters",
     "stealth_ambush": "surviving stealth openers", "battleground": "battlegrounds",
 }
+# stats that appear on gear, in tie-break order; crit_pct/hit_pct and score are not gear stats
+GEAR_STATS = ("spell_power", "attack_power", "weapon_dps", "strength", "agility", "intellect", "spirit",
+              "stamina", "hit_rating", "crit_rating")
+GEAR_LABELS = {"spell_power": "spell power", "attack_power": "attack power", "weapon_dps": "weapon DPS",
+               "hit_rating": "hit rating", "crit_rating": "crit rating"}
+GEAR_PANEL = "The Recommended gear panel ranks items by these weights at your level."
 UNSCORED_NOTE = ("A healing or tanking build: the tool has no healing or threat model yet, so it has no "
                  "rotation or scores here, only the talent order.")
 
@@ -127,6 +133,36 @@ def group_line(build: Mapping[str, Any], names: Mapping[str, str]) -> str:
     gain = cell["score"] / cell["unbuffed"] - 1 if cell["unbuffed"] else 0
     return (f"In a dungeon group it gains most from {_join(top)}: about {gain:.0%} more damage at 60 than "
             f"unbuffed, on average across groups.")
+
+
+def _priority(w: Mapping[str, float], top: int = 4) -> str:
+    """One weight set as a "stat ratio" clause: the top gear stats by weight, relative to the best."""
+    picked = sorted(((stat, w[stat]) for stat in GEAR_STATS if w.get(stat, 0) > 0), key=lambda kv: -kv[1])[:top]
+    if not picked:
+        return ""
+    best = picked[0][1]
+    return _join(f"{GEAR_LABELS.get(stat, stat)} {round(weight / best, 2):g}" for stat, weight in picked)
+
+
+def gearing(weights: Mapping[str, Mapping[str, float]], levels: Sequence[int] = (30, 60), top: int = 4) -> str:
+    """Stat priority per point from the build's stat weights (#264), the same order the gear panel uses."""
+    if "generic" in weights:
+        clause = _priority(weights["generic"], top)
+        if not clause:
+            return ""
+        return (f"Gear priority per point (the class's default weights; this build has no scores): {clause}. "
+                + GEAR_PANEL)
+    parts = []
+    for level in levels:
+        w = weights.get(str(level))
+        if not w:
+            continue
+        clause = _priority(w, top)
+        if clause:
+            parts.append(f"at level {level}, {clause}")
+    if not parts:
+        return ""
+    return "Gear priority per point, relative to the best stat: " + "; ".join(parts) + ". " + GEAR_PANEL
 
 
 def pace(build: Mapping[str, Any]) -> str:
@@ -257,4 +293,7 @@ def add_descriptions(class_name: str, cls: ClassData, report: dict[str, Any], va
                               + "A model leveling path, not yet tried in game.")
         elif b.get("origin") == "model":
             paragraphs.append("A model build: the calculator's pick for this slot, not yet tried in game.")
+        gear_line = gearing(b.get("stat_weights") or {})
+        if gear_line:
+            paragraphs.append(gear_line)
         b["about"] = paragraphs
