@@ -12,7 +12,6 @@ seal and strike costs are small next to its pool).
 
 from __future__ import annotations
 
-import tomllib
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, replace
 from pathlib import Path
@@ -21,6 +20,7 @@ from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Attacker, Target, white_swing, yellow_attack
 from wowforever.scenarios import best_rank
 from wowforever.schema import ClassData, SpellRank
+from wowforever.toml_cache import load_toml
 
 CONFIG = Path(__file__).resolve().parents[3] / "config" / "paladin.toml"
 
@@ -36,7 +36,7 @@ class PaladinRotation:
 def paladin_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
                      ranks: Mapping[int, int], target: Target) -> PaladinRotation:
     """Sustained DPS against `target` with the paladin's talents `ranks`."""
-    c = tomllib.loads(CONFIG.read_text(encoding="utf-8"))
+    c = load_toml(CONFIG)
     by_name = {t.name: t for t in cls.talents}
 
     def taken(name: str) -> bool:

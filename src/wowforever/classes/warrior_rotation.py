@@ -12,7 +12,6 @@ Sweeping Strikes' second target, and Rage from damage taken.
 
 from __future__ import annotations
 
-import tomllib
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, replace
 from pathlib import Path
@@ -21,6 +20,7 @@ from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Attacker, Target, land_chance, white_swing, yellow_attack, yellow_crit_chance
 from wowforever.scenarios import best_rank
 from wowforever.schema import ClassData, SpellRank
+from wowforever.toml_cache import load_toml
 
 CONFIG = Path(__file__).resolve().parents[3] / "config" / "warrior.toml"
 
@@ -36,14 +36,14 @@ class WarriorRotation:
 
 def rage_conversion(level: int) -> float:
     """Classic damage-to-Rage divisor at `level`."""
-    k = tomllib.loads(CONFIG.read_text(encoding="utf-8"))["rage_conversion"]
+    k = load_toml(CONFIG)["rage_conversion"]
     return k["a"] * level ** 2 + k["b"] * level + k["k"]
 
 
 def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
                      ranks: Mapping[int, int], target: Target) -> WarriorRotation:
     """Sustained DPS against `target` with the warrior's talents `ranks`."""
-    c = tomllib.loads(CONFIG.read_text(encoding="utf-8"))
+    c = load_toml(CONFIG)
     level = stats.level
     by_name = {t.name: t for t in cls.talents}
 

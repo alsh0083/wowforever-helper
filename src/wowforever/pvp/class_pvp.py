@@ -11,7 +11,6 @@ Not modeled yet: openers from stealth, Evasion, Vanish, Deterrence and Feign Dea
 
 from __future__ import annotations
 
-import tomllib
 from collections.abc import Mapping, Sequence
 from pathlib import Path
 
@@ -21,6 +20,7 @@ from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Target, armor_factor
 from wowforever.pvp.duel import Control, Kit, MageSide, lockout_seconds, scenario_scores
 from wowforever.schema import ClassData, SpellRank
+from wowforever.toml_cache import load_toml
 
 CONFIG = Path(__file__).resolve().parents[3] / "config" / "pvp_self.toml"
 STOPS_ATTACKS = ("stun", "incapacitate", "disorient", "fear")
@@ -29,7 +29,7 @@ STOPS_ATTACKS = ("stun", "incapacitate", "disorient", "fear")
 def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
                ranks: Mapping[int, int]) -> MageSide:
     """The class's duel side, in the same shape as the mage's."""
-    raw = tomllib.loads(CONFIG.read_text(encoding="utf-8"))
+    raw = load_toml(CONFIG)
     cfg = raw[class_name]
     taken = {t.name for t in cls.talents if ranks.get(t.talent_id, 0) > 0}
     controls = [Control(c["kind"], float(c["duration"]), float(c["cooldown"]), float(c.get("energy", 0.0)))
