@@ -32,7 +32,7 @@ $OutputEncoding = [Text.UTF8Encoding]::new($false)
 
 Use `*** Update File:` with `@@` hunks to edit and `*** Delete File: path` (no body lines) to delete.
 
-The environment is ready: the package is installed in `.venv`. Run Python only as `.venv/Scripts/python` (tests: `.venv/Scripts/python -m pytest -m "not slow"`, about 20 s; the `slow` tests build whole class reports and take about 10 minutes). Stay inside the repo: install nothing, and leave files outside it alone. If the environment itself seems broken, stop and report it instead of repairing it.
+The environment is ready: the package is installed in `.venv`. Run Python only as `.venv/Scripts/python` (tests: `.venv/Scripts/python -m pytest -m "not slow"`, about 10 s; the `slow` tests build whole class reports and take a few minutes). Stay inside the repo: install nothing, and leave files outside it alone. If the environment itself seems broken, stop and report it instead of repairing it.
 
 ## Guardrails
 
