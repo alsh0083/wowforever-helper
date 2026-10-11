@@ -46,9 +46,11 @@ def find_codex() -> Path:
 
 def sandbox_env(codex: Path) -> dict[str, str]:
     """Current environment minus WindowsApps on PATH (see module docstring), plus CODEX_EXE so the
-    agent can call apply_patch directly (AGENTS.md has the recipe)."""
+    agent can call apply_patch directly (AGENTS.md has the recipe), plus WOWFOREVER_AGENT=1 so
+    conftest.py routes tmp_path to plain-mode directories the sandbox can list (#256)."""
     env = dict(os.environ)
     env["CODEX_EXE"] = str(codex)
+    env["WOWFOREVER_AGENT"] = "1"
     env["PATH"] = os.pathsep.join(
         p for p in env.get("PATH", "").split(os.pathsep) if "windowsapps" not in p.lower()
     )
