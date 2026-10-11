@@ -8,7 +8,6 @@ from the level-60 gear stats (config/stats/<class>.csv).
 
 from __future__ import annotations
 
-import tomllib
 from pathlib import Path
 
 from wowforever.builds import load_builds
@@ -17,6 +16,7 @@ from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import build_stats, rotation_output, stat_table
 from wowforever.physical import Target
 from wowforever.schema import Dataset, latest_dataset_path
+from wowforever.toml_cache import load_toml
 
 ROOT = Path(__file__).resolve().parents[3]
 DATASET = latest_dataset_path()
@@ -48,6 +48,6 @@ def engine_at_60(kit_id: str) -> tuple[float, float]:
     stats = stat_table(class_name).at(60)
     build = {b.id: b for b in load_builds(class_name=class_name)}[KIT_BUILDS[kit_id]]
     ranks = build.final_ids(cls)
-    cloth_armor = tomllib.loads((ROOT / "config" / "pvp_self.toml").read_text(encoding="utf-8"))["cloth_armor"]
+    cloth_armor = load_toml(ROOT / "config" / "pvp_self.toml")["cloth_armor"]
     dps = rotation_output(class_name, stats, cls.spells, cls, ranks, Target(0, cloth_armor)).dps
     return build_stats(class_name, stats, cls, ranks).health, dps

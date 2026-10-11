@@ -11,7 +11,6 @@ attacks, and Blade Flurry's second target.
 
 from __future__ import annotations
 
-import tomllib
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, replace
 from pathlib import Path
@@ -21,6 +20,7 @@ from wowforever.physical import (Attacker, Target, land_chance, white_swing, yel
                                  yellow_crit_chance)
 from wowforever.scenarios import best_rank
 from wowforever.schema import ClassData, SpellRank
+from wowforever.toml_cache import load_toml
 
 CONFIG = Path(__file__).resolve().parents[3] / "config" / "rogue.toml"
 
@@ -38,7 +38,7 @@ class RogueRotation:
 def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
                    ranks: Mapping[int, int], target: Target) -> RogueRotation:
     """Sustained DPS against `target` with the rogue's talents `ranks`."""
-    c = tomllib.loads(CONFIG.read_text(encoding="utf-8"))
+    c = load_toml(CONFIG)
     level = stats.level
     by_name = {t.name: t for t in cls.talents}
 

@@ -7,11 +7,11 @@ Forever changed is reported as low confidence.
 
 from __future__ import annotations
 
-import tomllib
 from dataclasses import dataclass
 from pathlib import Path
 
 from wowforever.schema import ClassData
+from wowforever.toml_cache import load_toml
 
 CONFIG = Path(__file__).resolve().parents[2] / "config" / "consensus.toml"
 AXES = ("kill", "endurance", "survival", "control")
@@ -40,7 +40,7 @@ class Consensus:
 
     @classmethod
     def load(cls, path: Path = CONFIG) -> Consensus:
-        raw = tomllib.loads(path.read_text(encoding="utf-8"))
+        raw = load_toml(path)
         scenarios = {
             name: ScenarioWeights(name, {a: tuple(s[a]) for a in AXES}, tuple(s["sources"]),
                                   s["confidence"], s.get("note", ""))

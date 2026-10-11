@@ -11,7 +11,6 @@ Resourcefulness, and pet talents beyond Unleashed Fury and Bestial Wrath.
 
 from __future__ import annotations
 
-import tomllib
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
@@ -20,6 +19,7 @@ from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Attacker, Target, land_chance, ranged_shot, white_swing, yellow_attack
 from wowforever.scenarios import best_rank
 from wowforever.schema import ClassData, SpellRank
+from wowforever.toml_cache import load_toml
 
 CONFIG = Path(__file__).resolve().parents[3] / "config" / "hunter.toml"
 MELEE = Path(__file__).resolve().parents[3] / "config" / "melee.toml"
@@ -39,8 +39,8 @@ class HunterRotation:
 def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
                     ranks: Mapping[int, int], target: Target, *, pet: bool = False) -> HunterRotation:
     """Sustained DPS against `target`; `pet` adds a pet and turns Lone Wolf off."""
-    c = tomllib.loads(CONFIG.read_text(encoding="utf-8"))
-    agi_per_crit = tomllib.loads(MELEE.read_text(encoding="utf-8"))["hunter"]["agi_per_crit_at_60"]
+    c = load_toml(CONFIG)
+    agi_per_crit = load_toml(MELEE)["hunter"]["agi_per_crit_at_60"]
     level = stats.level
     by_name = {t.name: t for t in cls.talents}
 

@@ -9,13 +9,13 @@ derived-stat rules in `config/gear.toml`.
 from __future__ import annotations
 
 import csv
-import tomllib
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 from pathlib import Path
 
 from wowforever.normalize import Tables
 from wowforever.stats import Stats
+from wowforever.toml_cache import load_section, load_toml
 
 CONFIG = Path(__file__).resolve().parents[2] / "config" / "gear.toml"
 MAGE_BASE = Path(__file__).resolve().parents[2] / "config" / "stats" / "mage_base.csv"
@@ -54,7 +54,7 @@ STAT_NAMES = {
 # OverallQualityID -> RandPropPoints column prefix
 QUALITY_NAMES = {2: "Good", 3: "Superior", 4: "Epic"}
 
-_raw = tomllib.loads(CONFIG.read_text(encoding="utf-8"))
+_raw = load_toml(CONFIG)
 WEIGHTS: Mapping[str, float] = dict(_raw["weights"])
 RATING_PER_PCT_AT_60 = float(_raw["rating_per_pct_at_60"])
 MANA_PER_INT = float(_raw["mana_per_int"])
@@ -261,7 +261,7 @@ CASTERS = Path(__file__).resolve().parents[2] / "config" / "casters.toml"
 
 def caster_config(class_name: str) -> dict:
     """The class's section of config/casters.toml (#163)."""
-    return tomllib.loads(CASTERS.read_text(encoding="utf-8"))[class_name]
+    return load_section(CASTERS, class_name)
 
 
 def caster_stat_table(class_name: str, items: list[Item], levels: Iterable[int]) -> list[Stats]:
