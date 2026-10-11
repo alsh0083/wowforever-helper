@@ -36,6 +36,9 @@ def main(argv: list[str] | None = None) -> int:
     fl = sub.add_parser("foreverlogs-refresh", help="refresh the cached Forever Logs statistics (#172); about 37 requests per variant, owner's key")
     fl.add_argument("--variant", action="append", help="cache folder to refresh (repeatable; default: all four)")
     fl.add_argument("--delay", type=float, default=2.0, help="seconds between requests")
+    df = sub.add_parser("dungeon-floors", help="write data/dungeon_floors.json: each dungeon's minimum level from "
+                                               "the client's ContentTuning (#258)")
+    df.add_argument("--build", required=True, help="game build, e.g. 1.60.1.70338")
     gs = sub.add_parser("gear-stats", help="rebuild config/stats/<class>.csv from real Forever gear")
     gs.add_argument("--tables", required=True, help="folder with ItemSparse/Item/RandPropPoints CSVs")
     gs.add_argument("--class", dest="class_name", default="mage", choices=("mage", "rogue", "hunter", "warrior", "paladin", "priest", "warlock", "druid", "shaman",
@@ -151,6 +154,29 @@ def main(argv: list[str] | None = None) -> int:
         dataset = gs.build(gs.load_pages(cache), read_tables(Path(args.tables)), checked_at=gs.now())
         gs.write(dataset, Path("data/items/gear.json"))
         print("wrote data/items/gear.json:", gs.summary(dataset))
+        return 0
+    if args.command == "dungeon-floors":
+        import csv
+        import json
+        from pathlib import Path
+
+        from wowforever.dungeon_levels import floors
+        from wowforever.sources import wago
+        from wowforever.sources.http import http_get_bytes
+
+        # the tables come from the game files into the gitignored cache; their manifest stays out of
+        # data/raw, whose snapshots are immutable once committed
+        tables = ("Map", "MapDifficulty", "ContentTuning")
+        cache = Path("data/cache/wago")
+        wago.fetch_build(args.build, cache_dir=cache, manifest_dir=Path("data/cache/wago-extra"), tables=tables,
+                         file_get=http_get_bytes)
+        rows = {t: list(csv.DictReader((cache / args.build / f"{t}.csv").open(encoding="utf-8"))) for t in tables}
+        out = Path("data/dungeon_floors.json")
+        out.write_text(json.dumps({"build": args.build, "source": "wago.tools /api/casc: MapDifficulty.ContentTuningID "
+                                   "-> ContentTuning.MinLevelSquish (normal difficulty)",
+                                   "floors": floors(rows["Map"], rows["MapDifficulty"], rows["ContentTuning"])},
+                                  indent=1) + "\n", encoding="utf-8", newline="\n")
+        print(f"wrote {out}")
         return 0
     if args.command == "validate-logs":
         import json
