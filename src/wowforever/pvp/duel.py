@@ -8,6 +8,8 @@ constants come from config/duel.toml and opponent kits from config/opponents/*.t
 
 from __future__ import annotations
 
+import dataclasses
+import functools
 import tomllib
 from collections.abc import Sequence
 from dataclasses import dataclass
@@ -66,6 +68,7 @@ class Kit:
     removes: tuple[tuple[str, float], ...]  # (comma-separated kinds removed, cooldown)
     immunity: tuple[float, float] | None  # (duration, cooldown) seconds
     energy_per_minute: float = 0.0  # energy per minute; 0 = no energy budget
+    at_level: int = 60  # level its health/DPS describe; 60 = config values (#272)
 
 
 @dataclass(frozen=True)
@@ -95,7 +98,7 @@ class DuelResult:
     opponent_uptime: float
 
 
-def load_kits(directory: Path = OPPONENTS) -> list[Kit]:
+def _config_kits(directory: Path) -> list[Kit]:
     """Every opponent kit in `directory`, sorted by id."""
     kits: list[Kit] = []
     for path in directory.glob("*.toml"):
@@ -121,6 +124,30 @@ def load_kits(directory: Path = OPPONENTS) -> list[Kit]:
             energy_per_minute=float(at_60.get("energy_per_minute", 0.0)),
         ))
     return sorted(kits, key=lambda kit: kit.id)
+
+
+@functools.lru_cache(maxsize=None)
+def _kits_at(directory: Path, level: int) -> tuple[Kit, ...]:
+    kits = _config_kits(directory)
+    if level == 60:
+        return tuple(kits)
+    from wowforever.pvp.kit_stats import KIT_BUILDS, engine_at   # lazy: kit_stats runs the engines
+    out = []
+    for kit in kits:
+        if kit.id not in KIT_BUILDS:
+            out.append(kit)            # no engine build (the mage kit): level-60 values, at_level stays 60
+            continue
+        h, d = engine_at(kit.id, level)
+        h60, d60 = engine_at(kit.id, 60)
+        out.append(dataclasses.replace(kit, health=kit.health * h / h60, dps=kit.dps * d / d60,
+                                       opener_damage=kit.opener_damage * d / d60, at_level=level))
+    return tuple(out)
+
+
+def load_kits(level: int = 60, directory: Path = OPPONENTS) -> list[Kit]:
+    """Every opponent kit in `directory`, sorted by id, at `level` (#272): config values at 60,
+    engine kits scaled by their level / 60 engine ratio below it."""
+    return list(_kits_at(directory, level))
 
 
 def _kiting_seconds(mage: MageSide, kit: Kit, c: dict[str, Any]) -> float:

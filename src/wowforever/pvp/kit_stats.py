@@ -8,6 +8,7 @@ from the level-60 gear stats (config/stats/<class>.csv).
 
 from __future__ import annotations
 
+import functools
 from pathlib import Path
 
 from wowforever.builds import load_builds
@@ -48,6 +49,35 @@ def engine_at_60(kit_id: str) -> tuple[float, float]:
     stats = stat_table(class_name).at(60)
     build = {b.id: b for b in load_builds(class_name=class_name)}[KIT_BUILDS[kit_id]]
     ranks = build.final_ids(cls)
+    cloth_armor = load_toml(ROOT / "config" / "pvp_self.toml")["cloth_armor"]
+    dps = rotation_output(class_name, stats, cls.spells, cls, ranks, Target(0, cloth_armor)).dps
+    return build_stats(class_name, stats, cls, ranks).health, dps
+
+
+def kit_ranks_at(build, cls, level: int) -> dict[int, int]:
+    """The build's talent ranks at `level`: its first level - 9 points (the first comes at 10), in the
+    build's order, or, without one, its final talents filled lowest tree row first (then talent id)."""
+    points = max(0, level - 9)
+    order = build.order_ids(cls)
+    if order is None:
+        final = build.final_ids(cls)
+        row = {t.talent_id: t.row for t in cls.talents}
+        order = [tid for tid in sorted(final, key=lambda t: (row[t], t)) for _ in range(final[tid])]
+    ranks: dict[int, int] = {}
+    for tid in order[:points]:
+        ranks[tid] = ranks.get(tid, 0) + 1
+    return ranks
+
+
+@functools.lru_cache(maxsize=None)
+def engine_at(kit_id: str, level: int) -> tuple[float, float]:
+    """(health, sustained DPS vs cloth) for one kit at `level`, from the damage engine (#272)."""
+    class_name = kit_id.split("-", 1)[0]
+    m = class_module(class_name)
+    cls, _ = attach_effects(Dataset.load(DATASET).class_data(class_name), m.TALENT_EFFECTS, m.UNMODELED)
+    stats = stat_table(class_name).at(level)
+    build = {b.id: b for b in load_builds(class_name=class_name)}[KIT_BUILDS[kit_id]]
+    ranks = kit_ranks_at(build, cls, level)
     cloth_armor = load_toml(ROOT / "config" / "pvp_self.toml")["cloth_armor"]
     dps = rotation_output(class_name, stats, cls.spells, cls, ranks, Target(0, cloth_armor)).dps
     return build_stats(class_name, stats, cls, ranks).health, dps
