@@ -76,8 +76,8 @@ def score_build(order: Sequence[int], cls: ClassData, spells, stats: StatTable,
     """Scenario results at each checkpoint level (raid at max level only)."""
     scores: dict[str, dict[int, dict[str, Any]]] = {"questing": {}, "aoe": {}, "raid": {},
                                                     "survival": {}, "control": {}}
-    kits = load_kits()
     for level in CHECKPOINTS:
+        kits = load_kits(level=level)        # opponents at the checkpoint's level (#272)
         char = Character(level, stats.at(level), spells, cls, ranks_at(order, level, cls))
         q = questing(char, default_params("questing", level), assumptions)
         a = aoe_curve(char, default_params("aoe", level), assumptions)
@@ -504,15 +504,15 @@ def add_stat_weights(class_name: str, cls: ClassData, builds: Sequence[Build], r
 
     variant = {b.id: b.variant for b in builds}
     module = _class_module(class_name)
-    kits = load_kits()
+    # PvP weights at each checkpoint duel opponents at that level (#272)
     if class_name == "mage":
         table, assumptions, consensus = StatTable.load("mage"), Assumptions.load(), Consensus.load()
         score = {"PvE": lambda s, r: pve_score_fn(cls, s, assumptions)(r),
-                 "PvP": lambda s, r: pvp_score_fn(cls, s, assumptions, kits, consensus)(r)}
+                 "PvP": lambda s, r: pvp_score_fn(cls, s, assumptions, load_kits(level=s.level), consensus)(r)}
     elif getattr(module, "ENGINE", False) in ("melee", "spell"):
         table = ms.stat_table(class_name)
         score = {"PvE": lambda s, r: ms.pve_score(class_name, s, cls.spells, cls, r),
-                 "PvP": lambda s, r: pvp_score(class_name, s, cls.spells, cls, r, kits)}
+                 "PvP": lambda s, r: pvp_score(class_name, s, cls.spells, cls, r, load_kits(level=s.level))}
     else:
         table, score = None, {}
     melee_trees = getattr(module, "MELEE_TREES", ())
