@@ -1,5 +1,14 @@
 # Data changelog
 
+## 1.60.1.70291 importer fix (2026-10-11)
+
+Not a game change: the spell importer now reads data it used to drop (#261). Dataset 1.60.1.70291 was re-normalized from the cached tables; hunter's spells were kept as committed (#268). No report score changed: no rotation casts these spells yet.
+
+- Fire Nova ranks 1-5: damage from Forever's same-level damage spells (408423-408428), coefficient 0.214
+- Holy Nova: the heal half of each level's damage/heal pair is no longer a rank (6 ranks, not 12); the top rank is 27801, 187 damage on average, coefficient 0.107
+- Holy Shock rank 1 (Forever's 1311606) and Light's Vigil ranks 1-3: damage from their same-level damage spells, coefficient 0.429; Holy Shock ranks 2-4 (Classic ids) have no such spell and stay at 0
+- Thorns ranks 1-6: damage shield 3, 6, 9, 12, 15, 18 per melee hit taken (client coefficient 0)
+
 ## 1.60.1.70291 (2026-10-09)
 
 - Arcane Missiles rank 2: periodic_damage 124.0 -> 136.0
