@@ -28,6 +28,8 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Genesis": (
         EffectRule("damage_pct", r"periodic damage and healing done by your spells and abilities by (\d+(?:\.\d+)?)%",
                    ("Moonfire", "Insect Swarm")),
+        EffectRule("healing_pct", r"periodic damage and healing done by your spells and abilities by (\d+(?:\.\d+)?)%",
+                   ("periodic",)),
     ),
     "Moonglow": (
         EffectRule("mana_cost_pct", r"Mana cost of your damaging spells by (\d+(?:\.\d+)?)%", ("arcane", "nature"), sign=-1),
@@ -70,6 +72,17 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("mana_cost_pct", r"mana cost of your Healing Touch and Tranquility spells by (\d+(?:\.\d+)?)%",
                    ("Healing Touch", "Tranquility"), sign=-1),
     ),
+    "Improved Rejuvenation": (
+        EffectRule("healing_pct", r"effect of your Rejuvenation spell by (\d+(?:\.\d+)?)%", ("Rejuvenation",)),
+    ),
+    # HoT durations only; longer Moonfire and Insect Swarm aren't modeled
+    "Nature's Splendor": (
+        EffectRule("duration", r"Moonfire and Rejuvenation spells by (\d+(?:\.\d+)?) sec", ("Rejuvenation",)),
+        EffectRule("duration", r"your Regrowth spell by (\d+(?:\.\d+)?) sec", ("Regrowth",)),
+    ),
+    "Gift of the Earthmother": (
+        EffectRule("gcd", r"global cooldown by (\d+(?:\.\d+)?) seconds", ("Rejuvenation", "Swiftmend", "Wild Growth"), sign=-1),
+    ),
     # melee hybrid (#175)
     "Ferocity": (
         EffectRule("energy_cost", r"cost of your Maul, Primal Bite, Swipe, Claw, and Rake abilities by (\d+(?:\.\d+)?) Rage or Energy",
@@ -103,7 +116,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
 UNMODELED: dict[str, str] = {
     # Balance
     "Improved Entangling Roots": "control: stronger Entangling Roots",
-    "Nature's Splendor": "damage: longer Moonfire, Rejuvenation, Regrowth, Insect Swarm",
     "Insect Swarm": "grants_spell",
     "Overgrowth": "control: Entangling Roots on 2 more targets",
     "Nature's Grace": "proc: spell crits speed up the next cast",
@@ -126,8 +138,6 @@ UNMODELED: dict[str, str] = {
     "Furor": "resource: Rage or Energy on shapeshift",
     "Subtlety": "threat: less threat from Nature and Arcane spells",
     "Natural Shapeshifter": "resource: cheaper shapeshifting",
-    "Gift of the Earthmother": "healing: shorter global cooldown on heals",
-    "Improved Rejuvenation": "healing: +15% Rejuvenation",
     "Swiftmend": "grants_spell",
     "Nature's Swiftness": "grants_spell",
     "Living Spirit": "buff: +15% Spirit",

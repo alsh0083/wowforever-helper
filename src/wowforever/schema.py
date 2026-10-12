@@ -57,6 +57,7 @@ EFFECT_KINDS = frozenset({
     "hit_chance",       # + hit chance (percentage points)
     "cast_time",        # change to cast time, seconds (negative = faster)
     "cooldown",         # change to cooldown, seconds
+    "gcd",              # change to the global cooldown, seconds (negative = shorter)
     "mana_cost_pct",    # % change to mana cost
     "healing_pct",      # % more healing (Gift of Nature)
     "energy_cost",      # flat change to an ability's energy cost (negative = cheaper)

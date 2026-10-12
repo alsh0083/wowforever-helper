@@ -65,3 +65,11 @@ why = "The client gives Thorns (damage shield, aura 15) no spell power coefficie
 source = "client SpellEffect 9910 EffectBonusCoefficient 0 (build 1.60.1.70338); 0.168 is a later expansion's value, used only as the alternative to test"
 tested = ""
 talents = ["Thorns"]
+
+[swiftmend_consumes_hot]
+value = false
+options = [false, true]
+why = "Forever's Swiftmend heals for the HoT's full duration and, unlike Classic's text, doesn't say it consumes the HoT; if it does, Swiftmend only front-loads healing the HoT would have given (#279)."
+source = "Swiftmend rank text, build 1.60.1.70291; Classic: 'Consumes a Rejuvenation or Regrowth effect'"
+tested = ""
+talents = ["Swiftmend"]
