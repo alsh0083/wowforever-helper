@@ -81,3 +81,11 @@ why = "Forever's Entangling Roots keeps 'Damage caused may interrupt the effect'
 source = "Entangling Roots and Improved Entangling Roots rank texts, build 1.60.1.70338; azerothcore-wotlk issue #18787 (CountPctFromMaxHealth(10)); Blizzard on TBC Classic: a random range of damage, not a fixed amount"
 tested = ""
 talents = ["Improved Entangling Roots"]
+
+[chain_jump_falloff_pct]
+value = 30
+options = [30, 0]
+why = "Chain Lightning loses damage on each jump in Classic (30%); Forever's client data has neither the falloff nor the target count (#260)."
+source = "Classic Chain Lightning text; dataset 1.60.1.70291 (MaxTargets 0, no falloff field)"
+tested = ""
+talents = ["Chain Lightning"]

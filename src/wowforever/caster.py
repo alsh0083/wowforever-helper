@@ -7,7 +7,10 @@ mage's EV engine (`calc.ev.expected_damage`) with the class's talent modifiers, 
 school or spell name work as they do for the mage. Mana: the rotation's cost per second minus the
 talented share of spirit regen while casting (config/casters.toml).
 
-Not modeled here: procs, cleave or AoE, pets (warlock, #165) and Life Tap; classes add those.
+AoE pulls (#260): seconds to clear a pack with the best of the class's `aoe_spells` mixed into the
+rotation, or the rotation alone.
+
+Not modeled here: procs, cleave, pets (warlock, #165) and Life Tap; classes add those.
 """
 
 from __future__ import annotations
@@ -32,6 +35,12 @@ class CasterRotation:
     mana_per_second: float      # rotation cost minus regen while casting
     regen_per_second: float     # spirit regen while casting (talents)
     spells: tuple[str, ...]     # spells the rotation casts: DoTs, cooldowns, then the filler
+
+
+@dataclass(frozen=True)
+class AoePull:
+    seconds: float   # to clear the pack
+    spell: str       # the AoE spell used, or "single target"
 
 
 def spirit_regen(class_name: str, stats: Stats) -> float:
@@ -123,3 +132,51 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
         mana += time_left * best[2] / best[1]
         used.append(best[3])
     return CasterRotation(dps=dps, mana_per_second=mana - regen, regen_per_second=regen, spells=tuple(used))
+
+
+def chain_hits(pack: int, max_targets: int, falloff_pct: float) -> float:
+    """Targets' worth of damage one cast deals to a pack (#260): every mob when max_targets is 0, else
+    min(pack, max_targets) hits, each jump dealing falloff_pct% less than the one before."""
+    if max_targets <= 0:
+        return float(pack)
+    return sum((1 - falloff_pct / 100) ** k for k in range(min(pack, max_targets)))
+
+
+def pull_seconds(pack: int, mob_hp: float, single_dps: float, ev: float, seconds: float, period: float,
+                 hits: float) -> float:
+    """Seconds to clear `pack` mobs of `mob_hp` casting an AoE spell once per `period` (its cast time or
+    cooldown, whichever is longer) and the single-target rotation in between (#260). Damage counts against
+    the pack's total health; overkill and mobs dying early aren't modeled."""
+    rate = ev * hits / period + (1 - seconds / period) * single_dps
+    return pack * mob_hp / rate
+
+
+def aoe_pull(class_name: str, stats: Stats, spells: Sequence[SpellRank], cls: ClassData,
+             ranks: Mapping[int, int], pack: int, mob_hp: float, *,
+             assumptions: Assumptions | None = None) -> AoePull:
+    """The fastest way to clear `pack` same-level mobs of `mob_hp` (#260): each of the class's
+    `aoe_spells` (config/casters.toml) mixed into the rotation, or the rotation alone. A spell taught by
+    a talent needs that talent; Hellfire's damage to the caster isn't modeled."""
+    if assumptions is None:
+        assumptions = Assumptions.load()
+    cfg = caster_config(class_name)
+    single_dps = caster_rotation(class_name, stats, spells, cls, ranks, Target(0, 0)).dps
+    best = AoePull(pack * mob_hp / single_dps, "single target")
+    talent_ids = {t.name: t.talent_id for t in cls.talents}
+    for name in cfg.get("aoe_spells", ()):
+        if name in talent_ids and ranks.get(talent_ids[name], 0) <= 0:
+            continue
+        spell = best_rank(spells, name, stats.level)
+        if spell is None:
+            continue
+        ev, seconds, _ = cast(spell, stats, cls, ranks, stats.level, assumptions)
+        if ev <= 0:
+            continue
+        cooldown = spell.cooldown + sum(
+            e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
+            for e in t.effects if e.kind == "cooldown" and name in e.applies_to)
+        hits = chain_hits(pack, cfg.get("aoe_max_targets", {}).get(name, 0), assumptions["chain_jump_falloff_pct"])
+        t = pull_seconds(pack, mob_hp, single_dps, ev, seconds, max(seconds, cooldown), hits)
+        if t < best.seconds:
+            best = AoePull(t, name)
+    return best
