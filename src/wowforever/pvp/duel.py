@@ -85,6 +85,8 @@ class MageSide:
     interrupt: float
     nova_dps: float = 0.0  # extra DPS against melee: one frozen hit per Frost Nova (#97)
     physical_taken: float = 1.0  # physical damage taken vs the cloth that kit DPS assumes (#134)
+    heal_hps: float = 0.0  # healing per second while casting heals (#265)
+    heal_budget: float = 0.0  # mana-limited healing for the fight
 
 
 @dataclass(frozen=True)
@@ -219,6 +221,13 @@ def duel(mage: MageSide, kit: Kit, variant: str) -> DuelResult:
     t_mage = min(max(t_mage, 0.0), max_fight)
     t_opponent = min(max(t_opponent, 0.0), max_fight)
     score = 0.5 if t_mage + t_opponent == 0 else t_opponent / (t_mage + t_opponent)
+    if mage.heal_budget > 0 and mage.heal_hps > 0 and net > 0:
+        # healing adds effective health but pauses damage (#265); heal only if the score rises
+        h_mage = min(t_mage + mage.heal_budget / mage.heal_hps, max_fight)
+        h_opp = min((mage.health - opening + mage.heal_budget) / net, max_fight)
+        h_score = h_opp / (h_mage + h_opp)
+        if h_score > score:
+            t_mage, t_opponent, score = h_mage, h_opp, h_score
     return DuelResult(score=score, t_mage=t_mage, t_opponent=t_opponent,
                       mage_uptime=mage_uptime, opponent_uptime=opponent_uptime)
 
