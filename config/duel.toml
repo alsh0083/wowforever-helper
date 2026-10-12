@@ -23,3 +23,7 @@ dr_chain = 1.75
 dr_immune_seconds = 15.0
 # A rogue spends at most this share of its energy on controls; the rest goes to damage.
 max_control_energy_share = 0.5
+
+# Outnumbered (2v1, #278): share of the defender's single-target stuns, slows and interrupts each of
+# the two opponents gets while both are alive (estimate: split evenly).
+outnumbered_control_split = 0.5

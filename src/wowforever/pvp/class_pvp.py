@@ -23,7 +23,7 @@ from wowforever.focus import PVP_SCENARIOS
 from wowforever.melee_scenarios import build_stats, rotation_output
 from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Target, armor_factor
-from wowforever.pvp.duel import Control, Kit, MageSide, lockout_seconds, scenario_scores
+from wowforever.pvp.duel import Control, Kit, MageSide, lockout_seconds, outnumbered_scores, scenario_scores
 from wowforever.scenarios import best_rank
 from wowforever.schema import ClassData, SpellRank
 from wowforever.toml_cache import load_toml
@@ -172,6 +172,10 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
     thorns = thorns_dps(best_rank(spells, "Thorns", stats.level), getattr(row, "spell_power", 0.0),
                         assumptions["thorns_spell_power_coefficient"], raw.get("opponent_melee_hits_per_second", 0.0))
     heal_hps, heal_budget = heal_capacity(class_name, stats, spells, cls, ranks, assumptions=assumptions)
+    # more targets for a root control from taken talents (Overgrowth, #278)
+    roots = {c["name"] for c in cfg["controls"] if c["kind"] == "root"}
+    extra = sum(e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
+                for e in t.effects if e.kind == "targets" and roots & set(e.applies_to))
     return MageSide(
         health=row.health,
         dps=output.dps,
@@ -187,6 +191,7 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
                         / armor_factor(stats.level, raw["cloth_armor"])),
         heal_hps=heal_hps,
         heal_budget=heal_budget,
+        root_targets=1 + int(extra),
     )
 
 
@@ -196,3 +201,9 @@ def pvp_score(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], c
     side = class_side(class_name, stats, spells, cls, ranks)
     scores = scenario_scores(side, kits)
     return sum(scores[s]["score"] for s in PVP_SCENARIOS) / len(PVP_SCENARIOS)
+
+
+def outnumbered_score(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
+                      ranks: Mapping[int, int], kits: Sequence[Kit]) -> float:
+    """Mean 2v1 score over pairs of kits (#278), a separate score next to pvp_score."""
+    return outnumbered_scores(class_side(class_name, stats, spells, cls, ranks), kits)["score"]

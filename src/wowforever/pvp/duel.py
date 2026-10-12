@@ -87,6 +87,7 @@ class MageSide:
     physical_taken: float = 1.0  # physical damage taken vs the cloth that kit DPS assumes (#134)
     heal_hps: float = 0.0  # healing per second while casting heals (#265)
     heal_budget: float = 0.0  # mana-limited healing for the fight
+    root_targets: int = 1  # opponents its roots hold at once (Overgrowth, #278)
 
 
 @dataclass(frozen=True)
@@ -248,6 +249,88 @@ def scenario_scores(mage: MageSide, kits: Sequence[Kit]) -> dict[str, dict[str, 
             "matchups": matchups,
         }
     return scores
+
+
+def combined_lockout(kits: Sequence[Kit]) -> float:
+    """Seconds per minute several kits together keep the defender cast-locked (#278): each kind adds up
+    across kits, and each DR kind is capped for the longest control of that kind in any of them."""
+    c = _config()
+    out: dict[str, float] = {}
+    for kit in kits:
+        for kind, seconds in lockout_seconds(kit.controls, kit.energy_per_minute).items():
+            out[kind] = out.get(kind, 0.0) + seconds
+    for kind in DR_KINDS & set(out):
+        longest = max(ctrl.duration for kit in kits for ctrl in kit.controls if ctrl.kind == kind)
+        out[kind] = min(out[kind], 60 * c["dr_chain"] * longest / (c["dr_chain"] * longest + c["dr_immune_seconds"]))
+    return sum(out.values())
+
+
+def outnumbered(side: MageSide, first: Kit, second: Kit) -> DuelResult:
+    """The defender against two opponents at once, killing `first` then `second` (#278).
+
+    Phase 1 (both alive): both kits' lockouts add up; the defender's stuns, slows and interrupts are
+    split between them by outnumbered_control_split; roots hold the opponent not being attacked, and
+    the attacked one too with root_targets >= 2. Phase 2: `second` alone, as in a duel. Healing happens
+    in phase 1 and counts only if the score rises. mage_uptime and opponent_uptime are phase 1's,
+    the latter for `first`."""
+    c = _config()
+    max_fight = c["max_fight"]
+
+    def kill_time(kit: Kit, uptime: float) -> float:
+        dps = side.dps + (side.nova_dps if kit.role == "melee" else 0.0)
+        immune = kit.immunity[0] / kit.immunity[1] if kit.immunity else 0.0
+        return kit.health / (dps * uptime * (1 - immune))
+
+    def incoming(kit: Kit, control: MageSide) -> tuple[float, float]:
+        uptime = max(c["min_uptime"], 1 - _kiting_seconds(control, kit, c) / 60)
+        physical = side.physical_taken if kit.role in ("melee", "ranged") else 1.0
+        return kit.dps * physical * uptime * (1 - side.immunity_share), uptime
+
+    def barrier(kits: Sequence[Kit]) -> float:
+        b = side.barrier_per_min / 60
+        return b * c["dispel_barrier_factor"] if any(k.dispels_buffs for k in kits) else b
+
+    u1 = max(c["min_uptime"], 1 - combined_lockout([first, second]) / 60)
+    u2 = max(c["min_uptime"], 1 - combined_lockout([second]) / 60)
+    t1, t2 = kill_time(first, u1), kill_time(second, u2)
+
+    split = c["outnumbered_control_split"]
+    shared = dataclasses.replace(side, stun=side.stun * split, slow=side.slow * split,
+                                 interrupt=side.interrupt * split)
+    focus = dataclasses.replace(shared, root=side.root if side.root_targets >= 2 else 0.0)
+    d_first, first_uptime = incoming(first, focus)
+    net1 = d_first + incoming(second, shared)[0] - barrier([first, second])
+    net2 = incoming(second, side)[0] - barrier([second])
+
+    def time_to_die(health: float, phase1: float) -> float:
+        if net1 > 0 and net1 * phase1 >= health:
+            return health / net1
+        left = health - max(net1, 0.0) * phase1
+        return phase1 + left / net2 if net2 > 0 else max_fight
+
+    t_side = min(t1 + t2, max_fight)
+    t_die = min(time_to_die(side.health, t1), max_fight)
+    score = t_die / (t_side + t_die)
+    if side.heal_budget > 0 and side.heal_hps > 0:
+        heal_time = side.heal_budget / side.heal_hps
+        h_side = min(t1 + heal_time + t2, max_fight)
+        h_die = min(time_to_die(side.health + side.heal_budget, t1 + heal_time), max_fight)
+        if h_die / (h_side + h_die) > score:
+            t_side, t_die, score = h_side, h_die, h_die / (h_side + h_die)
+    return DuelResult(score=score, t_mage=t_side, t_opponent=t_die, mage_uptime=u1, opponent_uptime=first_uptime)
+
+
+def outnumbered_scores(side: MageSide, kits: Sequence[Kit]) -> dict[str, Any]:
+    """Mean outnumbered score over every pair of different kits with at least one melee kit (#278),
+    each pair in its better kill order; matchups are keyed "id+id" by sorted id."""
+    matchups: dict[str, float] = {}
+    for i, a in enumerate(kits):
+        for b in kits[i + 1:]:
+            if a.id == b.id or "melee" not in (a.role, b.role):
+                continue
+            key = "+".join(sorted((a.id, b.id)))
+            matchups[key] = max(outnumbered(side, a, b).score, outnumbered(side, b, a).score)
+    return {"score": sum(matchups.values()) / len(matchups) if matchups else 0.5, "matchups": matchups}
 
 
 def best_scenario_scores(char: Character, fillers: Sequence[SpellRank],
