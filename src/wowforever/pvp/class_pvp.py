@@ -38,31 +38,54 @@ def thorns_dps(thorns: SpellRank | None, spell_power: float, coefficient: float,
     return (thorns.damage_shield + coefficient * spell_power) * hits_per_second
 
 
+def heal_modifiers(spell: SpellRank, cls: ClassData, ranks: Mapping[int, int]) -> tuple[float, float, float]:
+    """(cast time change in s, mana cost %, healing %) from taken talents for one heal (#276).
+
+    Cast time and mana cost come only from effects naming the heal (Moonglow's school-wide cut is for
+    damaging spells); healing % from every `healing_pct` effect."""
+    cast = cost = healing = 0.0
+    for talent_id, rank in ranks.items():
+        if rank <= 0:
+            continue
+        for effect in cls.talent(talent_id).effects:
+            value = effect.values[rank - 1]
+            if effect.kind == "healing_pct":
+                healing += value
+            elif spell.name in effect.applies_to and effect.kind == "cast_time":
+                cast += value
+            elif spell.name in effect.applies_to and effect.kind == "mana_cost_pct":
+                cost += value
+    return cast, cost, healing
+
+
 def heal_capacity(class_name: str, stats, spells: Sequence[SpellRank], cls: ClassData,
                   ranks: Mapping[int, int]) -> tuple[float, float]:
     """(healing per second while healing, mana-limited healing budget) from the class's direct heals (#265).
 
     Each heal in config `heals` (best rank learned at the stats' level) heals its average direct amount plus
-    heal coefficient x the build's spell power per cast of max(GCD, cast time) seconds; the best per second
-    is used, and the budget is mana x heal_mana_share x its healing per mana. Classes without `heals`: (0, 0)."""
+    heal coefficient x the build's spell power per cast of max(GCD, cast time) seconds; talents change cast time,
+    mana cost and healing (heal_modifiers, #276); the best per second is used, and the budget is mana x
+    heal_mana_share x its healing per mana. Classes without `heals`: (0, 0)."""
     cfg = load_toml(CONFIG)[class_name]
     if "heals" not in cfg:
         return (0.0, 0.0)
     row = build_stats(class_name, stats, cls, ranks)
     sp = getattr(row, "spell_power", 0.0)
-    best: tuple[float, float, SpellRank] | None = None
+    best: tuple[float, float, float] | None = None
     for name in cfg["heals"]:
         spell = best_rank(spells, name, stats.level)
         if spell is None or spell.mana_cost <= 0 or spell.heal_max <= 0:
             continue
-        amount = (spell.heal_min + spell.heal_max) / 2 + spell.heal_coefficient * sp
-        seconds = max(GCD_SECONDS, spell.cast_time)
+        cast, cost, healing = heal_modifiers(spell, cls, ranks)
+        amount = ((spell.heal_min + spell.heal_max) / 2 + spell.heal_coefficient * sp) * (1 + healing / 100)
+        seconds = max(GCD_SECONDS, spell.cast_time + cast)
+        mana = spell.mana_cost * (1 + cost / 100)
         if best is None or amount / seconds > best[0] / best[1]:
-            best = (amount, seconds, spell)
+            best = (amount, seconds, mana)
     if best is None:
         return (0.0, 0.0)
-    amount, seconds, spell = best
-    return (amount / seconds, row.mana * cfg["heal_mana_share"] * amount / spell.mana_cost)
+    amount, seconds, mana = best
+    return (amount / seconds, row.mana * cfg["heal_mana_share"] * amount / mana)
 
 
 def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
