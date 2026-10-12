@@ -83,6 +83,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Gift of the Earthmother": (
         EffectRule("gcd", r"global cooldown by (\d+(?:\.\d+)?) seconds", ("Rejuvenation", "Swiftmend", "Wild Growth"), sign=-1),
     ),
+    "Improved Regrowth": (
+        EffectRule("crit_chance", r"critical effect chance of your Regrowth spell by (\d+(?:\.\d+)?)%", ("Regrowth",)),
+    ),
     # melee hybrid (#175)
     "Ferocity": (
         EffectRule("energy_cost", r"cost of your Maul, Primal Bite, Swipe, Claw, and Rake abilities by (\d+(?:\.\d+)?) Rage or Energy",
@@ -142,7 +145,6 @@ UNMODELED: dict[str, str] = {
     "Nature's Swiftness": "grants_spell",
     "Living Spirit": "buff: +15% Spirit",
     "Improved Tranquility": "healing: Tranquility cooldown and threat",
-    "Improved Regrowth": "healing: Regrowth crit",
     "Wild Growth": "grants_spell",
 }
 

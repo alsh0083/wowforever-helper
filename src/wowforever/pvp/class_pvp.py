@@ -18,7 +18,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from wowforever.assumptions import Assumptions
-from wowforever.calc.ev import GCD_SECONDS
+from wowforever.calc.ev import BASE_CRIT_BONUS_PCT, GCD_SECONDS
 from wowforever.focus import PVP_SCENARIOS
 from wowforever.melee_scenarios import build_stats, rotation_output
 from wowforever.melee_stats import MeleeStats
@@ -49,6 +49,7 @@ class HealMods:
     periodic_pct: float = 0.0  # more periodic healing, %
     duration: float = 0.0      # longer HoT, s
     gcd: float = 0.0           # global cooldown change, s
+    crit: float = 0.0          # more crit chance, percentage points
 
 
 def heal_modifiers(spell: SpellRank, cls: ClassData, ranks: Mapping[int, int]) -> HealMods:
@@ -56,8 +57,9 @@ def heal_modifiers(spell: SpellRank, cls: ClassData, ranks: Mapping[int, int]) -
 
     Healing % applies to both parts when it targets "all" or the heal by name, and to the periodic part only
     when it targets "periodic" (Genesis). Cast time, mana cost, duration and global cooldown come only from
-    effects naming the heal (Moonglow's school-wide cut is for damaging spells)."""
-    totals = dict.fromkeys(("cast", "cost", "direct_pct", "periodic_pct", "duration", "gcd"), 0.0)
+    effects naming the heal (Moonglow's school-wide cut is for damaging spells). Crit chance comes from effects
+    targeting "all" or the heal by name."""
+    totals = dict.fromkeys(("cast", "cost", "direct_pct", "periodic_pct", "duration", "gcd", "crit"), 0.0)
     named = {"cast_time": "cast", "mana_cost_pct": "cost", "duration": "duration", "gcd": "gcd"}
     for talent_id, rank in ranks.items():
         if rank <= 0:
@@ -70,14 +72,18 @@ def heal_modifiers(spell: SpellRank, cls: ClassData, ranks: Mapping[int, int]) -
                     totals["periodic_pct"] += value
                 elif "periodic" in effect.applies_to:
                     totals["periodic_pct"] += value
+            elif effect.kind == "crit_chance" and ("all" in effect.applies_to or spell.name in effect.applies_to):
+                totals["crit"] += value
             elif effect.kind in named and spell.name in effect.applies_to:
                 totals[named[effect.kind]] += value
     return HealMods(**totals)
 
 
-def _heal(spell: SpellRank, spell_power: float, mods: HealMods) -> tuple[float, float, float, float]:
-    """(direct healing, periodic healing, seconds, mana) of one cast after talents."""
-    direct = ((spell.heal_min + spell.heal_max) / 2 + spell.heal_coefficient * spell_power) * (1 + mods.direct_pct / 100)
+def _heal(spell: SpellRank, spell_power: float, mods: HealMods, crit_pct: float) -> tuple[float, float, float, float]:
+    """(direct healing, periodic healing, seconds, mana) of one cast after talents; direct healing crits (#283)."""
+    crit = min(100.0, crit_pct + mods.crit) / 100
+    direct = (((spell.heal_min + spell.heal_max) / 2 + spell.heal_coefficient * spell_power) * (1 + mods.direct_pct / 100)
+              * (1 + crit * BASE_CRIT_BONUS_PCT / 100))
     periodic = 0.0
     if spell.periodic_heal > 0 and spell.duration > 0:
         periodic = ((spell.periodic_heal + spell.periodic_heal_coefficient * spell_power)
@@ -94,6 +100,7 @@ def heal_capacity(class_name: str, stats, spells: Sequence[SpellRank], cls: Clas
     outlast the HoTs), then `hot_burst` (copies the biggest HoT's periodic healing; nothing when the
     swiftmend_consumes_hot assumption is on). The rest of mana x heal_mana_share goes to the heal in `heals`
     with the most direct healing per second. If the opening costs more than that mana, it scales down to fit.
+    Direct healing crits at the row's crit plus crit talents (#283).
     A spell named like a talent counts only when the talent is taken. Classes without `heals`: (0, 0)."""
     cfg = load_toml(CONFIG)[class_name]
     if "heals" not in cfg:
@@ -102,6 +109,8 @@ def heal_capacity(class_name: str, stats, spells: Sequence[SpellRank], cls: Clas
         assumptions = Assumptions.load()
     row = build_stats(class_name, stats, cls, ranks)
     sp = getattr(row, "spell_power", 0.0)
+    # a melee row's crit is melee crit; its spell crit isn't modeled (#283)
+    crit_pct = getattr(row, "crit_pct", 0.0) if hasattr(row, "spell_power") else 0.0
     mana_budget = row.mana * cfg["heal_mana_share"]
     talents = {t.name: t.talent_id for t in cls.talents}
 
@@ -115,13 +124,13 @@ def heal_capacity(class_name: str, stats, spells: Sequence[SpellRank], cls: Clas
         spell = learned(name)
         if spell is None or spell.mana_cost <= 0 or spell.periodic_heal <= 0:
             continue
-        direct, periodic, secs, cost = _heal(spell, sp, heal_modifiers(spell, cls, ranks))
+        direct, periodic, secs, cost = _heal(spell, sp, heal_modifiers(spell, cls, ranks), crit_pct)
         amount, seconds, mana = amount + direct + periodic, seconds + secs, mana + cost
         biggest = max(biggest, periodic)
     burst = learned(cfg["hot_burst"]) if "hot_burst" in cfg else None
     if burst is not None and biggest > 0 and not assumptions["swiftmend_consumes_hot"]:
         amount += biggest
-        seconds += _heal(burst, sp, heal_modifiers(burst, cls, ranks))[2]
+        seconds += _heal(burst, sp, heal_modifiers(burst, cls, ranks), crit_pct)[2]
     if mana > 0 and mana >= mana_budget:
         return (amount / seconds, amount * mana_budget / mana)
 
@@ -130,7 +139,7 @@ def heal_capacity(class_name: str, stats, spells: Sequence[SpellRank], cls: Clas
         spell = learned(name)
         if spell is None or spell.mana_cost <= 0 or spell.heal_max <= 0:
             continue
-        direct, _, secs, cost = _heal(spell, sp, heal_modifiers(spell, cls, ranks))
+        direct, _, secs, cost = _heal(spell, sp, heal_modifiers(spell, cls, ranks), crit_pct)
         if best is None or direct / secs > best[0] / best[1]:
             best = (direct, secs, cost)
     if best is not None:
