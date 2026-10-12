@@ -107,4 +107,4 @@ Change nothing else.
 The package is already installed in `.venv`. Before you start, `tests/test_caster_aoe.py` fails at collection with `ImportError` (`aoe_pull`). That's expected. Install nothing and ask for no elevation. Write the edits with `tools/apply_patch.py` (see AGENTS.md), in the order above, with each file's hunks in file order. `config/casters.toml` has two `regen_spirit_div = 5` lines (druid and shaman): include the following `[druid.weights]` or `[shaman.weights]` line in each hunk's context so it matches once.
 
 ## Done when
-`.venv/Scripts/python -m pytest tests/test_caster_aoe.py tests/test_caster.py` passes, and so does `.venv/Scripts/python -m pytest -m "not slow"`.
+`.venv/Scripts/python -m pytest tests/test_caster_aoe.py tests/test_caster_engine.py tests/test_caster_classes.py` passes, and so does `.venv/Scripts/python -m pytest -m "not slow"`.
