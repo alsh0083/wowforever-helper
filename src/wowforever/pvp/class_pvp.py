@@ -176,6 +176,10 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
     roots = {c["name"] for c in cfg["controls"] if c["kind"] == "root"}
     extra = sum(e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
                 for e in t.effects if e.kind == "targets" and roots & set(e.applies_to))
+    # damage breaks roots past a share of the target's health, raised by talents (#286)
+    tougher = sum(e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
+                  for e in t.effects if e.kind == "break_threshold_pct" and roots & set(e.applies_to))
+    root_durations = [c.duration for c in controls if c.kind == "root"]
     return MageSide(
         health=row.health,
         dps=output.dps,
@@ -192,6 +196,8 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
         heal_hps=heal_hps,
         heal_budget=heal_budget,
         root_targets=1 + int(extra),
+        root_break_health=assumptions["roots_break_health_pct"] / 100 * (1 + tougher / 100),
+        root_duration=max(root_durations, default=0.0),
     )
 
 

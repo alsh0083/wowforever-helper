@@ -74,6 +74,7 @@ EFFECT_KINDS = frozenset({
     "range",            # change to range, yards
     "duration",         # change to duration, seconds
     "targets",          # more targets a spell can affect at once (count)
+    "break_threshold_pct",  # % more damage a control's target takes before the control breaks
     "slow_pct",         # movement slow, %
     "control",          # root/stun/freeze/interrupt effect (value = duration or chance)
     "defensive",        # absorb/immunity/damage reduction

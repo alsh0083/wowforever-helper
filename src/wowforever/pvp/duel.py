@@ -88,6 +88,8 @@ class MageSide:
     heal_hps: float = 0.0  # healing per second while casting heals (#265)
     heal_budget: float = 0.0  # mana-limited healing for the fight
     root_targets: int = 1  # opponents its roots hold at once (Overgrowth, #278)
+    root_break_health: float = 0.0  # damage that breaks its root, share of the target's health; 0 = never (#286)
+    root_duration: float = 0.0  # seconds one root lasts unbroken
 
 
 @dataclass(frozen=True)
@@ -153,6 +155,19 @@ def load_kits(level: int = 60, directory: Path = OPPONENTS) -> list[Kit]:
     return list(_kits_at(directory, level))
 
 
+def root_hold(side: MageSide, kit: Kit) -> float:
+    """Share of the side's root time that holds on `kit` while the side damages it (#286): the root breaks
+    once the side has dealt root_break_health x kit health. 1 when the side's roots don't break."""
+    if side.root_break_health <= 0 or side.root_duration <= 0 or side.dps <= 0:
+        return 1.0
+    return min(1.0, side.root_break_health * kit.health / (side.dps * side.root_duration))
+
+
+def _held(side: MageSide, kit: Kit) -> MageSide:
+    """`side` with its roots scaled by root_hold against `kit`, the target it's damaging."""
+    return dataclasses.replace(side, root=side.root * root_hold(side, kit))
+
+
 def _kiting_seconds(mage: MageSide, kit: Kit, c: dict[str, Any]) -> float:
     """Per-minute seconds the opponent cannot hit the mage, by its role."""
     if kit.role == "melee":
@@ -203,7 +218,7 @@ def duel(mage: MageSide, kit: Kit, variant: str) -> DuelResult:
 
     lockout = sum(lockout_seconds(kit.controls, kit.energy_per_minute).values())
     mage_uptime = max(c["min_uptime"], 1 - lockout / 60)
-    opponent_uptime = max(c["min_uptime"], 1 - _kiting_seconds(mage, kit, c) / 60)
+    opponent_uptime = max(c["min_uptime"], 1 - _kiting_seconds(_held(mage, kit), kit, c) / 60)
 
     immune_share = kit.immunity[0] / kit.immunity[1] if kit.immunity else 0.0
     dps = mage.dps + (mage.nova_dps if kit.role == "melee" else 0.0)  # Nova needs them in melee
@@ -270,9 +285,9 @@ def outnumbered(side: MageSide, first: Kit, second: Kit) -> DuelResult:
 
     Phase 1 (both alive): both kits' lockouts add up; the defender's stuns, slows and interrupts are
     split between them by outnumbered_control_split; roots hold the opponent not being attacked, and
-    the attacked one too with root_targets >= 2. Phase 2: `second` alone, as in a duel. Healing happens
-    in phase 1 and counts only if the score rises. mage_uptime and opponent_uptime are phase 1's,
-    the latter for `first`."""
+    the attacked one too with root_targets >= 2 until damage breaks them (#286). Phase 2: `second`
+    alone, as in a duel. Healing happens in phase 1 and counts only if the score rises. mage_uptime
+    and opponent_uptime are phase 1's, the latter for `first`."""
     c = _config()
     max_fight = c["max_fight"]
 
@@ -297,10 +312,10 @@ def outnumbered(side: MageSide, first: Kit, second: Kit) -> DuelResult:
     split = c["outnumbered_control_split"]
     shared = dataclasses.replace(side, stun=side.stun * split, slow=side.slow * split,
                                  interrupt=side.interrupt * split)
-    focus = dataclasses.replace(shared, root=side.root if side.root_targets >= 2 else 0.0)
+    focus = dataclasses.replace(shared, root=side.root * root_hold(side, first) if side.root_targets >= 2 else 0.0)
     d_first, first_uptime = incoming(first, focus)
     net1 = d_first + incoming(second, shared)[0] - barrier([first, second])
-    net2 = incoming(second, side)[0] - barrier([second])
+    net2 = incoming(second, _held(side, second))[0] - barrier([second])
 
     def time_to_die(health: float, phase1: float) -> float:
         if net1 > 0 and net1 * phase1 >= health:
