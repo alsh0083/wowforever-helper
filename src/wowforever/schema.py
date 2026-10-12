@@ -58,6 +58,7 @@ EFFECT_KINDS = frozenset({
     "cast_time",        # change to cast time, seconds (negative = faster)
     "cooldown",         # change to cooldown, seconds
     "mana_cost_pct",    # % change to mana cost
+    "healing_pct",      # % more healing (Gift of Nature)
     "energy_cost",      # flat change to an ability's energy cost (negative = cheaper)
     "rage_cost",        # flat change to an ability's rage cost (negative = cheaper)
     "dodge_reduction",  # percentage points off the target's dodge and parry

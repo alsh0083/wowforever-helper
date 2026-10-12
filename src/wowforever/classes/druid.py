@@ -56,10 +56,19 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("crit_chance", r"Critical Strike chance increased by (\d+(?:\.\d+)?)%", ("all",)),
     ),
     "Naturalist": (
+        EffectRule("cast_time", r"cast time of your Healing Touch spell by (\d+(?:\.\d+)?) sec", ("Healing Touch",), sign=-1),
         EffectRule("damage_pct", r"increases all damage you deal by (\d+(?:\.\d+)?)%", ("all",)),
     ),
     "Reflection": (
         EffectRule("regen_while_casting", r"Allows (\d+(?:\.\d+)?)% of your Mana regeneration", ("all",)),
+    ),
+    # self-healing (#276)
+    "Gift of Nature": (
+        EffectRule("healing_pct", r"effect of all your healing spells by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
+    "Tranquil Spirit": (
+        EffectRule("mana_cost_pct", r"mana cost of your Healing Touch and Tranquility spells by (\d+(?:\.\d+)?)%",
+                   ("Healing Touch", "Tranquility"), sign=-1),
     ),
     # melee hybrid (#175)
     "Ferocity": (
@@ -117,9 +126,7 @@ UNMODELED: dict[str, str] = {
     "Furor": "resource: Rage or Energy on shapeshift",
     "Subtlety": "threat: less threat from Nature and Arcane spells",
     "Natural Shapeshifter": "resource: cheaper shapeshifting",
-    "Gift of Nature": "healing: +10% healing",
     "Gift of the Earthmother": "healing: shorter global cooldown on heals",
-    "Tranquil Spirit": "resource: cheaper Healing Touch and Tranquility",
     "Improved Rejuvenation": "healing: +15% Rejuvenation",
     "Swiftmend": "grants_spell",
     "Nature's Swiftness": "grants_spell",
