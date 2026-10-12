@@ -7,6 +7,7 @@ opponent kits (config/pvp_self.toml). The score is the mean over the four world-
 
 Opponent kits' DPS assumes cloth; physical kits hit these classes by their armor ratio.
 Thorns returns damage to melee opponents (#265).
+Druids heal themselves with direct heals when that helps (#265).
 Not modeled yet: openers from stealth, Evasion, Vanish, Deterrence and Feign Death.
 """
 
@@ -16,6 +17,7 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path
 
 from wowforever.assumptions import Assumptions
+from wowforever.calc.ev import GCD_SECONDS
 from wowforever.focus import PVP_SCENARIOS
 from wowforever.melee_scenarios import build_stats, rotation_output
 from wowforever.melee_stats import MeleeStats
@@ -34,6 +36,33 @@ def thorns_dps(thorns: SpellRank | None, spell_power: float, coefficient: float,
     if thorns is None or thorns.damage_shield <= 0:
         return 0.0
     return (thorns.damage_shield + coefficient * spell_power) * hits_per_second
+
+
+def heal_capacity(class_name: str, stats, spells: Sequence[SpellRank], cls: ClassData,
+                  ranks: Mapping[int, int]) -> tuple[float, float]:
+    """(healing per second while healing, mana-limited healing budget) from the class's direct heals (#265).
+
+    Each heal in config `heals` (best rank learned at the stats' level) heals its average direct amount plus
+    heal coefficient x the build's spell power per cast of max(GCD, cast time) seconds; the best per second
+    is used, and the budget is mana x heal_mana_share x its healing per mana. Classes without `heals`: (0, 0)."""
+    cfg = load_toml(CONFIG)[class_name]
+    if "heals" not in cfg:
+        return (0.0, 0.0)
+    row = build_stats(class_name, stats, cls, ranks)
+    sp = getattr(row, "spell_power", 0.0)
+    best: tuple[float, float, SpellRank] | None = None
+    for name in cfg["heals"]:
+        spell = best_rank(spells, name, stats.level)
+        if spell is None or spell.mana_cost <= 0 or spell.heal_max <= 0:
+            continue
+        amount = (spell.heal_min + spell.heal_max) / 2 + spell.heal_coefficient * sp
+        seconds = max(GCD_SECONDS, spell.cast_time)
+        if best is None or amount / seconds > best[0] / best[1]:
+            best = (amount, seconds, spell)
+    if best is None:
+        return (0.0, 0.0)
+    amount, seconds, spell = best
+    return (amount / seconds, row.mana * cfg["heal_mana_share"] * amount / spell.mana_cost)
 
 
 def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
@@ -59,6 +88,7 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
     row = build_stats(class_name, stats, cls, ranks)
     thorns = thorns_dps(best_rank(spells, "Thorns", stats.level), getattr(row, "spell_power", 0.0),
                         assumptions["thorns_spell_power_coefficient"], raw.get("opponent_melee_hits_per_second", 0.0))
+    heal_hps, heal_budget = heal_capacity(class_name, stats, spells, cls, ranks)
     return MageSide(
         health=row.health,
         dps=output.dps,
@@ -72,6 +102,8 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
         interrupt=locks.get("interrupt", 0.0) + locks.get("silence", 0.0),
         physical_taken=(armor_factor(stats.level, raw["own_armor"][class_name])
                         / armor_factor(stats.level, raw["cloth_armor"])),
+        heal_hps=heal_hps,
+        heal_budget=heal_budget,
     )
 
 
