@@ -9,13 +9,7 @@ Synthetic duel (no controls, full uptime): side 3000 health / 100 DPS, opponent 
   No healing: t_side = 3000/100 = 30, t_opp = 3000/200 = 15, score 15/45 = 0.3333.
   2000 healing at 400/s: t_side = 30 + 5 = 35, t_opp = 5000/200 = 25, score 25/60 = 0.41667.
 
-Druid sides (direct heals only, Healing Touch and Regrowth's direct part; HoTs later), heal mana
-share 0.5 (config estimate):
-  Balance 60: Healing Touch r11 averages 2332, + 312 spell power = 2644 per 3.5 s cast = 755.43/s;
-    2644 / 840 mana = 3.1476 per mana; budget 5030 x 0.5 x 3.1476 = 7916.3.
-    (Regrowth's direct part: 1021 + 0.286 x 312 = 1110.2 per 2.0 s = 555.1/s, lower.)
-  Feral 60 (melee row, no spell power): 2332 per 3.5 s = 666.29/s; budget 2690 x 0.5 x 2332/840 = 3734.0.
-  Balance 30: Healing Touch r5 averages 546, + 93 = 639 per 3.5 s = 182.57/s; budget 2330 x 0.5 x 639/280 = 2658.7.
+The druid's healing values are pinned in tests/test_hot_heals.py (#279).
 """
 
 import pytest
@@ -63,24 +57,10 @@ def ranks(build_id):
     return build.final_ids(CLS)
 
 
-def test_heal_capacity_picks_the_best_heal_per_second():
-    hps, budget = heal_capacity("druid", TABLE.at(60), CLS.spells, CLS, ranks("druid-balance-pvp"))
-    assert hps == pytest.approx(755.43, rel=1e-3) and budget == pytest.approx(7916.3, rel=1e-3)
-
-
-def test_feral_heals_without_spell_power_from_its_smaller_mana_pool():
-    hps, budget = heal_capacity("druid", TABLE.at(60), CLS.spells, CLS, ranks("druid-feral"))
-    assert hps == pytest.approx(666.29, rel=1e-3) and budget == pytest.approx(3734.0, rel=1e-3)
-
-
-def test_at_the_beta_cap():
-    hps, budget = heal_capacity("druid", TABLE.at(30), CLS.spells, CLS, ranks("druid-balance-pvp"))
-    assert hps == pytest.approx(182.57, rel=1e-3) and budget == pytest.approx(2658.7, rel=1e-3)
-
-
 def test_the_druid_side_carries_its_healing_and_other_classes_none():
     s = class_side("druid", TABLE.at(60), CLS.spells, CLS, ranks("druid-balance-pvp"))
-    assert (s.heal_hps, s.heal_budget) == (pytest.approx(755.43, rel=1e-3), pytest.approx(7916.3, rel=1e-3))
+    expected = heal_capacity("druid", TABLE.at(60), CLS.spells, CLS, ranks("druid-balance-pvp"))
+    assert s.heal_hps > 0 and (s.heal_hps, s.heal_budget) == pytest.approx(expected)
     rogue = Dataset.load(latest_dataset_path()).class_data("rogue")
     r = class_side("rogue", stat_table("rogue").at(60), rogue.spells, rogue, {})
     assert (r.heal_hps, r.heal_budget) == (0.0, 0.0)

@@ -69,8 +69,10 @@ controls = [
 ]
 slow = 0.0
 
-# self-healing in duels (#265): direct heals only (HoTs can't be stacked by recasting; later); share of mana spent healing (estimate)
+# self-healing in duels (#265, #279): a healing phase opens with each of `hots` once, then `hot_burst`, then the best of `heals`; share of mana spent healing (estimate)
 heals = ["Healing Touch", "Regrowth"]
+hots = ["Rejuvenation", "Regrowth"]
+hot_burst = "Swiftmend"
 heal_mana_share = 0.5
 
 [shaman]

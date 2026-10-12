@@ -7,13 +7,14 @@ opponent kits (config/pvp_self.toml). The score is the mean over the four world-
 
 Opponent kits' DPS assumes cloth; physical kits hit these classes by their armor ratio.
 Thorns returns damage to melee opponents (#265).
-Druids heal themselves with direct heals when that helps (#265).
+Druids heal themselves with HoTs, Swiftmend and direct heals when that helps (#265, #279).
 Not modeled yet: openers from stealth, Evasion, Vanish, Deterrence and Feign Death.
 """
 
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
+from dataclasses import dataclass
 from pathlib import Path
 
 from wowforever.assumptions import Assumptions
@@ -38,54 +39,104 @@ def thorns_dps(thorns: SpellRank | None, spell_power: float, coefficient: float,
     return (thorns.damage_shield + coefficient * spell_power) * hits_per_second
 
 
-def heal_modifiers(spell: SpellRank, cls: ClassData, ranks: Mapping[int, int]) -> tuple[float, float, float]:
-    """(cast time change in s, mana cost %, healing %) from taken talents for one heal (#276).
+@dataclass(frozen=True)
+class HealMods:
+    """Talent changes to one heal (#276, #279)."""
 
-    Cast time and mana cost come only from effects naming the heal (Moonglow's school-wide cut is for
-    damaging spells); healing % from every `healing_pct` effect."""
-    cast = cost = healing = 0.0
+    cast: float = 0.0          # cast time change, s
+    cost: float = 0.0          # mana cost change, %
+    direct_pct: float = 0.0    # more direct healing, %
+    periodic_pct: float = 0.0  # more periodic healing, %
+    duration: float = 0.0      # longer HoT, s
+    gcd: float = 0.0           # global cooldown change, s
+
+
+def heal_modifiers(spell: SpellRank, cls: ClassData, ranks: Mapping[int, int]) -> HealMods:
+    """Talent changes to one heal (#276, #279).
+
+    Healing % applies to both parts when it targets "all" or the heal by name, and to the periodic part only
+    when it targets "periodic" (Genesis). Cast time, mana cost, duration and global cooldown come only from
+    effects naming the heal (Moonglow's school-wide cut is for damaging spells)."""
+    totals = dict.fromkeys(("cast", "cost", "direct_pct", "periodic_pct", "duration", "gcd"), 0.0)
+    named = {"cast_time": "cast", "mana_cost_pct": "cost", "duration": "duration", "gcd": "gcd"}
     for talent_id, rank in ranks.items():
         if rank <= 0:
             continue
         for effect in cls.talent(talent_id).effects:
             value = effect.values[rank - 1]
             if effect.kind == "healing_pct":
-                healing += value
-            elif spell.name in effect.applies_to and effect.kind == "cast_time":
-                cast += value
-            elif spell.name in effect.applies_to and effect.kind == "mana_cost_pct":
-                cost += value
-    return cast, cost, healing
+                if "all" in effect.applies_to or spell.name in effect.applies_to:
+                    totals["direct_pct"] += value
+                    totals["periodic_pct"] += value
+                elif "periodic" in effect.applies_to:
+                    totals["periodic_pct"] += value
+            elif effect.kind in named and spell.name in effect.applies_to:
+                totals[named[effect.kind]] += value
+    return HealMods(**totals)
+
+
+def _heal(spell: SpellRank, spell_power: float, mods: HealMods) -> tuple[float, float, float, float]:
+    """(direct healing, periodic healing, seconds, mana) of one cast after talents."""
+    direct = ((spell.heal_min + spell.heal_max) / 2 + spell.heal_coefficient * spell_power) * (1 + mods.direct_pct / 100)
+    periodic = 0.0
+    if spell.periodic_heal > 0 and spell.duration > 0:
+        periodic = ((spell.periodic_heal + spell.periodic_heal_coefficient * spell_power)
+                    * (1 + mods.periodic_pct / 100) * (spell.duration + mods.duration) / spell.duration)
+    seconds = max(GCD_SECONDS + mods.gcd, spell.cast_time + mods.cast)
+    return direct, periodic, seconds, spell.mana_cost * (1 + mods.cost / 100)
 
 
 def heal_capacity(class_name: str, stats, spells: Sequence[SpellRank], cls: ClassData,
-                  ranks: Mapping[int, int]) -> tuple[float, float]:
-    """(healing per second while healing, mana-limited healing budget) from the class's direct heals (#265).
+                  ranks: Mapping[int, int], *, assumptions: Assumptions | None = None) -> tuple[float, float]:
+    """(healing per second while healing, mana-limited healing budget) for the class's healing phase (#265, #279).
 
-    Each heal in config `heals` (best rank learned at the stats' level) heals its average direct amount plus
-    heal coefficient x the build's spell power per cast of max(GCD, cast time) seconds; talents change cast time,
-    mana cost and healing (heal_modifiers, #276); the best per second is used, and the budget is mana x
-    heal_mana_share x its healing per mana. Classes without `heals`: (0, 0)."""
+    The phase opens with each heal in config `hots` once (direct part plus its full periodic healing: fights
+    outlast the HoTs), then `hot_burst` (copies the biggest HoT's periodic healing; nothing when the
+    swiftmend_consumes_hot assumption is on). The rest of mana x heal_mana_share goes to the heal in `heals`
+    with the most direct healing per second. If the opening costs more than that mana, it scales down to fit.
+    A spell named like a talent counts only when the talent is taken. Classes without `heals`: (0, 0)."""
     cfg = load_toml(CONFIG)[class_name]
     if "heals" not in cfg:
         return (0.0, 0.0)
+    if assumptions is None:
+        assumptions = Assumptions.load()
     row = build_stats(class_name, stats, cls, ranks)
     sp = getattr(row, "spell_power", 0.0)
+    mana_budget = row.mana * cfg["heal_mana_share"]
+    talents = {t.name: t.talent_id for t in cls.talents}
+
+    def learned(name: str) -> SpellRank | None:
+        if name in talents and ranks.get(talents[name], 0) <= 0:
+            return None
+        return best_rank(spells, name, stats.level)
+
+    amount = seconds = mana = biggest = 0.0
+    for name in cfg.get("hots", []):
+        spell = learned(name)
+        if spell is None or spell.mana_cost <= 0 or spell.periodic_heal <= 0:
+            continue
+        direct, periodic, secs, cost = _heal(spell, sp, heal_modifiers(spell, cls, ranks))
+        amount, seconds, mana = amount + direct + periodic, seconds + secs, mana + cost
+        biggest = max(biggest, periodic)
+    burst = learned(cfg["hot_burst"]) if "hot_burst" in cfg else None
+    if burst is not None and biggest > 0 and not assumptions["swiftmend_consumes_hot"]:
+        amount += biggest
+        seconds += _heal(burst, sp, heal_modifiers(burst, cls, ranks))[2]
+    if mana > 0 and mana >= mana_budget:
+        return (amount / seconds, amount * mana_budget / mana)
+
     best: tuple[float, float, float] | None = None
     for name in cfg["heals"]:
-        spell = best_rank(spells, name, stats.level)
+        spell = learned(name)
         if spell is None or spell.mana_cost <= 0 or spell.heal_max <= 0:
             continue
-        cast, cost, healing = heal_modifiers(spell, cls, ranks)
-        amount = ((spell.heal_min + spell.heal_max) / 2 + spell.heal_coefficient * sp) * (1 + healing / 100)
-        seconds = max(GCD_SECONDS, spell.cast_time + cast)
-        mana = spell.mana_cost * (1 + cost / 100)
-        if best is None or amount / seconds > best[0] / best[1]:
-            best = (amount, seconds, mana)
-    if best is None:
-        return (0.0, 0.0)
-    amount, seconds, mana = best
-    return (amount / seconds, row.mana * cfg["heal_mana_share"] * amount / mana)
+        direct, _, secs, cost = _heal(spell, sp, heal_modifiers(spell, cls, ranks))
+        if best is None or direct / secs > best[0] / best[1]:
+            best = (direct, secs, cost)
+    if best is not None:
+        filler = (mana_budget - mana) * best[0] / best[2]
+        amount, seconds = amount + filler, seconds + filler * best[1] / best[0]
+    return (amount / seconds, amount) if seconds > 0 else (0.0, 0.0)
 
 
 def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
@@ -111,7 +162,7 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
     row = build_stats(class_name, stats, cls, ranks)
     thorns = thorns_dps(best_rank(spells, "Thorns", stats.level), getattr(row, "spell_power", 0.0),
                         assumptions["thorns_spell_power_coefficient"], raw.get("opponent_melee_hits_per_second", 0.0))
-    heal_hps, heal_budget = heal_capacity(class_name, stats, spells, cls, ranks)
+    heal_hps, heal_budget = heal_capacity(class_name, stats, spells, cls, ranks, assumptions=assumptions)
     return MageSide(
         health=row.health,
         dps=output.dps,
