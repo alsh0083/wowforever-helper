@@ -238,9 +238,14 @@ def duel(mage: MageSide, kit: Kit, variant: str) -> DuelResult:
     t_opponent = min(max(t_opponent, 0.0), max_fight)
     score = 0.5 if t_mage + t_opponent == 0 else t_opponent / (t_mage + t_opponent)
     if mage.heal_budget > 0 and mage.heal_hps > 0 and net > 0:
-        # healing adds effective health but pauses damage (#265); heal only if the score rises
-        h_mage = min(t_mage + mage.heal_budget / mage.heal_hps, max_fight)
-        h_opp = min((mage.health - opening + mage.heal_budget) / net, max_fight)
+        # healing adds effective health but pauses damage (#265); heal only if the score rises.
+        # Roots hold fully while healing (#290): the fight's damage rate is the time-weighted mean.
+        heal_time = mage.heal_budget / mage.heal_hps
+        held = max(c["min_uptime"], 1 - _kiting_seconds(mage, kit, c) / 60)
+        net_heal = kit.dps * physical * held * (1 - mage.immunity_share) - barrier
+        mean_net = (net * t_mage + net_heal * heal_time) / (t_mage + heal_time)
+        h_mage = min(t_mage + heal_time, max_fight)
+        h_opp = min((mage.health - opening + mage.heal_budget) / mean_net, max_fight)
         h_score = h_opp / (h_mage + h_opp)
         if h_score > score:
             t_mage, t_opponent, score = h_mage, h_opp, h_score
@@ -286,8 +291,9 @@ def outnumbered(side: MageSide, first: Kit, second: Kit) -> DuelResult:
     Phase 1 (both alive): both kits' lockouts add up; the defender's stuns, slows and interrupts are
     split between them by outnumbered_control_split; roots hold the opponent not being attacked, and
     the attacked one too with root_targets >= 2 until damage breaks them (#286). Phase 2: `second`
-    alone, as in a duel. Healing happens in phase 1 and counts only if the score rises. mage_uptime
-    and opponent_uptime are phase 1's, the latter for `first`."""
+    alone, as in a duel. Healing happens in phase 1, with roots unbroken while it lasts (#290), and
+    counts only if the score rises. mage_uptime and opponent_uptime are phase 1's, the latter for
+    `first`."""
     c = _config()
     max_fight = c["max_fight"]
 
@@ -315,21 +321,25 @@ def outnumbered(side: MageSide, first: Kit, second: Kit) -> DuelResult:
     focus = dataclasses.replace(shared, root=side.root * root_hold(side, first) if side.root_targets >= 2 else 0.0)
     d_first, first_uptime = incoming(first, focus)
     net1 = d_first + incoming(second, shared)[0] - barrier([first, second])
+    # while healing nobody is attacked, so the focus keeps a full root (#290)
+    unbroken = dataclasses.replace(shared, root=side.root if side.root_targets >= 2 else 0.0)
+    net1_heal = incoming(first, unbroken)[0] + incoming(second, shared)[0] - barrier([first, second])
     net2 = incoming(second, _held(side, second))[0] - barrier([second])
 
-    def time_to_die(health: float, phase1: float) -> float:
-        if net1 > 0 and net1 * phase1 >= health:
-            return health / net1
-        left = health - max(net1, 0.0) * phase1
+    def time_to_die(health: float, phase1: float, rate1: float) -> float:
+        if rate1 > 0 and rate1 * phase1 >= health:
+            return health / rate1
+        left = health - max(rate1, 0.0) * phase1
         return phase1 + left / net2 if net2 > 0 else max_fight
 
     t_side = min(t1 + t2, max_fight)
-    t_die = min(time_to_die(side.health, t1), max_fight)
+    t_die = min(time_to_die(side.health, t1, net1), max_fight)
     score = t_die / (t_side + t_die)
     if side.heal_budget > 0 and side.heal_hps > 0:
         heal_time = side.heal_budget / side.heal_hps
         h_side = min(t1 + heal_time + t2, max_fight)
-        h_die = min(time_to_die(side.health + side.heal_budget, t1 + heal_time), max_fight)
+        rate1 = (net1 * t1 + net1_heal * heal_time) / (t1 + heal_time)
+        h_die = min(time_to_die(side.health + side.heal_budget, t1 + heal_time, rate1), max_fight)
         if h_die / (h_side + h_die) > score:
             t_side, t_die, score = h_side, h_die, h_die / (h_side + h_die)
     return DuelResult(score=score, t_mage=t_side, t_opponent=t_die, mage_uptime=u1, opponent_uptime=first_uptime)
