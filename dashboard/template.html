@@ -195,7 +195,9 @@ function bestAt(scenario,lv){
   if(modeOf(b)!==modeOf(build))continue;
   const row=b.scores[scenario]&&b.scores[scenario][lv];
   if(!row)continue;
-  if(best===null||row.score>best+1e-9){best=row.score;winners=[b]}
+  // lower_better rows (AoE pulls, #263): smaller wins; a 0 break-even pack means AoE never pays off
+  if(row.lower_better&&row.score<=0)continue;
+  if(best===null||(row.lower_better?row.score<best-1e-9:row.score>best+1e-9)){best=row.score;winners=[b]}
   else if(Math.abs(row.score-best)<=1e-9)winners.push(b);
  }
  return{score:best,winners};

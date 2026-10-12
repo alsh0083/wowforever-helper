@@ -22,8 +22,14 @@ armor = 1500
 armor_share_of_questing = 0.4545
 target_level_offset = 2
 
+[aoe]
+# AoE pulls (#260, #263): seconds to clear a pack of this many same-level questing mobs
+pack = 3
+
 [references]
 # divisors that put the PvE parts on a common scale (as the mage's PVE_REFERENCES)
 questing = 100.0
 raid = 150.0
 dungeon = 150.0
+# AoE pulls count as aoe_seconds / seconds to clear the pack (the mage's aoe_seconds_3)
+aoe_seconds = 15.0

@@ -30,8 +30,10 @@ def test_builds_get_legal_optimized_orders_and_pve_scores(report):
             assert set(b["scores"]) == {"questing"} and all(row["score"] > 0 for row in b["scores"]["questing"].values())
             continue
         assert b["order_source"] in ("hand-written", "optimized for questing kills/hour")
-        assert set(b["scores"]) == {"questing", "dungeon", "raid"}
+        assert set(b["scores"]) == {"questing", "dungeon", "raid", "aoe"}   # AoE pulls (#263)
         assert set(b["scores"]["questing"]) == {20, 30, 40, 50, 60} and set(b["scores"]["raid"]) == {60}
+        assert set(b["scores"]["aoe"]) == {20, 30, 40, 50, 60}
+        assert all(row["lower_better"] and row["unit"] == "seconds (3-mob pack)" for row in b["scores"]["aoe"].values())
         assert all(row["score"] > 0 for rows in b["scores"].values() for row in rows.values())
 
 
