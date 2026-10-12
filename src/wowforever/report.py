@@ -83,7 +83,7 @@ def score_build(order: Sequence[int], cls: ClassData, spells, stats: StatTable,
         a = aoe_curve(char, default_params("aoe", level), assumptions)
         scores["questing"][level] = {"score": round(q.score, 1), "unit": q.unit, "spell": q.details["spell"]}
         scores["aoe"][level] = {"score": a.score, "unit": a.unit, "spell": a.details["aoe_spell"],
-                                "break_even": a.details["break_even"]}
+                                "break_even": a.details["break_even"], "lower_better": True}
         filler = best_rank(spells, q.details["spell"], level)
         for name, axis in (("survival", survival), ("control", control)):
             result = axis(char, filler)
@@ -348,7 +348,7 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
             entry["order_source"] = "optimized for questing kills/hour"
             entry["open_points"] = points_available(top, cls.rules) - len(entry["order"])
         order = entry["order"]
-        scores: dict[str, dict[int, dict[str, Any]]] = {"questing": {}, "dungeon": {}, "raid": {}}
+        scores: dict[str, dict[int, dict[str, Any]]] = {"questing": {}, "dungeon": {}, "raid": {}, "aoe": {}}
         for level in CHECKPOINTS:
             ranks = ranks_at(order, level, cls)
             stats = table.at(level)
@@ -357,6 +357,9 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
             # assumed a tank's Sunder Armor
             scores["dungeon"][level] = {**group.grouped_dungeon(class_name, stats, cls, ranks), "unit": "dps",
                                         "solo": round(ms.dungeon(class_name, stats, spells, cls, ranks), 1)}
+            seconds, spell = ms.aoe(class_name, stats, spells, cls, ranks)
+            scores["aoe"][level] = {"score": round(seconds, 1), "unit": "seconds (3-mob pack)", "spell": spell,
+                                    "lower_better": True}
             if level == top:
                 scores["raid"][level] = {"score": round(ms.raid(class_name, stats, spells, cls, ranks), 1),
                                          "unit": "dps"}

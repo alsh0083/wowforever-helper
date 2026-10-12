@@ -231,12 +231,36 @@ def raid(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
     return total / weight
 
 
+def aoe(class_name: str, stats: MeleeStats, spells, cls, ranks) -> tuple[float, str]:
+    """Seconds to clear a pack of same-level questing mobs (#263) and the AoE spell used, or "single
+    target". Spell-engine classes (and a hybrid's caster builds) mix their AoE spells into the rotation
+    (caster.aoe_pull, #260); the others clear the pack with their single-target rotation until their AoE
+    abilities are modeled (#262)."""
+    from wowforever.classes import class_module
+
+    module = class_module(class_name)
+    pack = _config()["aoe"]["pack"]
+    mob_hp = default_params("aoe", stats.level).mob_hp
+    row = stats if getattr(module, "ENGINE", None) == "spell" else None
+    if isinstance(stats, HybridStats):
+        row = None if main_tree(cls, ranks) in module.MELEE_TREES else stats.caster
+    if row is not None:
+        from wowforever.caster import aoe_pull
+
+        pull = aoe_pull(class_name, row, spells, cls, ranks, pack, mob_hp)
+        return pull.seconds, pull.spell
+    armor = _anchor_at(_config()["questing"]["anchors"], stats.level)[0]
+    dps = rotation_output(class_name, stats, spells, cls, ranks, Target(0, armor)).dps
+    return pack * mob_hp / dps, "single target"
+
+
 def pve_score(class_name: str, stats_at_max: MeleeStats, spells, cls, ranks) -> float:
-    """Mean of questing, raid and dungeon (with a weighted 5-player group, #220), each divided by its
-    reference."""
+    """Mean of questing, raid, dungeon (with a weighted 5-player group, #220) and AoE pulls (#263), each
+    divided by its reference (AoE: reference seconds / seconds to clear the pack)."""
     from wowforever import group
 
     ref = _config()["references"]
     return (questing(class_name, stats_at_max, spells, cls, ranks) / ref["questing"]
             + raid(class_name, stats_at_max, spells, cls, ranks) / ref["raid"]
-            + group.typical_dungeon_dps(class_name, stats_at_max, cls, ranks) / ref["dungeon"]) / 3
+            + group.typical_dungeon_dps(class_name, stats_at_max, cls, ranks) / ref["dungeon"]
+            + ref["aoe_seconds"] / aoe(class_name, stats_at_max, spells, cls, ranks)[0]) / 4
