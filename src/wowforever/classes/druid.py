@@ -86,6 +86,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Improved Regrowth": (
         EffectRule("crit_chance", r"critical effect chance of your Regrowth spell by (\d+(?:\.\d+)?)%", ("Regrowth",)),
     ),
+    "Overgrowth": (
+        EffectRule("targets", r"affected by Entangling Roots by (\d+)", ("Entangling Roots",)),
+    ),
     # melee hybrid (#175)
     "Ferocity": (
         EffectRule("energy_cost", r"cost of your Maul, Primal Bite, Swipe, Claw, and Rake abilities by (\d+(?:\.\d+)?) Rage or Energy",
@@ -120,7 +123,6 @@ UNMODELED: dict[str, str] = {
     # Balance
     "Improved Entangling Roots": "control: stronger Entangling Roots",
     "Insect Swarm": "grants_spell",
-    "Overgrowth": "control: Entangling Roots on 2 more targets",
     "Nature's Grace": "proc: spell crits speed up the next cast",
     "Eclipse": "proc: Wrath speeds up Starfire",
     # Feral Combat

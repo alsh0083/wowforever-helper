@@ -73,6 +73,7 @@ EFFECT_KINDS = frozenset({
     "pushback_pct",     # % reduction of spell pushback
     "range",            # change to range, yards
     "duration",         # change to duration, seconds
+    "targets",          # more targets a spell can affect at once (count)
     "slow_pct",         # movement slow, %
     "control",          # root/stun/freeze/interrupt effect (value = duration or chance)
     "defensive",        # absorb/immunity/damage reduction
