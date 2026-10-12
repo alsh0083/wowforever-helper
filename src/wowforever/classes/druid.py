@@ -86,6 +86,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Improved Regrowth": (
         EffectRule("crit_chance", r"critical effect chance of your Regrowth spell by (\d+(?:\.\d+)?)%", ("Regrowth",)),
     ),
+    "Improved Entangling Roots": (
+        EffectRule("break_threshold_pct", r"can take up to (\d+)% more damage without interrupting", ("Entangling Roots",)),
+    ),
     "Overgrowth": (
         EffectRule("targets", r"affected by Entangling Roots by (\d+)", ("Entangling Roots",)),
     ),
@@ -121,7 +124,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
 # Every druid talent, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Balance
-    "Improved Entangling Roots": "control: stronger Entangling Roots",
     "Insect Swarm": "grants_spell",
     "Nature's Grace": "proc: spell crits speed up the next cast",
     "Eclipse": "proc: Wrath speeds up Starfire",
