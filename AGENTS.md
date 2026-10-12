@@ -30,7 +30,7 @@ $OutputEncoding = [Text.UTF8Encoding]::new($false)
 '@ | .venv/Scripts/python tools/apply_patch.py
 ```
 
-Use `*** Update File:` with `@@` hunks to edit and `*** Delete File: path` (no body lines) to delete. Context lines must match the file exactly, including both blank lines between top-level definitions; if a hunk fails with "Failed to find expected lines", read those lines in the file and copy them.
+Use `*** Update File:` with `@@` hunks to edit and `*** Delete File: path` (no body lines) to delete. Context lines must match the file exactly, including both blank lines between top-level definitions; if a hunk fails with "Failed to find expected lines", read those lines in the file and copy them. List a file's hunks in the order they appear in the file.
 
 The environment is ready: the package is installed in `.venv`. Run Python only as `.venv/Scripts/python` (tests: `.venv/Scripts/python -m pytest -m "not slow"`, about 10 s; the `slow` tests build whole class reports and take a few minutes). Stay inside the repo: install nothing, and leave files outside it alone. If the environment itself seems broken, stop and report it instead of repairing it.
 
