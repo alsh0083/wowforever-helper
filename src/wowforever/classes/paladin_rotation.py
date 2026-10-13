@@ -5,9 +5,12 @@ Seal of Command and Judgement are Holy damage, so armor doesn't reduce them; the
 melee table's miss and crit. Constants that the client data doesn't carry (proc rate, Judgement of
 Command's damage) are Classic values in config/paladin.toml.
 
-Not modeled yet: Consecration, Exorcism and Hammer of Wrath (target or health limits), Vindication's
-attack power, Twist of Light's echo, Champion of the Light's spell power, and mana (Retribution's
-seal and strike costs are small next to its pool).
+Against a pack (`pack` > 1, AoE pulls #262) Consecration is kept down, hitting every mob for its base
+tick damage (the melee row carries no spell power; its ticks don't roll the combat table).
+
+Not modeled yet: Consecration against one mob, Exorcism and Hammer of Wrath (target or health
+limits), Vindication's attack power, Twist of Light's echo, Champion of the Light's spell power, and
+mana (Retribution's seal and strike costs are small next to its pool; Consecration's aren't).
 """
 
 from __future__ import annotations
@@ -31,11 +34,13 @@ class PaladinRotation:
     white_dps: float
     holy_dps: float
     abilities: tuple[str, ...]
+    aoe: tuple[str, ...] = ()   # abilities that hit more than one mob of the pack (#262)
 
 
 def paladin_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
-                     ranks: Mapping[int, int], target: Target) -> PaladinRotation:
-    """Sustained DPS against `target` with the paladin's talents `ranks`."""
+                     ranks: Mapping[int, int], target: Target, *, pack: int = 1) -> PaladinRotation:
+    """Sustained DPS against `target` with the paladin's talents `ranks`; with `pack` > 1, the damage
+    summed over a pack of that many such mobs (#262)."""
     c = load_toml(CONFIG)
     by_name = {t.name: t for t in cls.talents}
 
@@ -86,4 +91,12 @@ def paladin_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
         holy += yellow_attack(base, attacker, holy_target, crit_bonus=total("crit_chance", "Holy Strike"),
                               damage_pct=all_pct + total("damage_pct", "Holy Strike")) / strike.cooldown
         used.append("Holy Strike")
-    return PaladinRotation(dps=white + holy, white_dps=white, holy_dps=holy, abilities=tuple(used))
+    aoe: tuple[str, ...] = ()
+    consecration = best_rank(spells, "Consecration", stats.level) if pack > 1 else None
+    if consecration is not None and consecration.duration > 0 and consecration.periodic_damage > 0:
+        period = max(consecration.duration, consecration.cooldown)
+        holy += (consecration.periodic_damage * (1 + (all_pct + total("damage_pct", "Consecration")) / 100)
+                 * pack / period)
+        used.append("Consecration")
+        aoe = ("Consecration",)
+    return PaladinRotation(dps=white + holy, white_dps=white, holy_dps=holy, abilities=tuple(used), aoe=aoe)
