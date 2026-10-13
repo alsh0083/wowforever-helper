@@ -1435,6 +1435,38 @@
       "score": 216.4,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 38.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 47.2,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 45.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "50": {
+      "score": 51.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "60": {
+      "score": 56.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -1509,7 +1541,7 @@
    "about": [
     "35 points in Retribution, with 8 in Holy and 8 in Protection. Built for PvP. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25, Repentance at 54 and Twist of Light at 60.",
     "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 55% and Holy damage 45%.",
-    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage.",
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage, raid damage and AoE pulls.",
     "In a dungeon group it gains most from Blessing of Might, Sunder Armor and Battle Shout: about 33% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, stamina 0.34, strength 0.14 and hit rating 0.11; at level 60, weapon DPS 1, stamina 0.6, strength 0.14 and crit rating 0.09. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -1676,82 +1708,114 @@
       "score": 215.3,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 38.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 48.0,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 45.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "50": {
+      "score": 52.2,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "60": {
+      "score": 56.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4793,
-     "strength": 0.001345,
-     "agility": 0.000539,
+     "score": 0.4569,
+     "strength": 0.001362,
+     "agility": 0.000535,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000675,
-     "crit_rating": 0.001109,
-     "hit_rating": 0.001157,
-     "crit_pct": 0.003593,
-     "hit_pct": 0.003061,
-     "weapon_dps": 0.009449
+     "attack_power": 0.000682,
+     "crit_rating": 0.001103,
+     "hit_rating": 0.001174,
+     "crit_pct": 0.00357,
+     "hit_pct": 0.003287,
+     "weapon_dps": 0.009571
     },
     "30": {
-     "score": 0.5709,
-     "strength": 0.001135,
-     "agility": 0.00047,
+     "score": 0.5062,
+     "strength": 0.001039,
+     "agility": 0.000424,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000568,
-     "crit_rating": 0.000793,
-     "hit_rating": 0.000733,
-     "crit_pct": 0.004699,
-     "hit_pct": 0.003678,
-     "weapon_dps": 0.007934
+     "attack_power": 0.00052,
+     "crit_rating": 0.000716,
+     "hit_rating": 0.000686,
+     "crit_pct": 0.004241,
+     "hit_pct": 0.003569,
+     "weapon_dps": 0.007268
     },
     "40": {
-     "score": 0.8132,
-     "strength": 0.001132,
-     "agility": 0.000518,
+     "score": 0.6917,
+     "strength": 0.000983,
+     "agility": 0.000444,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000566,
-     "crit_rating": 0.000801,
-     "hit_rating": 0.000615,
-     "crit_pct": 0.006906,
-     "hit_pct": 0.004917,
-     "weapon_dps": 0.007916
+     "attack_power": 0.000492,
+     "crit_rating": 0.000688,
+     "hit_rating": 0.00056,
+     "crit_pct": 0.005926,
+     "hit_pct": 0.004534,
+     "weapon_dps": 0.006877
     },
     "50": {
-     "score": 0.987,
-     "strength": 0.001135,
-     "agility": 0.000513,
+     "score": 0.8121,
+     "strength": 0.000945,
+     "agility": 0.000423,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000567,
-     "crit_rating": 0.000756,
-     "hit_rating": 0.00078,
-     "crit_pct": 0.008545,
-     "hit_pct": 0.008919,
-     "weapon_dps": 0.008035
+     "attack_power": 0.000473,
+     "crit_rating": 0.000624,
+     "hit_rating": 0.00065,
+     "crit_pct": 0.007051,
+     "hit_pct": 0.007429,
+     "weapon_dps": 0.006692
     },
     "60": {
-     "score": 1.2911,
-     "strength": 0.001147,
-     "agility": 0.000548,
+     "score": 1.0352,
+     "strength": 0.000926,
+     "agility": 0.00044,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000573,
-     "crit_rating": 0.000782,
-     "hit_rating": 0.000252,
-     "crit_pct": 0.010949,
-     "hit_pct": 0.002525,
-     "weapon_dps": 0.007987
+     "attack_power": 0.000463,
+     "crit_rating": 0.000628,
+     "hit_rating": 0.000189,
+     "crit_pct": 0.00879,
+     "hit_pct": 0.001894,
+     "weapon_dps": 0.006451
     }
    },
    "about": [
     "34 points in Retribution, with 13 in Holy and 4 in Protection. Built for PvE. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25 and Twist of Light at 60.",
     "The community build leaves 4 points unspent at 60; the model fills them with Redoubt 4.",
     "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 55% and Holy damage 45%.",
-    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage.",
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage, AoE pulls and raid damage.",
     "In a dungeon group it gains most from Blessing of Might, Sunder Armor and Battle Shout: about 33% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, strength 0.14, crit rating 0.1 and hit rating 0.09; at level 60, weapon DPS 1, strength 0.14, crit rating 0.1 and attack power 0.07. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -2869,11 +2933,11 @@
    "archetype": "deep Retribution",
    "focus": "PvE",
    "standard": "paladin-retribution",
-   "standard_score": 1.2911453624074705,
+   "standard_score": 1.0352409164286154,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "paladin-retribution": 1.2911453624074705
+    "paladin-retribution": 1.0352409164286154
    },
    "qualifying": [
     "paladin-retribution"

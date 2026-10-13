@@ -1121,6 +1121,38 @@
       "score": 245.1,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 36.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 49.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 49.0,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "50": {
+      "score": 54.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "60": {
+      "score": 55.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -1195,7 +1227,7 @@
    "about": [
     "31 points in Assassination, with 20 in Combat. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 20, Mutilate at 38, Seal Fate at 46, Riposte at 59 and Cold Blood at 60.",
     "Builds combo points with Mutilate and spends them on finishers, keeping Slice and Dice up. Damage comes from auto-attacks 55% and abilities and poisons 45%.",
-    "At level 60 it scores at or near the top of the class in questing speed, raid damage and dungeon damage.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and raid damage (100%), and weakest at AoE pulls (79%).",
     "In a dungeon group it gains most from Sunder Armor, Blessing of Might and Battle Shout: about 44% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, stamina 0.39, agility 0.15 and hit rating 0.12; at level 60, weapon DPS 1, stamina 0.72, agility 0.17 and crit rating 0.14. The Recommended gear panel ranks items by these weights at your level."
@@ -1361,6 +1393,38 @@
       "score": 206.9,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 36.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 49.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 52.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "50": {
+      "score": 62.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "60": {
+      "score": 65.2,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -1435,7 +1499,7 @@
    "about": [
     "34 points in Assassination, with 17 in Combat. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 20, Mutilate at 37, Riposte at 52, Cold Blood at 57 and Venom at 60.",
     "Builds combo points with Mutilate and spends them on finishers, keeping Slice and Dice up. Damage comes from auto-attacks 61% and abilities and poisons 39%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (90%) and dungeon damage (86%), and weakest at raid damage (84%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (93%) and questing speed (90%), and weakest at raid damage (84%).",
     "In a dungeon group it gains most from Sunder Armor, Blessing of Might and Battle Shout: about 47% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, stamina 0.39, agility 0.15 and hit rating 0.12; at level 60, weapon DPS 1, stamina 0.64, agility 0.17 and crit rating 0.14. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -1600,75 +1664,107 @@
       "score": 212.7,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 36.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 46.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 50.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "50": {
+      "score": 60.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "60": {
+      "score": 62.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.5013,
-     "strength": 0.000867,
-     "agility": 0.001326,
+     "score": 0.4799,
+     "strength": 0.000884,
+     "agility": 0.001342,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000867,
-     "crit_rating": 0.001347,
-     "hit_rating": 0.001367,
-     "crit_pct": 0.004368,
-     "hit_pct": 0.00363,
-     "weapon_dps": 0.009298
+     "attack_power": 0.000884,
+     "crit_rating": 0.001344,
+     "hit_rating": 0.001392,
+     "crit_pct": 0.004352,
+     "hit_pct": 0.003908,
+     "weapon_dps": 0.009474
     },
     "30": {
-     "score": 0.5936,
-     "strength": 0.000766,
-     "agility": 0.001156,
+     "score": 0.5259,
+     "strength": 0.000701,
+     "agility": 0.001051,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000766,
-     "crit_rating": 0.000941,
-     "hit_rating": 0.0011,
-     "crit_pct": 0.00558,
-     "hit_pct": 0.00652,
-     "weapon_dps": 0.007272
+     "attack_power": 0.000701,
+     "crit_rating": 0.000846,
+     "hit_rating": 0.000989,
+     "crit_pct": 0.005013,
+     "hit_pct": 0.005859,
+     "weapon_dps": 0.006657
     },
     "40": {
-     "score": 0.7605,
-     "strength": 0.000671,
-     "agility": 0.001086,
+     "score": 0.6444,
+     "strength": 0.00058,
+     "agility": 0.000934,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000671,
-     "crit_rating": 0.000925,
-     "hit_rating": 0.001074,
-     "crit_pct": 0.007966,
-     "hit_pct": 0.009252,
-     "weapon_dps": 0.006652
+     "attack_power": 0.00058,
+     "crit_rating": 0.000787,
+     "hit_rating": 0.000916,
+     "crit_pct": 0.006785,
+     "hit_pct": 0.007893,
+     "weapon_dps": 0.005743
     },
     "50": {
-     "score": 0.9091,
-     "strength": 0.000683,
-     "agility": 0.001081,
+     "score": 0.744,
+     "strength": 0.000566,
+     "agility": 0.000891,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000683,
-     "crit_rating": 0.000842,
-     "hit_rating": 0.001018,
-     "crit_pct": 0.009521,
-     "hit_pct": 0.011508,
-     "weapon_dps": 0.007331
+     "attack_power": 0.000566,
+     "crit_rating": 0.000689,
+     "hit_rating": 0.000834,
+     "crit_pct": 0.007793,
+     "hit_pct": 0.009432,
+     "weapon_dps": 0.006062
     },
     "60": {
-     "score": 1.2383,
-     "strength": 0.000738,
-     "agility": 0.001154,
+     "score": 0.9886,
+     "strength": 0.000594,
+     "agility": 0.000926,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000738,
-     "crit_rating": 0.000856,
-     "hit_rating": 0.000539,
-     "crit_pct": 0.011985,
-     "hit_pct": 0.007551,
-     "weapon_dps": 0.008337
+     "attack_power": 0.000594,
+     "crit_rating": 0.000683,
+     "hit_rating": 0.00043,
+     "crit_pct": 0.009562,
+     "hit_pct": 0.006023,
+     "weapon_dps": 0.006705
     }
    },
    "about": [
@@ -1840,6 +1936,38 @@
       "score": 241.0,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 35.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 46.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 48.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "50": {
+      "score": 48.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Blade Flurry",
+      "lower_better": true
+     },
+     "60": {
+      "score": 50.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Blade Flurry",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -1914,7 +2042,7 @@
    "about": [
     "33 points in Combat, with 18 in Assassination. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 22, Blade Flurry at 41, Flawless Execution at 42, Adrenaline Rush at 51 and Cold Blood at 58.",
     "Builds combo points with Sinister Strike and spends them on finishers, keeping Slice and Dice up. Damage comes from auto-attacks 60% and abilities and poisons 40%.",
-    "At level 60 it scores at or near the top of the class in dungeon damage, questing speed and raid damage.",
+    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (100%) and questing speed (99%), and weakest at AoE pulls (72%).",
     "In a dungeon group it gains most from Sunder Armor, Blessing of Might and Battle Shout: about 47% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, stamina 0.4, agility 0.15 and hit rating 0.14; at level 60, weapon DPS 1, stamina 0.55, agility 0.14 and attack power 0.09. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -2081,82 +2209,114 @@
       "score": 241.0,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 35.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 46.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 49.0,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "50": {
+      "score": 49.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Blade Flurry",
+      "lower_better": true
+     },
+     "60": {
+      "score": 50.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Blade Flurry",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.5039,
-     "strength": 0.000865,
-     "agility": 0.001325,
+     "score": 0.4825,
+     "strength": 0.000882,
+     "agility": 0.001342,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000865,
-     "crit_rating": 0.001351,
-     "hit_rating": 0.001372,
-     "crit_pct": 0.004381,
-     "hit_pct": 0.003643,
-     "weapon_dps": 0.009278
+     "attack_power": 0.000882,
+     "crit_rating": 0.001348,
+     "hit_rating": 0.001398,
+     "crit_pct": 0.004367,
+     "hit_pct": 0.003925,
+     "weapon_dps": 0.009459
     },
     "30": {
-     "score": 0.5917,
-     "strength": 0.000767,
-     "agility": 0.001156,
+     "score": 0.5241,
+     "strength": 0.000702,
+     "agility": 0.001052,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000767,
-     "crit_rating": 0.000939,
-     "hit_rating": 0.001095,
-     "crit_pct": 0.005568,
-     "hit_pct": 0.006485,
-     "weapon_dps": 0.007283
+     "attack_power": 0.000702,
+     "crit_rating": 0.000844,
+     "hit_rating": 0.000984,
+     "crit_pct": 0.005002,
+     "hit_pct": 0.005826,
+     "weapon_dps": 0.006665
     },
     "40": {
-     "score": 0.7817,
-     "strength": 0.0007,
-     "agility": 0.001116,
+     "score": 0.6628,
+     "strength": 0.000606,
+     "agility": 0.00096,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.0007,
-     "crit_rating": 0.000924,
-     "hit_rating": 0.001094,
-     "crit_pct": 0.007962,
-     "hit_pct": 0.009429,
-     "weapon_dps": 0.006565
+     "attack_power": 0.000606,
+     "crit_rating": 0.000787,
+     "hit_rating": 0.000934,
+     "crit_pct": 0.006784,
+     "hit_pct": 0.008047,
+     "weapon_dps": 0.005673
     },
     "50": {
-     "score": 0.9851,
-     "strength": 0.000752,
-     "agility": 0.001162,
+     "score": 0.8151,
+     "strength": 0.000631,
+     "agility": 0.00097,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000752,
-     "crit_rating": 0.000868,
-     "hit_rating": 0.001068,
-     "crit_pct": 0.009817,
-     "hit_pct": 0.012077,
-     "weapon_dps": 0.007629
+     "attack_power": 0.000631,
+     "crit_rating": 0.000719,
+     "hit_rating": 0.000885,
+     "crit_pct": 0.008125,
+     "hit_pct": 0.01001,
+     "weapon_dps": 0.006387
     },
     "60": {
-     "score": 1.3789,
-     "strength": 0.000813,
-     "agility": 0.001269,
+     "score": 1.1087,
+     "strength": 0.00066,
+     "agility": 0.001026,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000813,
-     "crit_rating": 0.000938,
-     "hit_rating": 0.000581,
-     "crit_pct": 0.013135,
-     "hit_pct": 0.008135,
-     "weapon_dps": 0.00876
+     "attack_power": 0.00066,
+     "crit_rating": 0.000754,
+     "hit_rating": 0.000467,
+     "crit_pct": 0.010555,
+     "hit_pct": 0.006533,
+     "weapon_dps": 0.0071
     }
    },
    "about": [
     "32 points in Combat, with 19 in Assassination. Built for PvE. On this order the key talents arrive as follows: Relentless Strikes at 22, Blade Flurry at 41, Adrenaline Rush at 51 and Cold Blood at 59.",
     "The community build leaves 1 point unspent at 60; the model fills it with Remorseless Attacks 1.",
     "Builds combo points with Sinister Strike and spends them on finishers, keeping Slice and Dice up. Damage comes from auto-attacks 60% and abilities and poisons 40%.",
-    "At level 60 it scores at or near the top of the class in dungeon damage, questing speed and raid damage.",
+    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (100%) and questing speed (99%), and weakest at AoE pulls (72%).",
     "In a dungeon group it gains most from Sunder Armor, Blessing of Might and Battle Shout: about 47% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, agility 0.16, hit rating 0.15 and crit rating 0.13; at level 60, weapon DPS 1, agility 0.14, crit rating 0.11 and attack power 0.09. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -2321,81 +2481,113 @@
       "score": 245.5,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 35.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 48.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 48.2,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "50": {
+      "score": 54.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "60": {
+      "score": 55.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.5029,
-     "strength": 0.000862,
-     "agility": 0.001322,
+     "score": 0.4816,
+     "strength": 0.00088,
+     "agility": 0.001338,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000862,
-     "crit_rating": 0.001349,
-     "hit_rating": 0.001418,
-     "crit_pct": 0.004375,
-     "hit_pct": 0.003765,
-     "weapon_dps": 0.009235
+     "attack_power": 0.00088,
+     "crit_rating": 0.001346,
+     "hit_rating": 0.001446,
+     "crit_pct": 0.004361,
+     "hit_pct": 0.004057,
+     "weapon_dps": 0.009416
     },
     "30": {
-     "score": 0.5734,
-     "strength": 0.000748,
-     "agility": 0.001129,
+     "score": 0.5076,
+     "strength": 0.000684,
+     "agility": 0.001026,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000748,
-     "crit_rating": 0.00092,
-     "hit_rating": 0.001068,
-     "crit_pct": 0.005454,
-     "hit_pct": 0.006325,
-     "weapon_dps": 0.007093
+     "attack_power": 0.000684,
+     "crit_rating": 0.000826,
+     "hit_rating": 0.000958,
+     "crit_pct": 0.004894,
+     "hit_pct": 0.005676,
+     "weapon_dps": 0.006484
     },
     "40": {
-     "score": 0.792,
-     "strength": 0.000618,
-     "agility": 0.001039,
+     "score": 0.6717,
+     "strength": 0.000535,
+     "agility": 0.000895,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000618,
-     "crit_rating": 0.000937,
-     "hit_rating": 0.001143,
-     "crit_pct": 0.008075,
-     "hit_pct": 0.009844,
-     "weapon_dps": 0.005578
+     "attack_power": 0.000535,
+     "crit_rating": 0.000799,
+     "hit_rating": 0.000976,
+     "crit_pct": 0.006887,
+     "hit_pct": 0.008411,
+     "weapon_dps": 0.004825
     },
     "50": {
-     "score": 0.9928,
-     "strength": 0.00065,
-     "agility": 0.001089,
+     "score": 0.8133,
+     "strength": 0.000539,
+     "agility": 0.000899,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.00065,
-     "crit_rating": 0.000932,
-     "hit_rating": 0.001155,
-     "crit_pct": 0.010533,
-     "hit_pct": 0.013067,
-     "weapon_dps": 0.006205
+     "attack_power": 0.000539,
+     "crit_rating": 0.000764,
+     "hit_rating": 0.000949,
+     "crit_pct": 0.008639,
+     "hit_pct": 0.010728,
+     "weapon_dps": 0.005139
     },
     "60": {
-     "score": 1.3888,
-     "strength": 0.000689,
-     "agility": 0.001193,
+     "score": 1.1086,
+     "strength": 0.000555,
+     "agility": 0.000957,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000689,
-     "crit_rating": 0.001039,
-     "hit_rating": 0.000524,
-     "crit_pct": 0.014539,
-     "hit_pct": 0.007337,
-     "weapon_dps": 0.006843
+     "attack_power": 0.000555,
+     "crit_rating": 0.000829,
+     "hit_rating": 0.000418,
+     "crit_pct": 0.011609,
+     "hit_pct": 0.005849,
+     "weapon_dps": 0.005504
     }
    },
    "about": [
     "38 points in Assassination, with 11 in Combat and 2 in Subtlety. Built for PvE. On this order the key talents arrive as follows: Relentless Strikes at 20, Mutilate at 38, Cold Blood at 47 and Venom at 60.",
     "Builds combo points with Mutilate and spends them on finishers, keeping Slice and Dice up. Damage comes from auto-attacks 53% and abilities and poisons 47%.",
-    "At level 60 it scores at or near the top of the class in raid damage, questing speed and dungeon damage.",
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and questing speed (100%), and weakest at AoE pulls (80%).",
     "In a dungeon group it gains most from Sunder Armor, Blessing of Might and Battle Shout: about 44% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, agility 0.16, hit rating 0.15 and crit rating 0.13; at level 60, weapon DPS 1, agility 0.17, crit rating 0.15 and attack power 0.1. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -2559,6 +2751,38 @@
      "60": {
       "score": 212.7,
       "unit": "dps"
+     }
+    },
+    "aoe": {
+     "20": {
+      "score": 36.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 46.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 50.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "50": {
+      "score": 60.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "60": {
+      "score": 62.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
      }
     }
    },
@@ -2800,83 +3024,115 @@
       "score": 202.6,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 36.0,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 49.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 55.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "50": {
+      "score": 62.4,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "60": {
+      "score": 65.4,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.5021,
-     "strength": 0.000863,
-     "agility": 0.001322,
+     "score": 0.4808,
+     "strength": 0.00088,
+     "agility": 0.001339,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000863,
-     "crit_rating": 0.001348,
-     "hit_rating": 0.001414,
-     "crit_pct": 0.004371,
-     "hit_pct": 0.003754,
-     "weapon_dps": 0.009247
+     "attack_power": 0.00088,
+     "crit_rating": 0.001345,
+     "hit_rating": 0.001441,
+     "crit_pct": 0.004356,
+     "hit_pct": 0.004044,
+     "weapon_dps": 0.009426
     },
     "30": {
-     "score": 0.5586,
-     "strength": 0.000736,
-     "agility": 0.001131,
+     "score": 0.4941,
+     "strength": 0.000672,
+     "agility": 0.001026,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000736,
-     "crit_rating": 0.000953,
-     "hit_rating": 0.000867,
-     "crit_pct": 0.005652,
-     "hit_pct": 0.004357,
-     "weapon_dps": 0.006981
+     "attack_power": 0.000672,
+     "crit_rating": 0.000854,
+     "hit_rating": 0.000805,
+     "crit_pct": 0.005064,
+     "hit_pct": 0.004184,
+     "weapon_dps": 0.006371
     },
     "40": {
-     "score": 0.6994,
-     "strength": 0.000639,
-     "agility": 0.001037,
+     "score": 0.5918,
+     "strength": 0.000551,
+     "agility": 0.00089,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000639,
-     "crit_rating": 0.000886,
-     "hit_rating": 0.000692,
-     "crit_pct": 0.007638,
-     "hit_pct": 0.005533,
-     "weapon_dps": 0.006313
+     "attack_power": 0.000551,
+     "crit_rating": 0.000753,
+     "hit_rating": 0.00062,
+     "crit_pct": 0.00649,
+     "hit_pct": 0.005022,
+     "weapon_dps": 0.005439
     },
     "50": {
-     "score": 0.8716,
-     "strength": 0.000703,
-     "agility": 0.001095,
+     "score": 0.7138,
+     "strength": 0.000582,
+     "agility": 0.000903,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000703,
-     "crit_rating": 0.000831,
-     "hit_rating": 0.000912,
-     "crit_pct": 0.009393,
-     "hit_pct": 0.010436,
-     "weapon_dps": 0.007631
+     "attack_power": 0.000582,
+     "crit_rating": 0.00068,
+     "hit_rating": 0.000754,
+     "crit_pct": 0.00769,
+     "hit_pct": 0.00862,
+     "weapon_dps": 0.006314
     },
     "60": {
-     "score": 1.1891,
-     "strength": 0.000751,
-     "agility": 0.001159,
+     "score": 0.9492,
+     "strength": 0.000604,
+     "agility": 0.000929,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000751,
-     "crit_rating": 0.000839,
-     "hit_rating": 0.000541,
-     "crit_pct": 0.01175,
-     "hit_pct": 0.007576,
-     "weapon_dps": 0.008646
+     "attack_power": 0.000604,
+     "crit_rating": 0.000669,
+     "hit_rating": 0.000432,
+     "crit_pct": 0.009371,
+     "hit_pct": 0.006041,
+     "weapon_dps": 0.006951
     }
    },
    "about": [
     "31 points in Subtlety, with 20 in Assassination. Built for PvE. On this order the key talents arrive as follows: Relentless Strikes at 20, Ghostly Strike at 43, Hemorrhage at 49, Premeditation at 51, Preparation at 54 and Thousand Cuts at 60.",
     "Builds combo points with Hemorrhage and spends them on finishers, keeping Slice and Dice up. Damage comes from auto-attacks 62% and abilities and poisons 38%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (89%) and dungeon damage (86%), and weakest at raid damage (83%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (93%) and questing speed (89%), and weakest at raid damage (83%).",
     "In a dungeon group it gains most from Sunder Armor, Blessing of Might and Battle Shout: about 47% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, agility 0.16, crit rating 0.14 and hit rating 0.12; at level 60, weapon DPS 1, agility 0.13, crit rating 0.1 and attack power 0.09. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, agility 0.16, crit rating 0.13 and hit rating 0.13; at level 60, weapon DPS 1, agility 0.13, crit rating 0.1 and attack power 0.09. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -3039,6 +3295,38 @@
       "score": 207.1,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 35.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 49.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 55.4,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "50": {
+      "score": 61.4,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "60": {
+      "score": 64.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -3113,7 +3401,7 @@
    "about": [
     "31 points in Subtlety, with 17 in Assassination and 3 in Combat. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 20, Ghostly Strike at 48, Hemorrhage at 50, Preparation at 54 and Thousand Cuts at 60.",
     "Builds combo points with Hemorrhage and spends them on finishers, keeping Slice and Dice up. Damage comes from auto-attacks 61% and abilities and poisons 39%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (91%) and dungeon damage (88%), and weakest at raid damage (84%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (91%) and questing speed (91%), and weakest at raid damage (84%).",
     "In a dungeon group it gains most from Sunder Armor, Blessing of Might and Battle Shout: about 46% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, stamina 0.4, agility 0.16 and hit rating 0.14; at level 60, weapon DPS 1, stamina 0.49, agility 0.13 and attack power 0.09. The Recommended gear panel ranks items by these weights at your level."
@@ -3279,6 +3567,38 @@
       "score": 186.9,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 36.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 50.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 57.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "50": {
+      "score": 67.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "60": {
+      "score": 70.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -3353,7 +3673,7 @@
    "about": [
     "32 points in Subtlety, with 19 in Assassination. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 20, Ghostly Strike at 44, Cold Blood at 47, Premeditation at 48, Hemorrhage at 51 and Preparation at 54.",
     "Builds combo points with Hemorrhage and spends them on finishers, keeping Slice and Dice up. Damage comes from auto-attacks 67% and abilities and poisons 33%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (85%) and dungeon damage (81%), and weakest at raid damage (76%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and questing speed (85%), and weakest at raid damage (76%).",
     "In a dungeon group it gains most from Sunder Armor, Blessing of Might and Battle Shout: about 49% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, stamina 0.39, agility 0.16 and hit rating 0.12; at level 60, weapon DPS 1, stamina 0.44, agility 0.13 and attack power 0.09. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -3518,6 +3838,38 @@
       "score": 190.8,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 36.2,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 48.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 54.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "50": {
+      "score": 64.4,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "60": {
+      "score": 69.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -3592,7 +3944,7 @@
    "about": [
     "23 points in Subtlety, with 16 in Assassination and 12 in Combat. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 22, Cold Blood at 56, Premeditation at 57, Dirty Deeds at 58 and Preparation at 60.",
     "Builds combo points with Sinister Strike and spends them on finishers, keeping Slice and Dice up. Damage comes from auto-attacks 67% and abilities and poisons 33%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (85%) and dungeon damage (82%), and weakest at raid damage (78%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (99%) and questing speed (85%), and weakest at raid damage (78%).",
     "In a dungeon group it gains most from Sunder Armor, Blessing of Might and Battle Shout: about 49% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, stamina 0.39, agility 0.15 and hit rating 0.12; at level 60, weapon DPS 1, stamina 0.47, agility 0.13 and attack power 0.09. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -5089,11 +5441,11 @@
    "archetype": "deep Assassination",
    "focus": "PvE",
    "standard": "rogue-mutilate",
-   "standard_score": 1.3887501627221381,
+   "standard_score": 1.108595635836769,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "rogue-mutilate": 1.3887501627221381
+    "rogue-mutilate": 1.108595635836769
    },
    "qualifying": [
     "rogue-mutilate"
@@ -5117,11 +5469,11 @@
    "archetype": "deep Combat",
    "focus": "PvE",
    "standard": "rogue-combat",
-   "standard_score": 1.3788869268651947,
+   "standard_score": 1.1086805045435537,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "rogue-combat": 1.3788869268651947
+    "rogue-combat": 1.1086805045435537
    },
    "qualifying": [
     "rogue-combat"
@@ -5206,11 +5558,11 @@
    "archetype": "deep Subtlety",
    "focus": "PvE",
    "standard": "rogue-subtlety-pve",
-   "standard_score": 1.1891214203424905,
+   "standard_score": 0.9491691771315525,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "rogue-subtlety-pve": 1.1891214203424905
+    "rogue-subtlety-pve": 0.9491691771315525
    },
    "qualifying": [
     "rogue-subtlety-pve"
@@ -5310,11 +5662,11 @@
    "archetype": "Assassination/Subtlety",
    "focus": "PvE",
    "standard": "rogue-assassination-subtlety-pve",
-   "standard_score": 1.238286034015041,
+   "standard_score": 0.988607899283213,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "rogue-assassination-subtlety-pve": 1.238286034015041
+    "rogue-assassination-subtlety-pve": 0.988607899283213
    },
    "qualifying": [
     "rogue-assassination-subtlety-pve"

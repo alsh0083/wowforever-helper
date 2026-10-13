@@ -1107,74 +1107,106 @@
       "score": 244.4,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 40.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 37.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 21.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hurricane",
+      "lower_better": true
+     },
+     "50": {
+      "score": 22.2,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hurricane",
+      "lower_better": true
+     },
+     "60": {
+      "score": 23.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hurricane",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.6128,
-     "stamina": 0.001732,
-     "intellect": 4e-05,
+     "score": 0.6704,
+     "stamina": 0.000653,
+     "intellect": 0.000834,
      "spirit": 0.0,
-     "spell_power": 0.001291,
-     "crit_rating": 0.000248,
-     "hit_rating": 0.000197,
-     "crit_pct": 0.000806,
-     "hit_pct": 0.001972
+     "spell_power": 0.001142,
+     "crit_rating": 0.000316,
+     "hit_rating": 0.00013,
+     "crit_pct": 0.001025,
+     "hit_pct": 0.0013
     },
     "30": {
-     "score": 0.6274,
-     "stamina": 0.001312,
-     "intellect": 4.1e-05,
+     "score": 0.6838,
+     "stamina": 0.000443,
+     "intellect": 0.00053,
      "spirit": 0.0,
-     "spell_power": 0.001003,
-     "crit_rating": 0.000205,
+     "spell_power": 0.000864,
+     "crit_rating": 0.000218,
      "hit_rating": 0.0,
-     "crit_pct": 0.001219,
+     "crit_pct": 0.001294,
      "hit_pct": 0.0
     },
     "40": {
-     "score": 0.5807,
-     "stamina": 0.001527,
-     "intellect": 3.2e-05,
+     "score": 0.6843,
+     "stamina": 0.000353,
+     "intellect": 0.000447,
      "spirit": 0.0,
-     "spell_power": 0.000734,
-     "crit_rating": 0.000149,
+     "spell_power": 0.000604,
+     "crit_rating": 0.000157,
      "hit_rating": 0.0,
-     "crit_pct": 0.001283,
+     "crit_pct": 0.001352,
      "hit_pct": 0.0
     },
     "50": {
-     "score": 0.5466,
-     "stamina": 0.001326,
-     "intellect": 2.7e-05,
+     "score": 0.686,
+     "stamina": 0.000266,
+     "intellect": 0.000421,
      "spirit": 0.0,
-     "spell_power": 0.000508,
-     "crit_rating": 0.000119,
+     "spell_power": 0.000423,
+     "crit_rating": 0.000125,
      "hit_rating": 0.0,
-     "crit_pct": 0.001341,
+     "crit_pct": 0.001417,
      "hit_pct": 0.0
     },
     "60": {
-     "score": 0.537,
-     "stamina": 0.001379,
-     "intellect": 2.3e-05,
+     "score": 0.7349,
+     "stamina": 0.000161,
+     "intellect": 0.00027,
      "spirit": 0.0,
-     "spell_power": 0.000325,
-     "crit_rating": 9.8e-05,
+     "spell_power": 0.000242,
+     "crit_rating": 8.9e-05,
      "hit_rating": 0.0,
-     "crit_pct": 0.001374,
+     "crit_pct": 0.001246,
      "hit_pct": 0.0
     }
    },
    "about": [
     "41 points in Balance, with 10 in Restoration. Built for PvP. On this order the key talents arrive as follows: Insect Swarm at 25, Moonkin Form at 40, Nature's Splendor at 51 and Nature's Grace at 57.",
     "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Starfire.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and dungeon damage (100%), and weakest at raid damage (92%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and dungeon damage (100%), and weakest at AoE pulls (36%).",
     "In a dungeon group it gains most from Moonkin Aura and Curse of the Elements: about 4% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, stamina 1, spell power 0.76, crit rating 0.16 and intellect 0.03; at level 60, stamina 1, spell power 0.24, crit rating 0.07 and intellect 0.02. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, intellect 0.61, stamina 0.51 and crit rating 0.25; at level 60, intellect 1, spell power 0.9, stamina 0.6 and crit rating 0.33. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -1326,73 +1358,105 @@
       "score": 266.9,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 40.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 37.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 21.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hurricane",
+      "lower_better": true
+     },
+     "50": {
+      "score": 22.2,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hurricane",
+      "lower_better": true
+     },
+     "60": {
+      "score": 23.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hurricane",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4532,
+     "score": 0.4334,
      "stamina": 0.0,
      "intellect": 7.7e-05,
      "spirit": 0.0,
-     "spell_power": 0.002523,
-     "crit_rating": 0.000466,
-     "hit_rating": 0.000804,
-     "crit_pct": 0.001507,
-     "hit_pct": 0.003857
+     "spell_power": 0.002537,
+     "crit_rating": 0.00047,
+     "hit_rating": 0.000699,
+     "crit_pct": 0.001519,
+     "hit_pct": 0.003847
     },
     "30": {
-     "score": 0.6487,
+     "score": 0.5858,
      "stamina": 0.0,
-     "intellect": 0.000116,
+     "intellect": 0.000108,
      "spirit": 0.0,
-     "spell_power": 0.002858,
-     "crit_rating": 0.000575,
-     "hit_rating": 0.00053,
-     "crit_pct": 0.003405,
-     "hit_pct": 0.003948
+     "spell_power": 0.002664,
+     "crit_rating": 0.000535,
+     "hit_rating": 0.000397,
+     "crit_pct": 0.003172,
+     "hit_pct": 0.002961
     },
     "40": {
-     "score": 0.9456,
+     "score": 0.8837,
      "stamina": 0.0,
-     "intellect": 0.000206,
+     "intellect": 0.000154,
      "spirit": 0.0,
-     "spell_power": 0.002574,
-     "crit_rating": 0.000574,
-     "hit_rating": 0.000723,
-     "crit_pct": 0.004943,
-     "hit_pct": 0.006699
+     "spell_power": 0.002002,
+     "crit_rating": 0.00043,
+     "hit_rating": 0.000542,
+     "crit_pct": 0.003707,
+     "hit_pct": 0.005024
     },
     "50": {
-     "score": 1.1465,
+     "score": 1.0291,
      "stamina": 0.0,
-     "intellect": 0.000464,
+     "intellect": 0.000348,
      "spirit": 0.0,
-     "spell_power": 0.002504,
-     "crit_rating": 0.000564,
-     "hit_rating": 0.000466,
-     "crit_pct": 0.006373,
-     "hit_pct": 0.005144
+     "spell_power": 0.001927,
+     "crit_rating": 0.000423,
+     "hit_rating": 0.00035,
+     "crit_pct": 0.00478,
+     "hit_pct": 0.003858
     },
     "60": {
-     "score": 1.7268,
+     "score": 1.4539,
      "stamina": 0.0,
-     "intellect": 0.000594,
-     "spirit": 0.00029,
-     "spell_power": 0.002384,
-     "crit_rating": 0.00069,
-     "hit_rating": 0.00048,
-     "crit_pct": 0.009659,
-     "hit_pct": 0.006713
+     "intellect": 0.000445,
+     "spirit": 0.000218,
+     "spell_power": 0.001822,
+     "crit_rating": 0.000518,
+     "hit_rating": 0.00036,
+     "crit_pct": 0.007245,
+     "hit_pct": 0.005035
     }
    },
    "about": [
     "36 points in Balance, with 15 in Restoration. Built for PvE. On this order the key talents arrive as follows: Nature's Splendor at 24, Insect Swarm at 25, Moonkin Form at 40 and Nature's Grace at 57.",
     "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Starfire.",
-    "At level 60 it scores at or near the top of the class in raid damage, questing speed and dungeon damage.",
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and questing speed (99%), and weakest at AoE pulls (36%).",
     "In a dungeon group it gains most from Moonkin Aura and Curse of the Elements: about 4% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, crit rating 0.2, hit rating 0.19 and intellect 0.04; at level 60, spell power 1, crit rating 0.29, intellect 0.25 and hit rating 0.2. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, crit rating 0.2, hit rating 0.15 and intellect 0.04; at level 60, spell power 1, crit rating 0.28, intellect 0.24 and hit rating 0.2. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -1642,73 +1706,105 @@
       "score": 213.4,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 44.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "30": {
+      "score": 52.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "40": {
+      "score": 51.4,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "50": {
+      "score": 59.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     },
+     "60": {
+      "score": 64.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "single target",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.499,
-     "strength": 0.00065,
-     "agility": 0.000592,
-     "stamina": 0.001875,
-     "intellect": 0.0,
-     "attack_power": 0.000327,
-     "crit_rating": 0.000542,
-     "hit_rating": 0.00059,
-     "crit_pct": 0.001765,
-     "hit_pct": 0.001924,
+     "score": 0.5394,
+     "strength": 0.000382,
+     "agility": 0.000347,
+     "stamina": 0.001008,
+     "intellect": 0.001158,
+     "attack_power": 0.000191,
+     "crit_rating": 0.000318,
+     "hit_rating": 0.000346,
+     "crit_pct": 0.001025,
+     "hit_pct": 0.001119,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.531,
-     "strength": 0.000429,
-     "agility": 0.000396,
-     "stamina": 0.001289,
-     "intellect": 0.0,
-     "attack_power": 0.000216,
-     "crit_rating": 0.000304,
-     "hit_rating": 0.000334,
-     "crit_pct": 0.001805,
-     "hit_pct": 0.001982,
+     "score": 0.5535,
+     "strength": 0.000298,
+     "agility": 0.000275,
+     "stamina": 0.000679,
+     "intellect": 0.000726,
+     "attack_power": 0.00015,
+     "crit_rating": 0.000211,
+     "hit_rating": 0.000232,
+     "crit_pct": 0.001251,
+     "hit_pct": 0.001374,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 0.5277,
-     "strength": 0.000303,
-     "agility": 0.0003,
-     "stamina": 0.001244,
-     "intellect": 0.0,
-     "attack_power": 0.000152,
-     "crit_rating": 0.000228,
-     "hit_rating": 0.000257,
-     "crit_pct": 0.001967,
-     "hit_pct": 0.002218,
+     "score": 0.5586,
+     "strength": 0.000229,
+     "agility": 0.000226,
+     "stamina": 0.000554,
+     "intellect": 0.000621,
+     "attack_power": 0.000115,
+     "crit_rating": 0.000172,
+     "hit_rating": 0.000194,
+     "crit_pct": 0.001483,
+     "hit_pct": 0.001673,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 0.5038,
-     "strength": 0.000243,
-     "agility": 0.00024,
-     "stamina": 0.001081,
-     "intellect": 0.0,
-     "attack_power": 0.000122,
-     "crit_rating": 0.000174,
-     "hit_rating": 0.000204,
-     "crit_pct": 0.001961,
-     "hit_pct": 0.002304,
+     "score": 0.5619,
+     "strength": 0.000185,
+     "agility": 0.000182,
+     "stamina": 0.000419,
+     "intellect": 0.000566,
+     "attack_power": 9.3e-05,
+     "crit_rating": 0.000132,
+     "hit_rating": 0.000155,
+     "crit_pct": 0.001491,
+     "hit_pct": 0.001751,
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 0.4834,
-     "strength": 0.000203,
-     "agility": 0.000197,
-     "stamina": 0.000926,
-     "intellect": 0.0,
-     "attack_power": 0.000102,
-     "crit_rating": 0.000136,
+     "score": 0.5466,
+     "strength": 0.000164,
+     "agility": 0.00016,
+     "stamina": 0.000349,
+     "intellect": 0.000551,
+     "attack_power": 8.2e-05,
+     "crit_rating": 0.00011,
      "hit_rating": 0.0,
-     "crit_pct": 0.001906,
+     "crit_pct": 0.001543,
      "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
@@ -1717,9 +1813,9 @@
     "34 points in Feral Combat, with 12 in Balance and 5 in Restoration. Built for PvP. On this order the key talents arrive as follows: Feral Charge at 30, Leader of the Pack at 31 and Berserk at 57.",
     "The community build leaves 3 points unspent at 60; the model fills them with Improved Wrath 3.",
     "Fights in Cat Form, building combo points with Shred for finishers. Damage comes from auto-attacks 55% and abilities 45%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (80%) and dungeon damage (70%), and weakest at questing speed (69%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and raid damage (80%), and weakest at questing speed (69%).",
     "In a dungeon group it gains most from Sunder Armor, Faerie Fire and Blessing of Might: about 55% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, stamina 1, strength 0.33, agility 0.31 and hit rating 0.26; at level 60, stamina 1, strength 0.22, agility 0.21 and crit rating 0.15. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, intellect 1, stamina 0.94, strength 0.41 and agility 0.38; at level 60, intellect 1, stamina 0.63, strength 0.3 and agility 0.29. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -2905,11 +3001,11 @@
    "archetype": "deep Balance",
    "focus": "PvP",
    "standard": "druid-balance-pvp",
-   "standard_score": 0.536955986870506,
+   "standard_score": 0.7348504907812874,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "druid-balance-pvp": 0.536955986870506
+    "druid-balance-pvp": 0.7348504907812874
    },
    "qualifying": [
     "druid-balance-pvp"
@@ -2919,11 +3015,11 @@
    "archetype": "deep Balance",
    "focus": "PvE",
    "standard": "druid-balance",
-   "standard_score": 1.7267691482550926,
+   "standard_score": 1.453897610956459,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "druid-balance": 1.7267691482550926
+    "druid-balance": 1.453897610956459
    },
    "qualifying": [
     "druid-balance"
@@ -2933,15 +3029,69 @@
    "archetype": "deep Feral Combat",
    "focus": "PvP",
    "standard": "druid-feral",
-   "standard_score": 0.4833839980307601,
-   "model_pick": null,
-   "model_pick_score": null,
+   "standard_score": 0.5466099578377537,
+   "model_pick": {
+    "Naturalist": 1,
+    "Improved Wrath": 1,
+    "Genesis": 5,
+    "Improved Entangling Roots": 3,
+    "Nature's Majesty": 2,
+    "Nature's Splendor": 1,
+    "Nature's Reach": 2,
+    "Ferocity": 3,
+    "Heart of the Wild": 5,
+    "Feral Swiftness": 2,
+    "Shredding Attacks": 3,
+    "Sharpened Claws": 2,
+    "Blood Frenzy": 2,
+    "Savage Fury": 2,
+    "Natural Instinct": 2,
+    "Predatory Strikes": 3,
+    "Rend and Tear": 5,
+    "Leader of the Pack": 1,
+    "Berserk": 1,
+    "Furor": 5
+   },
+   "model_pick_score": 0.5772314479539988,
    "candidates": {
-    "druid-feral": 0.4833839980307601
+    "druid-feral": 0.5466099578377537
    },
    "qualifying": [
     "druid-feral"
-   ]
+   ],
+   "model_pick_changes": [
+    {
+     "talent": "Naturalist",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Improved Wrath",
+     "from": 3,
+     "to": 1
+    },
+    {
+     "talent": "Improved Entangling Roots",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Nature's Splendor",
+     "from": 0,
+     "to": 1
+    },
+    {
+     "talent": "Ferocity",
+     "from": 5,
+     "to": 3
+    },
+    {
+     "talent": "Feral Charge",
+     "from": 1,
+     "to": 0
+    }
+   ],
+   "model_pick_seed": "druid-feral"
   },
   {
    "archetype": "deep Feral Combat",
