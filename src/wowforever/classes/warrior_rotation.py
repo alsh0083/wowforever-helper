@@ -6,8 +6,11 @@ Management and Bloodrage. A Heroic Strike replaces a white swing, so it also giv
 Rage. Numbers come from the parsed spells, the warrior's talent effect rules, the stat table and
 the physical combat table.
 
+Against a pack (`pack` > 1, AoE pulls #262) Whirlwind and Thunder Clap hit up to their data
+MaxTargets, Cleave replaces Heroic Strike, and Sweeping Strikes gives its attacks to a second mob.
+
 Not modeled yet: Fury dual wield and Bloodthirst, Flurry, Execute below 20%, Overpower procs, Slam,
-Sweeping Strikes' second target, and Rage from damage taken.
+and Rage from damage taken.
 """
 
 from __future__ import annotations
@@ -32,6 +35,8 @@ class WarriorRotation:
     yellow_dps: float
     rage_per_second: float
     abilities: tuple[str, ...]     # spells the rotation uses, in priority order
+    aoe: tuple[str, ...] = ()      # abilities that hit more than one mob of the pack
+    parts: tuple[tuple[str, float], ...] = ()   # each ability's DPS over the pack, before Death Wish
 
 
 def rage_conversion(level: int) -> float:
@@ -41,8 +46,9 @@ def rage_conversion(level: int) -> float:
 
 
 def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
-                     ranks: Mapping[int, int], target: Target) -> WarriorRotation:
-    """Sustained DPS against `target` with the warrior's talents `ranks`."""
+                     ranks: Mapping[int, int], target: Target, *, pack: int = 1) -> WarriorRotation:
+    """Sustained DPS against `target` with the warrior's talents `ranks`; with `pack` > 1, the damage
+    summed over a pack of that many such mobs (#262)."""
     c = load_toml(CONFIG)
     level = stats.level
     by_name = {t.name: t for t in cls.talents}
@@ -90,6 +96,8 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
 
     def strike(spell: SpellRank) -> float:
         base = (normalized if spell.weapon_normalized else avg_weapon + stats.attack_power / 14 * weapon[2])
+        if not spell.weapon_hits:          # flat damage (Thunder Clap)
+            base = (spell.min_damage + spell.max_damage) / 2
         return yellow_attack(base + spell.weapon_bonus, attacker, target,
                              crit_bonus=total("crit_chance", spell.name),
                              damage_pct=weapon_pct + total("damage_pct", spell.name),
@@ -98,27 +106,58 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
     def cost(spell: SpellRank) -> float:
         return max(0.0, spell.rage_cost + total("rage_cost", spell.name))
 
-    rage, yellow, used, crits = income, 0.0, [], 0.0
-    for name in ("Mortal Strike", "Whirlwind"):
-        spell = learned(name)
-        if spell is None or spell.cooldown <= 0 or (name == "Mortal Strike" and not taken(name)):
-            continue
-        rate = min(1 / spell.cooldown, rage / cost(spell)) if cost(spell) else 1 / spell.cooldown
-        rage -= rate * cost(spell)
-        yellow += rate * strike(spell)
-        crits += rate * land_chance(attacker, target) * yellow_crit_chance(attacker, target,
-                                                                           total("crit_chance", name))
-        used.append(name)
+    def targets(spell: SpellRank) -> int:
+        return min(pack, spell.max_targets) if spell.max_targets > 0 else 1
 
-    heroic = learned("Heroic Strike")
+    rage, yellow, used, crits, aoe, parts = income, 0.0, [], 0.0, [], []
+    single, attacks = 0.0, swings      # one target's ability damage and attacks per second (Sweeping Strikes)
+    names = ("Mortal Strike", "Whirlwind") + (("Thunder Clap",) if pack > 1 else ())
+    plan = [s for s in map(learned, names)
+            if s is not None and s.cooldown > 0 and (s.name != "Mortal Strike" or taken(s.name))]
+    if pack > 1:   # against a pack, the most damage per Rage over all the mobs goes first
+        plan.sort(key=lambda s: -strike(s) * targets(s) / cost(s) if cost(s) else float("-inf"))
+    for spell in plan:
+        name = spell.name
+        rate = min(1 / spell.cooldown, rage / cost(spell)) if cost(spell) else 1 / spell.cooldown
+        n = targets(spell)
+        rage -= rate * cost(spell)
+        yellow += rate * strike(spell) * n
+        parts.append((name, rate * strike(spell) * n))
+        single, attacks = single + rate * strike(spell), attacks + rate
+        crits += rate * n * land_chance(attacker, target) * yellow_crit_chance(attacker, target,
+                                                                               total("crit_chance", name))
+        used.append(name)
+        if n > 1 and rate > 0:
+            aoe.append(name)
+
+    sweeping = learned("Sweeping Strikes") if pack > 1 and taken("Sweeping Strikes") else None
+    sweep_rate = 0.0
+    if sweeping is not None and sweeping.cooldown > 0 and rage > 0:
+        sweep_rate = min(1 / sweeping.cooldown, rage / cost(sweeping)) if cost(sweeping) else 1 / sweeping.cooldown
+        rage -= sweep_rate * cost(sweeping)
+
+    # against a pack, Cleave takes Heroic Strike's place on the next swing
+    heroic = learned("Cleave" if pack > 1 else "Heroic Strike")
     hs_rate = 0.0
     if heroic is not None and rage > 0:
         # each Heroic Strike costs its Rage plus the Rage its white swing would have made
+        n = min(pack, c["cleave_targets"]) if heroic.name == "Cleave" else 1
         hs_rate = min(swings, rage / (cost(heroic) + rage_per_swing))
-        yellow += hs_rate * (strike(heroic) - swing_ev)
-        crits += hs_rate * land_chance(attacker, target) * yellow_crit_chance(attacker, target)
-        used.append("Heroic Strike")
+        yellow += hs_rate * (strike(heroic) * n - swing_ev)
+        parts.append((heroic.name, hs_rate * (strike(heroic) * n - swing_ev)))
+        single += hs_rate * (strike(heroic) - swing_ev)
+        crits += hs_rate * n * land_chance(attacker, target) * yellow_crit_chance(attacker, target)
+        used.append(heroic.name)
+        if n > 1:
+            aoe.append(heroic.name)
     white = swings * swing_ev
+    if sweep_rate > 0:
+        # its attacks also hit a second mob: an average attack each, swings and abilities alike
+        extra = sweep_rate * c["sweeping_strikes_attacks"] * (white + single) / attacks
+        yellow += extra
+        parts.append(("Sweeping Strikes", extra))
+        used.append("Sweeping Strikes")
+        aoe.append("Sweeping Strikes")
 
     # Deep Wounds: every crit bleeds a share of the weapon's average damage
     crits += (swings - hs_rate) * land_chance(attacker, target) * yellow_crit_chance(attacker, target)
@@ -126,4 +165,5 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
     yellow += bleed
 
     return WarriorRotation(dps=(white + yellow) * death_wish, white_dps=white * death_wish,
-                           yellow_dps=yellow * death_wish, rage_per_second=income, abilities=tuple(used))
+                           yellow_dps=yellow * death_wish, rage_per_second=income, abilities=tuple(used),
+                           aoe=tuple(aoe), parts=tuple(parts))
