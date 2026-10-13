@@ -5,6 +5,10 @@ estimated pet for Beast Mastery. The rotation reports the better of ranged and m
 
 Pinned by tests/test_hunter_rotation.py; constants in config/hunter.toml.
 
+Against a pack (`pack` > 1, AoE pulls #262): Multi-Shot hits up to config multi_shot_targets mobs,
+the ranged hunter channels Volley instead when that does more, and Explosive Trap goes out on
+cooldown in either mode, hitting every mob.
+
 Not modeled yet: Rapid Killing's cooldown cut, Deadly Aspects procs, Expose Prey, hawk damage,
 Resourcefulness, and pet talents beyond Unleashed Fury and Bestial Wrath.
 """
@@ -34,11 +38,14 @@ class HunterRotation:
     mode: str                 # "ranged" or "melee", whichever is higher
     mana_per_second: float    # of the chosen mode
     auto_dps: float = 0.0     # Auto Shot alone (costs no mana), the fallback once out of mana
+    aoe: tuple[str, ...] = ()  # abilities that hit more than one mob of the pack (#262)
+    parts: tuple[tuple[str, float], ...] = ()   # those abilities' DPS over the pack
 
 
 def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
-                    ranks: Mapping[int, int], target: Target, *, pet: bool = False) -> HunterRotation:
-    """Sustained DPS against `target`; `pet` adds a pet and turns Lone Wolf off."""
+                    ranks: Mapping[int, int], target: Target, *, pet: bool = False, pack: int = 1) -> HunterRotation:
+    """Sustained DPS against `target`; `pet` adds a pet and turns Lone Wolf off. With `pack` > 1, the
+    damage summed over a pack of that many such mobs (#262)."""
     c = load_toml(CONFIG)
     agi_per_crit = load_toml(MELEE)["hunter"]["agi_per_crit_at_60"]
     level = stats.level
@@ -70,6 +77,7 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
 
     # ranged
     ranged = mana_r = auto = 0.0
+    parts: dict[str, float] = {}
     if stats.ranged is not None:
         rap = stats.ranged_attack_power + int_ap + 2 * extra_agi + (c["trueshot_aura_rap"] if taken("Trueshot Aura") else 0)
         a_r = Attacker(level, rap, stats.ranged_crit_pct + crit_all, hit)
@@ -95,7 +103,10 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
             else:
                 ev = ranged_shot(norm + shot.weapon_bonus, a_r, target,
                                  damage_pct=weapon_pct + total("damage_pct", name), crit_damage_pct=cd_r)
-            shots += ev / cooldown
+            n = min(pack, c["multi_shot_targets"]) if name == "Multi-Shot" else 1
+            shots += ev * n / cooldown
+            if n > 1:
+                parts[name] = ev * n / cooldown
             casting += shot.cast_time / cooldown
             mana_r += shot.mana_cost * efficiency / cooldown
         sting = learned("Serpent Sting")
@@ -105,6 +116,14 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
                    * land_chance(a_r, target, can_dodge=False) / sting.duration)
             mana_r += sting.mana_cost * (1 + total("mana_cost_pct", "@sting") / 100) / sting.duration
         ranged = auto * (1 - casting) + shots + dot
+        volley = learned("Volley") if pack > 1 else None
+        if volley is not None and volley.duration > 0:
+            # channelled back to back instead of shooting
+            channel = (volley.periodic_damage * (1 + (total("damage_pct", "Volley") + shared_pct) / 100)
+                       * land_chance(a_r, target, can_dodge=False) * pack / volley.duration)
+            if channel > ranged:
+                ranged, mana_r = channel, volley.mana_cost * efficiency / volley.duration
+                parts = {"Volley": channel}
 
     # petless dual-wield melee
     melee = mana_m = 0.0
@@ -150,5 +169,16 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
 
     mode = "ranged" if ranged >= melee else "melee"
     best = max(ranged, melee)
+    if mode == "melee":
+        parts = {}
+    trap = learned("Explosive Trap") if pack > 1 else None
+    if trap is not None and trap.cooldown > 0 and trap.max_damage > 0:
+        # placed on cooldown in either mode; its fire hits every mob
+        parts["Explosive Trap"] = ((trap.min_damage + trap.max_damage) / 2 * (1 + shared_pct / 100)
+                                   * pack / trap.cooldown)
+        best += parts["Explosive Trap"]
+        trap_mana = trap.mana_cost / trap.cooldown
+        mana_r, mana_m = mana_r + trap_mana, mana_m + trap_mana
     return HunterRotation(dps=best + pet_dps, ranged_dps=ranged, melee_dps=melee, pet_dps=pet_dps, mode=mode,
-                          mana_per_second=mana_r if mode == "ranged" else mana_m, auto_dps=auto)
+                          mana_per_second=mana_r if mode == "ranged" else mana_m, auto_dps=auto,
+                          aoe=tuple(parts), parts=tuple(parts.items()))
