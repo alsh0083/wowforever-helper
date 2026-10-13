@@ -90,6 +90,7 @@ class MageSide:
     root_targets: int = 1  # opponents its roots hold at once (Overgrowth, #278)
     root_break_health: float = 0.0  # damage that breaks its root, share of the target's health; 0 = never (#286)
     root_duration: float = 0.0  # seconds one root lasts unbroken
+    stun_aoe: float = 0.0  # the part of `stun` from controls that hit every nearby enemy (#287)
 
 
 @dataclass(frozen=True)
@@ -289,7 +290,8 @@ def outnumbered(side: MageSide, first: Kit, second: Kit) -> DuelResult:
     """The defender against two opponents at once, killing `first` then `second` (#278).
 
     Phase 1 (both alive): both kits' lockouts add up; the defender's stuns, slows and interrupts are
-    split between them by outnumbered_control_split; roots hold the opponent not being attacked, and
+    split between them by outnumbered_control_split, except stun_aoe (multi-target controls), which
+    reaches both; roots hold the opponent not being attacked, and
     the attacked one too with root_targets >= 2 until damage breaks them (#286). Phase 2: `second`
     alone, as in a duel. Healing happens in phase 1, with roots unbroken while it lasts (#290), and
     counts only if the score rises. mage_uptime and opponent_uptime are phase 1's, the latter for
@@ -316,8 +318,9 @@ def outnumbered(side: MageSide, first: Kit, second: Kit) -> DuelResult:
     t1, t2 = kill_time(first, u1), kill_time(second, u2)
 
     split = c["outnumbered_control_split"]
-    shared = dataclasses.replace(side, stun=side.stun * split, slow=side.slow * split,
-                                 interrupt=side.interrupt * split)
+    # multi-target controls (Psychic Scream, Frost Nova) reach both opponents; the rest is split (#287)
+    stun = (side.stun - side.stun_aoe) * split + side.stun_aoe
+    shared = dataclasses.replace(side, stun=stun, slow=side.slow * split, interrupt=side.interrupt * split)
     focus = dataclasses.replace(shared, root=side.root * root_hold(side, first) if side.root_targets >= 2 else 0.0)
     d_first, first_uptime = incoming(first, focus)
     net1 = d_first + incoming(second, shared)[0] - barrier([first, second])
@@ -398,4 +401,5 @@ def mage_side(char: Character, filler: SpellRank) -> MageSide:
         slow=c.components["slow"],
         interrupt=c.components["interrupt"],
         nova_dps=nova_dps,
+        root_targets=2 if nova is not None else 1,   # Frost Nova roots every nearby enemy (#287)
     )
