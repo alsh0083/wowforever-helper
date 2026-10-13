@@ -41,10 +41,10 @@ def test_casters_use_their_aoe_spells():
 
 
 def test_melee_clears_the_pack_one_mob_at_a_time():
-    cls, ranks, stats = setup("paladin", "paladin-retribution")   # paladin AoE is a later slice of #262
+    cls, ranks, stats = setup("druid", "druid-feral")   # Forever gives cats no AoE (#262)
     armor = _anchor_at(ms._config()["questing"]["anchors"], 60)[0]
-    dps = ms.rotation_output("paladin", stats, cls.spells, cls, ranks, Target(0, armor)).dps
-    assert ms.aoe("paladin", stats, cls.spells, cls, ranks) == (pytest.approx(3 * MOB_60 / dps), "single target")
+    dps = ms.rotation_output("druid", stats, cls.spells, cls, ranks, Target(0, armor)).dps
+    assert ms.aoe("druid", stats, cls.spells, cls, ranks) == (pytest.approx(3 * MOB_60 / dps), "single target")
 
 
 def test_hybrids_follow_their_tree():
