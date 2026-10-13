@@ -147,3 +147,30 @@ def build_weights(class_name: str, cls: ClassData, build: Mapping[str, Any], tab
         out[str(level)] = weights_at(class_name, table.at(level), lambda s: score_for(s, ranks),
                                      melee_build=melee_build(ranks))
     return out
+
+
+# stats a priority list ranks (#292): item-budget stats only; "+N%" equip effects and weapon DPS aren't
+# bought with the same budget
+PRIORITY_STATS = ("strength", "agility", "stamina", "intellect", "spirit", "attack_power", "spell_power",
+                  "crit_rating", "hit_rating")
+
+
+def stat_priority(weights: Mapping[str, float], *, min_share: float = 0.05,
+                  tie: float = 0.05) -> list[dict[str, Any]]:
+    """Item stats ranked by weight per point (#292), each with its share of the top stat. A stat joins the
+    tier of the stat that opened it when its share is within `tie` of that stat's; stats under `min_share`
+    of the top are left out. Forever items spend one stat budget on every stat, so points compare 1:1."""
+    ranked = sorted(((s, weights[s]) for s in PRIORITY_STATS if weights.get(s, 0) > 0), key=lambda x: -x[1])
+    if not ranked:
+        return []
+    top = ranked[0][1]
+    out: list[dict[str, Any]] = []
+    tier, lead = 1, 1.0
+    for stat, value in ranked:
+        share = value / top
+        if share < min_share:
+            break
+        if lead - share > tie + 1e-9:
+            tier, lead = tier + 1, share
+        out.append({"stat": stat, "share": round(share, 3), "tier": tier})
+    return out

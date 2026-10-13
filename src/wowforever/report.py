@@ -535,3 +535,20 @@ def add_stat_weights(class_name: str, cls: ClassData, builds: Sequence[Build], r
         b["stat_weights"] = sw.build_weights(
             class_name, cls, b, table, leveling_score if b.get("mode") == "leveling" else score[focus], CHECKPOINTS,
             melee_build=lambda ranks: bool(melee_trees) and ms.main_tree(cls, ranks) in melee_trees)
+    for b in report["builds"]:
+        b["stat_priority"] = _stat_priority(b, variant.get(b["id"]))
+
+
+def _stat_priority(build: Mapping[str, Any], focus: str | None) -> dict[str, Any]:
+    """The build's stat priority for the dashboard (#292): from its own weights at 60 (leveling builds
+    at 40, mid-way), or the class's generic weights when the build has no engine score."""
+    from wowforever import stat_weights as sw
+
+    weights = build["stat_weights"]
+    if "generic" in weights:
+        return {"level": None, "basis": "class default, not from the model",
+                "stats": sw.stat_priority(weights["generic"])}
+    leveling = build.get("mode") == "leveling"
+    level = "40" if leveling else "60"
+    basis = "questing pace" if leveling else {"PvP": "PvP duels", "PvE": "PvE score"}.get(focus or "", "score")
+    return {"level": int(level), "basis": basis, "stats": sw.stat_priority(weights[level])}

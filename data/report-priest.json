@@ -1148,6 +1148,28 @@
       "spell": "Holy Nova",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.124,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.13,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.14,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.126,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.136,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1208,6 +1230,22 @@
      "crit_pct": 0.00085,
      "hit_pct": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "spell_power",
+      "share": 0.199,
+      "tier": 2
+     }
+    ]
    },
    "about": [
     "31 points in Discipline, with 18 in Holy and 2 in Shadow. Built for PvP. On this order the key talents arrive as follows: Holy Nova at 41, Inner Focus at 53 and Penance at 60.",
@@ -1396,6 +1434,28 @@
       "spell": "Holy Nova",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.124,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.13,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.14,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.119,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.129,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1456,6 +1516,27 @@
      "crit_pct": 0.00083,
      "hit_pct": 0.00118
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "spell_power",
+      "share": 0.204,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.068,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "32 points in Discipline, with 19 in Holy. Built for PvP. On this order the key talents arrive as follows: Holy Nova at 40, Inner Focus at 51, Penance at 59 and Power Infusion at 60.",
@@ -1544,6 +1625,42 @@
      "mp5": 0.5
     }
    },
+   "stat_priority": {
+    "level": null,
+    "basis": "class default, not from the model",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.9,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.8,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.4,
+      "tier": 4
+     },
+     {
+      "stat": "spirit",
+      "share": 0.2,
+      "tier": 5
+     },
+     {
+      "stat": "stamina",
+      "share": 0.15,
+      "tier": 5
+     }
+    ]
+   },
    "about": [
     "33 points in Discipline, with 18 in Holy. Built for PvE. On this order the key talents arrive as follows: Inner Focus at 38, Soul Warding at 50, Penance at 51 and Power Infusion at 60.",
     "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order.",
@@ -1629,6 +1746,42 @@
      "mp5": 0.5
     }
    },
+   "stat_priority": {
+    "level": null,
+    "basis": "class default, not from the model",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.9,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.8,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.4,
+      "tier": 4
+     },
+     {
+      "stat": "spirit",
+      "share": 0.2,
+      "tier": 5
+     },
+     {
+      "stat": "stamina",
+      "share": 0.15,
+      "tier": 5
+     }
+    ]
+   },
    "about": [
     "33 points in Holy, with 18 in Discipline. Built for PvP. On this order the key talents arrive as follows: Holy Nova at 39, Inner Focus at 40, Soul Warding at 50, Binding Heal at 51, Spirit of Redemption at 53 and Prayer of Mending at 60.",
     "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order.",
@@ -1713,6 +1866,42 @@
      "stamina": 0.15,
      "mp5": 0.5
     }
+   },
+   "stat_priority": {
+    "level": null,
+    "basis": "class default, not from the model",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.9,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.8,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.4,
+      "tier": 4
+     },
+     {
+      "stat": "spirit",
+      "share": 0.2,
+      "tier": 5
+     },
+     {
+      "stat": "stamina",
+      "share": 0.15,
+      "tier": 5
+     }
+    ]
    },
    "about": [
     "32 points in Holy, with 19 in Discipline. Built for PvE. On this order the key talents arrive as follows: Holy Nova at 37, Inner Focus at 38, Soul Warding at 48, Spirit of Redemption at 51 and Prayer of Mending at 60.",
@@ -1898,6 +2087,28 @@
       "spell": "single target",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.122,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.135,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.153,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.146,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.182,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1958,6 +2169,22 @@
      "crit_pct": 0.001005,
      "hit_pct": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "spell_power",
+      "share": 0.129,
+      "tier": 2
+     }
+    ]
    },
    "about": [
     "34 points in Shadow, with 14 in Discipline and 3 in Holy. Built for PvP. On this order the key talents arrive as follows: Mind Flay at 33, Vampiric Embrace at 42, Silence at 43, Shadowform at 53 and Inner Focus at 58.",
@@ -2146,6 +2373,28 @@
       "spell": "single target",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.122,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.129,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.137,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.135,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.173,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -2206,6 +2455,37 @@
      "crit_pct": 0.007559,
      "hit_pct": 0.00742
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.374,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.368,
+      "tier": 2
+     },
+     {
+      "stat": "intellect",
+      "share": 0.181,
+      "tier": 3
+     },
+     {
+      "stat": "spirit",
+      "share": 0.112,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "33 points in Shadow, with 18 in Discipline. Built for PvE. On this order the key talents arrive as follows: Mind Flay at 36, Vampiric Embrace at 44, Silence at 46, Shadowform at 56 and Inner Focus at 57.",
@@ -2393,6 +2673,28 @@
       "spell": "single target",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.122,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.129,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.145,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.136,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.169,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -2453,6 +2755,22 @@
      "crit_pct": 0.001005,
      "hit_pct": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "spell_power",
+      "share": 0.132,
+      "tier": 2
+     }
+    ]
    },
    "about": [
     "34 points in Shadow, with 14 in Discipline and 3 in Holy. Built for PvP. On this order the key talents arrive as follows: Mind Flay at 33, Vampiric Embrace at 41, Shadowform at 53 and Inner Focus at 58.",
@@ -2618,6 +2936,37 @@
      "crit_pct": 0.2,
      "hit_pct": 0.3
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.333,
+      "tier": 2
+     },
+     {
+      "stat": "spirit",
+      "share": 0.25,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.167,
+      "tier": 4
+     },
+     {
+      "stat": "intellect",
+      "share": 0.083,
+      "tier": 5
+     }
+    ]
    },
    "about": [
     "40 points in Discipline, with 11 in Holy. Built for PvE. On this order the key talents arrive as follows: Penance at 30, Inner Focus at 32, Soul Warding at 38 and Power Infusion at 40.",
@@ -2785,6 +3134,37 @@
      "hit_pct": 0.4
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.333,
+      "tier": 2
+     },
+     {
+      "stat": "spirit",
+      "share": 0.25,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.167,
+      "tier": 4
+     },
+     {
+      "stat": "intellect",
+      "share": 0.083,
+      "tier": 5
+     }
+    ]
+   },
    "about": [
     "39 points in Discipline, with 12 in Holy. Built for PvP. On this order the key talents arrive as follows: Penance at 34, Power Infusion at 43, Inner Focus at 44 and Holy Nova at 59.",
     "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Smite.",
@@ -2949,6 +3329,27 @@
      "crit_pct": 0.2,
      "hit_pct": 0.5
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.5,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.167,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "39 points in Holy, with 12 in Discipline. Built for PvE. On this order the key talents arrive as follows: Spirit of Redemption at 32, Prayer of Mending at 40 and Holy Nova at 43.",
@@ -3116,6 +3517,27 @@
      "hit_pct": 0.6
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.5,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.167,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "40 points in Holy, with 11 in Discipline. Built for PvP. On this order the key talents arrive as follows: Binding Heal at 25, Spirit of Redemption at 38, Prayer of Mending at 40 and Holy Nova at 46.",
     "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Smite.",
@@ -3281,6 +3703,22 @@
      "hit_pct": 0.0
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.1,
+      "tier": 2
+     }
+    ]
+   },
    "about": [
     "41 points in Shadow, with 7 in Discipline and 3 in Holy. Built for PvP. On this order the key talents arrive as follows: Mind Flay at 20, Vampiric Embrace at 33 and Shadowform at 45.",
     "In the model's rotation it keeps Shadow Word: Pain up, uses Mind Blast and Shadow Word: Death on cooldown and fills with Mind Flay.",
@@ -3444,6 +3882,27 @@
      "crit_pct": 0.3,
      "hit_pct": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.273,
+      "tier": 2
+     },
+     {
+      "stat": "intellect",
+      "share": 0.091,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "40 points in Shadow, with 11 in Discipline. Built for PvE. On this order the key talents arrive as follows: Mind Flay at 20, Vampiric Embrace at 28, Silence at 30 and Shadowform at 40.",

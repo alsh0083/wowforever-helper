@@ -1120,6 +1120,28 @@
       "spell": "Fire Nova",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.095,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.099,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.149,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.13,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.138,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1184,6 +1206,32 @@
      "crit_pct": 0.007178,
      "hit_pct": 0.010259
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.494,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.345,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.256,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "38 points in Elemental, with 13 in Enhancement. Built for PvE. On this order the key talents arrive as follows: Call of Thunder at 37, Lava Burst at 52, Elemental Focus at 53, Shamanistic Focus at 54 and Earthbound at 60.",
@@ -1380,6 +1428,28 @@
       "spell": "Fire Nova",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.095,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.099,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.149,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.13,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.138,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1444,6 +1514,32 @@
      "crit_pct": 0.001608,
      "hit_pct": 0.002215
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "spell_power",
+      "share": 0.295,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.134,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.098,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "38 points in Elemental, with 13 in Enhancement. Built for PvP. On this order the key talents arrive as follows: Call of Thunder at 37, Lava Burst at 52, Elemental Focus at 53, Shamanistic Focus at 54 and Earthbound at 60.",
@@ -1645,6 +1741,28 @@
       "spell": "Fire Nova",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.1,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.111,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.13,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.129,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.118,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1715,6 +1833,42 @@
      "hit_pct": 0.000905,
      "weapon_dps": 0.006151
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "strength",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.916,
+      "tier": 2
+     },
+     {
+      "stat": "agility",
+      "share": 0.641,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.501,
+      "tier": 4
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.501,
+      "tier": 4
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.077,
+      "tier": 5
+     }
+    ]
    },
    "about": [
     "33 points in Enhancement, with 10 in Restoration and 8 in Elemental. Built for PvE. On this order the key talents arrive as follows: Stormstrike at 30, Shamanistic Focus at 31, Spirit Weapons at 32 and Rage of the Farseer at 40.",
@@ -1916,6 +2070,28 @@
       "spell": "Fire Nova",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.1,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.111,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.13,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.126,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.118,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1986,6 +2162,42 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.00155
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "strength",
+      "share": 0.27,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.22,
+      "tier": 3
+     },
+     {
+      "stat": "agility",
+      "share": 0.154,
+      "tier": 4
+     },
+     {
+      "stat": "intellect",
+      "share": 0.135,
+      "tier": 4
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.135,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "33 points in Enhancement, with 18 in Elemental. Built for PvP. On this order the key talents arrive as follows: Stormstrike at 30, Shamanistic Focus at 31, Spirit Weapons at 32 and Rage of the Farseer at 40.",
@@ -2074,6 +2286,42 @@
      "mp5": 0.6
     }
    },
+   "stat_priority": {
+    "level": null,
+    "basis": "class default, not from the model",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.9,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.8,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.4,
+      "tier": 4
+     },
+     {
+      "stat": "stamina",
+      "share": 0.15,
+      "tier": 5
+     },
+     {
+      "stat": "spirit",
+      "share": 0.1,
+      "tier": 5
+     }
+    ]
+   },
    "about": [
     "36 points in Restoration, with 15 in Enhancement. Built for PvP. On this order the key talents arrive as follows: Water Shield at 40, Shamanistic Focus at 41, Mana Tide Totem at 50, Nature's Swiftness at 54 and Riptide at 60.",
     "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order.",
@@ -2158,6 +2406,42 @@
      "stamina": 0.15,
      "mp5": 0.6
     }
+   },
+   "stat_priority": {
+    "level": null,
+    "basis": "class default, not from the model",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.9,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.8,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.4,
+      "tier": 4
+     },
+     {
+      "stat": "stamina",
+      "share": 0.15,
+      "tier": 5
+     },
+     {
+      "stat": "spirit",
+      "share": 0.1,
+      "tier": 5
+     }
+    ]
    },
    "about": [
     "41 points in Restoration, with 10 in Enhancement. Built for PvE. On this order the key talents arrive as follows: Water Shield at 39, Mana Tide Totem at 50, Nature's Swiftness at 54 and Riptide at 60.",
@@ -2321,6 +2605,32 @@
      "crit_pct": 0.4,
      "hit_pct": 0.5
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.429,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.357,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.071,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "45 points in Elemental, with 6 in Enhancement. Built for PvP. On this order the key talents arrive as follows: Call of Thunder at 25, Earthbound at 42, Lava Burst at 44 and Elemental Focus at 52.",
@@ -2486,6 +2796,32 @@
      "crit_pct": 0.4,
      "hit_pct": 0.5
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.429,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.357,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.071,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "45 points in Elemental, with 6 in Enhancement. Built for PvE. On this order the key talents arrive as follows: Call of Thunder at 25, Earthbound at 42, Lava Burst at 44 and Elemental Focus at 52.",
@@ -2662,6 +2998,42 @@
      "weapon_dps": 0.35
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "strength",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.875,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.875,
+      "tier": 2
+     },
+     {
+      "stat": "agility",
+      "share": 0.625,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.5,
+      "tier": 4
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.5,
+      "tier": 4
+     }
+    ]
+   },
    "about": [
     "40 points in Enhancement, with 11 in Elemental. Built for PvP. On this order the key talents arrive as follows: Stormstrike at 30, Spirit Weapons at 31, Rage of the Farseer at 40 and Shamanistic Focus at 48.",
     "A melee shaman: auto-attacks and weapon procs carry it, with shocks and Stormstrike on top. Damage comes from auto-attacks 49%, abilities 32% and spells and procs 20%.",
@@ -2837,6 +3209,42 @@
      "weapon_dps": 0.35
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "strength",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.875,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.875,
+      "tier": 2
+     },
+     {
+      "stat": "agility",
+      "share": 0.625,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.5,
+      "tier": 4
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.5,
+      "tier": 4
+     }
+    ]
+   },
    "about": [
     "40 points in Enhancement, with 10 in Restoration and 1 in Elemental. Built for PvE. On this order the key talents arrive as follows: Stormstrike at 30, Spirit Weapons at 31, Rage of the Farseer at 40 and Shamanistic Focus at 48.",
     "A melee shaman: auto-attacks and weapon procs carry it, with shocks and Stormstrike on top. Damage comes from auto-attacks 49%, abilities 32% and spells and procs 20%.",
@@ -3001,6 +3409,32 @@
      "hit_pct": 0.0
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.231,
+      "tier": 2
+     },
+     {
+      "stat": "spirit",
+      "share": 0.154,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.077,
+      "tier": 4
+     }
+    ]
+   },
    "about": [
     "41 points in Restoration, with 7 in Elemental and 3 in Enhancement. Built for PvE. On this order the key talents arrive as follows: Nature's Swiftness at 38, Riptide at 47, Mana Tide Totem at 52 and Water Shield at 55.",
     "In the model's rotation it keeps Flame Shock up, uses Chain Lightning on cooldown and fills with Lightning Bolt.",
@@ -3164,6 +3598,32 @@
      "crit_pct": 0.2,
      "hit_pct": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.231,
+      "tier": 2
+     },
+     {
+      "stat": "spirit",
+      "share": 0.154,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.077,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "36 points in Restoration, with 8 in Enhancement and 7 in Elemental. Built for PvP. On this order the key talents arrive as follows: Nature's Swiftness at 42, Mana Tide Totem at 43, Riptide at 49 and Water Shield at 51.",
