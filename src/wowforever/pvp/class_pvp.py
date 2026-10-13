@@ -156,9 +156,14 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
     raw = load_toml(CONFIG)
     cfg = raw[class_name]
     taken = {t.name for t in cls.talents if ranks.get(t.talent_id, 0) > 0}
+    entries = [c for c in cfg["controls"] if c.get("requires") is None or c["requires"] in taken]
     controls = [Control(c["kind"], float(c["duration"]), float(c["cooldown"]), float(c.get("energy", 0.0)))
-                for c in cfg["controls"] if c.get("requires") is None or c["requires"] in taken]
+                for c in entries]
     locks = lockout_seconds(controls, cfg.get("energy_per_minute", 0.0))
+    # controls whose spell hits several enemies (data MaxTargets > 1: Psychic Scream, Intimidating Shout)
+    wide = [ctrl for ctrl, c in zip(controls, entries)
+            if (spell := best_rank(spells, c["name"], stats.level)) is not None and spell.max_targets > 1]
+    wide_locks = lockout_seconds(wide, cfg.get("energy_per_minute", 0.0))
     output = rotation_output(class_name, stats, spells, cls, ranks, Target(0, raw["player_armor"]))
     slow = cfg.get("slow", 0.0)
     if class_name == "hunter":
@@ -196,6 +201,8 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
         heal_hps=heal_hps,
         heal_budget=heal_budget,
         root_targets=1 + int(extra),
+        stun_aoe=min(sum(locks.get(kind, 0.0) for kind in STOPS_ATTACKS),
+                     sum(wide_locks.get(kind, 0.0) for kind in STOPS_ATTACKS)),
         root_break_health=assumptions["roots_break_health_pct"] / 100 * (1 + tougher / 100),
         root_duration=max(root_durations, default=0.0),
     )
