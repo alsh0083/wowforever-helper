@@ -5,6 +5,9 @@ Windfury's chance and bonus attack power are Classic values (config/shaman.toml)
 raises the bonus. Earth Shock is a spell: it rolls spell hit and crit at base damage (the melee
 stat table carries no spell power).
 
+Against a pack (`pack` > 1, AoE pulls #262) Fire Nova goes out on cooldown and hits every mob, rolled
+like Earth Shock.
+
 Not modeled yet: Stormstrike's Nature-damage debuff, Maelstrom Weapon's cheaper Lightning Bolt,
 Lightning Shield orbs, totems, and mana (shocks are the main cost).
 """
@@ -31,11 +34,13 @@ class EnhancementRotation:
     white_dps: float
     yellow_dps: float
     spell_dps: float
+    aoe: tuple[str, ...] = ()   # spells that hit more than one mob of the pack (#262)
 
 
 def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
-                         ranks: Mapping[int, int], target: Target) -> EnhancementRotation:
-    """Sustained Enhancement DPS against `target` with the shaman's talents `ranks`."""
+                         ranks: Mapping[int, int], target: Target, *, pack: int = 1) -> EnhancementRotation:
+    """Sustained Enhancement DPS against `target` with the shaman's talents `ranks`; with `pack` > 1, the
+    damage summed over a pack of that many such mobs (#262)."""
     c = load_toml(CONFIG)
     level = stats.level
     by_name = {t.name: t for t in cls.talents}
@@ -82,10 +87,17 @@ def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: Cl
         yellow += yellow_attack(normalized, attacker, target, crit_damage_pct=total("crit_damage_pct", "@ability")) / storm.cooldown
 
     spell_dps = 0.0
+    hit = 1 - miss_chance(level, level + target.level_diff, stats.hit_pct) / 100
+    spell_crit = min(1.0, (stats.crit_pct + total("crit_chance", "all")) / 100)
     shock = best_rank(spells, "Earth Shock", level)
     if shock is not None and shock.cooldown > 0:
-        hit = 1 - miss_chance(level, level + target.level_diff, stats.hit_pct) / 100
-        spell_crit = min(1.0, (stats.crit_pct + total("crit_chance", "all")) / 100)
         avg = (shock.min_damage + shock.max_damage) / 2 * (1 + total("damage_pct", "Earth Shock") / 100)
         spell_dps = hit * avg * (1 + spell_crit * 0.5) / max(shock.cooldown + total("cooldown", "Earth Shock"), 1.5)
-    return EnhancementRotation(dps=white + yellow + spell_dps, white_dps=white, yellow_dps=yellow, spell_dps=spell_dps)
+    nova = best_rank(spells, "Fire Nova", level) if pack > 1 else None
+    aoe: tuple[str, ...] = ()
+    if nova is not None and nova.min_damage > 0:
+        avg = (nova.min_damage + nova.max_damage) / 2 * (1 + total("damage_pct", "Fire Nova") / 100)
+        spell_dps += hit * avg * (1 + spell_crit * 0.5) * pack / max(nova.cooldown + total("cooldown", "Fire Nova"), 1.5)
+        aoe = ("Fire Nova",)
+    return EnhancementRotation(dps=white + yellow + spell_dps, white_dps=white, yellow_dps=yellow, spell_dps=spell_dps,
+                               aoe=aoe)
