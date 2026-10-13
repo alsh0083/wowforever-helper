@@ -63,6 +63,7 @@ class Output:
     dps: float
     mana_per_second: float
     fallback_dps: float   # DPS once out of mana (hunters: Auto Shot); equals dps for rogues
+    aoe: tuple[str, ...] = ()   # abilities that hit several mobs of a pack (#262)
 
 
 def _config() -> dict:
@@ -136,10 +137,11 @@ def main_tree(cls: ClassData, ranks: Mapping[int, int]) -> str:
 
 def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
                     ranks: Mapping[int, int], target: Target, *, drink_mana_per_second: float | None = None,
-                    melee: bool | None = None) -> Output:
+                    melee: bool | None = None, pack: int = 1) -> Output:
     """The class rotation's DPS, mana use and out-of-mana fallback against `target`. For a hybrid,
     `melee` fixes the playstyle (a Feral leveling path is a cat even while its points sit in Balance);
-    by default it follows the tree with most points."""
+    by default it follows the tree with most points. `pack` > 1 sums damage over that many mobs for
+    classes whose AoE abilities are modeled (warrior, #262); the others stay single target."""
     from wowforever.classes import class_module
 
     module = class_module(class_name)
@@ -180,8 +182,8 @@ def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRa
     if class_name == "warrior":
         from wowforever.classes.warrior_rotation import warrior_rotation
 
-        r = warrior_rotation(stats, spells, cls, ranks, target)
-        return Output(r.dps, 0.0, r.dps)
+        r = warrior_rotation(stats, spells, cls, ranks, target, pack=pack)
+        return Output(r.dps, 0.0, r.dps, r.aoe)
     raise ValueError(f"no melee rotation for {class_name!r}")
 
 
@@ -234,8 +236,8 @@ def raid(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
 def aoe(class_name: str, stats: MeleeStats, spells, cls, ranks) -> tuple[float, str]:
     """Seconds to clear a pack of same-level questing mobs (#263) and the AoE spell used, or "single
     target". Spell-engine classes (and a hybrid's caster builds) mix their AoE spells into the rotation
-    (caster.aoe_pull, #260); the others clear the pack with their single-target rotation until their AoE
-    abilities are modeled (#262)."""
+    (caster.aoe_pull, #260); the others run their rotation against the pack (rotation_output's `pack`,
+    #262), single target where their AoE abilities aren't modeled yet."""
     from wowforever.classes import class_module
 
     module = class_module(class_name)
@@ -250,8 +252,8 @@ def aoe(class_name: str, stats: MeleeStats, spells, cls, ranks) -> tuple[float, 
         pull = aoe_pull(class_name, row, spells, cls, ranks, pack, mob_hp)
         return pull.seconds, pull.spell
     armor = _anchor_at(_config()["questing"]["anchors"], stats.level)[0]
-    dps = rotation_output(class_name, stats, spells, cls, ranks, Target(0, armor)).dps
-    return pack * mob_hp / dps, "single target"
+    out = rotation_output(class_name, stats, spells, cls, ranks, Target(0, armor), pack=pack)
+    return pack * mob_hp / out.dps, ", ".join(out.aoe) or "single target"
 
 
 def pve_score(class_name: str, stats_at_max: MeleeStats, spells, cls, ranks) -> float:

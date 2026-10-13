@@ -10,3 +10,9 @@ anger_management_rage_per_second = 0.333
 death_wish = { bonus_pct = 20.0, duration = 30.0, cooldown = 180.0 }
 # normalized weapon speed for "normalized" strikes (Classic)
 normalized_speed = { one_hand = 2.4, two_hand = 3.3 }
+
+# AoE pulls (#262). Cleave hits this many targets (Classic "the target and his nearest ally"; Forever's
+# data has no target count). Whirlwind and Thunder Clap use the data's MaxTargets (4).
+cleave_targets = 2
+# Sweeping Strikes: "Your next 5 melee attacks strike an additional nearby opponent" (rank text)
+sweeping_strikes_attacks = 5
