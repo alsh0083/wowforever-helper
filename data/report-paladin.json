@@ -1005,6 +1005,52 @@
      "weapon_dps": 3.0
     }
    },
+   "stat_priority": {
+    "level": null,
+    "basis": "class default, not from the model",
+    "stats": [
+     {
+      "stat": "hit_rating",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "strength",
+      "share": 0.833,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.833,
+      "tier": 2
+     },
+     {
+      "stat": "agility",
+      "share": 0.417,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.417,
+      "tier": 3
+     },
+     {
+      "stat": "stamina",
+      "share": 0.25,
+      "tier": 4
+     },
+     {
+      "stat": "intellect",
+      "share": 0.167,
+      "tier": 5
+     },
+     {
+      "stat": "spell_power",
+      "share": 0.167,
+      "tier": 5
+     }
+    ]
+   },
    "about": [
     "33 points in Holy, with 18 in Protection. Built for PvP. On this order the key talents arrive as follows: Voice of Truth at 32, Divine Favor at 50, Holy Shock at 54 and Light's Vigil at 60.",
     "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order.",
@@ -1092,6 +1138,52 @@
      "weapon_dps": 3.0
     }
    },
+   "stat_priority": {
+    "level": null,
+    "basis": "class default, not from the model",
+    "stats": [
+     {
+      "stat": "hit_rating",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "strength",
+      "share": 0.833,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.833,
+      "tier": 2
+     },
+     {
+      "stat": "agility",
+      "share": 0.417,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.417,
+      "tier": 3
+     },
+     {
+      "stat": "stamina",
+      "share": 0.25,
+      "tier": 4
+     },
+     {
+      "stat": "intellect",
+      "share": 0.167,
+      "tier": 5
+     },
+     {
+      "stat": "spell_power",
+      "share": 0.167,
+      "tier": 5
+     }
+    ]
+   },
    "about": [
     "36 points in Holy, with 10 in Protection and 5 in Retribution. Built for PvE. On this order the key talents arrive as follows: Voice of Truth at 37, Divine Favor at 50, Holy Shock at 54 and Light's Vigil at 60.",
     "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order.",
@@ -1178,6 +1270,52 @@
      "spell_power": 0.2,
      "weapon_dps": 3.0
     }
+   },
+   "stat_priority": {
+    "level": null,
+    "basis": "class default, not from the model",
+    "stats": [
+     {
+      "stat": "hit_rating",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "strength",
+      "share": 0.833,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.833,
+      "tier": 2
+     },
+     {
+      "stat": "agility",
+      "share": 0.417,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.417,
+      "tier": 3
+     },
+     {
+      "stat": "stamina",
+      "share": 0.25,
+      "tier": 4
+     },
+     {
+      "stat": "intellect",
+      "share": 0.167,
+      "tier": 5
+     },
+     {
+      "stat": "spell_power",
+      "share": 0.167,
+      "tier": 5
+     }
+    ]
    },
    "about": [
     "37 points in Protection, with 14 in Holy. Built for PvP. On this order the key talents arrive as follows: Voice of Truth at 32, Improved Seal of Fury at 33, Swift Judgement at 45, Templar's Bulwark at 49 and Holy Shield at 60.",
@@ -1267,6 +1405,52 @@
      "spell_power": 0.2,
      "weapon_dps": 3.0
     }
+   },
+   "stat_priority": {
+    "level": null,
+    "basis": "class default, not from the model",
+    "stats": [
+     {
+      "stat": "hit_rating",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "strength",
+      "share": 0.833,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.833,
+      "tier": 2
+     },
+     {
+      "stat": "agility",
+      "share": 0.417,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.417,
+      "tier": 3
+     },
+     {
+      "stat": "stamina",
+      "share": 0.25,
+      "tier": 4
+     },
+     {
+      "stat": "intellect",
+      "share": 0.167,
+      "tier": 5
+     },
+     {
+      "stat": "spell_power",
+      "share": 0.167,
+      "tier": 5
+     }
+    ]
    },
    "about": [
     "42 points in Protection, with 9 in Retribution. Built for PvE. On this order the key talents arrive as follows: Improved Seal of Fury at 36, Swift Judgement at 45, Templar's Bulwark at 49 and Holy Shield at 60.",
@@ -1438,34 +1622,56 @@
     },
     "aoe": {
      "20": {
-      "score": 38.5,
+      "score": 27.8,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Consecration",
       "lower_better": true
      },
      "30": {
-      "score": 47.2,
+      "score": 32.7,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Consecration",
       "lower_better": true
      },
      "40": {
-      "score": 45.8,
+      "score": 30.6,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Consecration",
       "lower_better": true
      },
      "50": {
-      "score": 51.1,
+      "score": 31.9,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Consecration",
       "lower_better": true
      },
      "60": {
-      "score": 56.1,
+      "score": 34.5,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Consecration",
       "lower_better": true
+     }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.152,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.147,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.145,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.142,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.121,
+      "unit": "2v1 0-1"
      }
     }
    },
@@ -1537,6 +1743,37 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.001616
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "strength",
+      "share": 0.238,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.148,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.119,
+      "tier": 3
+     },
+     {
+      "stat": "agility",
+      "share": 0.104,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "35 points in Retribution, with 8 in Holy and 8 in Protection. Built for PvP. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25, Repentance at 54 and Twist of Light at 60.",
@@ -1711,34 +1948,56 @@
     },
     "aoe": {
      "20": {
-      "score": 38.5,
+      "score": 27.8,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Consecration",
       "lower_better": true
      },
      "30": {
-      "score": 48.0,
+      "score": 33.4,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Consecration",
       "lower_better": true
      },
      "40": {
-      "score": 45.8,
+      "score": 30.6,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Consecration",
       "lower_better": true
      },
      "50": {
-      "score": 52.2,
+      "score": 32.3,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Consecration",
       "lower_better": true
      },
      "60": {
-      "score": 56.1,
+      "score": 34.5,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Consecration",
       "lower_better": true
+     }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.152,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.144,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.145,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.139,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.116,
+      "unit": "2v1 0-1"
      }
     }
    },
@@ -1746,7 +2005,7 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4569,
+     "score": 0.4944,
      "strength": 0.001362,
      "agility": 0.000535,
      "stamina": 0.0,
@@ -1759,7 +2018,7 @@
      "weapon_dps": 0.009571
     },
     "30": {
-     "score": 0.5062,
+     "score": 0.5403,
      "strength": 0.001039,
      "agility": 0.000424,
      "stamina": 0.0,
@@ -1772,7 +2031,7 @@
      "weapon_dps": 0.007268
     },
     "40": {
-     "score": 0.6917,
+     "score": 0.7326,
      "strength": 0.000983,
      "agility": 0.000444,
      "stamina": 0.0,
@@ -1785,7 +2044,7 @@
      "weapon_dps": 0.006877
     },
     "50": {
-     "score": 0.8121,
+     "score": 0.8562,
      "strength": 0.000945,
      "agility": 0.000423,
      "stamina": 0.0,
@@ -1798,7 +2057,7 @@
      "weapon_dps": 0.006692
     },
     "60": {
-     "score": 1.0352,
+     "score": 1.0772,
      "strength": 0.000926,
      "agility": 0.00044,
      "stamina": 0.0,
@@ -1810,6 +2069,37 @@
      "hit_pct": 0.001894,
      "weapon_dps": 0.006451
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "strength",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.678,
+      "tier": 2
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.5,
+      "tier": 3
+     },
+     {
+      "stat": "agility",
+      "share": 0.475,
+      "tier": 3
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.204,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "34 points in Retribution, with 13 in Holy and 4 in Protection. Built for PvE. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25 and Twist of Light at 60.",
@@ -1987,6 +2277,37 @@
      "weapon_dps": 0.3
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "strength",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.625,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.625,
+      "tier": 2
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.5,
+      "tier": 3
+     },
+     {
+      "stat": "agility",
+      "share": 0.375,
+      "tier": 4
+     }
+    ]
+   },
    "about": [
     "43 points in Holy, with 8 in Protection. Built for PvE. On this order the key talents arrive as follows: Voice of Truth at 20, Holy Shock at 33, Light's Vigil at 40 and Divine Favor at 42.",
     "In the model's rotation its priority is Holy Strike. Damage comes from auto-attacks 83% and Holy damage 17%.",
@@ -2159,6 +2480,37 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.3
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "strength",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.625,
+      "tier": 2
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.5,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.5,
+      "tier": 3
+     },
+     {
+      "stat": "agility",
+      "share": 0.375,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "33 points in Holy, with 18 in Protection. Built for PvP. On this order the key talents arrive as follows: Voice of Truth at 20, Holy Shock at 48, Divine Favor at 51 and Light's Vigil at 58.",
@@ -2335,6 +2687,37 @@
      "weapon_dps": 0.35
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "strength",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.667,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.667,
+      "tier": 2
+     },
+     {
+      "stat": "agility",
+      "share": 0.444,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.444,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "38 points in Protection, with 13 in Retribution. Built for PvE. On this order the key talents arrive as follows: Seal of Command at 30, Improved Seal of Fury at 31, Swift Judgement at 38, Templar's Bulwark at 43 and Holy Shield at 53.",
     "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 57% and Holy damage 43%.",
@@ -2507,6 +2890,37 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.3
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "strength",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.625,
+      "tier": 2
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.5,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.5,
+      "tier": 3
+     },
+     {
+      "stat": "agility",
+      "share": 0.375,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "37 points in Protection, with 14 in Holy. Built for PvP. On this order the key talents arrive as follows: Improved Seal of Fury at 29, Swift Judgement at 32, Voice of Truth at 40, Templar's Bulwark at 44 and Holy Shield at 54.",
@@ -2683,6 +3097,37 @@
      "weapon_dps": 0.35
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "strength",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.667,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.667,
+      "tier": 2
+     },
+     {
+      "stat": "agility",
+      "share": 0.444,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.444,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "41 points in Retribution, with 10 in Holy. Built for PvE. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25, Twist of Light at 43 and Repentance at 49.",
     "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 55% and Holy damage 45%.",
@@ -2857,6 +3302,37 @@
      "weapon_dps": 0.35
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "strength",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.667,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.556,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.444,
+      "tier": 4
+     },
+     {
+      "stat": "agility",
+      "share": 0.333,
+      "tier": 5
+     }
+    ]
+   },
    "about": [
     "42 points in Retribution, with 8 in Protection and 1 in Holy. Built for PvP. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25, Repentance at 38 and Twist of Light at 54.",
     "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 57% and Holy damage 43%.",
@@ -2933,11 +3409,11 @@
    "archetype": "deep Retribution",
    "focus": "PvE",
    "standard": "paladin-retribution",
-   "standard_score": 1.0352409164286154,
+   "standard_score": 1.0771915743233522,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "paladin-retribution": 1.0352409164286154
+    "paladin-retribution": 1.0771915743233522
    },
    "qualifying": [
     "paladin-retribution"

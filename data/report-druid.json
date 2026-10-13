@@ -1139,6 +1139,28 @@
       "spell": "Hurricane",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.302,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.327,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.34,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.352,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.429,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1199,6 +1221,32 @@
      "crit_pct": 0.001246,
      "hit_pct": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "intellect",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "spell_power",
+      "share": 0.896,
+      "tier": 2
+     },
+     {
+      "stat": "stamina",
+      "share": 0.596,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.33,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "41 points in Balance, with 10 in Restoration. Built for PvP. On this order the key talents arrive as follows: Insect Swarm at 25, Moonkin Form at 40, Nature's Splendor at 51 and Nature's Grace at 57.",
@@ -1390,6 +1438,28 @@
       "spell": "Hurricane",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.302,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.334,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.349,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.375,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.422,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1450,6 +1520,37 @@
      "crit_pct": 0.007245,
      "hit_pct": 0.005035
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.284,
+      "tier": 2
+     },
+     {
+      "stat": "intellect",
+      "share": 0.244,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.198,
+      "tier": 3
+     },
+     {
+      "stat": "spirit",
+      "share": 0.12,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "36 points in Balance, with 15 in Restoration. Built for PvE. On this order the key talents arrive as follows: Nature's Splendor at 24, Insect Swarm at 25, Moonkin Form at 40 and Nature's Grace at 57.",
@@ -1537,6 +1638,42 @@
      "stamina": 0.15,
      "mp5": 0.5
     }
+   },
+   "stat_priority": {
+    "level": null,
+    "basis": "class default, not from the model",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.9,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.8,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.4,
+      "tier": 4
+     },
+     {
+      "stat": "stamina",
+      "share": 0.15,
+      "tier": 5
+     },
+     {
+      "stat": "spirit",
+      "share": 0.15,
+      "tier": 5
+     }
+    ]
    },
    "about": [
     "42 points in Feral Combat, with 9 in Balance. Built for PvE. On this order the key talents arrive as follows: Leader of the Pack at 30, Feral Charge at 51, Primal Bite at 52 and Berserk at 60.",
@@ -1738,6 +1875,28 @@
       "spell": "single target",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.171,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.191,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.211,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.225,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.217,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1808,6 +1967,42 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "intellect",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "stamina",
+      "share": 0.633,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.298,
+      "tier": 3
+     },
+     {
+      "stat": "agility",
+      "share": 0.29,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.2,
+      "tier": 4
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.149,
+      "tier": 5
+     }
+    ]
    },
    "about": [
     "34 points in Feral Combat, with 12 in Balance and 5 in Restoration. Built for PvP. On this order the key talents arrive as follows: Feral Charge at 30, Leader of the Pack at 31 and Berserk at 57.",
@@ -1897,6 +2092,42 @@
      "mp5": 0.5
     }
    },
+   "stat_priority": {
+    "level": null,
+    "basis": "class default, not from the model",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.9,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.8,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.4,
+      "tier": 4
+     },
+     {
+      "stat": "stamina",
+      "share": 0.15,
+      "tier": 5
+     },
+     {
+      "stat": "spirit",
+      "share": 0.15,
+      "tier": 5
+     }
+    ]
+   },
    "about": [
     "31 points in Restoration, with 20 in Feral Combat. Built for PvP. On this order the key talents arrive as follows: Gift of the Earthmother at 44, Swiftmend at 49, Feral Charge at 50, Nature's Swiftness at 51 and Wild Growth at 60.",
     "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order.",
@@ -1981,6 +2212,42 @@
      "stamina": 0.15,
      "mp5": 0.5
     }
+   },
+   "stat_priority": {
+    "level": null,
+    "basis": "class default, not from the model",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.9,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.8,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.4,
+      "tier": 4
+     },
+     {
+      "stat": "stamina",
+      "share": 0.15,
+      "tier": 5
+     },
+     {
+      "stat": "spirit",
+      "share": 0.15,
+      "tier": 5
+     }
+    ]
    },
    "about": [
     "35 points in Restoration, with 11 in Balance and 5 in Feral Combat. Built for PvE. On this order the key talents arrive as follows: Nature's Splendor at 43, Gift of the Earthmother at 44, Swiftmend at 48, Nature's Swiftness at 49 and Wild Growth at 60.",
@@ -2143,6 +2410,22 @@
      "crit_pct": 0.3,
      "hit_pct": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.2,
+      "tier": 2
+     }
+    ]
    },
    "about": [
     "43 points in Balance, with 8 in Restoration. Built for PvE. On this order the key talents arrive as follows: Insect Swarm at 25, Moonkin Form at 40, Nature's Grace at 41 and Nature's Splendor at 50.",
@@ -2307,6 +2590,22 @@
      "crit_pct": 0.3,
      "hit_pct": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.2,
+      "tier": 2
+     }
+    ]
    },
    "about": [
     "46 points in Balance, with 5 in Restoration. Built for PvP. On this order the key talents arrive as follows: Insect Swarm at 25, Moonkin Form at 40, Nature's Grace at 41 and Nature's Splendor at 50.",
@@ -2484,6 +2783,37 @@
      "weapon_dps": 0.0
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "strength",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.857,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.857,
+      "tier": 2
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.571,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "49 points in Feral Combat, with 2 in Balance. Built for PvE. On this order the key talents arrive as follows: Leader of the Pack at 30, Feral Charge at 45, Berserk at 49, Primal Bite at 55 and Shifting Power at 58.",
     "Fights in Cat Form, building combo points with Shred for finishers. Damage comes from auto-attacks 55% and abilities 45%.",
@@ -2658,6 +2988,37 @@
      "weapon_dps": 0.0
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "strength",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.857,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.857,
+      "tier": 2
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.571,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "38 points in Feral Combat, with 8 in Balance and 5 in Restoration. Built for PvP. On this order the key talents arrive as follows: Leader of the Pack at 30, Berserk at 48 and Feral Charge at 51.",
     "Fights in Cat Form, building combo points with Claw for finishers. Damage comes from auto-attacks 55% and abilities 45%.",
@@ -2823,6 +3184,27 @@
      "hit_pct": 0.0
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.3,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.15,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "35 points in Restoration, with 16 in Balance. Built for PvE. On this order the key talents arrive as follows: Swiftmend at 38, Nature's Swiftness at 40, Wild Growth at 52 and Gift of the Earthmother at 56.",
     "In the model's rotation it keeps Moonfire up and fills with Starfire.",
@@ -2986,6 +3368,32 @@
      "crit_pct": 0.2,
      "hit_pct": 0.6
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.368,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.158,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.053,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "31 points in Restoration, with 13 in Feral Combat and 7 in Balance. Built for PvP. On this order the key talents arrive as follows: Swiftmend at 36, Nature's Swiftness at 37, Gift of the Earthmother at 41 and Wild Growth at 47.",

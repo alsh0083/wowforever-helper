@@ -1141,6 +1141,28 @@
       "spell": "Hellfire",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.112,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.13,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.113,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.102,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.122,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1201,6 +1223,22 @@
      "crit_pct": 0.000575,
      "hit_pct": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "spell_power",
+      "share": 0.296,
+      "tier": 2
+     }
+    ]
    },
    "about": [
     "30 points in Affliction, with 21 in Demonology. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 21, Amplify Curse at 35, Curse of Exhaustion at 42, Siphon Life at 43, Shadow Mastery at 46 and Fel Domination at 59.",
@@ -1392,6 +1430,28 @@
       "spell": "Hellfire",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.114,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.133,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.118,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.111,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.135,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1452,6 +1512,22 @@
      "crit_pct": 0.000629,
      "hit_pct": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "spell_power",
+      "share": 0.294,
+      "tier": 2
+     }
+    ]
    },
    "about": [
     "35 points in Affliction, with 11 in Demonology and 5 in Destruction. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Shadow Mastery at 51 and Siphon Life at 59.",
@@ -1644,6 +1720,28 @@
       "spell": "Hellfire",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.112,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.131,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.116,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.104,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.123,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1704,6 +1802,32 @@
      "crit_pct": 0.00263,
      "hit_pct": 0.003388
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "intellect",
+      "share": 0.242,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.147,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.114,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "40 points in Affliction, with 11 in Demonology. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 21, Siphon Life at 56 and Wrack at 60.",
@@ -1895,6 +2019,28 @@
       "spell": "Hellfire",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.114,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.134,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.121,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.11,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.13,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1955,6 +2101,32 @@
      "crit_pct": 0.003866,
      "hit_pct": 0.004486
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "intellect",
+      "share": 0.241,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.228,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.175,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "31 points in Demonology, with 17 in Destruction and 3 in Affliction. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Conflagrate at 41, Soul Link at 51 and Demonic Pact at 60.",
@@ -2147,6 +2319,28 @@
       "spell": "Hellfire",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.114,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.127,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.117,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.102,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.124,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -2207,6 +2401,32 @@
      "crit_pct": 0.003028,
      "hit_pct": 0.009898
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.464,
+      "tier": 2
+     },
+     {
+      "stat": "intellect",
+      "share": 0.224,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.138,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "31 points in Demonology, with 20 in Destruction. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Soul Link at 51 and Demonic Pact at 60.",
@@ -2398,6 +2618,28 @@
       "spell": "Hellfire",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.114,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.128,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.12,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.105,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.127,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -2458,6 +2700,22 @@
      "crit_pct": 0.000647,
      "hit_pct": 0.000485
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "spell_power",
+      "share": 0.296,
+      "tier": 2
+     }
+    ]
    },
    "about": [
     "33 points in Demonology, with 13 in Destruction and 5 in Affliction. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Shadowburn at 45, Fel Domination at 47, Soul Link at 51 and Demonic Pact at 60.",
@@ -2649,6 +2907,28 @@
       "spell": "Hellfire",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.114,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.129,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.12,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.113,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.138,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -2709,6 +2989,32 @@
      "crit_pct": 0.004129,
      "hit_pct": 0.003426
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "intellect",
+      "share": 0.251,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.174,
+      "tier": 3
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.144,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "31 points in Destruction, with 11 in Demonology and 9 in Affliction. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Conflagrate at 39, Shadowburn at 47, Bane of Havoc at 48 and Incinerate at 60.",
@@ -2900,6 +3206,28 @@
       "spell": "Hellfire",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.114,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.132,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.123,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.116,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.14,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -2960,6 +3288,22 @@
      "crit_pct": 0.000819,
      "hit_pct": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "spell_power",
+      "share": 0.275,
+      "tier": 2
+     }
+    ]
    },
    "about": [
     "35 points in Destruction, with 11 in Demonology and 5 in Affliction. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Conflagrate at 39, Shadowburn at 58, Bane of Havoc at 59 and Incinerate at 60.",
@@ -3126,6 +3470,22 @@
      "hit_pct": 0.0
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.056,
+      "tier": 2
+     }
+    ]
+   },
    "about": [
     "47 points in Affliction, with 4 in Demonology. Built for PvE. On this order the key talents arrive as follows: Siphon Life at 42 and Wrack at 55.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
@@ -3291,6 +3651,22 @@
      "hit_pct": 0.0
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.056,
+      "tier": 2
+     }
+    ]
+   },
    "about": [
     "39 points in Affliction, with 8 in Destruction and 4 in Demonology. Built for PvP. On this order the key talents arrive as follows: Shadow Mastery at 43 and Siphon Life at 47.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
@@ -3455,6 +3831,27 @@
      "crit_pct": 0.2,
      "hit_pct": 0.1
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.333,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.056,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "35 points in Demonology, with 11 in Destruction and 5 in Affliction. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 20, Fel Domination at 27, Soul Link at 38, Shadowburn at 52 and Demonic Pact at 56.",
@@ -3622,6 +4019,27 @@
      "hit_pct": 0.0
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.278,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.056,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "36 points in Demonology, with 13 in Destruction and 2 in Affliction. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 20, Soul Link at 30 and Demonic Pact at 42.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
@@ -3788,6 +4206,32 @@
      "hit_pct": 0.0
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.412,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.235,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.059,
+      "tier": 4
+     }
+    ]
+   },
    "about": [
     "41 points in Destruction, with 6 in Affliction and 4 in Demonology. Built for PvP. On this order the key talents arrive as follows: Conflagrate at 26, Bane of Havoc at 45, Incinerate at 46 and Shadowburn at 47.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up, uses Conflagrate on cooldown and fills with Incinerate.",
@@ -3953,6 +4397,32 @@
      "crit_pct": 0.3,
      "hit_pct": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "spell_power",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.412,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.235,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.059,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "38 points in Destruction, with 9 in Affliction and 4 in Demonology. Built for PvE. On this order the key talents arrive as follows: Conflagrate at 26, Bane of Havoc at 45, Incinerate at 46 and Shadowburn at 47.",

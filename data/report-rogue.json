@@ -1153,6 +1153,28 @@
       "spell": "single target",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.112,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.109,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.116,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.129,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.123,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1223,6 +1245,42 @@
      "hit_pct": 0.001268,
      "weapon_dps": 0.001263
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "agility",
+      "share": 0.241,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.193,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.147,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.147,
+      "tier": 3
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.1,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "31 points in Assassination, with 20 in Combat. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 20, Mutilate at 38, Seal Fate at 46, Riposte at 59 and Cold Blood at 60.",
@@ -1425,6 +1483,28 @@
       "spell": "single target",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.112,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.109,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.109,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.115,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.107,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1495,6 +1575,42 @@
      "hit_pct": 0.001379,
      "weapon_dps": 0.001387
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "agility",
+      "share": 0.266,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.216,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.162,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.162,
+      "tier": 3
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.112,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "34 points in Assassination, with 17 in Combat. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 20, Mutilate at 37, Riposte at 52, Cold Blood at 57 and Venom at 60.",
@@ -1696,6 +1812,28 @@
       "spell": "single target",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.112,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.116,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.113,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.118,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.111,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -1766,6 +1904,37 @@
      "hit_pct": 0.006023,
      "weapon_dps": 0.006705
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.738,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.641,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.641,
+      "tier": 3
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.464,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "24 points in Subtlety, with 19 in Assassination and 8 in Combat. Built for PvE. On this order the key talents arrive as follows: Relentless Strikes at 22, Premeditation at 57, Dirty Deeds at 58 and Preparation at 60.",
@@ -1968,6 +2137,28 @@
       "spell": "Blade Flurry",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.113,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.116,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.117,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.128,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.121,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -2038,6 +2229,42 @@
      "hit_pct": 0.001356,
      "weapon_dps": 0.001657
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "agility",
+      "share": 0.256,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.173,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.173,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.173,
+      "tier": 3
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.107,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "33 points in Combat, with 18 in Assassination. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 22, Blade Flurry at 41, Flawless Execution at 42, Adrenaline Rush at 51 and Cold Blood at 58.",
@@ -2241,6 +2468,28 @@
       "spell": "Blade Flurry",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.113,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.115,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.116,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.128,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.121,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -2311,6 +2560,37 @@
      "hit_pct": 0.006533,
      "weapon_dps": 0.0071
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.735,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.643,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.643,
+      "tier": 3
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.455,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "32 points in Combat, with 19 in Assassination. Built for PvE. On this order the key talents arrive as follows: Relentless Strikes at 22, Blade Flurry at 41, Adrenaline Rush at 51 and Cold Blood at 59.",
@@ -2513,6 +2793,28 @@
       "spell": "single target",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.113,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.112,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.118,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.129,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.123,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -2583,6 +2885,37 @@
      "hit_pct": 0.005849,
      "weapon_dps": 0.005504
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.866,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.58,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.58,
+      "tier": 3
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.437,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "38 points in Assassination, with 11 in Combat and 2 in Subtlety. Built for PvE. On this order the key talents arrive as follows: Relentless Strikes at 20, Mutilate at 38, Cold Blood at 47 and Venom at 60.",
@@ -2784,6 +3117,28 @@
       "spell": "single target",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.112,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.116,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.113,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.118,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.111,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -2854,6 +3209,42 @@
      "hit_pct": 0.001378,
      "weapon_dps": 0.001729
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "agility",
+      "share": 0.261,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.176,
+      "tier": 3
+     },
+     {
+      "stat": "strength",
+      "share": 0.175,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.175,
+      "tier": 3
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.111,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "24 points in Subtlety, with 19 in Assassination and 8 in Combat. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 22, Premeditation at 57, Dirty Deeds at 58 and Preparation at 60.",
@@ -3056,6 +3447,28 @@
       "spell": "single target",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.113,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.109,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.104,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.115,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.106,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -3126,6 +3539,37 @@
      "hit_pct": 0.006041,
      "weapon_dps": 0.006951
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.72,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.65,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.65,
+      "tier": 3
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.465,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "31 points in Subtlety, with 20 in Assassination. Built for PvE. On this order the key talents arrive as follows: Relentless Strikes at 20, Ghostly Strike at 43, Hemorrhage at 49, Premeditation at 51, Preparation at 54 and Thousand Cuts at 60.",
@@ -3327,6 +3771,28 @@
       "spell": "single target",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.113,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.109,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.104,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.116,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.108,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -3397,6 +3863,42 @@
      "hit_pct": 0.001405,
      "weapon_dps": 0.001818
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "agility",
+      "share": 0.269,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.182,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.182,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.179,
+      "tier": 3
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.113,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "31 points in Subtlety, with 17 in Assassination and 3 in Combat. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 20, Ghostly Strike at 48, Hemorrhage at 50, Preparation at 54 and Thousand Cuts at 60.",
@@ -3599,6 +4101,28 @@
       "spell": "single target",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.112,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.107,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.101,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.107,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.1,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -3669,6 +4193,42 @@
      "hit_pct": 0.001512,
      "weapon_dps": 0.001958
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "agility",
+      "share": 0.289,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.2,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.2,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.183,
+      "tier": 3
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.125,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "32 points in Subtlety, with 19 in Assassination. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 20, Ghostly Strike at 44, Cold Blood at 47, Premeditation at 48, Hemorrhage at 51 and Preparation at 54.",
@@ -3870,6 +4430,28 @@
       "spell": "single target",
       "lower_better": true
      }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.112,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.112,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.106,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.112,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.1,
+      "unit": "2v1 0-1"
+     }
     }
    },
    "sensitivity": [],
@@ -3940,6 +4522,42 @@
      "hit_pct": 0.001487,
      "weapon_dps": 0.001853
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "agility",
+      "share": 0.279,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.193,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.193,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.179,
+      "tier": 3
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.122,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "23 points in Subtlety, with 16 in Assassination and 12 in Combat. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 22, Cold Blood at 56, Premeditation at 57, Dirty Deeds at 58 and Preparation at 60.",
@@ -4117,6 +4735,37 @@
      "weapon_dps": 0.3
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.875,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.625,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.625,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "39 points in Assassination, with 10 in Combat and 2 in Subtlety. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 20, Mutilate at 30, Venom at 44 and Cold Blood at 53.",
     "Builds combo points with Mutilate and spends them on finishers, keeping Slice and Dice up. Damage comes from auto-attacks 56% and abilities and poisons 44%.",
@@ -4291,6 +4940,37 @@
      "hit_pct": 0.3,
      "weapon_dps": 0.35
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.875,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.75,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.75,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.75,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "31 points in Subtlety, with 12 in Assassination and 8 in Combat. Built for PvE. On this order the key talents arrive as follows: Dirty Deeds at 31, Preparation at 33, Premeditation at 40 and Relentless Strikes at 59.",
@@ -4467,6 +5147,37 @@
      "weapon_dps": 0.35
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.778,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.778,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.667,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.667,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "39 points in Combat, with 12 in Assassination. Built for PvE. On this order the key talents arrive as follows: Blade Flurry at 30, Adrenaline Rush at 40 and Relentless Strikes at 51.",
     "Builds combo points with Sinister Strike and spends them on finishers, keeping Slice and Dice up. Damage comes from auto-attacks 61% and abilities and poisons 39%.",
@@ -4640,6 +5351,37 @@
      "hit_pct": 0.3,
      "weapon_dps": 0.35
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.778,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.778,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.667,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.667,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "39 points in Combat, with 12 in Assassination. Built for PvP. On this order the key talents arrive as follows: Flawless Execution at 25, Blade Flurry at 30, Adrenaline Rush at 40 and Relentless Strikes at 51.",
@@ -4817,6 +5559,37 @@
      "weapon_dps": 0.25
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.875,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.5,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.5,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "44 points in Assassination, with 5 in Combat and 2 in Subtlety. Built for PvE. On this order the key talents arrive as follows: Relentless Strikes at 20, Mutilate at 32, Venom at 43 and Cold Blood at 54.",
     "Builds combo points with Mutilate and spends them on finishers, keeping Slice and Dice up. Damage comes from auto-attacks 55% and abilities and poisons 45%.",
@@ -4993,6 +5766,37 @@
      "weapon_dps": 0.4
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.778,
+      "tier": 2
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.778,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.667,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.667,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "28 points in Subtlety, with 12 in Combat and 11 in Assassination. Built for PvP. On this order the key talents arrive as follows: Relentless Strikes at 50, Premeditation at 52, Dirty Deeds at 53 and Preparation at 55.",
     "Builds combo points with Sinister Strike and spends them on finishers, keeping Slice and Dice up. Damage comes from auto-attacks 68% and abilities and poisons 32%.",
@@ -5166,6 +5970,37 @@
      "hit_pct": 0.3,
      "weapon_dps": 0.4
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.889,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.778,
+      "tier": 3
+     },
+     {
+      "stat": "strength",
+      "share": 0.667,
+      "tier": 4
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.667,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "38 points in Subtlety, with 13 in Assassination. Built for PvE. On this order the key talents arrive as follows: Hemorrhage at 31, Relentless Strikes at 42, Preparation at 44, Premeditation at 45, Thousand Cuts at 52 and Ghostly Strike at 56.",
@@ -5342,6 +6177,37 @@
      "hit_pct": 0.3,
      "weapon_dps": 0.4
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.875,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.75,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.75,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.75,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "36 points in Subtlety, with 13 in Assassination and 2 in Combat. Built for PvP. On this order the key talents arrive as follows: Preparation at 42, Premeditation at 43, Thousand Cuts at 50, Ghostly Strike at 53 and Relentless Strikes at 58.",

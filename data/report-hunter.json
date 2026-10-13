@@ -1097,34 +1097,56 @@
     },
     "aoe": {
      "20": {
-      "score": 23.8,
+      "score": 18.3,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "30": {
-      "score": 27.0,
+      "score": 20.7,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "40": {
-      "score": 31.3,
+      "score": 19.2,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "50": {
-      "score": 36.7,
+      "score": 22.0,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "60": {
-      "score": 36.2,
+      "score": 25.0,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
+     }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.2,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.205,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.186,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.188,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.168,
+      "unit": "2v1 0-1"
      }
     }
    },
@@ -1197,10 +1219,41 @@
      "weapon_dps": 0.0
     }
    },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "agility",
+      "share": 0.167,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.097,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.071,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.071,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "31 points in Beast Mastery, with 20 in Marksmanship. Built for PvP. On this order the key talents arrive as follows: Trueshot Aura at 25, Bestial Swiftness at 45, Summon Hawk at 51, Intimidation at 52 and Bestial Wrath at 60.",
     "Fights at range with Auto Shot and its shots alongside its pet, which does about 22% of the damage.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and questing speed (99%), and weakest at AoE pulls (80%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and questing speed (99%), and weakest at AoE pulls (94%).",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 20% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
     "Gear priority per point, relative to the best stat: at level 30, stamina 1, agility 0.27, hit rating 0.2 and crit rating 0.17; at level 60, stamina 1, agility 0.17, crit rating 0.1 and attack power 0.07. The Recommended gear panel ranks items by these weights at your level."
@@ -1369,34 +1422,56 @@
     },
     "aoe": {
      "20": {
-      "score": 23.8,
+      "score": 18.3,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "30": {
-      "score": 27.8,
+      "score": 21.3,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "40": {
-      "score": 31.4,
+      "score": 18.8,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "50": {
-      "score": 37.6,
+      "score": 22.0,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "60": {
-      "score": 37.0,
+      "score": 25.0,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
+     }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.2,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.201,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.186,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.185,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.166,
+      "unit": "2v1 0-1"
      }
     }
    },
@@ -1404,77 +1479,108 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.6393,
+     "score": 0.6868,
      "strength": 0.0,
-     "agility": 0.001508,
+     "agility": 0.001754,
      "stamina": 0.0,
-     "intellect": 0.000399,
-     "attack_power": 0.000665,
-     "crit_rating": 0.00095,
-     "hit_rating": 0.001169,
-     "crit_pct": 0.003072,
-     "hit_pct": 0.003208,
+     "intellect": 0.000466,
+     "attack_power": 0.000776,
+     "crit_rating": 0.001077,
+     "hit_rating": 0.001324,
+     "crit_pct": 0.003482,
+     "hit_pct": 0.003709,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.7951,
+     "score": 0.836,
      "strength": 0.0,
-     "agility": 0.00121,
+     "agility": 0.00134,
      "stamina": 0.0,
-     "intellect": 0.000526,
-     "attack_power": 0.000526,
-     "crit_rating": 0.000695,
-     "hit_rating": 0.000754,
-     "crit_pct": 0.004115,
-     "hit_pct": 0.003845,
+     "intellect": 0.000584,
+     "attack_power": 0.000584,
+     "crit_rating": 0.000755,
+     "hit_rating": 0.000827,
+     "crit_pct": 0.004475,
+     "hit_pct": 0.004276,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 0.9901,
+     "score": 1.0702,
      "strength": 0.0,
-     "agility": 0.001084,
+     "agility": 0.000939,
      "stamina": 0.0,
-     "intellect": 0.000472,
-     "attack_power": 0.000469,
-     "crit_rating": 0.000591,
-     "hit_rating": 0.000531,
-     "crit_pct": 0.005088,
-     "hit_pct": 0.004273,
+     "intellect": 0.000409,
+     "attack_power": 0.000406,
+     "crit_rating": 0.000516,
+     "hit_rating": 0.000618,
+     "crit_pct": 0.004442,
+     "hit_pct": 0.005025,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 1.1279,
+     "score": 1.1983,
      "strength": 0.0,
-     "agility": 0.001043,
+     "agility": 0.000945,
      "stamina": 0.0,
-     "intellect": 0.000576,
-     "attack_power": 0.000445,
-     "crit_rating": 0.00059,
-     "hit_rating": 0.000607,
-     "crit_pct": 0.006674,
-     "hit_pct": 0.006932,
+     "intellect": 0.000534,
+     "attack_power": 0.000403,
+     "crit_rating": 0.000537,
+     "hit_rating": 0.000664,
+     "crit_pct": 0.006072,
+     "hit_pct": 0.007583,
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 1.4736,
+     "score": 1.5226,
      "strength": 0.0,
-     "agility": 0.001049,
+     "agility": 0.000976,
      "stamina": 0.0,
-     "intellect": 0.000729,
-     "attack_power": 0.000439,
-     "crit_rating": 0.000643,
+     "intellect": 0.000699,
+     "attack_power": 0.000408,
+     "crit_rating": 0.000599,
      "hit_rating": 0.000262,
-     "crit_pct": 0.008998,
+     "crit_pct": 0.008384,
      "hit_pct": 0.003672,
      "weapon_dps": 0.0
     }
    },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "intellect",
+      "share": 0.716,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.614,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.418,
+      "tier": 4
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.268,
+      "tier": 5
+     }
+    ]
+   },
    "about": [
     "31 points in Beast Mastery, with 20 in Marksmanship. Built for PvE. On this order the key talents arrive as follows: Bestial Swiftness at 45, Summon Hawk at 51, Intimidation at 52 and Bestial Wrath at 60.",
     "Fights at range with Auto Shot and its shots alongside its pet, which does about 22% of the damage.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (98%) and questing speed (98%), and weakest at AoE pulls (82%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (98%) and questing speed (98%), and weakest at AoE pulls (94%).",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 20% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, agility 1, hit rating 0.62, crit rating 0.57 and attack power 0.43; at level 60, agility 1, intellect 0.69, crit rating 0.61 and attack power 0.42. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, agility 1, hit rating 0.62, crit rating 0.56 and attack power 0.44; at level 60, agility 1, intellect 0.72, crit rating 0.61 and attack power 0.42. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -1640,34 +1746,56 @@
     },
     "aoe": {
      "20": {
-      "score": 24.2,
+      "score": 18.7,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "30": {
-      "score": 26.9,
+      "score": 20.4,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "40": {
-      "score": 30.3,
+      "score": 18.3,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "50": {
-      "score": 36.8,
+      "score": 21.4,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "60": {
-      "score": 35.5,
+      "score": 24.5,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
+     }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.198,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.205,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.191,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.188,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.169,
+      "unit": "2v1 0-1"
      }
     }
    },
@@ -1675,78 +1803,109 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.6355,
+     "score": 0.6814,
      "strength": 0.0,
-     "agility": 0.001513,
+     "agility": 0.001758,
      "stamina": 0.0,
-     "intellect": 0.000134,
-     "attack_power": 0.000669,
-     "crit_rating": 0.000928,
-     "hit_rating": 0.001145,
-     "crit_pct": 0.003002,
-     "hit_pct": 0.003147,
+     "intellect": 0.000156,
+     "attack_power": 0.00078,
+     "crit_rating": 0.001051,
+     "hit_rating": 0.001295,
+     "crit_pct": 0.003398,
+     "hit_pct": 0.00363,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.8181,
+     "score": 0.8623,
      "strength": 0.0,
-     "agility": 0.001274,
+     "agility": 0.001413,
      "stamina": 0.0,
-     "intellect": 0.000538,
-     "attack_power": 0.000538,
-     "crit_rating": 0.000875,
-     "hit_rating": 0.000782,
-     "crit_pct": 0.005187,
-     "hit_pct": 0.003977,
+     "intellect": 0.000598,
+     "attack_power": 0.000598,
+     "crit_rating": 0.000955,
+     "hit_rating": 0.00086,
+     "crit_pct": 0.005657,
+     "hit_pct": 0.004443,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 1.0238,
+     "score": 1.105,
      "strength": 0.0,
-     "agility": 0.001236,
+     "agility": 0.00107,
      "stamina": 0.0,
-     "intellect": 0.000521,
-     "attack_power": 0.000521,
-     "crit_rating": 0.000784,
-     "hit_rating": 0.000586,
-     "crit_pct": 0.006755,
-     "hit_pct": 0.00471,
+     "intellect": 0.000451,
+     "attack_power": 0.000451,
+     "crit_rating": 0.000682,
+     "hit_rating": 0.000675,
+     "crit_pct": 0.00588,
+     "hit_pct": 0.005476,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 1.1651,
+     "score": 1.2381,
      "strength": 0.0,
-     "agility": 0.001136,
+     "agility": 0.00103,
      "stamina": 0.0,
-     "intellect": 0.000648,
-     "attack_power": 0.000484,
-     "crit_rating": 0.000649,
-     "hit_rating": 0.000674,
-     "crit_pct": 0.007341,
-     "hit_pct": 0.007697,
+     "intellect": 0.000603,
+     "attack_power": 0.000438,
+     "crit_rating": 0.000591,
+     "hit_rating": 0.000734,
+     "crit_pct": 0.00668,
+     "hit_pct": 0.008377,
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 1.523,
+     "score": 1.5701,
      "strength": 0.0,
-     "agility": 0.001132,
+     "agility": 0.001053,
      "stamina": 0.0,
-     "intellect": 0.000814,
-     "attack_power": 0.00047,
-     "crit_rating": 0.00072,
+     "intellect": 0.000781,
+     "attack_power": 0.000437,
+     "crit_rating": 0.00067,
      "hit_rating": 0.000291,
-     "crit_pct": 0.010085,
+     "crit_pct": 0.009382,
      "hit_pct": 0.004073,
      "weapon_dps": 0.0
     }
    },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "intellect",
+      "share": 0.742,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.636,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.415,
+      "tier": 4
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.276,
+      "tier": 5
+     }
+    ]
+   },
    "about": [
     "45 points in Marksmanship, with 5 in Survival and 1 in Beast Mastery. Built for PvE. On this order the key talents arrive as follows: Trueshot Aura at 25 and Sniper Shot at 55.",
     "Fights at range with Auto Shot and its shots alongside its pet, which does about 16% of the damage.",
-    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (100%) and raid damage (100%), and weakest at AoE pulls (79%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (100%) and raid damage (100%), and weakest at AoE pulls (92%).",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 22% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, agility 1, crit rating 0.69, hit rating 0.61 and attack power 0.42; at level 60, agility 1, intellect 0.72, crit rating 0.64 and attack power 0.42. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, agility 1, crit rating 0.68, hit rating 0.61 and attack power 0.42; at level 60, agility 1, intellect 0.74, crit rating 0.64 and attack power 0.42. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -1912,34 +2071,56 @@
     },
     "aoe": {
      "20": {
-      "score": 24.2,
+      "score": 18.7,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "30": {
-      "score": 26.9,
+      "score": 20.4,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "40": {
-      "score": 30.3,
+      "score": 18.3,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "50": {
-      "score": 36.8,
+      "score": 21.4,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "60": {
-      "score": 35.5,
+      "score": 24.5,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
+     }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.198,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.205,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.191,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.188,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.178,
+      "unit": "2v1 0-1"
      }
     }
    },
@@ -2012,10 +2193,41 @@
      "weapon_dps": 0.0
     }
    },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "agility",
+      "share": 0.182,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.115,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.076,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.076,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "46 points in Marksmanship, with 4 in Survival and 1 in Beast Mastery. Built for PvP. On this order the key talents arrive as follows: Trueshot Aura at 25, Scatter Shot at 54 and Sniper Shot at 55.",
     "Fights at range with Auto Shot and its shots alongside its pet, which does about 16% of the damage.",
-    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (100%) and raid damage (100%), and weakest at AoE pulls (79%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (100%) and raid damage (100%), and weakest at AoE pulls (92%).",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 22% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
     "Gear priority per point, relative to the best stat: at level 30, stamina 1, agility 0.27, hit rating 0.2 and crit rating 0.18; at level 60, stamina 1, agility 0.18, crit rating 0.12 and attack power 0.08. The Recommended gear panel ranks items by these weights at your level."
@@ -2184,34 +2396,56 @@
     },
     "aoe": {
      "20": {
-      "score": 24.2,
+      "score": 18.7,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "30": {
-      "score": 26.9,
+      "score": 20.4,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "40": {
-      "score": 30.3,
+      "score": 18.3,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "50": {
-      "score": 36.8,
+      "score": 21.4,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "60": {
-      "score": 40.3,
+      "score": 24.6,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
+     }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.198,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.205,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.191,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.188,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.154,
+      "unit": "2v1 0-1"
      }
     }
    },
@@ -2219,77 +2453,108 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.6355,
+     "score": 0.6814,
      "strength": 0.0,
-     "agility": 0.001513,
+     "agility": 0.001758,
      "stamina": 0.0,
-     "intellect": 0.000134,
-     "attack_power": 0.000669,
-     "crit_rating": 0.000928,
-     "hit_rating": 0.001145,
-     "crit_pct": 0.003002,
-     "hit_pct": 0.003147,
+     "intellect": 0.000156,
+     "attack_power": 0.00078,
+     "crit_rating": 0.001051,
+     "hit_rating": 0.001295,
+     "crit_pct": 0.003398,
+     "hit_pct": 0.00363,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.8181,
+     "score": 0.8623,
      "strength": 0.0,
-     "agility": 0.001274,
+     "agility": 0.001413,
      "stamina": 0.0,
-     "intellect": 0.000538,
-     "attack_power": 0.000538,
-     "crit_rating": 0.000875,
-     "hit_rating": 0.000782,
-     "crit_pct": 0.005187,
-     "hit_pct": 0.003977,
+     "intellect": 0.000598,
+     "attack_power": 0.000598,
+     "crit_rating": 0.000955,
+     "hit_rating": 0.00086,
+     "crit_pct": 0.005657,
+     "hit_pct": 0.004443,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 1.0238,
+     "score": 1.105,
      "strength": 0.0,
-     "agility": 0.001236,
+     "agility": 0.00107,
      "stamina": 0.0,
-     "intellect": 0.000521,
-     "attack_power": 0.000521,
-     "crit_rating": 0.000784,
-     "hit_rating": 0.000586,
-     "crit_pct": 0.006755,
-     "hit_pct": 0.00471,
+     "intellect": 0.000451,
+     "attack_power": 0.000451,
+     "crit_rating": 0.000682,
+     "hit_rating": 0.000675,
+     "crit_pct": 0.00588,
+     "hit_pct": 0.005476,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 1.1651,
+     "score": 1.2381,
      "strength": 0.0,
-     "agility": 0.001136,
+     "agility": 0.00103,
      "stamina": 0.0,
-     "intellect": 0.000648,
-     "attack_power": 0.000484,
-     "crit_rating": 0.000649,
-     "hit_rating": 0.000674,
-     "crit_pct": 0.007341,
-     "hit_pct": 0.007697,
+     "intellect": 0.000603,
+     "attack_power": 0.000438,
+     "crit_rating": 0.000591,
+     "hit_rating": 0.000734,
+     "crit_pct": 0.00668,
+     "hit_pct": 0.008377,
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 1.3973,
+     "score": 1.457,
      "strength": 0.0,
-     "agility": 0.001356,
+     "agility": 0.001264,
      "stamina": 0.0,
-     "intellect": 0.000986,
-     "attack_power": 0.000566,
-     "crit_rating": 0.000839,
+     "intellect": 0.000948,
+     "attack_power": 0.000528,
+     "crit_rating": 0.000783,
      "hit_rating": 0.000351,
-     "crit_pct": 0.01175,
+     "crit_pct": 0.010957,
      "hit_pct": 0.004907,
      "weapon_dps": 0.0
     }
    },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "intellect",
+      "share": 0.75,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.619,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.418,
+      "tier": 4
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.278,
+      "tier": 5
+     }
+    ]
+   },
    "about": [
     "41 points in Marksmanship, with 5 in Beast Mastery and 5 in Survival. Built for PvE. On this order the key talents arrive as follows: Trueshot Aura at 25, Sniper Shot at 59 and Lone Wolf at 60.",
     "Fights at range with Auto Shot and its shots without a pet.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (93%) and dungeon damage (93%), and weakest at questing speed (90%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (93%) and raid damage (93%), and weakest at questing speed (90%).",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 28% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, agility 1, crit rating 0.69, hit rating 0.61 and attack power 0.42; at level 60, agility 1, intellect 0.73, crit rating 0.62 and attack power 0.42. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, agility 1, crit rating 0.68, hit rating 0.61 and attack power 0.42; at level 60, agility 1, intellect 0.75, crit rating 0.62 and attack power 0.42. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -2455,34 +2720,56 @@
     },
     "aoe": {
      "20": {
-      "score": 24.0,
+      "score": 18.5,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "30": {
-      "score": 28.3,
+      "score": 21.8,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "40": {
-      "score": 32.9,
+      "score": 19.2,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "50": {
-      "score": 39.9,
+      "score": 22.5,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "60": {
-      "score": 43.1,
+      "score": 26.5,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
+     }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.199,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.198,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.179,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.184,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.146,
+      "unit": "2v1 0-1"
      }
     }
    },
@@ -2490,78 +2777,104 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.6374,
+     "score": 0.6841,
      "strength": 0.0,
-     "agility": 0.001511,
+     "agility": 0.001756,
      "stamina": 0.0,
-     "intellect": 0.000267,
-     "attack_power": 0.000667,
-     "crit_rating": 0.000939,
-     "hit_rating": 0.001157,
-     "crit_pct": 0.003037,
-     "hit_pct": 0.003178,
+     "intellect": 0.000311,
+     "attack_power": 0.000778,
+     "crit_rating": 0.001064,
+     "hit_rating": 0.001309,
+     "crit_pct": 0.00344,
+     "hit_pct": 0.003669,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.7841,
+     "score": 0.8242,
      "strength": 0.0,
-     "agility": 0.001191,
+     "agility": 0.001318,
      "stamina": 0.0,
-     "intellect": 0.000518,
-     "attack_power": 0.000518,
-     "crit_rating": 0.000684,
-     "hit_rating": 0.000743,
-     "crit_pct": 0.00405,
-     "hit_pct": 0.00379,
+     "intellect": 0.000575,
+     "attack_power": 0.000575,
+     "crit_rating": 0.000743,
+     "hit_rating": 0.000814,
+     "crit_pct": 0.004403,
+     "hit_pct": 0.004212,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 0.9452,
+     "score": 1.0264,
      "strength": 0.0,
-     "agility": 0.001084,
+     "agility": 0.000939,
      "stamina": 0.0,
-     "intellect": 0.000473,
-     "attack_power": 0.000473,
-     "crit_rating": 0.000559,
-     "hit_rating": 0.000723,
-     "crit_pct": 0.004812,
-     "hit_pct": 0.006234,
+     "intellect": 0.00041,
+     "attack_power": 0.00041,
+     "crit_rating": 0.000487,
+     "hit_rating": 0.00081,
+     "crit_pct": 0.004196,
+     "hit_pct": 0.006976,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 1.1211,
-     "strength": 0.000367,
-     "agility": -0.003234,
+     "score": 1.1934,
+     "strength": 0.000308,
+     "agility": -0.003327,
      "stamina": 0.0,
-     "intellect": 0.00067,
-     "attack_power": 0.000534,
-     "crit_rating": 0.000641,
-     "hit_rating": 0.000654,
-     "crit_pct": 0.007267,
-     "hit_pct": 0.007414,
-     "weapon_dps": 0.00364
+     "intellect": 0.00061,
+     "attack_power": 0.000475,
+     "crit_rating": 0.000573,
+     "hit_rating": 0.000709,
+     "crit_pct": 0.006502,
+     "hit_pct": 0.008044,
+     "weapon_dps": 0.003068
     },
     "60": {
-     "score": 1.3199,
+     "score": 1.3746,
      "strength": 0.0,
-     "agility": 0.00138,
+     "agility": 0.001287,
      "stamina": 0.0,
-     "intellect": 0.00089,
-     "attack_power": 0.000525,
-     "crit_rating": 0.000772,
+     "intellect": 0.000855,
+     "attack_power": 0.000489,
+     "crit_rating": 0.00072,
      "hit_rating": 0.0,
-     "crit_pct": 0.010802,
+     "crit_pct": 0.010079,
      "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
    },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "intellect",
+      "share": 0.664,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.559,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.38,
+      "tier": 4
+     }
+    ]
+   },
    "about": [
     "31 points in Survival, with 20 in Marksmanship. Built for PvE. On this order the key talents arrive as follows: Lightning Reflexes at 49, Lone Wolf at 55 and Trueshot Aura at 56.",
     "Fights at range with Auto Shot and its shots without a pet.",
-    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (96%) and raid damage (88%), and weakest at questing speed (86%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and raid damage (88%), and weakest at questing speed (86%).",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 29% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, agility 1, hit rating 0.62, crit rating 0.57 and attack power 0.43; at level 60, agility 1, intellect 0.64, crit rating 0.56 and attack power 0.38. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, agility 1, hit rating 0.62, crit rating 0.56 and attack power 0.44; at level 60, agility 1, intellect 0.66, crit rating 0.56 and attack power 0.38. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -2727,34 +3040,56 @@
     },
     "aoe": {
      "20": {
-      "score": 23.3,
+      "score": 17.8,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "30": {
-      "score": 28.1,
+      "score": 21.6,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "40": {
-      "score": 32.4,
+      "score": 19.2,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "50": {
-      "score": 39.0,
+      "score": 22.5,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "60": {
-      "score": 37.6,
+      "score": 26.5,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
+     }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.203,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.199,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.18,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.179,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.161,
+      "unit": "2v1 0-1"
      }
     }
    },
@@ -2827,10 +3162,41 @@
      "weapon_dps": 0.0
     }
    },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "agility",
+      "share": 0.187,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.101,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.072,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.072,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "31 points in Survival, with 20 in Marksmanship. Built for PvP. On this order the key talents arrive as follows: Lightning Reflexes at 47 and Trueshot Aura at 55.",
     "Fights at range with Auto Shot and its shots alongside its pet, which does about 17% of the damage.",
-    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (94%) and questing speed (92%), and weakest at AoE pulls (84%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and dungeon damage (94%), and weakest at raid damage (91%).",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 21% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
     "Gear priority per point, relative to the best stat: at level 30, stamina 1, agility 0.26, hit rating 0.2 and crit rating 0.15; at level 60, stamina 1, agility 0.19, crit rating 0.1 and attack power 0.07. The Recommended gear panel ranks items by these weights at your level."
@@ -2999,34 +3365,56 @@
     },
     "aoe": {
      "20": {
-      "score": 23.3,
+      "score": 17.9,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "30": {
-      "score": 28.1,
+      "score": 21.6,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "40": {
-      "score": 31.2,
+      "score": 19.2,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "50": {
-      "score": 39.4,
+      "score": 22.5,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "60": {
-      "score": 45.0,
+      "score": 26.5,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
+     }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.203,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.199,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.193,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.178,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.141,
+      "unit": "2v1 0-1"
      }
     }
    },
@@ -3098,6 +3486,37 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvP duels",
+    "stats": [
+     {
+      "stat": "stamina",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "agility",
+      "share": 0.255,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.12,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.1,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.1,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "35 points in Survival, with 11 in Marksmanship and 5 in Beast Mastery. Built for PvP. On this order the key talents arrive as follows: Lacerating Strikes at 51, Strider Kick at 59 and Lone Wolf at 60.",
@@ -3270,34 +3689,56 @@
     },
     "aoe": {
      "20": {
-      "score": 23.3,
+      "score": 17.9,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "30": {
-      "score": 28.1,
+      "score": 21.6,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Multi-Shot",
       "lower_better": true
      },
      "40": {
-      "score": 31.2,
+      "score": 19.2,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "50": {
-      "score": 39.4,
+      "score": 22.5,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
      },
      "60": {
-      "score": 45.0,
+      "score": 26.5,
       "unit": "seconds (3-mob pack)",
-      "spell": "single target",
+      "spell": "Volley, Explosive Trap",
       "lower_better": true
+     }
+    },
+    "outnumbered": {
+     "20": {
+      "score": 0.203,
+      "unit": "2v1 0-1"
+     },
+     "30": {
+      "score": 0.199,
+      "unit": "2v1 0-1"
+     },
+     "40": {
+      "score": 0.193,
+      "unit": "2v1 0-1"
+     },
+     "50": {
+      "score": 0.178,
+      "unit": "2v1 0-1"
+     },
+     "60": {
+      "score": 0.141,
+      "unit": "2v1 0-1"
      }
     }
    },
@@ -3305,77 +3746,103 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.6404,
+     "score": 0.6896,
      "strength": 0.0,
-     "agility": 0.001502,
+     "agility": 0.001749,
      "stamina": 0.0,
-     "intellect": 0.00066,
-     "attack_power": 0.00066,
-     "crit_rating": 0.00097,
-     "hit_rating": 0.001191,
-     "crit_pct": 0.003138,
-     "hit_pct": 0.003264,
+     "intellect": 0.000771,
+     "attack_power": 0.000771,
+     "crit_rating": 0.001101,
+     "hit_rating": 0.001351,
+     "crit_pct": 0.003562,
+     "hit_pct": 0.003782,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.7722,
+     "score": 0.8127,
      "strength": 0.0,
-     "agility": 0.001192,
+     "agility": 0.001321,
      "stamina": 0.0,
-     "intellect": 0.000519,
-     "attack_power": 0.000519,
-     "crit_rating": 0.000679,
-     "hit_rating": 0.00088,
-     "crit_pct": 0.004022,
-     "hit_pct": 0.005214,
+     "intellect": 0.000576,
+     "attack_power": 0.000576,
+     "crit_rating": 0.000739,
+     "hit_rating": 0.000951,
+     "crit_pct": 0.004379,
+     "hit_pct": 0.005636,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 1.0202,
-     "strength": 0.000634,
-     "agility": 0.000852,
+     "score": 1.0949,
+     "strength": 0.000544,
+     "agility": 0.000734,
      "stamina": 0.0,
-     "intellect": 0.000634,
-     "attack_power": 0.000634,
-     "crit_rating": 0.000884,
-     "hit_rating": 0.000832,
-     "crit_pct": 0.007617,
-     "hit_pct": 0.007169,
-     "weapon_dps": 0.006696
+     "intellect": 0.000544,
+     "attack_power": 0.000544,
+     "crit_rating": 0.00077,
+     "hit_rating": 0.000905,
+     "crit_pct": 0.006636,
+     "hit_pct": 0.007798,
+     "weapon_dps": 0.005763
     },
     "50": {
-     "score": 1.0725,
-     "strength": 0.004875,
-     "agility": 0.001088,
+     "score": 1.1437,
+     "strength": 0.004832,
+     "agility": 0.000985,
      "stamina": 0.0,
-     "intellect": 0.005209,
-     "attack_power": 0.005091,
-     "crit_rating": 0.005148,
-     "hit_rating": 0.000641,
-     "crit_pct": 0.052345,
-     "hit_pct": 0.007249,
-     "weapon_dps": 0.026177
+     "intellect": 0.005166,
+     "attack_power": 0.005048,
+     "crit_rating": 0.005097,
+     "hit_rating": 0.000698,
+     "crit_pct": 0.051738,
+     "hit_pct": 0.00789,
+     "weapon_dps": 0.025687
     },
     "60": {
-     "score": 1.2415,
+     "score": 1.2999,
      "strength": 0.0,
-     "agility": 0.001281,
+     "agility": 0.001194,
      "stamina": 0.0,
-     "intellect": 0.000809,
-     "attack_power": 0.000502,
-     "crit_rating": 0.000605,
+     "intellect": 0.000775,
+     "attack_power": 0.000468,
+     "crit_rating": 0.000564,
      "hit_rating": 0.0,
-     "crit_pct": 0.008469,
+     "crit_pct": 0.007894,
      "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 60,
+    "basis": "PvE score",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "intellect",
+      "share": 0.649,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.472,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.392,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "35 points in Survival, with 11 in Marksmanship and 5 in Beast Mastery. Built for PvE. On this order the key talents arrive as follows: Lacerating Strikes at 51, Strider Kick at 59 and Lone Wolf at 60.",
     "Fights at range with Auto Shot and its shots without a pet.",
     "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and dungeon damage (84%), and weakest at raid damage (79%).",
     "In a dungeon group it gains most from Sunder Armor, Grace of Air Totem and Hunter's Mark: about 31% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, agility 1, hit rating 0.74, crit rating 0.57 and attack power 0.44; at level 60, agility 1, intellect 0.63, crit rating 0.47 and attack power 0.39. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, agility 1, hit rating 0.72, crit rating 0.56 and attack power 0.44; at level 60, agility 1, intellect 0.65, crit rating 0.47 and attack power 0.39. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -3544,6 +4011,32 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.571,
+      "tier": 2
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.429,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.429,
+      "tier": 3
+     }
+    ]
    },
    "about": [
     "36 points in Beast Mastery, with 15 in Marksmanship. Built for PvE. On this order the key talents arrive as follows: Summon Hawk at 42, Bestial Swiftness at 43, Intimidation at 44 and Bestial Wrath at 50.",
@@ -3719,6 +4212,37 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.714,
+      "tier": 2
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.571,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.571,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.286,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "35 points in Beast Mastery, with 16 in Marksmanship. Built for PvP. On this order the key talents arrive as follows: Trueshot Aura at 40, Summon Hawk at 48, Bestial Swiftness at 49, Intimidation at 50 and Bestial Wrath at 56.",
@@ -3896,6 +4420,37 @@
      "weapon_dps": 0.0
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.625,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.5,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.375,
+      "tier": 4
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.375,
+      "tier": 4
+     }
+    ]
+   },
    "about": [
     "47 points in Marksmanship, with 4 in Beast Mastery. Built for PvE. On this order the key talents arrive as follows: Trueshot Aura at 25, Sniper Shot at 42 and Scatter Shot at 50.",
     "Fights at range with Auto Shot and its shots alongside its pet, which does about 17% of the damage.",
@@ -4068,6 +4623,37 @@
      "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
+   },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.714,
+      "tier": 2
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.571,
+      "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.429,
+      "tier": 4
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.429,
+      "tier": 4
+     }
+    ]
    },
    "about": [
     "51 points in Marksmanship. Built for PvP. On this order the key talents arrive as follows: Trueshot Aura at 25, Scatter Shot at 30 and Sniper Shot at 48.",
@@ -4245,6 +4831,37 @@
      "weapon_dps": 0.0
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "crit_rating",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.833,
+      "tier": 2
+     },
+     {
+      "stat": "strength",
+      "share": 0.667,
+      "tier": 3
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.667,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "42 points in Survival, with 9 in Marksmanship. Built for PvE. On this order the key talents arrive as follows: Lacerating Strikes at 44, Strider Kick at 47, Deterrence at 51 and Counterattack at 52.",
     "Fights at range with Auto Shot and its shots alongside its pet, which does about 19% of the damage.",
@@ -4420,6 +5037,32 @@
      "weapon_dps": 0.0
     }
    },
+   "stat_priority": {
+    "level": 40,
+    "basis": "questing pace",
+    "stats": [
+     {
+      "stat": "agility",
+      "share": 1.0,
+      "tier": 1
+     },
+     {
+      "stat": "hit_rating",
+      "share": 0.5,
+      "tier": 2
+     },
+     {
+      "stat": "attack_power",
+      "share": 0.375,
+      "tier": 3
+     },
+     {
+      "stat": "crit_rating",
+      "share": 0.375,
+      "tier": 3
+     }
+    ]
+   },
    "about": [
     "42 points in Survival, with 9 in Marksmanship. Built for PvP. On this order the key talents arrive as follows: Lacerating Strikes at 44 and Strider Kick at 47.",
     "Fights at range with Auto Shot and its shots alongside its pet, which does about 19% of the damage.",
@@ -4448,11 +5091,11 @@
    "archetype": "deep Beast Mastery",
    "focus": "PvE",
    "standard": "hunter-beast-mastery",
-   "standard_score": 1.4735861645925983,
+   "standard_score": 1.5226393799939348,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "hunter-beast-mastery": 1.4735861645925983
+    "hunter-beast-mastery": 1.5226393799939348
    },
    "qualifying": [
     "hunter-beast-mastery"
@@ -4476,7 +5119,7 @@
    "archetype": "deep Marksmanship",
    "focus": "PvE",
    "standard": "hunter-marksmanship",
-   "standard_score": 1.3973453353220835,
+   "standard_score": 1.4569854206518018,
    "model_pick": {
     "Deadly Aspects": 1,
     "Improved Tracking": 5,
@@ -4494,10 +5137,10 @@
     "Hawk Eye": 3,
     "Improved Stings": 3
    },
-   "model_pick_score": 1.5230020221648966,
+   "model_pick_score": 1.5701120522863046,
    "candidates": {
-    "hunter-marksmanship-model": 1.5230020221648966,
-    "hunter-marksmanship": 1.3973453353220835
+    "hunter-marksmanship-model": 1.5701120522863046,
+    "hunter-marksmanship": 1.4569854206518018
    },
    "qualifying": [
     "hunter-marksmanship",
@@ -4607,7 +5250,7 @@
    "archetype": "deep Survival",
    "focus": "PvE",
    "standard": "hunter-survival",
-   "standard_score": 1.2415194150824098,
+   "standard_score": 1.2999083732001793,
    "model_pick": {
     "Expose Prey": 2,
     "Surefooted": 3,
@@ -4626,10 +5269,10 @@
     "Survivalist's Discipline": 2,
     "Predator's Edge": 5
    },
-   "model_pick_score": 1.3199303526790342,
+   "model_pick_score": 1.3745606866630797,
    "candidates": {
-    "hunter-survival-model": 1.3199303526790342,
-    "hunter-survival": 1.2415194150824098
+    "hunter-survival-model": 1.3745606866630797,
+    "hunter-survival": 1.2999083732001793
    },
    "qualifying": [
     "hunter-survival",
