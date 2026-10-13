@@ -1,5 +1,13 @@
 # Data changelog
 
+## 1.60.1.70291 hunter re-normalization (2026-10-12)
+
+Not a game change: hunter's spells, kept as committed through #261 and #270, are now re-normalized from the cached 1.60.1.70291 tables with the trap fix (#268). In 70291 the client names Immolation Trap's effect spell "Immolation Trap" (70205 said "Immolation Trap Effect").
+
+- Explosive Trap ranks 1-3: its effect's direct damage, 100-130, 139-187, 201-257 (level scaling 0.8-1.2 per level); "Explosive Trap Effect" is no longer a rank. Its burning-ground periodic part (Effect 27, persistent area aura) isn't read yet
+- Immolation Trap ranks 1-5: one rank per trap (not 10), carrying its effect's damage: 105, 215, 340, 510, 690 over 15 s (3 s ticks)
+- Mend Pet ranks 1-7: heal-over-time values from the heal import (#270): 100 to 1225 over its duration
+
 ## 1.60.1.70291 heal import (2026-10-11)
 
 Not a game change: the spell importer now reads heals (#270), re-normalized from the cached tables as for #261 (hunter kept as committed, #268). No report score changed.

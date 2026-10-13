@@ -10,7 +10,7 @@ damage from the triggered missile spell, which is likewise not trainable.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import Sequence
 
 from wowforever.normalize import Tables
@@ -24,6 +24,7 @@ SCHOOL_BITS = (
 EFFECT_DAMAGE = 2            # school damage
 EFFECT_AURA = 6              # apply aura (DoT, slow, area-periodic marker)
 EFFECT_AREA_TRIGGER = 179    # triggers an area effect
+EFFECT_TRAP = 104            # summon a trap object (Immolation Trap, Explosive Trap)
 EFFECT_COMBO_POINTS = 30     # grant combo points (EffectMiscValue_0 4)
 EFFECT_WEAPON_PCT = 31       # percent weapon damage (base points = percent)
 EFFECT_TRIGGER_SPELL = 64    # trigger a spell
@@ -85,6 +86,9 @@ def class_spells(tables: Tables, *, skill_lines: Sequence[int]) -> tuple[SpellRa
     trainable.sort()
     indexes = _index_tables(tables)
     trainable = _damage_over_heal(trainable, indexes)
+    traps = _trap_effects(trainable, indexes)
+    trap_hits = set(traps.values())
+    trainable = [t for t in trainable if t[2] not in trap_hits]
     tick_damage = _tick_damage_index(tables, sla_spells, names, levels)
     sibling_damage = _sibling_damage_index(tables, sla_spells, names, levels)
 
@@ -92,9 +96,41 @@ def class_spells(tables: Tables, *, skill_lines: Sequence[int]) -> tuple[SpellRa
     rank_of_name: dict[str, int] = {}
     for name, level, spell_id in trainable:
         rank_of_name[name] = rank_of_name.get(name, 0) + 1
-        ranks.append(_build_rank(spell_id, name, rank_of_name[name], level, indexes, tick_damage,
-                                 sibling_damage=sibling_damage))
+        rank = _build_rank(spell_id, name, rank_of_name[name], level, indexes, tick_damage,
+                           sibling_damage=sibling_damage)
+        if spell_id in traps:
+            # the placed trap deals its effect spell's damage (#268)
+            hit = _build_rank(traps[spell_id], name, rank.rank, level, indexes, tick_damage,
+                              sibling_damage=sibling_damage)
+            rank = replace(rank, **{f: getattr(hit, f) for f in _TRAP_DAMAGE_FIELDS})
+        ranks.append(rank)
     return tuple(ranks)
+
+
+_TRAP_DAMAGE_FIELDS = ("schools", "min_damage", "max_damage", "coefficient", "periodic_damage",
+                       "periodic_coefficient", "tick_period", "duration", "damage_per_level", "scaling_max_level")
+
+
+def _trap_effects(trainable: list[tuple[str, int, int]], indexes: _Indexes) -> dict[int, int]:
+    """Trap spell id -> the trainable spell that deals its damage (#268): a trap (only Effect 104) and its
+    effect train at the same level, the effect named like the trap or "<trap> Effect"; lowest id wins."""
+    by_key: dict[tuple[str, int], list[int]] = {}
+    for name, level, spell_id in trainable:
+        by_key.setdefault((name, level), []).append(spell_id)
+
+    def is_trap(spell_id: int) -> bool:
+        effects = indexes.effects.get(spell_id, [])
+        return bool(effects) and all(e["Effect"] == str(EFFECT_TRAP) for e in effects)
+
+    out: dict[int, int] = {}
+    for name, level, spell_id in trainable:
+        if not is_trap(spell_id):
+            continue
+        partners = [i for n in (name, f"{name} Effect") for i in by_key.get((n, level), [])
+                    if i != spell_id and not is_trap(i)]
+        if partners:
+            out[spell_id] = min(partners)
+    return out
 
 
 def ranks_of(spells: Sequence[SpellRank], name: str) -> list[SpellRank]:
