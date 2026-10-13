@@ -1,5 +1,11 @@
 # Data changelog
 
+## 1.60.1.70291 Consecration ticks (2026-10-12)
+
+Not a game change: the spell importer now adds up every damage effect of an area spell's tick spell (#295). Re-normalized from the cached tables; only Consecration changes.
+
+- Consecration ranks 1-5: periodic damage 16, 24, 48, 64, 96 -> 48, 80, 136, 224, 312 over 8 s, spell power coefficient 0 -> 0.76 (Forever's tick spells 1280345-1280349 deal two damage effects to the same targets)
+
 ## 1.60.1.70291 hunter re-normalization (2026-10-12)
 
 Not a game change: hunter's spells, kept as committed through #261 and #270, are now re-normalized from the cached 1.60.1.70291 tables with the trap fix (#268). In 70291 the client names Immolation Trap's effect spell "Immolation Trap" (70205 said "Immolation Trap Effect").
