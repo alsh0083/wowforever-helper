@@ -141,7 +141,8 @@ def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRa
     """The class rotation's DPS, mana use and out-of-mana fallback against `target`. For a hybrid,
     `melee` fixes the playstyle (a Feral leveling path is a cat even while its points sit in Balance);
     by default it follows the tree with most points. `pack` > 1 sums damage over that many mobs for
-    classes whose AoE abilities are modeled (warrior and rogue, #262); the others stay single target."""
+    classes whose AoE abilities are modeled (warrior, rogue and Enhancement shaman, #262); the others stay
+    single target."""
     from wowforever.classes import class_module
 
     module = class_module(class_name)
@@ -154,8 +155,8 @@ def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRa
             else:
                 from wowforever.classes.shaman_rotation import enhancement_rotation
 
-                r = enhancement_rotation(stats.melee, spells, cls, ranks, target)
-            return Output(r.dps, 0.0, r.dps)
+                r = enhancement_rotation(stats.melee, spells, cls, ranks, target, pack=pack)
+            return Output(r.dps, 0.0, r.dps, getattr(r, "aoe", ()))
         stats = stats.caster
     if getattr(module, "ENGINE", None) == "spell":
         from wowforever.caster import caster_rotation
