@@ -11,3 +11,7 @@ trueshot_aura_rap = 30.0
 pet_dps_per_level = 1.2
 # Bestial Wrath: +50% pet damage for 18 s every 2 min (rank text; cooldown Classic)
 bestial_wrath = { bonus_pct = 50.0, duration = 18.0, cooldown = 120.0 }
+
+# AoE pulls (#262): Multi-Shot hits this many targets (Classic; Forever's data has no target count).
+# Volley and Explosive Trap hit every mob of the pack.
+multi_shot_targets = 3
