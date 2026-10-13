@@ -1088,69 +1088,101 @@
       "score": 113.9,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 37.2,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "30": {
+      "score": 38.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "40": {
+      "score": 26.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "50": {
+      "score": 29.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "60": {
+      "score": 27.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.354,
-     "strength": 0.000972,
-     "agility": 0.000381,
+     "score": 0.3663,
+     "strength": 0.000958,
+     "agility": 0.000391,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000487,
-     "crit_rating": 0.000784,
-     "hit_rating": 0.000881,
-     "crit_pct": 0.00254,
-     "hit_pct": 0.002549,
-     "weapon_dps": 0.006788
+     "attack_power": 0.00048,
+     "crit_rating": 0.000805,
+     "hit_rating": 0.000965,
+     "crit_pct": 0.002606,
+     "hit_pct": 0.002912,
+     "weapon_dps": 0.006693
     },
     "30": {
-     "score": 0.4535,
-     "strength": 0.000904,
-     "agility": 0.000357,
+     "score": 0.4368,
+     "strength": 0.000818,
+     "agility": 0.000334,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000452,
-     "crit_rating": 0.000602,
-     "hit_rating": 0.000617,
-     "crit_pct": 0.003568,
-     "hit_pct": 0.003291,
-     "weapon_dps": 0.006319
+     "attack_power": 0.000409,
+     "crit_rating": 0.000564,
+     "hit_rating": 0.000627,
+     "crit_pct": 0.003344,
+     "hit_pct": 0.00344,
+     "weapon_dps": 0.005722
     },
     "40": {
-     "score": 0.7331,
+     "score": 0.689,
      "stamina": 0.0,
-     "intellect": 0.000357,
+     "intellect": 0.000283,
      "spirit": 0.0,
-     "spell_power": 0.001823,
-     "crit_rating": 0.000326,
-     "hit_rating": 0.000842,
-     "crit_pct": 0.002812,
-     "hit_pct": 0.007257
+     "spell_power": 0.001666,
+     "crit_rating": 0.000316,
+     "hit_rating": 0.0008,
+     "crit_pct": 0.002724,
+     "hit_pct": 0.006892
     },
     "50": {
-     "score": 0.8527,
+     "score": 0.7666,
      "stamina": 0.0,
-     "intellect": 0.000393,
+     "intellect": 0.000314,
      "spirit": 0.0,
-     "spell_power": 0.001852,
-     "crit_rating": 0.000484,
-     "hit_rating": 0.00074,
-     "crit_pct": 0.005476,
-     "hit_pct": 0.008362
+     "spell_power": 0.001605,
+     "crit_rating": 0.000446,
+     "hit_rating": 0.000671,
+     "crit_pct": 0.005049,
+     "hit_pct": 0.007584
     },
     "60": {
-     "score": 1.1929,
+     "score": 1.032,
      "stamina": 0.0,
-     "intellect": 0.000483,
+     "intellect": 0.00038,
      "spirit": 0.0,
-     "spell_power": 0.001767,
-     "crit_rating": 0.000582,
-     "hit_rating": 0.000843,
-     "crit_pct": 0.008141,
-     "hit_pct": 0.011797
+     "spell_power": 0.001485,
+     "crit_rating": 0.000513,
+     "hit_rating": 0.000733,
+     "crit_pct": 0.007178,
+     "hit_pct": 0.010259
     }
    },
    "about": [
@@ -1159,7 +1191,7 @@
     "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and dungeon damage (100%), and weakest at raid damage (53%).",
     "In a dungeon group it gains most from Curse of the Elements: about 2% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, strength 0.14, hit rating 0.1 and crit rating 0.1; at level 60, spell power 1, hit rating 0.48, crit rating 0.33 and intellect 0.27. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, strength 0.14, hit rating 0.11 and crit rating 0.1; at level 60, spell power 1, hit rating 0.49, crit rating 0.35 and intellect 0.26. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -1316,6 +1348,38 @@
       "score": 113.9,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 37.2,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "30": {
+      "score": 38.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "40": {
+      "score": 26.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "50": {
+      "score": 29.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "60": {
+      "score": 27.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -1370,15 +1434,15 @@
      "hit_pct": 0.002386
     },
     "60": {
-     "score": 0.4582,
-     "stamina": 0.001259,
-     "intellect": 3e-05,
+     "score": 0.4109,
+     "stamina": 0.001175,
+     "intellect": 2.7e-05,
      "spirit": 0.0,
-     "spell_power": 0.000378,
-     "crit_rating": 0.000125,
-     "hit_rating": 0.000173,
-     "crit_pct": 0.001754,
-     "hit_pct": 0.002415
+     "spell_power": 0.000347,
+     "crit_rating": 0.000115,
+     "hit_rating": 0.000158,
+     "crit_pct": 0.001608,
+     "hit_pct": 0.002215
     }
    },
    "about": [
@@ -1386,7 +1450,7 @@
     "In the model's rotation it keeps Flame Shock up, uses Lava Burst and Chain Lightning on cooldown and fills with Lightning Bolt.",
     "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and dungeon damage (100%), and weakest at raid damage (53%).",
     "In a dungeon group it gains most from Curse of the Elements: about 2% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, stamina 0.37, strength 0.14 and hit rating 0.11; at level 60, stamina 1, spell power 0.3, hit rating 0.14 and crit rating 0.1. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, stamina 0.37, strength 0.14 and hit rating 0.11; at level 60, stamina 1, spell power 0.3, hit rating 0.13 and crit rating 0.1. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -1549,83 +1613,115 @@
       "score": 216.7,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 35.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "30": {
+      "score": 35.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "40": {
+      "score": 29.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "50": {
+      "score": 31.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "60": {
+      "score": 35.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.3746,
-     "strength": 0.000952,
-     "agility": 0.000404,
+     "score": 0.3865,
+     "strength": 0.000943,
+     "agility": 0.000415,
      "stamina": 0.0,
-     "intellect": 0.000477,
-     "attack_power": 0.000477,
-     "crit_rating": 0.000833,
-     "hit_rating": 0.000922,
-     "crit_pct": 0.002696,
-     "hit_pct": 0.002651,
-     "weapon_dps": 0.006653
+     "intellect": 0.000472,
+     "attack_power": 0.000472,
+     "crit_rating": 0.000856,
+     "hit_rating": 0.00101,
+     "crit_pct": 0.002769,
+     "hit_pct": 0.003033,
+     "weapon_dps": 0.006591
     },
     "30": {
-     "score": 0.5161,
-     "strength": 0.000967,
-     "agility": 0.000575,
+     "score": 0.4934,
+     "strength": 0.00088,
+     "agility": 0.000532,
      "stamina": 0.0,
-     "intellect": 0.000484,
-     "attack_power": 0.000484,
-     "crit_rating": 0.00097,
-     "hit_rating": 0.000686,
-     "crit_pct": 0.005751,
-     "hit_pct": 0.003623,
-     "weapon_dps": 0.00676
+     "intellect": 0.000441,
+     "attack_power": 0.000441,
+     "crit_rating": 0.000898,
+     "hit_rating": 0.000695,
+     "crit_pct": 0.005325,
+     "hit_pct": 0.003782,
+     "weapon_dps": 0.006158
     },
     "40": {
-     "score": 0.8548,
-     "strength": 0.00112,
-     "agility": 0.000682,
+     "score": 0.7699,
+     "strength": 0.000971,
+     "agility": 0.000599,
      "stamina": 0.0,
-     "intellect": 0.00056,
-     "attack_power": 0.00056,
-     "crit_rating": 0.001055,
-     "hit_rating": 0.000699,
-     "crit_pct": 0.00909,
-     "hit_pct": 0.005681,
-     "weapon_dps": 0.007833
+     "intellect": 0.000486,
+     "attack_power": 0.000486,
+     "crit_rating": 0.000927,
+     "hit_rating": 0.000676,
+     "crit_pct": 0.007987,
+     "hit_pct": 0.005569,
+     "weapon_dps": 0.006797
     },
     "50": {
-     "score": 1.0491,
-     "strength": 0.001098,
-     "agility": 0.000667,
+     "score": 0.9057,
+     "strength": 0.000911,
+     "agility": 0.000561,
      "stamina": 0.0,
-     "intellect": 0.000549,
-     "attack_power": 0.000549,
-     "crit_rating": 0.000983,
-     "hit_rating": 0.00054,
-     "crit_pct": 0.011114,
-     "hit_pct": 0.006017,
-     "weapon_dps": 0.007859
+     "intellect": 0.000456,
+     "attack_power": 0.000456,
+     "crit_rating": 0.000826,
+     "hit_rating": 0.00046,
+     "crit_pct": 0.009342,
+     "hit_pct": 0.005138,
+     "weapon_dps": 0.006517
     },
     "60": {
-     "score": 1.2501,
-     "strength": 0.001053,
-     "agility": 0.000667,
+     "score": 1.0433,
+     "strength": 0.000847,
+     "agility": 0.000543,
      "stamina": 0.0,
-     "intellect": 0.000527,
-     "attack_power": 0.000527,
-     "crit_rating": 0.000953,
-     "hit_rating": 8.6e-05,
-     "crit_pct": 0.013332,
-     "hit_pct": 0.001207,
-     "weapon_dps": 0.007648
+     "intellect": 0.000424,
+     "attack_power": 0.000424,
+     "crit_rating": 0.000776,
+     "hit_rating": 6.5e-05,
+     "crit_pct": 0.010855,
+     "hit_pct": 0.000905,
+     "weapon_dps": 0.006151
     }
    },
    "about": [
     "33 points in Enhancement, with 10 in Restoration and 8 in Elemental. Built for PvE. On this order the key talents arrive as follows: Stormstrike at 30, Shamanistic Focus at 31, Spirit Weapons at 32 and Rage of the Farseer at 40.",
     "A melee shaman: auto-attacks and weapon procs carry it, with shocks and Stormstrike on top. Damage comes from auto-attacks 49%, abilities 32% and spells and procs 20%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and questing speed (86%), and weakest at dungeon damage (81%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and AoE pulls (100%), and weakest at dungeon damage (81%).",
     "In a dungeon group it gains most from Sunder Armor, Strength of Earth Totem and Blessing of Might: about 33% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, crit rating 0.14, strength 0.14 and hit rating 0.1; at level 60, weapon DPS 1, strength 0.14, crit rating 0.12 and agility 0.09. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, crit rating 0.15, strength 0.14 and hit rating 0.11; at level 60, weapon DPS 1, strength 0.14, crit rating 0.13 and agility 0.09. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -1788,6 +1884,38 @@
       "score": 215.9,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 35.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "30": {
+      "score": 35.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "40": {
+      "score": 29.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "50": {
+      "score": 32.2,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     },
+     "60": {
+      "score": 35.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Fire Nova",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -1862,7 +1990,7 @@
    "about": [
     "33 points in Enhancement, with 18 in Elemental. Built for PvP. On this order the key talents arrive as follows: Stormstrike at 30, Shamanistic Focus at 31, Spirit Weapons at 32 and Rage of the Farseer at 40.",
     "A melee shaman: auto-attacks and weapon procs carry it, with shocks and Stormstrike on top. Damage comes from auto-attacks 49%, abilities 32% and spells and procs 20%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and questing speed (86%), and weakest at dungeon damage (81%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and raid damage (100%), and weakest at dungeon damage (81%).",
     "In a dungeon group it gains most from Sunder Armor, Strength of Earth Totem and Blessing of Might: about 33% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, stamina 0.38, strength 0.14 and crit rating 0.13; at level 60, weapon DPS 1, stamina 0.51, strength 0.14 and crit rating 0.11. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -3051,11 +3179,11 @@
    "archetype": "deep Elemental",
    "focus": "PvP",
    "standard": "shaman-elemental",
-   "standard_score": 0.4581877003143719,
+   "standard_score": 0.4108808381163169,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "shaman-elemental": 0.4581877003143719
+    "shaman-elemental": 0.4108808381163169
    },
    "qualifying": [
     "shaman-elemental"
@@ -3065,11 +3193,11 @@
    "archetype": "deep Elemental",
    "focus": "PvE",
    "standard": "shaman-elemental-pve",
-   "standard_score": 1.1929176755851605,
+   "standard_score": 1.0320129341436324,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "shaman-elemental-pve": 1.1929176755851605
+    "shaman-elemental-pve": 1.0320129341436324
    },
    "qualifying": [
     "shaman-elemental-pve"
@@ -3093,11 +3221,11 @@
    "archetype": "deep Enhancement",
    "focus": "PvE",
    "standard": "shaman-enhancement-pve",
-   "standard_score": 1.2500653127401138,
+   "standard_score": 1.0433125550872242,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "shaman-enhancement-pve": 1.2500653127401138
+    "shaman-enhancement-pve": 1.0433125550872242
    },
    "qualifying": [
     "shaman-enhancement-pve"

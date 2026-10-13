@@ -1120,83 +1120,115 @@
       "score": 169.7,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 50.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Thunder Clap",
+      "lower_better": true
+     },
+     "30": {
+      "score": 61.2,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Thunder Clap",
+      "lower_better": true
+     },
+     "40": {
+      "score": 40.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Whirlwind, Thunder Clap",
+      "lower_better": true
+     },
+     "50": {
+      "score": 50.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Whirlwind",
+      "lower_better": true
+     },
+     "60": {
+      "score": 61.4,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Whirlwind",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.3431,
-     "strength": 0.001093,
-     "agility": 0.000418,
+     "score": 0.3311,
+     "strength": 0.001116,
+     "agility": 0.000437,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000548,
-     "crit_rating": 0.000861,
-     "hit_rating": 0.000944,
-     "crit_pct": 0.002791,
-     "hit_pct": 0.002586,
-     "weapon_dps": 0.007636
+     "attack_power": 0.000559,
+     "crit_rating": 0.0009,
+     "hit_rating": 0.000978,
+     "crit_pct": 0.002911,
+     "hit_pct": 0.002807,
+     "weapon_dps": 0.007796
     },
     "30": {
-     "score": 0.4005,
-     "strength": 0.000876,
-     "agility": 0.000434,
+     "score": 0.3616,
+     "strength": 0.000817,
+     "agility": 0.000426,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000439,
-     "crit_rating": 0.000732,
-     "hit_rating": 0.000577,
-     "crit_pct": 0.004341,
-     "hit_pct": 0.002947,
-     "weapon_dps": 0.006799
+     "attack_power": 0.000409,
+     "crit_rating": 0.000719,
+     "hit_rating": 0.000562,
+     "crit_pct": 0.004261,
+     "hit_pct": 0.002974,
+     "weapon_dps": 0.00648
     },
     "40": {
-     "score": 0.6466,
-     "strength": 0.00108,
-     "agility": 0.000597,
+     "score": 0.5772,
+     "strength": 0.000997,
+     "agility": 0.00055,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000541,
-     "crit_rating": 0.000923,
-     "hit_rating": 0.000553,
-     "crit_pct": 0.007954,
-     "hit_pct": 0.00443,
-     "weapon_dps": 0.00838
+     "attack_power": 0.000499,
+     "crit_rating": 0.000851,
+     "hit_rating": 0.000545,
+     "crit_pct": 0.007332,
+     "hit_pct": 0.004449,
+     "weapon_dps": 0.007784
     },
     "50": {
-     "score": 0.7954,
-     "strength": 0.001248,
-     "agility": 0.000689,
+     "score": 0.6706,
+     "strength": 0.00106,
+     "agility": 0.00058,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000623,
-     "crit_rating": 0.001016,
-     "hit_rating": 0.000822,
-     "crit_pct": 0.011486,
-     "hit_pct": 0.009407,
-     "weapon_dps": 0.009742
+     "attack_power": 0.00053,
+     "crit_rating": 0.000855,
+     "hit_rating": 0.000697,
+     "crit_pct": 0.009675,
+     "hit_pct": 0.007957,
+     "weapon_dps": 0.008326
     },
     "60": {
-     "score": 1.003,
-     "strength": 0.001317,
-     "agility": 0.000708,
+     "score": 0.8134,
+     "strength": 0.001076,
+     "agility": 0.000573,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000658,
-     "crit_rating": 0.001012,
+     "attack_power": 0.000537,
+     "crit_rating": 0.000819,
      "hit_rating": 0.0,
-     "crit_pct": 0.014172,
+     "crit_pct": 0.011478,
      "hit_pct": 0.0,
-     "weapon_dps": 0.009996
+     "weapon_dps": 0.008179
     }
    },
    "about": [
     "40 points in Arms, with 11 in Fury. Built for PvE. On this order the key talents arrive as follows: Anger Management at 36, Spearing Strike at 42, Sweeping Strikes at 48, Mortal Strike at 49 and Piercing Howl at 52.",
     "In the model's rotation its priority is Mortal Strike and Whirlwind. Damage comes from auto-attacks 53% and abilities 47%.",
-    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage.",
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage, raid damage and AoE pulls.",
     "In a dungeon group it gains most from Sunder Armor, Battle Shout and Blessing of Might: about 69% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, strength 0.13, crit rating 0.11 and hit rating 0.08; at level 60, weapon DPS 1, strength 0.13, crit rating 0.1 and agility 0.07. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, strength 0.13, crit rating 0.11 and hit rating 0.09; at level 60, weapon DPS 1, strength 0.13, crit rating 0.1 and agility 0.07. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -1361,6 +1393,38 @@
       "score": 169.7,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 50.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Thunder Clap",
+      "lower_better": true
+     },
+     "30": {
+      "score": 59.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Thunder Clap",
+      "lower_better": true
+     },
+     "40": {
+      "score": 40.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Whirlwind, Thunder Clap",
+      "lower_better": true
+     },
+     "50": {
+      "score": 50.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Whirlwind",
+      "lower_better": true
+     },
+     "60": {
+      "score": 61.4,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Whirlwind",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -1436,7 +1500,7 @@
     "37 points in Arms, with 14 in Fury. Built for PvP. On this order the key talents arrive as follows: Anger Management at 29, Spearing Strike at 42, Sweeping Strikes at 48, Mortal Strike at 50 and Piercing Howl at 54.",
     "The community build leaves 3 points unspent at 60; the model fills them with Booming Voice 3.",
     "In the model's rotation its priority is Mortal Strike and Whirlwind. Damage comes from auto-attacks 53% and abilities 47%.",
-    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage.",
+    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage, raid damage and AoE pulls.",
     "In a dungeon group it gains most from Sunder Armor, Battle Shout and Blessing of Might: about 69% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, stamina 0.27, strength 0.12 and crit rating 0.11; at level 60, weapon DPS 1, stamina 0.33, strength 0.13 and crit rating 0.09. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -1601,81 +1665,113 @@
       "score": 158.4,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 50.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Thunder Clap",
+      "lower_better": true
+     },
+     "30": {
+      "score": 59.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Thunder Clap",
+      "lower_better": true
+     },
+     "40": {
+      "score": 40.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Whirlwind, Thunder Clap",
+      "lower_better": true
+     },
+     "50": {
+      "score": 47.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Whirlwind, Thunder Clap",
+      "lower_better": true
+     },
+     "60": {
+      "score": 57.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Whirlwind, Thunder Clap",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.3431,
-     "strength": 0.001093,
-     "agility": 0.000418,
+     "score": 0.3311,
+     "strength": 0.001116,
+     "agility": 0.000437,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000548,
-     "crit_rating": 0.000861,
-     "hit_rating": 0.000944,
-     "crit_pct": 0.002791,
-     "hit_pct": 0.002586,
-     "weapon_dps": 0.007636
+     "attack_power": 0.000559,
+     "crit_rating": 0.0009,
+     "hit_rating": 0.000978,
+     "crit_pct": 0.002911,
+     "hit_pct": 0.002807,
+     "weapon_dps": 0.007796
     },
     "30": {
-     "score": 0.4058,
-     "strength": 0.000871,
-     "agility": 0.000432,
+     "score": 0.3676,
+     "strength": 0.000813,
+     "agility": 0.000428,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000436,
-     "crit_rating": 0.00073,
-     "hit_rating": 0.000583,
-     "crit_pct": 0.004324,
-     "hit_pct": 0.002975,
-     "weapon_dps": 0.006762
+     "attack_power": 0.000407,
+     "crit_rating": 0.000723,
+     "hit_rating": 0.00057,
+     "crit_pct": 0.004285,
+     "hit_pct": 0.003017,
+     "weapon_dps": 0.00647
     },
     "40": {
-     "score": 0.648,
-     "strength": 0.001078,
-     "agility": 0.000596,
+     "score": 0.5786,
+     "strength": 0.000996,
+     "agility": 0.00055,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.00054,
-     "crit_rating": 0.000923,
-     "hit_rating": 0.000554,
-     "crit_pct": 0.007951,
-     "hit_pct": 0.004441,
-     "weapon_dps": 0.008366
+     "attack_power": 0.000498,
+     "crit_rating": 0.000852,
+     "hit_rating": 0.000547,
+     "crit_pct": 0.007337,
+     "hit_pct": 0.004466,
+     "weapon_dps": 0.007777
     },
     "50": {
-     "score": 0.7612,
-     "strength": 0.001032,
-     "agility": 0.000574,
+     "score": 0.6496,
+     "strength": 0.000899,
+     "agility": 0.000501,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000516,
-     "crit_rating": 0.000846,
-     "hit_rating": 0.000672,
-     "crit_pct": 0.009565,
-     "hit_pct": 0.007683,
-     "weapon_dps": 0.008175
+     "attack_power": 0.00045,
+     "crit_rating": 0.000739,
+     "hit_rating": 0.000589,
+     "crit_pct": 0.008356,
+     "hit_pct": 0.006729,
+     "weapon_dps": 0.007183
     },
     "60": {
-     "score": 0.9379,
-     "strength": 0.001069,
-     "agility": 0.000581,
+     "score": 0.7683,
+     "strength": 0.00089,
+     "agility": 0.000483,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.000535,
-     "crit_rating": 0.00083,
+     "attack_power": 0.000445,
+     "crit_rating": 0.00069,
      "hit_rating": 0.0,
-     "crit_pct": 0.011617,
+     "crit_pct": 0.009656,
      "hit_pct": 0.0,
-     "weapon_dps": 0.008234
+     "weapon_dps": 0.006879
     }
    },
    "about": [
     "31 points in Fury, with 20 in Arms. Built for PvE. On this order the key talents arrive as follows: Anger Management at 29, Raging Blows at 45, Death Wish at 50 and Bloodthirst at 60.",
     "In the model's rotation its priority is Whirlwind and Heroic Strike. Damage comes from auto-attacks 63% and abilities 37%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (97%) and raid damage (93%), and weakest at dungeon damage (92%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (97%) and AoE pulls (94%), and weakest at dungeon damage (92%).",
     "In a dungeon group it gains most from Sunder Armor, Battle Shout and Windfury Totem: about 60% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, strength 0.13, crit rating 0.11 and hit rating 0.09; at level 60, weapon DPS 1, strength 0.13, crit rating 0.1 and agility 0.07. The Recommended gear panel ranks items by these weights at your level."
@@ -1841,6 +1937,38 @@
       "score": 158.4,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 50.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Thunder Clap",
+      "lower_better": true
+     },
+     "30": {
+      "score": 59.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Thunder Clap",
+      "lower_better": true
+     },
+     "40": {
+      "score": 40.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Whirlwind, Thunder Clap",
+      "lower_better": true
+     },
+     "50": {
+      "score": 47.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Whirlwind, Thunder Clap",
+      "lower_better": true
+     },
+     "60": {
+      "score": 57.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Whirlwind, Thunder Clap",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -1915,7 +2043,7 @@
    "about": [
     "31 points in Fury, with 20 in Arms. Built for PvP. On this order the key talents arrive as follows: Anger Management at 29, Raging Blows at 45, Death Wish at 50 and Bloodthirst at 60.",
     "In the model's rotation its priority is Whirlwind and Heroic Strike. Damage comes from auto-attacks 63% and abilities 37%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (97%) and raid damage (93%), and weakest at dungeon damage (92%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (97%) and AoE pulls (94%), and weakest at dungeon damage (92%).",
     "In a dungeon group it gains most from Sunder Armor, Battle Shout and Windfury Totem: about 60% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, stamina 0.27, strength 0.12 and crit rating 0.11; at level 60, weapon DPS 1, stamina 0.37, strength 0.13 and crit rating 0.09. The Recommended gear panel ranks items by these weights at your level."
@@ -3164,11 +3292,11 @@
    "archetype": "deep Arms",
    "focus": "PvE",
    "standard": "warrior-arms-pve",
-   "standard_score": 1.003023457684946,
+   "standard_score": 0.813389892849213,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "warrior-arms-pve": 1.003023457684946
+    "warrior-arms-pve": 0.813389892849213
    },
    "qualifying": [
     "warrior-arms-pve"
@@ -3192,11 +3320,11 @@
    "archetype": "deep Fury",
    "focus": "PvE",
    "standard": "warrior-fury-pve",
-   "standard_score": 0.9379132404743511,
+   "standard_score": 0.768340688414719,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "warrior-fury-pve": 0.9379132404743511
+    "warrior-fury-pve": 0.768340688414719
    },
    "qualifying": [
     "warrior-fury-pve"

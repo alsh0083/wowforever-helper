@@ -1109,6 +1109,38 @@
       "score": 175.4,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 28.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Rain of Fire",
+      "lower_better": true
+     },
+     "30": {
+      "score": 13.4,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "40": {
+      "score": 20.3,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "50": {
+      "score": 18.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "60": {
+      "score": 18.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -1173,7 +1205,7 @@
    "about": [
     "30 points in Affliction, with 21 in Demonology. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 21, Amplify Curse at 35, Curse of Exhaustion at 42, Siphon Life at 43, Shadow Mastery at 46 and Fel Domination at 59.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (94%) and raid damage (92%), and weakest at dungeon damage (84%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and questing speed (94%), and weakest at dungeon damage (84%).",
     "In a dungeon group it gains most from Curse of the Elements: about 10% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, stamina 1, spell power 0.71, hit rating 0.15 and crit rating 0.06; at level 60, stamina 1, spell power 0.3, crit rating 0.03 and intellect 0.01. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -1328,6 +1360,38 @@
       "score": 175.1,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 28.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Rain of Fire",
+      "lower_better": true
+     },
+     "30": {
+      "score": 13.2,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "40": {
+      "score": 20.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "50": {
+      "score": 18.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "60": {
+      "score": 18.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -1392,7 +1456,7 @@
    "about": [
     "35 points in Affliction, with 11 in Demonology and 5 in Destruction. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Shadow Mastery at 51 and Siphon Life at 59.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (96%) and dungeon damage (96%), and weakest at raid damage (92%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and questing speed (96%), and weakest at raid damage (92%).",
     "In a dungeon group it gains most from Curse of the Elements: about 10% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
     "Gear priority per point, relative to the best stat: at level 30, stamina 1, spell power 0.71, crit rating 0.07 and intellect 0.01; at level 60, stamina 1, spell power 0.29, crit rating 0.04 and intellect 0.01. The Recommended gear panel ranks items by these weights at your level."
@@ -1548,73 +1612,105 @@
       "score": 184.5,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 28.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Rain of Fire",
+      "lower_better": true
+     },
+     "30": {
+      "score": 13.2,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "40": {
+      "score": 20.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "50": {
+      "score": 18.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "60": {
+      "score": 18.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.3992,
+     "score": 0.4301,
      "stamina": 0.0,
-     "intellect": 4.5e-05,
+     "intellect": 3.4e-05,
      "spirit": 0.0,
-     "spell_power": 0.002813,
-     "crit_rating": 0.000279,
-     "hit_rating": 0.001129,
-     "crit_pct": 0.000902,
-     "hit_pct": 0.003706
+     "spell_power": 0.002358,
+     "crit_rating": 0.000209,
+     "hit_rating": 0.001255,
+     "crit_pct": 0.000676,
+     "hit_pct": 0.004141
     },
     "30": {
-     "score": 0.6208,
+     "score": 0.7491,
      "stamina": 0.0,
-     "intellect": 4.8e-05,
+     "intellect": 3.6e-05,
      "spirit": 0.0,
-     "spell_power": 0.002772,
-     "crit_rating": 0.00024,
-     "hit_rating": 0.000721,
-     "crit_pct": 0.001422,
-     "hit_pct": 0.004271
+     "spell_power": 0.002154,
+     "crit_rating": 0.00018,
+     "hit_rating": 0.000541,
+     "crit_pct": 0.001066,
+     "hit_pct": 0.003204
     },
     "40": {
-     "score": 0.8674,
+     "score": 0.8367,
      "stamina": 0.0,
-     "intellect": 0.00026,
+     "intellect": 0.000195,
      "spirit": 0.0,
-     "spell_power": 0.002606,
-     "crit_rating": 0.000225,
-     "hit_rating": 0.000741,
-     "crit_pct": 0.001935,
-     "hit_pct": 0.006385
+     "spell_power": 0.002003,
+     "crit_rating": 0.000168,
+     "hit_rating": 0.000556,
+     "crit_pct": 0.001452,
+     "hit_pct": 0.004789
     },
     "50": {
-     "score": 1.0804,
+     "score": 1.0115,
      "stamina": 0.0,
-     "intellect": 0.000272,
+     "intellect": 0.000204,
      "spirit": 0.0,
-     "spell_power": 0.002486,
-     "crit_rating": 0.000211,
-     "hit_rating": 0.000307,
-     "crit_pct": 0.002384,
-     "hit_pct": 0.003471
+     "spell_power": 0.001896,
+     "crit_rating": 0.000158,
+     "hit_rating": 0.00023,
+     "crit_pct": 0.001788,
+     "hit_pct": 0.002603
     },
     "60": {
-     "score": 1.5292,
+     "score": 1.3544,
      "stamina": 0.0,
-     "intellect": 0.00053,
+     "intellect": 0.000398,
      "spirit": 0.0,
-     "spell_power": 0.002168,
-     "crit_rating": 0.00025,
-     "hit_rating": 0.000323,
-     "crit_pct": 0.003506,
-     "hit_pct": 0.004517
+     "spell_power": 0.001647,
+     "crit_rating": 0.000188,
+     "hit_rating": 0.000242,
+     "crit_pct": 0.00263,
+     "hit_pct": 0.003388
     }
    },
    "about": [
     "40 points in Affliction, with 11 in Demonology. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 21, Siphon Life at 56 and Wrack at 60.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (97%) and questing speed (95%), and weakest at dungeon damage (86%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and raid damage (97%), and weakest at dungeon damage (86%).",
     "In a dungeon group it gains most from Curse of the Elements: about 10% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.26, crit rating 0.09 and intellect 0.02; at level 60, spell power 1, intellect 0.24, hit rating 0.15 and crit rating 0.12. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.25, crit rating 0.08 and intellect 0.02; at level 60, spell power 1, intellect 0.24, hit rating 0.15 and crit rating 0.11. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -1767,74 +1863,106 @@
       "score": 165.2,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 28.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Rain of Fire",
+      "lower_better": true
+     },
+     "30": {
+      "score": 13.4,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "40": {
+      "score": 19.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "50": {
+      "score": 18.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "60": {
+      "score": 17.5,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4028,
+     "score": 0.4328,
      "stamina": 0.0,
-     "intellect": 4.7e-05,
+     "intellect": 3.5e-05,
      "spirit": 0.0,
-     "spell_power": 0.002848,
-     "crit_rating": 0.000285,
-     "hit_rating": 0.001142,
-     "crit_pct": 0.000922,
-     "hit_pct": 0.003749
+     "spell_power": 0.002385,
+     "crit_rating": 0.000214,
+     "hit_rating": 0.001265,
+     "crit_pct": 0.000692,
+     "hit_pct": 0.004173
     },
     "30": {
-     "score": 0.6286,
+     "score": 0.7521,
      "stamina": 0.0,
-     "intellect": 5.2e-05,
+     "intellect": 3.9e-05,
      "spirit": 0.0,
-     "spell_power": 0.002838,
-     "crit_rating": 0.000259,
-     "hit_rating": 0.000914,
-     "crit_pct": 0.001536,
-     "hit_pct": 0.006089
+     "spell_power": 0.002202,
+     "crit_rating": 0.000194,
+     "hit_rating": 0.000972,
+     "crit_pct": 0.001152,
+     "hit_pct": 0.00743
     },
     "40": {
-     "score": 0.87,
+     "score": 0.8424,
      "stamina": 0.0,
-     "intellect": 0.000261,
+     "intellect": 0.000195,
      "spirit": 0.0,
-     "spell_power": 0.002643,
-     "crit_rating": 0.000319,
-     "hit_rating": 0.000936,
-     "crit_pct": 0.002752,
-     "hit_pct": 0.00832
+     "spell_power": 0.002031,
+     "crit_rating": 0.00024,
+     "hit_rating": 0.000896,
+     "crit_pct": 0.002064,
+     "hit_pct": 0.008177
     },
     "50": {
-     "score": 1.0688,
+     "score": 1.0084,
      "stamina": 0.0,
-     "intellect": 0.000423,
+     "intellect": 0.000317,
      "spirit": 0.0,
-     "spell_power": 0.00232,
-     "crit_rating": 0.00032,
-     "hit_rating": 0.000777,
-     "crit_pct": 0.003621,
-     "hit_pct": 0.008736
+     "spell_power": 0.001772,
+     "crit_rating": 0.00024,
+     "hit_rating": 0.000625,
+     "crit_pct": 0.002716,
+     "hit_pct": 0.00697
     },
     "60": {
-     "score": 1.5322,
+     "score": 1.363,
      "stamina": 0.0,
-     "intellect": 0.000508,
+     "intellect": 0.000381,
      "spirit": 0.0,
-     "spell_power": 0.002075,
-     "crit_rating": 0.000368,
-     "hit_rating": 0.000479,
-     "crit_pct": 0.005154,
-     "hit_pct": 0.005981
+     "spell_power": 0.001578,
+     "crit_rating": 0.000276,
+     "hit_rating": 0.000359,
+     "crit_pct": 0.003866,
+     "hit_pct": 0.004486
     }
    },
    "about": [
     "31 points in Demonology, with 17 in Destruction and 3 in Affliction. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Conflagrate at 41, Soul Link at 51 and Demonic Pact at 60.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up, uses Conflagrate on cooldown and fills with Shadow Bolt.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (94%) and dungeon damage (91%), and weakest at raid damage (87%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (97%) and questing speed (94%), and weakest at raid damage (87%).",
     "In a dungeon group it gains most from Curse of the Elements: about 10% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.32, crit rating 0.09 and intellect 0.02; at level 60, spell power 1, intellect 0.24, hit rating 0.23 and crit rating 0.18. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.44, crit rating 0.09 and intellect 0.02; at level 60, spell power 1, intellect 0.24, hit rating 0.23 and crit rating 0.17. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -1987,73 +2115,105 @@
       "score": 156.9,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 28.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Rain of Fire",
+      "lower_better": true
+     },
+     "30": {
+      "score": 13.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "40": {
+      "score": 20.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "50": {
+      "score": 19.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "60": {
+      "score": 18.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4037,
+     "score": 0.4335,
      "stamina": 0.0,
-     "intellect": 4.7e-05,
+     "intellect": 3.5e-05,
      "spirit": 0.0,
-     "spell_power": 0.00285,
-     "crit_rating": 0.000285,
-     "hit_rating": 0.001144,
-     "crit_pct": 0.000923,
-     "hit_pct": 0.003754
+     "spell_power": 0.002387,
+     "crit_rating": 0.000214,
+     "hit_rating": 0.001266,
+     "crit_pct": 0.000692,
+     "hit_pct": 0.004177
     },
     "30": {
-     "score": 0.6094,
+     "score": 0.7319,
      "stamina": 0.0,
-     "intellect": 4.9e-05,
+     "intellect": 3.6e-05,
      "spirit": 0.0,
-     "spell_power": 0.002716,
-     "crit_rating": 0.000243,
-     "hit_rating": 0.001007,
-     "crit_pct": 0.001437,
-     "hit_pct": 0.005965
+     "spell_power": 0.002109,
+     "crit_rating": 0.000182,
+     "hit_rating": 0.001238,
+     "crit_pct": 0.001078,
+     "hit_pct": 0.007338
     },
     "40": {
-     "score": 0.8395,
+     "score": 0.8102,
      "stamina": 0.0,
-     "intellect": 0.000253,
+     "intellect": 0.00019,
      "spirit": 0.0,
-     "spell_power": 0.002556,
-     "crit_rating": 0.000306,
-     "hit_rating": 0.000955,
-     "crit_pct": 0.00264,
-     "hit_pct": 0.00823
+     "spell_power": 0.001964,
+     "crit_rating": 0.00023,
+     "hit_rating": 0.000935,
+     "crit_pct": 0.00198,
+     "hit_pct": 0.008053
     },
     "50": {
-     "score": 1.0027,
+     "score": 0.9487,
      "stamina": 0.0,
-     "intellect": 0.000389,
+     "intellect": 0.000292,
      "spirit": 0.0,
-     "spell_power": 0.002336,
-     "crit_rating": 0.000242,
-     "hit_rating": 0.00087,
-     "crit_pct": 0.002738,
-     "hit_pct": 0.009837
+     "spell_power": 0.001783,
+     "crit_rating": 0.000182,
+     "hit_rating": 0.000832,
+     "crit_pct": 0.002054,
+     "hit_pct": 0.00941
     },
     "60": {
-     "score": 1.4474,
+     "score": 1.2926,
      "stamina": 0.0,
-     "intellect": 0.000468,
+     "intellect": 0.000351,
      "spirit": 0.0,
-     "spell_power": 0.002063,
-     "crit_rating": 0.000288,
-     "hit_rating": 0.000912,
-     "crit_pct": 0.004038,
-     "hit_pct": 0.01261
+     "spell_power": 0.001569,
+     "crit_rating": 0.000216,
+     "hit_rating": 0.000728,
+     "crit_pct": 0.003028,
+     "hit_pct": 0.009898
     }
    },
    "about": [
     "31 points in Demonology, with 20 in Destruction. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Soul Link at 51 and Demonic Pact at 60.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (92%) and dungeon damage (85%), and weakest at raid damage (82%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and questing speed (92%), and weakest at raid damage (82%).",
     "In a dungeon group it gains most from Curse of the Elements: about 10% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.37, crit rating 0.09 and intellect 0.02; at level 60, spell power 1, hit rating 0.44, intellect 0.23 and crit rating 0.14. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.59, crit rating 0.09 and intellect 0.02; at level 60, spell power 1, hit rating 0.46, intellect 0.22 and crit rating 0.14. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -2206,6 +2366,38 @@
       "score": 155.0,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 28.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Rain of Fire",
+      "lower_better": true
+     },
+     "30": {
+      "score": 13.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "40": {
+      "score": 20.8,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "50": {
+      "score": 19.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "60": {
+      "score": 18.1,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -2270,7 +2462,7 @@
    "about": [
     "33 points in Demonology, with 13 in Destruction and 5 in Affliction. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Shadowburn at 45, Fel Domination at 47, Soul Link at 51 and Demonic Pact at 60.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up and fills with Shadow Bolt.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (92%) and dungeon damage (88%), and weakest at raid damage (81%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and questing speed (92%), and weakest at raid damage (81%).",
     "In a dungeon group it gains most from Curse of the Elements: about 10% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, stamina 1, spell power 0.71, hit rating 0.26 and crit rating 0.07; at level 60, stamina 1, spell power 0.3, hit rating 0.04 and crit rating 0.04. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -2425,73 +2617,105 @@
       "score": 186.6,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 28.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Rain of Fire",
+      "lower_better": true
+     },
+     "30": {
+      "score": 13.4,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "40": {
+      "score": 19.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "50": {
+      "score": 16.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "60": {
+      "score": 16.4,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4037,
+     "score": 0.4335,
      "stamina": 0.0,
-     "intellect": 4.7e-05,
+     "intellect": 3.5e-05,
      "spirit": 0.0,
-     "spell_power": 0.00285,
-     "crit_rating": 0.000285,
-     "hit_rating": 0.001144,
-     "crit_pct": 0.000923,
-     "hit_pct": 0.003754
+     "spell_power": 0.002387,
+     "crit_rating": 0.000214,
+     "hit_rating": 0.001266,
+     "crit_pct": 0.000692,
+     "hit_pct": 0.004177
     },
     "30": {
-     "score": 0.6213,
+     "score": 0.7466,
      "stamina": 0.0,
-     "intellect": 4.9e-05,
+     "intellect": 3.7e-05,
      "spirit": 0.0,
-     "spell_power": 0.002765,
-     "crit_rating": 0.000247,
-     "hit_rating": 0.000887,
-     "crit_pct": 0.001464,
-     "hit_pct": 0.005945
+     "spell_power": 0.002148,
+     "crit_rating": 0.000185,
+     "hit_rating": 0.000952,
+     "crit_pct": 0.001098,
+     "hit_pct": 0.007322
     },
     "40": {
-     "score": 0.8781,
+     "score": 0.8503,
      "stamina": 0.0,
-     "intellect": 0.000277,
+     "intellect": 0.000208,
      "spirit": 0.0,
-     "spell_power": 0.002463,
-     "crit_rating": 0.000351,
-     "hit_rating": 0.00075,
-     "crit_pct": 0.003025,
-     "hit_pct": 0.006458
+     "spell_power": 0.001896,
+     "crit_rating": 0.000263,
+     "hit_rating": 0.000562,
+     "crit_pct": 0.002269,
+     "hit_pct": 0.004844
     },
     "50": {
-     "score": 1.1124,
+     "score": 1.0556,
      "stamina": 0.0,
-     "intellect": 0.000453,
+     "intellect": 0.00034,
      "spirit": 0.0,
-     "spell_power": 0.002378,
-     "crit_rating": 0.00036,
-     "hit_rating": 0.000765,
-     "crit_pct": 0.00407,
-     "hit_pct": 0.008651
+     "spell_power": 0.001818,
+     "crit_rating": 0.00027,
+     "hit_rating": 0.000574,
+     "crit_pct": 0.003052,
+     "hit_pct": 0.006489
     },
     "60": {
-     "score": 1.6554,
+     "score": 1.4699,
      "stamina": 0.0,
-     "intellect": 0.000569,
+     "intellect": 0.000427,
      "spirit": 0.0,
-     "spell_power": 0.002236,
-     "crit_rating": 0.000393,
-     "hit_rating": 0.000326,
-     "crit_pct": 0.005505,
-     "hit_pct": 0.004568
+     "spell_power": 0.0017,
+     "crit_rating": 0.000295,
+     "hit_rating": 0.000245,
+     "crit_pct": 0.004129,
+     "hit_pct": 0.003426
     }
    },
    "about": [
     "31 points in Destruction, with 11 in Demonology and 9 in Affliction. Built for PvE. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Conflagrate at 39, Shadowburn at 47, Bane of Havoc at 48 and Incinerate at 60.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up, uses Conflagrate on cooldown and fills with Shadow Bolt.",
-    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (99%) and dungeon damage (98%), and weakest at AoE pulls (91%).",
     "In a dungeon group it gains most from Curse of the Elements: about 10% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.32, crit rating 0.09 and intellect 0.02; at level 60, spell power 1, intellect 0.25, crit rating 0.18 and hit rating 0.15. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.44, crit rating 0.09 and intellect 0.02; at level 60, spell power 1, intellect 0.25, crit rating 0.17 and hit rating 0.14. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -2644,6 +2868,38 @@
       "score": 190.9,
       "unit": "dps"
      }
+    },
+    "aoe": {
+     "20": {
+      "score": 28.7,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Rain of Fire",
+      "lower_better": true
+     },
+     "30": {
+      "score": 13.4,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "40": {
+      "score": 19.6,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "50": {
+      "score": 16.9,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     },
+     "60": {
+      "score": 16.4,
+      "unit": "seconds (3-mob pack)",
+      "spell": "Hellfire",
+      "lower_better": true
+     }
     }
    },
    "sensitivity": [],
@@ -2708,7 +2964,7 @@
    "about": [
     "35 points in Destruction, with 11 in Demonology and 5 in Affliction. Built for PvP. On this order the key talents arrive as follows: Demonic Sacrifice at 22, Conflagrate at 39, Shadowburn at 58, Bane of Havoc at 59 and Incinerate at 60.",
     "In the model's rotation it keeps Corruption, Bane of Agony and Immolate up, uses Conflagrate on cooldown and fills with Shadow Bolt.",
-    "At level 60 it scores at or near the top of the class in questing speed, dungeon damage and raid damage.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and dungeon damage (100%), and weakest at AoE pulls (91%).",
     "In a dungeon group it gains most from Curse of the Elements: about 10% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, stamina 1, spell power 0.72, hit rating 0.15 and crit rating 0.07; at level 60, stamina 1, spell power 0.27, crit rating 0.05 and intellect 0.01. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -3726,11 +3982,11 @@
    "archetype": "deep Affliction",
    "focus": "PvE",
    "standard": "warlock-affliction",
-   "standard_score": 1.5291500571960472,
+   "standard_score": 1.3544381875994098,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "warlock-affliction": 1.5291500571960472
+    "warlock-affliction": 1.3544381875994098
    },
    "qualifying": [
     "warlock-affliction"
@@ -3754,9 +4010,9 @@
    "archetype": "deep Demonology",
    "focus": "PvE",
    "standard": "warlock-demonology-pve",
-   "standard_score": 1.4473504736297649,
+   "standard_score": 1.292648187951087,
    "model_pick": {
-    "Agonizing Flames": 1,
+    "Agonizing Flames": 3,
     "Conflagrate": 1,
     "Ruin": 5,
     "Cataclysm": 3,
@@ -3775,13 +4031,12 @@
     "Fel Vitality": 3,
     "Unholy Power": 1,
     "Demonic Embrace": 5,
-    "Improved Corruption": 1,
-    "Suppression": 2
+    "Improved Corruption": 1
    },
-   "model_pick_score": 1.5322463403097204,
+   "model_pick_score": 1.3796206504640567,
    "candidates": {
-    "warlock-demonology-pve-model": 1.5322463403097204,
-    "warlock-demonology-pve": 1.4473504736297649
+    "warlock-demonology-pve-model": 1.362987669275736,
+    "warlock-demonology-pve": 1.292648187951087
    },
    "qualifying": [
     "warlock-demonology-pve",
@@ -3791,7 +4046,7 @@
     {
      "talent": "Agonizing Flames",
      "from": 0,
-     "to": 1
+     "to": 3
     },
     {
      "talent": "Conflagrate",
@@ -3812,11 +4067,6 @@
      "talent": "Improved Corruption",
      "from": 0,
      "to": 1
-    },
-    {
-     "talent": "Suppression",
-     "from": 0,
-     "to": 2
     }
    ],
    "model_pick_seed": "warlock-demonology-pve"
@@ -3839,11 +4089,11 @@
    "archetype": "deep Destruction",
    "focus": "PvE",
    "standard": "warlock-destruction-pve",
-   "standard_score": 1.6554234614463421,
+   "standard_score": 1.4699008052573685,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "warlock-destruction-pve": 1.6554234614463421
+    "warlock-destruction-pve": 1.4699008052573685
    },
    "qualifying": [
     "warlock-destruction-pve"
