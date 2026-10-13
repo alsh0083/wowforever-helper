@@ -192,10 +192,11 @@ def _by_spell(rows: list[dict[str, str]]) -> dict[int, dict[str, str]]:
 
 def _tick_damage_index(tables: Tables, sla_spells: set[int], names: dict[int, str],
                        levels: dict[int, dict[str, str]]) -> dict[tuple[str, int], tuple[float, float]]:
-    """(name, BaseLevel) -> (base points, coefficient) of a tick spell's damage effect.
+    """(name, BaseLevel) -> (base points, coefficient) of a tick spell's damage effects.
 
     A tick spell carries the tick damage of an area-triggered periodic: it shares the
-    parent spell's name and BaseLevel, has an Effect == 2 row, and is not trainable.
+    parent spell's name and BaseLevel, has an Effect == 2 row, and is not trainable. The lowest
+    such spell id wins; its Effect == 2 rows add up (Forever's Consecration ticks twice, #295).
     """
     best: dict[tuple[str, int], tuple[int, float, float]] = {}
     for row in tables["SpellEffect"]:
@@ -213,6 +214,8 @@ def _tick_damage_index(tables: Tables, sla_spells: set[int], names: dict[int, st
         current = best.get(key)
         if current is None or candidate[0] < current[0]:
             best[key] = candidate
+        elif candidate[0] == current[0]:
+            best[key] = (spell_id, current[1] + candidate[1], current[2] + candidate[2])
     return {key: (base_points, coefficient) for key, (_, base_points, coefficient) in best.items()}
 
 
