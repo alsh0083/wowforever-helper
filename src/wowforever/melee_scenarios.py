@@ -141,7 +141,7 @@ def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRa
     """The class rotation's DPS, mana use and out-of-mana fallback against `target`. For a hybrid,
     `melee` fixes the playstyle (a Feral leveling path is a cat even while its points sit in Balance);
     by default it follows the tree with most points. `pack` > 1 sums damage over that many mobs for
-    classes whose AoE abilities are modeled (warrior, #262); the others stay single target."""
+    classes whose AoE abilities are modeled (warrior and rogue, #262); the others stay single target."""
     from wowforever.classes import class_module
 
     module = class_module(class_name)
@@ -167,8 +167,8 @@ def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRa
     if class_name == "rogue":
         from wowforever.classes.rogue_rotation import rogue_rotation
 
-        r = rogue_rotation(stats, spells, cls, ranks, target)
-        return Output(r.dps, 0.0, r.dps)
+        r = rogue_rotation(stats, spells, cls, ranks, target, pack=pack)
+        return Output(r.dps, 0.0, r.dps, r.aoe)
     if class_name == "hunter":
         from wowforever.classes.hunter_rotation import hunter_rotation
 

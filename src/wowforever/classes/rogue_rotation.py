@@ -5,8 +5,10 @@ Formulas: docs/tasks/131-rogue-rotation.md, pinned by tests/test_rogue_rotation.
 from the parsed spells (#131 part 1), the rogue's talent effect rules (part 2), the stat table
 (#129), the physical combat table (#130) and config/rogue.toml.
 
-Not modeled yet: poisons, Backstab (needs the main-hand weapon type), Hack and Slash extra
-attacks, and Blade Flurry's second target.
+Against a pack (`pack` > 1, AoE pulls #262), Blade Flurry's attacks also hit a second mob for its
+share of the cooldown (15 s of 120 s), averaged like its haste.
+
+Not modeled yet: poisons, Backstab (needs the main-hand weapon type) and Hack and Slash extra attacks.
 """
 
 from __future__ import annotations
@@ -33,11 +35,13 @@ class RogueRotation:
     builder: str              # spell name
     energy_per_second: float
     cycles_per_second: float  # builder-to-finisher cycles
+    aoe: tuple[str, ...] = ()  # abilities that hit more than one mob of the pack (#262)
 
 
 def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
-                   ranks: Mapping[int, int], target: Target) -> RogueRotation:
-    """Sustained DPS against `target` with the rogue's talents `ranks`."""
+                   ranks: Mapping[int, int], target: Target, *, pack: int = 1) -> RogueRotation:
+    """Sustained DPS against `target` with the rogue's talents `ranks`; with `pack` > 1, the damage
+    summed over a pack of that many such mobs (#262)."""
     c = load_toml(CONFIG)
     level = stats.level
     by_name = {t.name: t for t in cls.talents}
@@ -123,5 +127,10 @@ def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDat
                        * (1 + total("duration", "Slice and Dice") / 100))
         finish_share = max(0.0, 1 - (1 / snd_seconds) / cycles)
     yellow = cycles * (n * builder_ev + finish_share * evis_ev)
+    aoe: tuple[str, ...] = ()
+    if pack > 1 and taken("Blade Flurry"):
+        bf = c["blade_flurry"]
+        share = bf["duration"] / bf["cooldown"]
+        white, yellow, aoe = white * (1 + share), yellow * (1 + share), ("Blade Flurry",)
     return RogueRotation(dps=white + yellow, white_dps=white, yellow_dps=yellow, builder=builder.name,
-                         energy_per_second=energy, cycles_per_second=cycles)
+                         energy_per_second=energy, cycles_per_second=cycles, aoe=aoe)
