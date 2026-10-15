@@ -10,12 +10,13 @@
 Hand-worked scaling for Fury PvE at 60 against questing mobs (3300 armor), where Rage covers Whirlwind
 (1 per 10 s) at every pack size: Whirlwind's part is 3x the single-target part at 3 mobs and 4x at 5
 (cap 4); Thunder Clap's part goes 3 : 4 from 3 to 5 mobs (same Rage left after Whirlwind, same rate).
-melee_scenarios.aoe for a warrior: 3 x mob health / rotation_output(..., pack=3).dps, labelled with the
+melee_scenarios.aoe for a warrior: 3 x mob health / the class engine's output(..., pack=3).dps, labelled with the
 abilities that hit several mobs.
 """
 
 import pytest
 
+from wowforever.classes import engine
 from wowforever import melee_scenarios as ms
 from wowforever.builds import load_builds
 from wowforever.classes import class_module
@@ -78,7 +79,7 @@ def test_sweeping_strikes_with_rage_to_spare(monkeypatch):
 
 def test_aoe_pull_runs_the_rotation_against_the_pack():
     ranks = BUILDS["warrior-fury-pve"].final_ids(CLS)
-    out = ms.rotation_output("warrior", STATS, CLS.spells, CLS, ranks, MOBS, pack=3)
+    out = engine("warrior").output(STATS, CLS.spells, CLS, ranks, MOBS, pack=3)
     seconds, label = ms.aoe("warrior", STATS, CLS.spells, CLS, ranks)
     assert seconds == pytest.approx(3 * default_params("aoe", 60).mob_hp / out.dps)
     assert label == "Whirlwind, Thunder Clap"

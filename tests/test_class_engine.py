@@ -53,7 +53,6 @@ def test_output_wraps_the_class_rotation(name, pack):
         out = engine(name).output(stats, cls.spells, cls, ranks, BOSS, pack=pack)
         assert out == ms.Output(r.dps, 0.0, r.dps, r.aoe)
         assert engine(name).playstyle(cls, ranks) == "melee"
-        assert ms.rotation_output(name, stats, cls.spells, cls, ranks, BOSS, pack=pack) == out
 
 
 @pytest.mark.parametrize("name", sorted(ADAPTED))
@@ -78,7 +77,6 @@ def test_hunter_output_carries_its_pet_and_range():
             out = engine("hunter").output(stats, cls.spells, cls, ranks, BOSS, pack=pack)
             assert out == ms.Output(r.dps, r.mana_per_second, r.auto_dps + r.pet_dps, r.aoe,
                                     pet=pet, ranged=r.mode == "ranged")
-            assert ms.rotation_output("hunter", stats, cls.spells, cls, ranks, BOSS, pack=pack) == out
         assert engine("hunter").playstyle(cls, ranks) == "ranged"
         seconds, _ = engine("hunter").aoe(stats, cls.spells, cls, ranks, pack=3, mob_hp=1200.0, armor=500.0)
         assert seconds == pytest.approx(3 * 1200.0 / engine("hunter").output(
@@ -133,11 +131,12 @@ def test_hybrids_fight_with_the_row_their_main_tree_picks(name, melee_build, cas
     assert forced.mana_per_second == 0.0 and not forced.ranged
 
 
-def test_rotation_output_has_no_class_chain():
+def test_scenarios_ask_the_engine_with_no_class_chain():
     import inspect
 
-    src = inspect.getsource(ms.rotation_output) + inspect.getsource(ms.aoe)
-    assert "class_name ==" not in src and "HybridStats" not in src and "ENGINE" not in src
+    assert not hasattr(ms, "rotation_output")                 # callers use engine(name).output (#313)
+    src = inspect.getsource(ms.aoe) + inspect.getsource(ms.build_stats)
+    assert "class_name ==" not in src and "MELEE_TREES" not in src and "ENGINE" not in src
 
 
 KINDS = {"rogue": {"rogue"}, "hunter": {"hunter"}, "warrior": {"abilities"}, "paladin": {"abilities"},

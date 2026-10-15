@@ -12,6 +12,7 @@ Report rows: {"score": seconds rounded to 0.1, "unit": "seconds (3-mob pack)", "
 
 import pytest
 
+from wowforever.classes import engine
 from wowforever import group
 from wowforever import melee_scenarios as ms
 from wowforever.builds import load_builds
@@ -43,7 +44,7 @@ def test_casters_use_their_aoe_spells():
 def test_melee_clears_the_pack_one_mob_at_a_time():
     cls, ranks, stats = setup("druid", "druid-feral")   # Forever gives cats no AoE (#262)
     armor = _anchor_at(ms._config()["questing"]["anchors"], 60)[0]
-    dps = ms.rotation_output("druid", stats, cls.spells, cls, ranks, Target(0, armor)).dps
+    dps = engine("druid").output(stats, cls.spells, cls, ranks, Target(0, armor)).dps
     assert ms.aoe("druid", stats, cls.spells, cls, ranks) == (pytest.approx(3 * MOB_60 / dps), "single target")
 
 
