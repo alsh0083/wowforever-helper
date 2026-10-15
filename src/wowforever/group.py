@@ -276,10 +276,9 @@ def dungeon_dps(class_name: str, stats, cls, ranks: Mapping[int, int], eff: Mapp
     """A build's dungeon DPS with a party's effective buff set: buffed stats, the boss's armor after the
     party's armor debuffs (from its unsundered armor), Curse of the Elements on spell damage, totem procs."""
     from wowforever import melee_scenarios as ms
-    from wowforever.classes import class_module
+    from wowforever.classes import engine
     from wowforever.physical import Target
 
-    module = class_module(class_name)
     if class_name == "mage":
         from wowforever.assumptions import Assumptions
         from wowforever.scenarios import Character, default_params, raid
@@ -291,11 +290,11 @@ def dungeon_dps(class_name: str, stats, cls, ranks: Mapping[int, int], eff: Mapp
     d = ms._config()["dungeon"]
     unsundered = ms._anchor_at(ms._config()["questing"]["anchors"], _level(stats))[0]
     armor = max(0.0, unsundered - armor_reduction(eff))
-    melee_build = isinstance(stats, ms.HybridStats) and ms.main_tree(cls, ranks) in getattr(module, "MELEE_TREES", ())
+    style = engine(class_name).playstyle(cls, ranks)
+    melee_build = isinstance(stats, ms.HybridStats) and style == "melee"
     buffed = buffed_stats(class_name, stats, eff, melee_build=melee_build)
-    out = ms.rotation_output(class_name, buffed, cls.spells, cls, ranks, Target(d["target_level_offset"], armor)).dps
-    caster = getattr(module, "ENGINE", None) == "spell" and not melee_build
-    if caster:
+    out = engine(class_name).output(buffed, cls.spells, cls, ranks, Target(d["target_level_offset"], armor)).dps
+    if style == "caster":
         return out * magic_multiplier(eff)
     physical = buffed.melee if isinstance(buffed, ms.HybridStats) else buffed
     if class_name in MELEE_CLASSES and _is_physical(physical) and not (class_name == "shaman" and melee_build):
@@ -372,12 +371,6 @@ def compositions(weights: Mapping[str, Mapping[str, int]]) -> list[tuple[float, 
     return out
 
 
-def player_kind(class_name: str, melee_build: bool, stats) -> str:
-    if class_name == "hunter":
-        return "ranged"
-    return "melee" if melee_build or _is_physical(stats) else "caster"
-
-
 def _pick(member_options: Sequence[Sequence[dict]], kind: str) -> list[dict]:
     prefs = PREFERENCES[kind]
     picks = []
@@ -449,13 +442,12 @@ def _drop_for(class_name: str, cls, ranks: Mapping[int, int]) -> frozenset[str]:
 
 
 def _kind_for(class_name: str, stats, cls, ranks) -> str:
-    from wowforever import melee_scenarios as ms
-    from wowforever.classes import class_module
+    """How the build fights, which picks its party's buff preferences: melee, ranged or caster."""
+    from wowforever.classes import engine
 
-    melee_trees = getattr(class_module(class_name), "MELEE_TREES", ())
-    melee_build = isinstance(stats, ms.HybridStats) and ms.main_tree(cls, ranks) in melee_trees
-    inner = stats.melee if melee_build else (stats.caster if isinstance(stats, ms.HybridStats) else stats)
-    return player_kind(class_name, melee_build, inner)
+    if class_name == "mage":               # until the mage has its class engine (#316)
+        return "caster"
+    return engine(class_name).playstyle(cls, ranks)
 
 
 def _dist_for(class_name: str, stats, cls, ranks):
