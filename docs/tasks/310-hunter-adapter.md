@@ -12,7 +12,7 @@ Do not edit the tests.
 The hunter becomes a `ClassEngine` like rogue, warrior and paladin (#309). Its pet and its range travel in `Output`, so questing and PvP stop asking whether the class is a hunter.
 
 ## The exact change
-Apply this diff. It is the reference implementation, already checked against the tests and all regenerated reports. Write each file's hunks with `tools/apply_patch.py` (see AGENTS.md). Don't re-verify context you can see in the diff; the hunks match the files on this branch.
+Apply this diff. It is the reference implementation, already checked against the tests and all regenerated reports. Write each file's hunks with `tools/apply_patch.py` (see AGENTS.md); `tools/local_agent.py` already sets `CODEX_EXE` for it. Don't re-verify context you can see in the diff; the hunks match the files on this branch.
 
 ```diff
 diff --git a/src/wowforever/classes/hunter.py b/src/wowforever/classes/hunter.py
