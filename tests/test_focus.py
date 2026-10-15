@@ -48,4 +48,4 @@ def test_pve_score_prefers_the_pve_variant():
 
 def test_pvp_core_talents_are_the_class_s_own():
     assert pvp_core_talents(Consensus.load(), "mage") == pvp_core_talents(Consensus.load())
-    assert pvp_core_talents(Consensus.load(), "rogue") == set()
+    assert pvp_core_talents(Consensus.load(), "hunter") == set()          # no Forever-era PvP evidence yet (#320)

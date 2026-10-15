@@ -52,12 +52,12 @@ def test_tiers_are_per_class():
 def test_tier_names_are_checked_against_their_own_class(tmp_path):
     path = tmp_path / "consensus.toml"
     path.write_text(Path(C_PATH).read_text(encoding="utf-8")
-                    + '\n[tiers.rogue.wpvp_melee]\ncore = ["Ice Block"]\nsources = []\n', encoding="utf-8")
+                    + '\n[tiers.hunter.wpvp_melee]\ncore = ["Ice Block"]\nsources = []\n', encoding="utf-8")
     loaded = Consensus.load(path)
     assert loaded.problems(MAGE) == []                      # mage's tiers still check against mage
-    assert loaded.tiers_for("rogue")["wpvp_melee"]["core"] == ("Ice Block",)
-    rogue = Dataset.load(latest_dataset_path()).class_data("rogue")
-    assert loaded.problems(rogue) == ["tiers.rogue.wpvp_melee: 'Ice Block' is not a talent"]
+    assert loaded.tiers_for("hunter")["wpvp_melee"]["core"] == ("Ice Block",)
+    hunter = Dataset.load(latest_dataset_path()).class_data("hunter")
+    assert loaded.problems(hunter) == ["tiers.hunter.wpvp_melee: 'Ice Block' is not a talent"]
 
 
 def test_researched_classes_have_pvp_tiers_that_name_their_own_talents():
