@@ -242,13 +242,12 @@ def facts(stats, cls, ranks):
     """The spells the mage's scenarios pick at the build's level: questing, raid, AoE and caster PvP."""
     from wowforever.assumptions import Assumptions
     from wowforever.pvp.duel import best_scenario_scores, load_kits
-    from wowforever.scenarios import aoe_curve, default_params, questing, raid, usable_fillers
+    from wowforever.scenarios import aoe_curve, default_params, questing, raid
 
     assumptions = Assumptions.load()
     char = _character(stats, cls.spells, cls, ranks)
     level = stats.level
-    fillers = usable_fillers(char, default_params("questing", level).fillers, level, assumptions)
-    duels = best_scenario_scores(char, fillers, load_kits(level=level))
+    duels = best_scenario_scores(sides(stats, cls.spells, cls, ranks), load_kits(level=level))
     # "scenarios": which scored scenario each spell belongs to, so a description names only the
     # scenarios the build was scored in (a leveling build: questing)
     return {"kind": "mage", "scenarios": {"questing": "questing", "raid": "raid", "aoe": "aoe", "pvp": "wpvp_caster"},
@@ -256,3 +255,51 @@ def facts(stats, cls, ranks):
             "raid": raid(char, default_params("raid", level), assumptions).details["spell"],
             "aoe": aoe_curve(char, default_params("aoe", level), assumptions).details["aoe_spell"],
             "pvp": duels["wpvp_caster"]["spell"]}
+
+
+def duel_side(char, filler):
+    """The mage's duel side with one filler: short-fight rotation DPS (no sustained buffs) plus the
+    survival and control components, and Frost Nova's frozen hits against melee."""
+    from wowforever.assumptions import Assumptions
+    from wowforever.calc.pvp_axes import control, survival
+    from wowforever.classes.mage_rotation import frozen_hit_gain, rotation
+    from wowforever.pvp.duel import Side
+    from wowforever.scenarios import best_rank
+
+    s = survival(char, filler)
+    c = control(char, filler)
+    health = char.stats.health
+    assumptions = Assumptions.load()
+    nova = best_rank(char.spells, "Frost Nova", char.level)
+    melee_bonus_dps = 0.0
+    if nova is not None:
+        improved = next((t for t in char.cls.talents if t.name == "Improved Frost Nova"), None)
+        rank = char.ranks.get(improved.talent_id, 0) if improved else 0
+        cut = next((e.values[rank - 1] for e in improved.effects if e.kind == "cooldown"), 0.0) if rank else 0.0
+        cooldown = nova.cooldown + cut  # Improved Frost Nova's value is negative
+        if cooldown > 0:
+            melee_bonus_dps = frozen_hit_gain(char, filler, target_level=char.level,
+                                       assumptions=assumptions) / cooldown
+    return Side(
+        health=health,
+        dps=rotation(char, filler, target_level=char.level,
+                     assumptions=assumptions, sustained=False).dps,
+        absorb_per_min=s.components["barrier"] * health,
+        immunity_share=s.components["immunity"],
+        root=c.components["root"],
+        stun=c.components["stun"],
+        slow=c.components["slow"],
+        interrupt=c.components["interrupt"],
+        melee_bonus_dps=melee_bonus_dps,
+        root_targets=2 if nova is not None else 1,   # Frost Nova roots every nearby enemy (#287)
+    )
+
+
+def sides(stats, spells, cls, ranks):
+    """The mage's duel sides, one per usable filler: each duel scenario takes the best (#97)."""
+    from wowforever.assumptions import Assumptions
+    from wowforever.scenarios import default_params, usable_fillers
+
+    char = _character(stats, spells, cls, ranks)
+    fillers = usable_fillers(char, default_params("questing", stats.level).fillers, stats.level, Assumptions.load())
+    return [(filler.name, duel_side(char, filler)) for filler in fillers]
