@@ -138,3 +138,34 @@ def test_rotation_output_has_no_class_chain():
 
     src = inspect.getsource(ms.rotation_output) + inspect.getsource(ms.aoe)
     assert "class_name ==" not in src and "HybridStats" not in src and "ENGINE" not in src
+
+
+KINDS = {"rogue": {"rogue"}, "hunter": {"hunter"}, "warrior": {"abilities"}, "paladin": {"abilities"},
+         "priest": {"caster"}, "warlock": {"caster"}, "druid": {"cat", "caster"}, "shaman": {"enhancement", "caster"}}
+
+
+@pytest.mark.parametrize("name", SCORED)
+def test_facts_describe_the_rotation_each_build_runs(name):
+    cls, builds = loaded(name)
+    stats = ms.stat_table(name).at(60)
+    kinds = set()
+    for ranks in builds:
+        try:
+            f = engine(name).facts(stats, cls, ranks)
+        except ZeroDivisionError:          # a build whose rotation does no damage at 60 (describe skips it)
+            continue
+        kinds.add(f["kind"])
+        if f["kind"] == "caster":
+            assert set(f) == {"kind", "dots", "cooldowns", "filler"}
+        else:
+            assert sum(f["split"].values()) <= 1.0 + 1e-9
+    assert kinds == KINDS[name]
+
+
+def test_describe_asks_the_engine_for_every_class_but_mage():
+    import inspect
+
+    from wowforever import describe
+
+    src = inspect.getsource(describe.rotation_facts)
+    assert "_rotation" not in src.replace("rotation_facts", "") and "HybridStats" not in src
