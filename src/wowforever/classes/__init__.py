@@ -3,9 +3,16 @@
 Everything outside this package is class-agnostic.
 """
 
-from collections.abc import Callable
+from __future__ import annotations
+
+from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
-from typing import Match
+from typing import TYPE_CHECKING, Any, Match, Protocol
+
+if TYPE_CHECKING:
+    from wowforever.melee_scenarios import Output
+    from wowforever.physical import Target
+    from wowforever.schema import ClassData, SpellRank
 
 
 
@@ -66,3 +73,34 @@ def class_module(name: str):
     import importlib
 
     return importlib.import_module(CLASSES[name])
+
+
+class ClassEngine(Protocol):
+    """A scored class's rotation behind one interface (docs/planning/2026-10-14-class-engine.md).
+    The class module implements it with module-level functions; reach it through `engine(name)`."""
+
+    def playstyle(self, cls: ClassData, ranks: Mapping[int, int]) -> str:
+        """How the build fights: "melee", "ranged" or "caster"."""
+
+    def output(self, stats: Any, spells: Sequence[SpellRank], cls: ClassData, ranks: Mapping[int, int],
+               target: Target, *, pack: int = 1, drink_mana_per_second: float | None = None,
+               melee: bool | None = None) -> Output:
+        """The rotation's DPS, mana use and out-of-mana DPS against `target`, over `pack` mobs."""
+
+    def aoe(self, stats: Any, spells: Sequence[SpellRank], cls: ClassData, ranks: Mapping[int, int], *,
+            pack: int, mob_hp: float, armor: float) -> tuple[float, str]:
+        """Seconds to clear `pack` same-level mobs of `mob_hp`, and the AoE abilities used."""
+
+    def facts(self, stats: Any, cls: ClassData, ranks: Mapping[int, int]) -> dict[str, Any]:
+        """What the rotation does, for the build description."""
+
+
+ENGINE_MEMBERS = ("playstyle", "output", "aoe", "facts")
+
+
+def engine(name: str) -> ClassEngine:
+    """The class module registered under `name` as a ClassEngine; ValueError if it has none."""
+    module = class_module(name)
+    if not all(callable(getattr(module, member, None)) for member in ENGINE_MEMBERS):
+        raise ValueError(f"no class engine for {name!r}")
+    return module

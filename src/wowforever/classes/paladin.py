@@ -107,3 +107,25 @@ CAVEAT = ("Retribution model (#175): a two-hander's white swings with Seal of Co
           "Strike on cooldown; Holy damage ignores armor. Seal of Command's proc rate and Judgement of Command's "
           "damage are Classic values. Consecration, Exorcism, Hammer of Wrath, Vindication, Divine Strength and "
           "mana aren't modeled; base stats are estimates. Holy and Protection stay unscored.")
+
+
+# --- class engine (#309): this module is the paladin's ClassEngine ------------------------------------
+from wowforever.classes.engines import facts_later as facts  # noqa: E402
+
+
+def playstyle(cls, ranks) -> str:
+    return "melee"
+
+
+def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None):
+    from wowforever.classes.paladin_rotation import paladin_rotation
+    from wowforever.melee_scenarios import Output
+
+    r = paladin_rotation(stats, spells, cls, ranks, target, pack=pack)
+    return Output(r.dps, 0.0, r.dps, r.aoe)
+
+
+def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
+    from wowforever.classes.engines import pack_aoe
+
+    return pack_aoe(output, stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp, armor=armor)

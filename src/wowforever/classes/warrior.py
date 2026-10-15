@@ -119,3 +119,25 @@ CAVEAT = ("Warrior model (#162): a two-hander's white swings build Rage for Mort
 # through wago.tools' documented file-info API (/api/info/{fdid}). Empty since build 1.60.1.70291: the four
 # it held (Improved Cleave, Precision, Toughness, Boundless Rage) left the trees (#239).
 ICON_OVERRIDES: dict[str, str] = {}
+
+
+# --- class engine (#309): this module is the warrior's ClassEngine ------------------------------------
+from wowforever.classes.engines import facts_later as facts  # noqa: E402
+
+
+def playstyle(cls, ranks) -> str:
+    return "melee"
+
+
+def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None):
+    from wowforever.classes.warrior_rotation import warrior_rotation
+    from wowforever.melee_scenarios import Output
+
+    r = warrior_rotation(stats, spells, cls, ranks, target, pack=pack)
+    return Output(r.dps, 0.0, r.dps, r.aoe)
+
+
+def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
+    from wowforever.classes.engines import pack_aoe
+
+    return pack_aoe(output, stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp, armor=armor)

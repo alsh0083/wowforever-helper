@@ -64,6 +64,8 @@ class Output:
     mana_per_second: float
     fallback_dps: float   # DPS once out of mana (hunters: Auto Shot); equals dps for rogues
     aoe: tuple[str, ...] = ()   # abilities that hit several mobs of a pack (#262)
+    pet: bool = False           # a pet fights alongside (and tanks while questing)
+    ranged: bool = False        # the rotation fights from range
 
 
 def _config() -> dict:
@@ -164,26 +166,15 @@ def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRa
         gross = r.mana_per_second + r.regen_per_second
         # once dry, a caster keeps casting at the rate its regen pays for
         return Output(r.dps, r.mana_per_second, r.dps * min(1.0, r.regen_per_second / gross) if gross > 0 else r.dps)
-    if class_name == "rogue":
-        from wowforever.classes.rogue_rotation import rogue_rotation
+    if class_name in ("rogue", "warrior", "paladin"):
+        from wowforever.classes import engine
 
-        r = rogue_rotation(stats, spells, cls, ranks, target, pack=pack)
-        return Output(r.dps, 0.0, r.dps, r.aoe)
+        return engine(class_name).output(stats, spells, cls, ranks, target, pack=pack)
     if class_name == "hunter":
         from wowforever.classes.hunter_rotation import hunter_rotation
 
         r = hunter_rotation(stats, spells, cls, ranks, target, pet=_has_pet(cls, ranks), pack=pack)
         return Output(r.dps, r.mana_per_second, r.auto_dps + r.pet_dps, r.aoe)
-    if class_name == "paladin":
-        from wowforever.classes.paladin_rotation import paladin_rotation
-
-        r = paladin_rotation(stats, spells, cls, ranks, target, pack=pack)
-        return Output(r.dps, 0.0, r.dps, r.aoe)
-    if class_name == "warrior":
-        from wowforever.classes.warrior_rotation import warrior_rotation
-
-        r = warrior_rotation(stats, spells, cls, ranks, target, pack=pack)
-        return Output(r.dps, 0.0, r.dps, r.aoe)
     raise ValueError(f"no melee rotation for {class_name!r}")
 
 
