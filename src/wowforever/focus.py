@@ -9,12 +9,12 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping
+from collections.abc import Callable, Mapping, Sequence
 
 from wowforever import group
 from wowforever.assumptions import Assumptions
 from wowforever.consensus import Consensus
-from wowforever.pvp.battleground import best_battleground
+from wowforever.pvp.battleground import best_side_battleground
 from wowforever.classes.mage import duel_side
 from wowforever.pvp.duel import Kit, best_scenario_scores
 from wowforever.scenarios import (Character, aoe_curve, default_params, questing, raid,
@@ -36,25 +36,47 @@ def pvp_core_talents(consensus: Consensus, class_name: str = "mage") -> set[str]
             for name in tiers.get(scenario, {}).get("core", ())}
 
 
+def core_talent_ids(cls: ClassData, consensus: Consensus, class_name: str = "mage") -> set[int]:
+    """Talent ids of the class's PvP-core talents (#320); empty for a class without tiers."""
+    return {cls.talent_named(n).talent_id for n in pvp_core_talents(consensus, class_name)
+            if any(t.name == n for t in cls.talents)}
+
+
+def side_pvp_score(sides, kits: Sequence[Kit], level: int, core: set[int], ranks: Mapping[int, int],
+                   consensus: Consensus) -> float:
+    """The PvP score of any class (#315, option 1; #323): the mean of the four world-PvP duels and the
+    battleground, each with the build's best side, plus CONSENSUS_BONUS x the share of the class's core
+    talents taken (0 for a class without tiers)."""
+    duels = best_scenario_scores(sides, kits)
+    values = [duels[s]["score"] for s in PVP_SCENARIOS]
+    values.append(best_side_battleground(sides, level, consensus)["score"])
+    taken = sum(1 for tid in core if ranks.get(tid, 0) > 0)
+    return sum(values) / len(values) + CONSENSUS_BONUS * taken / max(1, len(core))
+
+
 def pvp_score_fn(cls: ClassData, stats: Stats, assumptions: Assumptions, kits: list[Kit],
                  consensus: Consensus) -> ScoreFn:
-    """Score = mean duel score over the PvP scenarios + share of core talents x CONSENSUS_BONUS."""
-    core = {cls.talent_named(n).talent_id for n in pvp_core_talents(consensus)
-            if any(t.name == n for t in cls.talents)}
+    """The mage's PvP score: `side_pvp_score` with one side per usable filler, built at the max level
+    whatever level `stats` is from."""
+    core = core_talent_ids(cls, consensus)
     level = cls.rules.max_level
 
     def score(ranks: Mapping[int, int]) -> float:
         char = Character(level, stats, cls.spells, cls, dict(ranks))
         fillers = usable_fillers(char, default_params("questing", level).fillers, level, assumptions)
-        # each duel with its best filler (#97); the mage's sides at the max level, whatever level `stats` is from
-        duels = best_scenario_scores([(f.name, duel_side(char, f)) for f in fillers], kits)
-        scenario_values = [duels[s]["score"] for s in PVP_SCENARIOS]
-        scenario_values.append(best_battleground(char, fillers, assumptions)["score"])
-        mean = sum(scenario_values) / len(scenario_values)
-        taken = sum(1 for tid in core if ranks.get(tid, 0) > 0)
-        return mean + CONSENSUS_BONUS * taken / max(1, len(core))
+        sides = [(f.name, duel_side(char, f)) for f in fillers]
+        return side_pvp_score(sides, kits, level, core, ranks, consensus)
 
     return score
+
+
+def class_pvp_score(class_name: str, stats, cls: ClassData, ranks: Mapping[int, int], kits: Sequence[Kit],
+                    consensus: Consensus) -> float:
+    """Any other class's PvP score (#323): `side_pvp_score` with its engine's duel side at `stats`' level."""
+    from wowforever.classes import engine
+
+    sides = engine(class_name).sides(stats, cls.spells, cls, ranks)
+    return side_pvp_score(sides, kits, stats.level, core_talent_ids(cls, consensus, class_name), ranks, consensus)
 
 
 def pve_score_fn(cls: ClassData, stats: Stats, assumptions: Assumptions) -> ScoreFn:
