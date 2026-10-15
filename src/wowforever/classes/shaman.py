@@ -133,7 +133,6 @@ CAVEAT = ("Elemental (#167): Flame Shock kept up, Lava Burst and Chain Lightning
 
 
 # --- class engine (#311): this module is the shaman's ClassEngine ------------------------------------
-from wowforever.classes.engines import facts_later as facts  # noqa: E402
 
 
 def playstyle(cls, ranks) -> str:
@@ -162,3 +161,18 @@ def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
 
     return hybrid_aoe("shaman", MELEE_TREES, output, stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp,
                       armor=armor)
+
+
+def _melee_facts(stats, cls, ranks):
+    from wowforever.classes.shaman_rotation import enhancement_rotation
+    from wowforever.physical import Target
+
+    r = enhancement_rotation(stats, cls.spells, cls, ranks, Target(0, 0))
+    return {"kind": "enhancement", "split": {"auto-attacks": r.white_dps / r.dps, "abilities": r.yellow_dps / r.dps,
+                                             "spells and procs": r.spell_dps / r.dps}}
+
+
+def facts(stats, cls, ranks):
+    from wowforever.classes.engines import hybrid_facts
+
+    return hybrid_facts("shaman", MELEE_TREES, _melee_facts, ROTATION, stats, cls, ranks)

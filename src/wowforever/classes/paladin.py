@@ -110,7 +110,6 @@ CAVEAT = ("Retribution model (#175): a two-hander's white swings with Seal of Co
 
 
 # --- class engine (#309): this module is the paladin's ClassEngine ------------------------------------
-from wowforever.classes.engines import facts_later as facts  # noqa: E402
 
 
 def playstyle(cls, ranks) -> str:
@@ -129,3 +128,12 @@ def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
     from wowforever.classes.engines import pack_aoe
 
     return pack_aoe(output, stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp, armor=armor)
+
+
+def facts(stats, cls, ranks):
+    from wowforever.classes.paladin_rotation import paladin_rotation
+    from wowforever.physical import Target
+
+    r = paladin_rotation(stats, cls.spells, cls, ranks, Target(0, 0))
+    return {"kind": "abilities", "abilities": list(r.abilities),
+            "split": {"auto-attacks": r.white_dps / r.dps, "Holy damage": r.holy_dps / r.dps}}

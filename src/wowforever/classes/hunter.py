@@ -129,7 +129,6 @@ SKILL_LINES = (50, 163, 51)
 
 
 # --- class engine (#310): this module is the hunter's ClassEngine ------------------------------------
-from wowforever.classes.engines import facts_later as facts  # noqa: E402
 
 
 def has_pet(cls, ranks) -> bool:
@@ -155,3 +154,13 @@ def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
     from wowforever.classes.engines import pack_aoe
 
     return pack_aoe(output, stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp, armor=armor)
+
+
+def facts(stats, cls, ranks):
+    from wowforever.classes.hunter_rotation import hunter_rotation
+    from wowforever.physical import Target
+
+    pet = has_pet(cls, ranks)
+    r = hunter_rotation(stats, cls.spells, cls, ranks, Target(0, 0), pet=pet)
+    split = {"pet": r.pet_dps / r.dps} if pet and r.dps else {}
+    return {"kind": "hunter", "mode": r.mode, "pet": pet, "split": split}

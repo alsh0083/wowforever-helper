@@ -133,7 +133,6 @@ CAVEAT = ("Caster model (#163, #165): Corruption, Bane of Agony and Immolate kep
 
 
 # --- class engine (#311): this module is the warlock's ClassEngine ------------------------------------
-from wowforever.classes.engines import facts_later as facts  # noqa: E402
 
 
 def playstyle(cls, ranks) -> str:
@@ -150,3 +149,9 @@ def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
     from wowforever.classes.engines import caster_aoe
 
     return caster_aoe("warlock", stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp)
+
+
+def facts(stats, cls, ranks):
+    from wowforever.classes.engines import caster_facts
+
+    return caster_facts("warlock", ROTATION, stats, cls, ranks)
