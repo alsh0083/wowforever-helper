@@ -36,19 +36,19 @@ def test_thorns_dps_is_damage_per_hit_times_hits():
 
 def test_druid_side_returns_thorns_against_melee_by_default_without_scaling():
     side = class_side("druid", TABLE.at(60), CLS.spells, CLS, ranks("druid-balance-pvp"))
-    assert side.nova_dps == pytest.approx(18.0)        # coefficient 0 (client data), 1 hit per second
+    assert side.melee_bonus_dps == pytest.approx(18.0)        # coefficient 0 (client data), 1 hit per second
 
 
 def test_with_scaling_on_balance_gains_and_feral_does_not():
     balance = class_side("druid", TABLE.at(60), CLS.spells, CLS, ranks("druid-balance-pvp"), assumptions=ON)
     feral = class_side("druid", TABLE.at(60), CLS.spells, CLS, ranks("druid-feral"), assumptions=ON)
-    assert balance.nova_dps == pytest.approx(70.416)
-    assert feral.nova_dps == pytest.approx(18.0)       # the feral row carries no spell power
+    assert balance.melee_bonus_dps == pytest.approx(70.416)
+    assert feral.melee_bonus_dps == pytest.approx(18.0)       # the feral row carries no spell power
 
 
 def test_at_the_beta_cap():
     balance = class_side("druid", TABLE.at(30), CLS.spells, CLS, ranks("druid-balance-pvp"), assumptions=ON)
-    assert balance.nova_dps == pytest.approx(24.624)
+    assert balance.melee_bonus_dps == pytest.approx(24.624)
 
 
 def test_the_toggle_is_registered_with_the_client_value_as_default():

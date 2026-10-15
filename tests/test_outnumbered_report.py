@@ -1,6 +1,6 @@
 """The outnumbered (2v1) score in the reports (#287): a row at each checkpoint, next to the duel scenarios.
 
-Mage (report.score_build): the best over the questing fillers of outnumbered_scores(mage_side(char,
+Mage (report.score_build): the best over the questing fillers of outnumbered_scores(duel_side(char,
 filler), kits at that level)["score"], with that filler's name; unit "2v1 0-1". The other classes
 (melee_report) use class_pvp.outnumbered_score; tests/test_melee_report.py checks their rows.
 """
@@ -13,7 +13,8 @@ from wowforever.assumptions import Assumptions
 from wowforever.builds import load_builds
 from wowforever.classes.mage import TALENT_EFFECTS, UNMODELED
 from wowforever.effects import attach_effects
-from wowforever.pvp.duel import load_kits, mage_side, outnumbered_scores
+from wowforever.classes.mage import duel_side
+from wowforever.pvp.duel import load_kits, outnumbered_scores
 from wowforever.report import CHECKPOINTS, ranks_at, score_build
 from wowforever.scenarios import Character, default_params, usable_fillers
 from wowforever.schema import Dataset, latest_dataset_path
@@ -30,5 +31,5 @@ def test_mage_rows_take_the_best_filler():
     assert set(rows) == set(CHECKPOINTS)
     char = Character(60, stats.at(60), CLS.spells, CLS, ranks_at(order, 60, CLS))
     fillers = usable_fillers(char, default_params("questing", 60).fillers, 60, assumptions)
-    best = max((outnumbered_scores(mage_side(char, f), load_kits(level=60))["score"], f.name) for f in fillers)
+    best = max((outnumbered_scores(duel_side(char, f), load_kits(level=60))["score"], f.name) for f in fillers)
     assert rows[60] == {"score": pytest.approx(round(best[0], 3)), "unit": "2v1 0-1", "spell": best[1]}

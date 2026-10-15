@@ -51,14 +51,14 @@ from wowforever.effects import attach_effects
 from wowforever.builds import load_builds
 from wowforever.melee_scenarios import stat_table
 from wowforever.pvp.class_pvp import class_side, outnumbered_score
-from wowforever.pvp.duel import Control, Kit, MageSide, combined_lockout, load_kits, outnumbered, outnumbered_scores
+from wowforever.pvp.duel import Control, Kit, Side, combined_lockout, load_kits, outnumbered, outnumbered_scores
 from wowforever.schema import Dataset, latest_dataset_path
 
 A = Kit(id="a", role="melee", stealth=False, dispels_buffs=False, health=3000, dps=100, opener_damage=0,
         opener_stun=0, controls=(), removes=(), immunity=None)
 B = Kit(id="b", role="melee", stealth=False, dispels_buffs=False, health=2000, dps=150, opener_damage=0,
         opener_stun=0, controls=(Control("stun", 4, 20),), removes=(), immunity=None)
-SIDE = MageSide(health=4000, dps=200, barrier_per_min=0, immunity_share=0, root=20, stun=0, slow=0, interrupt=0)
+SIDE = Side(health=4000, dps=200, absorb_per_min=0, immunity_share=0, root=20, stun=0, slow=0, interrupt=0)
 
 
 def side(**changes):
@@ -71,10 +71,10 @@ def pair(defender, x=A, y=B):
 
 def test_one_root_goes_to_the_opponent_not_being_attacked():
     first_a = outnumbered(SIDE, A, B)
-    assert (first_a.t_mage, first_a.t_opponent) == pytest.approx((31.25, 21.25))
+    assert (first_a.t_side, first_a.t_opponent) == pytest.approx((31.25, 21.25))
     assert first_a.score == pytest.approx(0.404762, rel=1e-5)
     first_b = outnumbered(SIDE, B, A)
-    assert (first_b.t_mage, first_b.t_opponent) == pytest.approx((27.5, 31.875))
+    assert (first_b.t_side, first_b.t_opponent) == pytest.approx((27.5, 31.875))
     assert first_b.score == pytest.approx(0.536842, rel=1e-5)
 
 
