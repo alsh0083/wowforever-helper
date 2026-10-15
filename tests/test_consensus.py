@@ -52,9 +52,20 @@ def test_tiers_are_per_class():
 def test_tier_names_are_checked_against_their_own_class(tmp_path):
     path = tmp_path / "consensus.toml"
     path.write_text(Path(C_PATH).read_text(encoding="utf-8")
-                    + '\n[tiers.rogue.wpvp_melee]\ncore = ["Ice Block"]\nsources = []\n', encoding="utf-8")
+                    + '\n[tiers.hunter.wpvp_melee]\ncore = ["Ice Block"]\nsources = []\n', encoding="utf-8")
     loaded = Consensus.load(path)
     assert loaded.problems(MAGE) == []                      # mage's tiers still check against mage
-    assert loaded.tiers_for("rogue")["wpvp_melee"]["core"] == ("Ice Block",)
-    rogue = Dataset.load(latest_dataset_path()).class_data("rogue")
-    assert loaded.problems(rogue) == ["tiers.rogue.wpvp_melee: 'Ice Block' is not a talent"]
+    assert loaded.tiers_for("hunter")["wpvp_melee"]["core"] == ("Ice Block",)
+    hunter = Dataset.load(latest_dataset_path()).class_data("hunter")
+    assert loaded.problems(hunter) == ["tiers.hunter.wpvp_melee: 'Ice Block' is not a talent"]
+
+
+def test_researched_classes_have_pvp_tiers_that_name_their_own_talents():
+    # #320 (docs/research/pvp-core-talents.md): only classes with Forever-era PvP evidence get tiers
+    data = Dataset.load(latest_dataset_path())
+    with_tiers = {"mage", "warlock", "warrior", "paladin", "rogue"}
+    for name in ("mage", "rogue", "hunter", "warrior", "druid", "paladin", "priest", "shaman", "warlock"):
+        assert C.problems(data.class_data(name)) == [], name
+        has = all(C.tiers_for(name).get(s, {}).get("core") for s in ("wpvp_melee", "wpvp_caster", "stealth_ambush"))
+        assert has == (name in with_tiers), name
+    assert C.tiers_for("warrior")["wpvp_melee"]["core"] == ("Mortal Strike", "Improved Hamstring")
