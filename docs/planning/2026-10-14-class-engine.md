@@ -32,7 +32,7 @@ All seven AoE-pull slices (#260-#304) had to edit `melee_scenarios.py`. The hybr
 - **Shared implementations live in `classes/engines.py`,** so priest, warlock and the caster side of druid/shaman don't each copy the caster adapter: `caster_output`, `caster_aoe`, `caster_facts`, `pack_aoe` (seconds from `output(pack=…)`) and a hybrid helper. The class modules bind them in a line or two each.
 - **The `*_rotation.py` functions keep their signatures.** Their per-class tests (`test_<class>_aoe.py` and others) stay as they are. The adapter sits on top.
 - **Out of scope:**
-  - Mage keeps its own pipeline (`scenarios.py`, `Character`); unifying it is review candidate 4.
+  - Mage, in slices 1-5 only: it joins in the mage slices below (owner, 2026-10-14: all classes should share one methodology).
   - Stat-row arithmetic in `stat_weights.py` (mage/caster/melee `apply`) is about the stat row's type, not the rotation, so it stays.
   - `group._drop_for` (Trueshot Aura) is buff data.
   - `ENGINE` stays as the report's engine switch.
@@ -50,3 +50,13 @@ All seven AoE-pull slices (#260-#304) had to edit `melee_scenarios.py`. The hybr
 - the full suite passes (slow included);
 - `report --dataset data/datasets/1.60.1.70291.json --class <c> --out data/report-<c>.json` for the 8 non-mage classes leaves `git diff data/` empty (about 40 s per class; checked on main 2026-10-14);
 - a conformance test checks that every class with `ENGINE in ("melee", "spell")` implements `ClassEngine`, from the slice that adds its adapter on.
+
+## Mage slices (added 2026-10-14)
+
+Owner: every class should be scored the same way. Mage was the first class and kept its own pipeline (`scenarios.py`, `mage_rotation.py`, `focus.py`, `mage_side`). The other classes were built later on a second engine that copied its conventions. The PvE references, AoE pack and 2v1 score are each written twice. The PvP score really differs: mage adds a battleground and a consensus bonus that the others don't get (#315, needs-decision).
+
+6. #316: mage implements `ClassEngine`. Its filler choice moves inside the adapter, and `Output.spell` keeps the chosen spell in the report.
+7. #317: one PvE score and one outnumbered score for every class, with one set of references.
+8. #318: a class-agnostic duel `Side`. Mage builds its side in its class module, and the PvP score follows #315.
+
+**Mage slices: the "no diff" rule changes.** A score that moves means the two engines disagreed. The PR lists each diff with its cause, and the owner approves before merge.
