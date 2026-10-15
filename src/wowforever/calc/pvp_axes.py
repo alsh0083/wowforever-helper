@@ -145,3 +145,17 @@ def _score(axis: str, components: dict[str, float]) -> AxisScore:
     score = sum(s["weight"] * min(1.0, components[name] / s["reference"])
                 for name, s in spec.items())
     return AxisScore(score, components)
+
+
+def side_survival(side) -> AxisScore:
+    """The survival axis from a duel side (pvp.duel.Side), for any class (#322): absorbs per minute over
+    health, immunity, pushback protection and escapes. A mage side gives the same score as `survival`."""
+    return _score("survival", {"barrier": side.absorb_per_min / side.health if side.health else 0.0,
+                               "immunity": side.immunity_share, "pushback": side.pushback,
+                               "escapes": side.escapes})
+
+
+def side_control(side) -> AxisScore:
+    """The control axis from a duel side, for any class (#322); a mage side gives `control`'s score."""
+    return _score("control", {"slow": side.slow, "root": side.root, "stun": side.stun,
+                              "interrupt": side.interrupt})

@@ -201,6 +201,10 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
                      sum(wide_locks.get(kind, 0.0) for kind in STOPS_ATTACKS)),
         root_break_health=assumptions["roots_break_health_pct"] / 100 * (1 + tougher / 100),
         root_duration=max(root_durations, default=0.0),
+        escapes=sum(60 / s.cooldown for name in cfg.get("escapes", ())
+                    if (s := best_rank(spells, name, stats.level)) is not None and s.cooldown > 0),
+        mana=getattr(row, "mana", 0.0),
+        mana_per_second=output.mana_per_second,
     )
 
 

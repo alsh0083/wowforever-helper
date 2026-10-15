@@ -46,3 +46,29 @@ def best_battleground(char: Character, fillers, assumptions: Assumptions,
     if best is None:
         raise ValueError(f"no filler available at level {char.level}")
     return best
+
+
+def side_battleground(side, level: int, consensus: Consensus | None = None) -> dict:
+    """The battleground score of a duel side, any class (#322): kill from its DPS, endurance from its mana
+    pool and drain (rage and energy classes never run dry), survival and control from the side."""
+    from wowforever.calc.pvp_axes import side_control, side_survival
+
+    weights = (consensus or Consensus.load()).scenarios["battleground"].mid()
+    drain = side.mana_per_second
+    components = {"kill": min(1.0, side.dps / (KILL_REFERENCE * level / 60)),
+                  "endurance": 1.0 if drain <= 0 else min(1.0, side.mana / drain / ENDURANCE_SECONDS),
+                  "survival": side_survival(side).score, "control": side_control(side).score}
+    return {"score": sum(weights[k] * v for k, v in components.items()), "components": components}
+
+
+def best_side_battleground(sides, level: int, consensus: Consensus | None = None) -> dict:
+    """The battleground result of the side that scores best (ties: the earlier side), with its name
+    under "spell"."""
+    best: dict | None = None
+    for spell, side in sides:
+        result = side_battleground(side, level, consensus)
+        if best is None or result["score"] > best["score"]:
+            best = {**result, "spell": spell}
+    if best is None:
+        raise ValueError(f"no duel side at level {level}")
+    return best

@@ -280,10 +280,10 @@ def duel_side(char, filler):
         if cooldown > 0:
             melee_bonus_dps = frozen_hit_gain(char, filler, target_level=char.level,
                                        assumptions=assumptions) / cooldown
+    rot = rotation(char, filler, target_level=char.level, assumptions=assumptions, sustained=False)
     return Side(
         health=health,
-        dps=rotation(char, filler, target_level=char.level,
-                     assumptions=assumptions, sustained=False).dps,
+        dps=rot.dps,
         absorb_per_min=s.components["barrier"] * health,
         immunity_share=s.components["immunity"],
         root=c.components["root"],
@@ -292,6 +292,10 @@ def duel_side(char, filler):
         interrupt=c.components["interrupt"],
         melee_bonus_dps=melee_bonus_dps,
         root_targets=2 if nova is not None else 1,   # Frost Nova roots every nearby enemy (#287)
+        pushback=s.components["pushback"],
+        escapes=s.components["escapes"],
+        mana=char.stats.mana,
+        mana_per_second=rot.mana_per_second,
     )
 
 

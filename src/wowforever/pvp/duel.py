@@ -87,6 +87,10 @@ class Side:
     root_break_health: float = 0.0  # damage that breaks its root, share of the target's health; 0 = never (#286)
     root_duration: float = 0.0  # seconds one root lasts unbroken
     stun_aoe: float = 0.0  # the part of `stun` from controls that hit every nearby enemy (#287)
+    pushback: float = 0.0  # protection from spell pushback, 0-1 (#322)
+    escapes: float = 0.0  # escape cooldowns per minute (Blink, Frost Nova, Vanish, ...) (#322)
+    mana: float = 0.0  # mana pool; 0 for rage and energy classes (#322)
+    mana_per_second: float = 0.0  # mana drain while fighting (#322)
 
 
 @dataclass(frozen=True)
