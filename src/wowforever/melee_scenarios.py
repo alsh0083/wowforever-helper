@@ -139,33 +139,10 @@ def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRa
     `melee` fixes the playstyle (a Feral leveling path is a cat even while its points sit in Balance);
     by default it follows the tree with most points. `pack` > 1 sums damage over that many mobs for
     classes whose AoE abilities are modeled (#262); a cat druid stays single target."""
-    from wowforever.classes import class_module
+    from wowforever.classes import engine
 
-    module = class_module(class_name)
-    if isinstance(stats, HybridStats):
-        if melee if melee is not None else main_tree(cls, ranks) in module.MELEE_TREES:
-            if class_name == "druid":
-                from wowforever.classes.druid_rotation import cat_rotation
-
-                r = cat_rotation(stats.melee, spells, cls, ranks, target)
-            else:
-                from wowforever.classes.shaman_rotation import enhancement_rotation
-
-                r = enhancement_rotation(stats.melee, spells, cls, ranks, target, pack=pack)
-            return Output(r.dps, 0.0, r.dps, getattr(r, "aoe", ()))
-        stats = stats.caster
-    if getattr(module, "ENGINE", None) == "spell":
-        from wowforever.caster import caster_rotation
-
-        r = caster_rotation(class_name, stats, spells, cls, ranks, target, drink_mana_per_second=drink_mana_per_second)
-        gross = r.mana_per_second + r.regen_per_second
-        # once dry, a caster keeps casting at the rate its regen pays for
-        return Output(r.dps, r.mana_per_second, r.dps * min(1.0, r.regen_per_second / gross) if gross > 0 else r.dps)
-    if class_name in ("rogue", "warrior", "paladin", "hunter"):
-        from wowforever.classes import engine
-
-        return engine(class_name).output(stats, spells, cls, ranks, target, pack=pack)
-    raise ValueError(f"no melee rotation for {class_name!r}")
+    return engine(class_name).output(stats, spells, cls, ranks, target, pack=pack,
+                                     drink_mana_per_second=drink_mana_per_second, melee=melee)
 
 
 def questing(class_name: str, stats: MeleeStats, spells, cls, ranks, *, melee: bool | None = None) -> float:
@@ -216,22 +193,12 @@ def aoe(class_name: str, stats: MeleeStats, spells, cls, ranks) -> tuple[float, 
     target". Spell-engine classes (and a hybrid's caster builds) mix their AoE spells into the rotation
     (caster.aoe_pull, #260); the others run their rotation against the pack (rotation_output's `pack`,
     #262), single target where their AoE abilities aren't modeled yet."""
-    from wowforever.classes import class_module
+    from wowforever.classes import engine
 
-    module = class_module(class_name)
     pack = _config()["aoe"]["pack"]
     mob_hp = default_params("aoe", stats.level).mob_hp
-    row = stats if getattr(module, "ENGINE", None) == "spell" else None
-    if isinstance(stats, HybridStats):
-        row = None if main_tree(cls, ranks) in module.MELEE_TREES else stats.caster
-    if row is not None:
-        from wowforever.caster import aoe_pull
-
-        pull = aoe_pull(class_name, row, spells, cls, ranks, pack, mob_hp)
-        return pull.seconds, pull.spell
     armor = _anchor_at(_config()["questing"]["anchors"], stats.level)[0]
-    out = rotation_output(class_name, stats, spells, cls, ranks, Target(0, armor), pack=pack)
-    return pack * mob_hp / out.dps, ", ".join(out.aoe) or "single target"
+    return engine(class_name).aoe(stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp, armor=armor)
 
 
 def pve_score(class_name: str, stats_at_max: MeleeStats, spells, cls, ranks) -> float:

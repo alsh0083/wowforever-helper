@@ -171,3 +171,36 @@ CAVEAT = ("Balance (#166): Moonfire and Insect Swarm kept up, then Starfire or W
           "Nature's Grace and Omen of Clarity aren't modeled. Feral cat (#175): paw swings and a Shred or Claw to "
           "Ferocious Bite energy cycle on the melee engine, Classic paw damage; Rake and Rip bleeds, Tiger's Fury and "
           "powershifting aren't modeled. The bear tank and Restoration stay unscored. Base stats are estimates.")
+
+
+# --- class engine (#311): this module is the druid's ClassEngine ------------------------------------
+from wowforever.classes.engines import facts_later as facts  # noqa: E402
+
+
+def playstyle(cls, ranks) -> str:
+    from wowforever.classes.engines import melee_build
+
+    return "melee" if melee_build(MELEE_TREES, cls, ranks) else "caster"
+
+
+def _melee_output(stats, spells, cls, ranks, target, *, pack=1):
+    # a cat stays single target (#262)
+    from wowforever.classes.druid_rotation import cat_rotation
+    from wowforever.melee_scenarios import Output
+
+    r = cat_rotation(stats, spells, cls, ranks, target)
+    return Output(r.dps, 0.0, r.dps)
+
+
+def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None):
+    from wowforever.classes.engines import hybrid_output
+
+    return hybrid_output("druid", MELEE_TREES, _melee_output, stats, spells, cls, ranks, target, pack=pack,
+                         drink_mana_per_second=drink_mana_per_second, melee=melee)
+
+
+def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
+    from wowforever.classes.engines import hybrid_aoe
+
+    return hybrid_aoe("druid", MELEE_TREES, output, stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp,
+                      armor=armor)

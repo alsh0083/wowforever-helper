@@ -18,6 +18,61 @@ def pack_aoe(output: Callable[..., Any], stats: Any, spells: Sequence[SpellRank]
     return pack * mob_hp / out.dps, ", ".join(out.aoe) or "single target"
 
 
+def caster_output(class_name: str, stats: Any, spells: Sequence[SpellRank], cls: ClassData,
+                  ranks: Mapping[int, int], target: Target, *, drink_mana_per_second: float | None = None) -> Any:
+    """The caster rotation's Output (caster.py, #163); once dry, a caster keeps casting at the rate its
+    regen pays for."""
+    from wowforever.caster import caster_rotation
+    from wowforever.melee_scenarios import Output
+
+    r = caster_rotation(class_name, stats, spells, cls, ranks, target, drink_mana_per_second=drink_mana_per_second)
+    gross = r.mana_per_second + r.regen_per_second
+    fallback = r.dps * min(1.0, r.regen_per_second / gross) if gross > 0 else r.dps
+    return Output(r.dps, r.mana_per_second, fallback, ranged=True)
+
+
+def caster_aoe(class_name: str, stats: Any, spells: Sequence[SpellRank], cls: ClassData,
+               ranks: Mapping[int, int], *, pack: int, mob_hp: float) -> tuple[float, str]:
+    """A caster's AoE spells mixed into its rotation (caster.aoe_pull, #260)."""
+    from wowforever.caster import aoe_pull
+
+    pull = aoe_pull(class_name, stats, spells, cls, ranks, pack, mob_hp)
+    return pull.seconds, pull.spell
+
+
+def melee_build(melee_trees: Sequence[str], cls: ClassData, ranks: Mapping[int, int]) -> bool:
+    """A hybrid's build fights in melee when most of its points sit in a melee tree (#175)."""
+    from wowforever.melee_scenarios import main_tree
+
+    return main_tree(cls, ranks) in melee_trees
+
+
+def hybrid_output(class_name: str, melee_trees: Sequence[str], melee_output: Callable[..., Any], stats: Any,
+                  spells: Sequence[SpellRank], cls: ClassData, ranks: Mapping[int, int], target: Target, *,
+                  pack: int = 1, drink_mana_per_second: float | None = None, melee: bool | None = None) -> Any:
+    """A hybrid's Output: its melee rotation on the melee stat row for a melee build (or `melee=True`, a
+    Feral leveling path while its points sit in Balance), else the caster rotation on the caster row."""
+    from wowforever.melee_scenarios import HybridStats
+
+    if isinstance(stats, HybridStats):
+        if melee if melee is not None else melee_build(melee_trees, cls, ranks):
+            return melee_output(stats.melee, spells, cls, ranks, target, pack=pack)
+        stats = stats.caster
+    return caster_output(class_name, stats, spells, cls, ranks, target, drink_mana_per_second=drink_mana_per_second)
+
+
+def hybrid_aoe(class_name: str, melee_trees: Sequence[str], output: Callable[..., Any], stats: Any,
+               spells: Sequence[SpellRank], cls: ClassData, ranks: Mapping[int, int], *,
+               pack: int, mob_hp: float, armor: float) -> tuple[float, str]:
+    """A melee build runs its rotation against the pack; a caster build mixes in its AoE spells."""
+    from wowforever.melee_scenarios import HybridStats
+
+    if isinstance(stats, HybridStats) and melee_build(melee_trees, cls, ranks):
+        return pack_aoe(output, stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp, armor=armor)
+    row = stats.caster if isinstance(stats, HybridStats) else stats
+    return caster_aoe(class_name, row, spells, cls, ranks, pack=pack, mob_hp=mob_hp)
+
+
 def facts_later(stats: Any, cls: ClassData, ranks: Mapping[int, int]) -> dict[str, Any]:
     """Placeholder until the adapters gain their facts (#312)."""
     raise NotImplementedError("rotation facts move behind the class engine in #312")

@@ -132,3 +132,23 @@ CAVEAT = ("Caster model (#163): Shadow Word: Pain and Devouring Plague kept up, 
           "Death on cooldown, Mind Flay or Smite in between, with Classic hit, crit and mana rules. Shadow "
           "Weaving counts at full stacks; Vampiric Embrace's healing, Twin Disciplines and Improved Shadow "
           "Word: Pain's longer duration aren't modeled. Base stats are estimates; healer builds stay unscored.")
+
+
+# --- class engine (#311): this module is the priest's ClassEngine ------------------------------------
+from wowforever.classes.engines import facts_later as facts  # noqa: E402
+
+
+def playstyle(cls, ranks) -> str:
+    return "caster"
+
+
+def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None):
+    from wowforever.classes.engines import caster_output
+
+    return caster_output("priest", stats, spells, cls, ranks, target, drink_mana_per_second=drink_mana_per_second)
+
+
+def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
+    from wowforever.classes.engines import caster_aoe
+
+    return caster_aoe("priest", stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp)
