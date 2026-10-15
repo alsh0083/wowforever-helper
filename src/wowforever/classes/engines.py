@@ -73,6 +73,25 @@ def hybrid_aoe(class_name: str, melee_trees: Sequence[str], output: Callable[...
     return caster_aoe(class_name, row, spells, cls, ranks, pack=pack, mob_hp=mob_hp)
 
 
-def facts_later(stats: Any, cls: ClassData, ranks: Mapping[int, int]) -> dict[str, Any]:
-    """Placeholder until the adapters gain their facts (#312)."""
-    raise NotImplementedError("rotation facts move behind the class engine in #312")
+def caster_facts(class_name: str, plan: Mapping[str, Sequence[str]], stats: Any, cls: ClassData,
+                 ranks: Mapping[int, int]) -> dict[str, Any]:
+    """The caster rotation's DoTs, cooldowns and filler at level 60 against a level-60 target."""
+    from wowforever.caster import caster_rotation
+
+    r = caster_rotation(class_name, stats, cls.spells, cls, ranks, Target(0, 0))
+    return {"kind": "caster", "dots": [s for s in r.spells if s in plan.get("dots", ())],
+            "cooldowns": [s for s in r.spells if s in plan.get("cooldowns", ())],
+            "filler": next((s for s in r.spells if s in plan.get("fillers", ())), None)}
+
+
+def hybrid_facts(class_name: str, melee_trees: Sequence[str], melee_facts: Callable[..., dict[str, Any]],
+                 plan: Mapping[str, Sequence[str]], stats: Any, cls: ClassData,
+                 ranks: Mapping[int, int]) -> dict[str, Any]:
+    """A melee build's melee facts on its melee row, else the caster facts on the caster row."""
+    from wowforever.melee_scenarios import HybridStats
+
+    if isinstance(stats, HybridStats):
+        if melee_build(melee_trees, cls, ranks):
+            return melee_facts(stats.melee, cls, ranks)
+        stats = stats.caster
+    return caster_facts(class_name, plan, stats, cls, ranks)

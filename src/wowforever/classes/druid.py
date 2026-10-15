@@ -174,7 +174,6 @@ CAVEAT = ("Balance (#166): Moonfire and Insect Swarm kept up, then Starfire or W
 
 
 # --- class engine (#311): this module is the druid's ClassEngine ------------------------------------
-from wowforever.classes.engines import facts_later as facts  # noqa: E402
 
 
 def playstyle(cls, ranks) -> str:
@@ -204,3 +203,18 @@ def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
 
     return hybrid_aoe("druid", MELEE_TREES, output, stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp,
                       armor=armor)
+
+
+def _melee_facts(stats, cls, ranks):
+    from wowforever.classes.druid_rotation import cat_rotation
+    from wowforever.physical import Target
+
+    r = cat_rotation(stats, cls.spells, cls, ranks, Target(0, 0))
+    return {"kind": "cat", "builder": r.builder,
+            "split": {"auto-attacks": r.white_dps / r.dps, "abilities": r.yellow_dps / r.dps}}
+
+
+def facts(stats, cls, ranks):
+    from wowforever.classes.engines import hybrid_facts
+
+    return hybrid_facts("druid", MELEE_TREES, _melee_facts, ROTATION, stats, cls, ranks)
