@@ -32,7 +32,7 @@ def test_adapted_classes_implement_the_class_engine(name):
     assert all(callable(getattr(module, member)) for member in ENGINE_MEMBERS)
 
 
-@pytest.mark.parametrize("name", ["mage", "druid"])
+@pytest.mark.parametrize("name", ["mage"])
 def test_classes_without_an_adapter_yet_have_no_engine(name):
     with pytest.raises(ValueError, match=name):
         engine(name)
@@ -89,3 +89,52 @@ def test_only_the_hunter_module_knows_about_pets():
     import wowforever.melee_scenarios as module
 
     assert not hasattr(module, "_has_pet")
+
+
+SCORED = ("rogue", "hunter", "warrior", "druid", "paladin", "priest", "shaman", "warlock")
+
+
+def test_every_scored_class_but_mage_has_an_engine():
+    assert {n for n in SCORED if getattr(class_module(n), "ENGINE", None) in ("melee", "spell")} == set(SCORED)
+    for name in SCORED:
+        assert all(callable(getattr(engine(name), member)) for member in ENGINE_MEMBERS)
+
+
+@pytest.mark.parametrize("name", ["priest", "warlock"])
+def test_casters_run_the_caster_rotation(name):
+    from wowforever.caster import caster_rotation
+
+    cls, builds = loaded(name)
+    stats = ms.stat_table(name).at(60)
+    for ranks in builds:
+        r = caster_rotation(name, stats, cls.spells, cls, ranks, BOSS, drink_mana_per_second=40.0)
+        out = engine(name).output(stats, cls.spells, cls, ranks, BOSS, drink_mana_per_second=40.0)
+        gross = r.mana_per_second + r.regen_per_second
+        assert out.dps == r.dps and out.mana_per_second == r.mana_per_second and out.ranged
+        assert out.fallback_dps == pytest.approx(r.dps * min(1.0, r.regen_per_second / gross) if gross else r.dps)
+        assert engine(name).playstyle(cls, ranks) == "caster"
+
+
+@pytest.mark.parametrize("name,melee_build,caster_build", [("druid", "druid-feral", "druid-balance"),
+                                                           ("shaman", "shaman-enhancement", "shaman-elemental")])
+def test_hybrids_fight_with_the_row_their_main_tree_picks(name, melee_build, caster_build):
+    m = class_module(name)
+    cls, _ = attach_effects(DATASET.class_data(name), m.TALENT_EFFECTS, m.UNMODELED)
+    builds = {b.id: b.final_ids(cls) for b in load_builds(class_name=name)}
+    stats = ms.stat_table(name).at(60)
+    melee, caster = builds[melee_build], builds[caster_build]
+    assert engine(name).playstyle(cls, melee) == "melee" and engine(name).playstyle(cls, caster) == "caster"
+    as_melee = engine(name).output(stats, cls.spells, cls, melee, BOSS)
+    assert as_melee.mana_per_second == 0.0 and not as_melee.ranged
+    as_caster = engine(name).output(stats, cls.spells, cls, caster, BOSS)
+    assert as_caster.ranged
+    # the melee override wins over the main tree (a Feral leveling path while its points sit in Balance)
+    forced = engine(name).output(stats, cls.spells, cls, caster, BOSS, melee=True)
+    assert forced.mana_per_second == 0.0 and not forced.ranged
+
+
+def test_rotation_output_has_no_class_chain():
+    import inspect
+
+    src = inspect.getsource(ms.rotation_output) + inspect.getsource(ms.aoe)
+    assert "class_name ==" not in src and "HybridStats" not in src and "ENGINE" not in src
