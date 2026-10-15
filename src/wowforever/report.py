@@ -15,15 +15,15 @@ from typing import Any
 from wowforever import group
 from wowforever.assumptions import Assumptions
 from wowforever.builds import Build
-from wowforever.calc.pvp_axes import control, survival
+from wowforever.calc.pvp_axes import control, side_control, side_survival, survival
 from wowforever.checklist import checklist
 from wowforever.classes import class_module as _class_module
 from wowforever.classes import engine
 from wowforever.consensus import Consensus
-from wowforever.focus import pve_score_fn, pvp_score_fn
+from wowforever.focus import class_pvp_score, pve_score_fn, pvp_score_fn
 from wowforever.optimizer import optimize_order
 from wowforever.shortlist import build_shortlist
-from wowforever.pvp.battleground import best_battleground
+from wowforever.pvp.battleground import best_battleground, best_side_battleground
 from wowforever.pvp.duel import best_scenario_scores, load_kits, outnumbered_scores
 from wowforever.rules import check_order, points_available
 from wowforever.scenarios import (Character, aoe_curve, best_rank, default_params, questing, raid,
@@ -365,7 +365,22 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
             scores["dungeon"][level] = {**group.grouped_dungeon(class_name, stats, cls, ranks), "unit": "dps",
                                         "solo": round(ms.dungeon(class_name, stats, spells, cls, ranks), 1)}
             seconds, spell = ms.aoe(class_name, stats, spells, cls, ranks)
-            two = outnumbered_score(class_name, stats, spells, cls, ranks, load_kits(level=level))
+            kits = load_kits(level=level)
+            two = outnumbered_score(class_name, stats, spells, cls, ranks, kits)
+            sides = engine(class_name).sides(stats, spells, cls, ranks)
+            for name, result in best_scenario_scores(sides, kits).items():
+                scores.setdefault(name, {})[level] = {
+                    "score": round(result["score"], 3), "unit": "duel 0-1",
+                    "matchups": {k: round(v, 3) for k, v in result["matchups"].items()}}
+            side = sides[0][1]
+            for name, axis in (("survival", side_survival), ("control", side_control)):
+                result = axis(side)
+                scores.setdefault(name, {})[level] = {"score": round(result.score, 3), "unit": "0-1",
+                                                      "components": {k: round(v, 3) for k, v in result.components.items()}}
+            bg = best_side_battleground(sides, level)
+            scores.setdefault("battleground", {})[level] = {
+                "score": round(bg["score"], 3), "unit": "0-1",
+                "components": {k: round(v, 3) for k, v in bg["components"].items()}}
             scores.setdefault("outnumbered", {})[level] = {"score": round(two, 3), "unit": "2v1 0-1"}
             scores["aoe"][level] = {"score": round(seconds, 1), "unit": "seconds (3-mob pack)", "spell": spell,
                                     "lower_better": True}
@@ -376,11 +391,11 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
 
     arch = Consensus.load().archetypes
     stats_top = table.at(top)
-    from wowforever.pvp.class_pvp import pvp_score
 
     kits = load_kits()
+    consensus = Consensus.load()
     fns = {"PvE": lambda ranks: ms.pve_score(class_name, stats_top, spells, cls, ranks),
-           "PvP": lambda ranks: pvp_score(class_name, stats_top, spells, cls, ranks, kits)}
+           "PvP": lambda ranks: class_pvp_score(class_name, stats_top, cls, ranks, kits, consensus)}
     slots = build_shortlist(cls, list(builds), fns, margin=SHORTLIST_MARGIN, deep=arch["deep"],
                             hybrid=arch["hybrid"], recognized=tuple(hybrids))
     names = {t.talent_id: t.name for t in cls.talents}
@@ -511,7 +526,6 @@ def add_stat_weights(class_name: str, cls: ClassData, builds: Sequence[Build], r
     scores (healers, tanks, routes-only classes) get the class's generic gear weights."""
     from wowforever import melee_scenarios as ms
     from wowforever import stat_weights as sw
-    from wowforever.pvp.class_pvp import pvp_score
 
     variant = {b.id: b.variant for b in builds}
     module = _class_module(class_name)
@@ -521,9 +535,9 @@ def add_stat_weights(class_name: str, cls: ClassData, builds: Sequence[Build], r
         score = {"PvE": lambda s, r: pve_score_fn(cls, s, assumptions)(r),
                  "PvP": lambda s, r: pvp_score_fn(cls, s, assumptions, load_kits(level=s.level), consensus)(r)}
     elif getattr(module, "ENGINE", False) in ("melee", "spell"):
-        table = ms.stat_table(class_name)
+        table, consensus = ms.stat_table(class_name), Consensus.load()
         score = {"PvE": lambda s, r: ms.pve_score(class_name, s, cls.spells, cls, r),
-                 "PvP": lambda s, r: pvp_score(class_name, s, cls.spells, cls, r, load_kits(level=s.level))}
+                 "PvP": lambda s, r: class_pvp_score(class_name, s, cls, r, load_kits(level=s.level), consensus)}
     else:
         table, score = None, {}
     generic = sw.generic_weights(class_name)
