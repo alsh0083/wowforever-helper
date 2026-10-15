@@ -130,3 +130,35 @@ CAVEAT = ("Elemental (#167): Flame Shock kept up, Lava Burst and Chain Lightning
           "attack power) and Flurry, Stormstrike and Earth Shock on cooldown on the melee engine; Stormstrike's "
           "debuff, Maelstrom Weapon, totems and Enhancement's mana aren't modeled. Restoration stays unscored. "
           "Base stats are estimates.")
+
+
+# --- class engine (#311): this module is the shaman's ClassEngine ------------------------------------
+from wowforever.classes.engines import facts_later as facts  # noqa: E402
+
+
+def playstyle(cls, ranks) -> str:
+    from wowforever.classes.engines import melee_build
+
+    return "melee" if melee_build(MELEE_TREES, cls, ranks) else "caster"
+
+
+def _melee_output(stats, spells, cls, ranks, target, *, pack=1):
+    from wowforever.classes.shaman_rotation import enhancement_rotation
+    from wowforever.melee_scenarios import Output
+
+    r = enhancement_rotation(stats, spells, cls, ranks, target, pack=pack)
+    return Output(r.dps, 0.0, r.dps, r.aoe)
+
+
+def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None):
+    from wowforever.classes.engines import hybrid_output
+
+    return hybrid_output("shaman", MELEE_TREES, _melee_output, stats, spells, cls, ranks, target, pack=pack,
+                         drink_mana_per_second=drink_mana_per_second, melee=melee)
+
+
+def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
+    from wowforever.classes.engines import hybrid_aoe
+
+    return hybrid_aoe("shaman", MELEE_TREES, output, stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp,
+                      armor=armor)
