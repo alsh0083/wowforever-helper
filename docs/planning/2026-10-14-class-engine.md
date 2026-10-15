@@ -48,5 +48,5 @@ All seven AoE-pull slices (#260-#304) had to edit `melee_scenarios.py`. The hybr
 
 **Each slice is done when:**
 - the full suite passes (slow included);
-- `report --class <c>` for the 8 non-mage classes regenerates `data/report-*.json` with no git diff;
+- `report --dataset data/datasets/1.60.1.70291.json --class <c> --out data/report-<c>.json` for the 8 non-mage classes leaves `git diff data/` empty (about 40 s per class; checked on main 2026-10-14);
 - a conformance test checks that every class with `ENGINE in ("melee", "spell")` implements `ClassEngine`, from the slice that adds its adapter on.
