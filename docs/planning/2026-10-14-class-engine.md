@@ -60,3 +60,12 @@ Owner: every class should be scored the same way. Mage was the first class and k
 8. #318: a class-agnostic duel `Side`. Mage builds its side in its class module, and the PvP score follows #315.
 
 **Mage slices: the "no diff" rule changes.** A score that moves means the two engines disagreed. The PR lists each diff with its cause, and the owner approves before merge.
+
+## One PvP formula (decision #315, 2026-10-14)
+
+Owner chose option 1: every class gets mage's PvP score. That's the mean of the 4 world-PvP duels and the battleground, plus up to +0.10 for taking the class's consensus PvP-core talents. Non-mage PvP scores change by design. Mage's must not.
+
+- #320: research PvP-core talents for the 8 other classes (Claude; owner's source rules; empty tier where evidence is thin)
+- #321: per-class consensus tiers in `config/consensus.toml` (independent; can run any time)
+- #322: battleground, survival and control scored from the shared duel `Side` (after #318)
+- #323: one PvP score and the full PvP report rows for every class (after #318, #321, #322)
