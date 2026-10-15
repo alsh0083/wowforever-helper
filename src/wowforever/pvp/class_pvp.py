@@ -20,7 +20,8 @@ from pathlib import Path
 from wowforever.assumptions import Assumptions
 from wowforever.calc.ev import BASE_CRIT_BONUS_PCT, GCD_SECONDS
 from wowforever.focus import PVP_SCENARIOS
-from wowforever.melee_scenarios import build_stats, rotation_output
+from wowforever.classes import engine
+from wowforever.melee_scenarios import build_stats
 from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Target, armor_factor
 from wowforever.pvp.duel import Control, Kit, MageSide, lockout_seconds, outnumbered_scores, scenario_scores
@@ -164,7 +165,7 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
     wide = [ctrl for ctrl, c in zip(controls, entries)
             if (spell := best_rank(spells, c["name"], stats.level)) is not None and spell.max_targets > 1]
     wide_locks = lockout_seconds(wide, cfg.get("energy_per_minute", 0.0))
-    output = rotation_output(class_name, stats, spells, cls, ranks, Target(0, raw["player_armor"]))
+    output = engine(class_name).output(stats, spells, cls, ranks, Target(0, raw["player_armor"]))
     slow = cfg.get("slow", 0.0)
     if "slow_ranged" in cfg:                    # a slow that depends on the range it fights at (hunter)
         slow = cfg["slow_ranged"] if output.ranged else cfg["slow_melee"]

@@ -4,12 +4,13 @@ Against a pack (N > 1), Consecration is kept down (data: 8 s, no cooldown beyond
 every mob for its base periodic damage (the melee row carries no spell power) with the paladin's Holy
 damage talents: N x periodic x (1 + damage %) / max(duration, cooldown), so the Holy part grows by the
 same amount per extra mob. Its ticks don't roll the combat table. One mob: unchanged.
-melee_scenarios.aoe for Retribution: 3 x mob health / rotation_output(..., pack=3).dps, labelled
+melee_scenarios.aoe for Retribution: 3 x mob health / the class engine's output(..., pack=3).dps, labelled
 "Consecration".
 """
 
 import pytest
 
+from wowforever.classes import engine
 from wowforever import melee_scenarios as ms
 from wowforever.builds import load_builds
 from wowforever.classes import class_module
@@ -45,6 +46,6 @@ def test_consecration_hits_every_mob():
 
 
 def test_aoe_pull_uses_consecration():
-    out = ms.rotation_output("paladin", STATS, CLS.spells, CLS, RET, MOBS, pack=3)
+    out = engine("paladin").output(STATS, CLS.spells, CLS, RET, MOBS, pack=3)
     assert ms.aoe("paladin", STATS, CLS.spells, CLS, RET) == (pytest.approx(3 * default_params("aoe", 60).mob_hp / out.dps),
                                                              "Consecration")

@@ -14,7 +14,8 @@ from pathlib import Path
 from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
-from wowforever.melee_scenarios import build_stats, rotation_output, stat_table
+from wowforever.classes import engine
+from wowforever.melee_scenarios import build_stats, stat_table
 from wowforever.physical import Target
 from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.toml_cache import load_toml
@@ -50,7 +51,7 @@ def engine_at_60(kit_id: str) -> tuple[float, float]:
     build = {b.id: b for b in load_builds(class_name=class_name)}[KIT_BUILDS[kit_id]]
     ranks = build.final_ids(cls)
     cloth_armor = load_toml(ROOT / "config" / "pvp_self.toml")["cloth_armor"]
-    dps = rotation_output(class_name, stats, cls.spells, cls, ranks, Target(0, cloth_armor)).dps
+    dps = engine(class_name).output(stats, cls.spells, cls, ranks, Target(0, cloth_armor)).dps
     return build_stats(class_name, stats, cls, ranks).health, dps
 
 
@@ -79,5 +80,5 @@ def engine_at(kit_id: str, level: int) -> tuple[float, float]:
     build = {b.id: b for b in load_builds(class_name=class_name)}[KIT_BUILDS[kit_id]]
     ranks = kit_ranks_at(build, cls, level)
     cloth_armor = load_toml(ROOT / "config" / "pvp_self.toml")["cloth_armor"]
-    dps = rotation_output(class_name, stats, cls.spells, cls, ranks, Target(0, cloth_armor)).dps
+    dps = engine(class_name).output(stats, cls.spells, cls, ranks, Target(0, cloth_armor)).dps
     return build_stats(class_name, stats, cls, ranks).health, dps

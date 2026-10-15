@@ -18,6 +18,7 @@ from wowforever.builds import Build
 from wowforever.calc.pvp_axes import control, survival
 from wowforever.checklist import checklist
 from wowforever.classes import class_module as _class_module
+from wowforever.classes import engine
 from wowforever.consensus import Consensus
 from wowforever.focus import pve_score_fn, pvp_score_fn
 from wowforever.optimizer import optimize_order
@@ -524,7 +525,6 @@ def add_stat_weights(class_name: str, cls: ClassData, builds: Sequence[Build], r
                  "PvP": lambda s, r: pvp_score(class_name, s, cls.spells, cls, r, load_kits(level=s.level))}
     else:
         table, score = None, {}
-    melee_trees = getattr(module, "MELEE_TREES", ())
     generic = sw.generic_weights(class_name)
     leveling_score = (lambda s, r, run=questing_at(class_name, cls): run(s, r)["score"]) if table is not None else None
     for b in report["builds"]:
@@ -534,7 +534,8 @@ def add_stat_weights(class_name: str, cls: ClassData, builds: Sequence[Build], r
             continue
         b["stat_weights"] = sw.build_weights(
             class_name, cls, b, table, leveling_score if b.get("mode") == "leveling" else score[focus], CHECKPOINTS,
-            melee_build=lambda ranks: bool(melee_trees) and ms.main_tree(cls, ranks) in melee_trees)
+            melee_build=lambda ranks: table is not None and class_name != "mage"
+            and engine(class_name).playstyle(cls, ranks) == "melee")
     for b in report["builds"]:
         b["stat_priority"] = _stat_priority(b, variant.get(b["id"]))
 

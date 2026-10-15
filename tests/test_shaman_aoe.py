@@ -4,11 +4,12 @@ Against a pack (N > 1), Fire Nova (Forever's 408341..., cooldown 10 s, damage fr
 cooldown and hits every mob, rolled like Earth Shock (spell hit and crit at base damage, no spell power
 on the melee row): N x hit x average x (1 + crit x 0.5) / cooldown, so its part grows linearly with N.
 Against one mob nothing changes. melee_scenarios.aoe for an Enhancement build: 3 x mob health /
-rotation_output(..., pack=3).dps, labelled "Fire Nova"; Elemental builds keep caster.aoe_pull (#260).
+the class engine's output(..., pack=3).dps, labelled "Fire Nova"; Elemental builds keep caster.aoe_pull (#260).
 """
 
 import pytest
 
+from wowforever.classes import engine
 from wowforever import melee_scenarios as ms
 from wowforever.builds import load_builds
 from wowforever.caster import aoe_pull
@@ -46,7 +47,7 @@ def test_fire_nova_hits_every_mob():
 
 
 def test_aoe_pull_for_enhancement_and_elemental():
-    out = ms.rotation_output("shaman", STATS, CLS.spells, CLS, ENH, MOBS, pack=3)
+    out = engine("shaman").output(STATS, CLS.spells, CLS, ENH, MOBS, pack=3)
     mob_hp = default_params("aoe", 60).mob_hp
     assert ms.aoe("shaman", STATS, CLS.spells, CLS, ENH) == (pytest.approx(3 * mob_hp / out.dps), "Fire Nova")
     ele = BUILDS["shaman-elemental"].final_ids(CLS)

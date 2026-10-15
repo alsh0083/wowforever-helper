@@ -15,6 +15,7 @@ from dataclasses import dataclass, fields
 from pathlib import Path
 from typing import Any
 
+from wowforever.classes import engine
 from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Target
 from wowforever.scenarios import _anchor_at, default_params
@@ -120,9 +121,9 @@ def stat_table(class_name: str):
 def build_stats(class_name: str, stats, cls: ClassData, ranks: Mapping[int, int]):
     """The stats row a build fights with: a hybrid's melee row for its melee builds, else `stats`."""
     if isinstance(stats, HybridStats):
-        from wowforever.classes import class_module
+        from wowforever.classes import engine
 
-        return stats.melee if main_tree(cls, ranks) in class_module(class_name).MELEE_TREES else stats.caster
+        return stats.melee if engine(class_name).playstyle(cls, ranks) == "melee" else stats.caster
     return stats
 
 
@@ -132,26 +133,13 @@ def main_tree(cls: ClassData, ranks: Mapping[int, int]) -> str:
     return max(points, key=points.get)
 
 
-def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
-                    ranks: Mapping[int, int], target: Target, *, drink_mana_per_second: float | None = None,
-                    melee: bool | None = None, pack: int = 1) -> Output:
-    """The class rotation's DPS, mana use and out-of-mana fallback against `target`. For a hybrid,
-    `melee` fixes the playstyle (a Feral leveling path is a cat even while its points sit in Balance);
-    by default it follows the tree with most points. `pack` > 1 sums damage over that many mobs for
-    classes whose AoE abilities are modeled (#262); a cat druid stays single target."""
-    from wowforever.classes import engine
-
-    return engine(class_name).output(stats, spells, cls, ranks, target, pack=pack,
-                                     drink_mana_per_second=drink_mana_per_second, melee=melee)
-
-
 def questing(class_name: str, stats: MeleeStats, spells, cls, ranks, *, melee: bool | None = None) -> float:
     """Kills per hour against same-level mobs: kill time + recovery downtime + travel."""
     level = stats.level
     q = default_params("questing", level)
     armor, mob_dps, eat = _anchor_at(_config()["questing"]["anchors"], level)
-    out = rotation_output(class_name, stats, spells, cls, ranks, Target(0, armor),
-                          drink_mana_per_second=q.drink_mana_per_second, melee=melee)
+    out = engine(class_name).output(stats, spells, cls, ranks, Target(0, armor),
+                                    drink_mana_per_second=q.drink_mana_per_second, melee=melee)
     kill = q.mob_hp / out.dps
     downtime = 0.0 if out.pet else mob_dps * kill / eat     # a pet tanks while the hunter shoots
     if out.mana_per_second > 0:
@@ -163,15 +151,14 @@ def dungeon(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
     """DPS on a level+2 dungeon pull with tank debuffs (one minute; mana isn't limiting)."""
     d = _config()["dungeon"]
     armor = _anchor_at(_config()["questing"]["anchors"], stats.level)[0] * d["armor_share_of_questing"]
-    return rotation_output(class_name, stats, spells, cls, ranks,
-                           Target(d["target_level_offset"], armor)).dps
+    return engine(class_name).output(stats, spells, cls, ranks, Target(d["target_level_offset"], armor)).dps
 
 
 def raid(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
     """Sustained DPS against a debuffed boss over the mage's fight-length mix; hunters spend the
     same mana budget (pool, Mana Ruby, potions and runes, Blessing of Wisdom), then Auto Shot."""
     r = _config()["raid"]
-    out = rotation_output(class_name, stats, spells, cls, ranks, Target(r["target_level_offset"], r["armor"]))
+    out = engine(class_name).output(stats, spells, cls, ranks, Target(r["target_level_offset"], r["armor"]))
     p = default_params("raid", stats.level)
     drain = out.mana_per_second - p.mana_per_second
     lengths = p.fight_lengths or ((p.fight_seconds, 1.0),)
@@ -191,10 +178,8 @@ def raid(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
 def aoe(class_name: str, stats: MeleeStats, spells, cls, ranks) -> tuple[float, str]:
     """Seconds to clear a pack of same-level questing mobs (#263) and the AoE spell used, or "single
     target". Spell-engine classes (and a hybrid's caster builds) mix their AoE spells into the rotation
-    (caster.aoe_pull, #260); the others run their rotation against the pack (rotation_output's `pack`,
+    (caster.aoe_pull, #260); the others run their rotation against the pack (the engine's `pack`,
     #262), single target where their AoE abilities aren't modeled yet."""
-    from wowforever.classes import engine
-
     pack = _config()["aoe"]["pack"]
     mob_hp = default_params("aoe", stats.level).mob_hp
     armor = _anchor_at(_config()["questing"]["anchors"], stats.level)[0]

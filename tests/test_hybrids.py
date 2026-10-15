@@ -11,7 +11,8 @@ from wowforever.classes import class_module
 from wowforever.classes.druid_rotation import cat_rotation
 from wowforever.classes.shaman_rotation import enhancement_rotation
 from wowforever.effects import attach_effects
-from wowforever.melee_scenarios import HybridStats, main_tree, rotation_output, stat_table
+from wowforever.classes import engine
+from wowforever.melee_scenarios import HybridStats, main_tree, stat_table
 from wowforever.physical import Target
 from wowforever.schema import Dataset
 
@@ -39,7 +40,7 @@ def test_builds_pick_their_engine_by_main_tree(name, melee, caster):
     assert problems == [] and isinstance(stats, HybridStats)
     assert main_tree(cls, builds[melee]) in class_module(name).MELEE_TREES
     assert main_tree(cls, builds[caster]) not in class_module(name).MELEE_TREES
-    melee_out = rotation_output(name, stats, cls.spells, cls, builds[melee], BOSS)
+    melee_out = engine(name).output(stats, cls.spells, cls, builds[melee], BOSS)
     assert melee_out.mana_per_second == 0 and melee_out.dps > 100
 
 

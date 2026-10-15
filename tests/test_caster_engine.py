@@ -10,7 +10,8 @@ from wowforever.builds import load_builds
 from wowforever.caster import caster_rotation, spirit_regen
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
-from wowforever.melee_scenarios import raid, rotation_output, stat_table
+from wowforever.classes import engine
+from wowforever.melee_scenarios import raid, stat_table
 from wowforever.physical import Target
 from wowforever.pvp.class_pvp import class_side
 from wowforever.schema import Dataset
@@ -58,7 +59,7 @@ def test_meditation_pays_part_of_the_mana():
 
 
 def test_raid_is_mana_limited_but_shadowform_halves_costs():
-    out = rotation_output("priest", STATS, CLS.spells, CLS, BUILDS["priest-shadow"], BOSS)
+    out = engine("priest").output(STATS, CLS.spells, CLS, BUILDS["priest-shadow"], BOSS)
     assert 0 < out.fallback_dps < out.dps
     assert raid("priest", STATS, CLS.spells, CLS, BUILDS["priest-shadow"]) > raid(
         "priest", STATS, CLS.spells, CLS, without(BUILDS["priest-shadow"], "Shadowform"))

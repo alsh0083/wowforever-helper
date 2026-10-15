@@ -8,6 +8,7 @@ yellow alike. Without the talent, or against one mob, nothing changes.
 
 import pytest
 
+from wowforever.classes import engine
 from wowforever import melee_scenarios as ms
 from wowforever.builds import load_builds
 from wowforever.classes import class_module
@@ -42,6 +43,6 @@ def test_without_blade_flurry_a_pack_changes_nothing():
 
 
 def test_aoe_pull_uses_blade_flurry():
-    out = ms.rotation_output("rogue", STATS, CLS.spells, CLS, COMBAT, MOBS, pack=3)
+    out = engine("rogue").output(STATS, CLS.spells, CLS, COMBAT, MOBS, pack=3)
     assert ms.aoe("rogue", STATS, CLS.spells, CLS, COMBAT) == (pytest.approx(3 * default_params("aoe", 60).mob_hp / out.dps),
                                                               "Blade Flurry")

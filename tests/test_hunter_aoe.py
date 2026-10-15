@@ -12,6 +12,7 @@ Marksmanship at 30 has Multi-Shot only (Volley and Explosive Trap come later); a
 
 import pytest
 
+from wowforever.classes import engine
 from wowforever import melee_scenarios as ms
 from wowforever.builds import load_builds
 from wowforever.classes import class_module
@@ -57,6 +58,6 @@ def test_volley_and_explosive_trap_hit_every_mob():
 
 def test_aoe_pull_runs_the_rotation_against_the_pack():
     stats = ms.stat_table("hunter").at(60)
-    out = ms.rotation_output("hunter", stats, CLS.spells, CLS, MM, MOBS, pack=3)
+    out = engine("hunter").output(stats, CLS.spells, CLS, MM, MOBS, pack=3)
     assert ms.aoe("hunter", stats, CLS.spells, CLS, MM) == (pytest.approx(3 * default_params("aoe", 60).mob_hp / out.dps),
                                                            "Volley, Explosive Trap")
