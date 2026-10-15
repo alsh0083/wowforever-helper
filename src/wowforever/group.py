@@ -445,8 +445,6 @@ def _kind_for(class_name: str, stats, cls, ranks) -> str:
     """How the build fights, which picks its party's buff preferences: melee, ranged or caster."""
     from wowforever.classes import engine
 
-    if class_name == "mage":               # until the mage has its class engine (#316)
-        return "caster"
     return engine(class_name).playstyle(cls, ranks)
 
 
