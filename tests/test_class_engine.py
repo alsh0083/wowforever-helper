@@ -32,10 +32,14 @@ def test_adapted_classes_implement_the_class_engine(name):
     assert all(callable(getattr(module, member)) for member in ENGINE_MEMBERS)
 
 
-@pytest.mark.parametrize("name", ["mage"])
-def test_classes_without_an_adapter_yet_have_no_engine(name):
-    with pytest.raises(ValueError, match=name):
-        engine(name)
+def test_an_unscored_class_has_no_engine(monkeypatch):
+    import types
+
+    import wowforever.classes as classes
+
+    monkeypatch.setitem(classes.CLASSES, "nobody", "types")      # a module without the engine functions
+    with pytest.raises(ValueError, match="nobody"):
+        engine("nobody")
 
 
 def test_output_has_no_pet_and_fights_in_melee_by_default():
@@ -168,3 +172,31 @@ def test_describe_asks_the_engine_for_every_class_but_mage():
 
     src = inspect.getsource(describe.rotation_facts)
     assert "_rotation" not in src.replace("rotation_facts", "") and "HybridStats" not in src
+
+
+def test_mage_implements_the_class_engine_next_to_its_scenarios():
+    # #316: the mage's adapter picks its filler like the caster engine; its facts name the spells its
+    # own scenarios (scenarios.py) pick, so the build descriptions don't change
+    from wowforever.assumptions import Assumptions
+    from wowforever.classes.mage_rotation import rotation
+    from wowforever.scenarios import Character, default_params, questing, usable_fillers
+    from wowforever.stats import StatTable
+
+    cls, builds = loaded("mage")
+    stats = StatTable.load("mage").at(60)
+    mage = engine("mage")
+    assert all(callable(getattr(mage, member)) for member in ENGINE_MEMBERS)
+    for ranks in builds:
+        assert mage.playstyle(cls, ranks) == "caster"
+        out = mage.output(stats, cls.spells, cls, ranks, BOSS)
+        char = Character(60, stats, cls.spells, cls, dict(ranks))
+        a = Assumptions.load()
+        best = max((rotation(char, f, target_level=63, assumptions=a, sustained=False).dps, f.name)
+                   for f in usable_fillers(char, default_params("questing", 60).fillers, 63, a))
+        assert out.dps == pytest.approx(best[0]) and out.spell == best[1]
+        assert out.ranged and out.fallback_dps <= out.dps
+        facts = mage.facts(stats, cls, ranks)
+        assert facts["kind"] == "mage"
+        assert facts["questing"] == questing(char, default_params("questing", 60), a).details["spell"]
+        seconds, spell = mage.aoe(stats, cls.spells, cls, ranks, pack=3, mob_hp=2000.0, armor=0.0)
+        assert seconds > 0 and spell
