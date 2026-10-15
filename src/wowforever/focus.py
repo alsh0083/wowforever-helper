@@ -15,6 +15,7 @@ from wowforever import group
 from wowforever.assumptions import Assumptions
 from wowforever.consensus import Consensus
 from wowforever.pvp.battleground import best_battleground
+from wowforever.classes.mage import duel_side
 from wowforever.pvp.duel import Kit, best_scenario_scores
 from wowforever.scenarios import (Character, aoe_curve, default_params, questing, raid,
                                   usable_fillers)
@@ -45,7 +46,8 @@ def pvp_score_fn(cls: ClassData, stats: Stats, assumptions: Assumptions, kits: l
     def score(ranks: Mapping[int, int]) -> float:
         char = Character(level, stats, cls.spells, cls, dict(ranks))
         fillers = usable_fillers(char, default_params("questing", level).fillers, level, assumptions)
-        duels = best_scenario_scores(char, fillers, kits)  # each duel with its best filler (#97)
+        # each duel with its best filler (#97); the mage's sides at the max level, whatever level `stats` is from
+        duels = best_scenario_scores([(f.name, duel_side(char, f)) for f in fillers], kits)
         scenario_values = [duels[s]["score"] for s in PVP_SCENARIOS]
         scenario_values.append(best_battleground(char, fillers, assumptions)["score"])
         mean = sum(scenario_values) / len(scenario_values)

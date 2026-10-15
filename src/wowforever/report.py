@@ -24,7 +24,7 @@ from wowforever.focus import pve_score_fn, pvp_score_fn
 from wowforever.optimizer import optimize_order
 from wowforever.shortlist import build_shortlist
 from wowforever.pvp.battleground import best_battleground
-from wowforever.pvp.duel import best_scenario_scores, load_kits, mage_side, outnumbered_scores
+from wowforever.pvp.duel import best_scenario_scores, load_kits, outnumbered_scores
 from wowforever.rules import check_order, points_available
 from wowforever.scenarios import (Character, aoe_curve, best_rank, default_params, questing, raid,
                                   usable_fillers)
@@ -91,12 +91,13 @@ def score_build(order: Sequence[int], cls: ClassData, spells, stats: StatTable,
             scores[name][level] = {"score": round(result.score, 3), "unit": "0-1",
                                    "components": {k: round(v, 3) for k, v in result.components.items()}}
         fillers = usable_fillers(char, default_params("questing", level).fillers, level, assumptions)
-        for name, result in best_scenario_scores(char, fillers, kits).items():
+        sides = engine("mage").sides(char.stats, spells, cls, char.ranks)
+        for name, result in best_scenario_scores(sides, kits).items():
             scores.setdefault(name, {})[level] = {
                 "score": round(result["score"], 3), "unit": "duel 0-1", "spell": result["spell"],
                 "matchups": {k: round(v, 3) for k, v in result["matchups"].items()}}
         # outnumbered (2v1, #278, #287): a separate score, with the filler that does best
-        two = max(((outnumbered_scores(mage_side(char, f), kits)["score"], f.name) for f in fillers),
+        two = max(((outnumbered_scores(side, kits)["score"], spell) for spell, side in sides),
                   default=(0.5, None))
         scores.setdefault("outnumbered", {})[level] = {"score": round(two[0], 3), "unit": "2v1 0-1", "spell": two[1]}
         d = raid(char, default_params("dungeon", level), assumptions)
