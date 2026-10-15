@@ -24,7 +24,8 @@ from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
 from wowforever.pvp.class_pvp import class_side
-from wowforever.pvp.duel import Control, Kit, MageSide, mage_side, outnumbered
+from wowforever.classes.mage import duel_side
+from wowforever.pvp.duel import Control, Kit, Side, outnumbered
 from wowforever.report import ranks_at
 from wowforever.scenarios import Character, best_rank
 from wowforever.schema import Dataset, latest_dataset_path
@@ -35,7 +36,7 @@ A = Kit(id="a", role="melee", stealth=False, dispels_buffs=False, health=3000, d
         opener_stun=0, controls=(), removes=(), immunity=None)
 B = Kit(id="b", role="melee", stealth=False, dispels_buffs=False, health=2000, dps=150, opener_damage=0,
         opener_stun=0, controls=(Control("stun", 4, 20),), removes=(), immunity=None)
-SIDE = MageSide(health=4000, dps=200, barrier_per_min=0, immunity_share=0, root=20, stun=0, slow=0, interrupt=0)
+SIDE = Side(health=4000, dps=200, absorb_per_min=0, immunity_share=0, root=20, stun=0, slow=0, interrupt=0)
 
 
 def test_multi_target_stuns_reach_both_opponents():
@@ -64,4 +65,4 @@ def test_frost_nova_roots_both_opponents():
     build = next(b for b in load_builds(class_name="mage") if b.order)
     char = Character(60, StatTable.load("mage").at(60), cls.spells, cls, ranks_at(build.order_ids(cls), 60, cls))
     filler = best_rank(cls.spells, "Frostbolt", 60)
-    assert mage_side(char, filler).root_targets == 2
+    assert duel_side(char, filler).root_targets == 2

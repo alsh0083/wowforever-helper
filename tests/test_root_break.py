@@ -37,11 +37,11 @@ from wowforever.classes.druid import TALENT_EFFECTS, UNMODELED
 from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import stat_table
 from wowforever.pvp.class_pvp import class_side
-from wowforever.pvp.duel import Control, Kit, MageSide, duel, outnumbered, root_hold
+from wowforever.pvp.duel import Control, Kit, Side, duel, outnumbered, root_hold
 from wowforever.schema import Dataset, latest_dataset_path
 
 # as in test_duel.py
-BASE_MAGE = MageSide(health=3000, dps=150, barrier_per_min=0, immunity_share=0,
+BASE_MAGE = Side(health=3000, dps=150, absorb_per_min=0, immunity_share=0,
                      root=20, stun=0, slow=0.5, interrupt=20)
 MELEE = Kit(id="test-melee", role="melee", stealth=False, dispels_buffs=False, health=4000, dps=200,
             opener_damage=900, opener_stun=4.0,
@@ -52,7 +52,7 @@ A = Kit(id="a", role="melee", stealth=False, dispels_buffs=False, health=3000, d
         opener_stun=0, controls=(), removes=(), immunity=None)
 B = Kit(id="b", role="melee", stealth=False, dispels_buffs=False, health=2000, dps=150, opener_damage=0,
         opener_stun=0, controls=(Control("stun", 4, 20),), removes=(), immunity=None)
-SIDE = MageSide(health=4000, dps=200, barrier_per_min=0, immunity_share=0, root=20, stun=0, slow=0, interrupt=0)
+SIDE = Side(health=4000, dps=200, absorb_per_min=0, immunity_share=0, root=20, stun=0, slow=0, interrupt=0)
 
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("druid"), TALENT_EFFECTS, UNMODELED)
 BUILDS = {b.id: b for b in load_builds(class_name="druid")}

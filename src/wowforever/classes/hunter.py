@@ -164,3 +164,9 @@ def facts(stats, cls, ranks):
     r = hunter_rotation(stats, cls.spells, cls, ranks, Target(0, 0), pet=pet)
     split = {"pet": r.pet_dps / r.dps} if pet and r.dps else {}
     return {"kind": "hunter", "mode": r.mode, "pet": pet, "split": split}
+
+
+def sides(stats, spells, cls, ranks):
+    from wowforever.classes.engines import one_side
+
+    return one_side("hunter", stats, spells, cls, ranks)

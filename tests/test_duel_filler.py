@@ -13,8 +13,8 @@ from wowforever.classes.mage_rotation import frozen_hit_gain
 from wowforever.effects import attach_effects
 from wowforever.normalize import normalize_class, read_tables
 from wowforever.normalize_spells import class_spells, ranks_of
-from wowforever.pvp.duel import (Control, Kit, MageSide, best_scenario_scores, duel, load_kits,
-                                 mage_side, scenario_scores)
+from wowforever.classes.mage import duel_side
+from wowforever.pvp.duel import (Control, Kit, Side, best_scenario_scores, duel, load_kits, scenario_scores)
 from wowforever.scenarios import Character, scaled, usable_fillers
 from wowforever.sources.wowforevertalent import parse_page
 from wowforever.stats import Stats
@@ -79,29 +79,29 @@ def test_frozen_hit_with_ice_lance_replaces_filler_time():
 def test_mage_side_adds_one_frozen_hit_per_frost_nova():
     fb = spell("Frostbolt")
     c = char({tid("Shatter"): 3, tid("Ice Lance"): 1, tid("Improved Frost Nova"): 2})
-    side = mage_side(c, fb)
+    side = duel_side(c, fb)
     nova_cd = spell("Frost Nova").cooldown - 4                       # Improved Frost Nova 2/2
-    assert side.nova_dps == pytest.approx(frozen_hit_gain(c, fb, target_level=60, assumptions=A) / nova_cd)
+    assert side.melee_bonus_dps == pytest.approx(frozen_hit_gain(c, fb, target_level=60, assumptions=A) / nova_cd)
 
 
-MAGE = MageSide(health=3000, dps=150, barrier_per_min=0, immunity_share=0, root=20, stun=0,
-                slow=0.5, interrupt=20, nova_dps=30)
+MAGE = Side(health=3000, dps=150, absorb_per_min=0, immunity_share=0, root=20, stun=0,
+                slow=0.5, interrupt=20, melee_bonus_dps=30)
 MELEE = Kit(id="m", role="melee", stealth=False, dispels_buffs=False, health=4000, dps=200,
             opener_damage=0, opener_stun=0, controls=(), removes=(), immunity=None)
 CASTER = replace(MELEE, id="c", role="caster")
 
 
 def test_nova_damage_counts_only_against_melee():
-    assert duel(MAGE, MELEE, "mage_sees").t_mage == pytest.approx(4000 / 180)
-    assert duel(MAGE, CASTER, "mage_sees").t_mage == pytest.approx(4000 / 150)
+    assert duel(MAGE, MELEE, "mage_sees").t_side == pytest.approx(4000 / 180)
+    assert duel(MAGE, CASTER, "mage_sees").t_side == pytest.approx(4000 / 150)
 
 
 def test_each_scenario_takes_its_best_filler():
     c = char({tid("Shatter"): 3, tid("Ice Lance"): 1, tid("Frostbite"): 3, tid("Ignite"): 5})
     kits = load_kits()
     fillers = usable_fillers(c, ("Frostbolt", "Fireball"), 60, A)
-    per_filler = {f.name: scenario_scores(mage_side(c, f), kits) for f in fillers}
-    best = best_scenario_scores(c, fillers, kits)
+    per_filler = {f.name: scenario_scores(duel_side(c, f), kits) for f in fillers}
+    best = best_scenario_scores([(f.name, duel_side(c, f)) for f in fillers], kits)
     for scenario, result in best.items():
         top = max(per_filler, key=lambda n: per_filler[n][scenario]["score"])
         assert result["spell"] == top

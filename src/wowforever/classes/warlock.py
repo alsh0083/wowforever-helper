@@ -155,3 +155,9 @@ def facts(stats, cls, ranks):
     from wowforever.classes.engines import caster_facts
 
     return caster_facts("warlock", ROTATION, stats, cls, ranks)
+
+
+def sides(stats, spells, cls, ranks):
+    from wowforever.classes.engines import one_side
+
+    return one_side("warlock", stats, spells, cls, ranks)

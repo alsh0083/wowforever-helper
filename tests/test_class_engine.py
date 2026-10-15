@@ -200,3 +200,29 @@ def test_mage_implements_the_class_engine_next_to_its_scenarios():
         assert facts["questing"] == questing(char, default_params("questing", 60), a).details["spell"]
         seconds, spell = mage.aoe(stats, cls.spells, cls, ranks, pack=3, mob_hp=2000.0, armor=0.0)
         assert seconds > 0 and spell
+
+
+def test_the_duel_model_knows_no_class():
+    # #318: pvp/duel.py scores a Side; the mage builds its sides in its class module like every class
+    import inspect
+
+    from wowforever.pvp import duel
+
+    src = inspect.getsource(duel)
+    assert "mage_rotation" not in src and "pvp_axes" not in src and "MageSide" not in src
+    assert {f.name for f in __import__("dataclasses").fields(duel.Side)} >= {"absorb_per_min", "melee_bonus_dps"}
+
+
+@pytest.mark.parametrize("name", SCORED + ("mage",))
+def test_sides_name_the_filler_only_where_the_class_chooses_one(name):
+    from wowforever.pvp.duel import Side
+    from wowforever.stats import StatTable
+
+    cls, builds = loaded(name)
+    stats = StatTable.load("mage").at(60) if name == "mage" else ms.stat_table(name).at(60)
+    sides = engine(name).sides(stats, cls.spells, cls, builds[0])
+    assert sides and all(isinstance(side, Side) for _, side in sides)
+    if name == "mage":
+        assert all(spell for spell, _ in sides) and len(sides) > 1
+    else:
+        assert [spell for spell, _ in sides] == [None]

@@ -17,7 +17,7 @@ import pytest
 from wowforever.builds import load_builds
 from wowforever.melee_scenarios import stat_table
 from wowforever.pvp.class_pvp import class_side, heal_capacity
-from wowforever.pvp.duel import Kit, MageSide, duel
+from wowforever.pvp.duel import Kit, Side, duel
 from wowforever.schema import Dataset, latest_dataset_path
 
 CLS = Dataset.load(latest_dataset_path()).class_data("druid")
@@ -27,8 +27,8 @@ KIT = Kit(id="test-melee", role="melee", stealth=False, dispels_buffs=False, hea
 
 
 def side(**kw):
-    base = dict(health=3000, dps=100, barrier_per_min=0, immunity_share=0, root=0, stun=0, slow=0, interrupt=0)
-    return MageSide(**{**base, **kw})
+    base = dict(health=3000, dps=100, absorb_per_min=0, immunity_share=0, root=0, stun=0, slow=0, interrupt=0)
+    return Side(**{**base, **kw})
 
 
 def test_no_healing_is_the_plain_race():
@@ -37,7 +37,7 @@ def test_no_healing_is_the_plain_race():
 
 def test_healing_extends_both_times_and_raises_the_score():
     r = duel(side(heal_hps=400, heal_budget=2000), KIT, "mage_sees")
-    assert (r.t_mage, r.t_opponent) == (pytest.approx(35), pytest.approx(25))
+    assert (r.t_side, r.t_opponent) == (pytest.approx(35), pytest.approx(25))
     assert r.score == pytest.approx(25 / 60)
 
 
@@ -49,7 +49,7 @@ def test_the_side_skips_healing_that_lowers_its_score():
     plain = duel(side(), weak, "mage_sees")
     healed = duel(side(heal_hps=60, heal_budget=2000), weak, "mage_sees")
     assert plain.score == pytest.approx(2 / 3) and healed.score == pytest.approx(plain.score)
-    assert healed.t_mage == pytest.approx(30)
+    assert healed.t_side == pytest.approx(30)
 
 
 def ranks(build_id):

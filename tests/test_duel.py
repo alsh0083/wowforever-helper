@@ -6,9 +6,10 @@ from pathlib import Path
 
 import pytest
 
-from wowforever.pvp.duel import Control, Kit, MageSide, duel, load_kits, mage_side, scenario_scores
+from wowforever.classes.mage import duel_side
+from wowforever.pvp.duel import Control, Kit, Side, duel, load_kits, scenario_scores
 
-BASE_MAGE = MageSide(health=3000, dps=150, barrier_per_min=0, immunity_share=0,
+BASE_MAGE = Side(health=3000, dps=150, absorb_per_min=0, immunity_share=0,
                      root=20, stun=0, slow=0.5, interrupt=20)
 MELEE = Kit(id="test-melee", role="melee", stealth=False, dispels_buffs=False, health=4000, dps=200,
             opener_damage=900, opener_stun=4.0,
@@ -21,9 +22,9 @@ def test_kiting_melee_when_the_mage_sees_them():
     # kite seconds K = root 20 + stun 0 + slow 0.5*30 = 35 -> opponent uptime 1 - 35/60
     # T_mage = 4000 / (150*0.5) = 53.333; T_opp = 3000 / (200*25/60) = 36
     r = duel(BASE_MAGE, MELEE, "mage_sees")
-    assert r.mage_uptime == pytest.approx(0.5)
+    assert r.side_uptime == pytest.approx(0.5)
     assert r.opponent_uptime == pytest.approx(25 / 60)
-    assert (r.t_mage, r.t_opponent) == pytest.approx((4000 / 75, 36.0))
+    assert (r.t_side, r.t_opponent) == pytest.approx((4000 / 75, 36.0))
     assert r.score == pytest.approx(36 / (36 + 4000 / 75))
 
 
@@ -36,7 +37,7 @@ def test_cheap_slow_and_root_removal_halves_kiting():
 
 
 def test_barrier_absorbs_and_a_dispeller_halves_it():
-    mage = MageSide(**{**BASE_MAGE.__dict__, "barrier_per_min": 600})
+    mage = Side(**{**BASE_MAGE.__dict__, "absorb_per_min": 600})
     kit = MELEE.__class__(**{**MELEE.__dict__, "dispels_buffs": True})
     # absorb 600/min = 10/s, halved by the dispel = 5/s; T_opp = 3000 / (83.333 - 5) = 38.298
     r = duel(mage, kit, "mage_sees")
@@ -56,8 +57,8 @@ def test_caster_uptime_comes_from_interrupts_and_stuns():
     r = duel(BASE_MAGE, caster, "mage_sees")
     # opponent uptime 1 - (20 + 0)/60; mage uptime 1 - (5*60/45)/60
     assert r.opponent_uptime == pytest.approx(40 / 60)
-    assert r.mage_uptime == pytest.approx(1 - (5 * 60 / 45) / 60)
-    assert r.score == pytest.approx(22.5 / (22.5 + 4000 / (150 * r.mage_uptime)))
+    assert r.side_uptime == pytest.approx(1 - (5 * 60 / 45) / 60)
+    assert r.score == pytest.approx(22.5 / (22.5 + 4000 / (150 * r.side_uptime)))
 
 
 def test_ranged_physical_mostly_ignores_roots():
@@ -68,15 +69,15 @@ def test_ranged_physical_mostly_ignores_roots():
 
 
 def test_immunities_on_both_sides():
-    mage = MageSide(**{**BASE_MAGE.__dict__, "immunity_share": 0.05})
+    mage = Side(**{**BASE_MAGE.__dict__, "immunity_share": 0.05})
     kit = MELEE.__class__(**{**MELEE.__dict__, "immunity": (12, 300)})
     r = duel(mage, kit, "mage_sees")
-    assert r.t_mage == pytest.approx(4000 / (150 * 0.5 * (1 - 12 / 300)))
+    assert r.t_side == pytest.approx(4000 / (150 * 0.5 * (1 - 12 / 300)))
     assert r.t_opponent == pytest.approx(3000 / (200 * 25 / 60 * 0.95))
 
 
 def test_uptime_floor_and_fight_cap():
-    shut_down = MageSide(**{**BASE_MAGE.__dict__, "root": 120, "barrier_per_min": 100000})
+    shut_down = Side(**{**BASE_MAGE.__dict__, "root": 120, "absorb_per_min": 100000})
     r = duel(shut_down, MELEE, "mage_sees")
     assert r.opponent_uptime == pytest.approx(0.2)
     assert r.t_opponent == pytest.approx(600)
@@ -123,7 +124,7 @@ def test_deep_frost_out_duels_deep_fire_against_melee():
 
     def side(build_id, filler):
         char = Character(60, stats, spells, cls, builds[build_id].final_ids(cls))
-        return mage_side(char, ranks_of(spells, filler)[-1])
+        return duel_side(char, ranks_of(spells, filler)[-1])
 
     frost, fire = side("deep-frost", "Frostbolt"), side("deep-fire", "Fireball")
     kits = load_kits()

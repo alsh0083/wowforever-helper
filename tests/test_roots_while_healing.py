@@ -24,9 +24,9 @@ import dataclasses
 
 import pytest
 
-from wowforever.pvp.duel import Control, Kit, MageSide, duel, outnumbered
+from wowforever.pvp.duel import Control, Kit, Side, duel, outnumbered
 
-BASE_MAGE = MageSide(health=3000, dps=150, barrier_per_min=0, immunity_share=0,
+BASE_MAGE = Side(health=3000, dps=150, absorb_per_min=0, immunity_share=0,
                      root=20, stun=0, slow=0.5, interrupt=20)
 MELEE = Kit(id="test-melee", role="melee", stealth=False, dispels_buffs=False, health=4000, dps=200,
             opener_damage=900, opener_stun=4.0,
@@ -36,20 +36,20 @@ A = Kit(id="a", role="melee", stealth=False, dispels_buffs=False, health=3000, d
         opener_stun=0, controls=(), removes=(), immunity=None)
 B = Kit(id="b", role="melee", stealth=False, dispels_buffs=False, health=2000, dps=150, opener_damage=0,
         opener_stun=0, controls=(Control("stun", 4, 20),), removes=(), immunity=None)
-SIDE = MageSide(health=4000, dps=200, barrier_per_min=0, immunity_share=0, root=20, stun=0, slow=0, interrupt=0)
+SIDE = Side(health=4000, dps=200, absorb_per_min=0, immunity_share=0, root=20, stun=0, slow=0, interrupt=0)
 BREAKS = dict(root_break_health=0.1, root_duration=10, heal_hps=400, heal_budget=2000)
 
 
 def test_duel_roots_hold_while_healing():
     r = duel(dataclasses.replace(BASE_MAGE, **BREAKS), MELEE, "mage_sees")
-    assert (r.t_mage, r.t_opponent) == (pytest.approx(58.333333), pytest.approx(39.052814, rel=1e-6))
+    assert (r.t_side, r.t_opponent) == (pytest.approx(58.333333), pytest.approx(39.052814, rel=1e-6))
     assert r.score == pytest.approx(0.401010, rel=1e-5)
 
 
 def test_outnumbered_focus_root_holds_while_healing():
     side = dataclasses.replace(SIDE, root_targets=3, **BREAKS)
     r = outnumbered(side, B, A)
-    assert (r.t_mage, r.t_opponent) == (pytest.approx(32.5), pytest.approx(44.035088, rel=1e-6))
+    assert (r.t_side, r.t_opponent) == (pytest.approx(32.5), pytest.approx(44.035088, rel=1e-6))
     assert r.score == pytest.approx(0.575358, rel=1e-5)
 
 

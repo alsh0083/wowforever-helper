@@ -218,3 +218,9 @@ def facts(stats, cls, ranks):
     from wowforever.classes.engines import hybrid_facts
 
     return hybrid_facts("druid", MELEE_TREES, _melee_facts, ROTATION, stats, cls, ranks)
+
+
+def sides(stats, spells, cls, ranks):
+    from wowforever.classes.engines import one_side
+
+    return one_side("druid", stats, spells, cls, ranks)

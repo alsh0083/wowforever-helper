@@ -94,8 +94,13 @@ class ClassEngine(Protocol):
     def facts(self, stats: Any, cls: ClassData, ranks: Mapping[int, int]) -> dict[str, Any]:
         """What the rotation does, for the build description."""
 
+    def sides(self, stats: Any, spells: Sequence[SpellRank], cls: ClassData,
+              ranks: Mapping[int, int]) -> list[tuple[str | None, Any]]:
+        """The build's duel sides (pvp.duel.Side), each named by the filler it casts where it has a
+        choice (mage) or None; each duel scenario takes the best (#318)."""
 
-ENGINE_MEMBERS = ("playstyle", "output", "aoe", "facts")
+
+ENGINE_MEMBERS = ("playstyle", "output", "aoe", "facts", "sides")
 
 
 def engine(name: str) -> ClassEngine:
