@@ -152,3 +152,25 @@ ENGINE = "melee"
 
 # Rogue skill lines in SkillLineAbility: Assassination, Combat, Subtlety, Poisons.
 SKILL_LINES = (253, 38, 39, 40)
+
+
+# --- class engine (#309): this module is the rogue's ClassEngine ------------------------------------
+from wowforever.classes.engines import facts_later as facts  # noqa: E402
+
+
+def playstyle(cls, ranks) -> str:
+    return "melee"
+
+
+def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None):
+    from wowforever.classes.rogue_rotation import rogue_rotation
+    from wowforever.melee_scenarios import Output
+
+    r = rogue_rotation(stats, spells, cls, ranks, target, pack=pack)
+    return Output(r.dps, 0.0, r.dps, r.aoe)
+
+
+def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
+    from wowforever.classes.engines import pack_aoe
+
+    return pack_aoe(output, stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp, armor=armor)
