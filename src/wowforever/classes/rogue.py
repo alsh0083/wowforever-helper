@@ -155,7 +155,6 @@ SKILL_LINES = (253, 38, 39, 40)
 
 
 # --- class engine (#309): this module is the rogue's ClassEngine ------------------------------------
-from wowforever.classes.engines import facts_later as facts  # noqa: E402
 
 
 def playstyle(cls, ranks) -> str:
@@ -174,3 +173,12 @@ def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
     from wowforever.classes.engines import pack_aoe
 
     return pack_aoe(output, stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp, armor=armor)
+
+
+def facts(stats, cls, ranks):
+    from wowforever.classes.rogue_rotation import rogue_rotation
+    from wowforever.physical import Target
+
+    r = rogue_rotation(stats, cls.spells, cls, ranks, Target(0, 0))
+    return {"kind": "rogue", "builder": r.builder,
+            "split": {"auto-attacks": r.white_dps / r.dps, "abilities and poisons": r.yellow_dps / r.dps}}
