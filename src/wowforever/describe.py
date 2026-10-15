@@ -230,9 +230,10 @@ def rotation_facts(class_name: str, cls: ClassData, ranks: Mapping[int, int], st
         return {"kind": "rogue", "builder": r.builder,
                 "split": {"auto-attacks": r.white_dps / r.dps, "abilities and poisons": r.yellow_dps / r.dps}}
     if class_name == "hunter":
+        from .classes.hunter import has_pet
         from .classes.hunter_rotation import hunter_rotation
 
-        pet = ms._has_pet(cls, ranks)
+        pet = has_pet(cls, ranks)
         r = hunter_rotation(stats, cls.spells, cls, ranks, target, pet=pet)
         split = {"pet": r.pet_dps / r.dps} if pet and r.dps else {}
         return {"kind": "hunter", "mode": r.mode, "pet": pet, "split": split}
