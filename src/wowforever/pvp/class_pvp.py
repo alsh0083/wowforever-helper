@@ -24,7 +24,7 @@ from wowforever.classes import engine
 from wowforever.melee_scenarios import build_stats
 from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Target, armor_factor
-from wowforever.pvp.duel import Control, Kit, MageSide, lockout_seconds, outnumbered_scores, scenario_scores
+from wowforever.pvp.duel import Control, Kit, Side, lockout_seconds, outnumbered_scores, scenario_scores
 from wowforever.scenarios import best_rank
 from wowforever.schema import ClassData, SpellRank
 from wowforever.toml_cache import load_toml
@@ -150,7 +150,7 @@ def heal_capacity(class_name: str, stats, spells: Sequence[SpellRank], cls: Clas
 
 
 def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
-               ranks: Mapping[int, int], *, assumptions: Assumptions | None = None) -> MageSide:
+               ranks: Mapping[int, int], *, assumptions: Assumptions | None = None) -> Side:
     """The class's duel side, in the same shape as the mage's."""
     if assumptions is None:
         assumptions = Assumptions.load()
@@ -181,11 +181,11 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
     tougher = sum(e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
                   for e in t.effects if e.kind == "break_threshold_pct" and roots & set(e.applies_to))
     root_durations = [c.duration for c in controls if c.kind == "root"]
-    return MageSide(
+    return Side(
         health=row.health,
         dps=output.dps,
-        nova_dps=thorns,
-        barrier_per_min=0.0,
+        melee_bonus_dps=thorns,
+        absorb_per_min=0.0,
         immunity_share=0.0,
         # roots don't stop casting, so lockout_seconds skips them; they're kiting time vs melee
         root=min(60.0, sum(c.duration * 60 / c.cooldown for c in controls if c.kind == "root" and c.cooldown > 0)),

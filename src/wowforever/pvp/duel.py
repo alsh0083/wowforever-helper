@@ -72,18 +72,18 @@ class Kit:
 
 
 @dataclass(frozen=True)
-class MageSide:
+class Side:
     """The mage's side of a duel: health, DPS and control in seconds per minute."""
 
     health: float
     dps: float
-    barrier_per_min: float  # Ice Barrier absorb per minute
+    absorb_per_min: float  # Ice Barrier absorb per minute
     immunity_share: float  # share of the fight spent immune (Ice Block + Cold Snap)
     root: float
     stun: float
     slow: float  # uptime x strength, 0-1
     interrupt: float
-    nova_dps: float = 0.0  # extra DPS against melee: one frozen hit per Frost Nova (#97)
+    melee_bonus_dps: float = 0.0  # extra DPS against melee: one frozen hit per Frost Nova (#97)
     physical_taken: float = 1.0  # physical damage taken vs the cloth that kit DPS assumes (#134)
     heal_hps: float = 0.0  # healing per second while casting heals (#265)
     heal_budget: float = 0.0  # mana-limited healing for the fight
@@ -98,9 +98,9 @@ class DuelResult:
     """One duel: expected kill times in seconds and the score (0-1, 0.5 even)."""
 
     score: float
-    t_mage: float
+    t_side: float
     t_opponent: float
-    mage_uptime: float
+    side_uptime: float
     opponent_uptime: float
 
 
@@ -156,7 +156,7 @@ def load_kits(level: int = 60, directory: Path = OPPONENTS) -> list[Kit]:
     return list(_kits_at(directory, level))
 
 
-def root_hold(side: MageSide, kit: Kit) -> float:
+def root_hold(side: Side, kit: Kit) -> float:
     """Share of the side's root time that holds on `kit` while the side damages it (#286): the root breaks
     once the side has dealt root_break_health x kit health. 1 when the side's roots don't break."""
     if side.root_break_health <= 0 or side.root_duration <= 0 or side.dps <= 0:
@@ -164,12 +164,12 @@ def root_hold(side: MageSide, kit: Kit) -> float:
     return min(1.0, side.root_break_health * kit.health / (side.dps * side.root_duration))
 
 
-def _held(side: MageSide, kit: Kit) -> MageSide:
+def _held(side: Side, kit: Kit) -> Side:
     """`side` with its roots scaled by root_hold against `kit`, the target it's damaging."""
     return dataclasses.replace(side, root=side.root * root_hold(side, kit))
 
 
-def _kiting_seconds(mage: MageSide, kit: Kit, c: dict[str, Any]) -> float:
+def _kiting_seconds(mage: Side, kit: Kit, c: dict[str, Any]) -> float:
     """Per-minute seconds the opponent cannot hit the mage, by its role."""
     if kit.role == "melee":
         kiting = mage.root + mage.stun + mage.slow * c["slow_kite_seconds"]
@@ -209,7 +209,7 @@ def lockout_seconds(controls: Sequence[Control], energy_per_minute: float = 0.0)
     return out
 
 
-def duel(mage: MageSide, kit: Kit, variant: str) -> DuelResult:
+def duel(mage: Side, kit: Kit, variant: str) -> DuelResult:
     """The expected-kill race between `mage` and `kit`.
 
     `variant` is "mage_sees" (the mage reacts first) or "they_open" (the opponent gets its
@@ -218,14 +218,14 @@ def duel(mage: MageSide, kit: Kit, variant: str) -> DuelResult:
     max_fight = c["max_fight"]
 
     lockout = sum(lockout_seconds(kit.controls, kit.energy_per_minute).values())
-    mage_uptime = max(c["min_uptime"], 1 - lockout / 60)
+    side_uptime = max(c["min_uptime"], 1 - lockout / 60)
     opponent_uptime = max(c["min_uptime"], 1 - _kiting_seconds(_held(mage, kit), kit, c) / 60)
 
     immune_share = kit.immunity[0] / kit.immunity[1] if kit.immunity else 0.0
-    dps = mage.dps + (mage.nova_dps if kit.role == "melee" else 0.0)  # Nova needs them in melee
-    t_mage = kit.health / (dps * mage_uptime * (1 - immune_share))
+    dps = mage.dps + (mage.melee_bonus_dps if kit.role == "melee" else 0.0)  # Nova needs them in melee
+    t_side = kit.health / (dps * side_uptime * (1 - immune_share))
 
-    barrier = mage.barrier_per_min / 60
+    barrier = mage.absorb_per_min / 60
     if kit.dispels_buffs:
         barrier *= c["dispel_barrier_factor"]
     physical = mage.physical_taken if kit.role in ("melee", "ranged") else 1.0
@@ -235,26 +235,26 @@ def duel(mage: MageSide, kit: Kit, variant: str) -> DuelResult:
     net = opponent_dps - barrier
     t_opponent = (mage.health - opening) / net if net > 0 else max_fight
 
-    t_mage = min(max(t_mage, 0.0), max_fight)
+    t_side = min(max(t_side, 0.0), max_fight)
     t_opponent = min(max(t_opponent, 0.0), max_fight)
-    score = 0.5 if t_mage + t_opponent == 0 else t_opponent / (t_mage + t_opponent)
+    score = 0.5 if t_side + t_opponent == 0 else t_opponent / (t_side + t_opponent)
     if mage.heal_budget > 0 and mage.heal_hps > 0 and net > 0:
         # healing adds effective health but pauses damage (#265); heal only if the score rises.
         # Roots hold fully while healing (#290): the fight's damage rate is the time-weighted mean.
         heal_time = mage.heal_budget / mage.heal_hps
         held = max(c["min_uptime"], 1 - _kiting_seconds(mage, kit, c) / 60)
         net_heal = kit.dps * physical * held * (1 - mage.immunity_share) - barrier
-        mean_net = (net * t_mage + net_heal * heal_time) / (t_mage + heal_time)
-        h_mage = min(t_mage + heal_time, max_fight)
+        mean_net = (net * t_side + net_heal * heal_time) / (t_side + heal_time)
+        h_mage = min(t_side + heal_time, max_fight)
         h_opp = min((mage.health - opening + mage.heal_budget) / mean_net, max_fight)
         h_score = h_opp / (h_mage + h_opp)
         if h_score > score:
-            t_mage, t_opponent, score = h_mage, h_opp, h_score
-    return DuelResult(score=score, t_mage=t_mage, t_opponent=t_opponent,
-                      mage_uptime=mage_uptime, opponent_uptime=opponent_uptime)
+            t_side, t_opponent, score = h_mage, h_opp, h_score
+    return DuelResult(score=score, t_side=t_side, t_opponent=t_opponent,
+                      side_uptime=side_uptime, opponent_uptime=opponent_uptime)
 
 
-def scenario_scores(mage: MageSide, kits: Sequence[Kit]) -> dict[str, dict[str, Any]]:
+def scenario_scores(mage: Side, kits: Sequence[Kit]) -> dict[str, dict[str, Any]]:
     """Mean duel score per world-PvP scenario, with the per-kit matchup behind each mean."""
     groups: dict[str, tuple[list[Kit], str]] = {
         "wpvp_melee": ([k for k in kits if k.role == "melee"], "mage_sees"),
@@ -286,7 +286,7 @@ def combined_lockout(kits: Sequence[Kit]) -> float:
     return sum(out.values())
 
 
-def outnumbered(side: MageSide, first: Kit, second: Kit) -> DuelResult:
+def outnumbered(side: Side, first: Kit, second: Kit) -> DuelResult:
     """The defender against two opponents at once, killing `first` then `second` (#278).
 
     Phase 1 (both alive): both kits' lockouts add up; the defender's stuns, slows and interrupts are
@@ -294,23 +294,23 @@ def outnumbered(side: MageSide, first: Kit, second: Kit) -> DuelResult:
     reaches both; roots hold the opponent not being attacked, and
     the attacked one too with root_targets >= 2 until damage breaks them (#286). Phase 2: `second`
     alone, as in a duel. Healing happens in phase 1, with roots unbroken while it lasts (#290), and
-    counts only if the score rises. mage_uptime and opponent_uptime are phase 1's, the latter for
+    counts only if the score rises. side_uptime and opponent_uptime are phase 1's, the latter for
     `first`."""
     c = _config()
     max_fight = c["max_fight"]
 
     def kill_time(kit: Kit, uptime: float) -> float:
-        dps = side.dps + (side.nova_dps if kit.role == "melee" else 0.0)
+        dps = side.dps + (side.melee_bonus_dps if kit.role == "melee" else 0.0)
         immune = kit.immunity[0] / kit.immunity[1] if kit.immunity else 0.0
         return kit.health / (dps * uptime * (1 - immune))
 
-    def incoming(kit: Kit, control: MageSide) -> tuple[float, float]:
+    def incoming(kit: Kit, control: Side) -> tuple[float, float]:
         uptime = max(c["min_uptime"], 1 - _kiting_seconds(control, kit, c) / 60)
         physical = side.physical_taken if kit.role in ("melee", "ranged") else 1.0
         return kit.dps * physical * uptime * (1 - side.immunity_share), uptime
 
     def barrier(kits: Sequence[Kit]) -> float:
-        b = side.barrier_per_min / 60
+        b = side.absorb_per_min / 60
         return b * c["dispel_barrier_factor"] if any(k.dispels_buffs for k in kits) else b
 
     u1 = max(c["min_uptime"], 1 - combined_lockout([first, second]) / 60)
@@ -345,10 +345,10 @@ def outnumbered(side: MageSide, first: Kit, second: Kit) -> DuelResult:
         h_die = min(time_to_die(side.health + side.heal_budget, t1 + heal_time, rate1), max_fight)
         if h_die / (h_side + h_die) > score:
             t_side, t_die, score = h_side, h_die, h_die / (h_side + h_die)
-    return DuelResult(score=score, t_mage=t_side, t_opponent=t_die, mage_uptime=u1, opponent_uptime=first_uptime)
+    return DuelResult(score=score, t_side=t_side, t_opponent=t_die, side_uptime=u1, opponent_uptime=first_uptime)
 
 
-def outnumbered_scores(side: MageSide, kits: Sequence[Kit]) -> dict[str, Any]:
+def outnumbered_scores(side: Side, kits: Sequence[Kit]) -> dict[str, Any]:
     """Mean outnumbered score over every pair of different kits with at least one melee kit (#278),
     each pair in its better kill order; matchups are keyed "id+id" by sorted id."""
     matchups: dict[str, float] = {}
@@ -373,7 +373,7 @@ def best_scenario_scores(char: Character, fillers: Sequence[SpellRank],
     return best
 
 
-def mage_side(char: Character, filler: SpellRank) -> MageSide:
+def mage_side(char: Character, filler: SpellRank) -> Side:
     """The mage's duel side from a build: short-fight rotation DPS (no sustained buffs)
     plus the survival and control components."""
     s = survival(char, filler)
@@ -381,25 +381,25 @@ def mage_side(char: Character, filler: SpellRank) -> MageSide:
     health = char.stats.health
     assumptions = Assumptions.load()
     nova = best_rank(char.spells, "Frost Nova", char.level)
-    nova_dps = 0.0
+    melee_bonus_dps = 0.0
     if nova is not None:
         improved = next((t for t in char.cls.talents if t.name == "Improved Frost Nova"), None)
         rank = char.ranks.get(improved.talent_id, 0) if improved else 0
         cut = next((e.values[rank - 1] for e in improved.effects if e.kind == "cooldown"), 0.0) if rank else 0.0
         cooldown = nova.cooldown + cut  # Improved Frost Nova's value is negative
         if cooldown > 0:
-            nova_dps = frozen_hit_gain(char, filler, target_level=char.level,
+            melee_bonus_dps = frozen_hit_gain(char, filler, target_level=char.level,
                                        assumptions=assumptions) / cooldown
-    return MageSide(
+    return Side(
         health=health,
         dps=rotation(char, filler, target_level=char.level,
                      assumptions=assumptions, sustained=False).dps,
-        barrier_per_min=s.components["barrier"] * health,
+        absorb_per_min=s.components["barrier"] * health,
         immunity_share=s.components["immunity"],
         root=c.components["root"],
         stun=c.components["stun"],
         slow=c.components["slow"],
         interrupt=c.components["interrupt"],
-        nova_dps=nova_dps,
+        melee_bonus_dps=melee_bonus_dps,
         root_targets=2 if nova is not None else 1,   # Frost Nova roots every nearby enemy (#287)
     )
