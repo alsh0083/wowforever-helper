@@ -10,6 +10,7 @@ from __future__ import annotations
 import json
 import re
 import time
+import tomllib
 from collections.abc import Callable, Mapping, Sequence
 from pathlib import Path
 from urllib.parse import urlencode
@@ -23,6 +24,10 @@ VARIANTS: dict[str, dict[str, str]] = {
     "stats-role-tank": {"metric": "avg_dps", "role": "tank"},
 }
 
+# Per-boss boss-only DPS for the bosses in config/single_target_bosses.toml (#249); one request per boss,
+# so it is never part of the default refresh.
+PER_BOSS = "stats-per-boss"
+
 
 def cache_name(location: str) -> str:
     """Cache file name for a location: letters, digits and `-` are kept, everything else becomes `_`."""
@@ -33,6 +38,11 @@ def statistics_url(location: str, params: dict[str, str]) -> str:
     """Statistics endpoint for one location: phase 1, all difficulties, the variant's params."""
     query = {"phase": "1", "difficulty": "all", **params, "location": location}
     return f"{BASE}/statistics?{urlencode(query)}"
+
+
+def boss_statistics_url(location: str, boss_id: int) -> str:
+    """Boss-only DPS statistics for one boss (Forever Logs `boss_id`) in its location."""
+    return statistics_url(location, {**VARIANTS["stats-boss-only"], "bossId": str(boss_id)})
 
 
 def fetch_statistics(
@@ -64,6 +74,38 @@ def fetch_statistics(
             path.write_text(text, encoding="utf-8", newline="\n")
             written.append(path)
     return written
+
+
+def fetch_boss_statistics(
+    cache_dir: Path,
+    api_key: str,
+    *,
+    bosses: Sequence[tuple[str, int]],
+    get: Callable[[str, dict[str, str]], str],
+    sleep: Callable[[float], None] = time.sleep,
+    delay: float = 2.0,
+) -> list[Path]:
+    """Fetch each (location, boss_id)'s boss-only statistics into `cache_dir`/stats-per-boss/<boss_id>.json."""
+    headers = {"Authorization": f"Bearer {api_key}"}
+    folder = cache_dir / PER_BOSS
+    folder.mkdir(parents=True, exist_ok=True)
+    written: list[Path] = []
+    for location, boss_id in bosses:
+        if written:
+            sleep(delay)
+        text = get(boss_statistics_url(location, boss_id), headers)
+        if json.loads(text).get("success") is not True:
+            raise ValueError(f"statistics failed for boss {boss_id} ({location})")
+        path = folder / f"{boss_id}.json"
+        path.write_text(text, encoding="utf-8", newline="\n")
+        written.append(path)
+    return written
+
+
+def read_boss_list(path: Path) -> list[tuple[str, int]]:
+    """(location, boss_id) for each boss in config/single_target_bosses.toml, in file order."""
+    data = tomllib.loads(path.read_text(encoding="utf-8"))
+    return [(b["location"], b["id"]) for b in data.get("bosses", [])]
 
 
 def read_api_key(environ: Mapping[str, str], dotenv: Path) -> str:
