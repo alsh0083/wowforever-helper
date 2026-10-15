@@ -126,3 +126,32 @@ ENGINE = "melee"
 
 # Hunter skill lines in SkillLineAbility: Beast Mastery, Marksmanship, Survival.
 SKILL_LINES = (50, 163, 51)
+
+
+# --- class engine (#310): this module is the hunter's ClassEngine ------------------------------------
+from wowforever.classes.engines import facts_later as facts  # noqa: E402
+
+
+def has_pet(cls, ranks) -> bool:
+    """A pet fights unless the build takes Lone Wolf."""
+    lone = next((t for t in cls.talents if t.name == "Lone Wolf"), None)
+    return lone is None or ranks.get(lone.talent_id, 0) <= 0
+
+
+def playstyle(cls, ranks) -> str:
+    return "ranged"
+
+
+def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None):
+    from wowforever.classes.hunter_rotation import hunter_rotation
+    from wowforever.melee_scenarios import Output
+
+    pet = has_pet(cls, ranks)
+    r = hunter_rotation(stats, spells, cls, ranks, target, pet=pet, pack=pack)
+    return Output(r.dps, r.mana_per_second, r.auto_dps + r.pet_dps, r.aoe, pet=pet, ranged=r.mode == "ranged")
+
+
+def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
+    from wowforever.classes.engines import pack_aoe
+
+    return pack_aoe(output, stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp, armor=armor)

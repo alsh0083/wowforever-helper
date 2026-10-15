@@ -72,11 +72,6 @@ def _config() -> dict:
     return load_toml(CONFIG)
 
 
-def _has_pet(cls: ClassData, ranks: Mapping[int, int]) -> bool:
-    lone = next((t for t in cls.talents if t.name == "Lone Wolf"), None)
-    return lone is None or ranks.get(lone.talent_id, 0) <= 0
-
-
 @dataclass(frozen=True)
 class HybridStats:
     """A caster class with melee builds (#175): its caster row and its melee row at one level.
@@ -166,15 +161,10 @@ def rotation_output(class_name: str, stats: MeleeStats, spells: Sequence[SpellRa
         gross = r.mana_per_second + r.regen_per_second
         # once dry, a caster keeps casting at the rate its regen pays for
         return Output(r.dps, r.mana_per_second, r.dps * min(1.0, r.regen_per_second / gross) if gross > 0 else r.dps)
-    if class_name in ("rogue", "warrior", "paladin"):
+    if class_name in ("rogue", "warrior", "paladin", "hunter"):
         from wowforever.classes import engine
 
         return engine(class_name).output(stats, spells, cls, ranks, target, pack=pack)
-    if class_name == "hunter":
-        from wowforever.classes.hunter_rotation import hunter_rotation
-
-        r = hunter_rotation(stats, spells, cls, ranks, target, pet=_has_pet(cls, ranks), pack=pack)
-        return Output(r.dps, r.mana_per_second, r.auto_dps + r.pet_dps, r.aoe)
     raise ValueError(f"no melee rotation for {class_name!r}")
 
 
@@ -186,10 +176,7 @@ def questing(class_name: str, stats: MeleeStats, spells, cls, ranks, *, melee: b
     out = rotation_output(class_name, stats, spells, cls, ranks, Target(0, armor),
                           drink_mana_per_second=q.drink_mana_per_second, melee=melee)
     kill = q.mob_hp / out.dps
-    if class_name != "hunter" or not _has_pet(cls, ranks):
-        downtime = mob_dps * kill / eat
-    else:
-        downtime = 0.0
+    downtime = 0.0 if out.pet else mob_dps * kill / eat     # a pet tanks while the hunter shoots
     if out.mana_per_second > 0:
         downtime = max(downtime, out.mana_per_second * kill / q.drink_mana_per_second)
     return 3600 / (kill + downtime + q.travel_seconds)

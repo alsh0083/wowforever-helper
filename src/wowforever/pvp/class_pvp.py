@@ -166,13 +166,8 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
     wide_locks = lockout_seconds(wide, cfg.get("energy_per_minute", 0.0))
     output = rotation_output(class_name, stats, spells, cls, ranks, Target(0, raw["player_armor"]))
     slow = cfg.get("slow", 0.0)
-    if class_name == "hunter":
-        from wowforever.classes.hunter_rotation import hunter_rotation
-        from wowforever.melee_scenarios import _has_pet
-
-        mode = hunter_rotation(stats, spells, cls, ranks, Target(0, raw["player_armor"]),
-                               pet=_has_pet(cls, ranks)).mode
-        slow = cfg["slow_melee"] if mode == "melee" else cfg["slow_ranged"]
+    if "slow_ranged" in cfg:                    # a slow that depends on the range it fights at (hunter)
+        slow = cfg["slow_ranged"] if output.ranged else cfg["slow_melee"]
     row = build_stats(class_name, stats, cls, ranks)
     thorns = thorns_dps(best_rank(spells, "Thorns", stats.level), getattr(row, "spell_power", 0.0),
                         assumptions["thorns_spell_power_coefficient"], raw.get("opponent_melee_hits_per_second", 0.0))
