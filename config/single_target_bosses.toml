@@ -1,0 +1,12 @@
+# Single-target bosses for `validate-logs --single-target` (#249). The model scores one target, and
+# `--boss-only` still counts bosses with adds or cleave; this list keeps only fights where the whole
+# boss-only DPS goes into one target.
+#
+# `id` is Forever Logs' `boss_id` (data/cache/foreverlogs/bosses.json, the creature id), `location` its
+# zone, `name` for reading. `foreverlogs-refresh --variant stats-per-boss` spends one request per entry.
+#
+# Empty until launch: pick bosses from Forever play and logs (Forever reworked encounters, so Classic
+# knowledge alone doesn't settle it), and give each a dated note on why it counts as single-target.
+bosses = [
+  # { id = 12118, name = "Lucifron", location = "Molten Core" },   # example of the format only
+]
