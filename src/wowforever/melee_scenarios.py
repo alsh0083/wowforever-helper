@@ -67,6 +67,7 @@ class Output:
     aoe: tuple[str, ...] = ()   # abilities that hit several mobs of a pack (#262)
     pet: bool = False           # a pet fights alongside (and tanks while questing)
     ranged: bool = False        # the rotation fights from range
+    spell: str | None = None    # the filler the rotation chose, where it chooses one (mage, #316)
 
 
 def _config() -> dict:

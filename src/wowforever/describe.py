@@ -190,14 +190,12 @@ def rotation_facts(class_name: str, cls: ClassData, ranks: Mapping[int, int], st
     """What the class engine's rotation does at level 60 against a level-60 target."""
     from .classes import engine
 
-    if class_name == "mage":
-        def cell(s: str) -> str | None:
-            by_level = scores.get(s) or {}
-            return (by_level.get("60") or by_level.get(60) or {}).get("spell")
-
-        return {"kind": "mage", "questing": cell("questing"), "raid": cell("raid"), "aoe": cell("aoe"),
-                "pvp": cell("wpvp_caster")}
-    return engine(class_name).facts(stats, cls, ranks)
+    facts = engine(class_name).facts(stats, cls, ranks)
+    for key, scenario in facts.pop("scenarios", {}).items():
+        by_level = scores.get(scenario) or {}
+        if not (by_level.get("60") or by_level.get(60)):
+            facts[key] = None            # not scored at 60 (a leveling build): don't name its spell
+    return facts
 
 
 def _buff_names() -> dict[str, str]:
