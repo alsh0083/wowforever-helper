@@ -1,13 +1,17 @@
 """Forever Logs statistics refresh (#172): URLs, cache names, key handling. Offline: a fake `get` stands in for HTTP."""
 
 import json
+from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
 
 import pytest
 
 from wowforever.sources.foreverlogs_api import (
-    BASE, VARIANTS, cache_name, fetch_statistics, read_api_key, statistics_url,
+    BASE, PER_BOSS, VARIANTS, boss_statistics_url, cache_name, fetch_boss_statistics, fetch_statistics,
+    read_api_key, read_boss_list, statistics_url,
 )
+
+ROOT = Path(__file__).resolve().parents[1]
 
 OK = json.dumps({"success": True, "phase": 1, "statistics": {}})
 
@@ -83,3 +87,59 @@ def test_api_key_comes_from_the_environment_first_then_dotenv(tmp_path):
     assert read_api_key({}, dotenv) == "from-file"
     with pytest.raises(ValueError, match="FOREVERLOGS_API_KEY"):
         read_api_key({}, tmp_path / "missing.env")
+
+
+def test_boss_statistics_url_asks_for_one_boss_boss_only_dps():
+    parts = urlsplit(boss_statistics_url("Molten Core", 12118))
+    assert f"{parts.scheme}://{parts.netloc}{parts.path}" == BASE + "/statistics"
+    assert {k: v[0] for k, v in parse_qs(parts.query).items()} == {
+        "phase": "1", "difficulty": "all", "metric": "avg_dps", "role": "dps",
+        "damageMode": "boss-only", "location": "Molten Core", "bossId": "12118"}
+
+
+def test_per_boss_is_not_a_default_variant():
+    assert PER_BOSS == "stats-per-boss"
+    assert PER_BOSS not in VARIANTS                          # a plain refresh never spends the per-boss requests
+
+
+def test_fetch_boss_statistics_writes_one_file_per_boss_id(tmp_path):
+    calls, sleeps = [], []
+
+    def get(url, headers):
+        calls.append((url, headers))
+        return OK
+
+    written = fetch_boss_statistics(tmp_path, "secret-key", bosses=[("Molten Core", 12118), ("Molten Core", 11982)],
+                                    get=get, sleep=sleeps.append, delay=2.0)
+    assert written == [tmp_path / "stats-per-boss" / "12118.json", tmp_path / "stats-per-boss" / "11982.json"]
+    assert all(path.read_text(encoding="utf-8") == OK for path in written)
+    assert [url for url, _ in calls] == [boss_statistics_url("Molten Core", 12118),
+                                         boss_statistics_url("Molten Core", 11982)]
+    assert all(h == {"Authorization": "Bearer secret-key"} for _, h in calls)
+    assert sleeps == [2.0]
+
+
+def test_an_unsuccessful_boss_response_raises_and_names_the_boss(tmp_path):
+    def get(url, headers):
+        return json.dumps({"success": False, "error": "rate limited"})
+
+    with pytest.raises(ValueError, match="12118"):
+        fetch_boss_statistics(tmp_path, "k", bosses=[("Molten Core", 12118)], get=get, sleep=lambda s: None)
+    assert not (tmp_path / "stats-per-boss" / "12118.json").exists()
+
+
+def test_boss_list_reads_location_and_boss_id_in_file_order(tmp_path):
+    path = tmp_path / "bosses.toml"
+    path.write_text('''bosses = [
+  { id = 12118, name = "Lucifron", location = "Molten Core" },
+  { id = 639, name = "Edwin VanCleef", location = "Deadmines" },
+]
+''', encoding="utf-8")
+    assert read_boss_list(path) == [("Molten Core", 12118), ("Deadmines", 639)]
+    path.write_text("bosses = []\n", encoding="utf-8")
+    assert read_boss_list(path) == []
+
+
+def test_the_shipped_boss_list_parses():
+    bosses = read_boss_list(ROOT / "config" / "single_target_bosses.toml")
+    assert all(isinstance(loc, str) and isinstance(boss, int) for loc, boss in bosses)

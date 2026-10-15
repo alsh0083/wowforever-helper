@@ -33,8 +33,12 @@ def main(argv: list[str] | None = None) -> int:
     vl.add_argument("--boss-only", action="store_true",
                     help="compare with boss fights only (data/cache/foreverlogs/stats-boss-only/), which leaves out "
                          "trash pulls where AoE inflates DPS; the model scores one target")
+    vl.add_argument("--single-target", action="store_true",
+                    help="compare with the single-target bosses in config/single_target_bosses.toml only "
+                         "(data/cache/foreverlogs/stats-per-boss/)")
     fl = sub.add_parser("foreverlogs-refresh", help="refresh the cached Forever Logs statistics (#172); about 37 requests per variant, owner's key")
-    fl.add_argument("--variant", action="append", help="cache folder to refresh (repeatable; default: all four)")
+    fl.add_argument("--variant", action="append", help="cache folder to refresh (repeatable; default: the four location sets). stats-per-boss "
+                         "fetches the bosses in config/single_target_bosses.toml, one request each, never by default")
     fl.add_argument("--delay", type=float, default=2.0, help="seconds between requests")
     df = sub.add_parser("dungeon-floors", help="write data/dungeon_floors.json: each dungeon's minimum level from "
                                                "the client's ContentTuning (#258)")
@@ -187,8 +191,17 @@ def main(argv: list[str] | None = None) -> int:
         reports = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(Path("data").glob("report*.json"))]
         from wowforever.validate import STATS_DIR
 
-        stats = STATS_DIR.parent / "stats-boss-only" if args.boss_only else STATS_DIR
-        print(markdown(compare(reports, log_averages(stats), log_percentiles(stats))))
+        stats, boss_ids = (STATS_DIR.parent / "stats-boss-only" if args.boss_only else STATS_DIR), None
+        if args.single_target:
+            from wowforever.sources.foreverlogs_api import read_boss_list
+
+            boss_ids = {boss for _, boss in read_boss_list(Path("config/single_target_bosses.toml"))}
+            if not boss_ids:
+                print("config/single_target_bosses.toml lists no bosses")
+                return 1
+            stats = STATS_DIR.parent / "stats-per-boss"
+        print(markdown(compare(reports, log_averages(stats, boss_ids=boss_ids),
+                               log_percentiles(stats, boss_ids=boss_ids))))
         return 0
     if args.command == "foreverlogs-refresh":
         import os
@@ -200,9 +213,19 @@ def main(argv: list[str] | None = None) -> int:
         cache = Path("data/cache/foreverlogs")
         locations = [line.strip() for line in (cache / "locations.txt").read_text(encoding="utf-8").splitlines() if line.strip()]
         variants = args.variant or list(foreverlogs_api.VARIANTS)
+        bosses = []
+        if foreverlogs_api.PER_BOSS in variants:
+            bosses = foreverlogs_api.read_boss_list(Path("config/single_target_bosses.toml"))
+            if not bosses:
+                print("config/single_target_bosses.toml lists no bosses")
+                return 1
         key = foreverlogs_api.read_api_key(os.environ, Path(".env"))
-        written = foreverlogs_api.fetch_statistics(cache, key, variants=variants, locations=locations,
-                                                   get=http_get_with_headers, delay=args.delay)
+        written = foreverlogs_api.fetch_statistics(cache, key, locations=locations, get=http_get_with_headers,
+                                                   variants=[v for v in variants if v != foreverlogs_api.PER_BOSS],
+                                                   delay=args.delay)
+        if bosses:
+            written += foreverlogs_api.fetch_boss_statistics(cache, key, bosses=bosses, get=http_get_with_headers,
+                                                             delay=args.delay)
         print(f"wrote {len(written)} files")
         for variant in variants:
             print(f"{variant}: {sum(p.parent.name == variant for p in written)} files")

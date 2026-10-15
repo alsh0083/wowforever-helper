@@ -42,3 +42,18 @@ def test_percentiles_are_parse_weighted_and_shown_next_to_the_average(tmp_path):
     rows = compare([report], log_averages(stats, levels), pct)
     assert rows[0]["p90_dps"] == 90.0 and rows[0]["ratio_p90"] == 0.5
     assert "| 70 | 0.64 | 90 | 0.50 |" in markdown(rows)
+
+
+def test_single_target_filter_keeps_only_the_listed_bosses(tmp_path):
+    stats, levels = tmp_path / "stats-per-boss", tmp_path / "levels.toml"
+    stats.mkdir()
+    levels.write_text('"Deadmines" = 20\n', encoding="utf-8")
+    for boss, avg, n, p90 in ((639, 40.0, 2, 50.0), (644, 100.0, 1, 120.0)):
+        (stats / f"{boss}.json").write_text(json.dumps({"location": "Deadmines", "boss_id": boss, "statistics": {
+            "Rogue": {"specs": {"Combat": {"avg": avg, "total_parses": n, "percentiles": {"p90": p90}}}}}}),
+            encoding="utf-8")
+    # Unfiltered: (40*2 + 100*1) / 3 = 60.0 over 3 parses; p90 (50*2 + 120*1) / 3 = 73.33...
+    assert log_averages(stats, levels) == {("rogue", "Combat", 20): (60.0, 3)}
+    assert log_averages(stats, levels, boss_ids={639}) == {("rogue", "Combat", 20): (40.0, 2)}
+    assert log_percentiles(stats, levels, boss_ids={639}) == {("rogue", "Combat", 20): {"p90": 50.0}}
+    assert log_averages(stats, levels, boss_ids=set()) == {}
