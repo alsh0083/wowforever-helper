@@ -69,3 +69,12 @@ Owner chose option 1: every class gets mage's PvP score. That's the mean of the 
 - #321: per-class consensus tiers in `config/consensus.toml` (independent; can run any time)
 - #322: battleground, survival and control scored from the shared duel `Side` (after #318)
 - #323: one PvP score and the full PvP report rows for every class (after #318, #321, #322)
+
+## Status (2026-10-15)
+
+Slices 1-5 (#309-#313) are merged. Every scored non-mage class module implements `ClassEngine`, and all 8 non-mage reports regenerated with no diff at every step.
+
+Where the build differs from the plan:
+- `melee_scenarios.build_stats` stays, reading the engine's `playstyle`. `stat_table` still reads `MELEE_TREES` to know whether a class has a melee stat file.
+- `group.player_kind` went in #313, not #310: it serves mage dungeon groups too. Mage keeps "caster" there until #316.
+- qwen3.8-27b did #310, #311 and #312 (six runs, each diff matching the reference line for line). Claude applied the reference for #309 and both parts of #313 after 30-minute stalls. Splitting each reference into runs of under ~150 lines is what made the local runs work.
