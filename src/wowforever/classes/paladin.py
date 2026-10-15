@@ -137,3 +137,9 @@ def facts(stats, cls, ranks):
     r = paladin_rotation(stats, cls.spells, cls, ranks, Target(0, 0))
     return {"kind": "abilities", "abilities": list(r.abilities),
             "split": {"auto-attacks": r.white_dps / r.dps, "Holy damage": r.holy_dps / r.dps}}
+
+
+def sides(stats, spells, cls, ranks):
+    from wowforever.classes.engines import one_side
+
+    return one_side("paladin", stats, spells, cls, ranks)

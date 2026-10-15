@@ -95,3 +95,11 @@ def hybrid_facts(class_name: str, melee_trees: Sequence[str], melee_facts: Calla
             return melee_facts(stats.melee, cls, ranks)
         stats = stats.caster
     return caster_facts(class_name, plan, stats, cls, ranks)
+
+
+def one_side(class_name: str, stats: Any, spells: Sequence[SpellRank], cls: ClassData,
+             ranks: Mapping[int, int]) -> list[tuple[None, Any]]:
+    """A class with one way to duel: its class_pvp side, unnamed."""
+    from wowforever.pvp.class_pvp import class_side
+
+    return [(None, class_side(class_name, stats, spells, cls, ranks))]

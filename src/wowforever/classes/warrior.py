@@ -149,3 +149,9 @@ def facts(stats, cls, ranks):
     r = warrior_rotation(stats, cls.spells, cls, ranks, Target(0, 0))
     return {"kind": "abilities", "abilities": list(r.abilities),
             "split": {"auto-attacks": r.white_dps / r.dps, "abilities": r.yellow_dps / r.dps}}
+
+
+def sides(stats, spells, cls, ranks):
+    from wowforever.classes.engines import one_side
+
+    return one_side("warrior", stats, spells, cls, ranks)

@@ -176,3 +176,9 @@ def facts(stats, cls, ranks):
     from wowforever.classes.engines import hybrid_facts
 
     return hybrid_facts("shaman", MELEE_TREES, _melee_facts, ROTATION, stats, cls, ranks)
+
+
+def sides(stats, spells, cls, ranks):
+    from wowforever.classes.engines import one_side
+
+    return one_side("shaman", stats, spells, cls, ranks)

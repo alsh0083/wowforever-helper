@@ -182,3 +182,9 @@ def facts(stats, cls, ranks):
     r = rogue_rotation(stats, cls.spells, cls, ranks, Target(0, 0))
     return {"kind": "rogue", "builder": r.builder,
             "split": {"auto-attacks": r.white_dps / r.dps, "abilities and poisons": r.yellow_dps / r.dps}}
+
+
+def sides(stats, spells, cls, ranks):
+    from wowforever.classes.engines import one_side
+
+    return one_side("rogue", stats, spells, cls, ranks)
