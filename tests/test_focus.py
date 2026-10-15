@@ -44,3 +44,8 @@ def test_pvp_score_prefers_the_pvp_variant_and_deep_frost():
 def test_pve_score_prefers_the_pve_variant():
     pve = pve_score_fn(CLS, STATS, A)
     assert pve(B["elementalist-pve"]) > pve(B["elementalist-v4"])
+
+
+def test_pvp_core_talents_are_the_class_s_own():
+    assert pvp_core_talents(Consensus.load(), "mage") == pvp_core_talents(Consensus.load())
+    assert pvp_core_talents(Consensus.load(), "rogue") == set()

@@ -28,10 +28,11 @@ PVE_REFERENCES = {"questing": 100.0, "raid": 150.0, "aoe_seconds_3": 15.0, "dung
 ScoreFn = Callable[[Mapping[int, int]], float]
 
 
-def pvp_core_talents(consensus: Consensus) -> set[str]:
-    """Talent names the consensus tiers rate core in any world-PvP scenario."""
+def pvp_core_talents(consensus: Consensus, class_name: str = "mage") -> set[str]:
+    """Talent names the class's consensus tiers rate core in any world-PvP scenario."""
+    tiers = consensus.tiers_for(class_name)
     return {name for scenario in ("wpvp_melee", "wpvp_caster", "stealth_ambush")
-            for name in consensus.tiers.get(scenario, {}).get("core", ())}
+            for name in tiers.get(scenario, {}).get("core", ())}
 
 
 def pvp_score_fn(cls: ClassData, stats: Stats, assumptions: Assumptions, kits: list[Kit],

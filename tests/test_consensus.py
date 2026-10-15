@@ -2,6 +2,7 @@ from pathlib import Path
 
 from wowforever.classes.mage import LAYOUT
 from wowforever.consensus import Consensus
+from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.normalize import normalize_class, read_tables
 from wowforever.sources.wowforevertalent import parse_page
 
@@ -10,6 +11,7 @@ MAGE, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
                           parse_page((FIX / "wowforevertalent" / "mage.html").read_text(encoding="utf-8")),
                           wago_build="1.60.1.70205")
 C = Consensus.load()
+C_PATH = Path(__file__).resolve().parents[1] / "config" / "consensus.toml"
 
 # Owner rules (#23): no gold/boost sellers; robots-disallowed sites excluded. Icy Veins allows
 # robots but returns 403 to automated fetches, so it's excluded too.
@@ -38,3 +40,21 @@ def test_classic_only_evidence_on_a_changed_talent_is_low_confidence():
     assert C.tier_confidence("battleground", "Ice Barrier", MAGE) == "low"
     # wpvp_melee tiers include a Forever source, so the scenario's confidence applies
     assert C.tier_confidence("wpvp_melee", "Ice Barrier", MAGE) == "medium"
+
+
+def test_tiers_are_per_class():
+    # mage's tiers moved under [tiers.mage.*] unchanged (#321); other classes have none until #320
+    assert C.tiers_for("mage")["wpvp_caster"]["core"] == ("Ice Barrier", "Ice Block", "Cold Snap")
+    assert set(C.tiers_for("mage")) == {"wpvp_melee", "wpvp_caster", "stealth_ambush", "battleground", "questing"}
+    assert C.tiers_for("no-such-class") == {}
+
+
+def test_tier_names_are_checked_against_their_own_class(tmp_path):
+    path = tmp_path / "consensus.toml"
+    path.write_text(Path(C_PATH).read_text(encoding="utf-8")
+                    + '\n[tiers.rogue.wpvp_melee]\ncore = ["Ice Block"]\nsources = []\n', encoding="utf-8")
+    loaded = Consensus.load(path)
+    assert loaded.problems(MAGE) == []                      # mage's tiers still check against mage
+    assert loaded.tiers_for("rogue")["wpvp_melee"]["core"] == ("Ice Block",)
+    rogue = Dataset.load(latest_dataset_path()).class_data("rogue")
+    assert loaded.problems(rogue) == ["tiers.rogue.wpvp_melee: 'Ice Block' is not a talent"]

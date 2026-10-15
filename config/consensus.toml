@@ -111,28 +111,29 @@ note = "Group fights: AoE control and survival under focus; Forever AoE nerfs ma
 
 # ---- talent tiers per scenario (core > strong) ------------------------------------------------
 # Talents named here get a consensus bonus on top of modeled value in v1 scoring (#25/#28).
+# Per class: [tiers.<class>.<scenario>] (#321). A class without tiers gets no bonus.
 
-[tiers.wpvp_melee]
+[tiers.mage.wpvp_melee]
 core = ["Ice Barrier", "Ice Block", "Cold Snap", "Permafrost", "Improved Frost Nova"]
 strong = ["Frostbite", "Shatter", "Arctic Reach", "Improved Cone of Cold", "Blast Wave"]
 sources = ["barrens_pvp_builds", "wt_tbc_frost_pvp", "bnet_forever_mage_pvp"]
 
-[tiers.wpvp_caster]
+[tiers.mage.wpvp_caster]
 core = ["Ice Barrier", "Ice Block", "Cold Snap"]
 strong = ["Burning Soul", "Improved Counterspell", "Impact", "Shatter"]
 sources = ["bnet_forever_mage_pvp", "prior_research"]
 
-[tiers.stealth_ambush]
+[tiers.mage.stealth_ambush]
 core = ["Ice Barrier", "Ice Block", "Cold Snap", "Improved Frost Nova"]
 strong = ["Permafrost", "Frostbite", "Blast Wave", "Impact"]
 sources = ["bnet_forever_mage_pvp", "barrens_pvp_builds"]
 
-[tiers.battleground]
+[tiers.mage.battleground]
 core = ["Ice Block", "Cold Snap", "Ice Barrier"]
 strong = ["Improved Frost Nova", "Permafrost", "Blast Wave", "Improved Blizzard"]
 sources = ["barrens_pvp_builds"]
 
-[tiers.questing]
+[tiers.mage.questing]
 core = ["Improved Frostbolt", "Elemental Precision"]
 strong = ["Ice Shards", "Shatter", "Frostbite", "Permafrost"]
 sources = ["method_forever_leveling", "wt_forever_mage"]
