@@ -130,3 +130,23 @@ CAVEAT = ("Caster model (#163, #165): Corruption, Bane of Agony and Immolate kep
           "then the best of Shadow Bolt, Incinerate, Searing Pain or Wrack, with Life Tap as steady mana. Pets, "
           "Siphon Life and Drain Life (health drains), Shadowburn, Nightfall and Improved Shadow Bolt procs aren't "
           "modeled; Demonic Sacrifice counts the Imp (+Shadow). Base stats are estimates.")
+
+
+# --- class engine (#311): this module is the warlock's ClassEngine ------------------------------------
+from wowforever.classes.engines import facts_later as facts  # noqa: E402
+
+
+def playstyle(cls, ranks) -> str:
+    return "caster"
+
+
+def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None):
+    from wowforever.classes.engines import caster_output
+
+    return caster_output("warlock", stats, spells, cls, ranks, target, drink_mana_per_second=drink_mana_per_second)
+
+
+def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
+    from wowforever.classes.engines import caster_aoe
+
+    return caster_aoe("warlock", stats, spells, cls, ranks, pack=pack, mob_hp=mob_hp)
