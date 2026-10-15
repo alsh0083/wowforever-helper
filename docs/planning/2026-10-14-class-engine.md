@@ -38,7 +38,7 @@ All seven AoE-pull slices (#260-#304) had to edit `melee_scenarios.py`. The hybr
   - `ENGINE` stays as the report's engine switch.
 - **`melee_scenarios.rotation_output` and `build_stats` stay as one-line delegates** until the last slice. That slice moves their callers to `engine()` and deletes them.
 
-## Slices (milestone `class-engine`)
+## Slices (milestone `class-engine`: #309 → #310 → #311 → #312 → #313)
 
 1. Protocol, `engine()` and `Output` fields, plus the rogue, warrior and paladin adapters. `rotation_output` delegates for those three. (Claude writes the protocol and conformance test; a local model writes the adapters.)
 2. Hunter adapter, with `pet` and `ranged` in `Output`. `_has_pet` moves into `hunter.py`. Questing downtime, the PvP slow pick and `group.player_kind` read `Output`/`playstyle`.
