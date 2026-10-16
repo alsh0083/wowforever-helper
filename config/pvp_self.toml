@@ -80,6 +80,9 @@ slow = 0.0
 energy_per_minute = 0
 controls = [
   { name = "Entangling Roots", kind = "root", duration = 10.0, cooldown = 15 },
+  # Feral Charge (Bear): immobilizes and interrupts for 4 s, 15 s cooldown (#342); LOW confidence: needs Bear Form
+  { name = "Feral Charge", kind = "root", duration = 4.0, cooldown = 15, requires = "Feral Charge" },
+  { name = "Feral Charge", kind = "interrupt", duration = 4.0, cooldown = 15, requires = "Feral Charge" },
 ]
 slow = 0.0
 # talents that protect the class's damage casts from pushback (#337)
