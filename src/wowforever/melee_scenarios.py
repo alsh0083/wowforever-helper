@@ -111,7 +111,7 @@ def stat_table(class_name: str):
     from wowforever.classes import class_module
 
     module = class_module(class_name)
-    if getattr(module, "ENGINE", None) == "spell":
+    if getattr(module, "ENGINE", None) in ("spell", True):   # True is the mage's own engine
         from wowforever.stats import StatTable
 
         caster = StatTable.load(class_name)
