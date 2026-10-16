@@ -1050,37 +1050,43 @@
       "solo": 56.0
      },
      "40": {
-      "score": 144.6,
-      "low": 142.5,
-      "high": 154.0,
-      "unbuffed": 142.5,
+      "score": 78.0,
+      "low": 70.9,
+      "high": 82.3,
+      "unbuffed": 70.9,
       "top_buffs": [
-       "curse_of_the_elements"
+       "blessing_of_kings",
+       "mark_of_the_wild",
+       "arcane_intellect"
       ],
       "unit": "dps",
-      "solo": 142.5
+      "solo": 70.9
      },
      "50": {
-      "score": 185.4,
-      "low": 181.8,
-      "high": 200.4,
-      "unbuffed": 181.8,
+      "score": 99.6,
+      "low": 89.8,
+      "high": 106.5,
+      "unbuffed": 89.8,
       "top_buffs": [
-       "curse_of_the_elements"
+       "blessing_of_kings",
+       "mark_of_the_wild",
+       "arcane_intellect"
       ],
       "unit": "dps",
-      "solo": 181.8
+      "solo": 89.8
      },
      "60": {
-      "score": 297.8,
-      "low": 292.0,
-      "high": 321.8,
-      "unbuffed": 292.0,
+      "score": 157.9,
+      "low": 142.3,
+      "high": 169.2,
+      "unbuffed": 142.3,
       "top_buffs": [
-       "curse_of_the_elements"
+       "blessing_of_kings",
+       "mark_of_the_wild",
+       "arcane_intellect"
       ],
       "unit": "dps",
-      "solo": 292.0
+      "solo": 142.3
      }
     },
     "raid": {
@@ -1583,37 +1589,37 @@
      "weapon_dps": 0.005722
     },
     "40": {
-     "score": 0.689,
+     "score": 0.5783,
      "stamina": 0.0,
-     "intellect": 0.000283,
+     "intellect": 0.000895,
      "spirit": 0.0,
-     "spell_power": 0.001666,
-     "crit_rating": 0.000316,
-     "hit_rating": 0.0008,
-     "crit_pct": 0.002724,
-     "hit_pct": 0.006892
+     "spell_power": 0.00136,
+     "crit_rating": 0.000262,
+     "hit_rating": 0.000663,
+     "crit_pct": 0.002254,
+     "hit_pct": 0.005714
     },
     "50": {
-     "score": 0.7666,
+     "score": 0.6239,
      "stamina": 0.0,
-     "intellect": 0.000314,
+     "intellect": 0.00092,
      "spirit": 0.0,
-     "spell_power": 0.001605,
-     "crit_rating": 0.000446,
-     "hit_rating": 0.000671,
-     "crit_pct": 0.005049,
-     "hit_pct": 0.007584
+     "spell_power": 0.001263,
+     "crit_rating": 0.000357,
+     "hit_rating": 0.000538,
+     "crit_pct": 0.004039,
+     "hit_pct": 0.006079
     },
     "60": {
-     "score": 1.032,
+     "score": 0.7993,
      "stamina": 0.0,
-     "intellect": 0.00038,
+     "intellect": 0.001128,
      "spirit": 0.0,
-     "spell_power": 0.001485,
-     "crit_rating": 0.000513,
-     "hit_rating": 0.000733,
-     "crit_pct": 0.007178,
-     "hit_pct": 0.010259
+     "spell_power": 0.001109,
+     "crit_rating": 0.000389,
+     "hit_rating": 0.000559,
+     "crit_pct": 0.005452,
+     "hit_pct": 0.007818
     }
    },
    "stat_priority": {
@@ -1621,34 +1627,34 @@
     "basis": "PvE score",
     "stats": [
      {
-      "stat": "spell_power",
+      "stat": "intellect",
       "share": 1.0,
       "tier": 1
      },
      {
+      "stat": "spell_power",
+      "share": 0.983,
+      "tier": 1
+     },
+     {
       "stat": "hit_rating",
-      "share": 0.494,
+      "share": 0.496,
       "tier": 2
      },
      {
       "stat": "crit_rating",
       "share": 0.345,
       "tier": 3
-     },
-     {
-      "stat": "intellect",
-      "share": 0.256,
-      "tier": 4
      }
     ]
    },
    "about": [
     "38 points in Elemental, with 13 in Enhancement. Built for PvE. On this order the key talents arrive as follows: Call of Thunder at 37, Lava Burst at 52, Elemental Focus at 53, Shamanistic Focus at 54 and Earthbound at 60.",
     "In the model's rotation it keeps Flame Shock up, uses Lava Burst and Chain Lightning on cooldown and fills with Lightning Bolt.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and dungeon damage (100%), and weakest at raid damage (53%).",
-    "In a dungeon group it gains most from Curse of the Elements: about 2% more damage at 60 than unbuffed, on average across groups.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and duels against melee (100%), and weakest at raid damage (53%).",
+    "In a dungeon group it gains most from Blessing of Kings, Mark of the Wild and Arcane Intellect: about 11% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, strength 0.14, hit rating 0.11 and crit rating 0.1; at level 60, spell power 1, hit rating 0.49, crit rating 0.35 and intellect 0.26. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, strength 0.14, hit rating 0.11 and crit rating 0.1; at level 60, intellect 1, spell power 0.98, hit rating 0.5 and crit rating 0.34. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -1767,37 +1773,43 @@
       "solo": 56.0
      },
      "40": {
-      "score": 144.6,
-      "low": 142.5,
-      "high": 154.0,
-      "unbuffed": 142.5,
+      "score": 78.0,
+      "low": 70.9,
+      "high": 82.3,
+      "unbuffed": 70.9,
       "top_buffs": [
-       "curse_of_the_elements"
+       "blessing_of_kings",
+       "mark_of_the_wild",
+       "arcane_intellect"
       ],
       "unit": "dps",
-      "solo": 142.5
+      "solo": 70.9
      },
      "50": {
-      "score": 185.4,
-      "low": 181.8,
-      "high": 200.4,
-      "unbuffed": 181.8,
+      "score": 99.6,
+      "low": 89.8,
+      "high": 106.5,
+      "unbuffed": 89.8,
       "top_buffs": [
-       "curse_of_the_elements"
+       "blessing_of_kings",
+       "mark_of_the_wild",
+       "arcane_intellect"
       ],
       "unit": "dps",
-      "solo": 181.8
+      "solo": 89.8
      },
      "60": {
-      "score": 297.8,
-      "low": 292.0,
-      "high": 321.8,
-      "unbuffed": 292.0,
+      "score": 157.9,
+      "low": 142.3,
+      "high": 169.2,
+      "unbuffed": 142.3,
       "top_buffs": [
-       "curse_of_the_elements"
+       "blessing_of_kings",
+       "mark_of_the_wild",
+       "arcane_intellect"
       ],
       "unit": "dps",
-      "solo": 292.0
+      "solo": 142.3
      }
     },
     "raid": {
@@ -2362,8 +2374,8 @@
    "about": [
     "38 points in Elemental, with 13 in Enhancement. Built for PvP. On this order the key talents arrive as follows: Call of Thunder at 37, Lava Burst at 52, Elemental Focus at 53, Shamanistic Focus at 54 and Earthbound at 60.",
     "In the model's rotation it keeps Flame Shock up, uses Lava Burst and Chain Lightning on cooldown and fills with Lightning Bolt.",
-    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and dungeon damage (100%), and weakest at raid damage (53%).",
-    "In a dungeon group it gains most from Curse of the Elements: about 2% more damage at 60 than unbuffed, on average across groups.",
+    "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and duels against melee (100%), and weakest at raid damage (53%).",
+    "In a dungeon group it gains most from Blessing of Kings, Mark of the Wild and Arcane Intellect: about 11% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, stamina 0.32, strength 0.14 and hit rating 0.11; at level 60, stamina 1, spell power 0.3, hit rating 0.14 and crit rating 0.1. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
@@ -3100,7 +3112,7 @@
    "about": [
     "33 points in Enhancement, with 10 in Restoration and 8 in Elemental. Built for PvE. On this order the key talents arrive as follows: Stormstrike at 30, Shamanistic Focus at 31, Spirit Weapons at 32 and Rage of the Farseer at 40.",
     "A melee shaman: auto-attacks and weapon procs carry it, with shocks and Stormstrike on top. Damage comes from auto-attacks 49%, abilities 32% and spells and procs 20%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at raid damage (100%) and AoE pulls (100%), and weakest at crowd control (54%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (100%) and raid damage (100%), and weakest at crowd control (54%).",
     "In a dungeon group it gains most from Sunder Armor, Strength of Earth Totem and Blessing of Might: about 33% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, crit rating 0.15, strength 0.14 and hit rating 0.11; at level 60, weapon DPS 1, strength 0.14, crit rating 0.13 and agility 0.09. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -3838,7 +3850,7 @@
    "about": [
     "33 points in Enhancement, with 18 in Elemental. Built for PvP. On this order the key talents arrive as follows: Stormstrike at 30, Shamanistic Focus at 31, Spirit Weapons at 32 and Rage of the Farseer at 40.",
     "A melee shaman: auto-attacks and weapon procs carry it, with shocks and Stormstrike on top. Damage comes from auto-attacks 49%, abilities 32% and spells and procs 20%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and surviving stealth openers (100%), and weakest at crowd control (54%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (100%) and AoE pulls (100%), and weakest at crowd control (54%).",
     "In a dungeon group it gains most from Sunder Armor, Strength of Earth Totem and Blessing of Might: about 33% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, stamina 0.33, strength 0.14 and crit rating 0.13; at level 60, weapon DPS 1, stamina 0.39, strength 0.14 and crit rating 0.11. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -5289,11 +5301,11 @@
    "archetype": "deep Elemental",
    "focus": "PvE",
    "standard": "shaman-elemental-pve",
-   "standard_score": 1.0320129341436324,
+   "standard_score": 0.7992502159998004,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "shaman-elemental-pve": 1.0320129341436324
+    "shaman-elemental-pve": 0.7992502159998004
    },
    "qualifying": [
     "shaman-elemental-pve"

@@ -220,9 +220,10 @@ def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=N
         raise ValueError(f"no mage filler available at level {stats.level}")
     _, filler, rot = best
     # once dry, the mage keeps casting at the rate combat regen pays for (as scenarios.raid's fallback)
-    income = combat_regen(char, default_params("raid", stats.level))
+    p = default_params("raid", stats.level)
+    income = combat_regen(char, p)
     fallback = rot.dps * min(1.0, income / rot.mana_per_second) if rot.mana_per_second > 0 else rot.dps
-    return Output(rot.dps, rot.mana_per_second, fallback, ranged=True, spell=filler.name)
+    return Output(rot.dps, rot.mana_per_second - (income - p.mana_per_second), fallback, ranged=True, spell=filler.name)
 
 
 def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):

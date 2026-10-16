@@ -23,12 +23,25 @@ def caster_output(class_name: str, stats: Any, spells: Sequence[SpellRank], cls:
     """The caster rotation's Output (caster.py, #163); once dry, a caster keeps casting at the rate its
     regen pays for."""
     from wowforever.caster import caster_rotation
+    from wowforever.gear import caster_config
     from wowforever.melee_scenarios import Output
 
     r = caster_rotation(class_name, stats, spells, cls, ranks, target, drink_mana_per_second=drink_mana_per_second)
     gross = r.mana_per_second + r.regen_per_second
     fallback = r.dps * min(1.0, r.regen_per_second / gross) if gross > 0 else r.dps
+    cfg = caster_config(class_name)
+    if "life_tap" in cfg:
+        fallback = life_tap_fallback(r.dps, r.mana_per_second, stats.level, cfg["life_tap"])
     return Output(r.dps, r.mana_per_second, fallback, ranged=True)
+
+
+def life_tap_fallback(dps: float, drain: float, level: int, tap) -> float:
+    """Once dry, the warlock taps instead of waiting on regen (#348): one GCD per tap, the highest rank
+    the level can use, and its mana (rank base + 1 per level above the rank)."""
+    if drain <= 0:
+        return dps
+    rank = max((r for r in tap["ranks"] if r[0] <= level), key=lambda r: r[0])
+    return dps / (1 + drain * tap["gcd"] / (rank[1] + level - rank[0]))
 
 
 def caster_aoe(class_name: str, stats: Any, spells: Sequence[SpellRank], cls: ClassData,

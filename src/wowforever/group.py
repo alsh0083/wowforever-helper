@@ -279,21 +279,13 @@ def dungeon_dps(class_name: str, stats, cls, ranks: Mapping[int, int], eff: Mapp
     from wowforever.classes import engine
     from wowforever.physical import Target
 
-    if class_name == "mage":
-        from wowforever.assumptions import Assumptions
-        from wowforever.scenarios import Character, default_params, raid
-
-        buffed = buffed_stats("mage", stats, eff)
-        r = raid(Character(stats.level, buffed, cls.spells, cls, dict(ranks)), default_params("dungeon", stats.level),
-                 Assumptions.load())
-        return r.score * magic_multiplier(eff)
     d = ms._config()["dungeon"]
     unsundered = ms._anchor_at(ms._config()["questing"]["anchors"], _level(stats))[0]
     armor = max(0.0, unsundered - armor_reduction(eff))
     style = engine(class_name).playstyle(cls, ranks)
     melee_build = isinstance(stats, ms.HybridStats) and style == "melee"
     buffed = buffed_stats(class_name, stats, eff, melee_build=melee_build)
-    out = engine(class_name).output(buffed, cls.spells, cls, ranks, Target(d["target_level_offset"], armor)).dps
+    out = ms.dungeon_pull(engine(class_name).output(buffed, cls.spells, cls, ranks, Target(d["target_level_offset"], armor)), buffed.mana, stats.level)
     if style == "caster":
         return out * magic_multiplier(eff)
     physical = buffed.melee if isinstance(buffed, ms.HybridStats) else buffed
