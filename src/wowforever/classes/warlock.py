@@ -60,6 +60,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Ruin": (
         EffectRule("crit_damage_pct", r"critical strike damage bonus of your Destruction spells by (\d+(?:\.\d+)?)%", ("fire",)),
     ),
+    "Intensity": (
+        EffectRule("pushback_pct", r"Gives you a (\d+(?:\.\d+)?)% chance to resist interruption", ("destruction",)),
+    ),
     "Agonizing Flames": (
         EffectRule("damage_pct", r"damage done by all your Destruction spells by (\d+(?:\.\d+)?)%", ("fire",)),
     ),
@@ -109,7 +112,6 @@ UNMODELED: dict[str, str] = {
     "Molten Skin": "defensive: 10% less damage taken",
     "Aftermath": "control: Conflagrate dazes, stronger Immolate",
     "Shadowburn": "grants_spell",
-    "Intensity": "utility: Destruction spells resist pushback",
     "Conflagrate": "grants_spell",
     "Pyroclasm": "control: Soul Fire and AoE can stun",
     "Bane of Havoc": "grants_spell",
