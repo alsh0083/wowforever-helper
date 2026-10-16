@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import functools
 import math
+import re
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, replace
 from pathlib import Path
@@ -35,6 +36,51 @@ class Character:
     spells: tuple[SpellRank, ...]
     cls: ClassData
     ranks: Mapping[int, int]  # talent id -> rank
+
+    def __post_init__(self) -> None:
+        # #355: a spell a talent teaches is dropped unless the build takes that talent, and a
+        # taught spell whose rank text grants spell damage from max mana gets that bonus added.
+        taught = _taught(self.cls)
+        if not taught:
+            return
+        taken: dict[str, bool] = {}
+        for talent in self.cls.talents:
+            if talent.name in taught and self.ranks.get(talent.talent_id, 0) > 0:
+                taken[talent.name] = True
+        spells = []
+        for spell in self.spells:
+            mana_pct = taught.get(spell.name)
+            if mana_pct is None:
+                spells.append(spell)
+                continue
+            if not taken.get(spell.name, False):
+                continue
+            if mana_pct:
+                bonus = spell.coefficient * mana_pct / 100 * self.stats.mana
+                spell = replace(spell, min_damage=spell.min_damage + bonus,
+                                max_damage=spell.max_damage + bonus)
+            spells.append(spell)
+        object.__setattr__(self, "spells", tuple(spells))
+
+
+_TAUGHT: dict[int, dict[str, float]] = {}
+_MANA_SPELL_DAMAGE = re.compile(
+    r"gains additional Spell Damage equal to (\d+(?:\.\d+)?)% of your maximum Mana")
+
+
+def _taught(cls: ClassData) -> dict[str, float]:
+    """Spell names a talent teaches (talent name == spell name), mapped to the percent of
+    maximum mana the talent's last rank text grants as spell damage (0.0 when it grants none)."""
+    cached = _TAUGHT.get(id(cls))
+    if cached is None:
+        spell_names = {s.name for s in cls.spells}
+        cached = {}
+        for talent in cls.talents:
+            if talent.name in spell_names and talent.rank_text:
+                match = _MANA_SPELL_DAMAGE.search(talent.rank_text[-1])
+                cached[talent.name] = float(match.group(1)) if match else 0.0
+        _TAUGHT[id(cls)] = cached
+    return cached
 
 
 @dataclass(frozen=True)

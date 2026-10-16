@@ -144,7 +144,7 @@ def test_default_params_from_config_scale_with_level():
     from wowforever.scenarios import default_params
     q20, q60 = default_params("questing", 20), default_params("questing", 60)
     assert 0 < q20.mob_hp < q60.mob_hp
-    assert q20.fillers == ("Frostbolt", "Fireball", "Frostfire Bolt", "Arcane Missiles")
+    assert q20.fillers == ("Frostbolt", "Fireball", "Frostfire Bolt", "Arcane Missiles", "Frost Blast", "Arcane Wrath")
     a = default_params("aoe", 40)
     assert a.pack_sizes == (1, 2, 3, 4, 5, 6) and "Blizzard" in a.aoe_spells
     assert default_params("raid", 60).fight_seconds == 180
