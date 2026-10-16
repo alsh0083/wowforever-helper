@@ -30,10 +30,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("cast_time", r"casting time of your Corruption spell by (\d+(?:\.\d+)?) sec", ("Corruption",), sign=-1),
         EffectRule("damage_pct", r"increases the damage it deals by (\d+(?:\.\d+)?)%", ("Corruption",)),
     ),
-    "Malediction": (
-        EffectRule("damage_pct", r"periodic damage done by your Warlock spells by (\d+(?:\.\d+)?)%",
-                   ("Corruption", "Bane of Agony", "Immolate", "Wrack")),
-    ),
     "Improved Bane of Agony": (
         EffectRule("damage_pct", r"damage done by your Bane of Agony by (\d+(?:\.\d+)?)%", ("Bane of Agony",)),
     ),
@@ -87,6 +83,7 @@ UNMODELED: dict[str, str] = {
     "Siphon Life": "grants_spell",
     "Soul Siphon": "damage: drains scale with afflictions",
     "Wrack": "grants_spell",
+    "Grim Reach": "utility: range of Affliction spells (1.60.1.70425)",
     # Demonology
     "Improved Health Funnel": "pet: stronger Health Funnel",
     "Improved Imp": "pet: stronger Imp",
