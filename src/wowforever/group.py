@@ -22,7 +22,7 @@ RESOLVED = ROOT / "data" / "buffs" / "group_buffs.json"
 LEVELS = tuple(range(10, 61))
 
 # client EffectAura -> what it changes
-AURA_KIND = {99: "attack_power", 124: "ranged_attack_power", 29: "stat", 137: "all_stats_pct", 290: "crit_pct",
+AURA_KIND = {99: "attack_power", 124: "ranged_attack_power", 29: "stat", 137: "all_stats_pct", 290: "crit_pct", 52: "crit_pct", 57: "crit_pct",
              79: "damage_done_pct", 22: "armor", 87: "damage_taken_pct", 14: "damage_taken_flat",
              127: "ranged_attack_power_vs_target"}
 # Build 1.60.1.70291 moved the armor buffs and debuffs (Sunder Armor, Faerie Fire, Curse of
