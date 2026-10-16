@@ -1,5 +1,6 @@
 """Mage-specific knowledge: where the Forever mage talent trees live in the client's trait data."""
 
+from wowforever.assumptions import Assumptions
 from wowforever.classes import EffectRule, TraitLayout, TreeBand
 
 # Forever builds its Classic-style trees on the modern Trait system (trait tree 1112 = all three
@@ -15,6 +16,14 @@ LAYOUT = TraitLayout(
     first_row_y=2130,
     grid=600,
 )
+
+
+def _fire_power(match) -> float:
+    """Fire Power: a flat % before 1.60.1.70425; since, x% per Fire effect on the target up to a cap, with the
+    number of effects an assumption (`fire_power_effects`, #354)."""
+    if match.group(2) is None:
+        return float(match.group(1))
+    return min(float(match.group(1)) * Assumptions.load()["fire_power_effects"], float(match.group(2)))
 
 
 # Numbers are taken from the rank text with each rule's pattern, never hard-coded;
@@ -53,8 +62,11 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("crit_chance", r"critical strike chance of your Fire spells by (\d+(?:\.\d+)?)%",
                    ("fire",)),
     ),
+    # 1.60.1.70425: x% per Fire effect on the target, capped; how many effects is an assumption (#354)
     "Fire Power": (
-        EffectRule("damage_pct", r"damage done by your Fire spells by (\d+(?:\.\d+)?)%", ("fire",)),
+        EffectRule("damage_pct",
+                   r"damage done by your Fire spells by (\d+(?:\.\d+)?)%(?: per your Fire effects on the target, up to a maximum increase of (\d+(?:\.\d+)?)%)?",
+                   ("fire",), combine=_fire_power),
     ),
     "Ignite": (
         EffectRule("dot_pct", r"additional (\d+(?:\.\d+)?)% of your spell", ("fire",)),
@@ -87,7 +99,7 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("resource", r"refund (\d+(?:\.\d+)?)% of their base mana cost",
                    ("fire", "frost")),
     ),
-    "Wake of Fire": (
+    "Improved Fire Blast": (
         EffectRule("cooldown", r"cooldown of your Fire Blast spell by (\d+(?:\.\d+)?) sec",
                    ("Fire Blast",), sign=-1),
     ),
@@ -101,8 +113,8 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("damage_pct", r"damage done by your Frost spells by (\d+(?:\.\d+)?)%", ("frost",)),
     ),
     "Improved Frostbolt": (
-        EffectRule("cast_time", r"casting time of your Frostbolt spell by (\d+(?:\.\d+)?) sec",
-                   ("Frostbolt",), sign=-1),
+        EffectRule("cast_time", r"casting time of your Frostbolt(?: and Frost Blast)? spells? by (\d+(?:\.\d+)?) sec",
+                   ("Frostbolt", "Frost Blast"), sign=-1),
     ),
     "Improved Frost Nova": (
         EffectRule("cooldown", r"cooldown of your Frost Nova spell by (\d+(?:\.\d+)?) sec",
@@ -135,16 +147,11 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Shatter": (
         EffectRule("crit_chance", r"against Frozen targets by (\d+(?:\.\d+)?)%", ("all", "@frozen")),
     ),
-    "Winter's Chill": (
-        EffectRule("crit_chance",
-                   r"critically hit the target by (\d+(?:\.\d+)?)% for \d+ sec\. Stacks up to (\d+) times",
-                   ("Frostbolt", "Ice Lance", "@sustained"),
-                   combine=lambda match: float(match.group(1)) * float(match.group(2))),
-    ),
 }
 
 UNMODELED: dict[str, str] = {
     "Arcane Blast": "grants_spell",
+    "Arcane Wrath": "grants_spell",
     "Arcane Geometry": "utility: range",
     "Arcane Power": "handled in mage_rotation",
     "Arcane Resilience": "defensive: armor from intellect",
@@ -165,6 +172,7 @@ UNMODELED: dict[str, str] = {
     "Ice Barrier": "defensive: absorb shield",
     "Ice Block": "defensive: immunity",
     "Ice Lance": "grants_spell",
+    "Winter's Chill": "damage: Cone of Cold +40% per stack on the target (1.60.1.70425); stacks need repeated Frost hits on one target, not modeled",
     "Improved Blizzard": "slow effect, v1",
     "Improved Fire Ward": "defensive: reflect",
     "Pyroblast": "grants_spell",

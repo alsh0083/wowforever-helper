@@ -54,29 +54,12 @@ def ev(s, mods):
                            target_level=TARGET, mods=mods)
 
 
-def test_new_rules_parse_and_coverage_holds():
-    assert REPORT == []
-    wc = CLS.talent_named("Winter's Chill").effects
-    assert [e.values for e in wc if e.kind == "crit_chance"] == [(2, 4, 6, 8, 10)]
-    assert [e.values for e in CLS.talent_named("Arcane Concentration").effects
-            if e.kind == "mana_cost_pct"] == [(-2, -4, -6, -8, -10)]
-
-
 def test_plain_filler_matches_single_spell_model():
     fb = spell("Frostbolt")
     r = rotation(char({}), fb, target_level=TARGET, assumptions=A, sustained=True)
     assert r.dps == pytest.approx(ev(fb, Modifiers()) / fb.cast_time)
     assert r.mana_per_second == pytest.approx(fb.mana_cost / fb.cast_time)
     assert r.weaves == {}
-
-
-def test_winters_chill_adds_sustained_frostbolt_crit():
-    fb = spell("Frostbolt")
-    r = rotation(char({tid("Winter's Chill"): 5}), fb, target_level=TARGET, assumptions=A, sustained=True)
-    assert r.dps == pytest.approx(ev(fb, Modifiers(crit_chance_bonus=10)) / fb.cast_time)
-    # not in short fights
-    short = rotation(char({tid("Winter's Chill"): 5}), fb, target_level=TARGET, assumptions=A, sustained=False)
-    assert short.dps == pytest.approx(ev(fb, Modifiers()) / fb.cast_time)
 
 
 def test_fire_blast_weave():

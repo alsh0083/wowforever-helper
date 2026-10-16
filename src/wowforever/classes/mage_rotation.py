@@ -31,6 +31,15 @@ class Rotation:
     weave_cast_times: dict[str, float]  # weave spell name -> filler time per weave cast
 
 
+def frozen_lance_multiplier(cls) -> float:
+    """Ice Lance's damage multiplier on a frozen target, from its talent's rank text ("Deals N% increased damage
+    to Frozen targets": 1 + N/100; 200% on 1.60.1.70425, #354)."""
+    import re
+
+    text = cls.talent_named("Ice Lance").rank_text[-1]
+    return 1 + float(re.search(r"Deals (\d+(?:\.\d+)?)% increased damage to Frozen targets", text).group(1)) / 100
+
+
 def frozen_hit_gain(char: Character, filler: SpellRank, *, target_level: int,
                     assumptions: Assumptions) -> float:
     """Extra damage of one hit on a frozen target (Frost Nova, #97) over spending that time on
@@ -51,8 +60,9 @@ def frozen_hit_gain(char: Character, filler: SpellRank, *, target_level: int,
     lance = best_rank(char.spells, "Ice Lance", char.level) if lance_taken else None
     frozen = frozenset({"frozen"})
     if lance is not None:
-        quad = replace(lance, min_damage=lance.min_damage * 4.0, max_damage=lance.max_damage * 4.0,
-                       coefficient=lance.coefficient * 4.0)
+        x = frozen_lance_multiplier(char.cls)
+        quad = replace(lance, min_damage=lance.min_damage * x, max_damage=lance.max_damage * x,
+                       coefficient=lance.coefficient * x)
         mods = modifiers_for(filler, char.cls, ranks, frozenset())
         cast = effective_cast_time(filler, mods)
         if filler.channeled:
@@ -73,9 +83,12 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
 
     def value(name: str, kind: str) -> float:
         """Per-rank value of a taken talent's `kind` effect; 0 when untaken."""
-        talent = next((t for t in char.cls.talents if t.name == name), None)
-        rank = taken(name)
-        if talent is None or rank <= 0:
+        try:
+            talent = char.cls.talent_named(name)      # accepts a patch's renamed talent (config/talent_renames.toml)
+        except KeyError:
+            return 0.0
+        rank = char.ranks.get(talent.talent_id, 0)
+        if rank <= 0:
             return 0.0
         for effect in talent.effects:
             if effect.kind == kind:
@@ -140,7 +153,7 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
     if "fire" in filler.schools:
         blast = best_rank(char.spells, "Fire Blast", char.level)
         if blast is not None:
-            cooldown = blast.cooldown + value("Wake of Fire", "cooldown")  # Wake of Fire is negative
+            cooldown = blast.cooldown + value("Improved Fire Blast", "cooldown")  # negative
             if cooldown > 0:
                 add(blast, 60.0 / cooldown, GCD_SECONDS, mods_for(blast))
     if sustained and scorch_taken and "fire" in filler.schools:
@@ -160,10 +173,11 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
     if (fof_rank > 0 or freeze_procs > 0) and taken("Ice Lance") > 0 and filler.slow_pct > 0:
         lance = best_rank(char.spells, "Ice Lance", char.level)
         if lance is not None:
-            # +300% damage vs a frozen target: each Fingers of Frost charge, and one per freeze
-            frozen = replace(lance, min_damage=lance.min_damage * 4.0,
-                             max_damage=lance.max_damage * 4.0,
-                             coefficient=lance.coefficient * 4.0)
+            # Ice Lance's frozen bonus: each Fingers of Frost charge, and one per freeze
+            x = frozen_lance_multiplier(char.cls)
+            frozen = replace(lance, min_damage=lance.min_damage * x,
+                             max_damage=lance.max_damage * x,
+                             coefficient=lance.coefficient * x)
             chance = value("Fingers of Frost", "proc_chance") / 100.0 * fof_rank
             add(frozen, (60.0 / cast) * (chance + freeze_procs), GCD_SECONDS,
                 mods_for(lance, conditions | {"frozen"}))

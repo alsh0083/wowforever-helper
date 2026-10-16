@@ -89,3 +89,11 @@ why = "Chain Lightning loses damage on each jump in Classic (30%); Forever's cli
 source = "Classic Chain Lightning text; dataset 1.60.1.70291 (MaxTargets 0, no falloff field)"
 tested = ""
 talents = ["Chain Lightning"]
+
+[fire_power_effects]
+value = 2
+options = [1, 2, 3, 4]
+why = "Fire Power (1.60.1.70425) adds its % once per Fire effect on the target, up to a cap. A Fire mage's boss keeps Ignite and Fireball's DoT up; Pyroblast's DoT and Flamestrike only some of the time."
+source = "Fire Power rank text, 1.60.1.70425; issue #354"
+tested = ""
+talents = ["Fire Power"]

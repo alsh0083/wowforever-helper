@@ -84,7 +84,8 @@ def test_summary_mentions_source_lag_and_effect_report(data):
     text = s.text()
     assert "1.60.1.70205" in text
     assert "wowforevertalent.com is on build 1.60.1.70170" in text
-    assert s.effect_problems == []
+    # the rules follow the pinned dataset; this 70205 fixture lacks talents added since (Arcane Wrath, 70425)
+    assert all("not a talent in the dataset" in p for p in s.effect_problems)
 
 
 def test_second_check_with_no_changes_saves_nothing_new(data):
