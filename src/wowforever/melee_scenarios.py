@@ -9,6 +9,7 @@ with a pet let it tank; a Lone Wolf hunter's health isn't modeled yet.
 from __future__ import annotations
 
 import csv
+import dataclasses
 import math
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, fields
@@ -151,10 +152,16 @@ def questing(class_name: str, stats: MeleeStats, spells, cls, ranks, *, melee: b
 
 
 def dungeon(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
-    """DPS on a level+2 dungeon pull with tank debuffs (one minute; mana isn't limiting)."""
+    """DPS on a level+2 dungeon pull with tank debuffs (one minute, run on the build's mana pool, #348)."""
     d = _config()["dungeon"]
     armor = _anchor_at(_config()["questing"]["anchors"], stats.level)[0] * d["armor_share_of_questing"]
-    return engine(class_name).output(stats, spells, cls, ranks, Target(d["target_level_offset"], armor)).dps
+    output = engine(class_name).output(stats, spells, cls, ranks, Target(d["target_level_offset"], armor))
+    return dungeon_pull(output, stats.mana, stats.level)
+
+
+def dungeon_pull(out: Output, mana: float, level: int) -> float:
+    """DPS over one dungeon pull (#348): a 60 s pull on the mana pool with no potions and no Evocation."""
+    return raid_dps(dataclasses.replace(out, mana_cooldown=None), mana, default_params("dungeon", level))
 
 
 def raid_dps(out: Output, mana: float, p) -> float:

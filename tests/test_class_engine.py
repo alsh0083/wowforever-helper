@@ -113,7 +113,14 @@ def test_casters_run_the_caster_rotation(name):
         out = engine(name).output(stats, cls.spells, cls, ranks, BOSS, drink_mana_per_second=40.0)
         gross = r.mana_per_second + r.regen_per_second
         assert out.dps == r.dps and out.mana_per_second == r.mana_per_second and out.ranged
-        assert out.fallback_dps == pytest.approx(r.dps * min(1.0, r.regen_per_second / gross) if gross else r.dps)
+        if name == "warlock":       # once dry, the warlock taps (#348)
+            from wowforever.classes.engines import life_tap_fallback
+            from wowforever.gear import caster_config
+
+            expected = life_tap_fallback(r.dps, r.mana_per_second, 60, caster_config("warlock")["life_tap"])
+        else:
+            expected = r.dps * min(1.0, r.regen_per_second / gross) if gross else r.dps
+        assert out.fallback_dps == pytest.approx(expected)
         assert engine(name).playstyle(cls, ranks) == "caster"
 
 

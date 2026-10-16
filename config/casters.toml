@@ -33,6 +33,9 @@ regen_spirit_div = 4
 # Life Tap turns health into mana; with healers topping the warlock up, about this much mana per
 # second over a fight (estimate; Improved Life Tap isn't counted separately)
 extra_regen_per_second = 15.0
+# once dry, the warlock taps instead of waiting on regen (#348): one GCD per tap; mana per rank =
+# Forever SpellEffect base points + 1 per level above the rank's level (wago 1.60.1.70291)
+life_tap = { gcd = 1.5, ranks = [[6, 20], [16, 65], [26, 130], [36, 210], [46, 300], [56, 420]] }
 aoe_spells = ["Rain of Fire", "Hellfire"]
 [warlock.weights]
 spell_power = 1.0
