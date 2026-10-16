@@ -12,6 +12,7 @@ sources = ["wft_popular_shaman"]
 confidence = "medium"
 summary = "Elemental with Lava Burst, Lightning Overload, Elemental Fury, Earthbound and Eye of the Storm; Thundering Strikes and Ancestral Knowledge from Enhancement. The community's caster standard."
 
+adjusted = "1.60.1.70425: Call of Thunder 1 -> Elemental Mastery 1"   # points moved by Claude, not a player (#369)
 # 1.60.1.70425 (#353): Call of Thunder is gone; its point goes to Elemental Mastery, back at the bottom of the tree.
 [final]
 "Ancestral Knowledge" = 5
