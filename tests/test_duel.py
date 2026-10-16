@@ -113,12 +113,9 @@ def test_deep_frost_out_duels_deep_fire_against_melee():
     from wowforever.scenarios import Character
     from wowforever.sources.wowforevertalent import parse_page
     from wowforever.stats import StatTable
-    fix = Path(__file__).parent / "fixtures"
-    cls, _ = normalize_class(read_tables(fix / "wago-1.60.1.70205"), LAYOUT,
-                             parse_page((fix / "wowforevertalent" / "mage.html").read_text(encoding="utf-8")),
-                             wago_build="1.60.1.70205")
-    cls, _ = attach_effects(cls, TALENT_EFFECTS, UNMODELED)
-    spells = class_spells(read_tables(fix / "wago-1.60.1.70205-spells"), skill_lines=SKILL_LINES)
+    from wowforever.schema import Dataset, latest_dataset_path
+    cls, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("mage"), TALENT_EFFECTS, UNMODELED)
+    spells = cls.spells
     builds = {b.id: b for b in load_builds(class_name="mage")}
     stats = StatTable.load("mage").at(60)
 

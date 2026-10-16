@@ -16,14 +16,13 @@ from wowforever.normalize_spells import class_spells, ranks_of
 from wowforever.pvp.battleground import ENDURANCE_SECONDS, KILL_REFERENCE, battleground
 from wowforever.scenarios import Character
 from wowforever.sources.wowforevertalent import parse_page
+from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.stats import StatTable
 
 FIX = Path(__file__).parent / "fixtures"
-CLS, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
-                         parse_page((FIX / "wowforevertalent" / "mage.html").read_text(encoding="utf-8")),
-                         wago_build="1.60.1.70205")
-CLS, _ = attach_effects(CLS, TALENT_EFFECTS, UNMODELED)
-SPELLS = class_spells(read_tables(FIX / "wago-1.60.1.70205-spells"), skill_lines=SKILL_LINES)
+# the real builds on the dataset the model reads (config/dataset.toml)
+CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("mage"), TALENT_EFFECTS, UNMODELED)
+SPELLS = CLS.spells
 BUILDS = {b.id: b for b in load_builds(class_name="mage")}
 A = Assumptions.load()
 

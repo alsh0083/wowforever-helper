@@ -17,13 +17,11 @@ from wowforever.stats import StatTable
 from dataclasses import replace
 
 FIX = Path(__file__).parent / "fixtures"
-CLS, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
-                         parse_page((FIX / "wowforevertalent" / "mage.html").read_text(encoding="utf-8")),
-                         wago_build="1.60.1.70205")
-CLS, _ = attach_effects(CLS, TALENT_EFFECTS, UNMODELED)
-CLS = replace(CLS, spells=class_spells(read_tables(FIX / "wago-1.60.1.70205-spells"), skill_lines=SKILL_LINES))
+# the real builds on the dataset the model reads (config/dataset.toml)
+from wowforever.schema import Dataset, latest_dataset_path  # noqa: E402
+CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("mage"), TALENT_EFFECTS, UNMODELED)
 # the owner's former hand-made Elementalist builds stay as fixtures (tests/fixtures/builds/)
-# builds naming talents newer than the 70205 fixture (Arcane Wrath, 70425) are left out
+# fixture builds naming talents a patch removed are left out
 B = {b.id: b.final_ids(CLS) for b in [*load_builds(class_name="mage"), *load_builds(Path(__file__).parent / "fixtures" / "builds", class_name="mage")]
      if not b.unknown_talents(CLS)}
 STATS, A = StatTable.load("mage").at(60), Assumptions.load()

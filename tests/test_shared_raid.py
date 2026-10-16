@@ -25,10 +25,10 @@ from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import Output, raid_dps
 from wowforever.physical import Target
 from wowforever.scenarios import Character, RaidParams, default_params, raid
-from wowforever.schema import Dataset
+from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.stats import StatTable
 
-DATASET = Dataset.load(Path(__file__).resolve().parents[1] / "data" / "datasets" / "1.60.1.70291.json")
+DATASET = Dataset.load(latest_dataset_path())
 
 
 def params(lengths=((100.0, 1.0),), consumables=()):

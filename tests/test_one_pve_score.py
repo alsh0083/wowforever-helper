@@ -18,10 +18,10 @@ from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
 from wowforever.scenarios import Character, aoe_curve, default_params, raid
-from wowforever.schema import Dataset
+from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.stats import StatTable
 
-DATASET = Dataset.load(Path(__file__).resolve().parents[1] / "data" / "datasets" / "1.60.1.70291.json")
+DATASET = Dataset.load(latest_dataset_path())
 m = class_module("mage")
 CLS, _ = attach_effects(DATASET.class_data("mage"), m.TALENT_EFFECTS, m.UNMODELED)
 STATS = StatTable.load("mage").at(60)

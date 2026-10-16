@@ -151,8 +151,10 @@ def test_arcane_power_averages_over_its_cooldown():
 
 
 def test_weaves_never_exceed_the_minute():
-    r = rotation(char(BUILDS["deep-fire"].final_ids(CLS)), spell("Fireball"), target_level=TARGET,
-                 assumptions=A, sustained=True)
+    from wowforever.schema import Dataset, latest_dataset_path
+    cls, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("mage"), TALENT_EFFECTS, UNMODELED)
+    c = Character(60, STATS, cls.spells, cls, BUILDS["deep-fire"].final_ids(cls))   # a real build on the model's dataset
+    r = rotation(c, ranks_of(cls.spells, "Fireball")[-1], target_level=TARGET, assumptions=A, sustained=True)
     assert sum(n * t for n, t in zip(r.weaves.values(), r.weave_cast_times.values())) <= 60 + 1e-9
     assert r.dps > 0
 
