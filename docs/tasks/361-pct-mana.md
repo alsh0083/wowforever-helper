@@ -35,12 +35,21 @@ resolution happens when a class is read from it.
   to `RENAMES_FILE`'s config folder: `config/stats/`). Don't change the dataset that `class_data` is called on:
   return a new `ClassData` (`dataclasses.replace(c, spells=...)`).
 
-### 2. `src/wowforever/normalize_spells.py`
+- Add `Dataset.saved_class(class_name)` right before `class_data`: the stored class exactly as saved
+  (costs unresolved), raising `KeyError` like `class_data` when the class is missing. Docstring: what update
+  diffs compare.
+
+### 2. `src/wowforever/update.py`
+The update check diffs the new data against the previous dataset. Where it reads the baseline class
+(`baseline = baseline_ds.class_data(class_name)`), read `baseline_ds.saved_class(class_name)` instead;
+otherwise every percentage-cost spell would show up as a change (`tests/test_update.py` checks this).
+
+### 3. `src/wowforever/normalize_spells.py`
 Where it reads `costs` from `indexes.powers` (around `mana_cost = costs.get(_POWER_MANA, 0)`), also read the
 mana row's `PowerCostPct` as a float (0.0 when absent or empty) into `mana_cost_pct`, and pass it to the
 `SpellRank(...)` call.
 
-### 3. `tools/backfill_mana_cost_pct.py` (new), then run it
+### 4. `tools/backfill_mana_cost_pct.py` (new), then run it
 A script: `.venv/Scripts/python tools/backfill_mana_cost_pct.py <build> [<build> ...]`. For each build it reads
 `data/cache/wago/<build>/SpellPower.csv` (with `csv.DictReader`) and collects `PowerCostPct` of rows whose
 `PowerType` is `"0"` (mana) and whose `PowerCostPct` is non-zero, by `SpellID`. It loads
@@ -51,5 +60,5 @@ line endings. Module docstring: what it does and why (#361). Then run it once:
 `.venv/Scripts/python tools/backfill_mana_cost_pct.py 1.60.1.70291 1.60.1.70425`.
 
 ## Done when
-- `tests/test_mana_cost_pct.py` passes: 7 tests.
+- `tests/test_mana_cost_pct.py` passes: 7 tests, and `tests/test_update.py` still passes.
 - The fast suite has no new failures apart from moved regression pins.
