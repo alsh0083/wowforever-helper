@@ -45,6 +45,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Improved Mind Blast": (
         EffectRule("cooldown", r"cooldown of your Mind Blast spell by (\d+(?:\.\d+)?) sec", ("Mind Blast",), sign=-1),
     ),
+    "Twilight Focus": (
+        EffectRule("pushback_pct", r"Gives you a (\d+(?:\.\d+)?)% chance to avoid interruption", ("all",)),
+    ),
     "Holy Specialization": (
         EffectRule("crit_chance", r"critical effect chance of your Holy spells by (\d+(?:\.\d+)?)%", ("holy",)),
     ),
@@ -86,7 +89,6 @@ UNMODELED: dict[str, str] = {
     "Divine Aegis": "healing: crit heals leave a shield",
     "Power Infusion": "grants_spell",
     # Holy
-    "Twilight Focus": "utility: 70% pushback avoidance",
     "Improved Renew": "healing: +15% Renew",
     "Spell Warding": "defensive: 10% less spell damage taken",
     "Holy Nova": "grants_spell",
