@@ -59,12 +59,13 @@ def test_pair_divergence_is_described():
 
 
 def test_a_model_pick_build_sits_next_to_its_community_standard():
-    # Deep Arcane PvE: the community standard, then its model pick as a build with the gain and changes
+    # Deep Frost PvE: the community standard, then its model pick as a build with the gain and changes
+    # (deep Arcane PvE lost its pick when the mage moved to the shared PvE score, #317)
     live = render(json.loads((Path(__file__).parents[1] / "data" / "report.json").read_text(encoding="utf-8")), {})
-    start = live.index('data-slot="deep Arcane|PvE"')
+    start = live.index('data-slot="deep Frost|PvE"')
     cell = live[start:live.index('data-slot=', start + 10)]
-    assert cell.index('data-build="deep-arcane"') < cell.index('data-build="deep-arcane-model"')
-    assert "Model pick: " in cell and "vs standard" in cell and "Talent changes from Deep Arcane (PvE)" in cell
+    assert cell.index('data-build="mage-frost-pve"') < cell.index('data-build="mage-frost-pve-model"')
+    assert "Model pick: " in cell and "vs standard" in cell and "Talent changes from Frost (PvE)" in cell
     assert 'class="model"' not in cell                # no separate pick box for the same build
 
 
