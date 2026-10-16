@@ -180,12 +180,23 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
     tougher = sum(e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
                   for e in t.effects if e.kind == "break_threshold_pct" and roots & set(e.applies_to))
     root_durations = [c.duration for c in controls if c.kind == "root"]
+    # self-immunities share Forbearance (#337); the side takes the best one, like the mage's Ice Block
+    immunity_share = max((spell.immunity / spell.cooldown for name in cfg.get("immunities", ())
+                          if (spell := best_rank(spells, name, stats.level)) is not None and spell.cooldown > 0),
+                         default=0.0)
+    # pushback protection from taken talents, capped at 100% (#337)
+    pushback = 0.0
+    for name in cfg.get("pushback_talents", ()):
+        talent = cls.talent_named(name)
+        if (rank := ranks.get(talent.talent_id, 0)) > 0:
+            pushback += sum(e.values[rank - 1] for e in talent.effects if e.kind == "pushback_pct") / 100
+    pushback = min(pushback, 1.0)
     return Side(
         health=row.health,
         dps=output.dps,
         melee_bonus_dps=thorns,
         absorb_per_min=0.0,
-        immunity_share=0.0,
+        immunity_share=immunity_share,
         # roots don't stop casting, so lockout_seconds skips them; they're kiting time vs melee
         root=min(60.0, sum(c.duration * 60 / c.cooldown for c in controls if c.kind == "root" and c.cooldown > 0)),
         stun=sum(locks.get(kind, 0.0) for kind in STOPS_ATTACKS),
@@ -202,6 +213,7 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
         root_duration=max(root_durations, default=0.0),
         escapes=sum(60 / s.cooldown for name in cfg.get("escapes", ())
                     if (s := best_rank(spells, name, stats.level)) is not None and s.cooldown > 0),
+        pushback=pushback,
         mana=getattr(row, "mana", 0.0),
         mana_per_second=output.mana_per_second,
     )

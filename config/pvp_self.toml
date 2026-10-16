@@ -51,6 +51,8 @@ slow = 0.5
 [priest]
 # escape cooldowns for the survival axis (#322) (a fear to break away); LOW confidence, Classic roles
 escapes = ["Psychic Scream"]
+# talents that protect the class's damage casts from pushback (#337)
+pushback_talents = ["Twilight Focus"]
 # casters spend mana, not a shared energy budget, on controls
 energy_per_minute = 0
 controls = [
@@ -64,6 +66,8 @@ slow = 0.17
 [warlock]
 # escape cooldowns for the survival axis (#322) (a fear to break away); LOW confidence, Classic roles
 escapes = ["Death Coil"]
+# talents that protect the class's damage casts from pushback (#337)
+pushback_talents = ["Intensity"]
 energy_per_minute = 0
 controls = [
   { name = "Fear", kind = "fear", duration = 4.0, cooldown = 15 },
@@ -78,6 +82,8 @@ controls = [
   { name = "Entangling Roots", kind = "root", duration = 10.0, cooldown = 15 },
 ]
 slow = 0.0
+# talents that protect the class's damage casts from pushback (#337)
+pushback_talents = ["Nature's Focus"]
 
 # self-healing in duels (#265, #279): a healing phase opens with each of `hots` once, then `hot_burst`, then the best of `heals`; share of mana spent healing (estimate)
 heals = ["Healing Touch", "Regrowth"]
@@ -88,6 +94,8 @@ heal_mana_share = 0.5
 [shaman]
 # escape cooldowns for the survival axis (#322) (snares pursuers); LOW confidence, Classic roles
 escapes = ["Earthbind Totem"]
+# talents that protect the class's damage casts from pushback (#337)
+pushback_talents = ["Eye of the Storm"]
 energy_per_minute = 0
 controls = [
   { name = "Earth Shock", kind = "interrupt", duration = 2.0, cooldown = 6 },
@@ -99,6 +107,8 @@ slow = 0.17
 [paladin]
 # escape cooldowns for the survival axis (#322) (frees itself from slows and roots); LOW confidence, Classic roles
 escapes = ["Blessing of Freedom"]
+# self-immunities for the survival axis and duels (#337); they share Forbearance, so the side takes the best one
+immunities = ["Divine Shield", "Divine Protection"]
 energy_per_minute = 0
 controls = [
   { name = "Hammer of Justice", kind = "stun", duration = 6.0, cooldown = 60 },
