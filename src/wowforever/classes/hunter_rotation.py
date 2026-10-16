@@ -131,6 +131,7 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
         ap = stats.attack_power + int_ap + extra_agi
         a_m = Attacker(level, ap, stats.crit_pct + crit_all + total("crit_chance", "@melee"), hit)
         cd_m = total("crit_damage_pct", "@melee")
+        cd_a = cd_m + total("crit_damage_pct", "@ability")
         dual = stats.off_hand is not None
         mh_swing = white_swing(stats.main_hand, a_m, target, dual_wield=dual, damage_pct=shared_pct,
                                crit_damage_pct=cd_m)
@@ -145,7 +146,7 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
         if raptor is not None:  # replaces a main-hand swing
             every = max(raptor.cooldown, stats.main_hand[2])
             hit_ev = yellow_attack(mh_avg + ap / 14 * stats.main_hand[2] + raptor.weapon_bonus, a_m, target,
-                                   damage_pct=shared_pct, crit_damage_pct=cd_m)
+                                   damage_pct=shared_pct, crit_damage_pct=cd_a)
             melee += (hit_ev - mh_swing) / every
             mana_m += raptor.mana_cost * melee_cost / every
         for name in ("Mongoose Bite", "Strider Kick"):
@@ -154,7 +155,7 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
                 continue
             base = mh_avg + ap / 14 * c["normalized_speed"]["one_hand"] + strike.weapon_bonus
             base *= strike.weapon_pct / 100 if strike.weapon_pct else 1
-            ev = yellow_attack(base, a_m, target, damage_pct=shared_pct, crit_damage_pct=cd_m)
+            ev = yellow_attack(base, a_m, target, damage_pct=shared_pct, crit_damage_pct=cd_a)
             ev *= 1 + total("dot_pct", name) / 100          # Lacerating Strikes' bleed
             melee += ev / strike.cooldown
             mana_m += strike.mana_cost * melee_cost / strike.cooldown
