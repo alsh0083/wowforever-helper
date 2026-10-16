@@ -7,7 +7,8 @@ from wowforever.builds import load_builds
 from wowforever.classes.mage import LAYOUT, SKILL_LINES, TALENT_EFFECTS, UNMODELED
 from wowforever.consensus import Consensus
 from wowforever.effects import attach_effects
-from wowforever.focus import pve_score_fn, pvp_core_talents, pvp_score_fn
+from wowforever import melee_scenarios as ms
+from wowforever.focus import class_pvp_score, pvp_core_talents
 from wowforever.normalize import normalize_class, read_tables
 from wowforever.normalize_spells import class_spells
 from wowforever.pvp.duel import load_kits
@@ -36,13 +37,14 @@ def test_pvp_core_talents_come_from_consensus_tiers():
 
 
 def test_pvp_score_prefers_the_pvp_variant_and_deep_frost():
-    pvp = pvp_score_fn(CLS, STATS, A, load_kits(), Consensus.load())
+    kits, consensus = load_kits(), Consensus.load()
+    pvp = lambda ranks: class_pvp_score("mage", STATS, CLS, ranks, kits, consensus)
     assert pvp(B["elementalist-v4"]) > pvp(B["elementalist-pve"])
     assert pvp(B["deep-frost"]) > pvp(B["deep-fire"])
 
 
 def test_pve_score_prefers_the_pve_variant():
-    pve = pve_score_fn(CLS, STATS, A)
+    pve = lambda ranks: ms.pve_score("mage", STATS, CLS.spells, CLS, ranks)
     assert pve(B["elementalist-pve"]) > pve(B["elementalist-v4"])
 
 
