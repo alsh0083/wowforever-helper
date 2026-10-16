@@ -39,10 +39,14 @@ def values(name, kind):
 
 
 def test_every_talent_is_either_modeled_or_listed_as_unmodeled():
-    names = {t.name for t in CLS.talents}
-    assert set(TALENT_EFFECTS) | set(UNMODELED) == names
+    # on the dataset the model reads (config/dataset.toml): the rules follow the live talent text
+    from wowforever.effects import attach_effects
+    from wowforever.schema import Dataset, latest_dataset_path
+
+    cls, report = attach_effects(Dataset.load(latest_dataset_path()).class_data("mage"), TALENT_EFFECTS, UNMODELED)
+    assert set(TALENT_EFFECTS) | set(UNMODELED) == {t.name for t in cls.talents}
     assert not set(TALENT_EFFECTS) & set(UNMODELED)
-    assert REPORT == []                                   # every pattern matched every rank
+    assert report == []                                   # every pattern matched every rank
 
 
 @pytest.mark.parametrize("name, kind, expected", [

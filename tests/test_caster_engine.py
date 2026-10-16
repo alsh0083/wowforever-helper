@@ -54,8 +54,12 @@ def test_each_shadow_talent_raises_dps(talent):
 
 
 def test_meditation_pays_part_of_the_mana():
+    from wowforever.caster import talent_stats
+
     r = caster_rotation("priest", STATS, CLS.spells, CLS, BUILDS["priest-shadow"], BOSS)
-    assert r.regen_per_second == pytest.approx(spirit_regen("priest", STATS) * 0.5)
+    # Spirit after Dark Inspiration (70425, #356)
+    spirit = talent_stats("priest", STATS, CLS, BUILDS["priest-shadow"])
+    assert r.regen_per_second == pytest.approx(spirit_regen("priest", spirit) * 0.5)
 
 
 def test_raid_is_mana_limited_but_shadowform_halves_costs():
