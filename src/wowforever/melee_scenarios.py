@@ -68,6 +68,8 @@ class Output:
     pet: bool = False           # a pet fights alongside (and tanks while questing)
     ranged: bool = False        # the rotation fights from range
     spell: str | None = None    # the filler the rotation chose, where it chooses one (mage, #316)
+    mana_cooldown: tuple[float, float] | None = None   # (channel seconds, mana) a class spends to
+                                                       # refill when a raid fight would run it dry (Evocation, #317)
 
 
 def _config() -> dict:
@@ -155,12 +157,11 @@ def dungeon(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
     return engine(class_name).output(stats, spells, cls, ranks, Target(d["target_level_offset"], armor)).dps
 
 
-def raid(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
-    """Sustained DPS against a debuffed boss over the mage's fight-length mix; hunters spend the
-    same mana budget (pool, Mana Ruby, potions and runes, Blessing of Wisdom), then Auto Shot."""
-    r = _config()["raid"]
-    out = engine(class_name).output(stats, spells, cls, ranks, Target(r["target_level_offset"], r["armor"]))
-    p = default_params("raid", stats.level)
+def raid_dps(out: Output, mana: float, p) -> float:
+    """Sustained DPS over a fight-length mix for one Output (#317): full DPS while the mana budget
+    (pool + one-off mana + each consumable once per started cooldown) lasts, then fallback DPS;
+    when the budget would run dry, `out.mana_cooldown` (channel seconds, mana) refills it and
+    costs its channel time (the mage's Evocation)."""
     drain = out.mana_per_second - p.mana_per_second
     lengths = p.fight_lengths or ((p.fight_seconds, 1.0),)
     total = weight = 0.0
@@ -168,12 +169,25 @@ def raid(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
         if drain <= 0:
             score = out.dps
         else:
-            budget = stats.mana + p.extra_mana + sum(m * math.ceil(seconds / cd) for m, cd in p.consumables)
-            full = min(seconds, budget / drain)
-            score = (out.dps * full + out.fallback_dps * (seconds - full)) / seconds
+            budget = mana + p.extra_mana + sum(m * math.ceil(seconds / cd) for m, cd in p.consumables)
+            active = seconds
+            if out.mana_cooldown is not None and budget / drain < seconds:
+                active -= out.mana_cooldown[0]
+                budget += out.mana_cooldown[1]
+            full = min(active, budget / drain)
+            score = (out.dps * full + out.fallback_dps * (active - full)) / seconds
         total += score * w
         weight += w
     return total / weight
+
+
+def raid(class_name: str, stats: MeleeStats, spells, cls, ranks) -> float:
+    """Sustained DPS against a debuffed boss over the mage's fight-length mix; hunters spend the
+    same mana budget (pool, Mana Ruby, potions and runes, Blessing of Wisdom), then Auto Shot."""
+    r = _config()["raid"]
+    out = engine(class_name).output(stats, spells, cls, ranks, Target(r["target_level_offset"], r["armor"]),
+                                    sustained=True)
+    return raid_dps(out, stats.mana, default_params("raid", stats.level))
 
 
 def aoe(class_name: str, stats: MeleeStats, spells, cls, ranks) -> tuple[float, str]:
