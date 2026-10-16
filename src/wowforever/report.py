@@ -24,7 +24,7 @@ from wowforever.focus import class_pvp_score
 from wowforever.optimizer import optimize_order
 from wowforever.shortlist import build_shortlist
 from wowforever.pvp.battleground import best_battleground, best_side_battleground
-from wowforever.pvp.duel import best_scenario_scores, load_kits, outnumbered_scores
+from wowforever.pvp.duel import best_outnumbered, best_scenario_scores, load_kits
 from wowforever.rules import check_order, points_available
 from wowforever.scenarios import (Character, aoe_curve, best_rank, default_params, questing, raid,
                                   usable_fillers)
@@ -97,8 +97,7 @@ def score_build(order: Sequence[int], cls: ClassData, spells, stats: StatTable,
                 "score": round(result["score"], 3), "unit": "duel 0-1", "spell": result["spell"],
                 "matchups": {k: round(v, 3) for k, v in result["matchups"].items()}}
         # outnumbered (2v1, #278, #287): a separate score, with the filler that does best
-        two = max(((outnumbered_scores(side, kits)["score"], spell) for spell, side in sides),
-                  default=(0.5, None))
+        two = best_outnumbered(sides, kits)
         scores.setdefault("outnumbered", {})[level] = {"score": round(two[0], 3), "unit": "2v1 0-1", "spell": two[1]}
         d = raid(char, default_params("dungeon", level), assumptions)
         g = group.grouped_dungeon("mage", stats.at(level), cls, ranks_at(order, level, cls))
@@ -330,7 +329,6 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
     from wowforever import melee_scenarios as ms
     from wowforever.consensus import Consensus
     from wowforever.optimizer import optimize_order
-    from wowforever.pvp.class_pvp import outnumbered_score
     from wowforever.rules import points_available
     from wowforever.shortlist import build_shortlist
 
@@ -369,8 +367,8 @@ def melee_report(class_name: str, cls: ClassData, builds: Sequence[Build], datas
                                         "solo": round(ms.dungeon(class_name, stats, spells, cls, ranks), 1)}
             seconds, spell = ms.aoe(class_name, stats, spells, cls, ranks)
             kits = load_kits(level=level)
-            two = outnumbered_score(class_name, stats, spells, cls, ranks, kits)
             sides = engine(class_name).sides(stats, spells, cls, ranks)
+            two, _ = best_outnumbered(sides, kits)
             for name, result in best_scenario_scores(sides, kits).items():
                 scores.setdefault(name, {})[level] = {
                     "score": round(result["score"], 3), "unit": "duel 0-1",

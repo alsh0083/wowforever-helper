@@ -371,3 +371,15 @@ def best_scenario_scores(sides: Sequence[tuple[str | None, Side]],
             if name not in best or result["score"] > best[name]["score"]:
                 best[name] = {**result, "spell": spell}
     return best
+
+
+def best_outnumbered(sides: Sequence[tuple[str | None, Side]], kits: Sequence[Kit]) -> tuple[float, str | None]:
+    """The best outnumbered (2v1) score over the build's duel sides (#278, #317), with that side's
+    name: the mage's best filler, or None for a class with one unnamed side; ties go to the earlier
+    side, and no sides is an even fight."""
+    best: tuple[float, str | None] | None = None
+    for name, side in sides:
+        score = outnumbered_scores(side, kits)["score"]
+        if best is None or score > best[0]:
+            best = (score, name)
+    return (0.5, None) if best is None else best
