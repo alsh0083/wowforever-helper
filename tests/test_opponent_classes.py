@@ -63,7 +63,12 @@ def test_off_grid_nodes_snap_or_hide():
 
 @pytest.mark.parametrize("name", sorted(CLASSES))
 def test_every_talent_is_classified_exactly_once(name):
-    assert loaded(name)[3] == []
+    # on the dataset the model reads (config/dataset.toml): the rules follow the live talent text
+    from wowforever.schema import Dataset, latest_dataset_path
+
+    module = class_module(name)
+    assert attach_effects(Dataset.load(latest_dataset_path()).class_data(name), module.TALENT_EFFECTS,
+                          module.UNMODELED)[1] == []
 
 
 @pytest.mark.parametrize("name", sorted(CLASSES))
