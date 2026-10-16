@@ -92,7 +92,7 @@ UNMODELED: dict[str, str] = {
     "Pursuit of Justice": "mobility: +15% movement speed",
     "Eye for an Eye": "damage: reflects crit damage",
     "Repentance": "grants_spell",
-    "Champion of the Light": "damage: spell damage from Intellect",
+    "Champion of the Light": "damage: spell damage from 30% of Intellect (1.60.1.70425); the Retribution model carries no spell power",
     "Instrument of Law": "damage: faster Hammer of Wrath, less threat",
     "Twist of Light": "resource: cheaper Seals, echo on seal swap",
 }

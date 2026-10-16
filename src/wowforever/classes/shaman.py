@@ -20,6 +20,9 @@ LAYOUT = TraitLayout(
 )
 
 # Numbers are read from the rank text (#163).
+# Elemental Mastery's cooldown (180 s) comes from wago SpellCooldowns, spell 16166, not the rank text.
+ELEMENTAL_MASTERY_COOLDOWN = 180.0
+
 TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Convection": (
         EffectRule("mana_cost_pct", r"mana cost of your Shock, Lightning Bolt, Lava Burst, and Chain Lightning spells by (\d+(?:\.\d+)?)%",
@@ -41,16 +44,18 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
                    r"Reduces the pushback suffered from damaging attacks while casting Lightning Bolt, Chain Lightning, and Lava Burst by (\d+(?:\.\d+)?)%",
                    ("Lightning Bolt", "Chain Lightning", "Lava Burst")),
     ),
-    "Call of Thunder": (
-        EffectRule("crit_chance", r"critical strike chance of your Lightning Bolt and Chain Lightning spells by (\d+(?:\.\d+)?)%",
-                   ("Lightning Bolt", "Chain Lightning")),
-    ),
     "Elemental Fury": (
         EffectRule("crit_damage_pct", r"your Fire, Frost, and Nature spells by (\d+(?:\.\d+)?)%", ("fire", "frost", "nature")),
     ),
     "Lightning Overload": (
         EffectRule("damage_pct", r"(\d+)% chance to cast a second, similar spell on the same target at no additional cost that causes half damage",
                    ("Lightning Bolt", "Chain Lightning"), combine=lambda m: float(m.group(1)) / 2),
+    ),
+    # Uptime-weighted cast-time cut (15 s of the 180 s cooldown); Chain Lightning's cooldown removal isn't modeled.
+    "Elemental Mastery": (
+        EffectRule("cast_time", r"Lava Burst by (\d+(?:\.\d+)?) sec.*Lasts (\d+(?:\.\d+)?) sec",
+                   ("Lightning Bolt", "Lava Burst"), sign=-1,
+                   combine=lambda m: float(m.group(1)) * float(m.group(2)) / ELEMENTAL_MASTERY_COOLDOWN),
     ),
     "Thundering Strikes": (
         EffectRule("crit_chance", r"critical strike with all spells and attacks by (\d+(?:\.\d+)?)%", ("all",)),
@@ -80,7 +85,7 @@ UNMODELED: dict[str, str] = {
     "Reverberation": "damage: Shock cooldown -1 s",
     "Elemental Devastation": "proc: spell crits raise melee crit",
     "Elemental Focus": "proc: Clearcasting after damage spells",
-    "Improved Fire Nova": "damage: Fire Nova damage and cooldown",
+    "Trial by Fire": "damage: Fire Nova damage and cooldown, longer Magma Totem",
     "Elemental Reach": "utility: longer spell range",
     "Earthbound": "control: Earthbind Totem roots 5 s",
     "Lava Burst": "grants_spell",

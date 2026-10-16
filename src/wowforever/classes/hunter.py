@@ -77,7 +77,7 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("crit_chance", r"critical strike chance of your pets and hawks by (\d+(?:\.\d+)?)%", ("@pet",)),
     ),
     "Predator's Edge": (
-        EffectRule("crit_damage_pct", r"melee critical strike damage by (\d+(?:\.\d+)?)%", ("@melee",)),
+        EffectRule("crit_damage_pct", r"melee (?:ability )?critical strike damage by (\d+(?:\.\d+)?)%", ("@ability",)),
         EffectRule("damage_pct", r"Off Hand weapon damage by (\d+(?:\.\d+)?)%", ("@off_hand",)),
     ),
 }
