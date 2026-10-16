@@ -12,13 +12,26 @@ from __future__ import annotations
 
 import functools
 import json
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, replace
 from pathlib import Path
 from typing import Any
 
 from wowforever.toml_cache import load_toml
 
 RENAMES_FILE = Path(__file__).resolve().parents[2] / "config" / "talent_renames.toml"
+STATS_DIR = RENAMES_FILE.parent / "stats"
+
+
+@functools.lru_cache(maxsize=None)
+def _base_mana(class_name: str, level: int) -> float:
+    import csv
+    path = STATS_DIR / f"{class_name}_base.csv"
+    if not path.exists():
+        return 0.0
+    for row in csv.DictReader(path.open(encoding="utf-8")):
+        if int(row["level"]) == level:
+            return float(row["base_mana"])
+    return 0.0
 
 
 @functools.lru_cache(maxsize=None)
@@ -152,6 +165,7 @@ class SpellRank:
     cast_time: float                   # seconds; 0 = instant
     cooldown: float = 0.0
     mana_cost: int = 0
+    mana_cost_pct: float = 0.0          # % of base mana (SpellPower.PowerCostPct); Dataset.class_data resolves it (#361)
     min_damage: float = 0.0
     max_damage: float = 0.0
     coefficient: float = 0.0           # direct spell-power coefficient
@@ -236,10 +250,22 @@ class Dataset:
     provenance: tuple[Provenance, ...]
     schema_version: int = SCHEMA_VERSION
 
-    def class_data(self, class_name: str) -> ClassData:
+    def saved_class(self, class_name: str) -> ClassData:
+        """The class exactly as stored (percentage costs unresolved): what update diffs compare."""
         for c in self.classes:
             if c.class_name == class_name:
                 return c
+        raise KeyError(class_name)
+
+    def class_data(self, class_name: str) -> ClassData:
+        for c in self.classes:
+            if c.class_name == class_name:
+                base = _base_mana(class_name, c.rules.max_level)
+                if not base:
+                    return c
+                return replace(c, spells=tuple(
+                    replace(s, mana_cost=round(s.mana_cost_pct / 100 * base))
+                    if s.mana_cost == 0 and s.mana_cost_pct > 0 else s for s in c.spells))
         raise KeyError(class_name)
 
     # ---- validation -------------------------------------------------------------------------
