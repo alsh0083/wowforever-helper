@@ -81,7 +81,7 @@ reach = "physical"
 id = "leader_of_the_pack"
 spell = "Leader of the Pack"
 spell_id = 24932
-aura = 290
+aura = 52           # melee and ranged crit since 1.60.1.70425 (was 290, all crit; #359)
 provider = { class = "druid", talent = "Leader of the Pack", tree = "Feral Combat" }
 stack = "leader_of_the_pack"
 reach = "physical"
@@ -89,7 +89,7 @@ reach = "physical"
 [[buff]]
 id = "moonkin_aura"
 spell = "Moonkin Aura"
-aura = 290
+aura = 57           # spell crit since 1.60.1.70425 (was 290, all crit; #359)
 provider = { class = "druid", talent = "Moonkin Form", tree = "Balance" }
 stack = "moonkin_aura"
 reach = "casters"
