@@ -1051,6 +1051,13 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Repentance"
+    ],
+    "bonus": 0.0
+   },
    "about": [
     "33 points in Holy, with 18 in Protection. Built for PvP. On this order the key talents arrive as follows: Voice of Truth at 32, Divine Favor at 50, Holy Shock at 54 and Light's Vigil at 60.",
     "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order.",
@@ -1184,6 +1191,13 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Repentance"
+    ],
+    "bonus": 0.0
+   },
    "about": [
     "36 points in Holy, with 10 in Protection and 5 in Retribution. Built for PvE. On this order the key talents arrive as follows: Voice of Truth at 37, Divine Favor at 50, Holy Shock at 54 and Light's Vigil at 60.",
     "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order.",
@@ -1316,6 +1330,13 @@
       "tier": 5
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Repentance"
+    ],
+    "bonus": 0.0
    },
    "about": [
     "37 points in Protection, with 14 in Holy. Built for PvP. On this order the key talents arrive as follows: Voice of Truth at 32, Improved Seal of Fury at 33, Swift Judgement at 45, Templar's Bulwark at 49 and Holy Shield at 60.",
@@ -1451,6 +1472,13 @@
       "tier": 5
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Repentance"
+    ],
+    "bonus": 0.0
    },
    "about": [
     "42 points in Protection, with 9 in Retribution. Built for PvE. On this order the key talents arrive as follows: Improved Seal of Fury at 36, Swift Judgement at 45, Templar's Bulwark at 49 and Holy Shield at 60.",
@@ -1654,304 +1682,304 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.587,
+      "score": 0.593,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.665,
-       "hunter-survival": 0.484,
-       "paladin-retribution": 0.71,
-       "rogue-combat": 0.533,
-       "rogue-subtlety": 0.503,
-       "shaman-enhancement": 0.656,
-       "warrior-arms": 0.555
+       "druid-feral": 0.671,
+       "hunter-survival": 0.491,
+       "paladin-retribution": 0.716,
+       "rogue-combat": 0.54,
+       "rogue-subtlety": 0.51,
+       "shaman-enhancement": 0.662,
+       "warrior-arms": 0.561
       }
      },
      "30": {
-      "score": 0.571,
+      "score": 0.577,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.681,
-       "hunter-survival": 0.454,
-       "paladin-retribution": 0.695,
-       "rogue-combat": 0.522,
-       "rogue-subtlety": 0.504,
-       "shaman-enhancement": 0.606,
-       "warrior-arms": 0.532
+       "druid-feral": 0.687,
+       "hunter-survival": 0.461,
+       "paladin-retribution": 0.7,
+       "rogue-combat": 0.529,
+       "rogue-subtlety": 0.511,
+       "shaman-enhancement": 0.612,
+       "warrior-arms": 0.539
       }
      },
      "40": {
-      "score": 0.548,
+      "score": 0.556,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.69,
-       "hunter-survival": 0.496,
-       "paladin-retribution": 0.576,
-       "rogue-combat": 0.521,
-       "rogue-subtlety": 0.506,
-       "shaman-enhancement": 0.592,
-       "warrior-arms": 0.453
-      }
-     },
-     "50": {
-      "score": 0.519,
-      "unit": "duel 0-1",
-      "matchups": {
-       "druid-feral": 0.653,
-       "hunter-survival": 0.478,
-       "paladin-retribution": 0.556,
-       "rogue-combat": 0.471,
-       "rogue-subtlety": 0.484,
-       "shaman-enhancement": 0.529,
+       "druid-feral": 0.697,
+       "hunter-survival": 0.504,
+       "paladin-retribution": 0.584,
+       "rogue-combat": 0.53,
+       "rogue-subtlety": 0.515,
+       "shaman-enhancement": 0.6,
        "warrior-arms": 0.462
       }
      },
-     "60": {
-      "score": 0.494,
+     "50": {
+      "score": 0.529,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.582,
-       "hunter-survival": 0.454,
-       "paladin-retribution": 0.555,
-       "rogue-combat": 0.446,
-       "rogue-subtlety": 0.472,
-       "shaman-enhancement": 0.508,
-       "warrior-arms": 0.441
+       "druid-feral": 0.662,
+       "hunter-survival": 0.488,
+       "paladin-retribution": 0.566,
+       "rogue-combat": 0.482,
+       "rogue-subtlety": 0.495,
+       "shaman-enhancement": 0.539,
+       "warrior-arms": 0.472
+      }
+     },
+     "60": {
+      "score": 0.504,
+      "unit": "duel 0-1",
+      "matchups": {
+       "druid-feral": 0.592,
+       "hunter-survival": 0.465,
+       "paladin-retribution": 0.565,
+       "rogue-combat": 0.456,
+       "rogue-subtlety": 0.483,
+       "shaman-enhancement": 0.518,
+       "warrior-arms": 0.451
       }
      }
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.558,
+      "score": 0.565,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.633,
-       "hunter-survival": 0.468,
-       "paladin-retribution": 0.71,
-       "rogue-combat": 0.469,
-       "rogue-subtlety": 0.422,
-       "shaman-enhancement": 0.656,
-       "warrior-arms": 0.55
+       "druid-feral": 0.639,
+       "hunter-survival": 0.474,
+       "paladin-retribution": 0.716,
+       "rogue-combat": 0.476,
+       "rogue-subtlety": 0.428,
+       "shaman-enhancement": 0.662,
+       "warrior-arms": 0.556
       }
      },
      "30": {
-      "score": 0.541,
+      "score": 0.547,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.652,
-       "hunter-survival": 0.435,
-       "paladin-retribution": 0.695,
-       "rogue-combat": 0.452,
-       "rogue-subtlety": 0.42,
-       "shaman-enhancement": 0.606,
-       "warrior-arms": 0.527
+       "druid-feral": 0.658,
+       "hunter-survival": 0.442,
+       "paladin-retribution": 0.7,
+       "rogue-combat": 0.459,
+       "rogue-subtlety": 0.426,
+       "shaman-enhancement": 0.612,
+       "warrior-arms": 0.533
       }
      },
      "40": {
-      "score": 0.506,
+      "score": 0.514,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.651,
-       "hunter-survival": 0.475,
-       "paladin-retribution": 0.576,
-       "rogue-combat": 0.42,
-       "rogue-subtlety": 0.384,
-       "shaman-enhancement": 0.592,
-       "warrior-arms": 0.443
+       "druid-feral": 0.658,
+       "hunter-survival": 0.483,
+       "paladin-retribution": 0.584,
+       "rogue-combat": 0.429,
+       "rogue-subtlety": 0.393,
+       "shaman-enhancement": 0.6,
+       "warrior-arms": 0.451
       }
      },
      "50": {
-      "score": 0.469,
+      "score": 0.479,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.598,
-       "hunter-survival": 0.455,
-       "paladin-retribution": 0.556,
-       "rogue-combat": 0.347,
-       "rogue-subtlety": 0.352,
-       "shaman-enhancement": 0.529,
-       "warrior-arms": 0.45
+       "druid-feral": 0.607,
+       "hunter-survival": 0.465,
+       "paladin-retribution": 0.566,
+       "rogue-combat": 0.356,
+       "rogue-subtlety": 0.361,
+       "shaman-enhancement": 0.539,
+       "warrior-arms": 0.46
       }
      },
      "60": {
-      "score": 0.419,
+      "score": 0.429,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.489,
-       "hunter-survival": 0.421,
-       "paladin-retribution": 0.555,
-       "rogue-combat": 0.256,
-       "rogue-subtlety": 0.28,
-       "shaman-enhancement": 0.508,
-       "warrior-arms": 0.426
+       "druid-feral": 0.499,
+       "hunter-survival": 0.431,
+       "paladin-retribution": 0.565,
+       "rogue-combat": 0.264,
+       "rogue-subtlety": 0.288,
+       "shaman-enhancement": 0.518,
+       "warrior-arms": 0.436
       }
      }
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.396,
+      "score": 0.402,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.481,
-       "hunter-marksmanship": 0.533,
+       "druid-balance": 0.488,
+       "hunter-marksmanship": 0.54,
        "mage-frost": 0.035,
-       "priest-discipline": 0.441,
-       "priest-shadow": 0.4,
-       "shaman-elemental": 0.455,
-       "warlock-affliction": 0.421,
-       "warlock-destruction": 0.404
+       "priest-discipline": 0.448,
+       "priest-shadow": 0.407,
+       "shaman-elemental": 0.462,
+       "warlock-affliction": 0.428,
+       "warlock-destruction": 0.411
       }
      },
      "30": {
-      "score": 0.398,
+      "score": 0.404,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.483,
-       "hunter-marksmanship": 0.499,
-       "mage-frost": 0.08,
-       "priest-discipline": 0.44,
-       "priest-shadow": 0.4,
-       "shaman-elemental": 0.45,
-       "warlock-affliction": 0.426,
-       "warlock-destruction": 0.407
+       "druid-balance": 0.49,
+       "hunter-marksmanship": 0.506,
+       "mage-frost": 0.082,
+       "priest-discipline": 0.447,
+       "priest-shadow": 0.406,
+       "shaman-elemental": 0.457,
+       "warlock-affliction": 0.433,
+       "warlock-destruction": 0.413
       }
      },
      "40": {
-      "score": 0.416,
+      "score": 0.424,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.513,
-       "hunter-marksmanship": 0.512,
-       "mage-frost": 0.144,
-       "priest-discipline": 0.426,
-       "priest-shadow": 0.388,
-       "shaman-elemental": 0.442,
-       "warlock-affliction": 0.445,
-       "warlock-destruction": 0.459
+       "druid-balance": 0.521,
+       "hunter-marksmanship": 0.52,
+       "mage-frost": 0.149,
+       "priest-discipline": 0.434,
+       "priest-shadow": 0.396,
+       "shaman-elemental": 0.45,
+       "warlock-affliction": 0.454,
+       "warlock-destruction": 0.467
       }
      },
      "50": {
-      "score": 0.442,
+      "score": 0.452,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.505,
-       "hunter-marksmanship": 0.522,
-       "mage-frost": 0.237,
-       "priest-discipline": 0.48,
-       "priest-shadow": 0.407,
-       "shaman-elemental": 0.445,
-       "warlock-affliction": 0.483,
-       "warlock-destruction": 0.458
+       "druid-balance": 0.515,
+       "hunter-marksmanship": 0.532,
+       "mage-frost": 0.245,
+       "priest-discipline": 0.491,
+       "priest-shadow": 0.417,
+       "shaman-elemental": 0.455,
+       "warlock-affliction": 0.494,
+       "warlock-destruction": 0.468
       }
      },
      "60": {
-      "score": 0.405,
+      "score": 0.415,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.456,
-       "hunter-marksmanship": 0.492,
-       "mage-frost": 0.348,
-       "priest-discipline": 0.434,
-       "priest-shadow": 0.321,
-       "shaman-elemental": 0.407,
-       "warlock-affliction": 0.408,
-       "warlock-destruction": 0.372
+       "druid-balance": 0.466,
+       "hunter-marksmanship": 0.502,
+       "mage-frost": 0.358,
+       "priest-discipline": 0.444,
+       "priest-shadow": 0.33,
+       "shaman-elemental": 0.417,
+       "warlock-affliction": 0.418,
+       "warlock-destruction": 0.382
       }
      }
     },
     "stealth_ambush": {
      "20": {
-      "score": 0.508,
+      "score": 0.514,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.633,
-       "rogue-combat": 0.469,
-       "rogue-subtlety": 0.422
+       "druid-feral": 0.639,
+       "rogue-combat": 0.476,
+       "rogue-subtlety": 0.428
       }
      },
      "30": {
-      "score": 0.508,
+      "score": 0.514,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.652,
-       "rogue-combat": 0.452,
-       "rogue-subtlety": 0.42
+       "druid-feral": 0.658,
+       "rogue-combat": 0.459,
+       "rogue-subtlety": 0.426
       }
      },
      "40": {
-      "score": 0.485,
+      "score": 0.493,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.651,
-       "rogue-combat": 0.42,
-       "rogue-subtlety": 0.384
+       "druid-feral": 0.658,
+       "rogue-combat": 0.429,
+       "rogue-subtlety": 0.393
       }
      },
      "50": {
-      "score": 0.432,
+      "score": 0.441,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.598,
-       "rogue-combat": 0.347,
-       "rogue-subtlety": 0.352
+       "druid-feral": 0.607,
+       "rogue-combat": 0.356,
+       "rogue-subtlety": 0.361
       }
      },
      "60": {
-      "score": 0.342,
+      "score": 0.35,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.489,
-       "rogue-combat": 0.256,
-       "rogue-subtlety": 0.28
+       "druid-feral": 0.499,
+       "rogue-combat": 0.264,
+       "rogue-subtlety": 0.288
       }
      }
     },
     "survival": {
      "20": {
-      "score": 0.075,
+      "score": 0.208,
       "unit": "0-1",
       "components": {
        "barrier": 0.0,
-       "immunity": 0.0,
+       "immunity": 0.027,
        "pushback": 0.0,
        "escapes": 3.0
       }
      },
      "30": {
-      "score": 0.075,
+      "score": 0.208,
       "unit": "0-1",
       "components": {
        "barrier": 0.0,
-       "immunity": 0.0,
+       "immunity": 0.027,
        "pushback": 0.0,
        "escapes": 3.0
       }
      },
      "40": {
-      "score": 0.075,
+      "score": 0.242,
       "unit": "0-1",
       "components": {
        "barrier": 0.0,
-       "immunity": 0.0,
+       "immunity": 0.033,
        "pushback": 0.0,
        "escapes": 3.0
       }
      },
      "50": {
-      "score": 0.075,
+      "score": 0.275,
       "unit": "0-1",
       "components": {
        "barrier": 0.0,
-       "immunity": 0.0,
+       "immunity": 0.04,
        "pushback": 0.0,
        "escapes": 3.0
       }
      },
      "60": {
-      "score": 0.075,
+      "score": 0.275,
       "unit": "0-1",
       "components": {
        "barrier": 0.0,
-       "immunity": 0.0,
+       "immunity": 0.04,
        "pushback": 0.0,
        "escapes": 3.0
       }
@@ -2011,75 +2039,75 @@
     },
     "battleground": {
      "20": {
-      "score": 0.273,
+      "score": 0.313,
       "unit": "0-1",
       "components": {
        "kill": 0.444,
        "endurance": 1.0,
-       "survival": 0.075,
+       "survival": 0.208,
        "control": 0.15
       }
      },
      "30": {
-      "score": 0.291,
+      "score": 0.331,
       "unit": "0-1",
       "components": {
        "kill": 0.496,
        "endurance": 1.0,
-       "survival": 0.075,
+       "survival": 0.208,
        "control": 0.15
       }
      },
      "40": {
-      "score": 0.339,
+      "score": 0.389,
       "unit": "0-1",
       "components": {
        "kill": 0.634,
        "endurance": 1.0,
-       "survival": 0.075,
+       "survival": 0.242,
        "control": 0.15
       }
      },
      "50": {
-      "score": 0.376,
+      "score": 0.436,
       "unit": "0-1",
       "components": {
        "kill": 0.737,
        "endurance": 1.0,
-       "survival": 0.075,
+       "survival": 0.275,
        "control": 0.15
       }
      },
      "60": {
-      "score": 0.414,
+      "score": 0.474,
       "unit": "0-1",
       "components": {
        "kill": 0.848,
        "endurance": 1.0,
-       "survival": 0.075,
+       "survival": 0.275,
        "control": 0.15
       }
      }
     },
     "outnumbered": {
      "20": {
-      "score": 0.152,
+      "score": 0.155,
       "unit": "2v1 0-1"
      },
      "30": {
-      "score": 0.147,
+      "score": 0.15,
       "unit": "2v1 0-1"
      },
      "40": {
-      "score": 0.145,
+      "score": 0.149,
       "unit": "2v1 0-1"
      },
      "50": {
-      "score": 0.142,
+      "score": 0.147,
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.121,
+      "score": 0.125,
       "unit": "2v1 0-1"
      }
     }
@@ -2088,33 +2116,33 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4644,
-     "strength": 0.000747,
-     "agility": 0.000288,
-     "stamina": 0.001467,
+     "score": 0.4774,
+     "strength": 0.000746,
+     "agility": 0.000287,
+     "stamina": 0.001464,
      "intellect": 0.0,
      "attack_power": 0.000376,
-     "crit_rating": 0.00059,
-     "hit_rating": 0.000688,
-     "crit_pct": 0.001922,
-     "hit_pct": 0.002245,
-     "weapon_dps": 0.005234
+     "crit_rating": 0.000589,
+     "hit_rating": 0.000687,
+     "crit_pct": 0.001919,
+     "hit_pct": 0.002243,
+     "weapon_dps": 0.005227
     },
     "30": {
-     "score": 0.4616,
-     "strength": 0.000517,
+     "score": 0.4747,
+     "strength": 0.000516,
      "agility": 0.000202,
-     "stamina": 0.00104,
+     "stamina": 0.001039,
      "intellect": 0.0,
-     "attack_power": 0.00026,
+     "attack_power": 0.000259,
      "crit_rating": 0.00034,
      "hit_rating": 0.00039,
-     "crit_pct": 0.002019,
-     "hit_pct": 0.00232,
-     "weapon_dps": 0.003603
+     "crit_pct": 0.002018,
+     "hit_pct": 0.002318,
+     "weapon_dps": 0.0036
     },
     "40": {
-     "score": 0.4588,
+     "score": 0.4753,
      "strength": 0.000379,
      "agility": 0.00016,
      "stamina": 0.000968,
@@ -2122,35 +2150,35 @@
      "attack_power": 0.00019,
      "crit_rating": 0.000247,
      "hit_rating": 0.000281,
-     "crit_pct": 0.002125,
+     "crit_pct": 0.002126,
      "hit_pct": 0.002424,
      "weapon_dps": 0.002646
     },
     "50": {
-     "score": 0.4476,
-     "strength": 0.000316,
+     "score": 0.4674,
+     "strength": 0.000317,
      "agility": 0.000129,
-     "stamina": 0.000795,
+     "stamina": 0.000797,
      "intellect": 0.0,
      "attack_power": 0.000159,
      "crit_rating": 0.00019,
      "hit_rating": 0.000216,
-     "crit_pct": 0.002145,
-     "hit_pct": 0.002442,
-     "weapon_dps": 0.002239
+     "crit_pct": 0.002148,
+     "hit_pct": 0.002446,
+     "weapon_dps": 0.002242
     },
     "60": {
-     "score": 0.5149,
-     "strength": 0.000245,
-     "agility": 0.000106,
-     "stamina": 0.000778,
+     "score": 0.5345,
+     "strength": 0.000246,
+     "agility": 0.000107,
+     "stamina": 0.000785,
      "intellect": 0.0,
      "attack_power": 0.000123,
      "crit_rating": 0.000152,
      "hit_rating": 0.0,
-     "crit_pct": 0.002122,
+     "crit_pct": 0.002132,
      "hit_pct": 0.0,
-     "weapon_dps": 0.001707
+     "weapon_dps": 0.001714
     }
    },
    "stat_priority": {
@@ -2164,17 +2192,17 @@
      },
      {
       "stat": "strength",
-      "share": 0.315,
+      "share": 0.313,
       "tier": 2
      },
      {
       "stat": "crit_rating",
-      "share": 0.195,
+      "share": 0.194,
       "tier": 3
      },
      {
       "stat": "attack_power",
-      "share": 0.158,
+      "share": 0.157,
       "tier": 3
      },
      {
@@ -2183,6 +2211,13 @@
       "tier": 4
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [
+     "Repentance"
+    ],
+    "missing": [],
+    "bonus": 0.1
    },
    "about": [
     "35 points in Retribution, with 8 in Holy and 8 in Protection. Built for PvP. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25, Repentance at 54 and Twist of Light at 60.",
@@ -2389,304 +2424,304 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.587,
+      "score": 0.593,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.665,
-       "hunter-survival": 0.484,
-       "paladin-retribution": 0.71,
-       "rogue-combat": 0.533,
-       "rogue-subtlety": 0.503,
-       "shaman-enhancement": 0.656,
-       "warrior-arms": 0.555
+       "druid-feral": 0.671,
+       "hunter-survival": 0.491,
+       "paladin-retribution": 0.716,
+       "rogue-combat": 0.54,
+       "rogue-subtlety": 0.51,
+       "shaman-enhancement": 0.662,
+       "warrior-arms": 0.561
       }
      },
      "30": {
-      "score": 0.566,
+      "score": 0.572,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.677,
-       "hunter-survival": 0.449,
-       "paladin-retribution": 0.691,
-       "rogue-combat": 0.517,
-       "rogue-subtlety": 0.499,
-       "shaman-enhancement": 0.601,
-       "warrior-arms": 0.528
+       "druid-feral": 0.683,
+       "hunter-survival": 0.456,
+       "paladin-retribution": 0.696,
+       "rogue-combat": 0.524,
+       "rogue-subtlety": 0.506,
+       "shaman-enhancement": 0.608,
+       "warrior-arms": 0.534
       }
      },
      "40": {
-      "score": 0.548,
+      "score": 0.556,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.69,
-       "hunter-survival": 0.496,
-       "paladin-retribution": 0.576,
-       "rogue-combat": 0.521,
-       "rogue-subtlety": 0.506,
-       "shaman-enhancement": 0.592,
-       "warrior-arms": 0.453
+       "druid-feral": 0.697,
+       "hunter-survival": 0.504,
+       "paladin-retribution": 0.584,
+       "rogue-combat": 0.53,
+       "rogue-subtlety": 0.515,
+       "shaman-enhancement": 0.6,
+       "warrior-arms": 0.462
       }
      },
      "50": {
-      "score": 0.514,
+      "score": 0.524,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.648,
-       "hunter-survival": 0.472,
-       "paladin-retribution": 0.551,
-       "rogue-combat": 0.466,
-       "rogue-subtlety": 0.479,
-       "shaman-enhancement": 0.523,
-       "warrior-arms": 0.457
+       "druid-feral": 0.658,
+       "hunter-survival": 0.483,
+       "paladin-retribution": 0.561,
+       "rogue-combat": 0.476,
+       "rogue-subtlety": 0.49,
+       "shaman-enhancement": 0.534,
+       "warrior-arms": 0.467
       }
      },
      "60": {
-      "score": 0.472,
+      "score": 0.482,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.568,
-       "hunter-survival": 0.441,
-       "paladin-retribution": 0.542,
-       "rogue-combat": 0.417,
-       "rogue-subtlety": 0.443,
-       "shaman-enhancement": 0.479,
-       "warrior-arms": 0.412
+       "druid-feral": 0.578,
+       "hunter-survival": 0.451,
+       "paladin-retribution": 0.552,
+       "rogue-combat": 0.427,
+       "rogue-subtlety": 0.453,
+       "shaman-enhancement": 0.489,
+       "warrior-arms": 0.422
       }
      }
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.558,
+      "score": 0.565,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.633,
-       "hunter-survival": 0.468,
-       "paladin-retribution": 0.71,
-       "rogue-combat": 0.469,
-       "rogue-subtlety": 0.422,
-       "shaman-enhancement": 0.656,
-       "warrior-arms": 0.55
+       "druid-feral": 0.639,
+       "hunter-survival": 0.474,
+       "paladin-retribution": 0.716,
+       "rogue-combat": 0.476,
+       "rogue-subtlety": 0.428,
+       "shaman-enhancement": 0.662,
+       "warrior-arms": 0.556
       }
      },
      "30": {
-      "score": 0.536,
+      "score": 0.543,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.648,
-       "hunter-survival": 0.43,
-       "paladin-retribution": 0.691,
-       "rogue-combat": 0.447,
-       "rogue-subtlety": 0.415,
-       "shaman-enhancement": 0.601,
-       "warrior-arms": 0.522
+       "druid-feral": 0.654,
+       "hunter-survival": 0.437,
+       "paladin-retribution": 0.696,
+       "rogue-combat": 0.454,
+       "rogue-subtlety": 0.421,
+       "shaman-enhancement": 0.608,
+       "warrior-arms": 0.529
       }
      },
      "40": {
-      "score": 0.506,
+      "score": 0.514,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.651,
-       "hunter-survival": 0.475,
-       "paladin-retribution": 0.576,
-       "rogue-combat": 0.42,
-       "rogue-subtlety": 0.384,
-       "shaman-enhancement": 0.592,
-       "warrior-arms": 0.443
+       "druid-feral": 0.658,
+       "hunter-survival": 0.483,
+       "paladin-retribution": 0.584,
+       "rogue-combat": 0.429,
+       "rogue-subtlety": 0.393,
+       "shaman-enhancement": 0.6,
+       "warrior-arms": 0.451
       }
      },
      "50": {
-      "score": 0.464,
+      "score": 0.474,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.593,
-       "hunter-survival": 0.45,
-       "paladin-retribution": 0.551,
-       "rogue-combat": 0.342,
-       "rogue-subtlety": 0.347,
-       "shaman-enhancement": 0.523,
-       "warrior-arms": 0.445
+       "druid-feral": 0.603,
+       "hunter-survival": 0.46,
+       "paladin-retribution": 0.561,
+       "rogue-combat": 0.351,
+       "rogue-subtlety": 0.356,
+       "shaman-enhancement": 0.534,
+       "warrior-arms": 0.455
       }
      },
      "60": {
-      "score": 0.399,
+      "score": 0.408,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.476,
-       "hunter-survival": 0.408,
-       "paladin-retribution": 0.542,
-       "rogue-combat": 0.234,
-       "rogue-subtlety": 0.257,
-       "shaman-enhancement": 0.479,
-       "warrior-arms": 0.397
+       "druid-feral": 0.486,
+       "hunter-survival": 0.418,
+       "paladin-retribution": 0.552,
+       "rogue-combat": 0.242,
+       "rogue-subtlety": 0.265,
+       "shaman-enhancement": 0.489,
+       "warrior-arms": 0.407
       }
      }
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.396,
+      "score": 0.402,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.481,
-       "hunter-marksmanship": 0.533,
+       "druid-balance": 0.488,
+       "hunter-marksmanship": 0.54,
        "mage-frost": 0.035,
-       "priest-discipline": 0.441,
-       "priest-shadow": 0.4,
-       "shaman-elemental": 0.455,
-       "warlock-affliction": 0.421,
-       "warlock-destruction": 0.404
+       "priest-discipline": 0.448,
+       "priest-shadow": 0.407,
+       "shaman-elemental": 0.462,
+       "warlock-affliction": 0.428,
+       "warlock-destruction": 0.411
       }
      },
      "30": {
-      "score": 0.394,
+      "score": 0.4,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.478,
-       "hunter-marksmanship": 0.494,
-       "mage-frost": 0.078,
-       "priest-discipline": 0.435,
-       "priest-shadow": 0.395,
-       "shaman-elemental": 0.445,
-       "warlock-affliction": 0.422,
-       "warlock-destruction": 0.402
+       "druid-balance": 0.485,
+       "hunter-marksmanship": 0.501,
+       "mage-frost": 0.08,
+       "priest-discipline": 0.442,
+       "priest-shadow": 0.401,
+       "shaman-elemental": 0.452,
+       "warlock-affliction": 0.428,
+       "warlock-destruction": 0.409
       }
      },
      "40": {
-      "score": 0.416,
+      "score": 0.424,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.513,
-       "hunter-marksmanship": 0.512,
-       "mage-frost": 0.144,
-       "priest-discipline": 0.426,
-       "priest-shadow": 0.388,
-       "shaman-elemental": 0.442,
-       "warlock-affliction": 0.445,
-       "warlock-destruction": 0.459
+       "druid-balance": 0.521,
+       "hunter-marksmanship": 0.52,
+       "mage-frost": 0.149,
+       "priest-discipline": 0.434,
+       "priest-shadow": 0.396,
+       "shaman-elemental": 0.45,
+       "warlock-affliction": 0.454,
+       "warlock-destruction": 0.467
+      }
+     },
+     "50": {
+      "score": 0.447,
+      "unit": "duel 0-1",
+      "matchups": {
+       "druid-balance": 0.51,
+       "hunter-marksmanship": 0.527,
+       "mage-frost": 0.241,
+       "priest-discipline": 0.486,
+       "priest-shadow": 0.412,
+       "shaman-elemental": 0.45,
+       "warlock-affliction": 0.489,
+       "warlock-destruction": 0.463
+      }
+     },
+     "60": {
+      "score": 0.387,
+      "unit": "duel 0-1",
+      "matchups": {
+       "druid-balance": 0.437,
+       "hunter-marksmanship": 0.473,
+       "mage-frost": 0.331,
+       "priest-discipline": 0.415,
+       "priest-shadow": 0.304,
+       "shaman-elemental": 0.389,
+       "warlock-affliction": 0.389,
+       "warlock-destruction": 0.354
+      }
+     }
+    },
+    "stealth_ambush": {
+     "20": {
+      "score": 0.514,
+      "unit": "duel 0-1",
+      "matchups": {
+       "druid-feral": 0.639,
+       "rogue-combat": 0.476,
+       "rogue-subtlety": 0.428
+      }
+     },
+     "30": {
+      "score": 0.51,
+      "unit": "duel 0-1",
+      "matchups": {
+       "druid-feral": 0.654,
+       "rogue-combat": 0.454,
+       "rogue-subtlety": 0.421
+      }
+     },
+     "40": {
+      "score": 0.493,
+      "unit": "duel 0-1",
+      "matchups": {
+       "druid-feral": 0.658,
+       "rogue-combat": 0.429,
+       "rogue-subtlety": 0.393
       }
      },
      "50": {
       "score": 0.437,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.5,
-       "hunter-marksmanship": 0.516,
-       "mage-frost": 0.234,
-       "priest-discipline": 0.475,
-       "priest-shadow": 0.402,
-       "shaman-elemental": 0.44,
-       "warlock-affliction": 0.478,
-       "warlock-destruction": 0.452
+       "druid-feral": 0.603,
+       "rogue-combat": 0.351,
+       "rogue-subtlety": 0.356
       }
      },
      "60": {
-      "score": 0.377,
+      "score": 0.331,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.427,
-       "hunter-marksmanship": 0.463,
-       "mage-frost": 0.322,
-       "priest-discipline": 0.406,
-       "priest-shadow": 0.296,
-       "shaman-elemental": 0.379,
-       "warlock-affliction": 0.38,
-       "warlock-destruction": 0.345
-      }
-     }
-    },
-    "stealth_ambush": {
-     "20": {
-      "score": 0.508,
-      "unit": "duel 0-1",
-      "matchups": {
-       "druid-feral": 0.633,
-       "rogue-combat": 0.469,
-       "rogue-subtlety": 0.422
-      }
-     },
-     "30": {
-      "score": 0.503,
-      "unit": "duel 0-1",
-      "matchups": {
-       "druid-feral": 0.648,
-       "rogue-combat": 0.447,
-       "rogue-subtlety": 0.415
-      }
-     },
-     "40": {
-      "score": 0.485,
-      "unit": "duel 0-1",
-      "matchups": {
-       "druid-feral": 0.651,
-       "rogue-combat": 0.42,
-       "rogue-subtlety": 0.384
-      }
-     },
-     "50": {
-      "score": 0.427,
-      "unit": "duel 0-1",
-      "matchups": {
-       "druid-feral": 0.593,
-       "rogue-combat": 0.342,
-       "rogue-subtlety": 0.347
-      }
-     },
-     "60": {
-      "score": 0.322,
-      "unit": "duel 0-1",
-      "matchups": {
-       "druid-feral": 0.476,
-       "rogue-combat": 0.234,
-       "rogue-subtlety": 0.257
+       "druid-feral": 0.486,
+       "rogue-combat": 0.242,
+       "rogue-subtlety": 0.265
       }
      }
     },
     "survival": {
      "20": {
-      "score": 0.075,
+      "score": 0.208,
       "unit": "0-1",
       "components": {
        "barrier": 0.0,
-       "immunity": 0.0,
+       "immunity": 0.027,
        "pushback": 0.0,
        "escapes": 3.0
       }
      },
      "30": {
-      "score": 0.075,
+      "score": 0.208,
       "unit": "0-1",
       "components": {
        "barrier": 0.0,
-       "immunity": 0.0,
+       "immunity": 0.027,
        "pushback": 0.0,
        "escapes": 3.0
       }
      },
      "40": {
-      "score": 0.075,
+      "score": 0.242,
       "unit": "0-1",
       "components": {
        "barrier": 0.0,
-       "immunity": 0.0,
+       "immunity": 0.033,
        "pushback": 0.0,
        "escapes": 3.0
       }
      },
      "50": {
-      "score": 0.075,
+      "score": 0.275,
       "unit": "0-1",
       "components": {
        "barrier": 0.0,
-       "immunity": 0.0,
+       "immunity": 0.04,
        "pushback": 0.0,
        "escapes": 3.0
       }
      },
      "60": {
-      "score": 0.075,
+      "score": 0.275,
       "unit": "0-1",
       "components": {
        "barrier": 0.0,
-       "immunity": 0.0,
+       "immunity": 0.04,
        "pushback": 0.0,
        "escapes": 3.0
       }
@@ -2746,75 +2781,75 @@
     },
     "battleground": {
      "20": {
-      "score": 0.273,
+      "score": 0.313,
       "unit": "0-1",
       "components": {
        "kill": 0.444,
        "endurance": 1.0,
-       "survival": 0.075,
+       "survival": 0.208,
        "control": 0.15
       }
      },
      "30": {
-      "score": 0.288,
+      "score": 0.328,
       "unit": "0-1",
       "components": {
        "kill": 0.486,
        "endurance": 1.0,
-       "survival": 0.075,
+       "survival": 0.208,
        "control": 0.15
       }
      },
      "40": {
-      "score": 0.339,
+      "score": 0.389,
       "unit": "0-1",
       "components": {
        "kill": 0.634,
        "endurance": 1.0,
-       "survival": 0.075,
+       "survival": 0.242,
        "control": 0.15
       }
      },
      "50": {
-      "score": 0.37,
+      "score": 0.43,
       "unit": "0-1",
       "components": {
        "kill": 0.723,
        "endurance": 1.0,
-       "survival": 0.075,
+       "survival": 0.275,
        "control": 0.15
       }
      },
      "60": {
-      "score": 0.414,
+      "score": 0.474,
       "unit": "0-1",
       "components": {
        "kill": 0.848,
        "endurance": 1.0,
-       "survival": 0.075,
+       "survival": 0.275,
        "control": 0.15
       }
      }
     },
     "outnumbered": {
      "20": {
-      "score": 0.152,
+      "score": 0.155,
       "unit": "2v1 0-1"
      },
      "30": {
-      "score": 0.144,
+      "score": 0.148,
       "unit": "2v1 0-1"
      },
      "40": {
-      "score": 0.145,
+      "score": 0.149,
       "unit": "2v1 0-1"
      },
      "50": {
-      "score": 0.139,
+      "score": 0.144,
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.116,
+      "score": 0.12,
       "unit": "2v1 0-1"
      }
     }
@@ -2918,6 +2953,13 @@
       "tier": 4
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Repentance"
+    ],
+    "bonus": 0.0
    },
    "about": [
     "34 points in Retribution, with 13 in Holy and 4 in Protection. Built for PvE. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25 and Twist of Light at 60.",
@@ -3126,6 +3168,13 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Repentance"
+    ],
+    "bonus": 0.0
+   },
    "about": [
     "43 points in Holy, with 8 in Protection. Built for PvE. On this order the key talents arrive as follows: Voice of Truth at 20, Holy Shock at 33, Light's Vigil at 40 and Divine Favor at 42.",
     "In the model's rotation its priority is Holy Strike. Damage comes from auto-attacks 83% and Holy damage 17%.",
@@ -3329,6 +3378,13 @@
       "tier": 4
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Repentance"
+    ],
+    "bonus": 0.0
    },
    "about": [
     "33 points in Holy, with 18 in Protection. Built for PvP. On this order the key talents arrive as follows: Voice of Truth at 20, Holy Shock at 48, Divine Favor at 51 and Light's Vigil at 58.",
@@ -3536,6 +3592,13 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Repentance"
+    ],
+    "bonus": 0.0
+   },
    "about": [
     "38 points in Protection, with 13 in Retribution. Built for PvE. On this order the key talents arrive as follows: Seal of Command at 30, Improved Seal of Fury at 31, Swift Judgement at 38, Templar's Bulwark at 43 and Holy Shield at 53.",
     "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 57% and Holy damage 43%.",
@@ -3739,6 +3802,13 @@
       "tier": 4
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Repentance"
+    ],
+    "bonus": 0.0
    },
    "about": [
     "37 points in Protection, with 14 in Holy. Built for PvP. On this order the key talents arrive as follows: Improved Seal of Fury at 29, Swift Judgement at 32, Voice of Truth at 40, Templar's Bulwark at 44 and Holy Shield at 54.",
@@ -3946,6 +4016,13 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [
+     "Repentance"
+    ],
+    "missing": [],
+    "bonus": 0.1
+   },
    "about": [
     "41 points in Retribution, with 10 in Holy. Built for PvE. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25, Twist of Light at 43 and Repentance at 49.",
     "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 55% and Holy damage 45%.",
@@ -4151,6 +4228,13 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [
+     "Repentance"
+    ],
+    "missing": [],
+    "bonus": 0.1
+   },
    "about": [
     "42 points in Retribution, with 8 in Protection and 1 in Holy. Built for PvP. On this order the key talents arrive as follows: Seal of Command at 20, Sacred Arbiter at 25, Repentance at 38 and Twist of Light at 54.",
     "In the model's rotation its priority is Seal of Command, Judgement and Holy Strike. Damage comes from auto-attacks 57% and Holy damage 43%.",
@@ -4213,11 +4297,11 @@
    "archetype": "deep Retribution",
    "focus": "PvP",
    "standard": "paladin-retribution-pvp",
-   "standard_score": 0.514871644754896,
+   "standard_score": 0.5345022281903511,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "paladin-retribution-pvp": 0.514871644754896
+    "paladin-retribution-pvp": 0.5345022281903511
    },
    "qualifying": [
     "paladin-retribution-pvp"

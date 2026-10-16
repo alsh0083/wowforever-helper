@@ -12,6 +12,10 @@ Claude plans and audits; local models implement through `tools/local_agent.py`. 
    - **Inputs:** fixture files to read (network access is never needed: Claude fetches raw data and saves it under `tests/fixtures/`)
    - **Constraints:** standard library unless stated, type hints, match surrounding style, files the agent may touch
    - **Done when:** the exact pytest command that must pass
+   - **Steps:** which file and function to edit, in order, and what each change does: the formula, the data source, the names to use. Give tables of the exact inputs (rank text, data values) where the model would otherwise guess. Don't include the implementation: the model writes the code.
+   - **Environment note:** `tools/local_agent.py` already sets `CODEX_EXE`; install nothing; which tests fail before the change; "don't re-check what this spec states"
+
+   Since 2026-10-16 this tests-and-outline format is the default (#337: qwen3.8-27b wrote a 3-file change correctly in about 30 minutes; #341 in 11). Keep a task under about 150 changed lines. Put a reference diff in the spec only after a tests-and-outline run fails twice, and say so in the PR. qwen3-coder-30b breaks quoting in config edits (#342), so give config work to qwen3.8-27b too.
 4. Commit tests and spec, push, and open a **draft** PR with `Refs #N`.
 
 ## 2. Run (local model)

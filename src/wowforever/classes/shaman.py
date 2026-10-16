@@ -36,6 +36,11 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("cast_time", r"cast time of your Lightning Bolt, Chain Lightning, and Lava Burst spells by (\d+(?:\.\d+)?) sec",
                    ("Lightning Bolt", "Chain Lightning", "Lava Burst"), sign=-1),
     ),
+    "Eye of the Storm": (
+        EffectRule("pushback_pct",
+                   r"Reduces the pushback suffered from damaging attacks while casting Lightning Bolt, Chain Lightning, and Lava Burst by (\d+(?:\.\d+)?)%",
+                   ("Lightning Bolt", "Chain Lightning", "Lava Burst")),
+    ),
     "Call of Thunder": (
         EffectRule("crit_chance", r"critical strike chance of your Lightning Bolt and Chain Lightning spells by (\d+(?:\.\d+)?)%",
                    ("Lightning Bolt", "Chain Lightning")),
@@ -76,7 +81,6 @@ UNMODELED: dict[str, str] = {
     "Elemental Devastation": "proc: spell crits raise melee crit",
     "Elemental Focus": "proc: Clearcasting after damage spells",
     "Improved Fire Nova": "damage: Fire Nova damage and cooldown",
-    "Eye of the Storm": "utility: less pushback on Lightning and Lava Burst",
     "Elemental Reach": "utility: longer spell range",
     "Earthbound": "control: Earthbind Totem roots 5 s",
     "Lava Burst": "grants_spell",

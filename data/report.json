@@ -1525,24 +1525,20 @@
     },
     "dungeon": {
      "20": {
-      "score": 41.5,
-      "low": 39.4,
-      "high": 42.7,
-      "unbuffed": 37.6,
-      "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
-      ],
+      "score": 40.5,
+      "low": 37.9,
+      "high": 42.3,
+      "unbuffed": 37.8,
+      "top_buffs": [],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 37.8
      },
      "30": {
-      "score": 71.7,
-      "low": 67.4,
-      "high": 74.4,
-      "unbuffed": 62.1,
+      "score": 72.7,
+      "low": 70.4,
+      "high": 76.6,
+      "unbuffed": 63.9,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -1553,24 +1549,22 @@
       "solo": 63.9
      },
      "40": {
-      "score": 104.7,
-      "low": 97.5,
-      "high": 111.3,
-      "unbuffed": 91.2,
+      "score": 105.5,
+      "low": 99.7,
+      "high": 110.6,
+      "unbuffed": 99.6,
       "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
+       "curse_of_the_elements"
       ],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 99.6
      },
      "50": {
-      "score": 153.1,
-      "low": 141.8,
-      "high": 163.6,
-      "unbuffed": 130.8,
+      "score": 169.3,
+      "low": 155.6,
+      "high": 180.7,
+      "unbuffed": 142.2,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -1581,10 +1575,10 @@
       "solo": 142.2
      },
      "60": {
-      "score": 300.4,
-      "low": 277.4,
-      "high": 319.4,
-      "unbuffed": 257.2,
+      "score": 348.9,
+      "low": 320.8,
+      "high": 371.3,
+      "unbuffed": 296.0,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -1735,11 +1729,22 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "bonus": 0.0
+   },
    "about": [
     "28 points in Fire, with 21 in Arcane and 2 in Frost. Built for PvP. On this order the key talents arrive as follows: Pyroblast at 40, Fire Power at 47, Arcane Blast at 52, Heating Up at 55, Presence of Mind at 59 and Blast Wave at 60.",
     "In the model it levels with Fireball, pulls packs with Flamestrike and duels with Fireball as its main spell.",
     "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and duels against casters (95%), and weakest at survivability (34%).",
-    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 17% more damage at 60 than unbuffed, on average across groups.",
+    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 18% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, stamina 1, spell power 0.58, crit rating 0.26 and hit rating 0.18; at level 60, stamina 1, spell power 0.15, crit rating 0.08 and intellect 0.03. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
@@ -2289,38 +2294,30 @@
     },
     "dungeon": {
      "20": {
-      "score": 41.3,
-      "low": 39.3,
-      "high": 42.5,
-      "unbuffed": 37.5,
-      "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
-      ],
+      "score": 40.7,
+      "low": 38.5,
+      "high": 42.3,
+      "unbuffed": 38.5,
+      "top_buffs": [],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 38.5
      },
      "30": {
-      "score": 67.6,
-      "low": 63.6,
-      "high": 70.2,
-      "unbuffed": 58.7,
-      "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
-      ],
+      "score": 72.7,
+      "low": 71.8,
+      "high": 76.3,
+      "unbuffed": 71.4,
+      "top_buffs": [],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 71.4
      },
      "40": {
-      "score": 108.6,
-      "low": 101.5,
-      "high": 114.5,
-      "unbuffed": 95.4,
+      "score": 128.2,
+      "low": 123.1,
+      "high": 137.2,
+      "unbuffed": 113.9,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -2331,10 +2328,10 @@
       "solo": 113.9
      },
      "50": {
-      "score": 191.6,
-      "low": 177.5,
-      "high": 204.8,
-      "unbuffed": 163.9,
+      "score": 190.1,
+      "low": 174.7,
+      "high": 202.8,
+      "unbuffed": 159.6,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -2345,10 +2342,10 @@
       "solo": 159.6
      },
      "60": {
-      "score": 356.7,
-      "low": 342.9,
+      "score": 356.6,
+      "low": 342.4,
       "high": 387.1,
-      "unbuffed": 316.2,
+      "unbuffed": 314.3,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -2423,48 +2420,48 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4445,
+     "score": 0.4434,
      "stamina": 0.0,
-     "intellect": 0.000388,
+     "intellect": 0.000499,
      "spirit": 0.0,
-     "spell_power": 0.001809,
+     "spell_power": 0.001803,
      "crit_rating": 0.00037,
-     "hit_rating": 0.001247,
+     "hit_rating": 0.001244,
      "crit_pct": 0.001198,
-     "hit_pct": 0.004375
+     "hit_pct": 0.004363
     },
     "30": {
-     "score": 0.6421,
+     "score": 0.6501,
      "stamina": 0.0,
-     "intellect": 0.00069,
+     "intellect": 0.000149,
      "spirit": 1e-05,
-     "spell_power": 0.001616,
-     "crit_rating": 0.000577,
-     "hit_rating": 0.000658,
-     "crit_pct": 0.003421,
-     "hit_pct": 0.003902
+     "spell_power": 0.001784,
+     "crit_rating": 0.000685,
+     "hit_rating": 0.000673,
+     "crit_pct": 0.004062,
+     "hit_pct": 0.003987
     },
     "40": {
-     "score": 0.8295,
+     "score": 0.8625,
      "stamina": 0.0,
-     "intellect": 0.000826,
+     "intellect": 0.000146,
      "spirit": 3.5e-05,
-     "spell_power": 0.001279,
-     "crit_rating": 0.000264,
-     "hit_rating": 0.000713,
-     "crit_pct": 0.002279,
-     "hit_pct": 0.006143
+     "spell_power": 0.001473,
+     "crit_rating": 0.000503,
+     "hit_rating": 0.000978,
+     "crit_pct": 0.004333,
+     "hit_pct": 0.008428
     },
     "50": {
-     "score": 1.0575,
+     "score": 1.055,
      "stamina": 0.0,
-     "intellect": 0.001268,
+     "intellect": 0.001392,
      "spirit": 4.8e-05,
-     "spell_power": 0.001435,
-     "crit_rating": 0.000677,
-     "hit_rating": 0.000927,
-     "crit_pct": 0.007654,
-     "hit_pct": 0.010484
+     "spell_power": 0.001431,
+     "crit_rating": 0.000675,
+     "hit_rating": 0.000925,
+     "crit_pct": 0.007632,
+     "hit_pct": 0.010458
     },
     "60": {
      "score": 1.5531,
@@ -2509,13 +2506,24 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "bonus": 0.0
+   },
    "about": [
     "37 points in Arcane, with 14 in Frost. Built for PvE. On this order the key talents arrive as follows: Arcane Instability at 49 and Arcane Blast at 55.",
     "In the model it levels with Frostbolt, pulls packs with Arcane Explosion and duels with Frostbolt as its main spell.",
     "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and duels against casters (89%), and weakest at survivability (18%).",
     "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 13% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, intellect 0.43, hit rating 0.41 and crit rating 0.36; at level 60, spell power 1, hit rating 0.64, crit rating 0.56 and intellect 0.17. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, crit rating 0.38, hit rating 0.38 and intellect 0.08; at level 60, spell power 1, hit rating 0.64, crit rating 0.56 and intellect 0.17. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -3064,24 +3072,22 @@
     },
     "dungeon": {
      "20": {
-      "score": 41.3,
-      "low": 39.3,
-      "high": 42.5,
-      "unbuffed": 37.5,
+      "score": 40.6,
+      "low": 38.0,
+      "high": 42.3,
+      "unbuffed": 37.0,
       "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
+       "arcane_intellect"
       ],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 37.0
      },
      "30": {
-      "score": 68.1,
-      "low": 64.1,
-      "high": 70.8,
-      "unbuffed": 59.2,
+      "score": 72.7,
+      "low": 70.4,
+      "high": 76.6,
+      "unbuffed": 63.9,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -3092,24 +3098,22 @@
       "solo": 63.9
      },
      "40": {
-      "score": 111.8,
-      "low": 104.6,
-      "high": 118.0,
-      "unbuffed": 98.2,
+      "score": 108.5,
+      "low": 102.1,
+      "high": 113.9,
+      "unbuffed": 101.9,
       "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
+       "curse_of_the_elements"
       ],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 101.9
      },
      "50": {
-      "score": 150.6,
-      "low": 140.2,
-      "high": 161.4,
-      "unbuffed": 130.0,
+      "score": 156.6,
+      "low": 151.8,
+      "high": 169.9,
+      "unbuffed": 138.9,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -3120,14 +3124,13 @@
       "solo": 138.9
      },
      "60": {
-      "score": 291.0,
-      "low": 269.9,
-      "high": 310.0,
-      "unbuffed": 251.4,
+      "score": 289.7,
+      "low": 268.0,
+      "high": 308.5,
+      "unbuffed": 264.0,
       "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
+       "curse_of_the_elements",
+       "arcane_intellect"
       ],
       "unit": "dps",
       "spell": "Frostbolt",
@@ -3198,55 +3201,55 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4432,
+     "score": 0.4421,
      "stamina": 0.0,
-     "intellect": 0.000388,
+     "intellect": 0.000499,
      "spirit": 0.0,
-     "spell_power": 0.001804,
+     "spell_power": 0.001798,
      "crit_rating": 0.000369,
-     "hit_rating": 0.001245,
+     "hit_rating": 0.001242,
      "crit_pct": 0.001194,
-     "hit_pct": 0.004367
+     "hit_pct": 0.004356
     },
     "30": {
-     "score": 0.6372,
+     "score": 0.6447,
      "stamina": 0.0,
-     "intellect": 0.000675,
+     "intellect": 8.8e-05,
      "spirit": 1e-05,
-     "spell_power": 0.0016,
-     "crit_rating": 0.000478,
-     "hit_rating": 0.00065,
-     "crit_pct": 0.00283,
-     "hit_pct": 0.003854
+     "spell_power": 0.001704,
+     "crit_rating": 0.00039,
+     "hit_rating": 0.000445,
+     "crit_pct": 0.002311,
+     "hit_pct": 0.00264
     },
     "40": {
-     "score": 0.8472,
+     "score": 0.8412,
      "stamina": 0.0,
-     "intellect": 0.000851,
+     "intellect": 0.000943,
      "spirit": 3.7e-05,
-     "spell_power": 0.001311,
+     "spell_power": 0.001299,
      "crit_rating": 0.000275,
      "hit_rating": 0.000255,
      "crit_pct": 0.002369,
      "hit_pct": 0.002197
     },
     "50": {
-     "score": 0.953,
+     "score": 0.9622,
      "stamina": 0.0,
-     "intellect": 0.001042,
+     "intellect": 0.000231,
      "spirit": 0.000173,
-     "spell_power": 0.001171,
-     "crit_rating": 0.000184,
-     "hit_rating": -0.001547,
-     "crit_pct": 0.002086,
-     "hit_pct": -0.01487
+     "spell_power": 0.001242,
+     "crit_rating": 0.000295,
+     "hit_rating": 0.000488,
+     "crit_pct": 0.003331,
+     "hit_pct": 0.005519
     },
     "60": {
-     "score": 1.3665,
+     "score": 1.3583,
      "stamina": 0.0,
-     "intellect": 0.001298,
-     "spirit": 0.000657,
-     "spell_power": 0.001126,
+     "intellect": 0.001332,
+     "spirit": 0.000674,
+     "spell_power": 0.001132,
      "crit_rating": 0.00014,
      "hit_rating": 0.000317,
      "crit_pct": 0.001965,
@@ -3264,7 +3267,7 @@
      },
      {
       "stat": "spell_power",
-      "share": 0.867,
+      "share": 0.85,
       "tier": 2
      },
      {
@@ -3274,22 +3277,33 @@
      },
      {
       "stat": "hit_rating",
-      "share": 0.244,
+      "share": 0.238,
       "tier": 4
      },
      {
       "stat": "crit_rating",
-      "share": 0.108,
+      "share": 0.105,
       "tier": 5
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "bonus": 0.0
    },
    "about": [
     "47 points in Arcane, with 4 in Fire. Built for PvE. On this order the key talents arrive as follows: Arcane Blast at 50, Missile Barrage at 58, Presence of Mind at 59 and Arcane Power at 60.",
     "In the model it levels with Arcane Missiles, pulls packs with Arcane Explosion and duels with Arcane Missiles as its main spell.",
     "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and duels against casters (82%), and weakest at survivability (18%).",
-    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 16% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, intellect 0.42, hit rating 0.41 and crit rating 0.3; at level 60, intellect 1, spell power 0.87, spirit 0.51 and hit rating 0.24. The Recommended gear panel ranks items by these weights at your level."
+    "In a dungeon group it gains most from Curse of the Elements and Arcane Intellect: about 10% more damage at 60 than unbuffed, on average across groups.",
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.26, crit rating 0.23 and intellect 0.05; at level 60, intellect 1, spell power 0.85, spirit 0.51 and hit rating 0.24. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -3838,24 +3852,20 @@
     },
     "dungeon": {
      "20": {
-      "score": 39.3,
-      "low": 37.3,
-      "high": 40.6,
-      "unbuffed": 35.5,
-      "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
-      ],
+      "score": 38.5,
+      "low": 38.2,
+      "high": 39.8,
+      "unbuffed": 38.2,
+      "top_buffs": [],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 38.2
      },
      "30": {
-      "score": 70.0,
-      "low": 65.8,
-      "high": 72.7,
-      "unbuffed": 60.7,
+      "score": 71.5,
+      "low": 67.4,
+      "high": 74.9,
+      "unbuffed": 61.2,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -3866,10 +3876,10 @@
       "solo": 61.2
      },
      "40": {
-      "score": 104.9,
-      "low": 97.5,
-      "high": 111.7,
-      "unbuffed": 91.1,
+      "score": 115.6,
+      "low": 106.5,
+      "high": 123.1,
+      "unbuffed": 99.6,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -3880,10 +3890,10 @@
       "solo": 99.6
      },
      "50": {
-      "score": 169.2,
-      "low": 156.4,
-      "high": 180.7,
-      "unbuffed": 144.2,
+      "score": 188.9,
+      "low": 173.4,
+      "high": 203.7,
+      "unbuffed": 158.1,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -3894,10 +3904,10 @@
       "solo": 158.1
      },
      "60": {
-      "score": 301.0,
-      "low": 278.2,
-      "high": 320.9,
-      "unbuffed": 255.2,
+      "score": 342.5,
+      "low": 314.8,
+      "high": 367.8,
+      "unbuffed": 286.4,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -3972,58 +3982,58 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4505,
+     "score": 0.449,
      "stamina": 0.0,
-     "intellect": 0.000535,
+     "intellect": 0.000357,
      "spirit": 0.0,
-     "spell_power": 0.001902,
-     "crit_rating": 0.000567,
-     "hit_rating": 0.000399,
-     "crit_pct": 0.001833,
-     "hit_pct": 0.00153
+     "spell_power": 0.001961,
+     "crit_rating": 0.000572,
+     "hit_rating": 0.000396,
+     "crit_pct": 0.00185,
+     "hit_pct": 0.001514
     },
     "30": {
-     "score": 0.6471,
+     "score": 0.6508,
      "stamina": 0.0,
-     "intellect": 0.00075,
+     "intellect": 0.00018,
      "spirit": 2.8e-05,
-     "spell_power": 0.001661,
-     "crit_rating": 0.000671,
-     "hit_rating": 0.000472,
-     "crit_pct": 0.003976,
-     "hit_pct": 0.002798
+     "spell_power": 0.001746,
+     "crit_rating": 0.000498,
+     "hit_rating": 0.000268,
+     "crit_pct": 0.00295,
+     "hit_pct": 0.001588
     },
     "40": {
-     "score": 0.8503,
+     "score": 0.8683,
      "stamina": 0.0,
-     "intellect": 0.000961,
+     "intellect": 0.001166,
      "spirit": 3.9e-05,
-     "spell_power": 0.001385,
-     "crit_rating": 0.000957,
-     "hit_rating": 0.000508,
-     "crit_pct": 0.008241,
-     "hit_pct": 0.004375
+     "spell_power": 0.001427,
+     "crit_rating": 0.00099,
+     "hit_rating": 0.00053,
+     "crit_pct": 0.00853,
+     "hit_pct": 0.004566
     },
     "50": {
-     "score": 1.1047,
+     "score": 1.138,
      "stamina": 0.0,
-     "intellect": 0.001373,
+     "intellect": 0.00163,
      "spirit": 0.000217,
-     "spell_power": 0.001369,
-     "crit_rating": 0.000969,
-     "hit_rating": 0.0006,
-     "crit_pct": 0.01096,
-     "hit_pct": 0.006786
+     "spell_power": 0.00143,
+     "crit_rating": 0.001044,
+     "hit_rating": 0.000637,
+     "crit_pct": 0.011806,
+     "hit_pct": 0.007205
     },
     "60": {
-     "score": 1.5076,
+     "score": 1.5775,
      "stamina": 0.0,
-     "intellect": 0.001786,
+     "intellect": 0.002109,
      "spirit": 0.000291,
-     "spell_power": 0.001315,
-     "crit_rating": 0.001087,
+     "spell_power": 0.001397,
+     "crit_rating": 0.001193,
      "hit_rating": 0.000409,
-     "crit_pct": 0.01522,
+     "crit_pct": 0.016713,
      "hit_pct": 0.005728
     }
    },
@@ -4038,32 +4048,43 @@
      },
      {
       "stat": "spell_power",
-      "share": 0.736,
+      "share": 0.662,
       "tier": 2
      },
      {
       "stat": "crit_rating",
-      "share": 0.609,
+      "share": 0.566,
       "tier": 3
      },
      {
       "stat": "hit_rating",
-      "share": 0.229,
+      "share": 0.194,
       "tier": 4
      },
      {
       "stat": "spirit",
-      "share": 0.163,
+      "share": 0.138,
       "tier": 5
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "bonus": 0.0
    },
    "about": [
     "31 points in Fire, with 11 in Arcane and 9 in Frost. Built for PvE. On this order the key talents arrive as follows: Pyroblast at 35, Heating Up at 45, Arcane Blast at 59 and Combustion at 60.",
     "In the model it levels with Fireball, pulls packs with Flamestrike and duels with Fireball as its main spell.",
     "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and duels against casters (85%), and weakest at survivability (24%).",
-    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 18% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, intellect 0.45, crit rating 0.4 and hit rating 0.28; at level 60, intellect 1, spell power 0.74, crit rating 0.61 and hit rating 0.23. The Recommended gear panel ranks items by these weights at your level."
+    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 20% more damage at 60 than unbuffed, on average across groups.",
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, crit rating 0.29, hit rating 0.15 and intellect 0.1; at level 60, intellect 1, spell power 0.66, crit rating 0.57 and hit rating 0.19. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -4612,10 +4633,10 @@
     },
     "dungeon": {
      "20": {
-      "score": 47.7,
-      "low": 45.8,
-      "high": 49.2,
-      "unbuffed": 43.6,
+      "score": 47.5,
+      "low": 45.0,
+      "high": 49.0,
+      "unbuffed": 42.1,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -4626,24 +4647,20 @@
       "solo": 42.1
      },
      "30": {
-      "score": 64.9,
-      "low": 61.1,
-      "high": 67.4,
-      "unbuffed": 56.4,
-      "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
-      ],
+      "score": 81.2,
+      "low": 80.1,
+      "high": 85.2,
+      "unbuffed": 79.7,
+      "top_buffs": [],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 79.7
      },
      "40": {
-      "score": 147.3,
-      "low": 141.9,
-      "high": 157.5,
-      "unbuffed": 132.9,
+      "score": 135.0,
+      "low": 129.6,
+      "high": 144.5,
+      "unbuffed": 120.0,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -4654,10 +4671,10 @@
       "solo": 120.0
      },
      "50": {
-      "score": 276.5,
-      "low": 256.6,
-      "high": 296.0,
-      "unbuffed": 237.1,
+      "score": 234.7,
+      "low": 215.9,
+      "high": 250.5,
+      "unbuffed": 197.2,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -4668,10 +4685,10 @@
       "solo": 197.2
      },
      "60": {
-      "score": 464.6,
-      "low": 440.5,
-      "high": 504.8,
-      "unbuffed": 405.1,
+      "score": 436.1,
+      "low": 410.3,
+      "high": 471.8,
+      "unbuffed": 374.3,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -4822,11 +4839,22 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "missing": [],
+    "bonus": 0.1
+   },
    "about": [
     "51 points in Frost. Built for PvP. On this order the key talents arrive as follows: Ice Lance at 42, Ice Block at 50, Cold Snap at 54 and Ice Barrier at 60.",
     "In the model it levels with Frostbolt, pulls packs with Flamestrike and duels with Frostbolt as its main spell.",
-    "At level 60 it scores at or near the top of the class in AoE pulls, raid damage, survivability, crowd control, duels against melee, duels where melee opens, surviving stealth openers, battlegrounds, dungeon damage, questing speed and duels against casters.",
-    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 15% more damage at 60 than unbuffed, on average across groups.",
+    "At level 60 it scores at or near the top of the class in AoE pulls, raid damage, survivability, crowd control, duels against melee, duels where melee opens, surviving stealth openers, dungeon damage, battlegrounds, questing speed and duels against casters.",
+    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 17% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, stamina 1, spell power 0.69, crit rating 0.24 and intellect 0.07; at level 60, stamina 1, spell power 0.07, crit rating 0.06 and intellect 0.02. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
@@ -5385,10 +5413,10 @@
     },
     "dungeon": {
      "20": {
-      "score": 48.3,
-      "low": 45.9,
-      "high": 49.7,
-      "unbuffed": 43.7,
+      "score": 45.0,
+      "low": 42.0,
+      "high": 46.9,
+      "unbuffed": 39.3,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -5399,10 +5427,10 @@
       "solo": 39.3
      },
      "30": {
-      "score": 89.0,
-      "low": 87.9,
-      "high": 93.4,
-      "unbuffed": 83.5,
+      "score": 74.2,
+      "low": 73.3,
+      "high": 77.9,
+      "unbuffed": 68.2,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -5413,10 +5441,10 @@
       "solo": 68.2
      },
      "40": {
-      "score": 146.5,
-      "low": 136.6,
-      "high": 154.5,
-      "unbuffed": 128.0,
+      "score": 125.8,
+      "low": 116.2,
+      "high": 134.0,
+      "unbuffed": 107.6,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -5427,10 +5455,10 @@
       "solo": 107.6
      },
      "50": {
-      "score": 273.8,
-      "low": 254.0,
-      "high": 293.0,
-      "unbuffed": 234.7,
+      "score": 236.1,
+      "low": 217.2,
+      "high": 252.1,
+      "unbuffed": 198.5,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -5441,10 +5469,10 @@
       "solo": 198.5
      },
      "60": {
-      "score": 469.6,
-      "low": 459.8,
-      "high": 508.1,
-      "unbuffed": 422.2,
+      "score": 414.9,
+      "low": 406.0,
+      "high": 448.8,
+      "unbuffed": 369.6,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -5519,59 +5547,59 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4705,
+     "score": 0.465,
      "stamina": 0.0,
-     "intellect": 0.000354,
+     "intellect": 0.000446,
      "spirit": 0.0,
-     "spell_power": 0.001963,
-     "crit_rating": 0.000606,
-     "hit_rating": 0.000818,
-     "crit_pct": 0.001959,
-     "hit_pct": 0.004695
+     "spell_power": 0.00201,
+     "crit_rating": 0.000598,
+     "hit_rating": 0.000786,
+     "crit_pct": 0.001932,
+     "hit_pct": 0.004589
     },
     "30": {
-     "score": 0.6798,
+     "score": 0.6553,
      "stamina": 0.0,
-     "intellect": 0.000159,
+     "intellect": 0.000158,
      "spirit": 2.5e-05,
-     "spell_power": 0.001741,
-     "crit_rating": 0.000667,
-     "hit_rating": 0.001101,
-     "crit_pct": 0.003953,
-     "hit_pct": 0.007116
+     "spell_power": 0.001724,
+     "crit_rating": 0.000662,
+     "hit_rating": 0.001019,
+     "crit_pct": 0.003921,
+     "hit_pct": 0.006627
     },
     "40": {
-     "score": 0.9243,
+     "score": 0.8898,
      "stamina": 0.0,
-     "intellect": 0.001137,
+     "intellect": 0.001135,
      "spirit": 0.0,
-     "spell_power": 0.001228,
-     "crit_rating": 0.00066,
-     "hit_rating": 0.001019,
-     "crit_pct": 0.005686,
-     "hit_pct": 0.00936
+     "spell_power": 0.00121,
+     "crit_rating": 0.000653,
+     "hit_rating": 0.000941,
+     "crit_pct": 0.005627,
+     "hit_pct": 0.00869
     },
     "50": {
-     "score": 1.3148,
+     "score": 1.2516,
      "stamina": 0.0,
-     "intellect": 0.001753,
+     "intellect": 0.001705,
      "spirit": 6e-05,
-     "spell_power": 0.001152,
-     "crit_rating": 0.000755,
-     "hit_rating": 0.000908,
-     "crit_pct": 0.008533,
-     "hit_pct": 0.01016
+     "spell_power": 0.001151,
+     "crit_rating": 0.00074,
+     "hit_rating": 0.000793,
+     "crit_pct": 0.008367,
+     "hit_pct": 0.008858
     },
     "60": {
-     "score": 1.8695,
+     "score": 1.7783,
      "stamina": 0.0,
-     "intellect": 0.000291,
+     "intellect": 0.000289,
      "spirit": 8.1e-05,
-     "spell_power": 0.001136,
-     "crit_rating": 0.000892,
-     "hit_rating": 0.001092,
-     "crit_pct": 0.012483,
-     "hit_pct": 0.014661
+     "spell_power": 0.001146,
+     "crit_rating": 0.000881,
+     "hit_rating": 0.000958,
+     "crit_pct": 0.012331,
+     "hit_pct": 0.012918
     }
    },
    "stat_priority": {
@@ -5585,33 +5613,45 @@
      },
      {
       "stat": "hit_rating",
-      "share": 0.961,
-      "tier": 1
-     },
-     {
-      "stat": "crit_rating",
-      "share": 0.785,
+      "share": 0.836,
       "tier": 2
      },
      {
-      "stat": "intellect",
-      "share": 0.256,
+      "stat": "crit_rating",
+      "share": 0.769,
       "tier": 3
+     },
+     {
+      "stat": "intellect",
+      "share": 0.252,
+      "tier": 4
      },
      {
       "stat": "spirit",
       "share": 0.071,
-      "tier": 4
+      "tier": 5
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [
+     "Cold Snap",
+     "Ice Block"
+    ],
+    "missing": [
+     "Ice Barrier",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "bonus": 0.04
    },
    "about": [
     "30 points in Frost, with 21 in Fire. Built for PvE. On this order the key talents arrive as follows: Ice Lance at 20, Ice Block at 25, Cold Snap at 30 and Winter's Chill at 47.",
     "In the model it levels with Frostbolt, pulls packs with Flamestrike and duels with Frostfire Bolt as its main spell.",
     "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and AoE pulls (100%), and weakest at survivability (47%).",
-    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 11% more damage at 60 than unbuffed, on average across groups.",
+    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 12% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.63, crit rating 0.38 and intellect 0.09; at level 60, spell power 1, hit rating 0.96, crit rating 0.79 and intellect 0.26. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.59, crit rating 0.38 and intellect 0.09; at level 60, spell power 1, hit rating 0.84, crit rating 0.77 and intellect 0.25. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -6160,38 +6200,30 @@
     },
     "dungeon": {
      "20": {
-      "score": 39.9,
-      "low": 37.8,
-      "high": 41.2,
-      "unbuffed": 36.0,
-      "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
-      ],
+      "score": 38.7,
+      "low": 38.2,
+      "high": 39.8,
+      "unbuffed": 38.2,
+      "top_buffs": [],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 38.2
      },
      "30": {
-      "score": 67.1,
-      "low": 63.0,
-      "high": 69.6,
-      "unbuffed": 57.9,
-      "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
-      ],
+      "score": 64.5,
+      "low": 60.5,
+      "high": 67.1,
+      "unbuffed": 60.3,
+      "top_buffs": [],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 60.3
      },
      "40": {
-      "score": 111.2,
-      "low": 103.4,
-      "high": 118.5,
-      "unbuffed": 96.7,
+      "score": 122.7,
+      "low": 113.0,
+      "high": 130.7,
+      "unbuffed": 104.5,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -6202,10 +6234,10 @@
       "solo": 104.5
      },
      "50": {
-      "score": 156.0,
-      "low": 144.3,
-      "high": 166.6,
-      "unbuffed": 133.0,
+      "score": 173.6,
+      "low": 159.3,
+      "high": 187.2,
+      "unbuffed": 145.2,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -6216,14 +6248,13 @@
       "solo": 145.2
      },
      "60": {
-      "score": 345.3,
-      "low": 318.8,
-      "high": 370.3,
-      "unbuffed": 292.2,
+      "score": 376.5,
+      "low": 345.8,
+      "high": 405.8,
+      "unbuffed": 340.6,
       "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
+       "curse_of_the_elements",
+       "arcane_intellect"
       ],
       "unit": "dps",
       "spell": "Frostbolt",
@@ -6294,58 +6325,58 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4543,
+     "score": 0.4518,
      "stamina": 0.0,
-     "intellect": 0.000591,
+     "intellect": 0.000505,
      "spirit": 0.0,
-     "spell_power": 0.001918,
-     "crit_rating": 0.000864,
-     "hit_rating": 0.000405,
-     "crit_pct": 0.002792,
-     "hit_pct": 0.001551
+     "spell_power": 0.001971,
+     "crit_rating": 0.000803,
+     "hit_rating": 0.0004,
+     "crit_pct": 0.002595,
+     "hit_pct": 0.001525
     },
     "30": {
-     "score": 0.6296,
+     "score": 0.6252,
      "stamina": 0.0,
-     "intellect": 0.000751,
+     "intellect": 0.000788,
      "spirit": 2.7e-05,
-     "spell_power": 0.001624,
-     "crit_rating": 0.000797,
-     "hit_rating": 0.000882,
-     "crit_pct": 0.004718,
-     "hit_pct": 0.005222
+     "spell_power": 0.001673,
+     "crit_rating": 0.00056,
+     "hit_rating": 0.000878,
+     "crit_pct": 0.003315,
+     "hit_pct": 0.005199
     },
     "40": {
-     "score": 0.9182,
+     "score": 0.9376,
      "stamina": 0.0,
-     "intellect": 0.001159,
+     "intellect": 0.001384,
      "spirit": 0.000178,
-     "spell_power": 0.001492,
-     "crit_rating": 0.001065,
-     "hit_rating": 0.000559,
-     "crit_pct": 0.009176,
-     "hit_pct": 0.00482
+     "spell_power": 0.001539,
+     "crit_rating": 0.001131,
+     "hit_rating": 0.000588,
+     "crit_pct": 0.009739,
+     "hit_pct": 0.005063
     },
     "50": {
-     "score": 1.0517,
+     "score": 1.0814,
      "stamina": 0.0,
-     "intellect": 0.001276,
+     "intellect": 0.001509,
      "spirit": 0.000202,
-     "spell_power": 0.001306,
-     "crit_rating": 0.000927,
+     "spell_power": 0.00136,
+     "crit_rating": 0.000996,
      "hit_rating": 0.000309,
-     "crit_pct": 0.010485,
+     "crit_pct": 0.011264,
      "hit_pct": 0.003494
     },
     "60": {
-     "score": 1.6355,
+     "score": 1.688,
      "stamina": 0.0,
-     "intellect": 0.002059,
+     "intellect": 0.002343,
      "spirit": 0.000321,
-     "spell_power": 0.001178,
-     "crit_rating": 0.001337,
+     "spell_power": 0.001247,
+     "crit_rating": 0.001409,
      "hit_rating": 0.000443,
-     "crit_pct": 0.018721,
+     "crit_pct": 0.019734,
      "hit_pct": 0.006207
     }
    },
@@ -6360,32 +6391,43 @@
      },
      {
       "stat": "crit_rating",
-      "share": 0.649,
+      "share": 0.601,
       "tier": 2
      },
      {
       "stat": "spell_power",
-      "share": 0.572,
+      "share": 0.532,
       "tier": 3
      },
      {
       "stat": "hit_rating",
-      "share": 0.215,
+      "share": 0.189,
       "tier": 4
      },
      {
       "stat": "spirit",
-      "share": 0.156,
+      "share": 0.137,
       "tier": 5
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "bonus": 0.0
    },
    "about": [
     "29 points in Fire, with 22 in Frost. Built for PvE. On this order the key talents arrive as follows: Pyroblast at 27, Heating Up at 37, Fire Power at 38 and Ice Lance at 55.",
     "In the model it levels with Frostfire Bolt, pulls packs with Flamestrike and duels with Frostfire Bolt as its main spell.",
     "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and questing speed (90%), and weakest at survivability (34%).",
-    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 18% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.54, crit rating 0.49 and intellect 0.46; at level 60, intellect 1, crit rating 0.65, spell power 0.57 and hit rating 0.22. The Recommended gear panel ranks items by these weights at your level."
+    "In a dungeon group it gains most from Curse of the Elements and Arcane Intellect: about 11% more damage at 60 than unbuffed, on average across groups.",
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.52, intellect 0.47 and crit rating 0.33; at level 60, intellect 1, crit rating 0.6, spell power 0.53 and hit rating 0.19. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -6934,24 +6976,23 @@
     },
     "dungeon": {
      "20": {
-      "score": 42.2,
-      "low": 40.1,
-      "high": 43.4,
-      "unbuffed": 38.3,
+      "score": 41.4,
+      "low": 38.8,
+      "high": 43.2,
+      "unbuffed": 37.0,
       "top_buffs": [
        "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
+       "blessing_of_kings"
       ],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 37.0
      },
      "30": {
-      "score": 70.5,
-      "low": 66.3,
-      "high": 73.2,
-      "unbuffed": 61.0,
+      "score": 72.7,
+      "low": 70.4,
+      "high": 76.6,
+      "unbuffed": 63.9,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -6962,10 +7003,10 @@
       "solo": 63.9
      },
      "40": {
-      "score": 106.6,
-      "low": 99.1,
-      "high": 113.6,
-      "unbuffed": 92.6,
+      "score": 117.1,
+      "low": 107.9,
+      "high": 124.8,
+      "unbuffed": 99.8,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -6976,10 +7017,10 @@
       "solo": 99.8
      },
      "50": {
-      "score": 168.2,
-      "low": 155.5,
-      "high": 179.7,
-      "unbuffed": 143.3,
+      "score": 188.1,
+      "low": 172.6,
+      "high": 202.9,
+      "unbuffed": 157.3,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -6990,10 +7031,10 @@
       "solo": 157.3
      },
      "60": {
-      "score": 336.1,
-      "low": 309.9,
-      "high": 359.2,
-      "unbuffed": 286.9,
+      "score": 387.5,
+      "low": 355.8,
+      "high": 416.8,
+      "unbuffed": 327.6,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -7068,59 +7109,59 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4461,
+     "score": 0.445,
      "stamina": 0.0,
-     "intellect": 0.000394,
+     "intellect": 0.000508,
      "spirit": 0.0,
-     "spell_power": 0.00182,
+     "spell_power": 0.001814,
      "crit_rating": 0.000369,
-     "hit_rating": 0.000996,
+     "hit_rating": 0.001102,
      "crit_pct": 0.001194,
      "hit_pct": 0.003656
     },
     "30": {
-     "score": 0.6438,
+     "score": 0.6472,
      "stamina": 0.0,
-     "intellect": 0.000763,
+     "intellect": 0.000129,
      "spirit": 2.8e-05,
-     "spell_power": 0.001652,
-     "crit_rating": 0.000713,
-     "hit_rating": 0.000677,
-     "crit_pct": 0.004221,
-     "hit_pct": 0.004015
+     "spell_power": 0.001735,
+     "crit_rating": 0.000517,
+     "hit_rating": 0.000465,
+     "crit_pct": 0.003062,
+     "hit_pct": 0.002757
     },
     "40": {
-     "score": 0.8526,
+     "score": 0.8704,
      "stamina": 0.0,
-     "intellect": 0.000971,
+     "intellect": 0.001177,
      "spirit": 3.9e-05,
-     "spell_power": 0.001386,
-     "crit_rating": 0.000946,
-     "hit_rating": 0.001004,
-     "crit_pct": 0.008151,
-     "hit_pct": 0.00865
+     "spell_power": 0.001427,
+     "crit_rating": 0.000982,
+     "hit_rating": 0.001027,
+     "crit_pct": 0.008456,
+     "hit_pct": 0.008847
     },
     "50": {
-     "score": 1.0974,
+     "score": 1.1309,
      "stamina": 0.0,
-     "intellect": 0.001364,
+     "intellect": 0.001623,
      "spirit": 0.000215,
-     "spell_power": 0.001362,
-     "crit_rating": 0.000966,
-     "hit_rating": 0.000991,
-     "crit_pct": 0.010926,
-     "hit_pct": 0.011209
+     "spell_power": 0.001423,
+     "crit_rating": 0.001043,
+     "hit_rating": 0.00103,
+     "crit_pct": 0.011797,
+     "hit_pct": 0.011646
     },
     "60": {
-     "score": 1.6004,
+     "score": 1.6803,
      "stamina": 0.0,
-     "intellect": 0.00178,
-     "spirit": 0.000856,
-     "spell_power": 0.001415,
-     "crit_rating": 0.001165,
-     "hit_rating": 0.001195,
-     "crit_pct": 0.016317,
-     "hit_pct": 0.016435
+     "intellect": 0.002083,
+     "spirit": 0.000899,
+     "spell_power": 0.001524,
+     "crit_rating": 0.001292,
+     "hit_rating": 0.001274,
+     "crit_pct": 0.018096,
+     "hit_pct": 0.017545
     }
    },
    "stat_priority": {
@@ -7134,33 +7175,44 @@
      },
      {
       "stat": "spell_power",
-      "share": 0.795,
+      "share": 0.732,
       "tier": 2
      },
      {
-      "stat": "hit_rating",
-      "share": 0.671,
+      "stat": "crit_rating",
+      "share": 0.62,
       "tier": 3
      },
      {
-      "stat": "crit_rating",
-      "share": 0.654,
+      "stat": "hit_rating",
+      "share": 0.612,
       "tier": 3
      },
      {
       "stat": "spirit",
-      "share": 0.481,
+      "share": 0.432,
       "tier": 4
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "bonus": 0.0
    },
    "about": [
     "30 points in Fire, with 21 in Arcane. Built for PvE. On this order the key talents arrive as follows: Pyroblast at 38, Heating Up at 44, Fire Power at 45, Arcane Blast at 54 and Presence of Mind at 60.",
     "In the model it levels with Fireball, pulls packs with Flamestrike and duels with Fireball as its main spell.",
     "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and duels against casters (96%), and weakest at survivability (18%).",
-    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 17% more damage at 60 than unbuffed, on average across groups.",
+    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 18% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, intellect 0.46, crit rating 0.43 and hit rating 0.41; at level 60, intellect 1, spell power 0.79, hit rating 0.67 and crit rating 0.65. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, crit rating 0.3, hit rating 0.27 and intellect 0.07; at level 60, intellect 1, spell power 0.73, crit rating 0.62 and hit rating 0.61. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -7709,38 +7761,30 @@
     },
     "dungeon": {
      "20": {
-      "score": 41.3,
-      "low": 39.3,
-      "high": 42.5,
-      "unbuffed": 37.5,
-      "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
-      ],
+      "score": 40.7,
+      "low": 38.5,
+      "high": 42.3,
+      "unbuffed": 38.5,
+      "top_buffs": [],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 38.5
      },
      "30": {
-      "score": 67.6,
-      "low": 63.6,
-      "high": 70.2,
-      "unbuffed": 58.7,
-      "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
-      ],
+      "score": 71.4,
+      "low": 70.3,
+      "high": 75.1,
+      "unbuffed": 70.2,
+      "top_buffs": [],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 70.2
      },
      "40": {
-      "score": 108.6,
-      "low": 101.5,
-      "high": 114.5,
-      "unbuffed": 95.4,
+      "score": 122.3,
+      "low": 114.0,
+      "high": 129.6,
+      "unbuffed": 105.7,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -7751,10 +7795,10 @@
       "solo": 105.7
      },
      "50": {
-      "score": 177.6,
-      "low": 164.8,
-      "high": 189.9,
-      "unbuffed": 152.4,
+      "score": 167.2,
+      "low": 154.0,
+      "high": 178.6,
+      "unbuffed": 140.9,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -7765,10 +7809,10 @@
       "solo": 140.9
      },
      "60": {
-      "score": 329.5,
-      "low": 323.7,
-      "high": 356.5,
-      "unbuffed": 300.8,
+      "score": 319.9,
+      "low": 312.6,
+      "high": 346.5,
+      "unbuffed": 290.8,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -7918,6 +7962,18 @@
       "tier": 2
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block"
+    ],
+    "bonus": 0.04
    },
    "about": [
     "36 points in Arcane, with 15 in Frost. Built for PvP. On this order the key talents arrive as follows: Ice Lance at 30, Arcane Blast at 53 and Arcane Shielding at 54.",
@@ -8474,10 +8530,10 @@
     },
     "dungeon": {
      "20": {
-      "score": 45.9,
-      "low": 43.5,
+      "score": 45.3,
+      "low": 42.2,
       "high": 47.3,
-      "unbuffed": 41.4,
+      "unbuffed": 39.5,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -8488,10 +8544,10 @@
       "solo": 39.5
      },
      "30": {
-      "score": 88.1,
-      "low": 87.0,
-      "high": 92.4,
-      "unbuffed": 82.7,
+      "score": 74.6,
+      "low": 73.7,
+      "high": 78.3,
+      "unbuffed": 68.6,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -8502,10 +8558,10 @@
       "solo": 68.6
      },
      "40": {
-      "score": 144.4,
-      "low": 134.6,
-      "high": 152.1,
-      "unbuffed": 126.2,
+      "score": 125.4,
+      "low": 115.8,
+      "high": 133.2,
+      "unbuffed": 107.3,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -8516,10 +8572,10 @@
       "solo": 107.3
      },
      "50": {
-      "score": 168.2,
-      "low": 155.7,
-      "high": 179.8,
-      "unbuffed": 143.7,
+      "score": 184.8,
+      "low": 170.0,
+      "high": 197.3,
+      "unbuffed": 155.4,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -8530,10 +8586,10 @@
       "solo": 155.4
      },
      "60": {
-      "score": 302.2,
-      "low": 279.8,
-      "high": 320.7,
-      "unbuffed": 257.1,
+      "score": 327.3,
+      "low": 301.6,
+      "high": 346.8,
+      "unbuffed": 275.2,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -8684,11 +8740,23 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [
+     "Cold Snap",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "missing": [
+     "Ice Barrier"
+    ],
+    "bonus": 0.08
+   },
    "about": [
     "27 points in Fire, with 24 in Frost. Built for PvP. On this order the key talents arrive as follows: Ice Lance at 25, Fingers of Frost at 31, Pyroblast at 53, Ice Block at 54, Heating Up at 55 and Cold Snap at 56.",
     "In the model it levels with Frostbolt, pulls packs with Flamestrike and duels with Frostfire Bolt as its main spell.",
     "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and duels against casters (100%), and weakest at survivability (48%).",
-    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 18% more damage at 60 than unbuffed, on average across groups.",
+    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 19% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
     "Gear priority per point, relative to the best stat: at level 30, stamina 1, spell power 0.62, hit rating 0.34 and crit rating 0.22; at level 60, stamina 1, spell power 0.07, crit rating 0.06 and intellect 0.02. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -9239,24 +9307,20 @@
     },
     "dungeon": {
      "20": {
-      "score": 40.8,
-      "low": 38.8,
-      "high": 42.0,
-      "unbuffed": 37.0,
-      "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
-      ],
+      "score": 39.9,
+      "low": 38.2,
+      "high": 41.4,
+      "unbuffed": 38.2,
+      "top_buffs": [],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 38.2
      },
      "30": {
-      "score": 69.8,
-      "low": 65.6,
-      "high": 72.5,
-      "unbuffed": 60.5,
+      "score": 71.5,
+      "low": 67.4,
+      "high": 74.9,
+      "unbuffed": 61.2,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -9267,24 +9331,24 @@
       "solo": 61.2
      },
      "40": {
-      "score": 104.9,
-      "low": 97.5,
-      "high": 111.7,
-      "unbuffed": 91.1,
+      "score": 103.2,
+      "low": 100.8,
+      "high": 109.0,
+      "unbuffed": 99.6,
       "top_buffs": [
+       "curse_of_the_elements",
        "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
+       "blessing_of_kings"
       ],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 99.6
      },
      "50": {
-      "score": 162.0,
-      "low": 149.8,
-      "high": 173.1,
-      "unbuffed": 138.1,
+      "score": 158.0,
+      "low": 148.4,
+      "high": 169.8,
+      "unbuffed": 135.6,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -9295,10 +9359,10 @@
       "solo": 135.6
      },
      "60": {
-      "score": 284.6,
-      "low": 263.0,
-      "high": 303.4,
-      "unbuffed": 241.3,
+      "score": 326.1,
+      "low": 299.7,
+      "high": 350.1,
+      "unbuffed": 272.6,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -9449,11 +9513,23 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block"
+    ],
+    "bonus": 0.04
+   },
    "about": [
     "31 points in Fire, with 11 in Arcane and 9 in Frost. Built for PvP. On this order the key talents arrive as follows: Pyroblast at 45, Fire Power at 46, Arcane Blast at 56 and Heating Up at 60.",
     "In the model it levels with Fireball, pulls packs with Flamestrike and duels with Fireball as its main spell.",
     "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and duels against casters (87%), and weakest at survivability (30%).",
-    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 18% more damage at 60 than unbuffed, on average across groups.",
+    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 20% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
     "Gear priority per point, relative to the best stat: at level 30, stamina 1, spell power 0.58, crit rating 0.2 and intellect 0.05; at level 60, stamina 1, spell power 0.13, crit rating 0.07 and intellect 0.02. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -10004,10 +10080,10 @@
     },
     "dungeon": {
      "20": {
-      "score": 46.2,
-      "low": 43.9,
+      "score": 45.6,
+      "low": 42.6,
       "high": 47.7,
-      "unbuffed": 41.8,
+      "unbuffed": 39.8,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -10018,38 +10094,32 @@
       "solo": 39.8
      },
      "30": {
-      "score": 63.6,
-      "low": 59.9,
-      "high": 66.0,
-      "unbuffed": 55.3,
-      "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
-      ],
+      "score": 78.5,
+      "low": 77.6,
+      "high": 82.4,
+      "unbuffed": 77.3,
+      "top_buffs": [],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 77.3
      },
      "40": {
-      "score": 109.3,
-      "low": 101.5,
-      "high": 115.8,
-      "unbuffed": 95.4,
+      "score": 135.7,
+      "low": 133.5,
+      "high": 144.5,
+      "unbuffed": 133.0,
       "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
+       "curse_of_the_elements"
       ],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 133.0
      },
      "50": {
-      "score": 206.0,
-      "low": 199.6,
+      "score": 205.9,
+      "low": 199.2,
       "high": 223.3,
-      "unbuffed": 184.3,
+      "unbuffed": 182.0,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -10060,10 +10130,10 @@
       "solo": 182.0
      },
      "60": {
-      "score": 349.5,
-      "low": 342.7,
-      "high": 377.8,
-      "unbuffed": 341.1,
+      "score": 380.6,
+      "low": 373.2,
+      "high": 411.5,
+      "unbuffed": 371.6,
       "top_buffs": [
        "curse_of_the_elements"
       ],
@@ -10136,36 +10206,36 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4651,
+     "score": 0.4641,
      "stamina": 0.0,
-     "intellect": 0.000373,
+     "intellect": 0.000464,
      "spirit": 0.0,
-     "spell_power": 0.002133,
-     "crit_rating": 0.000675,
-     "hit_rating": 0.000412,
-     "crit_pct": 0.002184,
-     "hit_pct": 0.001611
+     "spell_power": 0.002126,
+     "crit_rating": 0.000674,
+     "hit_rating": 0.00041,
+     "crit_pct": 0.002178,
+     "hit_pct": 0.001602
     },
     "30": {
-     "score": 0.6436,
+     "score": 0.668,
      "stamina": 0.0,
-     "intellect": 0.00066,
+     "intellect": 0.000142,
      "spirit": 2.4e-05,
-     "spell_power": 0.001609,
-     "crit_rating": 0.00052,
-     "hit_rating": 0.000423,
-     "crit_pct": 0.003083,
-     "hit_pct": 0.002504
+     "spell_power": 0.001841,
+     "crit_rating": 0.000588,
+     "hit_rating": 0.000465,
+     "crit_pct": 0.003483,
+     "hit_pct": 0.002755
     },
     "40": {
-     "score": 0.8595,
+     "score": 0.904,
      "stamina": 0.0,
-     "intellect": 0.000842,
+     "intellect": 0.000165,
      "spirit": 0.0,
-     "spell_power": 0.001426,
-     "crit_rating": 0.000491,
+     "spell_power": 0.00165,
+     "crit_rating": 0.000742,
      "hit_rating": 0.00026,
-     "crit_pct": 0.00423,
+     "crit_pct": 0.006394,
      "hit_pct": 0.002239
     },
     "50": {
@@ -10180,11 +10250,11 @@
      "hit_pct": 0.003342
     },
     "60": {
-     "score": 1.6038,
+     "score": 1.6556,
      "stamina": 0.0,
      "intellect": 0.000266,
      "spirit": 0.000149,
-     "spell_power": 0.001509,
+     "spell_power": 0.001567,
      "crit_rating": 0.000844,
      "hit_rating": 0.000439,
      "crit_pct": 0.011808,
@@ -10202,25 +10272,37 @@
      },
      {
       "stat": "crit_rating",
-      "share": 0.559,
+      "share": 0.539,
       "tier": 2
      },
      {
       "stat": "hit_rating",
-      "share": 0.291,
+      "share": 0.28,
       "tier": 3
      },
      {
       "stat": "intellect",
-      "share": 0.176,
+      "share": 0.17,
       "tier": 4
      },
      {
       "stat": "spirit",
-      "share": 0.099,
+      "share": 0.095,
       "tier": 5
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block"
+    ],
+    "bonus": 0.04
    },
    "about": [
     "31 points in Frost, with 20 in Arcane. Built for PvE. On this order the key talents arrive as follows: Winter's Chill at 56.",
@@ -10228,7 +10310,7 @@
     "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and raid damage (94%), and weakest at survivability (20%).",
     "In a dungeon group it gains most from Curse of the Elements: about 2% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, intellect 0.41, crit rating 0.32 and hit rating 0.26; at level 60, spell power 1, crit rating 0.56, hit rating 0.29 and intellect 0.18. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, crit rating 0.32, hit rating 0.25 and intellect 0.08; at level 60, spell power 1, crit rating 0.54, hit rating 0.28 and intellect 0.17. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -10777,10 +10859,10 @@
     },
     "dungeon": {
      "20": {
-      "score": 46.2,
-      "low": 43.9,
+      "score": 45.6,
+      "low": 42.6,
       "high": 47.7,
-      "unbuffed": 41.8,
+      "unbuffed": 39.8,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -10791,38 +10873,32 @@
       "solo": 39.8
      },
      "30": {
-      "score": 63.6,
-      "low": 59.9,
-      "high": 66.0,
-      "unbuffed": 55.3,
-      "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
-      ],
+      "score": 78.1,
+      "low": 77.3,
+      "high": 82.0,
+      "unbuffed": 77.0,
+      "top_buffs": [],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 77.0
      },
      "40": {
-      "score": 108.6,
-      "low": 101.5,
-      "high": 114.5,
-      "unbuffed": 95.4,
+      "score": 130.7,
+      "low": 128.7,
+      "high": 139.2,
+      "unbuffed": 128.4,
       "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
+       "curse_of_the_elements"
       ],
       "unit": "dps",
       "spell": "Frostbolt",
       "solo": 128.4
      },
      "50": {
-      "score": 198.1,
-      "low": 192.2,
+      "score": 198.0,
+      "low": 191.9,
       "high": 214.8,
-      "unbuffed": 177.8,
+      "unbuffed": 175.5,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -10909,37 +10985,37 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4651,
+     "score": 0.4641,
      "stamina": 0.0,
-     "intellect": 0.000373,
+     "intellect": 0.000464,
      "spirit": 0.0,
-     "spell_power": 0.002133,
-     "crit_rating": 0.000675,
-     "hit_rating": 0.000412,
-     "crit_pct": 0.002184,
-     "hit_pct": 0.001611
+     "spell_power": 0.002126,
+     "crit_rating": 0.000674,
+     "hit_rating": 0.00041,
+     "crit_pct": 0.002178,
+     "hit_pct": 0.001602
     },
     "30": {
-     "score": 0.6432,
+     "score": 0.6669,
      "stamina": 0.0,
-     "intellect": 0.000656,
+     "intellect": 0.000133,
      "spirit": 2.4e-05,
-     "spell_power": 0.001608,
-     "crit_rating": 0.0005,
-     "hit_rating": 0.000423,
-     "crit_pct": 0.002965,
-     "hit_pct": 0.002504
+     "spell_power": 0.001838,
+     "crit_rating": 0.000547,
+     "hit_rating": 0.000464,
+     "crit_pct": 0.003238,
+     "hit_pct": 0.002749
     },
     "40": {
-     "score": 0.8502,
+     "score": 0.8863,
      "stamina": 0.0,
-     "intellect": 0.000809,
+     "intellect": 0.000108,
      "spirit": 0.0,
-     "spell_power": 0.001405,
-     "crit_rating": 0.000338,
-     "hit_rating": 0.000256,
-     "crit_pct": 0.002914,
-     "hit_pct": 0.002207
+     "spell_power": 0.001607,
+     "crit_rating": 0.000486,
+     "hit_rating": 0.000517,
+     "crit_pct": 0.004186,
+     "hit_pct": 0.004452
     },
     "50": {
      "score": 1.0676,
@@ -10995,12 +11071,23 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "missing": [],
+    "bonus": 0.1
+   },
    "about": [
     "31 points in Frost, with 20 in Arcane. Built for PvE. On this order the key talents arrive as follows: Ice Block at 52, Cold Snap at 59 and Ice Barrier at 60.",
     "In the model it levels with Frostbolt, pulls packs with Flamestrike and duels with Frostbolt as its main spell.",
     "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and survivability (100%), and weakest at surviving stealth openers (54%).",
     "In a dungeon group it gains most from Curse of the Elements: about 2% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, intellect 0.41, crit rating 0.31 and hit rating 0.26; at level 60, spell power 1, crit rating 0.38, hit rating 0.28 and intellect 0.13. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, crit rating 0.3, hit rating 0.25 and intellect 0.07; at level 60, spell power 1, crit rating 0.38, hit rating 0.28 and intellect 0.13. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -11191,6 +11278,17 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "bonus": 0.0
+   },
    "about": [
     "35 points in Fire, with 14 in Arcane and 2 in Frost. Built for PvP. On this order the key talents arrive as follows: Blast Wave at 34, Fire Power at 35, Pyroblast at 44, Heating Up at 45 and Arcane Blast at 57.",
     "In the model it levels with Fireball.",
@@ -11368,6 +11466,17 @@
       "tier": 1
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "bonus": 0.0
    },
    "about": [
     "47 points in Arcane, with 4 in Fire. Built for PvE. On this order the key talents arrive as follows: Presence of Mind at 41, Arcane Power at 43, Missile Barrage at 50 and Arcane Blast at 53.",
@@ -11566,6 +11675,17 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "bonus": 0.0
+   },
    "about": [
     "38 points in Fire, with 10 in Arcane and 3 in Frost. Built for PvE. On this order the key talents arrive as follows: Combustion at 42, Pyroblast at 47, Heating Up at 48 and Blast Wave at 49.",
     "In the model it levels with Fireball.",
@@ -11754,6 +11874,17 @@
       "tier": 3
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "missing": [],
+    "bonus": 0.1
    },
    "about": [
     "51 points in Frost. Built for PvP. On this order the key talents arrive as follows: Ice Block at 25, Cold Snap at 30, Ice Lance at 42 and Ice Barrier at 49.",
@@ -11952,6 +12083,17 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "bonus": 0.0
+   },
    "about": [
     "36 points in Fire, with 15 in Frost. Built for PvE. On this order the key talents arrive as follows: Fire Power at 35, Pyroblast at 46 and Heating Up at 47.",
     "In the model it levels with Frostfire Bolt.",
@@ -12147,6 +12289,17 @@
       "tier": 3
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "bonus": 0.0
    },
    "about": [
     "35 points in Fire, with 14 in Arcane and 2 in Frost. Built for PvE. On this order the key talents arrive as follows: Fire Power at 35, Pyroblast at 45, Heating Up at 46 and Arcane Blast at 57.",
@@ -12344,6 +12497,18 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block"
+    ],
+    "bonus": 0.04
+   },
    "about": [
     "35 points in Arcane, with 16 in Frost. Built for PvP. On this order the key talents arrive as follows: Arcane Instability at 51 and Arcane Blast at 59.",
     "In the model it levels with Frostbolt.",
@@ -12540,6 +12705,18 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier"
+    ],
+    "bonus": 0.06
+   },
    "about": [
     "34 points in Fire, with 17 in Frost. Built for PvP. On this order the key talents arrive as follows: Fire Power at 35, Blast Wave at 38, Pyroblast at 42, Heating Up at 43, Ice Lance at 55 and Ice Block at 59.",
     "In the model it levels with Fireball.",
@@ -12731,6 +12908,18 @@
       "tier": 3
      }
     ]
+   },
+   "pvp_core": {
+    "taken": [
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "missing": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block"
+    ],
+    "bonus": 0.04
    },
    "about": [
     "36 points in Fire, with 9 in Frost and 6 in Arcane. Built for PvP. On this order the key talents arrive as follows: Fire Power at 42, Pyroblast at 50 and Heating Up at 51.",
@@ -12925,6 +13114,17 @@
      }
     ]
    },
+   "pvp_core": {
+    "taken": [
+     "Cold Snap",
+     "Ice Barrier",
+     "Ice Block",
+     "Improved Frost Nova",
+     "Permafrost"
+    ],
+    "missing": [],
+    "bonus": 0.1
+   },
    "about": [
     "38 points in Frost, with 13 in Arcane. Built for PvE. On this order the key talents arrive as follows: Cold Snap at 33, Ice Block at 35, Ice Barrier at 40 and Ice Lance at 43.",
     "In the model it levels with Frostbolt.",
@@ -13008,12 +13208,12 @@
    "archetype": "deep Arcane",
    "focus": "PvE",
    "standard": "deep-arcane",
-   "standard_score": 1.3665379102652413,
+   "standard_score": 1.3582928875626952,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
     "deep-arcane-model": 1.5530826030979918,
-    "deep-arcane": 1.3665379102652413
+    "deep-arcane": 1.3582928875626952
    },
    "qualifying": [
     "deep-arcane",
@@ -13038,11 +13238,11 @@
    "archetype": "deep Fire",
    "focus": "PvE",
    "standard": "deep-fire",
-   "standard_score": 1.5076480400245664,
+   "standard_score": 1.5774860153326766,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "deep-fire": 1.5076480400245664
+    "deep-fire": 1.5774860153326766
    },
    "qualifying": [
     "deep-fire"
@@ -13083,9 +13283,9 @@
     "Arcane Subtlety": 2,
     "Arcane Focus": 5
    },
-   "model_pick_score": 1.6038438202333714,
+   "model_pick_score": 1.6555908947564242,
    "candidates": {
-    "mage-frost-pve-model": 1.6038438202333714,
+    "mage-frost-pve-model": 1.6555908947564242,
     "mage-frost-pve": 1.4941115677506216
    },
    "qualifying": [
@@ -13159,12 +13359,12 @@
    "archetype": "Fire/Frost",
    "focus": "PvE",
    "standard": "fire-frost-shatter",
-   "standard_score": 1.6354576972718908,
+   "standard_score": 1.6879956176249769,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "elementalist-pve-v2": 1.8695298802227807,
-    "fire-frost-shatter": 1.6354576972718908
+    "elementalist-pve-v2": 1.7783267717401359,
+    "fire-frost-shatter": 1.6879956176249769
    },
    "qualifying": [
     "elementalist-pve-v2",
@@ -13189,11 +13389,11 @@
    "archetype": "Arcane/Fire",
    "focus": "PvE",
    "standard": "mage-arcane-fire-pve",
-   "standard_score": 1.6004414236871276,
+   "standard_score": 1.680291677838164,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "mage-arcane-fire-pve": 1.6004414236871276
+    "mage-arcane-fire-pve": 1.680291677838164
    },
    "qualifying": [
     "mage-arcane-fire-pve"
