@@ -19,12 +19,11 @@ from pathlib import Path
 
 from wowforever.assumptions import Assumptions
 from wowforever.calc.ev import BASE_CRIT_BONUS_PCT, GCD_SECONDS
-from wowforever.focus import PVP_SCENARIOS
 from wowforever.classes import engine
 from wowforever.melee_scenarios import build_stats
 from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Target, armor_factor
-from wowforever.pvp.duel import Control, Kit, Side, lockout_seconds, outnumbered_scores, scenario_scores
+from wowforever.pvp.duel import Control, Kit, Side, lockout_seconds, outnumbered_scores
 from wowforever.scenarios import best_rank
 from wowforever.schema import ClassData, SpellRank
 from wowforever.toml_cache import load_toml
@@ -208,15 +207,7 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
     )
 
 
-def pvp_score(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
-              ranks: Mapping[int, int], kits: Sequence[Kit]) -> float:
-    """Mean duel score over the four world-PvP scenarios (as the mage's, without battlegrounds)."""
-    side = class_side(class_name, stats, spells, cls, ranks)
-    scores = scenario_scores(side, kits)
-    return sum(scores[s]["score"] for s in PVP_SCENARIOS) / len(PVP_SCENARIOS)
-
-
 def outnumbered_score(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
                       ranks: Mapping[int, int], kits: Sequence[Kit]) -> float:
-    """Mean 2v1 score over pairs of kits (#278), a separate score next to pvp_score."""
+    """Mean 2v1 score over pairs of kits (#278), a separate score next to the PvP score (focus.class_pvp_score)."""
     return outnumbered_scores(class_side(class_name, stats, spells, cls, ranks), kits)["score"]

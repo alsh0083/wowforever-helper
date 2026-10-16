@@ -1,5 +1,16 @@
 # Data changelog
 
+## 1.60.1.70374 (2026-10-16)
+
+- Arms/Spearing Strike: rank text changed
+- Demonology/Demonic Brand: rank text changed
+- Discipline/Penance: rank text changed
+- Feral Combat/Natural Instinct: rank text changed
+- Fury/Gore Drinker: rank text changed
+- Protection/Reckoning: rank text changed
+- Restoration/Furor: rank text changed
+- Survival/Expose Prey: rank text changed
+
 ## 1.60.1.70291 Consecration ticks (2026-10-12)
 
 Not a game change: the spell importer now adds up every damage effect of an area spell's tick spell (#295). Re-normalized from the cached tables; only Consecration changes.

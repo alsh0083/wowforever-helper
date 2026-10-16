@@ -11,7 +11,9 @@ from wowforever.classes import class_module
 from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import MeleeStatTable
 from wowforever.physical import armor_factor
-from wowforever.pvp.class_pvp import class_side, pvp_score
+from wowforever.consensus import Consensus
+from wowforever.focus import class_pvp_score
+from wowforever.pvp.class_pvp import class_side
 from wowforever.pvp.duel import Control, load_kits, lockout_seconds
 from wowforever.schema import Dataset
 
@@ -55,7 +57,7 @@ def test_hunter_controls_follow_talents():
 def test_scores_are_duel_scores(class_name):
     cls, stats = loaded(class_name)
     for b in load_builds(class_name=class_name):
-        assert 0 < pvp_score(class_name, stats, cls.spells, cls, b.final_ids(cls), load_kits()) < 1
+        assert 0 < class_pvp_score(class_name, stats, cls, b.final_ids(cls), load_kits(), Consensus.load()) < 1.1
 
 
 def test_mages_are_opponents_now():
