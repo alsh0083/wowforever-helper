@@ -231,6 +231,11 @@ function renderScores(){
    return `<tr class="${isBest?'best':''}" title="${title}"><td>${lv}</td><td>${fmt(r.score)}<span class="unit">${r.unit}</span>${isBest?'<span class="best-badge">★ best</span>':''}${r.low!==undefined?`<div class="unit" title="Expected over every weighted 5-player group (tank, healer, two more DPS and you) with their buffs; 10th to 90th percentile group. Unbuffed: ${fmt(r.unbuffed)}.">${fmt(r.low)}–${fmt(r.high)} by group</div>`:''}${r.raw_dps!==undefined?`<div class="unit" title="Before the mana budget; sustained ${r.unit} counts Evocation, potions and running dry">raw ${fmt(r.raw_dps)}${r.fallback_spell?`, then ${r.fallback_spell}`:''}</div>`:''}</td><td>${r.spell||'—'}</td></tr>`;
   }).join('')}</tbody></table></div>`;
  }).join('');
+ if(build.pvp_core){
+  const pc=build.pvp_core;
+  const missing=pc.missing.length?`Missing: ${pc.missing.join(', ')}`:'All taken';
+  $('score-tables').innerHTML+=`<p class="unit" title="${missing}">Community PvP talents: ${pc.taken.length}/${pc.taken.length+pc.missing.length} taken, +${pc.bonus} PvP score</p>`;
+ }
 }
 const CHECK_STATE={untested:'Not tested yet',tested:'Tested',retest:'Retest: a patch changed it'};
 const fmtValue=v=>typeof v==='boolean'?(v?'yes':'no'):String(v).replace(/_/g,' ');

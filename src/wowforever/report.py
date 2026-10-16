@@ -20,7 +20,7 @@ from wowforever.checklist import checklist
 from wowforever.classes import class_module as _class_module
 from wowforever.classes import engine
 from wowforever.consensus import Consensus
-from wowforever.focus import class_pvp_score, pve_score_fn, pvp_score_fn
+from wowforever.focus import class_pvp_score, pve_score_fn, pvp_core_line, pvp_score_fn
 from wowforever.optimizer import optimize_order
 from wowforever.shortlist import build_shortlist
 from wowforever.pvp.battleground import best_battleground, best_side_battleground
@@ -453,6 +453,7 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
         report.setdefault("caveats", []).append(GROUP_CAVEAT)
     builds = builds + leveling
     add_stat_weights(class_name, cls, builds, report)
+    add_pvp_core(class_name, cls, report)
     from wowforever import melee_scenarios as ms
     from wowforever.describe import add_descriptions
 
@@ -568,3 +569,14 @@ def _stat_priority(build: Mapping[str, Any], focus: str | None) -> dict[str, Any
     level = "40" if leveling else "60"
     basis = "questing pace" if leveling else {"PvP": "PvP duels", "PvE": "PvE score"}.get(focus or "", "score")
     return {"level": int(level), "basis": basis, "stats": sw.stat_priority(weights[level])}
+
+
+def add_pvp_core(class_name: str, cls: ClassData, report: dict[str, Any]) -> None:
+    """Each build's core PvP talents as their own line (#341): the consensus bonus is kept out of
+    the scenario rows so classes compare fairly, so the dashboard shows taken/missing and the
+    bonus on its own; classes without core talents get no line."""
+    consensus = Consensus.load()
+    for entry in report["builds"]:
+        line = pvp_core_line(cls, consensus, class_name, ranks_at(entry["order"], cls.rules.max_level, cls))
+        if line is not None:
+            entry["pvp_core"] = line

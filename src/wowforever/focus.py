@@ -42,6 +42,20 @@ def core_talent_ids(cls: ClassData, consensus: Consensus, class_name: str = "mag
             if any(t.name == n for t in cls.talents)}
 
 
+def pvp_core_line(cls: ClassData, consensus: Consensus, class_name: str,
+                  ranks: Mapping[int, int]) -> dict | None:
+    """The class's community core PvP talents as the dashboard's own line (#341): taken and missing
+    names, alphabetized, plus the consensus bonus for the share taken; None for a class without
+    core talents."""
+    names = [n for n in pvp_core_talents(consensus, class_name)
+             if any(t.name == n for t in cls.talents)]
+    if not names:
+        return None
+    taken = {n for n in names if ranks.get(cls.talent_named(n).talent_id, 0) > 0}
+    return {"taken": sorted(taken), "missing": sorted(set(names) - taken),
+            "bonus": round(CONSENSUS_BONUS * len(taken) / len(names), 3)}
+
+
 def side_pvp_score(sides, kits: Sequence[Kit], level: int, core: set[int], ranks: Mapping[int, int],
                    consensus: Consensus) -> float:
     """The PvP score of any class (#315, option 1; #323): the mean of the four world-PvP duels and the
