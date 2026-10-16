@@ -71,6 +71,25 @@ def cast(spell: SpellRank, stats: Stats, cls: ClassData, ranks: Mapping[int, int
     return ev, seconds, spell.mana_cost * (1 + mods.mana_cost_pct / 100)
 
 
+def talent_stats(class_name: str, stats: Stats, cls: ClassData, ranks: Mapping[int, int]) -> Stats:
+    """The build's `stat_pct` talents (Mental Strength, Dark Inspiration; 70425, #356) through the
+    class's conversions."""
+    from wowforever.stat_weights import apply
+
+    for talent in cls.talents:
+        rank = ranks.get(talent.talent_id, 0)
+        if rank <= 0:
+            continue
+        for effect in talent.effects:
+            if effect.kind != "stat_pct":
+                continue
+            stat = effect.applies_to[0]
+            bumped = apply(class_name, stats, stat, getattr(stats, stat) * effect.values[rank - 1] / 100)
+            if bumped is not None:
+                stats = bumped
+    return stats
+
+
 def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], cls: ClassData,
                     ranks: Mapping[int, int], target: Target, *,
                     drink_mana_per_second: float | None = None) -> CasterRotation:
@@ -79,6 +98,7 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
     The filler is the one with the best damage per second; with `drink_mana_per_second` (questing,
     where drinking is the bottleneck) it is the one with the best damage per second of kill time
     plus drinking, so a cheaper filler (Mind Flay over Smite) wins when mana runs out first."""
+    stats = talent_stats(class_name, stats, cls, ranks)
     plan = class_module(class_name).ROTATION
     assumptions = Assumptions.load()
     target_level = stats.level + target.level_diff

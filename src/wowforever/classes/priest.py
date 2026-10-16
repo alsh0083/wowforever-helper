@@ -36,11 +36,14 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     ),
     "Shadow Weaving": (
         EffectRule("damage_pct",
-                   r"(\d+)% chance to increase the Shadow damage you deal by (\d+)% for \d+ sec, stacking up to (\d+) times",
+                   r"(\d+)% chance to increase the Shadow damage (?:you deal|the target takes from you) by (\d+)% for \d+ sec, stacking up to (\d+) times",
                    ("shadow",), combine=lambda m: float(m.group(1)) / 100 * float(m.group(2)) * float(m.group(3))),
     ),
     "Improved Mind Flay": (
-        EffectRule("damage_pct", r"Mind Flay now deals (\d+(?:\.\d+)?)% more damage", ("Mind Flay",)),
+        # 70425: each tick deals x% more than the previous; 3 ticks, so the mean tick is ((1+x)^3 - 1) / (3x)
+        EffectRule("damage_pct", r"Mind Flay deals (\d+(?:\.\d+)?)% more damage than its previous instance",
+                   ("Mind Flay",),
+                   combine=lambda m: (((1 + float(m.group(1)) / 100) ** 3 - 1) / (3 * float(m.group(1)) / 100) - 1) * 100),
     ),
     "Improved Mind Blast": (
         EffectRule("cooldown", r"cooldown of your Mind Blast spell by (\d+(?:\.\d+)?) sec", ("Mind Blast",), sign=-1),
@@ -65,6 +68,13 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("mana_cost_pct", r"mana cost of your Smite, Holy Fire, and instant cast spells by (\d+(?:\.\d+)?)%",
                    ("Smite", "Holy Fire"), sign=-1),
     ),
+    "Mental Strength": (
+        EffectRule("stat_pct", r"total Intellect by (\d+(?:\.\d+)?)%", ("intellect",)),
+    ),
+    # Mind Blast every 5.5-8 s keeps Dark Inspiration up, so the model counts full uptime
+    "Dark Inspiration": (
+        EffectRule("stat_pct", r"Spirit by (\d+(?:\.\d+)?)% for \d+ sec", ("spirit",)),
+    ),
     "Meditation": (
         EffectRule("regen_while_casting", r"Allows (\d+(?:\.\d+)?)% of your Mana regeneration", ("all",)),
     ),
@@ -81,7 +91,6 @@ UNMODELED: dict[str, str] = {
     "Martyrdom": "defensive: pushback immunity after being crit",
     "Inner Focus": "grants_spell",
     "Improved Inner Fire": "defensive: stronger Inner Fire",
-    "Mental Strength": "buff: +15% Intellect",
     "Soul Warding": "defensive: faster, cheaper Power Word: Shield",
     "Improved Mana Burn": "resource: faster Mana Burn",
     "Penance": "grants_spell",
@@ -105,12 +114,10 @@ UNMODELED: dict[str, str] = {
     # Shadow
     "Blackout": "control: Shadow spells can stun 3 s",
     "Spirit Tap": "resource: Spirit after kills",
-    "Shadow Affinity": "threat: less Shadow threat",
     "Improved Shadow Word: Pain": "damage: longer Shadow Word: Pain",
     "Shadow Reach": "utility: +20% Shadow range",
     "Improved Psychic Scream": "control: Psychic Scream cooldown -4 s",
     "Mind Flay": "grants_spell",
-    "Improved Fade": "defensive: Fade cooldown -6 s",
     "Vampiric Embrace": "grants_spell",
     "Silence": "grants_spell",
     "Devouring Contagion": "damage: cheaper, spreading Devouring Plague",
