@@ -39,11 +39,16 @@ def talent_aliases(name: str) -> set[str]:
 
 SCHEMA_VERSION = 1
 DATASETS_DIR = Path(__file__).resolve().parents[2] / "data" / "datasets"
+DATASET_PIN = Path(__file__).resolve().parents[2] / "config" / "dataset.toml"
 
 
 def latest_dataset_path(datasets_dir: Path = DATASETS_DIR) -> Path:
     """The saved dataset with the newest game build (data/datasets/<build>.json): what reports, tools
-    and the PvP kit read unless told otherwise."""
+    and the PvP kit read unless told otherwise. In the repo's own folder, `config/dataset.toml` can pin
+    an older build while the model catches up with a new one (#339)."""
+    pin = DATASET_PIN.exists() and load_toml(DATASET_PIN).get("build")
+    if pin and datasets_dir == DATASETS_DIR:
+        return datasets_dir / f"{pin}.json"
     paths = [p for p in datasets_dir.glob("*.json") if all(part.isdigit() for part in p.stem.split("."))]
     if not paths:
         raise FileNotFoundError(f"no saved dataset in {datasets_dir}; run `wowforever update`")
