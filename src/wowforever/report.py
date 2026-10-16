@@ -20,7 +20,7 @@ from wowforever.checklist import checklist
 from wowforever.classes import class_module as _class_module
 from wowforever.classes import engine
 from wowforever.consensus import Consensus
-from wowforever.focus import class_pvp_score, pve_score_fn, pvp_score_fn
+from wowforever.focus import class_pvp_score
 from wowforever.optimizer import optimize_order
 from wowforever.shortlist import build_shortlist
 from wowforever.pvp.battleground import best_battleground, best_side_battleground
@@ -158,10 +158,13 @@ KEY_UTILITY = frozenset({"Frost Nova", "Blink", "Counterspell", "Polymorph", "Ic
 
 def shortlist_payload(cls: ClassData, builds: Sequence[Build], stats_60, assumptions: Assumptions) -> list[dict]:
     """Archetype x focus slots (#28) with model picks as talent-name changes against their seed."""
+    from wowforever import melee_scenarios as ms
+
     consensus = Consensus.load()
     arch = consensus.archetypes
-    fns = {"PvP": pvp_score_fn(cls, stats_60, assumptions, load_kits(), consensus),
-           "PvE": pve_score_fn(cls, stats_60, assumptions)}
+    kits = load_kits()
+    fns = {"PvP": lambda ranks: class_pvp_score("mage", stats_60, cls, ranks, kits, consensus),
+           "PvE": lambda ranks: ms.pve_score("mage", stats_60, cls.spells, cls, ranks)}
     slots = build_shortlist(cls, list(builds), fns, margin=SHORTLIST_MARGIN, deep=arch["deep"],
                             hybrid=arch["hybrid"], recognized=tuple(arch["recognized"]))
     names = {t.talent_id: t.name for t in cls.talents}
@@ -456,8 +459,7 @@ def report_from_dataset(dataset_path, class_name: str = "mage") -> dict[str, Any
     from wowforever import melee_scenarios as ms
     from wowforever.describe import add_descriptions
 
-    stats_60 = StatTable.load("mage").at(60) if class_name == "mage" else (
-        ms.stat_table(class_name).at(60) if getattr(module, "ENGINE", False) else None)
+    stats_60 = ms.stat_table(class_name).at(60) if getattr(module, "ENGINE", False) else None
     add_descriptions(class_name, cls, report, {b.id: b.variant for b in builds}, stats_60)
     return report
 
@@ -491,7 +493,7 @@ def add_leveling(class_name: str, cls: ClassData, leveling: Sequence[Build], rep
     if not leveling or not report.get("engine", True):
         report["leveling"] = []
         return
-    table = StatTable.load("mage") if class_name == "mage" else ms.stat_table(class_name)
+    table = ms.stat_table(class_name)
     run = questing_at(class_name, cls)
     slots = {(s["archetype"], s["focus"]): s for s in report.get("shortlist", [])}
     known = {b["id"] for b in report["builds"]}
@@ -530,11 +532,7 @@ def add_stat_weights(class_name: str, cls: ClassData, builds: Sequence[Build], r
     variant = {b.id: b.variant for b in builds}
     module = _class_module(class_name)
     # PvP weights at each checkpoint duel opponents at that level (#272)
-    if class_name == "mage":
-        table, assumptions, consensus = StatTable.load("mage"), Assumptions.load(), Consensus.load()
-        score = {"PvE": lambda s, r: pve_score_fn(cls, s, assumptions)(r),
-                 "PvP": lambda s, r: pvp_score_fn(cls, s, assumptions, load_kits(level=s.level), consensus)(r)}
-    elif getattr(module, "ENGINE", False) in ("melee", "spell"):
+    if getattr(module, "ENGINE", False):
         table, consensus = ms.stat_table(class_name), Consensus.load()
         score = {"PvE": lambda s, r: ms.pve_score(class_name, s, cls.spells, cls, r),
                  "PvP": lambda s, r: class_pvp_score(class_name, s, cls, r, load_kits(level=s.level), consensus)}
@@ -549,7 +547,7 @@ def add_stat_weights(class_name: str, cls: ClassData, builds: Sequence[Build], r
             continue
         b["stat_weights"] = sw.build_weights(
             class_name, cls, b, table, leveling_score if b.get("mode") == "leveling" else score[focus], CHECKPOINTS,
-            melee_build=lambda ranks: table is not None and class_name != "mage"
+            melee_build=lambda ranks: table is not None
             and engine(class_name).playstyle(cls, ranks) == "melee")
     for b in report["builds"]:
         b["stat_priority"] = _stat_priority(b, variant.get(b["id"]))
