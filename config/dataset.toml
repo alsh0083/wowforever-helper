@@ -1,0 +1,4 @@
+# The game build the model reads by default (`latest_dataset_path`). An update check saves newer
+# datasets; the model moves to one once the class modules and builds handle its talent changes
+# (1.60.1.70425, the Oct 15 beta changes: #339). Delete `build` to follow the newest saved dataset.
+build = "1.60.1.70291"
