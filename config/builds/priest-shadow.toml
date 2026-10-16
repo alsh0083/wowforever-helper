@@ -12,6 +12,9 @@ sources = ["wft_popular_priest"]
 confidence = "medium"
 summary = "Shadow with Shadowform, Vampiric Embrace, Shadow Weaving, Darkness and Improved Mind Flay; Twin Disciplines, Inner Focus and Meditation from Discipline. The most saved priest build and the community's PvP and leveling standard."
 
+# 1.60.1.70425 (#353): Shadow Affinity is gone (its slot is now Improved Mind Blast); its 3 points go to
+# Dark Inspiration, the Shadow talent in the same row band. Discipline rows moved too (Mental Strength up to
+# row 2, Improved Power Word: Shield down to row 3): Meditation 3 moves to Mental Strength so the shield stays.
 [final]
 "Darkness" = 5
 "Devouring Contagion" = 2
@@ -21,9 +24,9 @@ summary = "Shadow with Shadowform, Vampiric Embrace, Shadow Weaving, Darkness an
 "Improved Power Word: Shield" = 3
 "Improved Shadow Word: Pain" = 2
 "Inner Focus" = 1
-"Meditation" = 3
+"Mental Strength" = 3
 "Mind Flay" = 1
-"Shadow Affinity" = 3
+"Dark Inspiration" = 3
 "Shadow Focus" = 5
 "Shadow Reach" = 2
 "Shadow Weaving" = 3

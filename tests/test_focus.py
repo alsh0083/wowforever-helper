@@ -23,7 +23,9 @@ CLS, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
 CLS, _ = attach_effects(CLS, TALENT_EFFECTS, UNMODELED)
 CLS = replace(CLS, spells=class_spells(read_tables(FIX / "wago-1.60.1.70205-spells"), skill_lines=SKILL_LINES))
 # the owner's former hand-made Elementalist builds stay as fixtures (tests/fixtures/builds/)
-B = {b.id: b.final_ids(CLS) for b in [*load_builds(class_name="mage"), *load_builds(Path(__file__).parent / "fixtures" / "builds", class_name="mage")]}
+# builds naming talents newer than the 70205 fixture (Arcane Wrath, 70425) are left out
+B = {b.id: b.final_ids(CLS) for b in [*load_builds(class_name="mage"), *load_builds(Path(__file__).parent / "fixtures" / "builds", class_name="mage")]
+     if not b.unknown_talents(CLS)}
 STATS, A = StatTable.load("mage").at(60), Assumptions.load()
 
 

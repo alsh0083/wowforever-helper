@@ -11,6 +11,7 @@ sources = []
 confidence = "low"
 summary = "Model build for Affliction PvP: the report's model pick for this slot. Not a community standard."
 
+# 1.60.1.70425 (#353): Malediction (5) became Grim Reach (2, range only); the 3 freed points go to Fel Concentration (pushback on drains).
 [final]
 "Bane" = 5
 "Demonic Aegis" = 2
@@ -20,7 +21,8 @@ summary = "Model build for Affliction PvP: the report's model pick for this slot
 "Improved Bane of Agony" = 2
 "Improved Corruption" = 5
 "Improved Drains" = 3
-"Malediction" = 5
+"Grim Reach" = 2
+"Fel Concentration" = 3
 "Malevolence" = 5
 "Nightfall" = 2
 "Pandemic" = 3

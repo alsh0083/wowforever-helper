@@ -12,13 +12,14 @@ sources = ["wft_popular_shaman"]
 confidence = "medium"
 summary = "Elemental with Lava Burst, Lightning Overload, Elemental Fury, Earthbound and Eye of the Storm; Thundering Strikes and Ancestral Knowledge from Enhancement. The community's caster standard."
 
+# 1.60.1.70425 (#353): Call of Thunder is gone; its point goes to Elemental Mastery, back at the bottom of the tree.
 [final]
 "Ancestral Knowledge" = 5
 "Call of Flame" = 3
-"Call of Thunder" = 1
 "Concussion" = 5
 "Convection" = 5
 "Earthbound" = 1
+"Elemental Mastery" = 1
 "Elemental Alacrity" = 3
 "Elemental Focus" = 1
 "Elemental Fury" = 5

@@ -11,6 +11,7 @@ sources = []
 confidence = "low"
 summary = "Model build for Arcane/Fire PvE: the report's model pick for this slot. Not a community standard."
 
+# 1.60.1.70425 (#353): Fire Power capped at 3 and Critical Mass raised to 5; the points move from one to the other.
 [final]
 "Arcane Blast" = 1
 "Arcane Concentration" = 5
@@ -18,8 +19,8 @@ summary = "Model build for Arcane/Fire PvE: the report's model pick for this slo
 "Arcane Meditation" = 3
 "Arcane Resilience" = 2
 "Arcane Subtlety" = 2
-"Critical Mass" = 3
-"Fire Power" = 5
+"Critical Mass" = 5
+"Fire Power" = 3
 "Flame Throwing" = 2
 "Heating Up" = 1
 "Ignite" = 5

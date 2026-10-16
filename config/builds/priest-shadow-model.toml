@@ -12,6 +12,9 @@ sources = []
 confidence = "low"
 summary = "The model's alternative to Shadowform (PvP): Devouring Contagion 2->0, Silence 0->1, Blackout 0->1. Scores +8.8% higher; not tried in game."
 
+# 1.60.1.70425 (#353): Shadow Affinity is gone (its slot is now Improved Mind Blast); its 3 points go to
+# Dark Inspiration, the Shadow talent in the same row band. Discipline rows moved too (Mental Strength up to
+# row 2, Improved Power Word: Shield down to row 3): Meditation 3 moves to Mental Strength so the shield stays.
 [final]
 "Blackout" = 1
 "Darkness" = 5
@@ -21,9 +24,9 @@ summary = "The model's alternative to Shadowform (PvP): Devouring Contagion 2->0
 "Improved Power Word: Shield" = 3
 "Improved Shadow Word: Pain" = 2
 "Inner Focus" = 1
-"Meditation" = 3
+"Mental Strength" = 3
 "Mind Flay" = 1
-"Shadow Affinity" = 3
+"Dark Inspiration" = 3
 "Shadow Focus" = 5
 "Shadow Reach" = 2
 "Shadow Weaving" = 3
