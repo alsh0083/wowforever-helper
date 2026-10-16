@@ -84,9 +84,10 @@ def test_lone_wolf_survival_melee():
     extra_agi = 300 * 0.10
     ap = 500 + extra_agi
     a = Attacker(60, ap, 12 + 5 + extra_agi / 53 + 4, 4 + 3)
-    mh = white_swing((80, 150, 2.4), a, BOSS, dual_wield=True, damage_pct=20, crit_damage_pct=30)
+    # Predator's Edge's crit damage is for melee abilities only since 1.60.1.70425 (#358): not white swings
+    mh = white_swing((80, 150, 2.4), a, BOSS, dual_wield=True, damage_pct=20, crit_damage_pct=0)
     melee = mh / 2.4 + white_swing((60, 110, 1.9), a, BOSS, dual_wield=True, off_hand=True,
-                                   damage_pct=20 + 50, crit_damage_pct=30) / 1.9
+                                   damage_pct=20 + 50, crit_damage_pct=0) / 1.9
     raptor = top("Raptor Strike")
     every = max(raptor.cooldown, 2.4)
     melee += (yellow_attack(115 + ap / 14 * 2.4 + raptor.weapon_bonus, a, BOSS, damage_pct=20,
