@@ -1,5 +1,199 @@
 # Data changelog
 
+## 1.60.1.70425 (2026-10-16)
+
+- Affliction/Amplify Curse: rank text changed
+- Affliction/Malediction: max rank 5 -> 2
+- Affliction/Malediction: rank text changed
+- Affliction/Malediction: renamed to Grim Reach
+- Affliction/Shadow Mastery: rank text changed
+- Arcane Blast rank 1: cast_time 2.5 -> 1.5
+- Arcane Blast rank 1: coefficient 0.71399998665 -> 0.42899999022
+- Arcane Blast rank 1: damage_per_level 0.89999997616 -> 0.5
+- Arcane Blast rank 1: max_damage 58.07755100736 -> 34.41632652288
+- Arcane Blast rank 1: min_damage 49.92244899264 -> 29.58367347712
+- Arcane Blast rank 2: cast_time 2.5 -> 1.5
+- Arcane Blast rank 2: coefficient 0.71399998665 -> 0.42899999022
+- Arcane Blast rank 2: damage_per_level 1.39999997616 -> 0.80000001192
+- Arcane Blast rank 2: max_damage 139.8163264992 -> 83.88979589952
+- Arcane Blast rank 2: min_damage 120.18367350080001 -> 72.11020410048
+- Arcane Blast rank 3: cast_time 2.5 -> 1.5
+- Arcane Blast rank 3: coefficient 0.71399998665 -> 0.42899999022
+- Arcane Blast rank 3: damage_per_level 1.60000002384 -> 1.0
+- Arcane Blast rank 3: max_damage 181.76122444895998 -> 108.62653058784
+- Arcane Blast rank 3: min_damage 156.23877555104002 -> 93.37346941216
+- Arcane Blast rank 4: cast_time 2.5 -> 1.5
+- Arcane Blast rank 4: coefficient 0.71399998665 -> 0.42899999022
+- Arcane Blast rank 4: damage_per_level 2.09999990463 -> 1.29999995232
+- Arcane Blast rank 4: max_damage 294.68979585216 -> 180.68571424511998
+- Arcane Blast rank 4: min_damage 253.31020414784 -> 155.31428575488002
+- Arcane Blast rank 5: cast_time 2.5 -> 1.5
+- Arcane Blast rank 5: coefficient 0.71399998665 -> 0.42899999022
+- Arcane Blast rank 5: damage_per_level 2.59999990463 -> 1.60000002384
+- Arcane Blast rank 5: max_damage 423.75102031296 -> 253.82040810624
+- Arcane Blast rank 5: min_damage 364.24897968704 -> 218.17959189376
+- Arcane Wrath rank 1: new spell rank
+- Arcane Wrath rank 2: new spell rank
+- Arcane Wrath rank 3: new spell rank
+- Arcane Wrath rank 4: new spell rank
+- Arcane/Arcane Blast: rank text changed
+- Arcane/Arcane Wrath: new talent
+- Arcane/Improved Channeling: rank text changed
+- Arcane/Missile Barrage: max rank 1 -> 2
+- Arcane/Missile Barrage: moved from row 4 col 4 to row 1 col 4
+- Arcane/Missile Barrage: rank text changed
+- Arms/Bloodthrill: rank text changed
+- Balance/Moonkin Form: rank text changed
+- Chain Lightning rank 1: mana_cost 225 -> 145
+- Chain Lightning rank 2: mana_cost 305 -> 200
+- Chain Lightning rank 3: mana_cost 390 -> 250
+- Chain Lightning rank 4: mana_cost 485 -> 315
+- Consecration rank 1: periodic_coefficient 0.75999999048 -> 0.33599999544
+- Consecration rank 2: periodic_coefficient 0.75999999048 -> 0.33599999544
+- Consecration rank 3: periodic_coefficient 0.75999999048 -> 0.33599999544
+- Consecration rank 4: periodic_coefficient 0.75999999048 -> 0.33599999544
+- Consecration rank 5: periodic_coefficient 0.75999999048 -> 0.33599999544
+- Destruction/Destructive Reach: rank text changed
+- Devouring Plague rank 1: cooldown 60.0 -> 24.0
+- Devouring Plague rank 2: cooldown 60.0 -> 24.0
+- Devouring Plague rank 3: cooldown 60.0 -> 24.0
+- Devouring Plague rank 4: cooldown 60.0 -> 24.0
+- Devouring Plague rank 5: cooldown 60.0 -> 24.0
+- Devouring Plague rank 6: cooldown 60.0 -> 24.0
+- Discipline/Divine Aegis: rank text changed
+- Discipline/Improved Mana Burn: moved from row 4 col 4 to row 4 col 2
+- Discipline/Improved Power Word: Shield: moved from row 2 col 3 to row 3 col 3
+- Discipline/Mental Strength: moved from row 4 col 2 to row 2 col 3
+- Discipline/Mental Strength: rank text changed
+- Discipline/Power in Light: rank text changed
+- Discipline/Silent Resolve: rank text changed
+- Elemental/Call of Flame: moved from row 2 col 3 to row 2 col 4
+- Elemental/Call of Flame: rank text changed
+- Elemental/Call of Thunder: moved from row 4 col 3 to row 4 col 4
+- Elemental/Call of Thunder: prerequisite Elemental Alacrity (rank 3) -> none
+- Elemental/Call of Thunder: rank text changed
+- Elemental/Call of Thunder: renamed to Earthbound
+- Elemental/Earthbound: moved from row 5 col 4 to row 5 col 2
+- Elemental/Earthbound: rank text changed
+- Elemental/Earthbound: renamed to Lava Burst
+- Elemental/Elemental Alacrity: moved from row 3 col 3 to row 3 col 2
+- Elemental/Elemental Alacrity: rank text changed
+- Elemental/Elemental Alacrity: renamed to Elemental Warding
+- Elemental/Elemental Devastation: moved from row 2 col 4 to row 2 col 1
+- Elemental/Elemental Devastation: rank text changed
+- Elemental/Elemental Focus: moved from row 3 col 2 to row 3 col 1
+- Elemental/Elemental Fury: prerequisite Call of Thunder (rank 1) -> Lightning Overload (rank 3)
+- Elemental/Elemental Reach: rank text changed
+- Elemental/Elemental Warding: moved from row 2 col 1 to row 2 col 3
+- Elemental/Elemental Warding: rank text changed
+- Elemental/Elemental Warding: renamed to Elemental Alacrity
+- Elemental/Improved Fire Nova: rank text changed
+- Elemental/Improved Fire Nova: renamed to Trial by Fire
+- Elemental/Lava Burst: prerequisite Lightning Overload (rank 3) -> Lava Burst (rank 1)
+- Elemental/Lava Burst: rank text changed
+- Elemental/Lava Burst: renamed to Elemental Mastery
+- Elemental/Lightning Overload: moved from row 5 col 2 to row 5 col 3
+- Elemental/Lightning Overload: prerequisite none -> Elemental Alacrity (rank 3)
+- Feral Combat/Leader of the Pack: rank text changed
+- Fire Nova rank 1: coefficient 0.21400000155 -> 0.14300000668
+- Fire Nova rank 1: mana_cost 95 -> 65
+- Fire Nova rank 1: max_damage 53.8461539895 -> 35.53846163307
+- Fire Nova rank 1: min_damage 46.1538460105 -> 30.46153836693
+- Fire Nova rank 2: coefficient 0.21400000155 -> 0.14300000668
+- Fire Nova rank 2: mana_cost 170 -> 120
+- Fire Nova rank 2: max_damage 108.5504586252 -> 58.532110042999996
+- Fire Nova rank 2: min_damage 95.4495413748 -> 51.467889957000004
+- Fire Nova rank 3: coefficient 0.21400000155 -> 0.14300000668
+- Fire Nova rank 3: mana_cost 280 -> 210
+- Fire Nova rank 3: max_damage 194.20408174411497 -> 137.95918375264998
+- Fire Nova rank 3: min_damage 171.795918255885 -> 122.04081624735
+- Fire Nova rank 4: coefficient 0.21400000155 -> 0.14300000668
+- Fire Nova rank 4: mana_cost 395 -> 290
+- Fire Nova rank 4: max_damage 301.09698995908 -> 189.77591972773
+- Fire Nova rank 4: min_damage 266.90301004092 -> 168.22408027227002
+- Fire Nova rank 5: coefficient 0.21400000155 -> 0.14300000668
+- Fire Nova rank 5: mana_cost 520 -> 375
+- Fire Nova rank 5: max_damage 425.121717632755 -> 252.11933130081502
+- Fire Nova rank 5: min_damage 380.878282367245 -> 225.88066869918498
+- Fire/Combustion: prerequisite Critical Mass (rank 3) -> Critical Mass (rank 5)
+- Fire/Critical Mass: max rank 3 -> 5
+- Fire/Critical Mass: rank text changed
+- Fire/Fire Power: max rank 5 -> 3
+- Fire/Fire Power: rank text changed
+- Fire/Heating Up: rank text changed
+- Fire/Wake of Fire: rank text changed
+- Fire/Wake of Fire: renamed to Improved Fire Blast
+- Frost Blast rank 1: new spell rank
+- Frost Blast rank 2: new spell rank
+- Frost Blast rank 3: new spell rank
+- Frost/Arctic Reach: rank text changed
+- Frost/Ice Lance: rank text changed
+- Frost/Improved Frostbolt: rank text changed
+- Frost/Winter's Chill: rank text changed
+- Holy Fire rank 5: periodic_damage 65.0 -> 45.0
+- Lava Burst rank 1: damage_per_level 0.89999997616 -> 0.80000001192
+- Lava Burst rank 1: level 40 -> 30
+- Lava Burst rank 1: mana_cost 165 -> 135
+- Lava Burst rank 1: max_damage 184.7672260403 -> 138.575419530225
+- Lava Burst rank 1: min_damage 143.23277395969998 -> 107.424580469775
+- Lava Burst rank 1: scaling_max_level 48 -> 38
+- Lava Burst rank 2: damage_per_level 1.10000002384 -> 0.89999997616
+- Lava Burst rank 2: level 50 -> 40
+- Lava Burst rank 2: mana_cost 230 -> 165
+- Lava Burst rank 2: max_damage 220.81936770669998 -> 184.7672260403
+- Lava Burst rank 2: min_damage 171.1806322933 -> 143.23277395969998
+- Lava Burst rank 2: scaling_max_level 58 -> 48
+- Lava Burst rank 3: damage_per_level 1.29999995232 -> 1.10000002384
+- Lava Burst rank 3: level 60 -> 50
+- Lava Burst rank 3: mana_cost 265 -> 230
+- Lava Burst rank 3: max_damage 247.85847395649998 -> 220.81936770669998
+- Lava Burst rank 3: min_damage 192.1415260435 -> 171.1806322933
+- Lava Burst rank 3: scaling_max_level 68 -> 58
+- Lava Burst rank 4: new spell rank
+- Mana Tide Totem rank 1: level 25 -> 1
+- Mana Tide Totem rank 2: level 48 -> 38
+- Mana Tide Totem rank 2: mana_cost 30 -> 20
+- Mana Tide Totem rank 3: level 58 -> 48
+- Mana Tide Totem rank 3: mana_cost 60 -> 30
+- Mana Tide Totem rank 4: new spell rank
+- Marksmanship/Rapid Recuperation: rank text changed
+- Marksmanship/Trueshot Aura: rank text changed
+- Multi-Shot rank 1: cast_time 0.5 -> 0.0
+- Portal of Summoning rank 1: cooldown 120.0 -> 3600.0
+- Protection/Reckoning: rank text changed
+- Protection/Shield Specialization: rank text changed
+- Restoration/Furor: rank text changed
+- Restoration/Tidal Focus: rank text changed
+- Restoration/Tidal Focus: renamed to Totemic Focus
+- Restoration/Totemic Focus: rank text changed
+- Restoration/Totemic Focus: renamed to Tidal Focus
+- Restoration/Water Shield: rank text changed
+- Retribution/Champion of the Light: rank text changed
+- Revoke rank 1: new spell rank
+- Seal of Fury rank 3: level 25 -> 26
+- Shadow Word: Death rank 1: cooldown 15.0 -> 18.0
+- Shadow Word: Death rank 2: cooldown 15.0 -> 18.0
+- Shadow Word: Death rank 3: cooldown 15.0 -> 18.0
+- Shadow Word: Death rank 4: cooldown 15.0 -> 18.0
+- Shadow/Devouring Contagion: rank text changed
+- Shadow/Improved Fade: max rank 2 -> 5
+- Shadow/Improved Fade: rank text changed
+- Shadow/Improved Fade: renamed to Dark Inspiration
+- Shadow/Improved Mind Blast: removed
+- Shadow/Improved Mind Flay: rank text changed
+- Shadow/Shadow Affinity: max rank 3 -> 5
+- Shadow/Shadow Affinity: rank text changed
+- Shadow/Shadow Affinity: renamed to Improved Mind Blast
+- Shadow/Shadow Weaving: rank text changed
+- Shred rank 1: level 22 -> 20
+- Shred rank 1: weapon_bonus 24.0 -> 22.0
+- Soul Link rank 1: removed
+- Stormstrike rank 1: mana_cost 125 -> 0
+- Survival/Expose Prey: rank text changed
+- Survival/Predator's Edge: rank text changed
+- Survival/Resourcefulness: rank text changed
+- Vampiric Embrace rank 1: cooldown 60.0 -> 30.0
+
 ## 1.60.1.70374 (2026-10-16)
 
 - Arms/Spearing Strike: rank text changed

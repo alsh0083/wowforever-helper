@@ -73,3 +73,16 @@ def test_unsupported_schema_version_rejected():
     text = make_dataset().to_json().replace('"schema_version": 1', '"schema_version": 99')
     with pytest.raises(SchemaError, match="unsupported schema_version"):
         Dataset.from_json(text)
+
+
+def test_the_pinned_build_is_the_default_dataset(tmp_path):
+    from wowforever.schema import DATASETS_DIR, latest_dataset_path
+    from wowforever.toml_cache import load_toml
+    from wowforever.schema import DATASET_PIN
+
+    pin = load_toml(DATASET_PIN).get("build")
+    if pin:
+        assert latest_dataset_path() == DATASETS_DIR / f"{pin}.json"
+    for build in ("1.60.1.70291", "1.60.1.70425"):
+        (tmp_path / f"{build}.json").write_text("{}", encoding="utf-8")
+    assert latest_dataset_path(tmp_path).stem == "1.60.1.70425"      # other folders ignore the pin

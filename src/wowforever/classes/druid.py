@@ -57,6 +57,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Moonkin Form": (
         EffectRule("crit_chance", r"Critical Strike chance increased by (\d+(?:\.\d+)?)%", ("all",)),
     ),
+    "Nature's Focus": (
+        EffectRule("pushback_pct", r"Gives you a (\d+(?:\.\d+)?)% chance to avoid interruption", ("arcane", "nature")),
+    ),
     "Naturalist": (
         EffectRule("cast_time", r"cast time of your Healing Touch spell by (\d+(?:\.\d+)?) sec", ("Healing Touch",), sign=-1),
         EffectRule("damage_pct", r"increases all damage you deal by (\d+(?:\.\d+)?)%", ("all",)),
@@ -141,7 +144,6 @@ UNMODELED: dict[str, str] = {
     "Natural Reaction": "defensive: +5% dodge, Rage on dodge",
     "Berserk": "damage: Primal Bite cleaves and crits more",
     # Restoration
-    "Nature's Focus": "utility: 70% pushback avoidance",
     "Furor": "resource: Rage or Energy on shapeshift",
     "Subtlety": "threat: less threat from Nature and Arcane spells",
     "Natural Shapeshifter": "resource: cheaper shapeshifting",
