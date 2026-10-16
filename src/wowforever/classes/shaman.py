@@ -153,7 +153,7 @@ def _melee_output(stats, spells, cls, ranks, target, *, pack=1):
     return Output(r.dps, 0.0, r.dps, r.aoe)
 
 
-def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None):
+def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):
     from wowforever.classes.engines import hybrid_output
 
     return hybrid_output("shaman", MELEE_TREES, _melee_output, stats, spells, cls, ranks, target, pack=pack,

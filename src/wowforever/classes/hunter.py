@@ -141,7 +141,7 @@ def playstyle(cls, ranks) -> str:
     return "ranged"
 
 
-def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None):
+def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):
     from wowforever.classes.hunter_rotation import hunter_rotation
     from wowforever.melee_scenarios import Output
 

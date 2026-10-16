@@ -50,7 +50,9 @@ from wowforever.classes.druid import TALENT_EFFECTS, UNMODELED
 from wowforever.effects import attach_effects
 from wowforever.builds import load_builds
 from wowforever.melee_scenarios import stat_table
-from wowforever.pvp.class_pvp import class_side, outnumbered_score
+from wowforever.classes import engine
+from wowforever.pvp.class_pvp import class_side
+from wowforever.pvp.duel import best_outnumbered
 from wowforever.pvp.duel import Control, Kit, Side, combined_lockout, load_kits, outnumbered, outnumbered_scores
 from wowforever.schema import Dataset, latest_dataset_path
 
@@ -128,5 +130,5 @@ def test_overgrowth_parses_and_sets_root_targets():
     without = {**ranks, overgrowth: 0}
     assert class_side("druid", stats, CLS.spells, CLS, without).root_targets == 1
     kits = load_kits()
-    assert (outnumbered_score("druid", stats, CLS.spells, CLS, ranks, kits)
-            > outnumbered_score("druid", stats, CLS.spells, CLS, without, kits))
+    assert (best_outnumbered(engine("druid").sides(stats, CLS.spells, CLS, ranks), kits)[0]
+            > best_outnumbered(engine("druid").sides(stats, CLS.spells, CLS, without), kits)[0])

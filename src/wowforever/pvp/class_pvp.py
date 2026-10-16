@@ -23,7 +23,7 @@ from wowforever.classes import engine
 from wowforever.melee_scenarios import build_stats
 from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Target, armor_factor
-from wowforever.pvp.duel import Control, Kit, Side, lockout_seconds, outnumbered_scores
+from wowforever.pvp.duel import Control, Side, lockout_seconds
 from wowforever.scenarios import best_rank
 from wowforever.schema import ClassData, SpellRank
 from wowforever.toml_cache import load_toml
@@ -217,9 +217,3 @@ def class_side(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], 
         mana=getattr(row, "mana", 0.0),
         mana_per_second=output.mana_per_second,
     )
-
-
-def outnumbered_score(class_name: str, stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
-                      ranks: Mapping[int, int], kits: Sequence[Kit]) -> float:
-    """Mean 2v1 score over pairs of kits (#278), a separate score next to the PvP score (focus.class_pvp_score)."""
-    return outnumbered_scores(class_side(class_name, stats, spells, cls, ranks), kits)["score"]

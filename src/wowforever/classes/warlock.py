@@ -141,7 +141,7 @@ def playstyle(cls, ranks) -> str:
     return "caster"
 
 
-def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None):
+def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):
     from wowforever.classes.engines import caster_output
 
     return caster_output("warlock", stats, spells, cls, ranks, target, drink_mana_per_second=drink_mana_per_second)

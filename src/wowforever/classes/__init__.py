@@ -84,8 +84,9 @@ class ClassEngine(Protocol):
 
     def output(self, stats: Any, spells: Sequence[SpellRank], cls: ClassData, ranks: Mapping[int, int],
                target: Target, *, pack: int = 1, drink_mana_per_second: float | None = None,
-               melee: bool | None = None) -> Output:
-        """The rotation's DPS, mana use and out-of-mana DPS against `target`, over `pack` mobs."""
+               melee: bool | None = None, sustained: bool = False) -> Output:
+        """The rotation's DPS, mana use and out-of-mana DPS against `target`, over `pack` mobs.
+        `sustained` asks for a raid fight's rotation, with long-cooldown buffs averaged in (#317)."""
 
     def aoe(self, stats: Any, spells: Sequence[SpellRank], cls: ClassData, ranks: Mapping[int, int], *,
             pack: int, mob_hp: float, armor: float) -> tuple[float, str]:

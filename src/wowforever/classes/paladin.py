@@ -116,7 +116,7 @@ def playstyle(cls, ranks) -> str:
     return "melee"
 
 
-def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None):
+def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):
     from wowforever.classes.paladin_rotation import paladin_rotation
     from wowforever.melee_scenarios import Output
 

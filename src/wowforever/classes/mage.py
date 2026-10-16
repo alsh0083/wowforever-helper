@@ -192,7 +192,7 @@ def playstyle(cls, ranks) -> str:
     return "caster"
 
 
-def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None):
+def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):
     """The mage rotation with the filler that does the most damage per second, or with
     `drink_mana_per_second` (questing) the most per second of casting plus drinking, as the caster
     engine picks. The chosen filler is `Output.spell`."""
@@ -204,6 +204,8 @@ def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=N
     assumptions = Assumptions.load()
     char = _character(stats, spells, cls, ranks)
     target_level = stats.level + target.level_diff
+    if sustained:
+        return _raid_output(char, target_level, assumptions)
     best = None
     for filler in usable_fillers(char, default_params("questing", stats.level).fillers, target_level, assumptions):
         rot = rotation(char, filler, target_level=target_level, assumptions=assumptions, sustained=False)
@@ -307,3 +309,31 @@ def sides(stats, spells, cls, ranks):
     char = _character(stats, spells, cls, ranks)
     fillers = usable_fillers(char, default_params("questing", stats.level).fillers, stats.level, Assumptions.load())
     return [(filler.name, duel_side(char, filler)) for filler in fillers]
+
+
+def _raid_output(char, target_level, assumptions):
+    """The mage's raid Output (#317, part A): the sustained rotation of the filler with the best
+    shared-raid score, Evocation as the mana cooldown, and once dry the fallback that tries every
+    filler rank at the rate combat regen pays for (scenarios.raid's model)."""
+    from wowforever.classes.mage_rotation import rotation
+    from wowforever.melee_scenarios import Output, raid_dps
+    from wowforever.scenarios import _fallback, combat_regen, default_params, spirit_regen, usable_fillers
+
+    p = default_params("raid", char.level)
+    income = combat_regen(char, p)
+    evocation = ((p.evocation_seconds,
+                  spirit_regen(char.stats) * (1 + p.evocation_regen_pct / 100) * p.evocation_seconds)
+                 if p.evocation else None)
+    best = None
+    for filler in usable_fillers(char, p.fillers, target_level, assumptions):
+        rot = rotation(char, filler, target_level=target_level, assumptions=assumptions, sustained=True)
+        fallback = (_fallback(char, p, filler, target_level, assumptions, income)[0]
+                    if p.fallback and rot.mana_per_second > income else 0.0)
+        out = Output(rot.dps, rot.mana_per_second - (income - p.mana_per_second), fallback,
+                     ranged=True, spell=filler.name, mana_cooldown=evocation)
+        score = raid_dps(out, char.stats.mana, p)
+        if best is None or score > best[0]:
+            best = (score, out)
+    if best is None:
+        raise ValueError(f"no mage filler available at level {char.level}")
+    return best[1]
