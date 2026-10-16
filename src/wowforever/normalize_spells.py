@@ -293,6 +293,8 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
 
     costs = {row["PowerType"]: int(_f(row["ManaCost"])) for row in indexes.powers.get(spell_id, ())}
     mana_cost = costs.get(_POWER_MANA, 0)
+    mana_cost_pct = next((_f(row.get("PowerCostPct")) for row in indexes.powers.get(spell_id, ())
+                          if row["PowerType"] == _POWER_MANA), 0.0)
     energy_cost = costs.get(_POWER_ENERGY, 0)
     rage_cost = costs.get(_POWER_RAGE, 0) // 10
 
@@ -390,7 +392,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
 
     return SpellRank(
         spell_id=spell_id, name=name, rank=rank, level=level, schools=schools,
-        cast_time=cast_time, cooldown=cooldown, mana_cost=mana_cost, energy_cost=energy_cost,
+        cast_time=cast_time, cooldown=cooldown, mana_cost=mana_cost, mana_cost_pct=mana_cost_pct, energy_cost=energy_cost,
         rage_cost=rage_cost,
         min_damage=min_damage, max_damage=max_damage, coefficient=coefficient,
         periodic_damage=periodic_damage, periodic_coefficient=periodic_coefficient,

@@ -186,7 +186,7 @@ def check_for_updates(
     elif class_name not in {c.class_name for c in baseline_ds.classes}:
         changes = [Change(scope=class_name, talent="(class)", kind="added", text="class added")]
     else:
-        baseline = baseline_ds.class_data(class_name)
+        baseline = baseline_ds.saved_class(class_name)
         changes = (
             revisions_module.diff_class(baseline, cls)
             + revisions_module.diff_spells(baseline.spells, cls.spells)
