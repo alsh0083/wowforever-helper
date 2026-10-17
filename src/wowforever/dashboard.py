@@ -113,6 +113,20 @@ TREE_COLORS = {
 }
 
 
+
+def standard_caption(build: dict) -> str:
+    """The caption under a slot's standard build: model, custom, community, or community with hand-moved points (#369)."""
+    origin = build.get("origin")
+    if origin == "model":
+        return "Model build, no community plan yet"
+    if origin == "hand":
+        return "Custom build, no community plan yet"
+    if build.get("provisional"):
+        return f"Community standard (provisional, {build['provisional'].split(' saves')[0]} saves)"
+    if build.get("adjusted"):
+        return f"Community standard, points adjusted for {build['adjusted'].split(':')[0]}"
+    return "Community standard"
+
 def _shade(color: str, keep: float) -> str:
     """`color` mixed toward the page background (#0b1017), keeping `keep` of it."""
     rgb = [int(color[i:i + 2], 16) for i in (1, 3, 5)]
@@ -282,8 +296,7 @@ def _slot_cell(slot: Mapping, by_id: Mapping[str, Mapping], best: Mapping[str, f
 
     if slot.get("standard"):
         origin = by_id.get(slot["standard"], {}).get("origin")
-        parts.append(build_line(slot["standard"], {"model": "Model build, no community plan yet",
-                                                   "hand": "Custom build, no community plan yet"}.get(origin, "Community standard"),
+        parts.append(build_line(slot["standard"], standard_caption(by_id.get(slot["standard"], {})),
                                 slot.get("standard_score")))
     else:
         parts.append('<p class="empty">No community standard yet</p>')

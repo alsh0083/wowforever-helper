@@ -12,20 +12,23 @@ sources = ["wft_builds_priest"]
 confidence = "medium"
 summary = "51 points (Discipline 18 / Holy 0 / Shadow 33). Shadow Focus is one of the spent talents. From the site's Shadow Priest · Endgame · PvE · level 60 plan."
 
+adjusted = "1.60.1.70425: Shadow Affinity 3 -> Dark Inspiration 3; Improved Power Word: Shield 2 -> Mental Strength"   # points moved by Claude, not a player (#369)
+# 1.60.1.70425 (#353): Shadow Affinity is gone (its slot is now Improved Mind Blast); its 3 points go to
+# Dark Inspiration, the Shadow talent in the same row band. Discipline rows moved too (Mental Strength up to
+# row 2, Improved Power Word: Shield down to row 3): Improved Power Word: Shield 2 moves to Mental Strength.
 [final]
 "Darkness" = 5
 "Devouring Contagion" = 2
 "Early Demise" = 2
 "Improved Mind Blast" = 5
 "Improved Mind Flay" = 2
-"Improved Power Word: Shield" = 2
 "Improved Shadow Word: Pain" = 2
 "Inner Focus" = 1
 "Meditation" = 3
 "Mental Agility" = 3
-"Mental Strength" = 1
+"Mental Strength" = 3
 "Mind Flay" = 1
-"Shadow Affinity" = 3
+"Dark Inspiration" = 3
 "Shadow Focus" = 5
 "Shadow Weaving" = 3
 "Shadowform" = 1

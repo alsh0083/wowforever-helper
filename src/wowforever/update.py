@@ -92,6 +92,8 @@ class UpdateSummary:
             lines.append(f"Popular community builds ({state}): " + "; ".join(self.popular_top))
         if self.retest:
             lines.append("Retest in game: " + ", ".join(self.retest))
+        if self.changed:
+            lines.append("Next: wowforever patch-readiness, then docs/patch-update.md")
         return "\n".join(lines)
 
 
@@ -186,7 +188,7 @@ def check_for_updates(
     elif class_name not in {c.class_name for c in baseline_ds.classes}:
         changes = [Change(scope=class_name, talent="(class)", kind="added", text="class added")]
     else:
-        baseline = baseline_ds.class_data(class_name)
+        baseline = baseline_ds.saved_class(class_name)
         changes = (
             revisions_module.diff_class(baseline, cls)
             + revisions_module.diff_spells(baseline.spells, cls.spells)

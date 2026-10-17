@@ -114,7 +114,7 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("ap_per_level_pct", r"Attack Power in Cat Form, Bear Form, and Dire Bear Form by (\d+(?:\.\d+)?)% of your level", ("all",)),
     ),
     "Leader of the Pack": (
-        EffectRule("crit_chance", r"critical strike chance of all party members within 45 yards by (\d+(?:\.\d+)?)%", ("@feral",)),
+        EffectRule("crit_chance", r"within 45 yards by (\d+(?:\.\d+)?)%", ("@feral",)),
     ),
     "Natural Instinct": (                    # "Predatory Instincts" before the Oct 8 patch
         EffectRule("crit_damage_pct", r"critical strike damage bonus of your melee abilities by (\d+(?:\.\d+)?)%", ("@ability",)),

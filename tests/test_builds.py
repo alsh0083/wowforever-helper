@@ -1,4 +1,4 @@
-"""The v0 builds (#20) must be legal on real Forever data (build 1.60.1.70205 fixtures)."""
+"""The v0 builds (#20) must be legal on real Forever data: the dataset the model reads (config/dataset.toml)."""
 
 from collections import Counter
 from pathlib import Path
@@ -6,15 +6,10 @@ from pathlib import Path
 import pytest
 
 from wowforever.builds import load_builds
-from wowforever.classes.mage import LAYOUT
-from wowforever.normalize import normalize_class, read_tables
 from wowforever.rules import check_build, check_order, points_available
-from wowforever.sources.wowforevertalent import parse_page
+from wowforever.schema import Dataset, latest_dataset_path
 
-FIX = Path(__file__).parent / "fixtures"
-CLS, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
-                         parse_page((FIX / "wowforevertalent" / "mage.html").read_text(encoding="utf-8")),
-                         wago_build="1.60.1.70205")
+CLS = Dataset.load(latest_dataset_path()).class_data("mage")
 BUILDS = {b.id: b for b in load_builds(class_name="mage")}
 # the owner's former hand-made Elementalist builds, dropped from the app 2026-10-07, kept as fixtures
 FIXTURES = {b.id: b for b in load_builds(Path(__file__).parent / "fixtures" / "builds", class_name="mage")}

@@ -186,7 +186,7 @@ def test_mage_implements_the_class_engine_next_to_its_scenarios():
     # own scenarios (scenarios.py) pick, so the build descriptions don't change
     from wowforever.assumptions import Assumptions
     from wowforever.classes.mage_rotation import rotation
-    from wowforever.scenarios import Character, default_params, questing, usable_fillers
+    from wowforever.scenarios import Character, best_rank, default_params, questing, usable_fillers
     from wowforever.stats import StatTable
 
     cls, builds = loaded("mage")
@@ -200,7 +200,10 @@ def test_mage_implements_the_class_engine_next_to_its_scenarios():
         a = Assumptions.load()
         best = max((rotation(char, f, target_level=63, assumptions=a, sustained=False).dps, f.name)
                    for f in usable_fillers(char, default_params("questing", 60).fillers, 63, a))
-        assert out.dps == pytest.approx(best[0]) and out.spell == best[1]
+        if out.dps == pytest.approx(best[0]):
+            assert out.spell == best[1]
+        else:   # an Arcane Blast build may open buff windows with stacks (#355): never below the plain rotation
+            assert out.dps > best[0] and best_rank(char.spells, "Arcane Blast", 60) is not None
         assert out.ranged and out.fallback_dps <= out.dps
         facts = mage.facts(stats, cls, ranks)
         assert facts["kind"] == "mage"

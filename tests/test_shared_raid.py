@@ -25,10 +25,10 @@ from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import Output, raid_dps
 from wowforever.physical import Target
 from wowforever.scenarios import Character, RaidParams, default_params, raid
-from wowforever.schema import Dataset
+from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.stats import StatTable
 
-DATASET = Dataset.load(Path(__file__).resolve().parents[1] / "data" / "datasets" / "1.60.1.70291.json")
+DATASET = Dataset.load(latest_dataset_path())
 
 
 def params(lengths=((100.0, 1.0),), consumables=()):
@@ -77,7 +77,10 @@ def test_mage_raid_through_the_shared_path_is_the_mage_model():
     for b in builds:
         ranks = b.final_ids(cls)
         expected = raid(Character(60, stats, cls.spells, cls, dict(ranks)), default_params("raid", 60), a).score
-        assert ms.raid("mage", stats, cls.spells, cls, ranks) == pytest.approx(expected, rel=1e-9), b.id
+        if "Arcane Blast" in b.final:   # the shared path also tries Arcane Blast stacks (#355): never worse
+            assert ms.raid("mage", stats, cls.spells, cls, ranks) >= expected * (1 - 1e-9), b.id
+        else:
+            assert ms.raid("mage", stats, cls.spells, cls, ranks) == pytest.approx(expected, rel=1e-9), b.id
 
 
 @pytest.mark.parametrize("name", ["rogue", "hunter", "warrior", "paladin", "priest", "warlock", "druid", "shaman"])

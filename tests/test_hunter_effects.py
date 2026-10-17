@@ -56,4 +56,5 @@ def test_rule_values_at_max_rank(talent, kind, last, applies_to):
 def test_predators_edge_has_two_rules():
     pe = CLS.talent_named("Predator's Edge")
     got = {(e.kind, e.applies_to): e.values[-1] for e in pe.effects}
-    assert got == {("crit_damage_pct", ("@melee",)): 30, ("damage_pct", ("@off_hand",)): 50}
+    # melee abilities only since 1.60.1.70425 (#358)
+    assert got == {("crit_damage_pct", ("@ability",)): 30, ("damage_pct", ("@off_hand",)): 50}

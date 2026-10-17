@@ -54,8 +54,12 @@ def test_each_shadow_talent_raises_dps(talent):
 
 
 def test_meditation_pays_part_of_the_mana():
+    from wowforever.caster import talent_stats
+
     r = caster_rotation("priest", STATS, CLS.spells, CLS, BUILDS["priest-shadow"], BOSS)
-    assert r.regen_per_second == pytest.approx(spirit_regen("priest", STATS) * 0.5)
+    # Spirit after Dark Inspiration (70425, #356)
+    spirit = talent_stats("priest", STATS, CLS, BUILDS["priest-shadow"])
+    assert r.regen_per_second == pytest.approx(spirit_regen("priest", spirit) * 0.5)
 
 
 def test_raid_is_mana_limited_but_shadowform_halves_costs():
@@ -67,8 +71,8 @@ def test_raid_is_mana_limited_but_shadowform_halves_costs():
 
 def test_pvp_side_and_report():
     side = class_side("priest", STATS, CLS.spells, CLS, BUILDS["priest-shadow"])
-    # the community Shadow build skips Silence, so only Psychic Scream and Blackout lock the opponent
-    assert side.stun > 0 and side.interrupt == 0 and side.physical_taken == pytest.approx(1.0)
+    # the players' post-patch Shadow build (#369) takes Silence: an interrupt next to Psychic Scream and Blackout
+    assert side.stun > 0 and side.interrupt > 0 and side.physical_taken == pytest.approx(1.0)
     r = json.loads((ROOT / "data" / "report-priest.json").read_text(encoding="utf-8"))
     slots = {(s["archetype"], s["focus"]): s for s in r["shortlist"]}
     assert r["engine"] is True and r["caveats"][0].startswith("Caster model (#163)")

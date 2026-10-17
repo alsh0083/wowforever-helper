@@ -30,11 +30,12 @@ def test_life_tap_fallback_spends_gcds_tapping():
     assert life_tap_fallback(300.0, 0.0, 60, tap) == 300.0
 
 
-# unbuffed dungeon DPS at 60 (group.dungeon_dps with no party); warrior and rogue have no mana and don't move
+# unbuffed dungeon DPS at 60 (group.dungeon_dps with no party) on the pinned dataset; regression pins, re-pinned
+# when a class's model changes (1.60.1.70425: #353). Warrior and rogue have no mana and don't move
 PINS = [("warrior", "warrior-arms", 121.58), ("rogue", "rogue-combat", 187.31),
-        ("warlock", "warlock-affliction", 285.70), ("mage", "deep-frost", 405.13), ("mage", "deep-fire", 255.20),
-        ("hunter", "hunter-marksmanship", 179.84), ("priest", "priest-discipline-smite", 176.50),
-        ("shaman", "shaman-elemental", 142.31)]
+        ("warlock", "warlock-affliction", 289.60), ("mage", "deep-frost", 366.08), ("mage", "deep-fire", 257.72),
+        ("hunter", "hunter-marksmanship", 172.92), ("priest", "priest-discipline-smite", 176.88),
+        ("shaman", "shaman-elemental", 165.50)]
 
 
 @pytest.mark.parametrize("class_name, build_id, expected", PINS)

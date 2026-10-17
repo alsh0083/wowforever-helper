@@ -18,10 +18,10 @@ from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
 from wowforever.scenarios import Character, aoe_curve, default_params, raid
-from wowforever.schema import Dataset
+from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.stats import StatTable
 
-DATASET = Dataset.load(Path(__file__).resolve().parents[1] / "data" / "datasets" / "1.60.1.70291.json")
+DATASET = Dataset.load(latest_dataset_path())
 m = class_module("mage")
 CLS, _ = attach_effects(DATASET.class_data("mage"), m.TALENT_EFFECTS, m.UNMODELED)
 STATS = StatTable.load("mage").at(60)
@@ -41,7 +41,8 @@ def test_report_has_no_mage_stat_table_branch():
     assert 'StatTable.load("mage")' not in inspect.getsource(report)
 
 
-@pytest.mark.parametrize("build", ["deep-frost", "arcane-pom-pyro", "mage-frost-pve", "fire-frost-shatter"])
+# builds without Arcane Blast: its stacks (#355) exist only on the shared path
+@pytest.mark.parametrize("build", ["deep-frost", "elementalist-pve-v2", "mage-frost-pve", "fire-frost-shatter"])
 def test_mage_pve_is_its_own_models_plus_shared_questing(build):
     ranks, a = BUILDS[build], Assumptions.load()
     char = Character(60, STATS, CLS.spells, CLS, dict(ranks))

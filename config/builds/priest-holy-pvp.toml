@@ -12,6 +12,9 @@ sources = ["wft_builds_priest"]
 confidence = "medium"
 summary = "51 points (Discipline 18 / Holy 33 / Shadow 0). Twin Disciplines is one of the spent talents. From the site's Holy Priest · Endgame · PvP · level 60 plan."
 
+adjusted = "1.60.1.70425: Improved Inner Fire 1 and Meditation 1 -> Mental Strength"   # points moved by Claude, not a player (#369)
+# 1.60.1.70425 (#353): Mental Strength moved to Discipline row 2 and Improved Power Word: Shield to row 3, so
+# rows 1-2 need 10 points: Improved Inner Fire 1 and Meditation 1 move to Mental Strength.
 [final]
 "Binding Heal" = 1
 "Blessed Recovery" = 3
@@ -19,15 +22,13 @@ summary = "51 points (Discipline 18 / Holy 33 / Shadow 0). Twin Disciplines is o
 "Holy Nova" = 1
 "Holy Specialization" = 2
 "Improved Healing" = 3
-"Improved Inner Fire" = 1
 "Improved Power Word: Shield" = 3
 "Inner Focus" = 1
 "Inspiration" = 1
 "Litany of Light" = 1
 "Martyrdom" = 2
-"Meditation" = 1
 "Mental Agility" = 3
-"Mental Strength" = 1
+"Mental Strength" = 3
 "Prayer of Mending" = 1
 "Soul Warding" = 1
 "Spell Warding" = 5
