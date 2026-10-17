@@ -49,6 +49,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Deep Wounds": (
         EffectRule("dot_pct", r"dealing (\d+(?:\.\d+)?)% of your melee weapon's average damage", ("@crit",)),
     ),
+    "Flurry": (
+        EffectRule("haste_pct", r"attack speed by (\d+(?:\.\d+)?)% for your next 3 swings", ("@flurry",)),
+    ),
 }
 
 # Every warrior talent, with why it isn't modeled (trees as reworked in build 1.60.1.70291, #239).
@@ -77,7 +80,6 @@ UNMODELED: dict[str, str] = {
     "Death Wish": "grants_spell",
     "Improved Intercept": "mobility: Intercept cooldown -10 s",
     "Improved Berserker Rage": "rage: Berserker Rage generates 10 Rage and frees movement",
-    "Flurry": "melee damage: +25% attack speed for 3 swings after a crit (not modeled yet)",
     "Gore Drinker": "defensive: rage abilities make the next 3 swings heal up to 1% Health",
     "Bloodthirst": "grants_spell",
     # Protection

@@ -80,12 +80,16 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("crit_damage_pct", r"melee (?:ability )?critical strike damage by (\d+(?:\.\d+)?)%", ("@ability",)),
         EffectRule("damage_pct", r"Off Hand weapon damage by (\d+(?:\.\d+)?)%", ("@off_hand",)),
     ),
+    "Deadly Aspects": (
+        EffectRule("proc_chance", r"Auto Shot has a (\d+(?:\.\d+)?)% chance", ("@deadly_aspects",)),
+        EffectRule("haste_pct", r"ranged attack speed by (\d+(?:\.\d+)?)% for", ("@deadly_aspects",)),
+        EffectRule("duration", r"ranged attack speed by \d+(?:\.\d+)?% for (\d+(?:\.\d+)?) sec", ("@deadly_aspects",)),
+    ),
 }
 
 # Every hunter talent without an effect rule, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Beast Mastery
-    "Deadly Aspects": "proc: attack speed proc while Aspects of Hawk or Beast are active",
     "Endurance Training": "pet: +15% pet health and armor (#111)",
     "Improved Aspect of the Monkey": "defensive: bigger dodge from Aspect of the Monkey",
     "Pathfinding": "mobility: faster Aspect of the Cheetah and Aspect of the Pack",

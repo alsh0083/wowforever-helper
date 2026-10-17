@@ -9,8 +9,8 @@ the physical combat table.
 Against a pack (`pack` > 1, AoE pulls #262) Whirlwind and Thunder Clap hit up to their data
 MaxTargets, Cleave replaces Heroic Strike, and Sweeping Strikes gives its attacks to a second mob.
 
-Not modeled yet: Fury dual wield and Bloodthirst, Flurry, Execute below 20%, Overpower procs, Slam,
-and Rage from damage taken.
+Flurry is an average uptime (#391). Not modeled yet: Fury dual wield and Bloodthirst, Execute below
+20%, Overpower procs, Slam, and Rage from damage taken.
 """
 
 from __future__ import annotations
@@ -80,7 +80,11 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
         death_wish += dw["bonus_pct"] / 100 * dw["duration"] / dw["cooldown"]
     conv = 7.5 / rage_conversion(level)
 
-    swings = 1 / weapon[2]
+    haste = 1.0
+    if taken("Flurry"):      # faster swings while any of the last 3 swings critted (#391)
+        crit = yellow_crit_chance(attacker, target)
+        haste += total("haste_pct", "@flurry") / 100 * (1 - (1 - crit) ** c["flurry_swings"])
+    swings = haste / weapon[2]
     swing_ev = white_swing(weapon, attacker, target, damage_pct=weapon_pct)
     rage_per_swing = swing_ev * conv + land_chance(attacker, target) * total("proc_chance", "@white_rage") / 100
     income = swings * rage_per_swing

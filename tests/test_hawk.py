@@ -38,6 +38,8 @@ def test_normalizer_reads_aura_124():
 
 def test_rotation_adds_the_best_known_rank():
     ranks = {b.id: b.final_ids(CLS) for b in load_builds(class_name="hunter")}["hunter-marksmanship"]
+    deadly = CLS.talent_named("Deadly Aspects").talent_id          # also needs the Hawk (#393): leave it out
+    ranks = {t: r for t, r in ranks.items() if t != deadly}
     stats = stat_table("hunter").at(60)
     no_hawk = [s for s in CLS.spells if s.name != "Aspect of the Hawk"]
     with_hawk = hunter_rotation(stats, CLS.spells, CLS, ranks, Target(3, 0))
