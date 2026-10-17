@@ -92,6 +92,8 @@ class UpdateSummary:
             lines.append(f"Popular community builds ({state}): " + "; ".join(self.popular_top))
         if self.retest:
             lines.append("Retest in game: " + ", ".join(self.retest))
+        if self.changed:
+            lines.append("Next: wowforever patch-readiness, then docs/patch-update.md")
         return "\n".join(lines)
 
 

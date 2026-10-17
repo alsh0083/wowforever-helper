@@ -50,6 +50,10 @@ def main(argv: list[str] | None = None) -> int:
     upd = sub.add_parser("update", help="fetch both sources, diff against the last saved dataset, record the check")
     upd.add_argument("--data-dir", default="data")
     upd.add_argument("--delay", type=float, default=1.0, help="seconds between table downloads")
+    pr = sub.add_parser("patch-readiness",
+                        help="list what still breaks on a saved build before the model moves to it (#366)")
+    pr.add_argument("--dataset", help="saved dataset to check (default: the newest saved dataset)")
+    pr.add_argument("--tables", help="folder with the cached client tables (default: the dataset's build)")
     args = parser.parse_args(argv)
     if args.command in ("gear-sources", "group-buffs"):
         from pathlib import Path
@@ -293,6 +297,20 @@ def main(argv: list[str] | None = None) -> int:
                 return 2
             print(f"[{class_name}]")
             print(summary.text())
+        return 0
+    if args.command == "patch-readiness":
+        from pathlib import Path
+
+        from wowforever.readiness import readiness
+        from wowforever.schema import newest_saved_dataset
+
+        dataset = Path(args.dataset) if args.dataset else newest_saved_dataset()
+        problems = readiness(dataset, tables_dir=Path(args.tables) if args.tables else None)
+        if problems:
+            for line in problems:
+                print(line)
+            return 1
+        print("ready: nothing open")
         return 0
     if args.command is None:
         parser.print_help()
