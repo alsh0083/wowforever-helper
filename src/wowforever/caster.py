@@ -125,6 +125,12 @@ def life_tap_pct(cls: ClassData, ranks: Mapping[int, int]) -> float:
                for e in t.effects if e.kind == "life_tap_pct")
 
 
+def crit_debuff_uptime(crit: float, casts_per_second: float, seconds: float) -> float:
+    """Share of the time a debuff applied by a crit (Improved Shadow Bolt, #396) is up: the chance that one of the
+    casts in the last `seconds` critted."""
+    return 1 - (1 - crit) ** (casts_per_second * seconds) if casts_per_second > 0 else 0.0
+
+
 def consumed_period(duration: float, cooldown: float, keep_pct: float) -> float:
     """Seconds between casts of a DoT that a cooldown consumes (Conflagrate eats Immolate, #385): the DoT runs
     its full duration when kept (keep_pct%), else only until the next consuming cast."""
@@ -147,6 +153,7 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
     assumptions = Assumptions.load()
     target_level = stats.level + target.level_diff
     time_left, dps, mana, used = 1.0, 0.0, 0.0, []
+    by_school: list[tuple[tuple[str, ...], float]] = []   # (schools, damage per second) of each cast spell
 
     talent_ids = {t.name: t.talent_id for t in cls.talents}
 
@@ -199,6 +206,7 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
                 continue
             time_left -= seconds / period
             dps += ev / period
+            by_school.append((spell.schools, ev / period))
             mana += cost / period
             used.append(name)
 
@@ -226,6 +234,21 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
         dps += time_left * best[0] / best[1]
         mana += time_left * best[2] / best[1]
         used.append(best[3])
+        by_school.append((learned(best[3]).schools, time_left * best[0] / best[1]))
+        # a debuff that a crit of the filler puts on the target (Improved Shadow Bolt, #396)
+        for talent in cls.talents:
+            rank = ranks.get(talent.talent_id, 0)
+            pct = {e.applies_to: e.values[rank - 1] for e in (talent.effects if rank > 0 else ())
+                   if e.kind == "crit_debuff_pct"}
+            secs = {e.applies_to: e.values[rank - 1] for e in (talent.effects if rank > 0 else ())
+                    if e.kind == "crit_debuff_seconds"}
+            for (trigger, school), bonus in pct.items():
+                if trigger != best[3] or (trigger, school) not in secs:
+                    continue
+                spell = learned(trigger)
+                crit = min(1.0, (stats.crit_pct + modifiers_for(spell, cls, ranks).crit_chance_bonus) / 100)
+                uptime = crit_debuff_uptime(crit, time_left / best[1], secs[(trigger, school)])
+                dps += bonus / 100 * uptime * sum(d for schools, d in by_school if school in schools)
     return CasterRotation(dps=dps, mana_per_second=mana - regen, regen_per_second=regen, spells=tuple(used))
 
 

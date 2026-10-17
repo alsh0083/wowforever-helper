@@ -93,6 +93,12 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("damage_pct", r"enemy below (\d+(?:\.\d+)?)% health, they deal (\d+(?:\.\d+)?)% increased damage",
                    ("Shadow Bolt", "Searing Pain"), combine=below_health),
     ),
+    "Improved Shadow Bolt": (
+        EffectRule("crit_debuff_pct", r"Shadow damage taken by the target from your attacks by (\d+(?:\.\d+)?)%",
+                   ("Shadow Bolt", "shadow")),
+        EffectRule("crit_debuff_seconds", r"from your attacks by \d+(?:\.\d+)?% for (\d+(?:\.\d+)?) sec",
+                   ("Shadow Bolt", "shadow")),
+    ),
 }
 
 # Every warlock talent, with why it isn't modeled.
@@ -125,7 +131,6 @@ UNMODELED: dict[str, str] = {
     "Demonic Pact": "pet: Demonic Sacrifice persists",
     # Destruction
     "Destructive Reach": "utility: +20% spell range",
-    "Improved Shadow Bolt": "damage: Shadow Bolt crits raise Shadow damage taken",
     "Molten Skin": "defensive: 10% less damage taken",
     "Aftermath": "control: Conflagrate dazes, stronger Immolate",
     "Shadowburn": "grants_spell",
@@ -148,9 +153,9 @@ ROTATION = {
 }
 CAVEAT = ("Caster model (#163, #165): Corruption, Bane of Agony, Siphon Life and Immolate kept up, Conflagrate "
           "and Shadowburn on cooldown, then the best of Shadow Bolt, Incinerate, Searing Pain, Wrack or Drain "
-          "Life, with Life Tap as steady mana. Pets, Nightfall and Improved Shadow Bolt procs aren't modeled; "
-          "Demonic Sacrifice counts the Imp (+Shadow) and Demonic Knowledge assumes a demon is out. Base stats "
-          "are estimates.")
+          "Life, with Life Tap as steady mana. Improved Shadow Bolt counts as an average uptime; pets and "
+          "Nightfall procs aren't modeled; Demonic Sacrifice counts the Imp (+Shadow) and Demonic Knowledge "
+          "assumes a demon is out. Base stats are estimates.")
 
 
 # --- class engine (#311): this module is the warlock's ClassEngine ------------------------------------
