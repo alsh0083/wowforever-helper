@@ -53,5 +53,5 @@ def test_caster_output_offers_each_dot_dropped():
 def test_smite_drops_devouring_plague_in_the_dungeon_shadow_keeps_it():
     # from the probe in #390, re-run with Twin Disciplines and Improved Shadow Word: Pain (#384): Smite drops
     # Devouring Plague, Shadow keeps it
-    assert dungeon("priest", STATS, CLS.spells, CLS, BUILDS["priest-discipline-smite"]) == pytest.approx(179.49, abs=0.01)
+    assert dungeon("priest", STATS, CLS.spells, CLS, BUILDS["priest-discipline-smite"]) == pytest.approx(187.16, abs=0.01)
     assert dungeon("priest", STATS, CLS.spells, CLS, BUILDS["priest-shadow"]) == pytest.approx(492.06, abs=0.01)

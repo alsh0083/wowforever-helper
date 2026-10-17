@@ -124,7 +124,7 @@ def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDat
 
     start = total("proc_chance", "@finisher") / 100
     n = (k - start) / cp
-    cycles = energy / (n * cost + evis.energy_cost - refund)
+    cycles = energy / (n * cost + evis.energy_cost + total("energy_cost", "Eviscerate") - refund)
     finish_share = 1.0
     if snd is not None:
         snd_seconds = ((snd.duration + c["snd_seconds_per_combo_point"] * k)

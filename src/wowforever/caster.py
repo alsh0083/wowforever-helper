@@ -57,10 +57,14 @@ def regen_while_casting(class_name: str, stats: Stats, cls: ClassData, ranks: Ma
 
 
 def cast(spell: SpellRank, stats: Stats, cls: ClassData, ranks: Mapping[int, int], target_level: int,
-         assumptions: Assumptions) -> tuple[float, float, float]:
+         assumptions: Assumptions, conditions: frozenset[str] = frozenset(),
+         extra_damage_pct: float = 0.0) -> tuple[float, float, float]:
     """(expected damage, seconds of casting, mana) for one cast; instants take a global cooldown and
-    channels their full duration."""
-    mods = modifiers_for(spell, cls, ranks)
+    channels their full duration. `conditions` switch on `@`-token talent rules (`dot:<name>` while that DoT is
+    up) and `extra_damage_pct` adds a spell's own bonus (Lava Burst with Flame Shock, #384)."""
+    mods = modifiers_for(spell, cls, ranks, conditions)
+    if extra_damage_pct:
+        mods = replace(mods, damage_pct=mods.damage_pct + extra_damage_pct)
     ev = expected_damage(sub20_penalized(scaled(spell, stats.level), assumptions),
                          spell_power=stats.spell_power, crit_pct=stats.crit_pct, hit_pct=stats.hit_pct,
                          caster_level=stats.level, target_level=target_level, mods=mods,
@@ -161,6 +165,12 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
                    for e in t.effects if e.kind == "proc_chance" and f"@keep_{dot}" in e.applies_to)
         consumers[dot] = (cooldown_of(spell), keep)
 
+    def boosts(name: str) -> tuple[frozenset[str], float]:
+        """Conditions and extra damage % for `name` from the DoTs already kept up (#384, #395)."""
+        up = frozenset(f"dot:{n}" for n in used if n in plan.get("dots", ()))
+        dot, pct = plan.get("dot_bonus", {}).get(name, (None, 0.0))
+        return up, (pct if f"dot:{dot}" in up else 0.0)
+
     for kind in ("dots", "cooldowns"):
         for name in plan.get(kind, ()):
             if name in skip:
@@ -170,7 +180,8 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
                 continue
             if kind == "dots":
                 spell = longer_dot(spell, cls, ranks)
-            ev, seconds, cost = cast(spell, stats, cls, ranks, target_level, assumptions)
+            conditions, extra = boosts(name)
+            ev, seconds, cost = cast(spell, stats, cls, ranks, target_level, assumptions, conditions, extra)
             cooldown = cooldown_of(spell)
             period = spell.duration if kind == "dots" else max(cooldown, seconds)
             if kind == "dots" and name in consumers and spell.duration > 0:
@@ -202,7 +213,8 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
         spell = learned(name)
         if spell is None:
             continue
-        ev, seconds, cost = cast(spell, stats, cls, ranks, target_level, assumptions)
+        conditions, extra = boosts(name)
+        ev, seconds, cost = cast(spell, stats, cls, ranks, target_level, assumptions, conditions, extra)
         if ev > 0 and (best is None or worth(ev, seconds, cost) > worth(*best[:3])):
             best = (ev, seconds, cost, name)
     if best is not None:

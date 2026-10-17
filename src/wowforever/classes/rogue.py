@@ -66,6 +66,10 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Improved Eviscerate": (
         EffectRule("damage_pct", r"Eviscerate ability by (\d+(?:\.\d+)?)%", ("Eviscerate",)),
     ),
+    "Flawless Execution": (
+        EffectRule("energy_cost", r"Energy cost of your Eviscerate ability by (\d+(?:\.\d+)?)",
+                   ("Eviscerate",), sign=-1),
+    ),
     "Improved Sinister Strike": (
         EffectRule("energy_cost",
                    r"Energy cost of your Sinister Strike ability by (\d+(?:\.\d+)?)",
@@ -124,7 +128,6 @@ UNMODELED: dict[str, str] = {
     "Riposte": "grants_spell",
     "Improved Sprint": "mobility: Sprint cleanses movement impairments",
     "Improved Kick": "control: Kick silences the target",
-    "Flawless Execution": "resource: cheaper Eviscerate",
     "Blade Flurry": "grants_spell",
     "Hack and Slash": "proc: weapon-type bonus, best branch per scenario (weapon_talents.py, #386)",
     "Adrenaline Rush": "grants_spell",

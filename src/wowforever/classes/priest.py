@@ -51,6 +51,10 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Twilight Focus": (
         EffectRule("pushback_pct", r"Gives you a (\d+(?:\.\d+)?)% chance to avoid interruption", ("all",)),
     ),
+    "Power in Light": (
+        EffectRule("damage_pct", r"Smite and Penance spells deal (\d+(?:\.\d+)?)% increased damage",
+                   ("Smite", "Penance", "@dot:Shadow Word: Pain")),
+    ),
     "Holy Specialization": (
         EffectRule("crit_chance", r"critical effect chance of your Holy spells by (\d+(?:\.\d+)?)%", ("holy",)),
     ),
@@ -85,12 +89,15 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Improved Shadow Word: Pain": (
         EffectRule("dot_seconds", r"Shadow Word: Pain spell by (\d+(?:\.\d+)?) sec", ("Shadow Word: Pain",)),
     ),
+    "Devouring Contagion": (
+        EffectRule("mana_cost_pct", r"mana cost of your Devouring Plague by (\d+(?:\.\d+)?)%",
+                   ("Devouring Plague",), sign=-1),
+    ),
 }
 
 # Every priest talent, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Discipline
-    "Power in Light": "damage: Smite and Penance vs Holy Fire targets",
     "Wand Specialization": "damage: +25% wand damage",
     "Silent Resolve": "defensive: shorter stuns, fears and silences, less threat",
     "Improved Power Word: Shield": "defensive: stronger Power Word: Shield",
@@ -125,7 +132,6 @@ UNMODELED: dict[str, str] = {
     "Mind Flay": "grants_spell",
     "Vampiric Embrace": "grants_spell",
     "Silence": "grants_spell",
-    "Devouring Contagion": "damage: cheaper, spreading Devouring Plague",
     "Early Demise": "damage: Shadow Word: Death crit below 20%",
 }
 

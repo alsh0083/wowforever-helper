@@ -145,6 +145,8 @@ ROTATION = {
     "dots": ("Flame Shock",),
     "cooldowns": ("Lava Burst", "Chain Lightning"),
     "fillers": ("Lightning Bolt",),
+    # Lava Burst's own effect 1 (SpellEffect 408490, 1.60.1.70425): +20% damage with Flame Shock up (#384)
+    "dot_bonus": {"Lava Burst": ("Flame Shock", 20.0)},
 }
 # Enhancement fights in melee on the melee engine (#175); Restoration stays unscored (Q3).
 MELEE_TREES = ("Enhancement",)
