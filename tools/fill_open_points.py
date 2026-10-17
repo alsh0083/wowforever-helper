@@ -16,12 +16,14 @@ from pathlib import Path
 from wowforever.builds import load_builds
 from wowforever.classes import CLASSES, class_module
 from wowforever.effects import attach_effects
+from wowforever.consensus import Consensus
+from wowforever.focus import class_pvp_score
 from wowforever.melee_scenarios import pve_score, stat_table
-from wowforever.pvp.class_pvp import pvp_score
 from wowforever.pvp.duel import load_kits
 from wowforever.rules import check_build, points_available
 from wowforever.schema import Dataset, latest_dataset_path
 
+CONSENSUS = Consensus.load()   # the one PvP score (#323) adds the consensus core-talent bonus
 ROOT = Path(__file__).resolve().parents[1]
 DS = Dataset.load(latest_dataset_path())
 
@@ -30,8 +32,6 @@ def run() -> int:
     kits = load_kits()
     written = 0
     for c in CLASSES:
-        if c == "mage":
-            continue  # every mage build spends all its points
         m = class_module(c)
         cls, _ = attach_effects(DS.class_data(c), m.TALENT_EFFECTS, m.UNMODELED)
         stats = stat_table(c).at(60)
@@ -40,7 +40,7 @@ def run() -> int:
             if b.origin != "community" or b.model_filled or sum(b.final.values()) >= total:
                 continue
             focus = b.variant if b.variant in ("PvE", "PvP") else "PvE"
-            fn = ((lambda r: pvp_score(c, stats, cls.spells, cls, r, kits)) if focus == "PvP"
+            fn = ((lambda r: class_pvp_score(c, stats, cls, r, kits, CONSENSUS)) if focus == "PvP"
                   else (lambda r: pve_score(c, stats, cls.spells, cls, r)))
             ranks = b.final_ids(cls)
             added: dict[int, int] = {}

@@ -17,13 +17,14 @@ from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.consensus import Consensus
 from wowforever.effects import attach_effects
+from wowforever.focus import class_pvp_score
 from wowforever.melee_scenarios import pve_score, stat_table
-from wowforever.pvp.class_pvp import pvp_score
 from wowforever.pvp.duel import load_kits
 from wowforever.rules import check_build, points_available
 from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.shortlist import improve
 
+CONSENSUS = Consensus.load()   # the one PvP score (#323) adds the consensus core-talent bonus
 ROOT = Path(__file__).resolve().parents[1]
 DS = Dataset.load(latest_dataset_path())
 
@@ -78,7 +79,7 @@ def run() -> int:
             m = class_module(c)
             cls, _ = attach_effects(DS.class_data(c), m.TALENT_EFFECTS, m.UNMODELED)
             stats = stat_table(c).at(60)
-            fn = (lambda r, c=c, cls=cls, stats=stats: pve_score(c, stats, cls.spells, cls, r)) if focus == "PvE" else                  (lambda r, c=c, cls=cls, stats=stats: pvp_score(c, stats, cls.spells, cls, r, kits))
+            fn = (lambda r, c=c, cls=cls, stats=stats: pve_score(c, stats, cls.spells, cls, r)) if focus == "PvE" else                  (lambda r, c=c, cls=cls, stats=stats: class_pvp_score(c, stats, cls, r, kits, CONSENSUS))
             other = slots.get((archetype, "PvE" if focus == "PvP" else "PvP"), {}).get("standard")
             special = SEEDED.get((c, tree, focus))
             if other:
