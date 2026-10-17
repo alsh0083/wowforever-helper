@@ -321,7 +321,7 @@ def route_report(cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any
 
 
 MELEE_CAVEAT = ("Melee and ranged model (#111): expected-value rotations against Classic combat-table "
-                "rules; poisons, Backstab, Hack and Slash and hunter pet details aren't modeled yet, and "
+                "rules; rogue poisons use Classic proc chances, Backstab and hunter pet details aren't modeled yet, and "
                 "base stats are estimates. PvP scores use the mage's duel model from this class's side "
                 "(#134); stealth openers, Evasion, Vanish, Deterrence and Feign Death aren't counted yet.")
 
