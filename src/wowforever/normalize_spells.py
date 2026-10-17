@@ -38,6 +38,7 @@ AURA_LEECH = 53              # periodic leech: damage over time that heals the c
 AURA_PERIODIC_HEAL = 8       # heal over time (Rejuvenation, Regrowth)
 AURA_PERIODIC_TRIGGER = 23   # periodic trigger: fires EffectTriggerSpell every EffectAuraPeriod
 AURA_SLOW = 33               # movement speed mod (negative base points = slow)
+AURA_RANGED_ATTACK_POWER = 124  # ranged attack power (Aspect of the Hawk, #388)
 AURA_AREA_PERIODIC = 226     # marker for an area-triggered periodic
 AURA_CONFUSE = 5             # disorient (Scatter Shot, Blind; Polymorph also has it)
 AURA_FEAR = 7                # fear (Fear, Psychic Scream, Intimidating Shout, Death Coil)
@@ -342,6 +343,9 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
     haste_row = next((e for e in effects
                       if e["Effect"] == str(EFFECT_AURA) and int(e["EffectAura"]) == AURA_MELEE_HASTE), None)
     haste_pct = _f(haste_row["EffectBasePointsF"]) if haste_row is not None else 0.0
+    rap_row = next((e for e in effects
+                    if e["Effect"] == str(EFFECT_AURA) and int(e["EffectAura"]) == AURA_RANGED_ATTACK_POWER), None)
+    ranged_attack_power = _f(rap_row["EffectBasePointsF"]) if rap_row is not None else 0.0
     weapon_hits, weapon_bonus, weapon_normalized, weapon_pct = _weapon_strike(indexes, effects)
 
     periodic_damage = periodic_coefficient = tick_period = 0.0
@@ -412,6 +416,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
         absorb=absorb, root=root, stun=stun, immunity=immunity, incapacitate=incapacitate,
         interrupt_lockout=interrupt_lockout, fear=fear, disorient=disorient,
         per_combo_point=per_combo_point, combo_points=combo_points, haste_pct=haste_pct,
+        ranged_attack_power=ranged_attack_power,
         weapon_bonus=weapon_bonus, weapon_normalized=weapon_normalized, weapon_pct=weapon_pct,
         weapon_hits=weapon_hits, damage_shield=damage_shield, damage_shield_coefficient=damage_shield_coefficient,
         heal_min=heal_min, heal_max=heal_max, heal_coefficient=heal_coefficient,

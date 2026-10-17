@@ -212,6 +212,7 @@ class SpellRank:
     periodic_heal: float = 0.0             # heal over time (aura 8), total over the duration
     periodic_heal_coefficient: float = 0.0  # its spell power coefficient, total over the duration
     haste_pct: float = 0.0             # melee haste aura (aura 319) base points
+    ranged_attack_power: float = 0.0   # ranged attack power aura (aura 124) base points (Aspect of the Hawk, #388)
 
 
 @dataclass(frozen=True)
