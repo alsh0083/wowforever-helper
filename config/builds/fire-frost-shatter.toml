@@ -12,23 +12,27 @@ summary = "Most popular complete Forever build: Fire burst and mana talents (Imp
 sources = ["wft_popular"]
 confidence = "medium"
 
-adjusted = "1.60.1.70425: Fire Power 4 -> 3, Critical Mass 3 -> 4"   # points moved by Claude, not a player (#369)
-# 1.60.1.70425 (#353): Fire Power capped at 3 and Critical Mass raised to 5; the points move from one to the other.
+# refreshed from wowforevertalent.com popularity (since the Oct 15 patch (build 70425), updated daily): rank 1, saved 190, points 0/28/22 (#369)
 [final]
-"Improved Fireball" = 5
-"Ignite" = 5
-"Flame Throwing" = 1
 "Burning Soul" = 3
-"Pyroblast" = 1
-"Improved Scorch" = 3
-"Heating Up" = 1
-"Master of Elements" = 3
-"Critical Mass" = 4
-"Fire Power" = 3
+"Critical Mass" = 3
 "Elemental Precision" = 5
-"Ice Shards" = 5
-"Piercing Ice" = 3
-"Frost Channeling" = 3
-"Ice Lance" = 1
-"Shatter" = 3
 "Fingers of Frost" = 2
+"Fire Power" = 3
+"Flame Throwing" = 1
+"Frost Channeling" = 3
+"Heating Up" = 1
+"Ice Lance" = 1
+"Ice Shards" = 5
+"Ignite" = 5
+"Improved Fireball" = 5
+"Improved Scorch" = 3
+"Master of Elements" = 3
+"Piercing Ice" = 3
+"Pyroblast" = 1
+"Shatter" = 3
+
+# The community build spends fewer than 51 points (owner request, 2026-10-07): the model
+# fills the rest with the best legal talents under the PvE score. [final] is as published.
+[model_filled]
+"Frostbite" = 1

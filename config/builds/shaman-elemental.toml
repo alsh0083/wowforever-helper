@@ -12,15 +12,13 @@ sources = ["wft_popular_shaman"]
 confidence = "medium"
 summary = "Elemental with Lava Burst, Lightning Overload, Elemental Fury, Earthbound and Eye of the Storm; Thundering Strikes and Ancestral Knowledge from Enhancement. The community's caster standard."
 
-adjusted = "1.60.1.70425: Call of Thunder 1 -> Elemental Mastery 1"   # points moved by Claude, not a player (#369)
-# 1.60.1.70425 (#353): Call of Thunder is gone; its point goes to Elemental Mastery, back at the bottom of the tree.
+# refreshed from wowforevertalent.com popularity (since the Oct 15 patch (build 70425), updated daily): rank 5, saved 92, points 37/13/0 (#369)
 [final]
 "Ancestral Knowledge" = 5
 "Call of Flame" = 3
 "Concussion" = 5
 "Convection" = 5
 "Earthbound" = 1
-"Elemental Mastery" = 1
 "Elemental Alacrity" = 3
 "Elemental Focus" = 1
 "Elemental Fury" = 5
@@ -32,3 +30,8 @@ adjusted = "1.60.1.70425: Call of Thunder 1 -> Elemental Mastery 1"   # points m
 "Reverberation" = 5
 "Shamanistic Focus" = 1
 "Thundering Strikes" = 5
+
+# The community build spends fewer than 51 points (owner request, 2026-10-07): the model
+# fills the rest with the best legal talents under the PvP score. [final] is as published.
+[model_filled]
+"Elemental Mastery" = 1

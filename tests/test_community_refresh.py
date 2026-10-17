@@ -27,11 +27,13 @@ def test_adjusted_builds_say_what_moved():
 def test_closest_popular_build_shares_the_main_tree_and_most_points():
     from wowforever.community import closest_popular
 
-    # Elemental: the post-patch #5 build (37/13/0) shares 50 of 51 points
+    # Elemental is the post-patch #5 build (37/13/0) since the refresh: all 50 of the players' points (the 51st is
+    # model-filled, tools/fill_open_points.py)
     match = closest_popular(build("shaman", "shaman-elemental"), DS.class_data("shaman"), top("shaman"))
     assert match["rank"] == 5 and match["overlap"] == 50
-    match = closest_popular(build("priest", "priest-shadow"), DS.class_data("priest"), top("priest"))
-    assert match["rank"] == 2 and match["overlap"] == 48
+    # Deep Fire stays adjusted: its closest post-patch build (#4, 4 saves) shares only 36 points
+    match = closest_popular(build("mage", "deep-fire"), DS.class_data("mage"), top("mage"))
+    assert match["rank"] == 4 and match["overlap"] == 36
     assert closest_popular(build("priest", "priest-shadow"), DS.class_data("priest"), []) is None
 
 
