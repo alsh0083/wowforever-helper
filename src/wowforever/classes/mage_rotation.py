@@ -71,9 +71,26 @@ def frozen_hit_gain(char: Character, filler: SpellRank, *, target_level: int,
     return ev_of(filler, frozen) - ev_of(filler, frozenset())
 
 
+def arcane_blast_stacks(cls) -> tuple[float, float, int, float] | None:
+    """Arcane Blast's stacking buff from its talent's rank text (1.60.1.70425, #355): (% of Intellect as spell
+    damage per stack, % mana cost increase per stack, max stacks, buff seconds), or None without that text."""
+    import re
+
+    try:
+        text = cls.talent_named("Arcane Blast").rank_text[-1]
+    except KeyError:
+        return None
+    m = re.search(r"gain (\d+(?:\.\d+)?)% of your Intellect as Spell Damage and the mana cost of Arcane Blast is "
+                  r"increased by (\d+(?:\.\d+)?)%\. Effect stacks up to (\d+) times and lasts (\d+(?:\.\d+)?) sec", text)
+    if m is None:
+        return None
+    return float(m.group(1)), float(m.group(2)), int(m.group(3)), float(m.group(4))
+
+
 def rotation(char: Character, filler: SpellRank, *, target_level: int,
-             assumptions: Assumptions, sustained: bool) -> Rotation:
-    """DPS and mana drain of `filler` with the mage's proc/stack weaves."""
+             assumptions: Assumptions, sustained: bool, blast_stacks: int = 0) -> Rotation:
+    """DPS and mana drain of `filler` with the mage's proc/stack weaves; with `blast_stacks` n > 0, each Arcane
+    Blast buff window opens with n Arcane Blasts and the filler casts the rest of it with n stacks (#355)."""
     stats = char.stats
     conditions = frozenset({"sustained"}) if sustained else frozenset()
     ranks = {t.name: char.ranks.get(t.talent_id, 0) for t in char.cls.talents}
@@ -182,6 +199,24 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
             add(frozen, (60.0 / cast) * (chance + freeze_procs), GCD_SECONDS,
                 mods_for(lance, conditions | {"frozen"}))
 
+    blast = best_rank(char.spells, "Arcane Blast", char.level) if blast_stacks > 0 else None
+    stacks = arcane_blast_stacks(char.cls) if blast is not None else None
+    window_bonus = 0.0     # filler DPS gained inside the buff windows, per second of the minute
+    if stacks is not None:
+        sp_pct, cost_pct, max_stacks, seconds = stacks
+        n = min(blast_stacks, max_stacks)
+        windows = 60.0 / seconds
+        per_stack = sp_pct / 100.0 * stats.intellect             # spell damage per stack
+        blast_mods = mods_for(blast)
+        for k in range(n):                                       # the k-th Arcane Blast casts with k stacks
+            extra = blast.coefficient * per_stack * k
+            add(replace(blast, min_damage=blast.min_damage + extra, max_damage=blast.max_damage + extra,
+                        mana_cost=blast.mana_cost * (1 + cost_pct / 100.0 * k)),
+                windows, effective_cast_time(blast, blast_mods), blast_mods)
+        rest = max(0.0, seconds - n * effective_cast_time(blast, blast_mods)) / seconds
+        lift = filler.coefficient * per_stack * n
+        boosted = replace(filler, min_damage=filler.min_damage + lift, max_damage=filler.max_damage + lift)
+        window_bonus = (ev_of(boosted, filler_mods) - ev_of(filler, filler_mods)) / cast * rest
     busy = sum(n * cast_w for _, n, cast_w, _ in weaves)
     if busy > 60.0:
         weaves = [(s, n * 60.0 / busy, cast_w, mods) for s, n, cast_w, mods in weaves]
@@ -193,7 +228,7 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
             cost -= spell.mana_cost * moe / 100.0 * hit * crit
         return cost
 
-    dps = filler_dps
+    dps = filler_dps + window_bonus * (1.0 - busy / 60.0)
     mana_per_second = cost(filler, filler_mods) / cast * (1.0 - busy / 60.0)
     for spell, n, cast_w, mods in weaves:
         gain = ev_of(spell, mods) - filler_dps * cast_w
