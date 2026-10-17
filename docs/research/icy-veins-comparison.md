@@ -18,3 +18,18 @@ Veins takes Mind Flay at 25, the Shadowform path at 33).
 
 Possible next step: a leveling variant per build that may use leveling-only talents and converges on the
 final build by respec at a chosen level.
+
+## Recheck 2026-10-17 (1.60.1.70425, #376)
+
+18 of Icy Veins' guide builds were updated on Oct 16 for the patch (Malediction is gone; the warlock guides now
+take Grim Reach). Agreement moved for 48 of 133 builds, mostly up:
+- Builds that used to share no main tree now match: Fire/Frost Shatter 15, Elemental shaman 10-14, Affliction
+  warlock 9-15, and the Deep Fire / Arcane Fire / Arcane PoM-Pyro mage builds 7-12. The one exception is
+  Fire/Frost PvP, at 1.
+- Clear gains: Deep Frost 12 -> 15 (leveling 7 -> 15), Frost PvE 8 -> 11, Offensive Elementalist 19 -> 21,
+  Protection paladin 13 -> 17, Holy paladin leveling 17 -> 22, Discipline/Smite priest 5 -> 10.
+- Shadow priest stays the lowest (0-5): Icy Veins still levels through Spirit Tap and Wand Specialization.
+
+The wowforevertalent.com catalog plans behind priest-holy-pvp, priest-shadow-pve and warlock-affliction-pvp-guide
+were rechecked the same day: the site marks all three "needs review" (not republished for the new tree), so
+those builds keep their #369 `adjusted` ranks until the authors republish.
