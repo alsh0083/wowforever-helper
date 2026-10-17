@@ -1027,6 +1027,7 @@
    "variant": "PvP",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "51 points (Holy 33 / Protection 18 / Retribution 0). Divine Intellect is one of the spent talents. From the site's Holy Paladin \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
    "gives_up": [],
    "model_filled": {},
@@ -1168,6 +1169,7 @@
    "variant": "PvE",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Holy with Holy Shock, Light's Vigil, Divine Favor and Illumination; Toughness and Precision from Protection, Benediction from Retribution. The community's healer standard (routes only, unscored).",
    "gives_up": [],
    "model_filled": {},
@@ -1309,6 +1311,7 @@
    "variant": "PvP",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "51 points (Holy 14 / Protection 37 / Retribution 0). Divine Strength is one of the spent talents. From the site's Protection Paladin \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
    "gives_up": [],
    "model_filled": {},
@@ -1450,6 +1453,7 @@
    "variant": "PvE",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Protection with Holy Shield, Templar's Bulwark, Reckoning and Iron Creed; Deflection and Improved Judgement from Retribution. The community's tank standard (routes only, unscored).",
    "gives_up": [],
    "model_filled": {
@@ -1594,6 +1598,7 @@
    "variant": "PvP",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Retribution with Repentance, Seal of Command, Vengeance and Champion of the Light; Precision and Toughness from Protection and Pursuit of Justice for mobility. The community's PvP standard.",
    "gives_up": [],
    "model_filled": {},
@@ -1917,73 +1922,73 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.401,
+      "score": 0.395,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.488,
        "hunter-marksmanship": 0.532,
        "mage-frost": 0.035,
-       "priest-discipline": 0.448,
-       "priest-shadow": 0.405,
+       "priest-discipline": 0.425,
+       "priest-shadow": 0.381,
        "shaman-elemental": 0.462,
        "warlock-affliction": 0.428,
        "warlock-destruction": 0.411
       }
      },
      "30": {
-      "score": 0.402,
+      "score": 0.396,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.49,
        "hunter-marksmanship": 0.498,
        "mage-frost": 0.082,
-       "priest-discipline": 0.447,
-       "priest-shadow": 0.393,
+       "priest-discipline": 0.422,
+       "priest-shadow": 0.37,
        "shaman-elemental": 0.457,
        "warlock-affliction": 0.433,
-       "warlock-destruction": 0.413
+       "warlock-destruction": 0.414
       }
      },
      "40": {
-      "score": 0.424,
+      "score": 0.419,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.521,
        "hunter-marksmanship": 0.512,
        "mage-frost": 0.149,
-       "priest-discipline": 0.452,
-       "priest-shadow": 0.397,
+       "priest-discipline": 0.431,
+       "priest-shadow": 0.377,
        "shaman-elemental": 0.434,
        "warlock-affliction": 0.459,
        "warlock-destruction": 0.467
       }
      },
      "50": {
-      "score": 0.453,
+      "score": 0.447,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.515,
        "hunter-marksmanship": 0.522,
        "mage-frost": 0.245,
-       "priest-discipline": 0.494,
-       "priest-shadow": 0.424,
+       "priest-discipline": 0.475,
+       "priest-shadow": 0.404,
        "shaman-elemental": 0.458,
        "warlock-affliction": 0.499,
-       "warlock-destruction": 0.468
+       "warlock-destruction": 0.456
       }
      },
      "60": {
-      "score": 0.414,
+      "score": 0.406,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.466,
        "hunter-marksmanship": 0.493,
        "mage-frost": 0.358,
-       "priest-discipline": 0.447,
-       "priest-shadow": 0.335,
+       "priest-discipline": 0.424,
+       "priest-shadow": 0.315,
        "shaman-elemental": 0.418,
-       "warlock-affliction": 0.414,
-       "warlock-destruction": 0.382
+       "warlock-affliction": 0.406,
+       "warlock-destruction": 0.368
       }
      }
     },
@@ -2192,23 +2197,23 @@
     },
     "outnumbered": {
      "20": {
-      "score": 0.155,
+      "score": 0.153,
       "unit": "2v1 0-1"
      },
      "30": {
-      "score": 0.149,
-      "unit": "2v1 0-1"
-     },
-     "40": {
       "score": 0.148,
       "unit": "2v1 0-1"
      },
-     "50": {
+     "40": {
       "score": 0.147,
       "unit": "2v1 0-1"
      },
+     "50": {
+      "score": 0.145,
+      "unit": "2v1 0-1"
+     },
      "60": {
-      "score": 0.125,
+      "score": 0.123,
       "unit": "2v1 0-1"
      }
     }
@@ -2217,69 +2222,69 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4768,
-     "strength": 0.000746,
+     "score": 0.4756,
+     "strength": 0.000745,
      "agility": 0.000287,
-     "stamina": 0.001464,
+     "stamina": 0.001463,
      "intellect": 0.0,
-     "attack_power": 0.000376,
+     "attack_power": 0.000375,
      "crit_rating": 0.000589,
      "hit_rating": 0.000687,
-     "crit_pct": 0.001919,
-     "hit_pct": 0.002243,
-     "weapon_dps": 0.005227
+     "crit_pct": 0.001918,
+     "hit_pct": 0.002241,
+     "weapon_dps": 0.005223
     },
     "30": {
-     "score": 0.4738,
+     "score": 0.4726,
      "strength": 0.000516,
      "agility": 0.000202,
-     "stamina": 0.001038,
+     "stamina": 0.001037,
      "intellect": 0.0,
      "attack_power": 0.000259,
-     "crit_rating": 0.00034,
+     "crit_rating": 0.000339,
      "hit_rating": 0.00039,
-     "crit_pct": 0.002017,
-     "hit_pct": 0.002317,
-     "weapon_dps": 0.003598
+     "crit_pct": 0.002015,
+     "hit_pct": 0.002315,
+     "weapon_dps": 0.003595
     },
     "40": {
-     "score": 0.4747,
+     "score": 0.4736,
      "strength": 0.000379,
-     "agility": 0.00016,
-     "stamina": 0.000968,
+     "agility": 0.000159,
+     "stamina": 0.000967,
      "intellect": 0.0,
      "attack_power": 0.00019,
-     "crit_rating": 0.000247,
+     "crit_rating": 0.000246,
      "hit_rating": 0.000281,
-     "crit_pct": 0.002126,
-     "hit_pct": 0.002424,
-     "weapon_dps": 0.002646
+     "crit_pct": 0.002124,
+     "hit_pct": 0.002423,
+     "weapon_dps": 0.002644
     },
     "50": {
-     "score": 0.4675,
+     "score": 0.4662,
      "strength": 0.000317,
      "agility": 0.000129,
-     "stamina": 0.000797,
+     "stamina": 0.000796,
      "intellect": 0.0,
      "attack_power": 0.000159,
      "crit_rating": 0.00019,
      "hit_rating": 0.000216,
-     "crit_pct": 0.002149,
-     "hit_pct": 0.002446,
-     "weapon_dps": 0.002243
+     "crit_pct": 0.002148,
+     "hit_pct": 0.002445,
+     "weapon_dps": 0.002242
     },
     "60": {
-     "score": 0.5339,
+     "score": 0.5323,
      "strength": 0.000246,
      "agility": 0.000107,
-     "stamina": 0.000784,
+     "stamina": 0.000783,
      "intellect": 0.0,
      "attack_power": 0.000123,
      "crit_rating": 0.000152,
      "hit_rating": 0.0,
-     "crit_pct": 0.002131,
+     "crit_pct": 0.002128,
      "hit_pct": 0.0,
-     "weapon_dps": 0.001714
+     "weapon_dps": 0.001712
     }
    },
    "stat_priority": {
@@ -2308,7 +2313,7 @@
      },
      {
       "stat": "agility",
-      "share": 0.136,
+      "share": 0.137,
       "tier": 4
      }
     ]
@@ -2335,6 +2340,7 @@
    "variant": "PvE",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Retribution with Seal of Command, Sacred Arbiter, Vengeance and Twist of Light; Divine Intellect and Divine Strength from Holy. The most saved paladin build: the community's leveling and damage standard.",
    "gives_up": [],
    "model_filled": {
@@ -2660,73 +2666,73 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.401,
+      "score": 0.395,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.488,
        "hunter-marksmanship": 0.532,
        "mage-frost": 0.035,
-       "priest-discipline": 0.448,
-       "priest-shadow": 0.405,
+       "priest-discipline": 0.425,
+       "priest-shadow": 0.381,
        "shaman-elemental": 0.462,
        "warlock-affliction": 0.428,
        "warlock-destruction": 0.411
       }
      },
      "30": {
-      "score": 0.397,
+      "score": 0.391,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.485,
        "hunter-marksmanship": 0.493,
        "mage-frost": 0.08,
-       "priest-discipline": 0.442,
-       "priest-shadow": 0.389,
+       "priest-discipline": 0.417,
+       "priest-shadow": 0.365,
        "shaman-elemental": 0.452,
        "warlock-affliction": 0.428,
        "warlock-destruction": 0.409
       }
      },
      "40": {
-      "score": 0.424,
+      "score": 0.419,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.521,
        "hunter-marksmanship": 0.512,
        "mage-frost": 0.149,
-       "priest-discipline": 0.452,
-       "priest-shadow": 0.397,
+       "priest-discipline": 0.431,
+       "priest-shadow": 0.377,
        "shaman-elemental": 0.434,
        "warlock-affliction": 0.459,
        "warlock-destruction": 0.467
       }
      },
      "50": {
-      "score": 0.448,
+      "score": 0.442,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.51,
        "hunter-marksmanship": 0.517,
        "mage-frost": 0.241,
-       "priest-discipline": 0.489,
-       "priest-shadow": 0.419,
+       "priest-discipline": 0.47,
+       "priest-shadow": 0.399,
        "shaman-elemental": 0.453,
        "warlock-affliction": 0.494,
-       "warlock-destruction": 0.463
+       "warlock-destruction": 0.451
       }
      },
      "60": {
-      "score": 0.386,
+      "score": 0.378,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.437,
        "hunter-marksmanship": 0.464,
        "mage-frost": 0.331,
-       "priest-discipline": 0.418,
-       "priest-shadow": 0.31,
+       "priest-discipline": 0.395,
+       "priest-shadow": 0.29,
        "shaman-elemental": 0.39,
-       "warlock-affliction": 0.386,
-       "warlock-destruction": 0.354
+       "warlock-affliction": 0.378,
+       "warlock-destruction": 0.341
       }
      }
     },
@@ -2935,23 +2941,23 @@
     },
     "outnumbered": {
      "20": {
-      "score": 0.155,
+      "score": 0.153,
       "unit": "2v1 0-1"
      },
      "30": {
-      "score": 0.147,
+      "score": 0.145,
       "unit": "2v1 0-1"
      },
      "40": {
-      "score": 0.148,
+      "score": 0.147,
       "unit": "2v1 0-1"
      },
      "50": {
-      "score": 0.144,
+      "score": 0.143,
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.12,
+      "score": 0.118,
       "unit": "2v1 0-1"
      }
     }
@@ -3079,6 +3085,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Holy Shock (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Holy Shock (PvE) at 60.",
    "gives_up": [],
@@ -3293,6 +3300,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Holy (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Holy (PvP) at 60.",
    "gives_up": [],
@@ -3505,6 +3513,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Protection Holy Shield (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Protection Holy Shield (PvE) at 60.",
    "gives_up": [],
@@ -3719,6 +3728,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Protection (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Protection (PvP) at 60.",
    "gives_up": [],
@@ -3931,6 +3941,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Retribution (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Retribution (PvE) at 60.",
    "gives_up": [],
@@ -4145,6 +4156,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Retribution Repentance (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Retribution Repentance (PvP) at 60.",
    "gives_up": [],
@@ -4405,11 +4417,11 @@
    "archetype": "deep Retribution",
    "focus": "PvP",
    "standard": "paladin-retribution-pvp",
-   "standard_score": 0.533899113922159,
+   "standard_score": 0.5322882762294763,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "paladin-retribution-pvp": 0.533899113922159
+    "paladin-retribution-pvp": 0.5322882762294763
    },
    "qualifying": [
     "paladin-retribution-pvp"
