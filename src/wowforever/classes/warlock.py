@@ -43,6 +43,10 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Malevolence": (
         EffectRule("crit_chance", r"critical effect chance of your Shadow spells by (\d+(?:\.\d+)?)%", ("shadow",)),
     ),
+    "Nightfall": (
+        EffectRule("instant_proc_pct", r"Wrack spells a (\d+(?:\.\d+)?)% chance to cause you to enter a Shadow Trance",
+                   ("Corruption", "Drain Soul", "Drain Life", "Wrack", "@Shadow Bolt")),
+    ),
     "Shadow Mastery": (
         EffectRule("damage_pct", r"damage dealt or life drained by your Shadow spells by (\d+(?:\.\d+)?)%", ("shadow",)),
     ),
@@ -107,7 +111,6 @@ UNMODELED: dict[str, str] = {
     "Soul Harvest": "resource: mana regeneration after Drain Soul kills",
     "Fel Concentration": "utility: drains resist pushback",
     "Amplify Curse": "control: stronger next curse",
-    "Nightfall": "proc: Shadow Trance from drains and Corruption",
     "Curse of Exhaustion": "grants_spell",
     "Siphon Life": "grants_spell",
     "Soul Siphon": "damage: drains scale with afflictions",
@@ -153,9 +156,9 @@ ROTATION = {
 }
 CAVEAT = ("Caster model (#163, #165): Corruption, Bane of Agony, Siphon Life and Immolate kept up, Conflagrate "
           "and Shadowburn on cooldown, then the best of Shadow Bolt, Incinerate, Searing Pain, Wrack or Drain "
-          "Life, with Life Tap as steady mana. Improved Shadow Bolt counts as an average uptime; pets and "
-          "Nightfall procs aren't modeled; Demonic Sacrifice counts the Imp (+Shadow) and Demonic Knowledge "
-          "assumes a demon is out. Base stats are estimates.")
+          "Life, with Life Tap as steady mana. Improved Shadow Bolt and Nightfall count as averages; pets "
+          "aren't modeled; Demonic Sacrifice counts the Imp (+Shadow) and Demonic Knowledge assumes a demon is "
+          "out. Base stats are estimates.")
 
 
 # --- class engine (#311): this module is the warlock's ClassEngine ------------------------------------

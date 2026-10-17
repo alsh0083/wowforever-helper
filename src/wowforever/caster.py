@@ -234,6 +234,18 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
         dps += time_left * best[0] / best[1]
         mana += time_left * best[2] / best[1]
         used.append(best[3])
+        # procs that make the filler instant (Nightfall, #396): each saves its cast time minus the GCD, and the
+        # saved time goes to more of the filler
+        for talent in cls.talents:
+            rank = ranks.get(talent.talent_id, 0)
+            for e in (talent.effects if rank > 0 else ()):
+                if e.kind != "instant_proc_pct" or f"@{best[3]}" not in e.applies_to:
+                    continue
+                ticks = sum(1 / s.tick_period for s in map(learned, used) if s is not None and s.tick_period > 0
+                            and s.name in e.applies_to and s.name in plan.get("dots", ()))
+                extra = ticks * e.values[rank - 1] / 100 * max(0.0, best[1] - GCD_SECONDS) / best[1]
+                dps += extra * best[0]
+                mana += extra * best[2]
         by_school.append((learned(best[3]).schools, time_left * best[0] / best[1]))
         # a debuff that a crit of the filler puts on the target (Improved Shadow Bolt, #396)
         for talent in cls.talents:
