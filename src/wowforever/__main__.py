@@ -36,10 +36,16 @@ def main(argv: list[str] | None = None) -> int:
     vl.add_argument("--single-target", action="store_true",
                     help="compare with the single-target bosses in config/single_target_bosses.toml only "
                          "(data/cache/foreverlogs/stats-per-boss/)")
+    vl.add_argument("--stats", action="append", help="statistics folder(s) under data/cache/foreverlogs/ to compare "
+                    "with instead of the default (repeatable; week and day slices add up by parses, #381)")
     fl = sub.add_parser("foreverlogs-refresh", help="refresh the cached Forever Logs statistics (#172); about 37 requests per variant, owner's key")
     fl.add_argument("--variant", action="append", help="cache folder to refresh (repeatable; default: the four location sets). stats-per-boss "
                          "fetches the bosses in config/single_target_bosses.toml, one request each, never by default")
     fl.add_argument("--delay", type=float, default=2.0, help="seconds between requests")
+    fl.add_argument("--week", type=int, action="append",
+                    help="fetch only this week (weeks from 2024-01-01; 147 = Oct 19-25 2026), into <variant>-w<N>/ (repeatable)")
+    fl.add_argument("--day", type=int, action="append", choices=range(1, 8),
+                    help="with --week: only this day of the week (1-7), into <variant>-w<N>-d<D>/ (repeatable)")
     df = sub.add_parser("dungeon-floors", help="write data/dungeon_floors.json: each dungeon's minimum level from "
                                                "the client's ContentTuning (#258)")
     df.add_argument("--build", required=True, help="game build, e.g. 1.60.1.70338")
@@ -204,6 +210,8 @@ def main(argv: list[str] | None = None) -> int:
                 print("config/single_target_bosses.toml lists no bosses")
                 return 1
             stats = STATS_DIR.parent / "stats-per-boss"
+        if args.stats:
+            stats = [STATS_DIR.parent / name for name in args.stats]
         print(markdown(compare(reports, log_averages(stats, boss_ids=boss_ids),
                                log_percentiles(stats, boss_ids=boss_ids))))
         return 0
@@ -217,6 +225,10 @@ def main(argv: list[str] | None = None) -> int:
         cache = Path("data/cache/foreverlogs")
         locations = [line.strip() for line in (cache / "locations.txt").read_text(encoding="utf-8").splitlines() if line.strip()]
         variants = args.variant or list(foreverlogs_api.VARIANTS)
+        if args.day and not args.week:
+            print("--day needs --week")
+            return 1
+        slices = [(w, d) for w in args.week for d in (args.day or [None])] if args.week else [(None, None)]
         bosses = []
         if foreverlogs_api.PER_BOSS in variants:
             bosses = foreverlogs_api.read_boss_list(Path("config/single_target_bosses.toml"))
@@ -226,7 +238,8 @@ def main(argv: list[str] | None = None) -> int:
         key = foreverlogs_api.read_api_key(os.environ, Path(".env"))
         written = foreverlogs_api.fetch_statistics(cache, key, locations=locations, get=http_get_with_headers,
                                                    variants=[v for v in variants if v != foreverlogs_api.PER_BOSS],
-                                                   delay=args.delay)
+                                                   delay=args.delay,
+                                                   slices=slices)
         if bosses:
             written += foreverlogs_api.fetch_boss_statistics(cache, key, bosses=bosses, get=http_get_with_headers,
                                                              delay=args.delay)

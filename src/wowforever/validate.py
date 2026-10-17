@@ -20,13 +20,19 @@ STATS_DIR = ROOT / "data" / "cache" / "foreverlogs" / "stats"
 CHECKPOINTS = (20, 30, 40, 50, 60)
 
 
-def log_averages(stats_dir: Path = STATS_DIR, levels_path: Path = LEVELS,
+def _stat_files(stats_dirs: Path | Iterable[Path]) -> list[Path]:
+    """The JSON files of one statistics folder, or of several (week and day slices, #381)."""
+    dirs = [stats_dirs] if isinstance(stats_dirs, Path) else list(stats_dirs)
+    return [path for d in dirs for path in sorted(d.glob("*.json"))]
+
+
+def log_averages(stats_dir: Path | Iterable[Path] = STATS_DIR, levels_path: Path = LEVELS,
                  boss_ids: Collection[int] | None = None) -> dict[tuple[str, str, int], tuple[float, int]]:
     """(class, spec, checkpoint) -> (parse-weighted average DPS, parses). With `boss_ids`, only the
     per-boss files of those bosses count (#249)."""
     levels = tomllib.loads(levels_path.read_text(encoding="utf-8"))
     sums: dict[tuple[str, str, int], list[float]] = {}
-    for path in sorted(stats_dir.glob("*.json")):
+    for path in _stat_files(stats_dir):
         body = json.loads(path.read_text(encoding="utf-8"))
         level = levels.get(body.get("location", ""))
         if level is None or (boss_ids is not None and body.get("boss_id") not in boss_ids):
@@ -40,7 +46,7 @@ def log_averages(stats_dir: Path = STATS_DIR, levels_path: Path = LEVELS,
     return {k: (total / n, int(n)) for k, (total, n) in sums.items() if n}
 
 
-def log_percentiles(stats_dir: Path = STATS_DIR, levels_path: Path = LEVELS,
+def log_percentiles(stats_dir: Path | Iterable[Path] = STATS_DIR, levels_path: Path = LEVELS,
                     keys: tuple[str, ...] = ("p75", "p90"),
                     boss_ids: Collection[int] | None = None) -> dict[tuple[str, str, int], dict[str, float]]:
     """(class, spec, checkpoint) -> parse-weighted mean of each dungeon's percentile DPS. The model plays
@@ -48,7 +54,7 @@ def log_percentiles(stats_dir: Path = STATS_DIR, levels_path: Path = LEVELS,
     average includes undergeared and learning players."""
     levels = tomllib.loads(levels_path.read_text(encoding="utf-8"))
     sums: dict[tuple[str, str, int], dict[str, list[float]]] = {}
-    for path in sorted(stats_dir.glob("*.json")):
+    for path in _stat_files(stats_dir):
         body = json.loads(path.read_text(encoding="utf-8"))
         level = levels.get(body.get("location", ""))
         if level is None or (boss_ids is not None and body.get("boss_id") not in boss_ids):
