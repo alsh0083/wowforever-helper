@@ -62,7 +62,7 @@ UNMODELED: dict[str, str] = {
     "Spearing Strike": "grants_spell",
     "Bloodthrill": "proc: main-hand hits on Rend targets can enable an ability",
     "Sweeping Strikes": "grants_spell",
-    "Weaponmaster": "melee damage: weapon-type bonus (crit, damage)",
+    "Weaponmaster": "melee damage: weapon-type bonus, best branch per scenario (weapon_talents.py, #386)",
     "Improved Slam": "melee damage: faster Slam that doesn't reset swings",
     "Improved Hamstring": "control: Hamstring has 15% chance to root 5 s",
     "Mortal Strike": "grants_spell",
@@ -131,8 +131,10 @@ def playstyle(cls, ranks) -> str:
 def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):
     from wowforever.classes.warrior_rotation import warrior_rotation
     from wowforever.melee_scenarios import Output
+    from wowforever.weapon_talents import best_weapon
 
-    r = warrior_rotation(stats, spells, cls, ranks, target, pack=pack)
+    r, _ = best_weapon(lambda s, t: warrior_rotation(s, spells, cls, ranks, t, pack=pack),
+                       stats, target, cls, ranks)
     return Output(r.dps, 0.0, r.dps, r.aoe)
 
 

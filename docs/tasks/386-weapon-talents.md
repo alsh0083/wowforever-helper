@@ -72,7 +72,7 @@ def best_weapon(run: Callable[[Any, Target], Any], stats: Any, target: Target, c
 1. In `UNMODELED`, the line
    `    "Weaponmaster": "melee damage: weapon-type bonus (crit, damage)",`
    becomes
-   `    "Weaponmaster": "weapon type: best branch per scenario (weapon_talents.py, #386)",`
+   `    "Weaponmaster": "melee damage: weapon-type bonus, best branch per scenario (weapon_talents.py, #386)",`
 2. In `output`, the line
    `    r = warrior_rotation(stats, spells, cls, ranks, target, pack=pack)`
    becomes these two lines:
@@ -86,7 +86,7 @@ def best_weapon(run: Callable[[Any, Target], Any], stats: Any, target: Target, c
 1. In `UNMODELED`, the line
    `    "Hack and Slash": "proc: weapon-based extra attack chance",`
    becomes
-   `    "Hack and Slash": "weapon type: best branch per scenario (weapon_talents.py, #386)",`
+   `    "Hack and Slash": "melee damage: weapon-type bonus, best branch per scenario (weapon_talents.py, #386)",`
 2. In `output`, the line
    `    r = rogue_rotation(stats, spells, cls, ranks, target, pack=pack)`
    becomes
