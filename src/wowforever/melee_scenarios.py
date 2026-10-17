@@ -71,6 +71,8 @@ class Output:
     spell: str | None = None    # the filler the rotation chose, where it chooses one (mage, #316)
     mana_cooldown: tuple[float, float] | None = None   # (channel seconds, mana) a class spends to
                                                        # refill when a raid fight would run it dry (Evocation, #317)
+    alternatives: tuple[Output, ...] = ()   # the same rotation with one DoT or cooldown dropped (#390);
+                                            # the dungeon and raid scores take the best
 
 
 def _config() -> dict:
@@ -165,6 +167,11 @@ def dungeon_pull(out: Output, mana: float, level: int) -> float:
 
 
 def raid_dps(out: Output, mana: float, p) -> float:
+    """The best of `out` and its alternatives (#390) on the mana budget; see _raid_dps_one."""
+    return max(_raid_dps_one(o, mana, p) for o in (out, *out.alternatives))
+
+
+def _raid_dps_one(out: Output, mana: float, p) -> float:
     """Sustained DPS over a fight-length mix for one Output (#317): full DPS while the mana budget
     (pool + one-off mana + each consumable once per started cooldown) lasts, then fallback DPS;
     when the budget would run dry, `out.mana_cooldown` (channel seconds, mana) refills it and
