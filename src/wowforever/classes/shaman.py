@@ -79,15 +79,26 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Ancestral Knowledge": (
         EffectRule("stat_pct", r"Increases your Intellect by (\d+(?:\.\d+)?)%", ("intellect",)),
     ),
+    "Reverberation": (
+        EffectRule("cooldown", r"cooldown of your Shock spells by (\d+(?:\.\d+)?) sec",
+                   ("Earth Shock", "Flame Shock", "Frost Shock"), sign=-1),
+    ),
+    "Shamanistic Focus": (
+        EffectRule("mana_cost_pct", r"Shock and Lightning Shield spells by (\d+(?:\.\d+)?)%",
+                   ("Earth Shock", "Flame Shock", "Frost Shock", "Lightning Shield"), sign=-1),
+    ),
+    # best effort (#384): a 10% chance of a free next damage spell averages to 10% less mana
+    "Elemental Focus": (
+        EffectRule("mana_cost_pct", r"(\d+(?:\.\d+)?)% chance to enter a Clearcasting state",
+                   ("fire", "frost", "nature"), sign=-1),
+    ),
 }
 
 # Every shaman talent, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Elemental
     "Elemental Warding": "defensive: 10% less Fire, Frost, Nature damage",
-    "Reverberation": "damage: Shock cooldown -1 s",
     "Elemental Devastation": "proc: spell crits raise melee crit",
-    "Elemental Focus": "proc: Clearcasting after damage spells",
     "Trial by Fire": "damage: Fire Nova damage and cooldown, longer Magma Totem",
     "Elemental Reach": "utility: longer spell range",
     "Earthbound": "control: Earthbind Totem roots 5 s",
@@ -97,7 +108,6 @@ UNMODELED: dict[str, str] = {
     "Guardian Totems": "defensive: stronger Stoneskin and Windwall Totems",
     "Improved Ghost Wolf": "mobility: faster Ghost Wolf, usable indoors",
     "Improved Lightning Shield": "damage: +15% Lightning Shield",
-    "Shamanistic Focus": "resource: cheaper Shocks and Lightning Shield",
     "Anticipation": "defensive: +6% dodge",
     "Toughness": "defensive: +10% Stamina",
     "Stormstrike": "grants_spell",

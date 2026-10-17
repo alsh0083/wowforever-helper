@@ -71,6 +71,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Shadow and Flame": (
         EffectRule("damage_pct", r"Conflagrate increases all Shadow damage you deal by (\d+(?:\.\d+)?)%", ("shadow",)),
     ),
+    "Fel Vitality": (
+        EffectRule("stat_pct", r"increases your maximum Mana by (\d+(?:\.\d+)?)%", ("mana",)),
+    ),
 }
 
 # Every warlock talent, with why it isn't modeled.
@@ -94,7 +97,6 @@ UNMODELED: dict[str, str] = {
     "Unholy Power": "pet: +10% pet damage",
     "Demonic Aegis": "defensive: stronger Demon Skin and Demon Armor",
     "Improved Voidwalker": "pet: stronger Voidwalker",
-    "Fel Vitality": "pet: pet health and mana",
     "Demonic Energies": "pet: heal pet from spell damage",
     "Improved Sayaad": "pet: stronger Succubus and Incubus",
     "Master Summoner": "pet: faster pet summons",
