@@ -4,7 +4,7 @@ Stage 2 of the alts (#131 part 2): the damage talents carry effect rules read fr
 text; the rest stay classified but unmodeled until the alts-engine milestone (#111).
 """
 
-from wowforever.classes import EffectRule, TraitLayout, TreeBand
+from wowforever.classes import EffectRule, TraitLayout, TreeBand, below_health
 
 # Trait tree 1111 holds all three rogue trees side by side, on the same grid as the mage's 1112.
 LAYOUT = TraitLayout(
@@ -107,6 +107,11 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Serrated Blades": (
         EffectRule("armor_pen", r"ignore (\d+(?:\.\d+)?)% of your target's Armor", ("all",)),
     ),
+    "Quietus": (
+        EffectRule("damage_pct",
+                   r"abilities cause (\d+(?:\.\d+)?)% more damage against targets below (\d+(?:\.\d+)?)% health",
+                   ("Sinister Strike", "Ghostly Strike", "Hemorrhage"), combine=below_health),
+    ),
 }
 
 # Every rogue talent, with why it is not modeled yet. "grants_spell" marks talents that teach an
@@ -145,7 +150,6 @@ UNMODELED: dict[str, str] = {
     "Dirty Deeds": "stealth: cheaper openers, Garrote works from the front",
     "Preparation": "grants_spell",
     "Hemorrhage": "grants_spell",
-    "Quietus": "melee damage: +10% damage vs targets below 35% health (#111)",
     "Cutthroat": "stealth: Backstab can enable Ambush without Stealth",
     "Thousand Cuts": "resource: Rupture ticks reduce Hemorrhage/Backstab Energy cost",
 }

@@ -4,7 +4,7 @@ Stage 1 of class-specific opponents (#34, #152): the trees and spells load and e
 classified; nothing is modeled yet. The warlock is an opponent, not a dashboard class.
 """
 
-from wowforever.classes import EffectRule, TraitLayout, TreeBand
+from wowforever.classes import EffectRule, TraitLayout, TreeBand, below_health
 
 # Trait tree 1116 holds all three warlock trees side by side, on the same grid as the mage's 1112.
 LAYOUT = TraitLayout(
@@ -88,6 +88,11 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Improved Life Tap": (
         EffectRule("life_tap_pct", r"Mana awarded by your Life Tap spell by (\d+(?:\.\d+)?)%", ("all",)),
     ),
+    # the Shadow Bolt and Searing Pain part; Soul Fire isn't in the rotation (#396)
+    "Decimation": (
+        EffectRule("damage_pct", r"enemy below (\d+(?:\.\d+)?)% health, they deal (\d+(?:\.\d+)?)% increased damage",
+                   ("Shadow Bolt", "Searing Pain"), combine=below_health),
+    ),
 }
 
 # Every warlock talent, with why it isn't modeled.
@@ -112,7 +117,6 @@ UNMODELED: dict[str, str] = {
     "Demonic Energies": "pet: heal pet from spell damage",
     "Improved Sayaad": "pet: stronger Succubus and Incubus",
     "Master Summoner": "pet: faster pet summons",
-    "Decimation": "damage: Soul Fire cooldown and execute",
     "Fel Domination": "grants_spell",
     "Demonic Brand": "pet: pet bonus vs branded targets",
     "Improved Felhunter": "pet: stronger Felhunter",

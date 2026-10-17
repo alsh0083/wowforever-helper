@@ -4,7 +4,7 @@ Stage 1 (#152, #158): trees, spells and every talent classified. Stage 2 (#164):
 Discipline Smite on the caster spell engine.
 """
 
-from wowforever.classes import EffectRule, TraitLayout, TreeBand
+from wowforever.classes import EffectRule, TraitLayout, TreeBand, below_health
 
 # Trait tree 1114 holds all three priest trees side by side, on the same grid as the mage's 1112.
 LAYOUT = TraitLayout(
@@ -50,6 +50,10 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     ),
     "Twilight Focus": (
         EffectRule("pushback_pct", r"Gives you a (\d+(?:\.\d+)?)% chance to avoid interruption", ("all",)),
+    ),
+    "Early Demise": (
+        EffectRule("crit_chance", r"targets at or below (\d+(?:\.\d+)?)% health by (\d+(?:\.\d+)?)%",
+                   ("Shadow Word: Death",), combine=below_health),
     ),
     "Power in Light": (
         EffectRule("damage_pct", r"Smite and Penance spells deal (\d+(?:\.\d+)?)% increased damage",
@@ -132,7 +136,6 @@ UNMODELED: dict[str, str] = {
     "Mind Flay": "grants_spell",
     "Vampiric Embrace": "grants_spell",
     "Silence": "grants_spell",
-    "Early Demise": "damage: Shadow Word: Death crit below 20%",
 }
 
 # Priest skill lines in SkillLineAbility: Discipline, Holy, Shadow.
