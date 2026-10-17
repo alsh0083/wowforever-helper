@@ -16,8 +16,8 @@ This task has no reference code to copy: you write the implementation.
 Build 1.60.1.70425 removed and re-capped talents, so Claude moved points in 8 community builds by hand. Each of
 those files now has a top-level `adjusted = "1.60.1.70425: <what moved>"` line, followed by `# 1.60.1.70425
 (#353) ...` comment lines and then `[final]`. No player chose those points. `data/popularity/<class>.json` holds
-the post-patch top builds from wowforevertalent.com. Its `"top"` is a list of dicts with string fields `rank`,
-`saved` and `points`, plus `final`, a dict of talent name to rank. This task replaces each adjusted build with the
+the post-patch top builds from wowforevertalent.com. Its `"top"` is a list of dicts with int fields `rank`,
+`saved`, a list `points`, and `final`, a dict of talent name to rank. This task replaces each adjusted build with the
 closest real post-patch build, and labels the ones that stay adjusted.
 
 ## Steps, in this order
@@ -35,7 +35,7 @@ Module docstring: refreshing hand-adjusted community builds from post-patch popu
     - skip the entry unless `main_tree` of those ranks (by talent id) is the same tree;
     - its overlap is `sum(min(rank, build.final.get(name, 0)))` over its talents.
   - Return the entry with the highest overlap as a new dict, `{**entry, "overlap": overlap}` with `final` filtered
-    as above. Break ties by the higher `int(saved)`. With no entry left, return None.
+    as above. Break ties by the higher `saved`. With no entry left, return None.
 - `def refreshed_toml(text: str, entry: dict, *, window: str) -> str:` rewrites a build file's text:
   - Remove the `adjusted = ...` line and every line after it up to (not including) the `[final]` line.
   - Replace the `[final]` table's body, every line after `[final]` up to the next line starting with `[` or the end
@@ -43,7 +43,7 @@ Module docstring: refreshing hand-adjusted community builds from post-patch popu
     entry's order.
   - Put one comment line right above `[final]`:
     `# refreshed from wowforevertalent.com popularity (<window>): rank <rank>, saved <saved>, points <a>/<b>/<c> (#369)`.
-    The points come from `entry["points"]`, which may be a list or a string like `"[37, 13, 0]"`.
+    The points come from the list `entry["points"]`.
   - Everything else stays as it is.
 
 ### 3. `tools/refresh_community_builds.py` (new)

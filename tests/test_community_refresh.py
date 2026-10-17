@@ -29,9 +29,9 @@ def test_closest_popular_build_shares_the_main_tree_and_most_points():
 
     # Elemental: the post-patch #5 build (37/13/0) shares 50 of 51 points
     match = closest_popular(build("shaman", "shaman-elemental"), DS.class_data("shaman"), top("shaman"))
-    assert match["rank"] == "5" and match["overlap"] == 50
+    assert match["rank"] == 5 and match["overlap"] == 50
     match = closest_popular(build("priest", "priest-shadow"), DS.class_data("priest"), top("priest"))
-    assert match["rank"] == "2" and match["overlap"] == 48
+    assert match["rank"] == 2 and match["overlap"] == 48
     assert closest_popular(build("priest", "priest-shadow"), DS.class_data("priest"), []) is None
 
 
@@ -39,8 +39,8 @@ def test_ties_go_to_the_most_saved():
     from wowforever.community import closest_popular
 
     b = build("shaman", "shaman-elemental")
-    entry = next(t for t in top("shaman") if t["rank"] == "5")
-    twins = [dict(entry, rank="a", saved="3"), dict(entry, rank="b", saved="40")]
+    entry = next(t for t in top("shaman") if t["rank"] == 5)
+    twins = [dict(entry, rank="a", saved=3), dict(entry, rank="b", saved=40)]
     assert closest_popular(b, DS.class_data("shaman"), twins)["rank"] == "b"
 
 
