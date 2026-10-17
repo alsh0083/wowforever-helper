@@ -14,6 +14,7 @@ from wowforever.classes.warrior_rotation import warrior_rotation
 from wowforever.effects import attach_effects
 from wowforever.physical import Target
 from wowforever.schema import Dataset, latest_dataset_path
+from wowforever.weapon_talents import best_weapon
 
 DATASET = Dataset.load(latest_dataset_path())
 BOSS = Target(3, 976)
@@ -53,7 +54,8 @@ def test_output_wraps_the_class_rotation(name, pack):
     cls, builds = loaded(name)
     stats = ms.stat_table(name).at(60)
     for ranks in builds:
-        r = ADAPTED[name](stats, cls.spells, cls, ranks, BOSS, pack=pack)
+        r, _ = best_weapon(lambda s, t: ADAPTED[name](s, cls.spells, cls, ranks, t, pack=pack),
+                           stats, BOSS, cls, ranks)      # weapon-type talents (#386)
         out = engine(name).output(stats, cls.spells, cls, ranks, BOSS, pack=pack)
         assert out == ms.Output(r.dps, 0.0, r.dps, r.aoe)
         assert engine(name).playstyle(cls, ranks) == "melee"

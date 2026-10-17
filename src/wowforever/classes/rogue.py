@@ -123,7 +123,7 @@ UNMODELED: dict[str, str] = {
     "Improved Kick": "control: Kick silences the target",
     "Flawless Execution": "resource: cheaper Eviscerate",
     "Blade Flurry": "grants_spell",
-    "Hack and Slash": "proc: weapon-based extra attack chance",
+    "Hack and Slash": "proc: weapon-type bonus, best branch per scenario (weapon_talents.py, #386)",
     "Adrenaline Rush": "grants_spell",
     # Subtlety
     "Camouflage": "stealth: faster Stealth, shorter cooldown",
@@ -164,8 +164,10 @@ def playstyle(cls, ranks) -> str:
 def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):
     from wowforever.classes.rogue_rotation import rogue_rotation
     from wowforever.melee_scenarios import Output
+    from wowforever.weapon_talents import best_weapon
 
-    r = rogue_rotation(stats, spells, cls, ranks, target, pack=pack)
+    r, _ = best_weapon(lambda s, t: rogue_rotation(s, spells, cls, ranks, t, pack=pack),
+                       stats, target, cls, ranks)
     return Output(r.dps, 0.0, r.dps, r.aoe)
 
 
