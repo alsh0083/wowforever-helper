@@ -15,7 +15,7 @@ Not modeled here: procs, cleave, pets (warlock, #165) and Life Tap; classes add 
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
+from collections.abc import Collection, Mapping, Sequence
 from dataclasses import dataclass
 
 from wowforever.assumptions import Assumptions, periodic_can_crit, sub20_penalized
@@ -92,12 +92,14 @@ def talent_stats(class_name: str, stats: Stats, cls: ClassData, ranks: Mapping[i
 
 def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], cls: ClassData,
                     ranks: Mapping[int, int], target: Target, *,
-                    drink_mana_per_second: float | None = None) -> CasterRotation:
+                    drink_mana_per_second: float | None = None,
+                    skip: Collection[str] = ()) -> CasterRotation:
     """Sustained DPS and mana use against `target` with the class's ROTATION and talents `ranks`.
 
     The filler is the one with the best damage per second; with `drink_mana_per_second` (questing,
     where drinking is the bottleneck) it is the one with the best damage per second of kill time
-    plus drinking, so a cheaper filler (Mind Flay over Smite) wins when mana runs out first."""
+    plus drinking, so a cheaper filler (Mind Flay over Smite) wins when mana runs out first.
+    `skip` names DoTs and cooldowns to leave out (#390)."""
     stats = talent_stats(class_name, stats, cls, ranks)
     plan = class_module(class_name).ROTATION
     assumptions = Assumptions.load()
@@ -114,6 +116,8 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
 
     for kind in ("dots", "cooldowns"):
         for name in plan.get(kind, ()):
+            if name in skip:
+                continue
             spell = learned(name)
             if spell is None:
                 continue

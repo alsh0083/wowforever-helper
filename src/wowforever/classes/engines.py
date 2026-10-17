@@ -21,18 +21,27 @@ def pack_aoe(output: Callable[..., Any], stats: Any, spells: Sequence[SpellRank]
 def caster_output(class_name: str, stats: Any, spells: Sequence[SpellRank], cls: ClassData,
                   ranks: Mapping[int, int], target: Target, *, drink_mana_per_second: float | None = None) -> Any:
     """The caster rotation's Output (caster.py, #163); once dry, a caster keeps casting at the rate its
-    regen pays for."""
+    regen pays for. It also offers the rotation with each DoT or cooldown dropped (#390)."""
+    from dataclasses import replace
     from wowforever.caster import caster_rotation
+    from wowforever.classes import class_module
     from wowforever.gear import caster_config
     from wowforever.melee_scenarios import Output
 
-    r = caster_rotation(class_name, stats, spells, cls, ranks, target, drink_mana_per_second=drink_mana_per_second)
-    gross = r.mana_per_second + r.regen_per_second
-    fallback = r.dps * min(1.0, r.regen_per_second / gross) if gross > 0 else r.dps
+    def one(skip=()):
+        r = caster_rotation(class_name, stats, spells, cls, ranks, target,
+                            drink_mana_per_second=drink_mana_per_second, skip=skip)
+        gross = r.mana_per_second + r.regen_per_second
+        fallback = r.dps * min(1.0, r.regen_per_second / gross) if gross > 0 else r.dps
+        if "life_tap" in cfg:
+            fallback = life_tap_fallback(r.dps, r.mana_per_second, stats.level, cfg["life_tap"])
+        return r, Output(r.dps, r.mana_per_second, fallback, ranged=True)
+
     cfg = caster_config(class_name)
-    if "life_tap" in cfg:
-        fallback = life_tap_fallback(r.dps, r.mana_per_second, stats.level, cfg["life_tap"])
-    return Output(r.dps, r.mana_per_second, fallback, ranged=True)
+    r, out = one()
+    filler = r.spells[-1] if r.spells and r.spells[-1] in class_module(class_name).ROTATION["fillers"] else None
+    alternatives = tuple(one((name,))[1] for name in r.spells if name != filler)
+    return replace(out, alternatives=alternatives)
 
 
 def life_tap_fallback(dps: float, drain: float, level: int, tap) -> float:
