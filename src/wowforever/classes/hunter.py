@@ -85,6 +85,10 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("haste_pct", r"ranged attack speed by (\d+(?:\.\d+)?)% for", ("@deadly_aspects",)),
         EffectRule("duration", r"ranged attack speed by \d+(?:\.\d+)?% for (\d+(?:\.\d+)?) sec", ("@deadly_aspects",)),
     ),
+    "Rapid Killing": (
+        EffectRule("cooldown", r"cooldown on your Rapid Fire ability by (\d+(?:\.\d+)?) min", ("Rapid Fire",),
+                   sign=-1, combine=lambda m: 60 * float(m.group(1))),
+    ),
 }
 
 # Every hunter talent without an effect rule, with why it isn't modeled.
@@ -105,7 +109,6 @@ UNMODELED: dict[str, str] = {
     # Marksmanship
     "Hawk Eye": "utility: +6 yds ranged weapon range",
     "Improved Concussive Shot": "control: 20% chance to stun with Concussive Shot",
-    "Rapid Killing": "ranged damage: Rapid Fire cooldown + shot damage after kills (#111)",
     "Trueshot Aura": "grants_spell",
     "Rapid Recuperation": "resource: mana regen while casting after Serpent Sting hits",
     "Scatter Shot": "grants_spell",

@@ -34,7 +34,7 @@ def test_life_tap_fallback_spends_gcds_tapping():
 # when a class's model changes (1.60.1.70425: #353). Warrior and rogue have no mana and don't move
 PINS = [("warrior", "warrior-arms", 130.87), ("rogue", "rogue-combat", 230.84),
         ("warlock", "warlock-affliction", 295.28), ("mage", "deep-frost", 366.08), ("mage", "deep-fire", 257.72),
-        ("hunter", "hunter-marksmanship", 197.98), ("priest", "priest-discipline-smite", 187.16),
+        ("hunter", "hunter-marksmanship", 199.750.01), ("priest", "priest-discipline-smite", 187.16),
         ("shaman", "shaman-elemental", 272.69)]
 
 

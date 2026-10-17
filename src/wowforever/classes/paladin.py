@@ -51,6 +51,10 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Divine Intellect": (
         EffectRule("stat_pct", r"total Intellect by (\d+(?:\.\d+)?)%", ("intellect",)),
     ),
+    "Holy Power": (
+        EffectRule("crit_chance", r"critical strike chance of your Holy Shock and Holy Strike spells by (\d+(?:\.\d+)?)%",
+                   ("Holy Strike", "Holy Shock")),
+    ),
 }
 
 # Every paladin talent, with why it isn't modeled.
@@ -68,7 +72,6 @@ UNMODELED: dict[str, str] = {
     "Divine Precision": "damage: +18% Holy spell hit",
     "Holy Shock": "grants_spell",
     "Consecrated Ground": "damage: Holy damage vs enemies entering Consecration",
-    "Holy Power": "damage: Holy Shock, Holy Strike and spell crit",
     "Light's Vigil": "grants_spell",
     # Protection
     "Toughness": "defensive: +10% armor from items",

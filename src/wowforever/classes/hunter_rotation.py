@@ -9,7 +9,7 @@ Against a pack (`pack` > 1, AoE pulls #262): Multi-Shot hits up to config multi_
 the ranged hunter channels Volley instead when that does more, and Explosive Trap goes out on
 cooldown in either mode, hitting every mob.
 
-Not modeled yet: Rapid Killing's cooldown cut, Expose Prey, hawk damage,
+Not modeled yet: Expose Prey, hawk damage,
 Resourcefulness, and pet talents beyond Unleashed Fury and Bestial Wrath.
 """
 
@@ -89,7 +89,7 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
         haste = 1 + c["quiver_haste_pct"] / 100
         rapid = learned("Rapid Fire")
         if rapid is not None:
-            haste *= 1 + rapid.haste_pct / 100 * rapid.duration / rapid.cooldown
+            haste *= 1 + rapid.haste_pct / 100 * rapid.duration / (rapid.cooldown + total("cooldown", "Rapid Fire"))
         if taken("Deadly Aspects") and learned("Aspect of the Hawk") is not None:
             # each Auto Shot may haste the next window; uptime from the shots in one window (#393)
             shots = total("duration", "@deadly_aspects") * haste / speed
