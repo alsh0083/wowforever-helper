@@ -16,7 +16,7 @@ Not modeled here: procs, cleave, pets (warlock, #165) and Life Tap; classes add 
 from __future__ import annotations
 
 from collections.abc import Collection, Mapping, Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 from wowforever.assumptions import Assumptions, periodic_can_crit, sub20_penalized
 from wowforever.calc.ev import GCD_SECONDS, effective_cast_time, expected_damage
@@ -92,6 +92,13 @@ def talent_stats(class_name: str, stats: Stats, cls: ClassData, ranks: Mapping[i
     return stats
 
 
+def consumed_period(duration: float, cooldown: float, keep_pct: float) -> float:
+    """Seconds between casts of a DoT that a cooldown consumes (Conflagrate eats Immolate, #385): the DoT runs
+    its full duration when kept (keep_pct%), else only until the next consuming cast."""
+    keep = min(1.0, keep_pct / 100)
+    return keep * duration + (1 - keep) * min(duration, cooldown)
+
+
 def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], cls: ClassData,
                     ranks: Mapping[int, int], target: Target, *,
                     drink_mana_per_second: float | None = None,
@@ -116,6 +123,20 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
             return None
         return best_rank(spells, name, stats.level)
 
+    def cooldown_of(spell: SpellRank) -> float:
+        return spell.cooldown + sum(
+            e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
+            for e in t.effects if e.kind == "cooldown" and spell.name in e.applies_to)
+
+    consumers = {}   # DoT -> (seconds between the casts that consume it, % chance to keep it), #385
+    for name, dot in plan.get("consumes", {}).items():
+        spell = learned(name)
+        if spell is None or name in skip:
+            continue
+        keep = sum(e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
+                   for e in t.effects if e.kind == "proc_chance" and f"@keep_{dot}" in e.applies_to)
+        consumers[dot] = (cooldown_of(spell), keep)
+
     for kind in ("dots", "cooldowns"):
         for name in plan.get(kind, ()):
             if name in skip:
@@ -124,10 +145,14 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
             if spell is None:
                 continue
             ev, seconds, cost = cast(spell, stats, cls, ranks, target_level, assumptions)
-            cooldown = spell.cooldown + sum(
-                e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
-                for e in t.effects if e.kind == "cooldown" and name in e.applies_to)
+            cooldown = cooldown_of(spell)
             period = spell.duration if kind == "dots" else max(cooldown, seconds)
+            if kind == "dots" and name in consumers and spell.duration > 0:
+                # a consuming cooldown cuts the DoT short: only its ticks until then count (#385)
+                direct, _, _ = cast(replace(spell, periodic_damage=0.0, periodic_coefficient=0.0), stats, cls,
+                                    ranks, target_level, assumptions)
+                period = consumed_period(spell.duration, *consumers[name])
+                ev = direct + (ev - direct) * period / spell.duration
             if ev <= 0 or period <= 0 or time_left <= seconds / period:
                 continue
             time_left -= seconds / period

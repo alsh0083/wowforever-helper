@@ -70,6 +70,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     ),
     "Shadow and Flame": (
         EffectRule("damage_pct", r"Conflagrate increases all Shadow damage you deal by (\d+(?:\.\d+)?)%", ("shadow",)),
+        EffectRule("damage_pct", r"Shadowburn increases all Fire damage you deal by (\d+(?:\.\d+)?)%", ("fire",)),
+        EffectRule("proc_chance", r"Conflagrate has a (\d+(?:\.\d+)?)% chance not to consume Immolate",
+                   ("@keep_Immolate",)),
     ),
     "Fel Vitality": (
         EffectRule("stat_pct", r"increases your maximum Mana by (\d+(?:\.\d+)?)%", ("mana",)),
@@ -127,10 +130,11 @@ SKILL_LINES = (355, 354, 593)
 ENGINE = "spell"
 ROTATION = {
     "dots": ("Corruption", "Bane of Agony", "Siphon Life", "Immolate"),
-    "cooldowns": ("Conflagrate",),
+    "cooldowns": ("Conflagrate", "Shadowburn"),
     "fillers": ("Shadow Bolt", "Incinerate", "Searing Pain", "Wrack", "Drain Life"),
+    "consumes": {"Conflagrate": "Immolate"},
 }
-CAVEAT = ("Caster model (#163, #165): Corruption, Bane of Agony and Immolate kept up, Conflagrate on cooldown, "
+CAVEAT = ("Caster model (#163, #165): Corruption, Bane of Agony and Immolate kept up, Conflagrate and Shadowburn on cooldown, "
           "then the best of Shadow Bolt, Incinerate, Searing Pain or Wrack, with Life Tap as steady mana. Pets, "
           "Siphon Life and Drain Life (health drains), Shadowburn, Nightfall and Improved Shadow Bolt procs aren't "
           "modeled; Demonic Sacrifice counts the Imp (+Shadow). Base stats are estimates.")
