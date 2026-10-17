@@ -148,7 +148,8 @@ def check_for_updates(
                                                    icon_overrides=getattr(module, "ICON_OVERRIDES", None))
     cls, effect_problems = effects_module.attach_effects(cls, module.TALENT_EFFECTS, module.UNMODELED)
     cls = dataclasses.replace(
-        cls, spells=normalize_spells_module.class_spells(tables, skill_lines=module.SKILL_LINES)
+        cls, spells=normalize_spells_module.class_spells(tables, skill_lines=module.SKILL_LINES,
+                                                         extra_spells=getattr(module, "EXTRA_SPELLS", {}))
     )
 
     wft_manifest = wowforevertalent.manifest_for(page_path)

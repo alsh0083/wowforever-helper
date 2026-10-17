@@ -8,7 +8,7 @@ from the parsed spells (#131 part 1), the rogue's talent effect rules (part 2), 
 Against a pack (`pack` > 1, AoE pulls #262), Blade Flurry's attacks also hit a second mob for its
 share of the cooldown (15 s of 120 s), averaged like its haste.
 
-Not modeled yet: poisons, Backstab (needs the main-hand weapon type) and Hack and Slash extra attacks.
+Poisons (#387): classes/poisons.py, on every landed hit. Not modeled yet: Backstab (#392).
 """
 
 from __future__ import annotations
@@ -17,9 +17,11 @@ from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, replace
 from pathlib import Path
 
+from wowforever.calc.ev import miss_chance
+from wowforever.classes.poisons import best_poisons
 from wowforever.melee_stats import MeleeStats
-from wowforever.physical import (Attacker, Target, land_chance, white_swing, yellow_attack,
-                                 yellow_crit_chance)
+from wowforever.physical import (Attacker, Target, land_chance, white_land_chance, white_swing,
+                                 yellow_attack, yellow_crit_chance)
 from wowforever.scenarios import best_rank
 from wowforever.schema import ClassData, SpellRank
 from wowforever.toml_cache import load_toml
@@ -36,6 +38,8 @@ class RogueRotation:
     energy_per_second: float
     cycles_per_second: float  # builder-to-finisher cycles
     aoe: tuple[str, ...] = ()  # abilities that hit more than one mob of the pack (#262)
+    poisons: tuple[str, ...] = ()   # the poison on each weapon (main hand, then off hand), #387
+    poison_dps: float = 0.0
 
 
 def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
@@ -127,10 +131,28 @@ def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDat
                        * (1 + total("duration", "Slice and Dice") / 100))
         finish_share = max(0.0, 1 - (1 / snd_seconds) / cycles)
     yellow = cycles * (n * builder_ev + finish_share * evis_ev)
+    # poisons (#387): every landed hit of a poisoned weapon can apply its poison
+    p = c["poisons"]
+    white_land = white_land_chance(attacker, target, dual_wield=dual, dodge_reduction=dr)
+    hits = [haste / stats.main_hand[2] * white_land + cycles * land * (n + finish_share)]
+    if dual:
+        hits.append(haste / stats.off_hand[2] * white_land
+                    + (cycles * land * n if builder.weapon_hits >= 2 else 0.0))
+    chance = total("proc_chance", "@poison")
+    known = tuple(s for s in map(learned, ("Instant Poison", "Deadly Poison")) if s is not None)
+    poison_dps, poisons = best_poisons(
+        known, tuple(hits),
+        chance_pct={"Instant Poison": p["instant_chance_pct"] + chance,
+                    "Deadly Poison": p["deadly_chance_pct"] + chance},
+        land=1 - miss_chance(level, level + target.level_diff, 0.0) / 100,
+        crit=yellow_crit_chance(attacker, target), damage_pct=total("damage_pct", "@poison"),
+        max_stacks=p["deadly_max_stacks"])
+    yellow += poison_dps
     aoe: tuple[str, ...] = ()
     if pack > 1 and taken("Blade Flurry"):
         bf = c["blade_flurry"]
         share = bf["duration"] / bf["cooldown"]
         white, yellow, aoe = white * (1 + share), yellow * (1 + share), ("Blade Flurry",)
     return RogueRotation(dps=white + yellow, white_dps=white, yellow_dps=yellow, builder=builder.name,
-                         energy_per_second=energy, cycles_per_second=cycles, aoe=aoe)
+                         energy_per_second=energy, cycles_per_second=cycles, aoe=aoe,
+                         poisons=poisons, poison_dps=poison_dps)

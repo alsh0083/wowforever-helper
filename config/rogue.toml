@@ -12,3 +12,7 @@ snd_seconds_per_combo_point = 3.0
 normalized_speed = { dagger = 1.7, one_hand = 2.4, two_hand = 3.3 }
 # finishers are spent at this many combo points
 finisher_combo_points = 5
+# Poisons (#387): chance per landed hit to apply each poison, and Deadly Poison's stack cap. Classic 1.12 values
+# (Instant 20%, Deadly 30%, 5 stacks): Forever's proc chances (SpellAuraOptions) aren't in the cached tables.
+# Assumption chosen 2026-10-17 at the owner's request; confidence LOW until checked in Forever.
+poisons = { instant_chance_pct = 20.0, deadly_chance_pct = 30.0, deadly_max_stacks = 5 }
