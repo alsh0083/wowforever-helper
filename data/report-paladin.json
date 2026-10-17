@@ -1056,16 +1056,11 @@
     105331,
     105331,
     105330,
-    105634,
-    105634,
-    105634,
     110871,
     110871,
     110871,
     105327,
     105327,
-    105632,
-    105632,
     110873,
     110873,
     105329,
@@ -1073,16 +1068,21 @@
     105329,
     105329,
     105329,
+    105321,
+    105321,
+    105321,
+    105321,
+    105321,
+    105634,
+    105634,
+    105634,
+    105632,
+    105632,
     105325,
     105633,
     105633,
     105633,
     105323,
-    105321,
-    105321,
-    105321,
-    105321,
-    105321,
     105320
    ],
    "order_source": "optimized for questing kills/hour",
@@ -1157,7 +1157,7 @@
     "bonus": 0.0
    },
    "about": [
-    "33 points in Holy, with 18 in Protection. Built for PvP. On this order the key talents arrive as follows: Voice of Truth at 32, Divine Favor at 50, Holy Shock at 54 and Light's Vigil at 60.",
+    "33 points in Holy, with 18 in Protection. Built for PvP. On this order the key talents arrive as follows: Voice of Truth at 32, Divine Favor at 55, Holy Shock at 59 and Light's Vigil at 60.",
     "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order.",
     "Gear priority per point (the class's default weights; this build has no scores): weapon DPS 1, hit rating 0.4, strength 0.33 and crit rating 0.33. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -1215,16 +1215,16 @@
     105329,
     105329,
     105329,
+    105321,
+    105321,
+    105321,
+    105321,
+    105321,
     105325,
     105324,
     105324,
     105324,
     105323,
-    105321,
-    105321,
-    105321,
-    105321,
-    105321,
     105320
    ],
    "order_source": "optimized for questing kills/hour",
@@ -1299,7 +1299,7 @@
     "bonus": 0.0
    },
    "about": [
-    "36 points in Holy, with 10 in Protection and 5 in Retribution. Built for PvE. On this order the key talents arrive as follows: Voice of Truth at 37, Divine Favor at 50, Holy Shock at 54 and Light's Vigil at 60.",
+    "36 points in Holy, with 10 in Protection and 5 in Retribution. Built for PvE. On this order the key talents arrive as follows: Voice of Truth at 37, Divine Favor at 55, Holy Shock at 59 and Light's Vigil at 60.",
     "A healing or tanking build: the tool has no healing or threat model yet, so it has no rotation or scores here, only the talent order.",
     "Gear priority per point (the class's default weights; this build has no scores): weapon DPS 1, hit rating 0.4, strength 0.33 and crit rating 0.33. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -1922,10 +1922,10 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.279,
+      "score": 0.278,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.355,
+       "druid-balance": 0.354,
        "hunter-marksmanship": 0.379,
        "mage-frost": 0.021,
        "priest-discipline": 0.296,
@@ -1964,11 +1964,11 @@
       }
      },
      "50": {
-      "score": 0.447,
+      "score": 0.446,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.523,
-       "hunter-marksmanship": 0.504,
+       "druid-balance": 0.522,
+       "hunter-marksmanship": 0.503,
        "mage-frost": 0.25,
        "priest-discipline": 0.469,
        "priest-shadow": 0.404,
@@ -1978,11 +1978,11 @@
       }
      },
      "60": {
-      "score": 0.404,
+      "score": 0.403,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.472,
-       "hunter-marksmanship": 0.478,
+       "druid-balance": 0.467,
+       "hunter-marksmanship": 0.477,
        "mage-frost": 0.363,
        "priest-discipline": 0.417,
        "priest-shadow": 0.313,
@@ -2274,7 +2274,7 @@
      "weapon_dps": 0.00217
     },
     "60": {
-     "score": 0.5196,
+     "score": 0.5194,
      "strength": 0.00026,
      "agility": 0.000105,
      "stamina": 0.000783,
@@ -2666,10 +2666,10 @@
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.279,
+      "score": 0.278,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.355,
+       "druid-balance": 0.354,
        "hunter-marksmanship": 0.379,
        "mage-frost": 0.021,
        "priest-discipline": 0.296,
@@ -2697,7 +2697,7 @@
       "score": 0.413,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.521,
+       "druid-balance": 0.52,
        "hunter-marksmanship": 0.493,
        "mage-frost": 0.148,
        "priest-discipline": 0.419,
@@ -2708,11 +2708,11 @@
       }
      },
      "50": {
-      "score": 0.442,
+      "score": 0.441,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.518,
-       "hunter-marksmanship": 0.499,
+       "druid-balance": 0.517,
+       "hunter-marksmanship": 0.498,
        "mage-frost": 0.247,
        "priest-discipline": 0.464,
        "priest-shadow": 0.399,
@@ -2722,11 +2722,11 @@
       }
      },
      "60": {
-      "score": 0.376,
+      "score": 0.375,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.443,
-       "hunter-marksmanship": 0.449,
+       "druid-balance": 0.438,
+       "hunter-marksmanship": 0.448,
        "mage-frost": 0.336,
        "priest-discipline": 0.389,
        "priest-shadow": 0.289,
@@ -3157,15 +3157,15 @@
       "unit": "kills/hour"
      },
      "40": {
-      "score": 52.7,
+      "score": 53.7,
       "unit": "kills/hour"
      },
      "50": {
-      "score": 45.2,
+      "score": 46.3,
       "unit": "kills/hour"
      },
      "60": {
-      "score": 43.3,
+      "score": 44.5,
       "unit": "kills/hour"
      }
     }
@@ -3208,7 +3208,7 @@
      "weapon_dps": 0.8
     },
     "40": {
-     "score": 52.7,
+     "score": 53.7,
      "strength": 0.08,
      "agility": 0.03,
      "stamina": 0.0,
@@ -3221,28 +3221,28 @@
      "weapon_dps": 0.55
     },
     "50": {
-     "score": 45.2,
-     "strength": 0.06,
-     "agility": 0.02,
-     "stamina": 0.0,
-     "intellect": 0.0,
-     "attack_power": 0.03,
-     "crit_rating": 0.03,
-     "hit_rating": 0.03,
-     "crit_pct": 0.4,
-     "hit_pct": 0.4,
-     "weapon_dps": 0.4
-    },
-    "60": {
-     "score": 43.3,
+     "score": 46.3,
      "strength": 0.05,
      "agility": 0.02,
      "stamina": 0.0,
      "intellect": 0.0,
-     "attack_power": 0.03,
+     "attack_power": 0.02,
      "crit_rating": 0.03,
+     "hit_rating": 0.03,
+     "crit_pct": 0.3,
+     "hit_pct": 0.3,
+     "weapon_dps": 0.4
+    },
+    "60": {
+     "score": 44.5,
+     "strength": 0.05,
+     "agility": 0.02,
+     "stamina": 0.0,
+     "intellect": 0.0,
+     "attack_power": 0.02,
+     "crit_rating": 0.02,
      "hit_rating": 0.0,
-     "crit_pct": 0.4,
+     "crit_pct": 0.3,
      "hit_pct": 0.0,
      "weapon_dps": 0.3
     }
@@ -3287,10 +3287,10 @@
    },
    "about": [
     "43 points in Holy, with 8 in Protection. Built for PvE. On this order the key talents arrive as follows: Voice of Truth at 20, Holy Shock at 33, Light's Vigil at 40 and Divine Favor at 42.",
-    "In the model's rotation its priority is Holy Strike. Damage comes from auto-attacks 83% and Holy damage 17%.",
-    "Questing pace in the model, in kills per hour: 60 at 20, 52 at 30, 53 at 40, 45 at 50 and 43 at 60.",
+    "In the model's rotation its priority is Holy Strike. Damage comes from auto-attacks 81% and Holy damage 19%.",
+    "Questing pace in the model, in kills per hour: 60 at 20, 52 at 30, 54 at 40, 46 at 50 and 44 at 60.",
     "While leveling it also takes Consecrated Ground 2, Improved Seals 3 and Divine Strength 2, which pay off for questing; respec those points into Holy Shock (PvE) at 60. A model leveling path, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, strength 0.14, hit rating 0.09 and crit rating 0.09; at level 60, weapon DPS 1, strength 0.17, attack power 0.1 and crit rating 0.1. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, strength 0.14, hit rating 0.09 and crit rating 0.09; at level 60, weapon DPS 1, strength 0.17, attack power 0.07 and agility 0.07. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -3380,7 +3380,7 @@
       "unit": "kills/hour"
      },
      "60": {
-      "score": 42.9,
+      "score": 44.1,
       "unit": "kills/hour"
      }
     }
@@ -3447,9 +3447,9 @@
      "weapon_dps": 0.4
     },
     "60": {
-     "score": 42.9,
-     "strength": 0.05,
-     "agility": 0.02,
+     "score": 44.1,
+     "strength": 0.04,
+     "agility": 0.01,
      "stamina": 0.0,
      "intellect": 0.0,
      "attack_power": 0.02,
@@ -3500,10 +3500,10 @@
    },
    "about": [
     "33 points in Holy, with 18 in Protection. Built for PvP. On this order the key talents arrive as follows: Voice of Truth at 20, Holy Shock at 48, Divine Favor at 51 and Light's Vigil at 58.",
-    "In the model's rotation its priority is Holy Strike. Damage comes from auto-attacks 83% and Holy damage 17%.",
-    "Questing pace in the model, in kills per hour: 60 at 20, 52 at 30, 54 at 40, 46 at 50 and 43 at 60.",
+    "In the model's rotation its priority is Holy Strike. Damage comes from auto-attacks 81% and Holy damage 19%.",
+    "Questing pace in the model, in kills per hour: 60 at 20, 52 at 30, 54 at 40, 46 at 50 and 44 at 60.",
     "While leveling it also takes Precision 3, which pay off for questing; respec those points into Holy (PvP) at 60. A model leveling path, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, strength 0.15, hit rating 0.09 and crit rating 0.09; at level 60, weapon DPS 1, strength 0.17, attack power 0.07 and agility 0.07. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, strength 0.15, hit rating 0.09 and crit rating 0.09; at level 60, weapon DPS 1, strength 0.13, attack power 0.07 and crit rating 0.07. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -4417,11 +4417,11 @@
    "archetype": "deep Retribution",
    "focus": "PvP",
    "standard": "paladin-retribution-pvp",
-   "standard_score": 0.5195697103694583,
+   "standard_score": 0.5193991753189229,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "paladin-retribution-pvp": 0.5195697103694583
+    "paladin-retribution-pvp": 0.5193991753189229
    },
    "qualifying": [
     "paladin-retribution-pvp"
@@ -4542,7 +4542,7 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Retribution model (#175): a two-hander's white swings with Seal of Command procs, Judgement and Holy Strike on cooldown; Holy damage ignores armor. Seal of Command's proc rate and Judgement of Command's damage are Classic values. Consecration, Exorcism, Hammer of Wrath, Vindication, Divine Strength and mana aren't modeled; base stats are estimates. Holy and Protection stay unscored.",
+  "Retribution model (#175): a two-hander's white swings with Seal of Command procs, Judgement and Holy Strike on cooldown; Holy damage ignores armor. Seal of Command's proc rate and Judgement of Command's damage are Classic values. Consecration, Exorcism, Hammer of Wrath, Vindication and mana aren't modeled; base stats are estimates. Holy and Protection stay unscored.",
   "Dungeon scores assume a 5-player group (#220): a tank, a healer, two more DPS and you, weighted by how often each class and spec shows up in Forever Logs. Group buffs come from the game client at your level; each provider uses the option that helps your build type (Might and Windfury for physical damage, Kings and the Elements for casters); a warrior tank keeps 5 Sunders up. Shadow Weaving, Improved Scorch and Winter's Chill only help their own caster in Forever, so they aren't group buffs. Raids and questing are unbuffed."
  ],
  "leveling": [
@@ -4550,13 +4550,13 @@
    "archetype": "deep Holy",
    "focus": "PvE",
    "build": "paladin-holy-leveling",
-   "score": 50.7
+   "score": 51.4
   },
   {
    "archetype": "deep Holy",
    "focus": "PvP",
    "build": "paladin-holy-pvp-leveling",
-   "score": 51.2
+   "score": 51.4
   },
   {
    "archetype": "deep Protection",
