@@ -72,6 +72,11 @@ def cast(spell: SpellRank, stats: Stats, cls: ClassData, ranks: Mapping[int, int
     seconds = max(GCD_SECONDS, effective_cast_time(spell, mods))
     if spell.channeled:
         seconds = max(seconds, spell.duration)
+    grace = sum(e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
+                for e in t.effects if e.kind == "crit_haste_pct")
+    if grace and not spell.channeled:
+        # a crit speeds up the next cast (Nature's Grace, #397): on average by the crit chance
+        seconds *= 1 - grace / 100 * min(1.0, (stats.crit_pct + mods.crit_chance_bonus) / 100)
     return ev, seconds, spell.mana_cost * (1 + mods.mana_cost_pct / 100)
 
 

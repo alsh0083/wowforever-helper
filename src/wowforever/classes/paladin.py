@@ -111,9 +111,9 @@ SKILL_LINES = (594, 267, 184)
 ENGINE = "melee"
 UNSCORED_TREES = ("Holy", "Protection")
 CAVEAT = ("Retribution model (#175): a two-hander's white swings with Seal of Command procs, Judgement and Holy "
-          "Strike on cooldown; Holy damage ignores armor. Seal of Command's proc rate and Judgement of Command's "
-          "damage are Classic values. Consecration, Exorcism, Hammer of Wrath, Vindication, Divine Strength and "
-          "mana aren't modeled; base stats are estimates. Holy and Protection stay unscored.")
+          "Strike on cooldown; Holy damage ignores armor. Seal of Command's proc rate and Judgement of "
+          "Command's damage are Classic values. Consecration, Exorcism, Hammer of Wrath, Vindication and mana "
+          "aren't modeled; base stats are estimates. Holy and Protection stay unscored.")
 
 
 # --- class engine (#309): this module is the paladin's ClassEngine ------------------------------------

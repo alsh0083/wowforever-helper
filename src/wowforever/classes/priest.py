@@ -152,9 +152,10 @@ ROTATION = {
 UNSCORED_TREES = ("Holy",)
 UNSCORED_BUILDS = ("priest-discipline",)
 CAVEAT = ("Caster model (#163): Shadow Word: Pain and Devouring Plague kept up, Mind Blast and Shadow Word: "
-          "Death on cooldown, Mind Flay or Smite in between, with Classic hit, crit and mana rules. Shadow "
-          "Weaving counts at full stacks; Vampiric Embrace's healing, Twin Disciplines and Improved Shadow "
-          "Word: Pain's longer duration aren't modeled. Base stats are estimates; healer builds stay unscored.")
+          "Death on cooldown, Mind Flay or Smite in between, with Classic hit, crit and mana rules; a DoT or "
+          "cooldown is dropped when its mana is worth more on the filler. Shadow Weaving counts at full stacks, "
+          "and execute-range talents count for the share of the fight below their threshold. Vampiric Embrace's "
+          "healing isn't modeled. Base stats are estimates; healer builds stay unscored.")
 
 
 # --- class engine (#311): this module is the priest's ClassEngine ------------------------------------

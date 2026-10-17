@@ -51,6 +51,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Improved Starfire": (
         EffectRule("cast_time", r"cast time of Starfire by (\d+(?:\.\d+)?) sec", ("Starfire",), sign=-1),
     ),
+    "Nature's Grace": (
+        EffectRule("crit_haste_pct", r"reducing your global cooldown by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
     "Moonfury": (
         EffectRule("damage_pct", r"damage done by your Arcane and Nature spells by (\d+(?:\.\d+)?)%", ("arcane", "nature")),
     ),
@@ -135,7 +138,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
 UNMODELED: dict[str, str] = {
     # Balance
     "Insect Swarm": "grants_spell",
-    "Nature's Grace": "proc: spell crits speed up the next cast",
     "Eclipse": "proc: Wrath speeds up Starfire",
     # Feral Combat
     "Feral Swiftness": "mobility: Cat Form speed and dodge",
@@ -174,10 +176,11 @@ ROTATION = {
 MELEE_TREES = ("Feral Combat",)
 UNSCORED_TREES = ("Restoration",)
 UNSCORED_BUILDS = ("druid-feral-bear",)
-CAVEAT = ("Balance (#166): Moonfire and Insect Swarm kept up, then Starfire or Wrath on the caster engine; Eclipse, "
-          "Nature's Grace and Omen of Clarity aren't modeled. Feral cat (#175): paw swings and a Shred or Claw to "
-          "Ferocious Bite energy cycle on the melee engine, Classic paw damage; Rake and Rip bleeds, Tiger's Fury and "
-          "powershifting aren't modeled. The bear tank and Restoration stay unscored. Base stats are estimates.")
+CAVEAT = ("Balance (#166): Moonfire and Insect Swarm kept up, then Starfire or Wrath on the caster engine; "
+          "Nature's Grace counts as an average haste from crits; Eclipse and Omen of Clarity aren't modeled. "
+          "Feral cat (#175): paw swings and a Shred or Claw to Ferocious Bite energy cycle on the melee engine, "
+          "Classic paw damage; Rake and Rip bleeds, Tiger's Fury and powershifting aren't modeled. The bear "
+          "tank and Restoration stay unscored. Base stats are estimates.")
 
 
 # --- class engine (#311): this module is the druid's ClassEngine ------------------------------------

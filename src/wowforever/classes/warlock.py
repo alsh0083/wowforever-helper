@@ -146,10 +146,11 @@ ROTATION = {
     "fillers": ("Shadow Bolt", "Incinerate", "Searing Pain", "Wrack", "Drain Life"),
     "consumes": {"Conflagrate": "Immolate"},
 }
-CAVEAT = ("Caster model (#163, #165): Corruption, Bane of Agony and Immolate kept up, Conflagrate and Shadowburn on cooldown, "
-          "then the best of Shadow Bolt, Incinerate, Searing Pain or Wrack, with Life Tap as steady mana. Pets, "
-          "Siphon Life and Drain Life (health drains), Shadowburn, Nightfall and Improved Shadow Bolt procs aren't "
-          "modeled; Demonic Sacrifice counts the Imp (+Shadow). Base stats are estimates.")
+CAVEAT = ("Caster model (#163, #165): Corruption, Bane of Agony, Siphon Life and Immolate kept up, Conflagrate "
+          "and Shadowburn on cooldown, then the best of Shadow Bolt, Incinerate, Searing Pain, Wrack or Drain "
+          "Life, with Life Tap as steady mana. Pets, Nightfall and Improved Shadow Bolt procs aren't modeled; "
+          "Demonic Sacrifice counts the Imp (+Shadow) and Demonic Knowledge assumes a demon is out. Base stats "
+          "are estimates.")
 
 
 # --- class engine (#311): this module is the warlock's ClassEngine ------------------------------------
