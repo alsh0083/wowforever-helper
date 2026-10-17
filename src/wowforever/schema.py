@@ -67,6 +67,14 @@ def latest_dataset_path(datasets_dir: Path = DATASETS_DIR) -> Path:
         raise FileNotFoundError(f"no saved dataset in {datasets_dir}; run `wowforever update`")
     return max(paths, key=lambda p: tuple(int(part) for part in p.stem.split(".")))
 
+
+def newest_saved_dataset(datasets_dir: Path = DATASETS_DIR) -> Path:
+    """The newest saved dataset by game build, ignoring the config/dataset.toml pin (#366)."""
+    paths = [p for p in datasets_dir.glob("*.json") if all(part.isdigit() for part in p.stem.split("."))]
+    if not paths:
+        raise FileNotFoundError(f"no saved dataset in {datasets_dir}; run `wowforever update`")
+    return max(paths, key=lambda p: tuple(int(part) for part in p.stem.split(".")))
+
 # Effect kinds the calculator understands. Extend here (one place) when a new kind is needed.
 EFFECT_KINDS = frozenset({
     "damage_pct",       # % more damage
