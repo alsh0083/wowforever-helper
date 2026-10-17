@@ -153,6 +153,14 @@ ENGINE = "melee"
 # Rogue skill lines in SkillLineAbility: Assassination, Combat, Subtlety, Poisons.
 SKILL_LINES = (253, 38, 39, 40)
 
+# Poison damage spells (#387), not on a skill line: each rank's proc spell, by learn level.
+EXTRA_SPELLS = {
+    8680: "Instant Poison", 8685: "Instant Poison", 8689: "Instant Poison", 11335: "Instant Poison",
+    11336: "Instant Poison", 11337: "Instant Poison",
+    2818: "Deadly Poison", 2819: "Deadly Poison", 11353: "Deadly Poison", 11354: "Deadly Poison",
+    25349: "Deadly Poison",
+}
+
 
 # --- class engine (#309): this module is the rogue's ClassEngine ------------------------------------
 

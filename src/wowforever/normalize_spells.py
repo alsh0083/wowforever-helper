@@ -10,6 +10,7 @@ damage from the triggered missile spell, which is likewise not trainable.
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass, replace
 from typing import Sequence
 
@@ -57,8 +58,10 @@ _ACQUIRE_RUNE = 3            # SkillLineAbility.AcquireMethod: Season of Discove
 _ATTR1_CHANNELED = 0x4 | 0x40  # SpellMisc.Attributes_1 channel flags (Arcane Missiles / Blizzard)
 
 
-def class_spells(tables: Tables, *, skill_lines: Sequence[int]) -> tuple[SpellRank, ...]:
-    """Every trainable spell rank of the class, sorted by (name, rank)."""
+def class_spells(tables: Tables, *, skill_lines: Sequence[int],
+                 extra_spells: Mapping[int, str] = {}) -> tuple[SpellRank, ...]:
+    """Every trainable spell rank of the class, sorted by (name, rank); `extra_spells` adds spells by id under
+    a shared name (rogue poisons, #387)."""
     lines = {int(line) for line in skill_lines}
     sla_spells = {int(row["Spell"]) for row in tables["SkillLineAbility"]}
     names = {int(row["ID"]): row["Name_lang"] for row in tables["SpellName"]}
@@ -83,6 +86,12 @@ def class_spells(tables: Tables, *, skill_lines: Sequence[int]) -> tuple[SpellRa
         if name is None:
             raise ValueError(f"skill line {row['SkillLine']}: no SpellName for spell {spell_id}")
         trainable.append((name, level, spell_id))
+
+    for spell_id, name in extra_spells.items():
+        level_row = levels.get(spell_id)
+        if spell_id not in seen and level_row is not None and int(_f(level_row["BaseLevel"])) > 0:
+            seen.add(spell_id)
+            trainable.append((name, int(_f(level_row["BaseLevel"])), spell_id))
 
     trainable.sort()
     indexes = _index_tables(tables)
