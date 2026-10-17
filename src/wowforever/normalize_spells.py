@@ -33,6 +33,7 @@ EFFECT_NORMALIZED_WEAPON = 121  # normalized weapon damage (speed set by weapon 
 EFFECT_WEAPON_DAMAGE_NOSCHOOL = 17  # weapon damage plus a flat bonus (Heroic Strike, #162)
 _STRIKES = (str(EFFECT_NORMALIZED_WEAPON), str(EFFECT_WEAPON_DAMAGE), str(EFFECT_WEAPON_DAMAGE_NOSCHOOL))
 AURA_DOT = 3                 # periodic damage over time
+AURA_LEECH = 53              # periodic leech: damage over time that heals the caster (Devouring Plague, Siphon Life, Drain Life)
 AURA_PERIODIC_HEAL = 8       # heal over time (Rejuvenation, Regrowth)
 AURA_PERIODIC_TRIGGER = 23   # periodic trigger: fires EffectTriggerSpell every EffectAuraPeriod
 AURA_SLOW = 33               # movement speed mod (negative base points = slow)
@@ -336,7 +337,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
 
     periodic_damage = periodic_coefficient = tick_period = 0.0
     dot = next((e for e in effects
-                if e["Effect"] == str(EFFECT_AURA) and e["EffectAura"] == str(AURA_DOT)), None)
+                if e["Effect"] == str(EFFECT_AURA) and e["EffectAura"] in (str(AURA_DOT), str(AURA_LEECH))), None)
     if dot is not None:
         tick_period = _f(dot["EffectAuraPeriod"]) / 1000.0
         ticks = _ticks(duration, tick_period)
