@@ -78,6 +78,10 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Meditation": (
         EffectRule("regen_while_casting", r"Allows (\d+(?:\.\d+)?)% of your Mana regeneration", ("all",)),
     ),
+    "Twin Disciplines": (
+        EffectRule("damage_pct", r"instant cast spells by (\d+(?:\.\d+)?)%",
+                   ("Shadow Word: Pain", "Devouring Plague", "Shadow Word: Death", "Holy Nova", "Chastise")),
+    ),
 }
 
 # Every priest talent, with why it isn't modeled.
@@ -85,7 +89,6 @@ UNMODELED: dict[str, str] = {
     # Discipline
     "Power in Light": "damage: Smite and Penance vs Holy Fire targets",
     "Wand Specialization": "damage: +25% wand damage",
-    "Twin Disciplines": "damage: +5% instant spell damage and healing",
     "Silent Resolve": "defensive: shorter stuns, fears and silences, less threat",
     "Improved Power Word: Shield": "defensive: stronger Power Word: Shield",
     "Martyrdom": "defensive: pushback immunity after being crit",

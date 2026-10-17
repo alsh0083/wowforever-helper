@@ -53,6 +53,10 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("damage_pct", r"damage dealt by your poisons by (\d+(?:\.\d+)?)%",
                    ("@poison",)),
     ),
+    "Improved Poisons": (
+        EffectRule("proc_chance", r"chance to apply Poisons to your target by (\d+(?:\.\d+)?)%",
+                   ("@poison",)),
+    ),
     "Seal Fate": (
         EffectRule("proc_chance",
                    r"a (\d+(?:\.\d+)?)% chance to add an additional Combo Point",
@@ -109,7 +113,6 @@ UNMODELED: dict[str, str] = {
     "Remorseless Attacks": "melee damage: post-kill crit buff on core abilities (#111)",
     "Improved Expose Armor": "resource: cheaper Expose Armor, refunds Combo Points",
     "Cold Blood": "grants_spell",
-    "Improved Poisons": "poison: better apply chance, charge savings",
     "Vigor": "resource: +10 maximum Energy",
     "Mutilate": "grants_spell",
     "Improved Kidney Shot": "control: more damage to Kidney Shot stuns",
@@ -152,6 +155,14 @@ ENGINE = "melee"
 
 # Rogue skill lines in SkillLineAbility: Assassination, Combat, Subtlety, Poisons.
 SKILL_LINES = (253, 38, 39, 40)
+
+# Poison damage spells (#387), not on a skill line: each rank's proc spell, by learn level.
+EXTRA_SPELLS = {
+    8680: "Instant Poison", 8685: "Instant Poison", 8689: "Instant Poison", 11335: "Instant Poison",
+    11336: "Instant Poison", 11337: "Instant Poison",
+    2818: "Deadly Poison", 2819: "Deadly Poison", 11353: "Deadly Poison", 11354: "Deadly Poison",
+    25349: "Deadly Poison",
+}
 
 
 # --- class engine (#309): this module is the rogue's ClassEngine ------------------------------------

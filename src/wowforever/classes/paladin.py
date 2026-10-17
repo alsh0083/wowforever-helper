@@ -45,13 +45,17 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Improved Seals": (
         EffectRule("damage_pct", r"damage done by your Seals and Judgements by (\d+(?:\.\d+)?)%", ("Seal of Command", "Judgement")),
     ),
+    "Divine Strength": (
+        EffectRule("stat_pct", r"Increases your Strength by (\d+(?:\.\d+)?)%", ("strength",)),
+    ),
+    "Divine Intellect": (
+        EffectRule("stat_pct", r"total Intellect by (\d+(?:\.\d+)?)%", ("intellect",)),
+    ),
 }
 
 # Every paladin talent, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Holy
-    "Divine Strength": "buff: +10% Strength",
-    "Divine Intellect": "buff: +10% Intellect",
     "Healing Light": "healing: +12% Holy Light, Flash of Light, Holy Shock",
     "Spiritual Focus": "utility: heals resist pushback",
     "Unyielding Faith": "defensive: shorter Fear and Disorient",
@@ -119,8 +123,9 @@ def playstyle(cls, ranks) -> str:
 def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):
     from wowforever.classes.paladin_rotation import paladin_rotation
     from wowforever.melee_scenarios import Output
+    from wowforever.classes.engines import melee_talent_stats
 
-    r = paladin_rotation(stats, spells, cls, ranks, target, pack=pack)
+    r = paladin_rotation(melee_talent_stats("paladin", stats, cls, ranks), spells, cls, ranks, target, pack=pack)
     return Output(r.dps, 0.0, r.dps, r.aoe)
 
 

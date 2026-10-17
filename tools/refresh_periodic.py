@@ -3,6 +3,7 @@
     .venv/Scripts/python tools/refresh_periodic.py <build> [<build> ...]
 
 Datasets saved before #382 read leech DoTs (aura 53: Devouring Plague, Siphon Life, Drain Life) as 0 damage.
+#388 adds ranged_attack_power (Aspect of the Hawk); spells without it keep no key.
 Reads data/cache/wago/<build>/, runs normalize_spells.class_spells for every class, and writes only the
 periodic fields (periodic_damage, periodic_coefficient, tick_period) of spells whose values changed into
 data/datasets/<build>.json, printing each change. Everything else in the dataset stays as saved.
@@ -17,7 +18,7 @@ from wowforever.normalize import read_tables
 from wowforever.normalize_spells import class_spells
 
 ROOT = Path(__file__).resolve().parents[1]
-FIELDS = ("periodic_damage", "periodic_coefficient", "tick_period")
+FIELDS = ("periodic_damage", "periodic_coefficient", "tick_period", "ranged_attack_power")
 
 for build in sys.argv[1:]:
     tables = read_tables(ROOT / "data" / "cache" / "wago" / build)
@@ -30,7 +31,7 @@ for build in sys.argv[1:]:
             new = fresh.get(spell["spell_id"])
             if new is None:
                 continue
-            diff = {f: (spell.get(f), getattr(new, f)) for f in FIELDS if spell.get(f) != getattr(new, f)}
+            diff = {f: (spell.get(f), getattr(new, f)) for f in FIELDS if spell.get(f, 0.0) != getattr(new, f)}
             if diff:
                 print(f"{build} {c["class_name"]} {spell['name']} r{spell['rank']}: {diff}")
                 spell.update({f: v for f, (_, v) in diff.items()})

@@ -43,6 +43,8 @@ def _caster_apply(class_name: str, stats, stat: str, amount: float):
         return replace(stats, spirit=stats.spirit + amount)
     if stat == "stamina":
         return replace(stats, stamina=stats.stamina + amount, health=stats.health + HEALTH_PER_STAMINA * amount)
+    if stat == "mana":                            # Fel Vitality's maximum mana (#384)
+        return replace(stats, mana=stats.mana + amount)
     if stat == "spell_power":
         return replace(stats, spell_power=stats.spell_power + amount)
     if stat in ("crit_rating", "crit_pct"):

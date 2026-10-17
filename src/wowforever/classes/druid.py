@@ -122,6 +122,13 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Rend and Tear": (
         EffectRule("damage_pct", r"damage done by your melee abilities on Bleeding targets by (\d+(?:\.\d+)?)%", ("@bleeding",)),
     ),
+    "Heart of the Wild": (
+        EffectRule("stat_pct", r"Increases your Intellect by (\d+(?:\.\d+)?)%", ("intellect",)),
+        EffectRule("stat_pct", r"Cat Form your Strength is increased by (\d+(?:\.\d+)?)%", ("strength",)),
+    ),
+    "Living Spirit": (
+        EffectRule("stat_pct", r"Increases your Spirit by (\d+(?:\.\d+)?)%", ("spirit",)),
+    ),
 }
 
 # Every druid talent, with why it isn't modeled.
@@ -131,7 +138,6 @@ UNMODELED: dict[str, str] = {
     "Nature's Grace": "proc: spell crits speed up the next cast",
     "Eclipse": "proc: Wrath speeds up Starfire",
     # Feral Combat
-    "Heart of the Wild": "buff: +10% Intellect, bear Stamina",
     "Feral Swiftness": "mobility: Cat Form speed and dodge",
     "Feral Instinct": "damage: Swipe damage, stealthier Prowl",
     "Brutal Impact": "control: longer Bash and Pounce stuns",
@@ -149,7 +155,6 @@ UNMODELED: dict[str, str] = {
     "Natural Shapeshifter": "resource: cheaper shapeshifting",
     "Swiftmend": "grants_spell",
     "Nature's Swiftness": "grants_spell",
-    "Living Spirit": "buff: +15% Spirit",
     "Improved Tranquility": "healing: Tranquility cooldown and threat",
     "Wild Growth": "grants_spell",
 }

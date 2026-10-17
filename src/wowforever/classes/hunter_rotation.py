@@ -80,6 +80,8 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
     parts: dict[str, float] = {}
     if stats.ranged is not None:
         rap = stats.ranged_attack_power + int_ap + 2 * extra_agi + (c["trueshot_aura_rap"] if taken("Trueshot Aura") else 0)
+        hawk = learned("Aspect of the Hawk")       # kept up while shooting (#388)
+        rap += hawk.ranged_attack_power if hawk is not None else 0.0
         a_r = Attacker(level, rap, stats.ranged_crit_pct + crit_all, hit)
         weapon_pct = total("damage_pct", "@ranged") + shared_pct
         cd_r = total("crit_damage_pct", "@ranged")
