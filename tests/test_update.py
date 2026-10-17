@@ -143,3 +143,9 @@ def test_popularity_saved_and_changes_reported(data):
     (data / "popularity" / "mage.json").write_text(json.dumps(saved), encoding="utf-8")
     s2 = run(data, FakeHttp(html=swapped))
     assert s2.popular_changed and "changed since last check" in s2.text()
+
+
+def test_a_new_build_points_to_patch_readiness(data):
+    # #366: when a check saves a changed build, the summary names the next step; an unchanged one doesn't
+    assert "patch-readiness" in run(data).text()
+    assert "patch-readiness" not in run(data, FakeHttp()).text()
