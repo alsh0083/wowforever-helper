@@ -76,6 +76,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Mental Dexterity": (
         EffectRule("ap_from_int_pct", r"Attack Power by an amount equal to (\d+(?:\.\d+)?)% of your Intellect", ("all",)),
     ),
+    "Ancestral Knowledge": (
+        EffectRule("stat_pct", r"Increases your Intellect by (\d+(?:\.\d+)?)%", ("intellect",)),
+    ),
 }
 
 # Every shaman talent, with why it isn't modeled.
@@ -91,7 +94,6 @@ UNMODELED: dict[str, str] = {
     "Lava Burst": "grants_spell",
     # Enhancement
     "Earth's Grasp": "utility: Stoneclaw health, Earthbind radius",
-    "Ancestral Knowledge": "buff: +10% Intellect",
     "Guardian Totems": "defensive: stronger Stoneskin and Windwall Totems",
     "Improved Ghost Wolf": "mobility: faster Ghost Wolf, usable indoors",
     "Improved Lightning Shield": "damage: +15% Lightning Shield",

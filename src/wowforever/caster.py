@@ -84,6 +84,8 @@ def talent_stats(class_name: str, stats: Stats, cls: ClassData, ranks: Mapping[i
             if effect.kind != "stat_pct":
                 continue
             stat = effect.applies_to[0]
+            if getattr(stats, stat, None) is None:       # Cat Form Strength on a caster row (#383)
+                continue
             bumped = apply(class_name, stats, stat, getattr(stats, stat) * effect.values[rank - 1] / 100)
             if bumped is not None:
                 stats = bumped

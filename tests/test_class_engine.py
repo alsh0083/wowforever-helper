@@ -6,6 +6,7 @@ import pytest
 from wowforever import melee_scenarios as ms
 from wowforever.builds import load_builds
 from wowforever.classes import ENGINE_MEMBERS, class_module, engine
+from wowforever.classes.engines import melee_talent_stats
 from wowforever.classes.hunter import has_pet
 from wowforever.classes.hunter_rotation import hunter_rotation
 from wowforever.classes.paladin_rotation import paladin_rotation
@@ -54,8 +55,9 @@ def test_output_wraps_the_class_rotation(name, pack):
     cls, builds = loaded(name)
     stats = ms.stat_table(name).at(60)
     for ranks in builds:
+        row = melee_talent_stats(name, stats, cls, ranks) if name == "paladin" else stats   # #383
         r, _ = best_weapon(lambda s, t: ADAPTED[name](s, cls.spells, cls, ranks, t, pack=pack),
-                           stats, BOSS, cls, ranks)      # weapon-type talents (#386)
+                           row, BOSS, cls, ranks)        # weapon-type talents (#386)
         out = engine(name).output(stats, cls.spells, cls, ranks, BOSS, pack=pack)
         assert out == ms.Output(r.dps, 0.0, r.dps, r.aoe)
         assert engine(name).playstyle(cls, ranks) == "melee"

@@ -62,6 +62,28 @@ def caster_aoe(class_name: str, stats: Any, spells: Sequence[SpellRank], cls: Cl
     return pull.seconds, pull.spell
 
 
+def melee_talent_stats(class_name: str, stats: Any, cls: ClassData, ranks: Mapping[int, int]) -> Any:
+    """The build's `stat_pct` talents (Divine Strength, Heart of the Wild, #383) on a melee row: a MeleeStats,
+    or a hybrid's melee row."""
+    from wowforever.melee_scenarios import HybridStats
+    from wowforever.stat_weights import apply
+
+    row = stats.melee if isinstance(stats, HybridStats) else stats
+    for talent in cls.talents:
+        rank = ranks.get(talent.talent_id, 0)
+        if rank <= 0:
+            continue
+        for effect in talent.effects:
+            if effect.kind != "stat_pct" or getattr(row, effect.applies_to[0], None) is None:
+                continue
+            stat = effect.applies_to[0]
+            bumped = apply(class_name, stats, stat, getattr(row, stat) * effect.values[rank - 1] / 100,
+                           melee_build=True)
+            if bumped is not None:
+                stats = bumped
+    return stats
+
+
 def melee_build(melee_trees: Sequence[str], cls: ClassData, ranks: Mapping[int, int]) -> bool:
     """A hybrid's build fights in melee when most of its points sit in a melee tree (#175)."""
     from wowforever.melee_scenarios import main_tree
@@ -78,6 +100,7 @@ def hybrid_output(class_name: str, melee_trees: Sequence[str], melee_output: Cal
 
     if isinstance(stats, HybridStats):
         if melee if melee is not None else melee_build(melee_trees, cls, ranks):
+            stats = melee_talent_stats(class_name, stats, cls, ranks)
             return melee_output(stats.melee, spells, cls, ranks, target, pack=pack)
         stats = stats.caster
     return caster_output(class_name, stats, spells, cls, ranks, target, drink_mana_per_second=drink_mana_per_second)

@@ -35,7 +35,7 @@ def test_life_tap_fallback_spends_gcds_tapping():
 PINS = [("warrior", "warrior-arms", 130.87), ("rogue", "rogue-combat", 230.84),
         ("warlock", "warlock-affliction", 295.28), ("mage", "deep-frost", 366.08), ("mage", "deep-fire", 257.72),
         ("hunter", "hunter-marksmanship", 172.92), ("priest", "priest-discipline-smite", 176.88),
-        ("shaman", "shaman-elemental", 197.82)]
+        ("shaman", "shaman-elemental", 198.46)]
 
 
 @pytest.mark.parametrize("class_name, build_id, expected", PINS)
