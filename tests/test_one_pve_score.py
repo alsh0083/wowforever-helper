@@ -41,7 +41,8 @@ def test_report_has_no_mage_stat_table_branch():
     assert 'StatTable.load("mage")' not in inspect.getsource(report)
 
 
-@pytest.mark.parametrize("build", ["deep-frost", "arcane-pom-pyro", "mage-frost-pve", "fire-frost-shatter"])
+# builds without Arcane Blast: its stacks (#355) exist only on the shared path
+@pytest.mark.parametrize("build", ["deep-frost", "elementalist-pve-v2", "mage-frost-pve", "fire-frost-shatter"])
 def test_mage_pve_is_its_own_models_plus_shared_questing(build):
     ranks, a = BUILDS[build], Assumptions.load()
     char = Character(60, STATS, CLS.spells, CLS, dict(ranks))

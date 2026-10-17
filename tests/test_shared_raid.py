@@ -77,7 +77,10 @@ def test_mage_raid_through_the_shared_path_is_the_mage_model():
     for b in builds:
         ranks = b.final_ids(cls)
         expected = raid(Character(60, stats, cls.spells, cls, dict(ranks)), default_params("raid", 60), a).score
-        assert ms.raid("mage", stats, cls.spells, cls, ranks) == pytest.approx(expected, rel=1e-9), b.id
+        if "Arcane Blast" in b.final:   # the shared path also tries Arcane Blast stacks (#355): never worse
+            assert ms.raid("mage", stats, cls.spells, cls, ranks) >= expected * (1 - 1e-9), b.id
+        else:
+            assert ms.raid("mage", stats, cls.spells, cls, ranks) == pytest.approx(expected, rel=1e-9), b.id
 
 
 @pytest.mark.parametrize("name", ["rogue", "hunter", "warrior", "paladin", "priest", "warlock", "druid", "shaman"])
