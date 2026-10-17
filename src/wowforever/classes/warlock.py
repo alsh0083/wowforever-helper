@@ -22,6 +22,9 @@ LAYOUT = TraitLayout(
 )
 
 # Numbers are read from the rank text (#163).
+# client SkillLineAbility, skill line 593 (Destruction), its damaging spells; wago 1.60.1.70425, #377
+DESTRUCTION_SPELLS = ("Conflagrate", "Hellfire", "Immolate", "Incinerate", "Rain of Fire", "Searing Pain", "Shadow Bolt", "Shadowburn", "Soul Fire")
+
 TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Suppression": (
         EffectRule("hit_chance", r"Improves your chance to hit by (\d+(?:\.\d+)?)%", ("all",)),
@@ -51,16 +54,16 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
                    ("Shadow Bolt", "Immolate", "Incinerate"), sign=-1),
     ),
     "Cataclysm": (
-        EffectRule("mana_cost_pct", r"Mana cost of your Destruction spells by (\d+(?:\.\d+)?)%", ("fire",), sign=-1),
+        EffectRule("mana_cost_pct", r"Mana cost of your Destruction spells by (\d+(?:\.\d+)?)%", DESTRUCTION_SPELLS, sign=-1),
     ),
     "Ruin": (
-        EffectRule("crit_damage_pct", r"critical strike damage bonus of your Destruction spells by (\d+(?:\.\d+)?)%", ("fire",)),
+        EffectRule("crit_damage_pct", r"critical strike damage bonus of your Destruction spells by (\d+(?:\.\d+)?)%", DESTRUCTION_SPELLS),
     ),
     "Intensity": (
         EffectRule("pushback_pct", r"Gives you a (\d+(?:\.\d+)?)% chance to resist interruption", ("destruction",)),
     ),
     "Agonizing Flames": (
-        EffectRule("damage_pct", r"damage done by all your Destruction spells by (\d+(?:\.\d+)?)%", ("fire",)),
+        EffectRule("damage_pct", r"damage done by all your Destruction spells by (\d+(?:\.\d+)?)%", DESTRUCTION_SPELLS),
     ),
     "Fire and Brimstone": (
         EffectRule("crit_chance", r"critical strike chance of your Conflagrate spell by (\d+(?:\.\d+)?)%", ("Conflagrate",)),
