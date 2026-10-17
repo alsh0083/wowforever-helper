@@ -23,7 +23,7 @@ def caster_output(class_name: str, stats: Any, spells: Sequence[SpellRank], cls:
     """The caster rotation's Output (caster.py, #163); once dry, a caster keeps casting at the rate its
     regen pays for. It also offers the rotation with each DoT or cooldown dropped (#390)."""
     from dataclasses import replace
-    from wowforever.caster import caster_rotation
+    from wowforever.caster import caster_rotation, life_tap_pct
     from wowforever.classes import class_module
     from wowforever.gear import caster_config
     from wowforever.melee_scenarios import Output
@@ -34,7 +34,8 @@ def caster_output(class_name: str, stats: Any, spells: Sequence[SpellRank], cls:
         gross = r.mana_per_second + r.regen_per_second
         fallback = r.dps * min(1.0, r.regen_per_second / gross) if gross > 0 else r.dps
         if "life_tap" in cfg:
-            fallback = life_tap_fallback(r.dps, r.mana_per_second, stats.level, cfg["life_tap"])
+            fallback = life_tap_fallback(r.dps, r.mana_per_second, stats.level, cfg["life_tap"],
+                                         bonus_pct=life_tap_pct(cls, ranks))
         return r, Output(r.dps, r.mana_per_second, fallback, ranged=True)
 
     cfg = caster_config(class_name)
@@ -44,13 +45,14 @@ def caster_output(class_name: str, stats: Any, spells: Sequence[SpellRank], cls:
     return replace(out, alternatives=alternatives)
 
 
-def life_tap_fallback(dps: float, drain: float, level: int, tap) -> float:
+def life_tap_fallback(dps: float, drain: float, level: int, tap, bonus_pct: float = 0.0) -> float:
     """Once dry, the warlock taps instead of waiting on regen (#348): one GCD per tap, the highest rank
-    the level can use, and its mana (rank base + 1 per level above the rank)."""
+    the level can use, and its mana (rank base + 1 per level above the rank). Improved Life Tap adds
+    `bonus_pct`% (#396)."""
     if drain <= 0:
         return dps
     rank = max((r for r in tap["ranks"] if r[0] <= level), key=lambda r: r[0])
-    return dps / (1 + drain * tap["gcd"] / (rank[1] + level - rank[0]))
+    return dps / (1 + drain * tap["gcd"] / ((rank[1] + level - rank[0]) * (1 + bonus_pct / 100)))
 
 
 def caster_aoe(class_name: str, stats: Any, spells: Sequence[SpellRank], cls: ClassData,

@@ -34,6 +34,7 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     ),
     "Call of Flame": (
         EffectRule("damage_pct", r"Flame Shock, Fire Nova, and Lava Burst spells by (\d+(?:\.\d+)?)%", ("Flame Shock", "Lava Burst")),
+        EffectRule("dot_seconds", r"duration of your Flame Shock spell by (\d+(?:\.\d+)?) sec", ("Flame Shock",)),
     ),
     "Elemental Alacrity": (
         EffectRule("cast_time", r"cast time of your Lightning Bolt, Chain Lightning, and Lava Burst spells by (\d+(?:\.\d+)?) sec",

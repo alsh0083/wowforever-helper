@@ -98,6 +98,24 @@ def talent_stats(class_name: str, stats: Stats, cls: ClassData, ranks: Mapping[i
     return stats
 
 
+def longer_dot(spell: SpellRank, cls: ClassData, ranks: Mapping[int, int]) -> SpellRank:
+    """`spell` with its talents' extra DoT seconds (Improved Shadow Word: Pain, Call of Flame, #384): more ticks, so
+    its periodic damage and coefficient grow with the duration."""
+    extra = sum(e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
+                for e in t.effects if e.kind == "dot_seconds" and spell.name in e.applies_to)
+    if extra <= 0 or spell.duration <= 0:
+        return spell
+    scale = (spell.duration + extra) / spell.duration
+    return replace(spell, duration=spell.duration + extra, periodic_damage=spell.periodic_damage * scale,
+                   periodic_coefficient=spell.periodic_coefficient * scale)
+
+
+def life_tap_pct(cls: ClassData, ranks: Mapping[int, int]) -> float:
+    """Percent more mana per Life Tap from the build's talents (Improved Life Tap, #396)."""
+    return sum(e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
+               for e in t.effects if e.kind == "life_tap_pct")
+
+
 def consumed_period(duration: float, cooldown: float, keep_pct: float) -> float:
     """Seconds between casts of a DoT that a cooldown consumes (Conflagrate eats Immolate, #385): the DoT runs
     its full duration when kept (keep_pct%), else only until the next consuming cast."""
@@ -150,6 +168,8 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
             spell = learned(name)
             if spell is None:
                 continue
+            if kind == "dots":
+                spell = longer_dot(spell, cls, ranks)
             ev, seconds, cost = cast(spell, stats, cls, ranks, target_level, assumptions)
             cooldown = cooldown_of(spell)
             period = spell.duration if kind == "dots" else max(cooldown, seconds)
@@ -167,7 +187,8 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
             used.append(name)
 
     regen = regen_while_casting(class_name, stats, cls, ranks)
-    regen += caster_config(class_name).get("extra_regen_per_second", 0.0)   # Life Tap
+    regen += (caster_config(class_name).get("extra_regen_per_second", 0.0)        # Life Tap
+              * (1 + life_tap_pct(cls, ranks) / 100))
 
     def worth(ev: float, seconds: float, cost: float) -> float:
         total_dps = dps + time_left * ev / seconds

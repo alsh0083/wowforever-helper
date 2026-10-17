@@ -85,12 +85,14 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Demonic Knowledge": (
         EffectRule("spell_power_from", r"by up to (\d+(?:\.\d+)?)% of your level", ("level",)),
     ),
+    "Improved Life Tap": (
+        EffectRule("life_tap_pct", r"Mana awarded by your Life Tap spell by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
 }
 
 # Every warlock talent, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Affliction
-    "Improved Life Tap": "resource: +20% Life Tap mana",
     "Soul Harvest": "resource: mana regeneration after Drain Soul kills",
     "Fel Concentration": "utility: drains resist pushback",
     "Amplify Curse": "control: stronger next curse",

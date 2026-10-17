@@ -118,10 +118,12 @@ def test_casters_run_the_caster_rotation(name):
         gross = r.mana_per_second + r.regen_per_second
         assert out.dps == r.dps and out.mana_per_second == r.mana_per_second and out.ranged
         if name == "warlock":       # once dry, the warlock taps (#348)
+            from wowforever.caster import life_tap_pct
             from wowforever.classes.engines import life_tap_fallback
             from wowforever.gear import caster_config
 
-            expected = life_tap_fallback(r.dps, r.mana_per_second, 60, caster_config("warlock")["life_tap"])
+            expected = life_tap_fallback(r.dps, r.mana_per_second, 60, caster_config("warlock")["life_tap"],
+                                         bonus_pct=life_tap_pct(cls, ranks))     # Improved Life Tap (#396)
         else:
             expected = r.dps * min(1.0, r.regen_per_second / gross) if gross else r.dps
         assert out.fallback_dps == pytest.approx(expected)

@@ -82,6 +82,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("damage_pct", r"instant cast spells by (\d+(?:\.\d+)?)%",
                    ("Shadow Word: Pain", "Devouring Plague", "Shadow Word: Death", "Holy Nova", "Chastise")),
     ),
+    "Improved Shadow Word: Pain": (
+        EffectRule("dot_seconds", r"Shadow Word: Pain spell by (\d+(?:\.\d+)?) sec", ("Shadow Word: Pain",)),
+    ),
 }
 
 # Every priest talent, with why it isn't modeled.
@@ -117,7 +120,6 @@ UNMODELED: dict[str, str] = {
     # Shadow
     "Blackout": "control: Shadow spells can stun 3 s",
     "Spirit Tap": "resource: Spirit after kills",
-    "Improved Shadow Word: Pain": "damage: longer Shadow Word: Pain",
     "Shadow Reach": "utility: +20% Shadow range",
     "Improved Psychic Scream": "control: Psychic Scream cooldown -4 s",
     "Mind Flay": "grants_spell",
