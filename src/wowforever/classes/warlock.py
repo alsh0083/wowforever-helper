@@ -77,6 +77,14 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Fel Vitality": (
         EffectRule("stat_pct", r"increases your maximum Mana by (\d+(?:\.\d+)?)%", ("mana",)),
     ),
+    "Improved Drains": (
+        EffectRule("damage_pct", r"Drain Life, Drain Soul, and Wrack spells by (\d+(?:\.\d+)?)%",
+                   ("Drain Life", "Drain Soul", "Wrack")),
+    ),
+    # the model's warlock keeps a demon out (#396)
+    "Demonic Knowledge": (
+        EffectRule("spell_power_from", r"by up to (\d+(?:\.\d+)?)% of your level", ("level",)),
+    ),
 }
 
 # Every warlock talent, with why it isn't modeled.
@@ -84,7 +92,6 @@ UNMODELED: dict[str, str] = {
     # Affliction
     "Improved Life Tap": "resource: +20% Life Tap mana",
     "Soul Harvest": "resource: mana regeneration after Drain Soul kills",
-    "Improved Drains": "damage: +20% drains",
     "Fel Concentration": "utility: drains resist pushback",
     "Amplify Curse": "control: stronger next curse",
     "Nightfall": "proc: Shadow Trance from drains and Corruption",
@@ -108,7 +115,6 @@ UNMODELED: dict[str, str] = {
     "Demonic Brand": "pet: pet bonus vs branded targets",
     "Improved Felhunter": "pet: stronger Felhunter",
     "Soul Link": "grants_spell",
-    "Demonic Knowledge": "damage: spell damage with a demon out",
     "Master Demonologist": "pet: bonus per active demon",
     "Demonic Pact": "pet: Demonic Sacrifice persists",
     # Destruction

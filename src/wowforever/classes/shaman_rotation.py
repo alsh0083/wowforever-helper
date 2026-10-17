@@ -89,14 +89,17 @@ def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: Cl
     spell_dps = 0.0
     hit = 1 - miss_chance(level, level + target.level_diff, stats.hit_pct) / 100
     spell_crit = min(1.0, (stats.crit_pct + total("crit_chance", "all")) / 100)
+    spell_power = stats.intellect * total("spell_power_from", "intellect") / 100   # Mental Quickness (#398)
     shock = best_rank(spells, "Earth Shock", level)
     if shock is not None and shock.cooldown > 0:
-        avg = (shock.min_damage + shock.max_damage) / 2 * (1 + total("damage_pct", "Earth Shock") / 100)
+        avg = (((shock.min_damage + shock.max_damage) / 2 + shock.coefficient * spell_power)
+               * (1 + total("damage_pct", "Earth Shock") / 100))
         spell_dps = hit * avg * (1 + spell_crit * 0.5) / max(shock.cooldown + total("cooldown", "Earth Shock"), 1.5)
     nova = best_rank(spells, "Fire Nova", level) if pack > 1 else None
     aoe: tuple[str, ...] = ()
     if nova is not None and nova.min_damage > 0:
-        avg = (nova.min_damage + nova.max_damage) / 2 * (1 + total("damage_pct", "Fire Nova") / 100)
+        avg = (((nova.min_damage + nova.max_damage) / 2 + nova.coefficient * spell_power)
+               * (1 + total("damage_pct", "Fire Nova") / 100))
         spell_dps += hit * avg * (1 + spell_crit * 0.5) * pack / max(nova.cooldown + total("cooldown", "Fire Nova"), 1.5)
         aoe = ("Fire Nova",)
     return EnhancementRotation(dps=white + yellow + spell_dps, white_dps=white, yellow_dps=yellow, spell_dps=spell_dps,

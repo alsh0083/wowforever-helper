@@ -73,7 +73,7 @@ def cast(spell: SpellRank, stats: Stats, cls: ClassData, ranks: Mapping[int, int
 
 def talent_stats(class_name: str, stats: Stats, cls: ClassData, ranks: Mapping[int, int]) -> Stats:
     """The build's `stat_pct` talents (Mental Strength, Dark Inspiration; 70425, #356) through the
-    class's conversions."""
+    class's conversions, then its `spell_power_from` talents (Demonic Knowledge, Mental Quickness, #396)."""
     from wowforever.stat_weights import apply
 
     for talent in cls.talents:
@@ -89,6 +89,12 @@ def talent_stats(class_name: str, stats: Stats, cls: ClassData, ranks: Mapping[i
             bumped = apply(class_name, stats, stat, getattr(stats, stat) * effect.values[rank - 1] / 100)
             if bumped is not None:
                 stats = bumped
+    for talent in cls.talents:
+        rank = ranks.get(talent.talent_id, 0)
+        for effect in (talent.effects if rank > 0 else ()):
+            if effect.kind == "spell_power_from":
+                base = stats.level if effect.applies_to[0] == "level" else getattr(stats, effect.applies_to[0])
+                stats = replace(stats, spell_power=stats.spell_power + base * effect.values[rank - 1] / 100)
     return stats
 
 

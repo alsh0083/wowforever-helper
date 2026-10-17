@@ -92,6 +92,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("mana_cost_pct", r"(\d+(?:\.\d+)?)% chance to enter a Clearcasting state",
                    ("fire", "frost", "nature"), sign=-1),
     ),
+    "Mental Quickness": (
+        EffectRule("spell_power_from", r"by up to (\d+(?:\.\d+)?)% of your Intellect", ("intellect",)),
+    ),
 }
 
 # Every shaman talent, with why it isn't modeled.
@@ -112,7 +115,6 @@ UNMODELED: dict[str, str] = {
     "Toughness": "defensive: +10% Stamina",
     "Stormstrike": "grants_spell",
     "Spirit Weapons": "defensive: parry, less threat",
-    "Mental Quickness": "damage: spell power from Intellect",
     "Improved Stormstrike": "resource: mana regeneration after Stormstrike",
     "Maelstrom Weapon": "proc: melee hits speed up the next spell",
     "Rage of the Farseer": "grants_spell",
