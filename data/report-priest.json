@@ -1061,6 +1061,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "summary": "The model's alternative to Discipline Smite (PvP): Blackout 0->1, Power Infusion 1->0, Holy Reach 2->1, Shadow Focus 0->1. Scores +7.8% higher; not tried in game.",
    "gives_up": [],
    "model_filled": {},
@@ -1426,7 +1427,7 @@
       }
      },
      "50": {
-      "score": 0.484,
+      "score": 0.482,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.564,
@@ -1436,11 +1437,11 @@
        "priest-shadow": 0.473,
        "shaman-elemental": 0.507,
        "warlock-affliction": 0.548,
-       "warlock-destruction": 0.516
+       "warlock-destruction": 0.505
       }
      },
      "60": {
-      "score": 0.489,
+      "score": 0.487,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.558,
@@ -1450,7 +1451,7 @@
        "priest-shadow": 0.421,
        "shaman-elemental": 0.509,
        "warlock-affliction": 0.505,
-       "warlock-destruction": 0.471
+       "warlock-destruction": 0.456
       }
      }
     },
@@ -1717,7 +1718,7 @@
      "hit_pct": 0.001479
     },
     "50": {
-     "score": 0.4182,
+     "score": 0.4179,
      "stamina": 0.001358,
      "intellect": 2.6e-05,
      "spirit": 1e-06,
@@ -1728,7 +1729,7 @@
      "hit_pct": 0.001053
     },
     "60": {
-     "score": 0.4254,
+     "score": 0.425,
      "stamina": 0.001117,
      "intellect": 2.1e-05,
      "spirit": 1e-06,
@@ -1771,6 +1772,7 @@
    "variant": "PvP",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Discipline with Penance, Power Infusion, Power in Light and Mental Strength; Holy Specialization, Divine Fury, Holy Nova and Searing Light from Holy. Holy damage with Power Infusion: the community's damage Discipline build.",
    "gives_up": [],
    "model_filled": {},
@@ -2132,11 +2134,11 @@
        "priest-shadow": 0.457,
        "shaman-elemental": 0.495,
        "warlock-affliction": 0.52,
-       "warlock-destruction": 0.529
+       "warlock-destruction": 0.528
       }
      },
      "50": {
-      "score": 0.447,
+      "score": 0.445,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.526,
@@ -2146,11 +2148,11 @@
        "priest-shadow": 0.435,
        "shaman-elemental": 0.469,
        "warlock-affliction": 0.51,
-       "warlock-destruction": 0.478
+       "warlock-destruction": 0.467
       }
      },
      "60": {
-      "score": 0.451,
+      "score": 0.45,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.52,
@@ -2160,7 +2162,7 @@
        "priest-shadow": 0.385,
        "shaman-elemental": 0.471,
        "warlock-affliction": 0.467,
-       "warlock-destruction": 0.433
+       "warlock-destruction": 0.419
       }
      }
     },
@@ -2385,7 +2387,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.128,
+      "score": 0.127,
       "unit": "2v1 0-1"
      }
     }
@@ -2427,25 +2429,25 @@
      "hit_pct": 0.001485
     },
     "50": {
-     "score": 0.3943,
-     "stamina": 0.001302,
+     "score": 0.394,
+     "stamina": 0.001301,
      "intellect": 2.5e-05,
      "spirit": 1e-06,
      "spell_power": 0.000324,
      "crit_rating": 5.9e-05,
      "hit_rating": 9.1e-05,
      "crit_pct": 0.000668,
-     "hit_pct": 0.001029
+     "hit_pct": 0.001028
     },
     "60": {
-     "score": 0.4017,
+     "score": 0.4013,
      "stamina": 0.001067,
      "intellect": 2e-05,
      "spirit": 1e-06,
      "spell_power": 0.000221,
      "crit_rating": 4.7e-05,
      "hit_rating": 7e-05,
-     "crit_pct": 0.00066,
+     "crit_pct": 0.000659,
      "hit_pct": 0.000915
     }
    },
@@ -2485,6 +2487,7 @@
    "variant": "PvE",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Discipline with Penance, Power Infusion, Divine Aegis and Renewed Hope; Holy Specialization, Divine Fury and Inspiration from Holy. The community's shield healer (routes only, unscored).",
    "gives_up": [],
    "model_filled": {},
@@ -2607,6 +2610,7 @@
    "variant": "PvP",
    "origin": "community",
    "adjusted": "1.60.1.70425: Improved Inner Fire 1 and Meditation 1 -> Mental Strength",
+   "provisional": "",
    "summary": "51 points (Discipline 18 / Holy 33 / Shadow 0). Twin Disciplines is one of the spent talents. From the site's Holy Priest \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
    "gives_up": [],
    "model_filled": {},
@@ -2729,6 +2733,7 @@
    "variant": "PvE",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Holy with Prayer of Mending, Spiritual Guidance, Spiritual Healing and Spirit of Redemption; Inner Focus and Meditation from Discipline. The community's Holy healer (routes only, unscored).",
    "gives_up": [],
    "model_filled": {},
@@ -2851,6 +2856,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "summary": "The model's alternative to Shadowform (PvP): Devouring Contagion 2->0, Silence 0->1, Blackout 0->1. Scores +8.8% higher; not tried in game.",
    "gives_up": [],
    "model_filled": {},
@@ -3196,7 +3202,7 @@
        "priest-shadow": 0.483,
        "shaman-elemental": 0.547,
        "warlock-affliction": 0.523,
-       "warlock-destruction": 0.503
+       "warlock-destruction": 0.504
       }
      },
      "40": {
@@ -3214,7 +3220,7 @@
       }
      },
      "50": {
-      "score": 0.559,
+      "score": 0.557,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.644,
@@ -3224,11 +3230,11 @@
        "priest-shadow": 0.556,
        "shaman-elemental": 0.59,
        "warlock-affliction": 0.629,
-       "warlock-destruction": 0.599
+       "warlock-destruction": 0.588
       }
      },
      "60": {
-      "score": 0.608,
+      "score": 0.606,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.677,
@@ -3238,7 +3244,7 @@
        "priest-shadow": 0.548,
        "shaman-elemental": 0.633,
        "warlock-affliction": 0.629,
-       "warlock-destruction": 0.597
+       "warlock-destruction": 0.583
       }
      }
     },
@@ -3459,7 +3465,7 @@
       "unit": "2v1 0-1"
      },
      "50": {
-      "score": 0.145,
+      "score": 0.144,
       "unit": "2v1 0-1"
      },
      "60": {
@@ -3505,7 +3511,7 @@
      "hit_pct": 0.0
     },
     "50": {
-     "score": 0.4477,
+     "score": 0.4474,
      "stamina": 0.001396,
      "intellect": 2.2e-05,
      "spirit": 2e-06,
@@ -3516,8 +3522,8 @@
      "hit_pct": 0.0
     },
     "60": {
-     "score": 0.4989,
-     "stamina": 0.001187,
+     "score": 0.4986,
+     "stamina": 0.001188,
      "intellect": 3.5e-05,
      "spirit": 8e-06,
      "spell_power": 0.000154,
@@ -3559,6 +3565,7 @@
    "variant": "PvE",
    "origin": "community",
    "adjusted": "1.60.1.70425: Shadow Affinity 3 -> Dark Inspiration 3; Improved Power Word: Shield 2 -> Mental Strength",
+   "provisional": "",
    "summary": "51 points (Discipline 18 / Holy 0 / Shadow 33). Shadow Focus is one of the spent talents. From the site's Shadow Priest \u00b7 Endgame \u00b7 PvE \u00b7 level 60 plan.",
    "gives_up": [],
    "model_filled": {},
@@ -3922,7 +3929,7 @@
       }
      },
      "50": {
-      "score": 0.509,
+      "score": 0.508,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.595,
@@ -3932,11 +3939,11 @@
        "priest-shadow": 0.504,
        "shaman-elemental": 0.538,
        "warlock-affliction": 0.579,
-       "warlock-destruction": 0.548
+       "warlock-destruction": 0.536
       }
      },
      "60": {
-      "score": 0.567,
+      "score": 0.565,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.638,
@@ -3946,7 +3953,7 @@
        "priest-shadow": 0.504,
        "shaman-elemental": 0.592,
        "warlock-affliction": 0.588,
-       "warlock-destruction": 0.554
+       "warlock-destruction": 0.54
       }
      }
     },
@@ -4281,6 +4288,7 @@
    "variant": "PvP",
    "origin": "community",
    "adjusted": "",
+   "provisional": "5 saves, 2026-10-16",
    "summary": "Shadow with Shadowform, Vampiric Embrace, Shadow Weaving, Darkness and Improved Mind Flay; Twin Disciplines, Inner Focus and Meditation from Discipline. The most saved priest build and the community's PvP and leveling standard.",
    "gives_up": [],
    "model_filled": {},
@@ -4644,7 +4652,7 @@
       }
      },
      "50": {
-      "score": 0.514,
+      "score": 0.513,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.6,
@@ -4654,11 +4662,11 @@
        "priest-shadow": 0.509,
        "shaman-elemental": 0.543,
        "warlock-affliction": 0.584,
-       "warlock-destruction": 0.553
+       "warlock-destruction": 0.541
       }
      },
      "60": {
-      "score": 0.563,
+      "score": 0.561,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.634,
@@ -4668,7 +4676,7 @@
        "priest-shadow": 0.5,
        "shaman-elemental": 0.588,
        "warlock-affliction": 0.584,
-       "warlock-destruction": 0.55
+       "warlock-destruction": 0.536
       }
      }
     },
@@ -4889,7 +4897,7 @@
       "unit": "2v1 0-1"
      },
      "50": {
-      "score": 0.136,
+      "score": 0.135,
       "unit": "2v1 0-1"
      },
      "60": {
@@ -4935,7 +4943,7 @@
      "hit_pct": 0.0
     },
     "50": {
-     "score": 0.4207,
+     "score": 0.4204,
      "stamina": 0.001348,
      "intellect": 2.2e-05,
      "spirit": 2e-06,
@@ -4946,7 +4954,7 @@
      "hit_pct": 0.0
     },
     "60": {
-     "score": 0.4714,
+     "score": 0.471,
      "stamina": 0.001151,
      "intellect": 3.5e-05,
      "spirit": 8e-06,
@@ -4988,6 +4996,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Discipline Divine Aegis (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Discipline Divine Aegis (PvE) at 60.",
    "gives_up": [],
@@ -5180,6 +5189,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Discipline Smite (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Discipline Smite (PvP) at 60.",
    "gives_up": [],
@@ -5373,6 +5383,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Holy Prayer of Mending (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Holy Prayer of Mending (PvE) at 60.",
    "gives_up": [],
@@ -5560,6 +5571,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Holy (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Holy (PvP) at 60.",
    "gives_up": [],
@@ -5748,6 +5760,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Shadowform (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Shadowform (PvP) at 60.",
    "gives_up": [],
@@ -5930,6 +5943,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Shadow (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Shadow (PvE) at 60.",
    "gives_up": [],
@@ -6110,7 +6124,7 @@
    "archetype": "deep Discipline",
    "focus": "PvP",
    "standard": "priest-discipline-smite",
-   "standard_score": 0.4016849954649566,
+   "standard_score": 0.40132483938071184,
    "model_pick": {
     "Blackout": 1,
     "Penance": 1,
@@ -6132,10 +6146,10 @@
     "Power in Light": 5,
     "Holy Specialization": 5
    },
-   "model_pick_score": 0.425373951064037,
+   "model_pick_score": 0.4250077075994061,
    "candidates": {
-    "priest-discipline-smite-model": 0.425373951064037,
-    "priest-discipline-smite": 0.4016849954649566
+    "priest-discipline-smite-model": 0.4250077075994061,
+    "priest-discipline-smite": 0.40132483938071184
    },
    "qualifying": [
     "priest-discipline-smite",
@@ -6205,7 +6219,7 @@
    "archetype": "deep Shadow",
    "focus": "PvP",
    "standard": "priest-shadow",
-   "standard_score": 0.47141453612309314,
+   "standard_score": 0.47104908099878673,
    "model_pick": {
     "Shadowform": 1,
     "Darkness": 5,
@@ -6226,10 +6240,10 @@
     "Shadow Focus": 5,
     "Early Demise": 2
    },
-   "model_pick_score": 0.4991177246164839,
+   "model_pick_score": 0.49876153391945943,
    "candidates": {
-    "priest-shadow-model": 0.4989204566356024,
-    "priest-shadow": 0.47141453612309314
+    "priest-shadow-model": 0.4985642197048035,
+    "priest-shadow": 0.47104908099878673
    },
    "qualifying": [
     "priest-shadow",

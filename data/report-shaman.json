@@ -1037,6 +1037,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "summary": "Model build for Elemental PvE: hill-climbed from shaman-elemental under the PvE score. Not a community standard.",
    "gives_up": [],
    "model_filled": {},
@@ -1370,7 +1371,7 @@
        "priest-shadow": 0.378,
        "shaman-elemental": 0.433,
        "warlock-affliction": 0.4,
-       "warlock-destruction": 0.383
+       "warlock-destruction": 0.384
       }
      },
      "30": {
@@ -1388,7 +1389,7 @@
       }
      },
      "40": {
-      "score": 0.505,
+      "score": 0.504,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.626,
@@ -1398,11 +1399,11 @@
        "priest-shadow": 0.503,
        "shaman-elemental": 0.542,
        "warlock-affliction": 0.566,
-       "warlock-destruction": 0.575
+       "warlock-destruction": 0.574
       }
      },
      "50": {
-      "score": 0.502,
+      "score": 0.5,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.585,
@@ -1412,11 +1413,11 @@
        "priest-shadow": 0.494,
        "shaman-elemental": 0.528,
        "warlock-affliction": 0.569,
-       "warlock-destruction": 0.538
+       "warlock-destruction": 0.526
       }
      },
      "60": {
-      "score": 0.476,
+      "score": 0.475,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.549,
@@ -1426,7 +1427,7 @@
        "priest-shadow": 0.413,
        "shaman-elemental": 0.5,
        "warlock-affliction": 0.496,
-       "warlock-destruction": 0.462
+       "warlock-destruction": 0.447
       }
      }
     },
@@ -1651,7 +1652,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.138,
+      "score": 0.137,
       "unit": "2v1 0-1"
      }
     }
@@ -1759,6 +1760,7 @@
    "variant": "PvP",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Elemental with Lava Burst, Lightning Overload, Elemental Fury, Earthbound and Eye of the Storm; Thundering Strikes and Ancestral Knowledge from Enhancement. The community's caster standard.",
    "gives_up": [],
    "model_filled": {
@@ -2094,7 +2096,7 @@
        "priest-shadow": 0.378,
        "shaman-elemental": 0.433,
        "warlock-affliction": 0.4,
-       "warlock-destruction": 0.383
+       "warlock-destruction": 0.384
       }
      },
      "30": {
@@ -2112,7 +2114,7 @@
       }
      },
      "40": {
-      "score": 0.505,
+      "score": 0.504,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.626,
@@ -2122,11 +2124,11 @@
        "priest-shadow": 0.503,
        "shaman-elemental": 0.542,
        "warlock-affliction": 0.566,
-       "warlock-destruction": 0.575
+       "warlock-destruction": 0.574
       }
      },
      "50": {
-      "score": 0.502,
+      "score": 0.5,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.585,
@@ -2136,11 +2138,11 @@
        "priest-shadow": 0.494,
        "shaman-elemental": 0.528,
        "warlock-affliction": 0.569,
-       "warlock-destruction": 0.538
+       "warlock-destruction": 0.526
       }
      },
      "60": {
-      "score": 0.476,
+      "score": 0.475,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.549,
@@ -2150,7 +2152,7 @@
        "priest-shadow": 0.413,
        "shaman-elemental": 0.5,
        "warlock-affliction": 0.496,
-       "warlock-destruction": 0.462
+       "warlock-destruction": 0.447
       }
      }
     },
@@ -2375,7 +2377,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.138,
+      "score": 0.137,
       "unit": "2v1 0-1"
      }
     }
@@ -2419,7 +2421,7 @@
      "hit_pct": 0.002612
     },
     "50": {
-     "score": 0.4335,
+     "score": 0.4332,
      "stamina": 0.000979,
      "intellect": 5.1e-05,
      "spirit": 0.0,
@@ -2430,14 +2432,14 @@
      "hit_pct": 0.002577
     },
     "60": {
-     "score": 0.445,
+     "score": 0.4446,
      "stamina": 0.000939,
      "intellect": 3.1e-05,
      "spirit": 0.0,
      "spell_power": 0.000277,
      "crit_rating": 9.3e-05,
      "hit_rating": 0.000127,
-     "crit_pct": 0.001307,
+     "crit_pct": 0.001306,
      "hit_pct": 0.00177
     }
    },
@@ -2483,6 +2485,7 @@
    "variant": "PvE",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Enhancement build #1's Stormstrike core with Totemic Focus and Tidal Focus from Restoration in place of Call of Flame, Reverberation and Improved Fire Nova: cheaper totems and heals for leveling.",
    "gives_up": [],
    "model_filled": {},
@@ -2830,7 +2833,7 @@
        "priest-shadow": 0.407,
        "shaman-elemental": 0.471,
        "warlock-affliction": 0.447,
-       "warlock-destruction": 0.427
+       "warlock-destruction": 0.428
       }
      },
      "40": {
@@ -2848,7 +2851,7 @@
       }
      },
      "50": {
-      "score": 0.494,
+      "score": 0.493,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.577,
@@ -2858,11 +2861,11 @@
        "priest-shadow": 0.486,
        "shaman-elemental": 0.521,
        "warlock-affliction": 0.561,
-       "warlock-destruction": 0.53
+       "warlock-destruction": 0.518
       }
      },
      "60": {
-      "score": 0.456,
+      "score": 0.454,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.528,
@@ -2872,7 +2875,7 @@
        "priest-shadow": 0.393,
        "shaman-elemental": 0.479,
        "warlock-affliction": 0.475,
-       "warlock-destruction": 0.442
+       "warlock-destruction": 0.427
       }
      }
     },
@@ -3222,6 +3225,7 @@
    "variant": "PvP",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Enhancement with Stormstrike, Maelstrom Weapon, Flurry, Spirit Weapons and Rage of the Farseer; Concussion, Call of Flame and Reverberation from Elemental for shock burst. The community's PvP standard.",
    "gives_up": [],
    "model_filled": {},
@@ -3555,7 +3559,7 @@
        "priest-shadow": 0.392,
        "shaman-elemental": 0.448,
        "warlock-affliction": 0.414,
-       "warlock-destruction": 0.397
+       "warlock-destruction": 0.398
       }
      },
      "30": {
@@ -3569,7 +3573,7 @@
        "priest-shadow": 0.413,
        "shaman-elemental": 0.477,
        "warlock-affliction": 0.453,
-       "warlock-destruction": 0.433
+       "warlock-destruction": 0.434
       }
      },
      "40": {
@@ -3583,11 +3587,11 @@
        "priest-shadow": 0.457,
        "shaman-elemental": 0.496,
        "warlock-affliction": 0.521,
-       "warlock-destruction": 0.53
+       "warlock-destruction": 0.529
       }
      },
      "50": {
-      "score": 0.486,
+      "score": 0.485,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.57,
@@ -3597,11 +3601,11 @@
        "priest-shadow": 0.479,
        "shaman-elemental": 0.513,
        "warlock-affliction": 0.553,
-       "warlock-destruction": 0.522
+       "warlock-destruction": 0.511
       }
      },
      "60": {
-      "score": 0.456,
+      "score": 0.454,
       "unit": "duel 0-1",
       "matchups": {
        "druid-balance": 0.528,
@@ -3611,7 +3615,7 @@
        "priest-shadow": 0.393,
        "shaman-elemental": 0.479,
        "warlock-affliction": 0.475,
-       "warlock-destruction": 0.442
+       "warlock-destruction": 0.427
       }
      }
     },
@@ -3884,7 +3888,7 @@
      "weapon_dps": 0.002427
     },
     "50": {
-     "score": 0.4231,
+     "score": 0.4228,
      "strength": 0.000272,
      "agility": 0.000155,
      "stamina": 0.000811,
@@ -3897,7 +3901,7 @@
      "weapon_dps": 0.001942
     },
     "60": {
-     "score": 0.4101,
+     "score": 0.4097,
      "strength": 0.000225,
      "agility": 0.000128,
      "stamina": 0.000633,
@@ -3907,7 +3911,7 @@
      "hit_rating": 0.0,
      "crit_pct": 0.002558,
      "hit_pct": 0.0,
-     "weapon_dps": 0.001628
+     "weapon_dps": 0.001627
     }
    },
    "stat_priority": {
@@ -3961,6 +3965,7 @@
    "variant": "PvP",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "51 points (Elemental 0 / Enhancement 15 / Restoration 36). Ancestral Knowledge is one of the spent talents. From the site's Restoration Shaman \u00b7 Endgame \u00b7 PvP \u00b7 level 60 plan.",
    "gives_up": [],
    "model_filled": {},
@@ -4083,6 +4088,7 @@
    "variant": "PvE",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Restoration with Riptide, Mana Tide Totem, Nature's Swiftness and Purification; Thundering Strikes and Ancestral Knowledge from Enhancement. The most saved shaman build: the community's healer standard (routes only, unscored).",
    "gives_up": [],
    "model_filled": {},
@@ -4205,6 +4211,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Elemental Lava Burst (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Elemental Lava Burst (PvP) at 60.",
    "gives_up": [],
@@ -4397,6 +4404,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Elemental (PvE, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Elemental (PvE, model) at 60.",
    "gives_up": [],
@@ -4589,6 +4597,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Enhancement Stormstrike (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Enhancement Stormstrike (PvP) at 60.",
    "gives_up": [],
@@ -4801,6 +4810,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Enhancement (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Enhancement (PvE) at 60.",
    "gives_up": [],
@@ -5013,6 +5023,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Restoration Riptide (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Restoration Riptide (PvE) at 60.",
    "gives_up": [],
@@ -5199,6 +5210,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Restoration (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Restoration (PvP) at 60.",
    "gives_up": [],
@@ -5384,11 +5396,11 @@
    "archetype": "deep Elemental",
    "focus": "PvP",
    "standard": "shaman-elemental",
-   "standard_score": 0.44497425065205853,
+   "standard_score": 0.4446090631516646,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "shaman-elemental": 0.44497425065205853
+    "shaman-elemental": 0.4446090631516646
    },
    "qualifying": [
     "shaman-elemental"
@@ -5457,7 +5469,7 @@
    "archetype": "deep Enhancement",
    "focus": "PvP",
    "standard": "shaman-enhancement",
-   "standard_score": 0.41010747428247696,
+   "standard_score": 0.4097456166582605,
    "model_pick": {
     "Rage of the Farseer": 1,
     "Maelstrom Weapon": 3,
@@ -5479,9 +5491,9 @@
     "Call of Flame": 3,
     "Concussion": 5
    },
-   "model_pick_score": 0.4459275868396445,
+   "model_pick_score": 0.44556572921542814,
    "candidates": {
-    "shaman-enhancement": 0.41010747428247696
+    "shaman-enhancement": 0.4097456166582605
    },
    "qualifying": [
     "shaman-enhancement"

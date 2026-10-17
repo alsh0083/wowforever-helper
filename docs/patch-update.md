@@ -40,7 +40,14 @@ score is a **pre-patch** score, so say so whenever you report numbers. Build 1.6
   - re-pin the dungeon regression values in `tests/test_dungeon_mana.py`;
   - list every re-pinned value as old → new in the PR. Re-pinned values are consistency checks, not proof.
 
-## 5. Move the model
+## 5. Keep checking while the meta settles
+Post-patch popularity data starts thin. Each time the owner asks for an update check in the weeks after a patch, also
+run `tools/refresh_community_builds.py`. It reports each refreshed community build as **stable** (same player build as
+last time), **moved** (rewrites it) or **settled** (20+ saves and unchanged, so the `provisional` mark goes). Re-derive
+the leveling builds and regenerate the reports when anything was rewritten. Builds still marked `provisional` show as
+"Community standard (provisional, N saves)" on the dashboard.
+
+## 6. Move the model
 - `patch-readiness` is clean on the new build.
 - Regenerate every class report and the dashboard (`wowforever report ...`, `wowforever dashboard`).
 - Re-run `wowforever validate-logs` (and `--single-target`) and compare each spec's model/logs ratio before and
