@@ -124,9 +124,9 @@ SKILL_LINES = (355, 354, 593)
 # Scored by the caster spell engine (#163).
 ENGINE = "spell"
 ROTATION = {
-    "dots": ("Corruption", "Bane of Agony", "Immolate"),
+    "dots": ("Corruption", "Bane of Agony", "Siphon Life", "Immolate"),
     "cooldowns": ("Conflagrate",),
-    "fillers": ("Shadow Bolt", "Incinerate", "Searing Pain", "Wrack"),
+    "fillers": ("Shadow Bolt", "Incinerate", "Searing Pain", "Wrack", "Drain Life"),
 }
 CAVEAT = ("Caster model (#163, #165): Corruption, Bane of Agony and Immolate kept up, Conflagrate on cooldown, "
           "then the best of Shadow Bolt, Incinerate, Searing Pain or Wrack, with Life Tap as steady mana. Pets, "
