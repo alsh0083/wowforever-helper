@@ -197,7 +197,7 @@ def build_report(cls: ClassData, spells: tuple[SpellRank, ...], builds: Sequence
         if problems:
             raise ValueError(f"{b.id}: illegal order: {problems}")
         payload_builds.append({
-            "id": b.id, "name": b.name, "pair": b.pair, "variant": b.variant, "origin": b.origin, "adjusted": b.adjusted,
+            "id": b.id, "name": b.name, "pair": b.pair, "variant": b.variant, "origin": b.origin, "adjusted": b.adjusted, "provisional": b.provisional,
             "summary": b.summary, "gives_up": list(b.gives_up), "model_filled": dict(b.model_filled),
             "must_have_by": b.must_have_by, "order": order, "order_source": how,
             "open_points": points_available(cls.rules.max_level, cls.rules) - len(order),
@@ -278,7 +278,7 @@ def route_report(cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any
         if problems:
             raise ValueError(f"{b.id}: illegal order: {problems}")
         payload_builds.append({
-            "id": b.id, "name": b.name, "pair": b.pair, "variant": b.variant, "origin": b.origin, "adjusted": b.adjusted,
+            "id": b.id, "name": b.name, "pair": b.pair, "variant": b.variant, "origin": b.origin, "adjusted": b.adjusted, "provisional": b.provisional,
             "summary": b.summary, "gives_up": list(b.gives_up), "model_filled": dict(b.model_filled), "must_have_by": b.must_have_by,
             "order": order, "order_source": how,
             "open_points": points_available(cls.rules.max_level, cls.rules) - len(order),
@@ -516,7 +516,7 @@ def add_leveling(class_name: str, cls: ClassData, leveling: Sequence[Build], rep
             want = target.final_ids(cls)
             detours = {cls.talent(t).name: n - want.get(t, 0) for t, n in final.items() if n > want.get(t, 0)}
         report["builds"].append({
-            "id": b.id, "name": b.name, "pair": b.pair, "variant": b.variant, "origin": b.origin, "adjusted": b.adjusted, "mode": "leveling",
+            "id": b.id, "name": b.name, "pair": b.pair, "variant": b.variant, "origin": b.origin, "adjusted": b.adjusted, "provisional": b.provisional, "mode": "leveling",
             "summary": b.summary, "gives_up": [], "model_filled": {}, "must_have_by": {}, "order": order,
             "order_source": "model leveling path (questing pace)", "open_points": 0, "scores": scores,
             "sensitivity": [], "respec": list(dict.fromkeys(respec)), "levels_into": b.levels_into,

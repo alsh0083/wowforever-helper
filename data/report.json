@@ -1096,6 +1096,7 @@
    "variant": "PvP",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Presence of Mind into Pyroblast with Impact, Blast Wave and Improved Counterspell; the classic burst-PvP hybrid.",
    "gives_up": [],
    "model_filled": {},
@@ -1506,7 +1507,7 @@
        "priest-shadow": 0.514,
        "shaman-elemental": 0.578,
        "warlock-affliction": 0.554,
-       "warlock-destruction": 0.534
+       "warlock-destruction": 0.535
       }
      },
      "40": {
@@ -1525,7 +1526,7 @@
       }
      },
      "50": {
-      "score": 0.495,
+      "score": 0.493,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
@@ -1536,11 +1537,11 @@
        "priest-shadow": 0.495,
        "shaman-elemental": 0.53,
        "warlock-affliction": 0.57,
-       "warlock-destruction": 0.539
+       "warlock-destruction": 0.527
       }
      },
      "60": {
-      "score": 0.552,
+      "score": 0.55,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
@@ -1551,7 +1552,7 @@
        "priest-shadow": 0.504,
        "shaman-elemental": 0.591,
        "warlock-affliction": 0.587,
-       "warlock-destruction": 0.554
+       "warlock-destruction": 0.539
       }
      }
     },
@@ -1629,7 +1630,7 @@
       "spell": "Fireball"
      },
      "60": {
-      "score": 0.133,
+      "score": 0.132,
       "unit": "2v1 0-1",
       "spell": "Fireball"
      }
@@ -1803,8 +1804,8 @@
      "hit_pct": 0.002442
     },
     "50": {
-     "score": 0.4724,
-     "stamina": 0.001396,
+     "score": 0.4721,
+     "stamina": 0.001397,
      "intellect": 5.8e-05,
      "spirit": 0.0,
      "spell_power": 0.000458,
@@ -1814,14 +1815,14 @@
      "hit_pct": 0.000507
     },
     "60": {
-     "score": 0.4811,
+     "score": 0.4807,
      "stamina": 0.001355,
      "intellect": 3.5e-05,
      "spirit": 0.0,
-     "spell_power": 0.000204,
+     "spell_power": 0.000205,
      "crit_rating": 0.000112,
      "hit_rating": 0.0,
-     "crit_pct": 0.001571,
+     "crit_pct": 0.001572,
      "hit_pct": 0.0
     }
    },
@@ -1872,6 +1873,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "summary": "The model's alternative to Deep Arcane (PvE): Frost Channeling 0->1, Piercing Ice 0->3, Ice Shards 0->5, Improved Frostbolt 0->5, Incineration 3->0, Wake of Fire 1->0, Arcane Power 1->0, Arcane Mind 5->0, Presence of Mind 1->0, Missile Barrage 1->0, Arcane Meditation 3->1. Scores +14.7% higher; not tried in game.",
    "gives_up": [],
    "model_filled": {},
@@ -2282,7 +2284,7 @@
        "priest-shadow": 0.476,
        "shaman-elemental": 0.541,
        "warlock-affliction": 0.517,
-       "warlock-destruction": 0.497
+       "warlock-destruction": 0.498
       }
      },
      "40": {
@@ -2301,7 +2303,7 @@
       }
      },
      "50": {
-      "score": 0.453,
+      "score": 0.452,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
@@ -2312,11 +2314,11 @@
        "priest-shadow": 0.451,
        "shaman-elemental": 0.485,
        "warlock-affliction": 0.526,
-       "warlock-destruction": 0.495
+       "warlock-destruction": 0.483
       }
      },
      "60": {
-      "score": 0.516,
+      "score": 0.514,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
@@ -2327,7 +2329,7 @@
        "priest-shadow": 0.465,
        "shaman-elemental": 0.554,
        "warlock-affliction": 0.549,
-       "warlock-destruction": 0.516
+       "warlock-destruction": 0.501
       }
      }
     },
@@ -2659,6 +2661,7 @@
    "variant": "PvE",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Deep Arcane to Arcane Power with Presence of Mind and Missile Barrage; focus is unclear in the data, labelled PvE-leaning (low confidence).",
    "gives_up": [],
    "model_filled": {},
@@ -3088,7 +3091,7 @@
       }
      },
      "50": {
-      "score": 0.477,
+      "score": 0.476,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
@@ -3099,11 +3102,11 @@
        "priest-shadow": 0.483,
        "shaman-elemental": 0.517,
        "warlock-affliction": 0.558,
-       "warlock-destruction": 0.527
+       "warlock-destruction": 0.515
       }
      },
      "60": {
-      "score": 0.477,
+      "score": 0.475,
       "unit": "duel 0-1",
       "spell": "Arcane Missiles",
       "matchups": {
@@ -3114,7 +3117,7 @@
        "priest-shadow": 0.426,
        "shaman-elemental": 0.514,
        "warlock-affliction": 0.509,
-       "warlock-destruction": 0.476
+       "warlock-destruction": 0.461
       }
      }
     },
@@ -3445,6 +3448,7 @@
    "variant": "PvE",
    "origin": "community",
    "adjusted": "1.60.1.70425: Fire Power 5 -> 3, Critical Mass 3 -> 5",
+   "provisional": "",
    "summary": "Deep Fire to Combustion with Arcane Concentration and Elemental Precision; a raid-style build.",
    "gives_up": [],
    "model_filled": {},
@@ -3874,7 +3878,7 @@
       }
      },
      "50": {
-      "score": 0.492,
+      "score": 0.491,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
@@ -3885,11 +3889,11 @@
        "priest-shadow": 0.492,
        "shaman-elemental": 0.526,
        "warlock-affliction": 0.567,
-       "warlock-destruction": 0.536
+       "warlock-destruction": 0.524
       }
      },
      "60": {
-      "score": 0.494,
+      "score": 0.492,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
@@ -3900,7 +3904,7 @@
        "priest-shadow": 0.436,
        "shaman-elemental": 0.524,
        "warlock-affliction": 0.52,
-       "warlock-destruction": 0.486
+       "warlock-destruction": 0.472
       }
      }
     },
@@ -3973,12 +3977,12 @@
       "spell": "Fireball"
      },
      "50": {
-      "score": 0.127,
+      "score": 0.126,
       "unit": "2v1 0-1",
       "spell": "Fireball"
      },
      "60": {
-      "score": 0.136,
+      "score": 0.135,
       "unit": "2v1 0-1",
       "spell": "Frostfire Bolt"
      }
@@ -4231,6 +4235,7 @@
    "variant": "PvP",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Full Frost: Ice Barrier, Ice Block, Cold Snap, Permafrost, Improved Frost Nova, Arctic Reach; the control and survival build.",
    "gives_up": [],
    "model_filled": {},
@@ -4660,7 +4665,7 @@
       }
      },
      "50": {
-      "score": 0.515,
+      "score": 0.514,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
@@ -4671,11 +4676,11 @@
        "priest-shadow": 0.513,
        "shaman-elemental": 0.547,
        "warlock-affliction": 0.587,
-       "warlock-destruction": 0.557
+       "warlock-destruction": 0.545
       }
      },
      "60": {
-      "score": 0.541,
+      "score": 0.539,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
@@ -4686,7 +4691,7 @@
        "priest-shadow": 0.472,
        "shaman-elemental": 0.566,
        "warlock-affliction": 0.56,
-       "warlock-destruction": 0.524
+       "warlock-destruction": 0.508
       }
      }
     },
@@ -4938,18 +4943,18 @@
      "hit_pct": 0.0
     },
     "50": {
-     "score": 0.6706,
+     "score": 0.6703,
      "stamina": 0.001468,
      "intellect": 4.9e-05,
      "spirit": 0.0,
-     "spell_power": 0.000199,
+     "spell_power": 0.0002,
      "crit_rating": 0.000123,
      "hit_rating": 0.0,
      "crit_pct": 0.00139,
      "hit_pct": 0.0
     },
     "60": {
-     "score": 0.8075,
+     "score": 0.8071,
      "stamina": 0.00149,
      "intellect": 3.8e-05,
      "spirit": 0.0,
@@ -5007,6 +5012,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "summary": "A Frost-then-Fire route to level 40 (Ice Block 25, Cold Snap 30, Impact 40). From 41 the PvE spec takes Shatter-style sustain from the Fire/Frost Shatter standard: Frost Channeling 3 and Master of Elements 3 for mana, Piercing Ice 3, Winter's Chill 1, Improved Flamestrike 3 for packs, and drops Heating Up/Pyroblast, Burning Soul and Blast Wave. Model-derived (PvE score 1.71 vs 1.62 for Fire/Frost Shatter); not yet tried in game.",
    "gives_up": [
     "Ice Barrier",
@@ -5441,11 +5447,11 @@
        "priest-shadow": 0.467,
        "shaman-elemental": 0.506,
        "warlock-affliction": 0.531,
-       "warlock-destruction": 0.54
+       "warlock-destruction": 0.539
       }
      },
      "50": {
-      "score": 0.521,
+      "score": 0.52,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
@@ -5456,11 +5462,11 @@
        "priest-shadow": 0.52,
        "shaman-elemental": 0.554,
        "warlock-affliction": 0.594,
-       "warlock-destruction": 0.564
+       "warlock-destruction": 0.552
       }
      },
      "60": {
-      "score": 0.537,
+      "score": 0.535,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
@@ -5471,7 +5477,7 @@
        "priest-shadow": 0.479,
        "shaman-elemental": 0.567,
        "warlock-affliction": 0.563,
-       "warlock-destruction": 0.529
+       "warlock-destruction": 0.514
       }
      }
     },
@@ -5549,7 +5555,7 @@
       "spell": "Frostbolt"
      },
      "60": {
-      "score": 0.191,
+      "score": 0.19,
       "unit": "2v1 0-1",
       "spell": "Frostfire Bolt"
      }
@@ -5804,6 +5810,7 @@
    "variant": "PvE",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "Most popular complete Forever build: Fire burst and mana talents (Improved Scorch, Master of Elements, Fire Power, Heating Up) with Frost's Shatter, Ice Lance and Fingers of Frost; no Ice Block or Cold Snap, so PvE-leaning.",
    "gives_up": [],
    "model_filled": {
@@ -6231,11 +6238,11 @@
        "priest-shadow": 0.479,
        "shaman-elemental": 0.518,
        "warlock-affliction": 0.543,
-       "warlock-destruction": 0.552
+       "warlock-destruction": 0.551
       }
      },
      "50": {
-      "score": 0.48,
+      "score": 0.479,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
@@ -6246,11 +6253,11 @@
        "priest-shadow": 0.479,
        "shaman-elemental": 0.513,
        "warlock-affliction": 0.554,
-       "warlock-destruction": 0.523
+       "warlock-destruction": 0.511
       }
      },
      "60": {
-      "score": 0.508,
+      "score": 0.506,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
@@ -6261,7 +6268,7 @@
        "priest-shadow": 0.45,
        "shaman-elemental": 0.538,
        "warlock-affliction": 0.534,
-       "warlock-destruction": 0.5
+       "warlock-destruction": 0.485
       }
      }
     },
@@ -6593,6 +6600,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "summary": "Model build for Arcane/Fire PvE: the report's model pick for this slot. Not a community standard.",
    "gives_up": [],
    "model_filled": {},
@@ -7022,7 +7030,7 @@
       }
      },
      "50": {
-      "score": 0.5,
+      "score": 0.499,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
@@ -7033,11 +7041,11 @@
        "priest-shadow": 0.501,
        "shaman-elemental": 0.535,
        "warlock-affliction": 0.575,
-       "warlock-destruction": 0.545
+       "warlock-destruction": 0.533
       }
      },
      "60": {
-      "score": 0.558,
+      "score": 0.556,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
@@ -7048,7 +7056,7 @@
        "priest-shadow": 0.509,
        "shaman-elemental": 0.596,
        "warlock-affliction": 0.592,
-       "warlock-destruction": 0.559
+       "warlock-destruction": 0.545
       }
      }
     },
@@ -7380,6 +7388,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "summary": "Model build for Arcane PvP: the report's model pick for this slot. Not a community standard.",
    "gives_up": [],
    "model_filled": {},
@@ -7790,7 +7799,7 @@
        "priest-shadow": 0.476,
        "shaman-elemental": 0.541,
        "warlock-affliction": 0.517,
-       "warlock-destruction": 0.497
+       "warlock-destruction": 0.498
       }
      },
      "40": {
@@ -7809,7 +7818,7 @@
       }
      },
      "50": {
-      "score": 0.441,
+      "score": 0.44,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
@@ -7820,11 +7829,11 @@
        "priest-shadow": 0.437,
        "shaman-elemental": 0.471,
        "warlock-affliction": 0.511,
-       "warlock-destruction": 0.48
+       "warlock-destruction": 0.468
       }
      },
      "60": {
-      "score": 0.492,
+      "score": 0.49,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
@@ -7835,7 +7844,7 @@
        "priest-shadow": 0.439,
        "shaman-elemental": 0.527,
        "warlock-affliction": 0.523,
-       "warlock-destruction": 0.489
+       "warlock-destruction": 0.474
       }
      }
     },
@@ -7908,7 +7917,7 @@
       "spell": "Frostbolt"
      },
      "50": {
-      "score": 0.146,
+      "score": 0.145,
       "unit": "2v1 0-1",
       "spell": "Frostbolt"
      },
@@ -8087,7 +8096,7 @@
      "hit_pct": 0.001972
     },
     "50": {
-     "score": 0.5674,
+     "score": 0.5671,
      "stamina": 0.001494,
      "intellect": 4.1e-05,
      "spirit": 0.0,
@@ -8095,10 +8104,10 @@
      "crit_rating": 0.000109,
      "hit_rating": 0.000234,
      "crit_pct": 0.001235,
-     "hit_pct": 0.002647
+     "hit_pct": 0.002646
     },
     "60": {
-     "score": 0.5693,
+     "score": 0.5689,
      "stamina": 0.001569,
      "intellect": 2.7e-05,
      "spirit": 0.0,
@@ -8158,6 +8167,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "summary": "Model build for Fire/Frost PvP: the report's model pick for this slot. Not a community standard.",
    "gives_up": [],
    "model_filled": {},
@@ -8587,7 +8597,7 @@
       }
      },
      "50": {
-      "score": 0.535,
+      "score": 0.533,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
@@ -8598,11 +8608,11 @@
        "priest-shadow": 0.535,
        "shaman-elemental": 0.568,
        "warlock-affliction": 0.608,
-       "warlock-destruction": 0.578
+       "warlock-destruction": 0.566
       }
      },
      "60": {
-      "score": 0.556,
+      "score": 0.554,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
@@ -8613,7 +8623,7 @@
        "priest-shadow": 0.498,
        "shaman-elemental": 0.586,
        "warlock-affliction": 0.581,
-       "warlock-destruction": 0.548
+       "warlock-destruction": 0.534
       }
      }
     },
@@ -8691,7 +8701,7 @@
       "spell": "Frostfire Bolt"
      },
      "60": {
-      "score": 0.21,
+      "score": 0.209,
       "unit": "2v1 0-1",
       "spell": "Frostfire Bolt"
      }
@@ -8865,18 +8875,18 @@
      "hit_pct": 0.002677
     },
     "50": {
-     "score": 0.6439,
-     "stamina": 0.001471,
+     "score": 0.6436,
+     "stamina": 0.001472,
      "intellect": 4.4e-05,
      "spirit": 0.0,
      "spell_power": 0.000194,
      "crit_rating": 0.000146,
      "hit_rating": 0.000183,
      "crit_pct": 0.001652,
-     "hit_pct": 0.00207
+     "hit_pct": 0.002071
     },
     "60": {
-     "score": 0.7015,
+     "score": 0.7011,
      "stamina": 0.001609,
      "intellect": 3.3e-05,
      "spirit": 0.0,
@@ -8936,6 +8946,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "summary": "Model build for Fire PvP: the report's model pick for this slot. Not a community standard.",
    "gives_up": [],
    "model_filled": {},
@@ -9365,7 +9376,7 @@
       }
      },
      "50": {
-      "score": 0.504,
+      "score": 0.502,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
@@ -9376,11 +9387,11 @@
        "priest-shadow": 0.505,
        "shaman-elemental": 0.539,
        "warlock-affliction": 0.579,
-       "warlock-destruction": 0.548
+       "warlock-destruction": 0.537
       }
      },
      "60": {
-      "score": 0.506,
+      "score": 0.504,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
@@ -9391,7 +9402,7 @@
        "priest-shadow": 0.449,
        "shaman-elemental": 0.537,
        "warlock-affliction": 0.533,
-       "warlock-destruction": 0.499
+       "warlock-destruction": 0.485
       }
      }
     },
@@ -9469,7 +9480,7 @@
       "spell": "Fireball"
      },
      "60": {
-      "score": 0.15,
+      "score": 0.149,
       "unit": "2v1 0-1",
       "spell": "Frostfire Bolt"
      }
@@ -9610,7 +9621,7 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4109,
+     "score": 0.411,
      "stamina": 0.001728,
      "intellect": 9.7e-05,
      "spirit": 0.0,
@@ -9643,7 +9654,7 @@
      "hit_pct": 0.0
     },
     "50": {
-     "score": 0.4794,
+     "score": 0.4791,
      "stamina": 0.001407,
      "intellect": 5.8e-05,
      "spirit": 0.0,
@@ -9654,7 +9665,7 @@
      "hit_pct": 0.0
     },
     "60": {
-     "score": 0.586,
+     "score": 0.5856,
      "stamina": 0.001578,
      "intellect": 3.6e-05,
      "spirit": 0.0,
@@ -9714,6 +9725,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "summary": "The model's alternative to Frost (PvE): Ice Barrier 1->0, Winter's Chill 0->5, Improved Cone of Cold 3->0, Cold Snap 1->0, Ice Block 1->0, Arctic Reach 2->0, Improved Blizzard 3->0, Ice Shards 1->5, Elemental Precision 3->5. Scores +10.7% higher; not tried in game.",
    "gives_up": [],
    "model_filled": {},
@@ -10143,7 +10155,7 @@
       }
      },
      "50": {
-      "score": 0.45,
+      "score": 0.449,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
@@ -10154,11 +10166,11 @@
        "priest-shadow": 0.448,
        "shaman-elemental": 0.482,
        "warlock-affliction": 0.523,
-       "warlock-destruction": 0.491
+       "warlock-destruction": 0.48
       }
      },
      "60": {
-      "score": 0.457,
+      "score": 0.455,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
@@ -10169,7 +10181,7 @@
        "priest-shadow": 0.4,
        "shaman-elemental": 0.487,
        "warlock-affliction": 0.483,
-       "warlock-destruction": 0.449
+       "warlock-destruction": 0.434
       }
      }
     },
@@ -10242,7 +10254,7 @@
       "spell": "Frostbolt"
      },
      "50": {
-      "score": 0.121,
+      "score": 0.12,
       "unit": "2v1 0-1",
       "spell": "Frostbolt"
      },
@@ -10500,6 +10512,7 @@
    "variant": "PvE",
    "origin": "community",
    "adjusted": "",
+   "provisional": "",
    "summary": "51 points (Arcane 20 / Fire 0 / Frost 31). Arcane Focus is one of the spent talents. From the site's Frost Mage with a Protection Paladin for AoE pulls \u00b7 Group leveling \u00b7 PvE \u00b7 levels 10\u201360 plan.",
    "gives_up": [],
    "model_filled": {},
@@ -10914,7 +10927,7 @@
       }
      },
      "40": {
-      "score": 0.438,
+      "score": 0.437,
       "unit": "duel 0-1",
       "spell": "Arcane Missiles",
       "matchups": {
@@ -10929,7 +10942,7 @@
       }
      },
      "50": {
-      "score": 0.444,
+      "score": 0.443,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
@@ -10940,11 +10953,11 @@
        "priest-shadow": 0.442,
        "shaman-elemental": 0.476,
        "warlock-affliction": 0.517,
-       "warlock-destruction": 0.485
+       "warlock-destruction": 0.474
       }
      },
      "60": {
-      "score": 0.481,
+      "score": 0.479,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
@@ -10955,7 +10968,7 @@
        "priest-shadow": 0.414,
        "shaman-elemental": 0.508,
        "warlock-affliction": 0.501,
-       "warlock-destruction": 0.465
+       "warlock-destruction": 0.45
       }
      }
     },
@@ -11033,7 +11046,7 @@
       "spell": "Frostbolt"
      },
      "60": {
-      "score": 0.139,
+      "score": 0.138,
       "unit": "2v1 0-1",
       "spell": "Frostbolt"
      }
@@ -11284,6 +11297,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Arcane/Fire PoM-Pyro (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arcane/Fire PoM-Pyro (PvP) at 60.",
    "gives_up": [],
@@ -11492,6 +11506,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Deep Arcane (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Deep Arcane (PvE) at 60.",
    "gives_up": [],
@@ -11686,6 +11701,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Deep Fire Combustion (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Deep Fire Combustion (PvE) at 60.",
    "gives_up": [],
@@ -11895,6 +11911,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Deep Frost Control (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Deep Frost Control (PvP) at 60.",
    "gives_up": [],
@@ -12096,6 +12113,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Fire/Frost Shatter (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Fire/Frost Shatter (PvE) at 60.",
    "gives_up": [],
@@ -12300,6 +12318,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Arcane/Fire (PvE, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arcane/Fire (PvE, model) at 60.",
    "gives_up": [],
@@ -12508,6 +12527,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Arcane (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arcane (PvP, model) at 60.",
    "gives_up": [],
@@ -12718,6 +12738,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Fire/Frost (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Fire/Frost (PvP, model) at 60.",
    "gives_up": [],
@@ -12927,6 +12948,7 @@
    "variant": "PvP",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Fire (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Fire (PvP, model) at 60.",
    "gives_up": [],
@@ -13132,6 +13154,7 @@
    "variant": "PvE",
    "origin": "model",
    "adjusted": "",
+   "provisional": "",
    "mode": "leveling",
    "summary": "Frost (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Frost (PvE) at 60.",
    "gives_up": [],
@@ -13334,11 +13357,11 @@
    "archetype": "deep Arcane",
    "focus": "PvP",
    "standard": "mage-arcane-pvp",
-   "standard_score": 0.5692505480902194,
+   "standard_score": 0.5688828553559393,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "mage-arcane-pvp": 0.5692505480902194
+    "mage-arcane-pvp": 0.5688828553559393
    },
    "qualifying": [
     "mage-arcane-pvp"
@@ -13398,11 +13421,11 @@
    "archetype": "deep Fire",
    "focus": "PvP",
    "standard": "mage-fire-pvp",
-   "standard_score": 0.5859764207152842,
+   "standard_score": 0.5856083166264745,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "mage-fire-pvp": 0.5859764207152842
+    "mage-fire-pvp": 0.5856083166264745
    },
    "qualifying": [
     "mage-fire-pvp"
@@ -13426,11 +13449,11 @@
    "archetype": "deep Frost",
    "focus": "PvP",
    "standard": "deep-frost",
-   "standard_score": 0.8074697971395149,
+   "standard_score": 0.8070807152702951,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "deep-frost": 0.8074697971395149
+    "deep-frost": 0.8070807152702951
    },
    "qualifying": [
     "deep-frost"
@@ -13527,11 +13550,11 @@
    "archetype": "Fire/Frost",
    "focus": "PvP",
    "standard": "mage-fire-frost-pvp",
-   "standard_score": 0.7015077105444978,
+   "standard_score": 0.7011419737904101,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "mage-fire-frost-pvp": 0.7015077105444978
+    "mage-fire-frost-pvp": 0.7011419737904101
    },
    "qualifying": [
     "mage-fire-frost-pvp"
@@ -13557,11 +13580,11 @@
    "archetype": "Arcane/Fire",
    "focus": "PvP",
    "standard": "arcane-pom-pyro",
-   "standard_score": 0.4810668276900453,
+   "standard_score": 0.48070181849217103,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "arcane-pom-pyro": 0.4810668276900453
+    "arcane-pom-pyro": 0.48070181849217103
    },
    "qualifying": [
     "arcane-pom-pyro"

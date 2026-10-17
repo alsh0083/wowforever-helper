@@ -23,7 +23,9 @@ build it took (a signature of its talents), so the next refresh can tell whether
 - `PROVISIONAL_SAVES = 20`, with a one-line comment.
 - `def final_signature(final: dict) -> str:` returns `",".join(f"{name}={rank}" for name, rank in sorted(final.items())
   if rank > 0)`.
-- `refreshed_toml(text, entry, *, window, today)`: the new keyword `today` is a `YYYY-MM-DD` string.
+- `refreshed_toml(text, entry, *, window, today="")`: the new keyword `today` is a `YYYY-MM-DD` string.
+  The `[final]` body it replaces ends at the first line that isn't a `"<talent>" = <rank>` line, so comments above a
+  `[model_filled]` table stay.
   - Besides what it does now, remove any existing top-level line starting with `provisional =` or `refreshed =`,
     and any existing line starting with `# refreshed from`.
   - Then put these lines directly above the `# refreshed from ...` note it writes, in this order:
@@ -61,3 +63,6 @@ build it took (a signature of its talents), so the next refresh can tell whether
 ## Done when
 - `tests/test_community_provisional.py` (6 tests) and `tests/test_community_refresh.py` pass.
 - The fast suite has no new failures.
+
+## Outcome
+qwen3.8-27b had no diff after 30 min; Claude applied the tested prototype (with the two corrections above).

@@ -10,11 +10,12 @@ its talents. Re-derive the leveling builds afterwards: tools/derive_leveling_bui
 
 import json
 import sys
+from datetime import date
 from pathlib import Path
 
 from wowforever.builds import load_builds
 from wowforever.classes import CLASSES
-from wowforever.community import closest_popular, refreshed_toml
+from wowforever.community import closest_popular, refresh_status, refreshed_toml
 from wowforever.schema import Dataset, latest_dataset_path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,7 +31,10 @@ for c in CLASSES:
     pop = json.loads(path.read_text(encoding="utf-8"))
     cls = DS.class_data(c)
     for b in load_builds(class_name=c):
-        if b.mode != "endgame" or b.origin != "community" or not b.adjusted:
+        file = ROOT / "config" / "builds" / f"{b.id}.toml"
+        refreshed_before = "# refreshed from" in file.read_text(encoding="utf-8")
+        if b.mode != "endgame" or b.origin != "community" or not (b.adjusted or b.provisional or b.refreshed
+                                                                  or refreshed_before):
             continue
         if not any(s.startswith("wft_popular") for s in b.sources):
             # a catalog plan (wft_builds_*): re-import it with tools/import_wft_builds.py instead
@@ -40,10 +44,10 @@ for c in CLASSES:
         if match is None:
             print(f"{b.id}: no post-patch build in this tree (stays adjusted)")
             continue
-        weak = match["overlap"] < MIN_OVERLAP
-        print(f"{b.id}: rank {match['rank']}, saved {match['saved']}, points {match['points']}, "
+        weak = bool(b.adjusted) and match["overlap"] < MIN_OVERLAP
+        status = refresh_status(b, match)
+        print(f"{b.id}: {status}, rank {match['rank']}, saved {match['saved']}, points {match['points']}, "
               f"overlap {match['overlap']}" + (" - too different, stays adjusted" if weak else ""))
-        if WRITE and not weak:
-            file = ROOT / "config" / "builds" / f"{b.id}.toml"
-            file.write_text(refreshed_toml(file.read_text(encoding="utf-8"), match, window=pop["sourceWindow"]),
-                            encoding="utf-8", newline="\n")
+        if WRITE and not weak and status in ("moved", "settled"):
+            file.write_text(refreshed_toml(file.read_text(encoding="utf-8"), match, window=pop["sourceWindow"],
+                                           today=date.today().isoformat()), encoding="utf-8", newline="\n")

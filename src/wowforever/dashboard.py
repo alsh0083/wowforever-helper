@@ -121,6 +121,8 @@ def standard_caption(build: dict) -> str:
         return "Model build, no community plan yet"
     if origin == "hand":
         return "Custom build, no community plan yet"
+    if build.get("provisional"):
+        return f"Community standard (provisional, {build['provisional'].split(' saves')[0]} saves)"
     if build.get("adjusted"):
         return f"Community standard, points adjusted for {build['adjusted'].split(':')[0]}"
     return "Community standard"
