@@ -43,8 +43,8 @@ def test_readiness_flags_what_an_older_build_breaks():
     problems = readiness(old, tables_dir=ROOT / "no-such-folder")
     # today's builds put 5 points in Critical Mass, which had 3 ranks on 70291
     assert any(p.startswith("mage: build deep-fire: ") and "Critical Mass" in p for p in problems)
-    # rules written for 70425 text don't all match 70291 (Grim Reach didn't exist)
-    assert any(p.startswith("warlock: ") for p in problems)
+    # rules written for 70425 text don't all match 70291 (Dark Inspiration didn't exist)
+    assert "priest: effect rule: Dark Inspiration: not a talent in the dataset" in problems
 
 
 def test_readiness_command_exits_non_zero_while_problems_are_open(capsys):
