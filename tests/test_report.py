@@ -25,14 +25,14 @@ FIX = Path(__file__).parent / "fixtures"
 
 @pytest.fixture(scope="module")
 def payload():
-    cls, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
-                             parse_page((FIX / "wowforevertalent" / "mage.html").read_text(encoding="utf-8")),
-                             wago_build="1.60.1.70205")
-    cls, _ = attach_effects(cls, TALENT_EFFECTS, UNMODELED)
-    spells = class_spells(read_tables(FIX / "wago-1.60.1.70205-spells"), skill_lines=SKILL_LINES)
-    cls = replace(cls, spells=spells)
+    # the real builds on the dataset the model reads (config/dataset.toml)
+    from wowforever.schema import Dataset, latest_dataset_path
+
+    ds = Dataset.load(latest_dataset_path())
+    cls, _ = attach_effects(ds.class_data("mage"), TALENT_EFFECTS, UNMODELED)
+    spells = cls.spells
     report = build_report(cls, spells, [b for b in load_builds(class_name="mage") if b.mode == "endgame"], StatTable.load("mage"), Assumptions.load(),
-                          {"version": "1.60.1.70205", "game_build": "1.60.1.70205"})
+                          {"version": ds.version, "game_build": ds.game_build})
     return cls, report
 
 
@@ -74,7 +74,7 @@ def test_scores_at_each_checkpoint(payload):
 
 def test_talents_and_milestones_for_the_dashboard(payload):
     _, report = payload
-    assert len(report["talents"]) == 54
+    assert len(report["talents"]) == 55   # Arcane Wrath added in 1.60.1.70425
     ignite = next(t for t in report["talents"].values() if t["name"] == "Ignite")
     assert ignite["icon"] == "spell_fire_incinerate" and len(ignite["rank_text"]) == 5
     assert {"level": 40, "spell": "Frostfire Bolt", "rank": 1} in report["spell_milestones"]
@@ -87,11 +87,11 @@ def test_report_cli_from_a_saved_dataset(payload, tmp_path, capsys):
     from wowforever.__main__ import main
     from wowforever.schema import Dataset, Provenance
     cls, _ = payload
-    prov = Provenance("wago.tools", "1.60.1.70205", "1.60.1.70205", "2026-10-04T00:00:00Z", "0" * 64)
-    Dataset("1.60.1.70205", "1.60.1.70205", (cls,), (prov,)).save(tmp_path / "ds.json")
+    prov = Provenance("wago.tools", "1.60.1.70425", "1.60.1.70425", "2026-10-16T00:00:00Z", "0" * 64)
+    Dataset("1.60.1.70425", "1.60.1.70425", (cls,), (prov,)).save(tmp_path / "ds.json")
     assert main(["report", "--dataset", str(tmp_path / "ds.json"), "--out", str(tmp_path / "r.json")]) == 0
     report = json.loads((tmp_path / "r.json").read_text(encoding="utf-8"))
-    assert report["dataset"]["game_build"] == "1.60.1.70205" and len(report["builds"]) == len(load_builds(class_name="mage"))
+    assert report["dataset"]["game_build"] == "1.60.1.70425" and len(report["builds"]) == len(load_builds(class_name="mage"))
 
 
 def test_shortlist_in_payload(payload):
