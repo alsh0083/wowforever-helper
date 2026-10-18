@@ -69,16 +69,23 @@ def test_dual_wield_swaps_only_the_weapons():
     assert dual.attack_power == stats.attack_power                       # only the weapons change
 
 
-@pytest.mark.parametrize("build", ["warrior-fury-pve", "warrior-arms"])
-def test_output_takes_the_better_weapon_set(build):
-    # owner (2026-10-17): assume the best weapons for the scenario, so two-hander or dual wield, whichever wins
+@pytest.mark.parametrize("build,rows", [("warrior-fury-pve", 2), ("warrior-arms", 1)])
+def test_output_takes_the_better_weapon_set(build, rows):
+    # owner (2026-10-17): the best weapons for the scenario, so Fury takes the two-hander or dual wield, whichever
+    # wins; owner (2026-10-18): Arms (and Protection) keep the two-hander
     from wowforever.weapon_talents import best_weapon
 
     ranks = BUILDS[build]
     stats = MeleeStatTable.load("warrior").at(60)
     runs = [best_weapon(lambda s, t: warrior_rotation(s, CLS.spells, CLS, ranks, t), row, BOSS, CLS, ranks)[0]
-            for row in (stats, W.dual_wield(stats))]
+            for row in (stats, W.dual_wield(stats))[:rows]]
     assert W.output(stats, CLS.spells, CLS, ranks, BOSS).dps == pytest.approx(max(r.dps for r in runs))
+
+
+def test_only_fury_dual_wields():
+    from wowforever.melee_scenarios import main_tree
+
+    assert main_tree(CLS, BUILDS["warrior-fury-pve"]) == "Fury" and main_tree(CLS, BUILDS["warrior-arms"]) == "Arms"
 
 
 def test_fury_uses_bloodthirst():

@@ -56,7 +56,8 @@ def test_output_wraps_the_class_rotation(name, pack):
     stats = ms.stat_table(name).at(60)
     for ranks in builds:
         row = melee_talent_stats(name, stats, cls, ranks) if name == "paladin" else stats   # #383
-        rows = (row, class_module("warrior").dual_wield(row)) if name == "warrior" else (row,)   # #391
+        fury = name == "warrior" and ms.main_tree(cls, ranks) == "Fury"       # only Fury dual wields (#391)
+        rows = (row, class_module("warrior").dual_wield(row)) if fury else (row,)
         r = max((best_weapon(lambda s, t: ADAPTED[name](s, cls.spells, cls, ranks, t, pack=pack),
                              w, BOSS, cls, ranks)[0] for w in rows),          # weapon-type talents (#386)
                 key=lambda rot: rot.dps)
