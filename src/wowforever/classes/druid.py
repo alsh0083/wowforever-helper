@@ -157,9 +157,9 @@ UNMODELED: dict[str, str] = {
     "Primal Bite": "grants_spell",
     "Improved Shifting Power": "resource: Shifting Power cooldown -8 s",
     "Natural Reaction": "defensive: +5% dodge, Rage on dodge",
-    "Berserk": "damage: builder crit averaged in druid_rotation (#397); Primal Bite's cleave not modeled",
+    "Berserk": "damage: builder crit averaged in druid_rotation (#397); its cleave is bear-only Primal Bite (#431)",
     # Restoration
-    "Furor": "resource: Rage or Energy on shapeshift",
+    "Furor": "resource: Energy kept across shifts plus 10/s outside (no more than regen), so no powershift gain (#431)",
     "Subtlety": "threat: less threat from Nature and Arcane spells",
     "Natural Shapeshifter": "resource: cheaper shapeshifting",
     "Swiftmend": "grants_spell",
