@@ -1,6 +1,8 @@
 """Class engine (#309, #310): each scored class module runs its own rotation behind one interface
 (docs/planning/2026-10-14-class-engine.md). A refactor: adapters must equal the rotations they wrap."""
 
+from dataclasses import replace
+
 import pytest
 
 from wowforever import melee_scenarios as ms
@@ -67,7 +69,8 @@ def test_output_wraps_the_class_rotation(name, pack):
             r = max(r, stab, key=lambda rot: rot.dps)
         out = engine(name).output(stats, cls.spells, cls, ranks, BOSS, pack=pack)
         if name == "paladin":   # Retribution tracks mana and swings white once dry (#399)
-            assert out == ms.Output(r.dps, r.mana_per_second, r.white_dps, r.aoe)
+            # plus the rotation without Consecration as an alternative (#399)
+            assert replace(out, alternatives=()) == ms.Output(r.dps, r.mana_per_second, r.white_dps, r.aoe)
         else:
             assert out == ms.Output(r.dps, 0.0, r.dps, r.aoe)
         assert engine(name).playstyle(cls, ranks) == "melee"
