@@ -119,9 +119,10 @@ UNSCORED_TREES = ("Protection",)
 # Dashboard caveat for the warrior's scores (replaces the rogue/hunter one).
 CAVEAT = ("Warrior model (#162): a two-hander's white swings build Rage for Mortal Strike, Whirlwind and Heroic "
           "Strike, against Classic combat-table rules; Flurry is an average uptime and Weaponmaster takes the "
-          "best weapon for each fight. Fury builds dual wield (the gear table's best one-handers) with "
-          "Bloodthirst; Execute, Overpower and Slam aren't modeled yet, and base stats are estimates. "
-          "Protection stays unscored. PvP uses the mage's duel model from the warrior's side.")
+          "best weapon for each fight. each build takes the better of its two-hander and dual wield (the gear "
+          "table's best one-handers), and Fury uses Bloodthirst; Execute, Overpower and Slam aren't modeled "
+          "yet, and base stats are estimates. Protection stays unscored. PvP uses the mage's duel model from "
+          "the warrior's side.")
 
 # Icons for talents wowforevertalent.com doesn't show, by the client's SpellMisc.SpellIconFileDataID, named
 # through wago.tools' documented file-info API (/api/info/{fdid}). Empty since build 1.60.1.70291: the four
@@ -136,27 +137,31 @@ def playstyle(cls, ranks) -> str:
     return "melee"
 
 
-def fury_stats(stats, cls, ranks):
-    """A Fury build dual wields (#391): the warrior_dw table's main and off hand at the same level, the rest of the
-    stats unchanged."""
+def dual_wield(stats):
+    """The same stats with the warrior_dw table's main and off hand at that level (#391)."""
     from dataclasses import replace
 
-    from wowforever.melee_scenarios import main_tree
     from wowforever.melee_scenarios import MeleeStatTable
 
-    if main_tree(cls, ranks) != "Fury":
-        return stats
     dw = MeleeStatTable.load("warrior_dw").at(stats.level)
     return replace(stats, main_hand=dw.main_hand, off_hand=dw.off_hand)
 
 
-def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):
+def _rotation(stats, spells, cls, ranks, target, pack=1):
+    """The better of the two-hander and dual wield (owner: the best weapons for the scenario, #386, #391), each
+    with its best Weaponmaster branch."""
     from wowforever.classes.warrior_rotation import warrior_rotation
-    from wowforever.melee_scenarios import Output
     from wowforever.weapon_talents import best_weapon
 
-    r, _ = best_weapon(lambda s, t: warrior_rotation(s, spells, cls, ranks, t, pack=pack),
-                       fury_stats(stats, cls, ranks), target, cls, ranks)
+    runs = [best_weapon(lambda s, t: warrior_rotation(s, spells, cls, ranks, t, pack=pack), row, target, cls, ranks)[0]
+            for row in (stats, dual_wield(stats))]
+    return max(runs, key=lambda r: r.dps)
+
+
+def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):
+    from wowforever.melee_scenarios import Output
+
+    r = _rotation(stats, spells, cls, ranks, target, pack)
     return Output(r.dps, 0.0, r.dps, r.aoe)
 
 
@@ -167,10 +172,9 @@ def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):
 
 
 def facts(stats, cls, ranks):
-    from wowforever.classes.warrior_rotation import warrior_rotation
     from wowforever.physical import Target
 
-    r = warrior_rotation(fury_stats(stats, cls, ranks), cls.spells, cls, ranks, Target(0, 0))
+    r = _rotation(stats, cls.spells, cls, ranks, Target(0, 0))
     return {"kind": "abilities", "abilities": list(r.abilities),
             "split": {"auto-attacks": r.white_dps / r.dps, "abilities": r.yellow_dps / r.dps}}
 
