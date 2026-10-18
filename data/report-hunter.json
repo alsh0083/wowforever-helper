@@ -1227,7 +1227,7 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.673,
+      "score": 0.665,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.741,
@@ -1236,11 +1236,11 @@
        "rogue-combat": 0.629,
        "rogue-subtlety": 0.601,
        "shaman-enhancement": 0.753,
-       "warrior-arms": 0.665
+       "warrior-arms": 0.607
       }
      },
      "30": {
-      "score": 0.667,
+      "score": 0.658,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.762,
@@ -1249,11 +1249,11 @@
        "rogue-combat": 0.624,
        "rogue-subtlety": 0.607,
        "shaman-enhancement": 0.716,
-       "warrior-arms": 0.659
+       "warrior-arms": 0.596
       }
      },
      "40": {
-      "score": 0.638,
+      "score": 0.637,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.761,
@@ -1262,11 +1262,11 @@
        "rogue-combat": 0.617,
        "rogue-subtlety": 0.602,
        "shaman-enhancement": 0.7,
-       "warrior-arms": 0.573
+       "warrior-arms": 0.565
       }
      },
      "50": {
-      "score": 0.609,
+      "score": 0.608,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.734,
@@ -1275,11 +1275,11 @@
        "rogue-combat": 0.56,
        "rogue-subtlety": 0.58,
        "shaman-enhancement": 0.634,
-       "warrior-arms": 0.575
+       "warrior-arms": 0.57
       }
      },
      "60": {
-      "score": 0.589,
+      "score": 0.586,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.682,
@@ -1288,13 +1288,13 @@
        "rogue-combat": 0.529,
        "rogue-subtlety": 0.57,
        "shaman-enhancement": 0.616,
-       "warrior-arms": 0.555
+       "warrior-arms": 0.533
       }
      }
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.645,
+      "score": 0.637,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.713,
@@ -1303,11 +1303,11 @@
        "rogue-combat": 0.567,
        "rogue-subtlety": 0.52,
        "shaman-enhancement": 0.753,
-       "warrior-arms": 0.66
+       "warrior-arms": 0.6
       }
      },
      "30": {
-      "score": 0.636,
+      "score": 0.627,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.735,
@@ -1316,11 +1316,11 @@
        "rogue-combat": 0.549,
        "rogue-subtlety": 0.514,
        "shaman-enhancement": 0.716,
-       "warrior-arms": 0.653
+       "warrior-arms": 0.588
       }
      },
      "40": {
-      "score": 0.596,
+      "score": 0.595,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.726,
@@ -1329,11 +1329,11 @@
        "rogue-combat": 0.515,
        "rogue-subtlety": 0.475,
        "shaman-enhancement": 0.7,
-       "warrior-arms": 0.563
+       "warrior-arms": 0.555
       }
      },
      "50": {
-      "score": 0.56,
+      "score": 0.559,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.688,
@@ -1342,11 +1342,11 @@
        "rogue-combat": 0.429,
        "rogue-subtlety": 0.446,
        "shaman-enhancement": 0.634,
-       "warrior-arms": 0.564
+       "warrior-arms": 0.558
       }
      },
      "60": {
-      "score": 0.503,
+      "score": 0.5,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.596,
@@ -1355,7 +1355,7 @@
        "rogue-combat": 0.288,
        "rogue-subtlety": 0.347,
        "shaman-enhancement": 0.616,
-       "warrior-arms": 0.538
+       "warrior-arms": 0.514
       }
      }
     },
@@ -1636,15 +1636,15 @@
     },
     "outnumbered": {
      "20": {
-      "score": 0.206,
+      "score": 0.204,
       "unit": "2v1 0-1"
      },
      "30": {
-      "score": 0.205,
+      "score": 0.203,
       "unit": "2v1 0-1"
      },
      "40": {
-      "score": 0.196,
+      "score": 0.195,
       "unit": "2v1 0-1"
      },
      "50": {
@@ -1652,7 +1652,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.168,
+      "score": 0.167,
       "unit": "2v1 0-1"
      }
     }
@@ -1661,46 +1661,46 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.5562,
+     "score": 0.5528,
      "strength": 0.0,
-     "agility": 0.000536,
-     "stamina": 0.0014,
+     "agility": 0.000538,
+     "stamina": 0.001407,
      "intellect": 2.9e-05,
-     "attack_power": 0.000237,
-     "crit_rating": 0.00034,
-     "hit_rating": 0.000453,
-     "crit_pct": 0.001102,
-     "hit_pct": 0.001471,
+     "attack_power": 0.000238,
+     "crit_rating": 0.000341,
+     "hit_rating": 0.000454,
+     "crit_pct": 0.001107,
+     "hit_pct": 0.001477,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.5686,
+     "score": 0.565,
      "strength": 0.0,
-     "agility": 0.00038,
-     "stamina": 0.001036,
-     "intellect": 0.00019,
+     "agility": 0.000381,
+     "stamina": 0.001042,
+     "intellect": 0.000191,
      "attack_power": 0.000166,
-     "crit_rating": 0.000218,
-     "hit_rating": 0.000287,
-     "crit_pct": 0.001293,
-     "hit_pct": 0.001704,
+     "crit_rating": 0.000219,
+     "hit_rating": 0.000288,
+     "crit_pct": 0.001298,
+     "hit_pct": 0.001711,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 0.5587,
+     "score": 0.5582,
      "strength": 0.0,
      "agility": 0.000214,
      "stamina": 0.000949,
      "intellect": 0.000113,
      "attack_power": 9.3e-05,
      "crit_rating": 0.000113,
-     "hit_rating": 0.000151,
+     "hit_rating": 0.000152,
      "crit_pct": 0.000972,
      "hit_pct": 0.001306,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 0.5409,
+     "score": 0.5406,
      "strength": 0.0,
      "agility": 0.000183,
      "stamina": 0.000738,
@@ -1708,15 +1708,15 @@
      "attack_power": 7.9e-05,
      "crit_rating": 9.9e-05,
      "hit_rating": 0.000122,
-     "crit_pct": 0.001114,
+     "crit_pct": 0.001115,
      "hit_pct": 0.001379,
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 0.4952,
+     "score": 0.494,
      "strength": 0.0,
      "agility": 0.000137,
-     "stamina": 0.000829,
+     "stamina": 0.00083,
      "intellect": 6.9e-05,
      "attack_power": 5.8e-05,
      "crit_rating": 8.1e-05,
@@ -1963,7 +1963,7 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.673,
+      "score": 0.665,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.741,
@@ -1972,11 +1972,11 @@
        "rogue-combat": 0.629,
        "rogue-subtlety": 0.601,
        "shaman-enhancement": 0.753,
-       "warrior-arms": 0.665
+       "warrior-arms": 0.607
       }
      },
      "30": {
-      "score": 0.667,
+      "score": 0.658,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.762,
@@ -1985,11 +1985,11 @@
        "rogue-combat": 0.624,
        "rogue-subtlety": 0.607,
        "shaman-enhancement": 0.716,
-       "warrior-arms": 0.659
+       "warrior-arms": 0.596
       }
      },
      "40": {
-      "score": 0.634,
+      "score": 0.633,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.758,
@@ -1998,11 +1998,11 @@
        "rogue-combat": 0.613,
        "rogue-subtlety": 0.598,
        "shaman-enhancement": 0.696,
-       "warrior-arms": 0.569
+       "warrior-arms": 0.562
       }
      },
      "50": {
-      "score": 0.605,
+      "score": 0.604,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.73,
@@ -2011,11 +2011,11 @@
        "rogue-combat": 0.556,
        "rogue-subtlety": 0.576,
        "shaman-enhancement": 0.63,
-       "warrior-arms": 0.57
+       "warrior-arms": 0.565
       }
      },
      "60": {
-      "score": 0.586,
+      "score": 0.583,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.679,
@@ -2024,13 +2024,13 @@
        "rogue-combat": 0.525,
        "rogue-subtlety": 0.566,
        "shaman-enhancement": 0.612,
-       "warrior-arms": 0.551
+       "warrior-arms": 0.529
       }
      }
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.645,
+      "score": 0.637,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.713,
@@ -2039,11 +2039,11 @@
        "rogue-combat": 0.567,
        "rogue-subtlety": 0.52,
        "shaman-enhancement": 0.753,
-       "warrior-arms": 0.66
+       "warrior-arms": 0.6
       }
      },
      "30": {
-      "score": 0.636,
+      "score": 0.627,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.735,
@@ -2052,11 +2052,11 @@
        "rogue-combat": 0.549,
        "rogue-subtlety": 0.514,
        "shaman-enhancement": 0.716,
-       "warrior-arms": 0.653
+       "warrior-arms": 0.588
       }
      },
      "40": {
-      "score": 0.592,
+      "score": 0.591,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.723,
@@ -2065,11 +2065,11 @@
        "rogue-combat": 0.511,
        "rogue-subtlety": 0.471,
        "shaman-enhancement": 0.696,
-       "warrior-arms": 0.559
+       "warrior-arms": 0.551
       }
      },
      "50": {
-      "score": 0.556,
+      "score": 0.555,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.684,
@@ -2078,11 +2078,11 @@
        "rogue-combat": 0.425,
        "rogue-subtlety": 0.442,
        "shaman-enhancement": 0.63,
-       "warrior-arms": 0.559
+       "warrior-arms": 0.554
       }
      },
      "60": {
-      "score": 0.5,
+      "score": 0.496,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.593,
@@ -2091,7 +2091,7 @@
        "rogue-combat": 0.285,
        "rogue-subtlety": 0.343,
        "shaman-enhancement": 0.612,
-       "warrior-arms": 0.534
+       "warrior-arms": 0.511
       }
      }
     },
@@ -2372,11 +2372,11 @@
     },
     "outnumbered": {
      "20": {
-      "score": 0.206,
+      "score": 0.204,
       "unit": "2v1 0-1"
      },
      "30": {
-      "score": 0.205,
+      "score": 0.203,
       "unit": "2v1 0-1"
      },
      "40": {
@@ -2388,7 +2388,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.166,
+      "score": 0.165,
       "unit": "2v1 0-1"
      }
     }
@@ -2698,7 +2698,7 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.666,
+      "score": 0.658,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.735,
@@ -2707,11 +2707,11 @@
        "rogue-combat": 0.622,
        "rogue-subtlety": 0.594,
        "shaman-enhancement": 0.747,
-       "warrior-arms": 0.658
+       "warrior-arms": 0.599
       }
      },
      "30": {
-      "score": 0.666,
+      "score": 0.657,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.761,
@@ -2720,11 +2720,11 @@
        "rogue-combat": 0.623,
        "rogue-subtlety": 0.606,
        "shaman-enhancement": 0.715,
-       "warrior-arms": 0.658
+       "warrior-arms": 0.595
       }
      },
      "40": {
-      "score": 0.635,
+      "score": 0.634,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.759,
@@ -2733,11 +2733,11 @@
        "rogue-combat": 0.614,
        "rogue-subtlety": 0.599,
        "shaman-enhancement": 0.697,
-       "warrior-arms": 0.57
+       "warrior-arms": 0.562
       }
      },
      "50": {
-      "score": 0.606,
+      "score": 0.605,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.731,
@@ -2746,11 +2746,11 @@
        "rogue-combat": 0.556,
        "rogue-subtlety": 0.577,
        "shaman-enhancement": 0.631,
-       "warrior-arms": 0.571
+       "warrior-arms": 0.566
       }
      },
      "60": {
-      "score": 0.58,
+      "score": 0.577,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.679,
@@ -2759,13 +2759,13 @@
        "rogue-combat": 0.516,
        "rogue-subtlety": 0.557,
        "shaman-enhancement": 0.603,
-       "warrior-arms": 0.541
+       "warrior-arms": 0.519
       }
      }
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.638,
+      "score": 0.63,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.707,
@@ -2774,11 +2774,11 @@
        "rogue-combat": 0.56,
        "rogue-subtlety": 0.512,
        "shaman-enhancement": 0.747,
-       "warrior-arms": 0.653
+       "warrior-arms": 0.592
       }
      },
      "30": {
-      "score": 0.635,
+      "score": 0.626,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.734,
@@ -2787,11 +2787,11 @@
        "rogue-combat": 0.548,
        "rogue-subtlety": 0.513,
        "shaman-enhancement": 0.715,
-       "warrior-arms": 0.652
+       "warrior-arms": 0.587
       }
      },
      "40": {
-      "score": 0.593,
+      "score": 0.592,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.724,
@@ -2800,11 +2800,11 @@
        "rogue-combat": 0.512,
        "rogue-subtlety": 0.472,
        "shaman-enhancement": 0.697,
-       "warrior-arms": 0.56
+       "warrior-arms": 0.552
       }
      },
      "50": {
-      "score": 0.557,
+      "score": 0.556,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.685,
@@ -2813,11 +2813,11 @@
        "rogue-combat": 0.426,
        "rogue-subtlety": 0.443,
        "shaman-enhancement": 0.631,
-       "warrior-arms": 0.56
+       "warrior-arms": 0.555
       }
      },
      "60": {
-      "score": 0.495,
+      "score": 0.491,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.593,
@@ -2826,7 +2826,7 @@
        "rogue-combat": 0.277,
        "rogue-subtlety": 0.334,
        "shaman-enhancement": 0.603,
-       "warrior-arms": 0.524
+       "warrior-arms": 0.501
       }
      }
     },
@@ -3107,11 +3107,11 @@
     },
     "outnumbered": {
      "20": {
-      "score": 0.201,
+      "score": 0.199,
       "unit": "2v1 0-1"
      },
      "30": {
-      "score": 0.205,
+      "score": 0.202,
       "unit": "2v1 0-1"
      },
      "40": {
@@ -3123,7 +3123,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.167,
+      "score": 0.166,
       "unit": "2v1 0-1"
      }
     }
@@ -3434,7 +3434,7 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.666,
+      "score": 0.658,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.735,
@@ -3443,11 +3443,11 @@
        "rogue-combat": 0.622,
        "rogue-subtlety": 0.594,
        "shaman-enhancement": 0.747,
-       "warrior-arms": 0.658
+       "warrior-arms": 0.599
       }
      },
      "30": {
-      "score": 0.666,
+      "score": 0.657,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.761,
@@ -3456,11 +3456,11 @@
        "rogue-combat": 0.623,
        "rogue-subtlety": 0.606,
        "shaman-enhancement": 0.715,
-       "warrior-arms": 0.658
+       "warrior-arms": 0.595
       }
      },
      "40": {
-      "score": 0.635,
+      "score": 0.634,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.759,
@@ -3469,11 +3469,11 @@
        "rogue-combat": 0.614,
        "rogue-subtlety": 0.599,
        "shaman-enhancement": 0.697,
-       "warrior-arms": 0.57
+       "warrior-arms": 0.562
       }
      },
      "50": {
-      "score": 0.606,
+      "score": 0.605,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.731,
@@ -3482,11 +3482,11 @@
        "rogue-combat": 0.556,
        "rogue-subtlety": 0.577,
        "shaman-enhancement": 0.631,
-       "warrior-arms": 0.571
+       "warrior-arms": 0.566
       }
      },
      "60": {
-      "score": 0.615,
+      "score": 0.612,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.696,
@@ -3495,13 +3495,13 @@
        "rogue-combat": 0.564,
        "rogue-subtlety": 0.604,
        "shaman-enhancement": 0.648,
-       "warrior-arms": 0.589
+       "warrior-arms": 0.568
       }
      }
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.638,
+      "score": 0.63,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.707,
@@ -3510,11 +3510,11 @@
        "rogue-combat": 0.56,
        "rogue-subtlety": 0.512,
        "shaman-enhancement": 0.747,
-       "warrior-arms": 0.653
+       "warrior-arms": 0.592
       }
      },
      "30": {
-      "score": 0.635,
+      "score": 0.626,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.734,
@@ -3523,11 +3523,11 @@
        "rogue-combat": 0.548,
        "rogue-subtlety": 0.513,
        "shaman-enhancement": 0.715,
-       "warrior-arms": 0.652
+       "warrior-arms": 0.587
       }
      },
      "40": {
-      "score": 0.593,
+      "score": 0.592,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.724,
@@ -3536,11 +3536,11 @@
        "rogue-combat": 0.512,
        "rogue-subtlety": 0.472,
        "shaman-enhancement": 0.697,
-       "warrior-arms": 0.56
+       "warrior-arms": 0.552
       }
      },
      "50": {
-      "score": 0.557,
+      "score": 0.556,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.685,
@@ -3549,11 +3549,11 @@
        "rogue-combat": 0.426,
        "rogue-subtlety": 0.443,
        "shaman-enhancement": 0.631,
-       "warrior-arms": 0.56
+       "warrior-arms": 0.555
       }
      },
      "60": {
-      "score": 0.529,
+      "score": 0.525,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.612,
@@ -3562,7 +3562,7 @@
        "rogue-combat": 0.318,
        "rogue-subtlety": 0.379,
        "shaman-enhancement": 0.648,
-       "warrior-arms": 0.573
+       "warrior-arms": 0.55
       }
      }
     },
@@ -3843,11 +3843,11 @@
     },
     "outnumbered": {
      "20": {
-      "score": 0.201,
+      "score": 0.199,
       "unit": "2v1 0-1"
      },
      "30": {
-      "score": 0.205,
+      "score": 0.202,
       "unit": "2v1 0-1"
      },
      "40": {
@@ -3859,7 +3859,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.176,
+      "score": 0.175,
       "unit": "2v1 0-1"
      }
     }
@@ -3868,33 +3868,33 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.5492,
+     "score": 0.5458,
      "strength": 0.0,
-     "agility": 0.000526,
-     "stamina": 0.00141,
+     "agility": 0.000528,
+     "stamina": 0.001416,
      "intellect": 3.4e-05,
-     "attack_power": 0.000233,
-     "crit_rating": 0.00033,
-     "hit_rating": 0.000448,
-     "crit_pct": 0.001071,
-     "hit_pct": 0.001457,
+     "attack_power": 0.000234,
+     "crit_rating": 0.000331,
+     "hit_rating": 0.00045,
+     "crit_pct": 0.001075,
+     "hit_pct": 0.001463,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.5678,
+     "score": 0.5641,
      "strength": 0.0,
-     "agility": 0.000381,
-     "stamina": 0.001037,
-     "intellect": 0.000187,
-     "attack_power": 0.000161,
-     "crit_rating": 0.000265,
-     "hit_rating": 0.000289,
-     "crit_pct": 0.001573,
-     "hit_pct": 0.001717,
+     "agility": 0.000382,
+     "stamina": 0.001042,
+     "intellect": 0.000188,
+     "attack_power": 0.000162,
+     "crit_rating": 0.000266,
+     "hit_rating": 0.00029,
+     "crit_pct": 0.001579,
+     "hit_pct": 0.001723,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 0.5566,
+     "score": 0.5562,
      "strength": 0.0,
      "agility": 0.00024,
      "stamina": 0.000951,
@@ -3903,11 +3903,11 @@
      "crit_rating": 0.000153,
      "hit_rating": 0.000162,
      "crit_pct": 0.00132,
-     "hit_pct": 0.001395,
+     "hit_pct": 0.001396,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 0.5384,
+     "score": 0.5381,
      "strength": 0.0,
      "agility": 0.000199,
      "stamina": 0.000739,
@@ -3920,15 +3920,15 @@
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 0.5169,
+     "score": 0.5156,
      "strength": 0.0,
      "agility": 0.000146,
-     "stamina": 0.000837,
+     "stamina": 0.000838,
      "intellect": 7.2e-05,
-     "attack_power": 6e-05,
+     "attack_power": 6.1e-05,
      "crit_rating": 9.6e-05,
      "hit_rating": 0.0,
-     "crit_pct": 0.00134,
+     "crit_pct": 0.001342,
      "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
@@ -3959,7 +3959,7 @@
      },
      {
       "stat": "attack_power",
-      "share": 0.072,
+      "share": 0.073,
       "tier": 3
      }
     ]
@@ -4170,7 +4170,7 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.671,
+      "score": 0.662,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.739,
@@ -4179,11 +4179,11 @@
        "rogue-combat": 0.627,
        "rogue-subtlety": 0.599,
        "shaman-enhancement": 0.751,
-       "warrior-arms": 0.663
+       "warrior-arms": 0.604
       }
      },
      "30": {
-      "score": 0.667,
+      "score": 0.658,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.762,
@@ -4192,11 +4192,11 @@
        "rogue-combat": 0.624,
        "rogue-subtlety": 0.607,
        "shaman-enhancement": 0.716,
-       "warrior-arms": 0.659
+       "warrior-arms": 0.596
       }
      },
      "40": {
-      "score": 0.636,
+      "score": 0.635,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.759,
@@ -4205,7 +4205,7 @@
        "rogue-combat": 0.615,
        "rogue-subtlety": 0.6,
        "shaman-enhancement": 0.698,
-       "warrior-arms": 0.571
+       "warrior-arms": 0.563
       }
      },
      "50": {
@@ -4218,11 +4218,11 @@
        "rogue-combat": 0.562,
        "rogue-subtlety": 0.583,
        "shaman-enhancement": 0.637,
-       "warrior-arms": 0.577
+       "warrior-arms": 0.572
       }
      },
      "60": {
-      "score": 0.565,
+      "score": 0.562,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.665,
@@ -4231,13 +4231,13 @@
        "rogue-combat": 0.5,
        "rogue-subtlety": 0.542,
        "shaman-enhancement": 0.588,
-       "warrior-arms": 0.526
+       "warrior-arms": 0.504
       }
      }
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.643,
+      "score": 0.635,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.711,
@@ -4246,11 +4246,11 @@
        "rogue-combat": 0.565,
        "rogue-subtlety": 0.517,
        "shaman-enhancement": 0.751,
-       "warrior-arms": 0.658
+       "warrior-arms": 0.598
       }
      },
      "30": {
-      "score": 0.636,
+      "score": 0.627,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.735,
@@ -4259,11 +4259,11 @@
        "rogue-combat": 0.549,
        "rogue-subtlety": 0.514,
        "shaman-enhancement": 0.716,
-       "warrior-arms": 0.654
+       "warrior-arms": 0.588
       }
      },
      "40": {
-      "score": 0.594,
+      "score": 0.592,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.724,
@@ -4272,7 +4272,7 @@
        "rogue-combat": 0.513,
        "rogue-subtlety": 0.473,
        "shaman-enhancement": 0.698,
-       "warrior-arms": 0.561
+       "warrior-arms": 0.552
       }
      },
      "50": {
@@ -4285,11 +4285,11 @@
        "rogue-combat": 0.431,
        "rogue-subtlety": 0.449,
        "shaman-enhancement": 0.637,
-       "warrior-arms": 0.566
+       "warrior-arms": 0.561
       }
      },
      "60": {
-      "score": 0.48,
+      "score": 0.477,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.578,
@@ -4298,7 +4298,7 @@
        "rogue-combat": 0.265,
        "rogue-subtlety": 0.321,
        "shaman-enhancement": 0.588,
-       "warrior-arms": 0.509
+       "warrior-arms": 0.485
       }
      }
     },
@@ -4579,11 +4579,11 @@
     },
     "outnumbered": {
      "20": {
-      "score": 0.204,
+      "score": 0.202,
       "unit": "2v1 0-1"
      },
      "30": {
-      "score": 0.205,
+      "score": 0.203,
       "unit": "2v1 0-1"
      },
      "40": {
@@ -4595,7 +4595,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.159,
+      "score": 0.158,
       "unit": "2v1 0-1"
      }
     }
@@ -4905,7 +4905,7 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.668,
+      "score": 0.659,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.737,
@@ -4914,11 +4914,11 @@
        "rogue-combat": 0.624,
        "rogue-subtlety": 0.596,
        "shaman-enhancement": 0.749,
-       "warrior-arms": 0.66
+       "warrior-arms": 0.601
       }
      },
      "30": {
-      "score": 0.657,
+      "score": 0.648,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.753,
@@ -4927,11 +4927,11 @@
        "rogue-combat": 0.612,
        "rogue-subtlety": 0.595,
        "shaman-enhancement": 0.706,
-       "warrior-arms": 0.648
+       "warrior-arms": 0.584
       }
      },
      "40": {
-      "score": 0.615,
+      "score": 0.614,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.742,
@@ -4940,11 +4940,11 @@
        "rogue-combat": 0.593,
        "rogue-subtlety": 0.578,
        "shaman-enhancement": 0.678,
-       "warrior-arms": 0.549
+       "warrior-arms": 0.541
       }
      },
      "50": {
-      "score": 0.584,
+      "score": 0.583,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.712,
@@ -4953,11 +4953,11 @@
        "rogue-combat": 0.533,
        "rogue-subtlety": 0.554,
        "shaman-enhancement": 0.609,
-       "warrior-arms": 0.548
+       "warrior-arms": 0.543
       }
      },
      "60": {
-      "score": 0.54,
+      "score": 0.537,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.642,
@@ -4966,13 +4966,13 @@
        "rogue-combat": 0.475,
        "rogue-subtlety": 0.516,
        "shaman-enhancement": 0.563,
-       "warrior-arms": 0.5
+       "warrior-arms": 0.478
       }
      }
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.64,
+      "score": 0.632,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.708,
@@ -4981,11 +4981,11 @@
        "rogue-combat": 0.562,
        "rogue-subtlety": 0.514,
        "shaman-enhancement": 0.749,
-       "warrior-arms": 0.655
+       "warrior-arms": 0.594
       }
      },
      "30": {
-      "score": 0.625,
+      "score": 0.616,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.726,
@@ -4994,11 +4994,11 @@
        "rogue-combat": 0.537,
        "rogue-subtlety": 0.502,
        "shaman-enhancement": 0.706,
-       "warrior-arms": 0.642
+       "warrior-arms": 0.576
       }
      },
      "40": {
-      "score": 0.572,
+      "score": 0.571,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.706,
@@ -5007,7 +5007,7 @@
        "rogue-combat": 0.49,
        "rogue-subtlety": 0.45,
        "shaman-enhancement": 0.678,
-       "warrior-arms": 0.538
+       "warrior-arms": 0.53
       }
      },
      "50": {
@@ -5020,11 +5020,11 @@
        "rogue-combat": 0.403,
        "rogue-subtlety": 0.42,
        "shaman-enhancement": 0.609,
-       "warrior-arms": 0.537
+       "warrior-arms": 0.532
       }
      },
      "60": {
-      "score": 0.456,
+      "score": 0.453,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.553,
@@ -5033,7 +5033,7 @@
        "rogue-combat": 0.245,
        "rogue-subtlety": 0.299,
        "shaman-enhancement": 0.563,
-       "warrior-arms": 0.483
+       "warrior-arms": 0.46
       }
      }
     },
@@ -5314,15 +5314,15 @@
     },
     "outnumbered": {
      "20": {
-      "score": 0.202,
+      "score": 0.2,
       "unit": "2v1 0-1"
      },
      "30": {
-      "score": 0.198,
+      "score": 0.196,
       "unit": "2v1 0-1"
      },
      "40": {
-      "score": 0.181,
+      "score": 0.18,
       "unit": "2v1 0-1"
      },
      "50": {
@@ -5330,7 +5330,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.146,
+      "score": 0.145,
       "unit": "2v1 0-1"
      }
     }
@@ -5636,7 +5636,7 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.673,
+      "score": 0.665,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.742,
@@ -5645,11 +5645,11 @@
        "rogue-combat": 0.63,
        "rogue-subtlety": 0.602,
        "shaman-enhancement": 0.753,
-       "warrior-arms": 0.665
+       "warrior-arms": 0.607
       }
      },
      "30": {
-      "score": 0.667,
+      "score": 0.658,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.761,
@@ -5658,11 +5658,11 @@
        "rogue-combat": 0.623,
        "rogue-subtlety": 0.606,
        "shaman-enhancement": 0.715,
-       "warrior-arms": 0.659
+       "warrior-arms": 0.595
       }
      },
      "40": {
-      "score": 0.626,
+      "score": 0.625,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.751,
@@ -5671,11 +5671,11 @@
        "rogue-combat": 0.604,
        "rogue-subtlety": 0.589,
        "shaman-enhancement": 0.688,
-       "warrior-arms": 0.56
+       "warrior-arms": 0.552
       }
      },
      "50": {
-      "score": 0.594,
+      "score": 0.593,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.721,
@@ -5684,11 +5684,11 @@
        "rogue-combat": 0.544,
        "rogue-subtlety": 0.564,
        "shaman-enhancement": 0.619,
-       "warrior-arms": 0.559
+       "warrior-arms": 0.554
       }
      },
      "60": {
-      "score": 0.563,
+      "score": 0.56,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.663,
@@ -5697,13 +5697,13 @@
        "rogue-combat": 0.498,
        "rogue-subtlety": 0.539,
        "shaman-enhancement": 0.586,
-       "warrior-arms": 0.524
+       "warrior-arms": 0.502
       }
      }
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.646,
+      "score": 0.637,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.714,
@@ -5712,11 +5712,11 @@
        "rogue-combat": 0.568,
        "rogue-subtlety": 0.52,
        "shaman-enhancement": 0.753,
-       "warrior-arms": 0.661
+       "warrior-arms": 0.601
       }
      },
      "30": {
-      "score": 0.636,
+      "score": 0.627,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.735,
@@ -5725,11 +5725,11 @@
        "rogue-combat": 0.549,
        "rogue-subtlety": 0.514,
        "shaman-enhancement": 0.715,
-       "warrior-arms": 0.653
+       "warrior-arms": 0.588
       }
      },
      "40": {
-      "score": 0.583,
+      "score": 0.582,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.715,
@@ -5738,7 +5738,7 @@
        "rogue-combat": 0.502,
        "rogue-subtlety": 0.462,
        "shaman-enhancement": 0.688,
-       "warrior-arms": 0.55
+       "warrior-arms": 0.541
       }
      },
      "50": {
@@ -5751,11 +5751,11 @@
        "rogue-combat": 0.413,
        "rogue-subtlety": 0.43,
        "shaman-enhancement": 0.619,
-       "warrior-arms": 0.548
+       "warrior-arms": 0.542
       }
      },
      "60": {
-      "score": 0.478,
+      "score": 0.475,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.576,
@@ -5764,7 +5764,7 @@
        "rogue-combat": 0.263,
        "rogue-subtlety": 0.319,
        "shaman-enhancement": 0.586,
-       "warrior-arms": 0.507
+       "warrior-arms": 0.483
       }
      }
     },
@@ -6045,11 +6045,11 @@
     },
     "outnumbered": {
      "20": {
-      "score": 0.206,
+      "score": 0.204,
       "unit": "2v1 0-1"
      },
      "30": {
-      "score": 0.205,
+      "score": 0.203,
       "unit": "2v1 0-1"
      },
      "40": {
@@ -6070,33 +6070,33 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.5568,
+     "score": 0.5534,
      "strength": 0.0,
-     "agility": 0.000506,
-     "stamina": 0.001399,
-     "intellect": 0.000252,
-     "attack_power": 0.000222,
-     "crit_rating": 0.000338,
-     "hit_rating": 0.000459,
-     "crit_pct": 0.001096,
-     "hit_pct": 0.001492,
+     "agility": 0.000508,
+     "stamina": 0.001406,
+     "intellect": 0.000253,
+     "attack_power": 0.000223,
+     "crit_rating": 0.000339,
+     "hit_rating": 0.000461,
+     "crit_pct": 0.001101,
+     "hit_pct": 0.001498,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.5682,
+     "score": 0.5645,
      "strength": 0.0,
-     "agility": 0.000366,
-     "stamina": 0.001037,
+     "agility": 0.000367,
+     "stamina": 0.001042,
      "intellect": 0.000178,
-     "attack_power": 0.000156,
-     "crit_rating": 0.00024,
-     "hit_rating": 0.00029,
-     "crit_pct": 0.001425,
-     "hit_pct": 0.00172,
+     "attack_power": 0.000157,
+     "crit_rating": 0.000241,
+     "hit_rating": 0.000291,
+     "crit_pct": 0.001431,
+     "hit_pct": 0.001726,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 0.547,
+     "score": 0.5466,
      "strength": 0.0,
      "agility": 0.000306,
      "stamina": 0.000956,
@@ -6104,12 +6104,12 @@
      "attack_power": 0.000131,
      "crit_rating": 0.00018,
      "hit_rating": 0.000213,
-     "crit_pct": 0.001547,
+     "crit_pct": 0.001548,
      "hit_pct": 0.001832,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 0.5282,
+     "score": 0.5279,
      "strength": 0.0,
      "agility": 0.000186,
      "stamina": 0.000742,
@@ -6117,12 +6117,12 @@
      "attack_power": 8e-05,
      "crit_rating": 9.9e-05,
      "hit_rating": 0.000124,
-     "crit_pct": 0.001118,
+     "crit_pct": 0.001119,
      "hit_pct": 0.001398,
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 0.474,
+     "score": 0.4727,
      "strength": 0.0,
      "agility": 0.000148,
      "stamina": 0.00082,
@@ -6130,7 +6130,7 @@
      "attack_power": 5.6e-05,
      "crit_rating": 8.2e-05,
      "hit_rating": 0.0,
-     "crit_pct": 0.001153,
+     "crit_pct": 0.001154,
      "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
@@ -6372,7 +6372,7 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.672,
+      "score": 0.664,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.741,
@@ -6381,11 +6381,11 @@
        "rogue-combat": 0.629,
        "rogue-subtlety": 0.601,
        "shaman-enhancement": 0.752,
-       "warrior-arms": 0.664
+       "warrior-arms": 0.606
       }
      },
      "30": {
-      "score": 0.663,
+      "score": 0.654,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.758,
@@ -6394,11 +6394,11 @@
        "rogue-combat": 0.619,
        "rogue-subtlety": 0.602,
        "shaman-enhancement": 0.711,
-       "warrior-arms": 0.654
+       "warrior-arms": 0.591
       }
      },
      "40": {
-      "score": 0.623,
+      "score": 0.622,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.749,
@@ -6407,11 +6407,11 @@
        "rogue-combat": 0.601,
        "rogue-subtlety": 0.586,
        "shaman-enhancement": 0.685,
-       "warrior-arms": 0.557
+       "warrior-arms": 0.549
       }
      },
      "50": {
-      "score": 0.59,
+      "score": 0.589,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.718,
@@ -6420,11 +6420,11 @@
        "rogue-combat": 0.54,
        "rogue-subtlety": 0.561,
        "shaman-enhancement": 0.616,
-       "warrior-arms": 0.555
+       "warrior-arms": 0.55
       }
      },
      "60": {
-      "score": 0.538,
+      "score": 0.535,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.64,
@@ -6433,13 +6433,13 @@
        "rogue-combat": 0.472,
        "rogue-subtlety": 0.514,
        "shaman-enhancement": 0.56,
-       "warrior-arms": 0.498
+       "warrior-arms": 0.476
       }
      }
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.645,
+      "score": 0.636,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.713,
@@ -6448,11 +6448,11 @@
        "rogue-combat": 0.567,
        "rogue-subtlety": 0.519,
        "shaman-enhancement": 0.752,
-       "warrior-arms": 0.66
+       "warrior-arms": 0.6
       }
      },
      "30": {
-      "score": 0.632,
+      "score": 0.622,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.731,
@@ -6461,11 +6461,11 @@
        "rogue-combat": 0.544,
        "rogue-subtlety": 0.509,
        "shaman-enhancement": 0.711,
-       "warrior-arms": 0.649
+       "warrior-arms": 0.583
       }
      },
      "40": {
-      "score": 0.58,
+      "score": 0.579,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.713,
@@ -6474,11 +6474,11 @@
        "rogue-combat": 0.499,
        "rogue-subtlety": 0.459,
        "shaman-enhancement": 0.685,
-       "warrior-arms": 0.546
+       "warrior-arms": 0.538
       }
      },
      "50": {
-      "score": 0.541,
+      "score": 0.54,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.67,
@@ -6487,11 +6487,11 @@
        "rogue-combat": 0.409,
        "rogue-subtlety": 0.427,
        "shaman-enhancement": 0.616,
-       "warrior-arms": 0.544
+       "warrior-arms": 0.539
       }
      },
      "60": {
-      "score": 0.454,
+      "score": 0.451,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.55,
@@ -6500,7 +6500,7 @@
        "rogue-combat": 0.243,
        "rogue-subtlety": 0.297,
        "shaman-enhancement": 0.56,
-       "warrior-arms": 0.481
+       "warrior-arms": 0.458
       }
      }
     },
@@ -6781,11 +6781,11 @@
     },
     "outnumbered": {
      "20": {
-      "score": 0.205,
+      "score": 0.203,
       "unit": "2v1 0-1"
      },
      "30": {
-      "score": 0.202,
+      "score": 0.2,
       "unit": "2v1 0-1"
      },
      "40": {
@@ -6806,33 +6806,33 @@
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.5557,
+     "score": 0.5523,
      "strength": 0.0,
-     "agility": 0.000535,
-     "stamina": 0.0014,
+     "agility": 0.000537,
+     "stamina": 0.001408,
      "intellect": 7.7e-05,
-     "attack_power": 0.000237,
-     "crit_rating": 0.000339,
-     "hit_rating": 0.000457,
-     "crit_pct": 0.001099,
-     "hit_pct": 0.001487,
+     "attack_power": 0.000238,
+     "crit_rating": 0.00034,
+     "hit_rating": 0.000459,
+     "crit_pct": 0.001103,
+     "hit_pct": 0.001493,
      "weapon_dps": 0.0
     },
     "30": {
-     "score": 0.5637,
+     "score": 0.56,
      "strength": 0.0,
-     "agility": 0.000379,
-     "stamina": 0.001041,
+     "agility": 0.000381,
+     "stamina": 0.001046,
      "intellect": 0.000188,
-     "attack_power": 0.000165,
-     "crit_rating": 0.000217,
-     "hit_rating": 0.000287,
-     "crit_pct": 0.00129,
-     "hit_pct": 0.001701,
+     "attack_power": 0.000166,
+     "crit_rating": 0.000218,
+     "hit_rating": 0.000288,
+     "crit_pct": 0.001295,
+     "hit_pct": 0.001707,
      "weapon_dps": 0.0
     },
     "40": {
-     "score": 0.5438,
+     "score": 0.5433,
      "strength": 0.0,
      "agility": 0.000317,
      "stamina": 0.000958,
@@ -6840,12 +6840,12 @@
      "attack_power": 0.000139,
      "crit_rating": 0.000163,
      "hit_rating": 0.000211,
-     "crit_pct": 0.001408,
+     "crit_pct": 0.001409,
      "hit_pct": 0.001818,
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 0.5255,
+     "score": 0.5252,
      "strength": 0.0,
      "agility": 0.000198,
      "stamina": 0.000743,
@@ -6858,7 +6858,7 @@
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 0.4547,
+     "score": 0.4534,
      "strength": 0.0,
      "agility": 0.000197,
      "stamina": 0.000809,
@@ -6866,7 +6866,7 @@
      "attack_power": 7.7e-05,
      "crit_rating": 9.6e-05,
      "hit_rating": 0.0,
-     "crit_pct": 0.001339,
+     "crit_pct": 0.001338,
      "hit_pct": 0.0,
      "weapon_dps": 0.0
     }
@@ -7107,7 +7107,7 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.672,
+      "score": 0.664,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.741,
@@ -7116,11 +7116,11 @@
        "rogue-combat": 0.629,
        "rogue-subtlety": 0.601,
        "shaman-enhancement": 0.752,
-       "warrior-arms": 0.664
+       "warrior-arms": 0.606
       }
      },
      "30": {
-      "score": 0.663,
+      "score": 0.654,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.758,
@@ -7129,11 +7129,11 @@
        "rogue-combat": 0.619,
        "rogue-subtlety": 0.602,
        "shaman-enhancement": 0.711,
-       "warrior-arms": 0.654
+       "warrior-arms": 0.591
       }
      },
      "40": {
-      "score": 0.623,
+      "score": 0.622,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.749,
@@ -7142,11 +7142,11 @@
        "rogue-combat": 0.601,
        "rogue-subtlety": 0.586,
        "shaman-enhancement": 0.685,
-       "warrior-arms": 0.557
+       "warrior-arms": 0.549
       }
      },
      "50": {
-      "score": 0.59,
+      "score": 0.589,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.718,
@@ -7155,11 +7155,11 @@
        "rogue-combat": 0.54,
        "rogue-subtlety": 0.561,
        "shaman-enhancement": 0.616,
-       "warrior-arms": 0.555
+       "warrior-arms": 0.55
       }
      },
      "60": {
-      "score": 0.538,
+      "score": 0.535,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.64,
@@ -7168,13 +7168,13 @@
        "rogue-combat": 0.472,
        "rogue-subtlety": 0.514,
        "shaman-enhancement": 0.56,
-       "warrior-arms": 0.498
+       "warrior-arms": 0.476
       }
      }
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.645,
+      "score": 0.636,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.713,
@@ -7183,11 +7183,11 @@
        "rogue-combat": 0.567,
        "rogue-subtlety": 0.519,
        "shaman-enhancement": 0.752,
-       "warrior-arms": 0.66
+       "warrior-arms": 0.6
       }
      },
      "30": {
-      "score": 0.632,
+      "score": 0.622,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.731,
@@ -7196,11 +7196,11 @@
        "rogue-combat": 0.544,
        "rogue-subtlety": 0.509,
        "shaman-enhancement": 0.711,
-       "warrior-arms": 0.649
+       "warrior-arms": 0.583
       }
      },
      "40": {
-      "score": 0.58,
+      "score": 0.579,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.713,
@@ -7209,11 +7209,11 @@
        "rogue-combat": 0.499,
        "rogue-subtlety": 0.459,
        "shaman-enhancement": 0.685,
-       "warrior-arms": 0.546
+       "warrior-arms": 0.538
       }
      },
      "50": {
-      "score": 0.541,
+      "score": 0.54,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.67,
@@ -7222,11 +7222,11 @@
        "rogue-combat": 0.409,
        "rogue-subtlety": 0.427,
        "shaman-enhancement": 0.616,
-       "warrior-arms": 0.544
+       "warrior-arms": 0.539
       }
      },
      "60": {
-      "score": 0.454,
+      "score": 0.451,
       "unit": "duel 0-1",
       "matchups": {
        "druid-feral": 0.55,
@@ -7235,7 +7235,7 @@
        "rogue-combat": 0.243,
        "rogue-subtlety": 0.297,
        "shaman-enhancement": 0.56,
-       "warrior-arms": 0.481
+       "warrior-arms": 0.458
       }
      }
     },
@@ -7516,11 +7516,11 @@
     },
     "outnumbered": {
      "20": {
-      "score": 0.205,
+      "score": 0.203,
       "unit": "2v1 0-1"
      },
      "30": {
-      "score": 0.202,
+      "score": 0.2,
       "unit": "2v1 0-1"
      },
      "40": {
@@ -8879,11 +8879,11 @@
    "archetype": "deep Beast Mastery",
    "focus": "PvP",
    "standard": "hunter-beast-mastery-pvp",
-   "standard_score": 0.49524677482901786,
+   "standard_score": 0.4939530576856244,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "hunter-beast-mastery-pvp": 0.49524677482901786
+    "hunter-beast-mastery-pvp": 0.4939530576856244
    },
    "qualifying": [
     "hunter-beast-mastery-pvp"
@@ -8907,11 +8907,11 @@
    "archetype": "deep Marksmanship",
    "focus": "PvP",
    "standard": "hunter-marksmanship-pvp",
-   "standard_score": 0.5168590585852029,
+   "standard_score": 0.5155842373926992,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "hunter-marksmanship-pvp": 0.5168590585852029
+    "hunter-marksmanship-pvp": 0.5155842373926992
    },
    "qualifying": [
     "hunter-marksmanship-pvp"
@@ -8971,12 +8971,12 @@
    "archetype": "deep Survival",
    "focus": "PvP",
    "standard": "hunter-survival-pvp",
-   "standard_score": 0.4547335432659293,
+   "standard_score": 0.45343611967605624,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "hunter-survival-pvp-model": 0.47401919502605994,
-    "hunter-survival-pvp": 0.4547335432659293
+    "hunter-survival-pvp-model": 0.47271927056080953,
+    "hunter-survival-pvp": 0.45343611967605624
    },
    "qualifying": [
     "hunter-survival-pvp",
