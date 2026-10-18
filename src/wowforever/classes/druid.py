@@ -51,6 +51,10 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Improved Starfire": (
         EffectRule("cast_time", r"cast time of Starfire by (\d+(?:\.\d+)?) sec", ("Starfire",), sign=-1),
     ),
+    "Eclipse": (
+        EffectRule("cast_time", r"cast time of your next 2 Starfire spells by (\d+(?:\.\d+)?) sec",
+                   ("Starfire", "@eclipse"), sign=-1),
+    ),
     "Nature's Grace": (
         EffectRule("crit_haste_pct", r"reducing your global cooldown by (\d+(?:\.\d+)?)%", ("all",)),
     ),
@@ -138,7 +142,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
 UNMODELED: dict[str, str] = {
     # Balance
     "Insect Swarm": "grants_spell",
-    "Eclipse": "proc: Wrath speeds up Starfire",
     # Feral Combat
     "Feral Swiftness": "mobility: Cat Form speed and dodge",
     "Feral Instinct": "damage: Swipe damage, stealthier Prowl",
@@ -170,6 +173,8 @@ ROTATION = {
     "dots": ("Moonfire", "Insect Swarm"),
     "cooldowns": (),
     "fillers": ("Starfire", "Wrath"),
+    # one Wrath, then two Starfires with Eclipse's cut (#397)
+    "filler_mix": ("Wrath", "Starfire", 2, "eclipse"),
 }
 # Feral builds fight in cat form on the melee engine (#175); the bear tank and Restoration stay
 # unscored (Q3).
@@ -177,10 +182,10 @@ MELEE_TREES = ("Feral Combat",)
 UNSCORED_TREES = ("Restoration",)
 UNSCORED_BUILDS = ("druid-feral-bear",)
 CAVEAT = ("Balance (#166): Moonfire and Insect Swarm kept up, then Starfire or Wrath on the caster engine; "
-          "Nature's Grace counts as an average haste from crits; Eclipse and Omen of Clarity aren't modeled. "
-          "Feral cat (#175): paw swings and a Shred or Claw to Ferocious Bite energy cycle on the melee engine, "
-          "Classic paw damage; Rake and Rip bleeds, Tiger's Fury and powershifting aren't modeled. The bear "
-          "tank and Restoration stay unscored. Base stats are estimates.")
+          "Nature's Grace counts as an average haste from crits; Eclipse weighs a Wrath-then-two-Starfires "
+          "filler; Omen of Clarity isn't modeled. Feral cat (#175): paw swings and a Shred or Claw to Ferocious "
+          "Bite energy cycle on the melee engine, Classic paw damage; Rake and Rip bleeds, Tiger's Fury and "
+          "powershifting aren't modeled. The bear tank and Restoration stay unscored. Base stats are estimates.")
 
 
 # --- class engine (#311): this module is the druid's ClassEngine ------------------------------------

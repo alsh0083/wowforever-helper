@@ -40,7 +40,8 @@ def caster_output(class_name: str, stats: Any, spells: Sequence[SpellRank], cls:
 
     cfg = caster_config(class_name)
     r, out = one()
-    filler = r.spells[-1] if r.spells and r.spells[-1] in class_module(class_name).ROTATION["fillers"] else None
+    fillers = class_module(class_name).ROTATION["fillers"]
+    filler = r.spells[-1] if r.spells and (r.spells[-1] in fillers or " + " in r.spells[-1]) else None
     alternatives = tuple(one((name,))[1] for name in r.spells if name != filler)
     return replace(out, alternatives=alternatives)
 
@@ -128,7 +129,7 @@ def caster_facts(class_name: str, plan: Mapping[str, Sequence[str]], stats: Any,
     r = caster_rotation(class_name, stats, cls.spells, cls, ranks, Target(0, 0))
     return {"kind": "caster", "dots": [s for s in r.spells if s in plan.get("dots", ())],
             "cooldowns": [s for s in r.spells if s in plan.get("cooldowns", ())],
-            "filler": next((s for s in r.spells if s in plan.get("fillers", ())), None)}
+            "filler": next((s for s in r.spells if s in plan.get("fillers", ()) or " + " in s), None)}
 
 
 def hybrid_facts(class_name: str, melee_trees: Sequence[str], melee_facts: Callable[..., dict[str, Any]],

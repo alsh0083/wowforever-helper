@@ -230,6 +230,20 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
         ev, seconds, cost = cast(spell, stats, cls, ranks, target_level, assumptions, conditions, extra)
         if ev > 0 and (best is None or worth(ev, seconds, cost) > worth(*best[:3])):
             best = (ev, seconds, cost, name)
+    mix_schools: tuple[str, ...] = ()
+    mix = plan.get("filler_mix")
+    if mix is not None:
+        # a mixed filler: an opener, then followers cast with its condition on (Eclipse, #397)
+        first, follow, count, condition = mix
+        a, b = learned(first), learned(follow)
+        if a is not None and b is not None:
+            ev1, s1, c1 = cast(a, stats, cls, ranks, target_level, assumptions, *boosts(first))
+            conditions, extra = boosts(follow)
+            ev2, s2, c2 = cast(b, stats, cls, ranks, target_level, assumptions, conditions | {condition}, extra)
+            mixed = (ev1 + count * ev2, s1 + count * s2, c1 + count * c2, f"{first} + {follow}")
+            if mixed[0] > 0 and (best is None or worth(*mixed[:3]) > worth(*best[:3])):
+                best = mixed
+                mix_schools = tuple(dict.fromkeys(a.schools + b.schools))
     if best is not None:
         dps += time_left * best[0] / best[1]
         mana += time_left * best[2] / best[1]
@@ -246,7 +260,8 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
                 extra = ticks * e.values[rank - 1] / 100 * max(0.0, best[1] - GCD_SECONDS) / best[1]
                 dps += extra * best[0]
                 mana += extra * best[2]
-        by_school.append((learned(best[3]).schools, time_left * best[0] / best[1]))
+        filler = learned(best[3])
+        by_school.append((filler.schools if filler is not None else mix_schools, time_left * best[0] / best[1]))
         # a debuff that a crit of the filler puts on the target (Improved Shadow Bolt, #396)
         for talent in cls.talents:
             rank = ranks.get(talent.talent_id, 0)
