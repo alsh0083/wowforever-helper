@@ -267,14 +267,16 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
     if sustained and taken("Presence of Mind") > 0:
         # one instant cast per cooldown: a GCD of filler time for the filler or Pyroblast, whichever gains more (#394)
         pom = best_rank(char.spells, "Presence of Mind", char.level)
-        options = [(filler, filler_mods)]
+        options = [] if filler.channeled else [(filler, filler_mods)]   # a channel can't be made instant
         pyro = best_rank(char.spells, "Pyroblast", char.level) if taken("Pyroblast") > 0 else None
         if pyro is not None:
             options.append((pyro, mods_for(pyro)))
-        if pom is not None and pom.cooldown > 0:
+        if pom is not None and pom.cooldown > 0 and options:
             spell, mods = max(options, key=lambda o: ev_of(*o))
             dps += (ev_of(spell, mods) - filler_dps * GCD_SECONDS) / pom.cooldown
-            mana_per_second += cost(spell, mods) / pom.cooldown
+            # its mana, less the filler's for the GCD it takes
+            mana_per_second += ((cost(spell, mods) - cost(filler, filler_mods) * GCD_SECONDS / cast)
+                                / pom.cooldown)
     if sustained and taken("Combustion") > 0 and "fire" in filler.schools:
         # Fire crit rising per cast until a few crits, once per cooldown (#394)
         combustion = best_rank(char.spells, "Combustion", char.level)

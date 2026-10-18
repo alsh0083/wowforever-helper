@@ -87,7 +87,7 @@ def test_presence_of_mind_on_the_filler():
     cooldown = spell("Presence of Mind").cooldown
     assert with_pom.dps - base.dps == pytest.approx((ev(fb, mods) - filler_dps * GCD_SECONDS) / cooldown)
     assert with_pom.mana_per_second - base.mana_per_second == pytest.approx(
-        fb.mana_cost * (1 + mods.mana_cost_pct / 100) / cooldown)
+        fb.mana_cost * (1 + mods.mana_cost_pct / 100) * (1 - GCD_SECONDS / effective_cast_time(fb, mods)) / cooldown)
 
 
 def test_presence_of_mind_pyroblast():
@@ -104,3 +104,8 @@ def test_presence_of_mind_pyroblast():
 def test_presence_of_mind_needs_a_long_fight():
     assert (run(["Presence of Mind"], "Frostbolt", sustained=False).dps
             == pytest.approx(run([], "Frostbolt", sustained=False).dps))
+
+
+def test_presence_of_mind_skips_a_channeled_filler():
+    assert spell("Arcane Missiles").channeled
+    assert run(["Presence of Mind"], "Arcane Missiles").dps == pytest.approx(run([], "Arcane Missiles").dps)
