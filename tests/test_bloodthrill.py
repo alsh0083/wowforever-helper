@@ -4,7 +4,6 @@ still at most one Overpower per cooldown and as Rage allows."""
 
 import pytest
 
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.warrior_rotation import overpower_rate, warrior_rotation
 from wowforever.effects import attach_effects
@@ -16,8 +15,7 @@ W = class_module("warrior")
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("warrior"), W.TALENT_EFFECTS,
                                W.UNMODELED)
 STATS = MeleeStatTable.load("warrior").at(60)
-BOSS = Target(3, 3731)
-ARMS = next(b for b in load_builds(class_name="warrior") if b.id == "warrior-arms").final_ids(CLS)
+MOB = Target(0, 3731)          # an even-level mob: Rage is left for Overpower (#424)
 BT = CLS.talent_named("Bloodthrill").talent_id
 
 
@@ -36,17 +34,15 @@ def test_extra_activations_by_hand():
     assert overpower_rate(0.5, 0.065, 5.0, 100.0, 5.0) == pytest.approx(0.0325)
 
 
-def test_arms_overpowers_more_with_bloodthrill():
-    assert ARMS[BT] == 5
-    without = {t: r for t, r in ARMS.items() if t != BT}
-    with_bt = dict(warrior_rotation(STATS, CLS.spells, CLS, ARMS, BOSS).parts)
-    no_bt = dict(warrior_rotation(STATS, CLS.spells, CLS, without, BOSS).parts)
-    assert with_bt["Overpower"] > no_bt["Overpower"]
+def test_overpowers_more_with_bloodthrill():
+    # Bloodthrill alone, so Rage is left after Whirlwind (the Arms build spends it all on Mortal Strike, #424)
+    with_bt = dict(warrior_rotation(STATS, CLS.spells, CLS, {BT: 5}, MOB).parts)
+    no_bt = dict(warrior_rotation(STATS, CLS.spells, CLS, {}, MOB).parts)
+    assert with_bt["Overpower"] > no_bt["Overpower"] > 0
 
 
 def test_needs_rend():
     no_rend = [s for s in CLS.spells if s.name != "Rend"]
-    without = {t: r for t, r in ARMS.items() if t != BT}
-    with_bt = dict(warrior_rotation(STATS, no_rend, CLS, ARMS, BOSS).parts)
-    no_bt = dict(warrior_rotation(STATS, no_rend, CLS, without, BOSS).parts)
+    with_bt = dict(warrior_rotation(STATS, no_rend, CLS, {BT: 5}, MOB).parts)
+    no_bt = dict(warrior_rotation(STATS, no_rend, CLS, {}, MOB).parts)
     assert with_bt["Overpower"] == pytest.approx(no_bt["Overpower"])

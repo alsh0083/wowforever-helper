@@ -65,6 +65,11 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Improved Slam": (
         EffectRule("cooldown", r"Slam's cooldown is reduced by (\d+(?:\.\d+)?) sec", ("Slam",), sign=-1),
     ),
+    "Bloodthrill": (
+        # 70425 "an activation of Overpower"; <= 70205 "the use of your Overpower ability"
+        EffectRule("proc_chance", r"a (\d+(?:\.\d+)?)% chance to allow (?:an activation of|the use of your) Overpower",
+                   ("@bloodthrill",)),
+    ),
 }
 
 # Every warrior talent, with why it isn't modeled (trees as reworked in build 1.60.1.70291, #239).
@@ -75,7 +80,6 @@ UNMODELED: dict[str, str] = {
     "Improved Tactical Mastery": "rage: keep 15 more Rage on stance change",
     "Anger Management": "rage: 1 Rage every 3 s in combat",
     "Spearing Strike": "grants_spell",
-    "Bloodthrill": "proc: main-hand hits on Rend targets can enable an ability",
     "Sweeping Strikes": "grants_spell",
     "Weaponmaster": "melee damage: weapon-type bonus, best branch per scenario (weapon_talents.py, #386)",
     "Improved Hamstring": "control: Hamstring has 15% chance to root 5 s",

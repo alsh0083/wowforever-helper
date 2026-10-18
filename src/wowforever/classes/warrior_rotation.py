@@ -23,7 +23,8 @@ from pathlib import Path
 
 from wowforever.calc.ev import GCD_SECONDS
 from wowforever.melee_stats import MeleeStats
-from wowforever.physical import Attacker, Target, land_chance, white_swing, yellow_attack, yellow_crit_chance
+from wowforever.physical import (Attacker, Target, land_chance, white_land_chance, white_swing, yellow_attack,
+                                 yellow_crit_chance)
 from wowforever.scenarios import best_rank
 from wowforever.schema import ClassData, SpellRank
 from wowforever.toml_cache import load_toml
@@ -54,9 +55,11 @@ def execute_casts(income: float, cost: float, gcd: float) -> tuple[float, float]
     return rate, max(0.0, income / rate - cost) if rate > 0 else 0.0
 
 
-def overpower_rate(attacks: float, dodge: float, cooldown: float, rage: float, cost: float) -> float:
-    """Overpowers per second (#391): one per dodged attack, at most one per cooldown, as Rage allows."""
-    rate = min(attacks * dodge, 1 / cooldown if cooldown > 0 else float("inf"))
+def overpower_rate(attacks: float, dodge: float, cooldown: float, rage: float, cost: float,
+                   extra: float = 0.0) -> float:
+    """Overpowers per second (#391): one per dodged attack plus `extra` activations per second (Bloodthrill), at
+    most one per cooldown, as Rage allows."""
+    rate = min(attacks * dodge + extra, 1 / cooldown if cooldown > 0 else float("inf"))
     return min(rate, rage / cost) if cost > 0 else rate
 
 
@@ -167,7 +170,13 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
     if overpower is not None and rage > 0 and not taken("Bloodthirst"):
         # after a dodge, and it can't be dodged (#391); Fury's Berserker Stance can't use it
         dodge = land_chance(attacker, target, can_dodge=False) - land_chance(attacker, target)
-        op_rate = overpower_rate(attacks, dodge, overpower.cooldown, rage, cost(overpower))
+        extra = 0.0
+        rend_kept = learned("Rend")
+        if rend_kept is not None and rend_kept.duration > 0 and pack == 1:
+            # Bloodthrill (#391): landed main-hand swings on the Rend target can enable Overpower
+            extra = (swings * white_land_chance(attacker, target, dual_wield=off is not None)
+                     * total("proc_chance", "@bloodthrill") / 100)
+        op_rate = overpower_rate(attacks, dodge, overpower.cooldown, rage, cost(overpower), extra)
         base = (normalized if overpower.weapon_normalized else avg_weapon + stats.attack_power / 14 * weapon[2])
         op_hit = yellow_attack(base + overpower.weapon_bonus, attacker, target, can_dodge=False,
                                crit_bonus=total("crit_chance", "Overpower"),
