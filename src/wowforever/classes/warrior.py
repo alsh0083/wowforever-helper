@@ -34,6 +34,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Improved Overpower": (
         EffectRule("crit_chance", r"critical strike chance of your Overpower ability by (\d+(?:\.\d+)?)%", ("Overpower",)),
     ),
+    "Improved Rend": (
+        EffectRule("damage_pct", r"Bleed damage done by your Rend ability by (\d+(?:\.\d+)?)%", ("Rend",)),
+    ),
     "Improved Heroic Strike": (
         EffectRule("rage_cost", r"cost of your Heroic Strike ability by (\d+(?:\.\d+)?) Rage", ("Heroic Strike",), sign=-1),
     ),
@@ -65,7 +68,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
 UNMODELED: dict[str, str] = {
     # Arms
     "Deflection": "defensive: +5% parry",
-    "Improved Rend": "melee damage: Rend bleeds 35% harder",
     "Improved Charge": "rage: Charge generates 6 more Rage",
     "Improved Tactical Mastery": "rage: keep 15 more Rage on stance change",
     "Anger Management": "rage: 1 Rage every 3 s in combat",

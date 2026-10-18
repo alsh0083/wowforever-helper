@@ -11,7 +11,7 @@ MaxTargets, Cleave replaces Heroic Strike, and Sweeping Strikes gives its attack
 
 Flurry is an average uptime (#391). With an off hand (Fury, #391) both hands swing and Bloodthirst
 joins the priority. Execute takes all Rage in the last 20% of the fight (#391). Overpower follows
-dodges (#391). Not modeled yet: Slam and Rage from damage taken.
+dodges and Rend is kept up on one target (#391). Not modeled yet: Slam and Rage from damage taken.
 """
 
 from __future__ import annotations
@@ -178,6 +178,17 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
             crits += op_rate * land_chance(attacker, target, can_dodge=False) * yellow_crit_chance(
                 attacker, target, total("crit_chance", "Overpower"))
             used.append("Overpower")
+
+    rend = learned("Rend")
+    if rend is not None and rend.duration > 0 and rage > 0 and pack == 1:
+        # a bleed kept up on one target (#391): it lands or not, armor doesn't touch it
+        rend_rate = min(1 / rend.duration, rage / cost(rend)) if cost(rend) else 1 / rend.duration
+        rend_damage = rend.periodic_damage * land_chance(attacker, target) * (1 + total("damage_pct", "Rend") / 100)
+        rage -= rend_rate * cost(rend)
+        yellow += rend_rate * rend_damage
+        parts.append(("Rend", rend_rate * rend_damage))
+        single, attacks = single + rend_rate * rend_damage, attacks + rend_rate
+        used.append("Rend")
 
     sweeping = learned("Sweeping Strikes") if pack > 1 and taken("Sweeping Strikes") else None
     sweep_rate = 0.0
