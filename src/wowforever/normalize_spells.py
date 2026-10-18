@@ -348,7 +348,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
     ranged_attack_power = _f(rap_row["EffectBasePointsF"]) if rap_row is not None else 0.0
     weapon_hits, weapon_bonus, weapon_normalized, weapon_pct = _weapon_strike(indexes, effects)
 
-    periodic_damage = periodic_coefficient = tick_period = 0.0
+    periodic_damage = periodic_coefficient = tick_period = periodic_per_combo_point = 0.0
     dot = next((e for e in effects
                 if e["Effect"] == str(EFFECT_AURA) and e["EffectAura"] in (str(AURA_DOT), str(AURA_LEECH))), None)
     if dot is not None:
@@ -356,6 +356,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
         ticks = _ticks(duration, tick_period)
         periodic_damage = _f(dot["EffectBasePointsF"]) * ticks
         periodic_coefficient = _f(dot["EffectBonusCoefficient"]) * ticks
+        periodic_per_combo_point = _f(dot["EffectPointsPerResource"]) * ticks
     else:
         trigger = next((e for e in effects
                         if e["Effect"] == str(EFFECT_AURA)
@@ -415,7 +416,8 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
         slow_pct=slow_pct, max_targets=max_targets, channeled=channeled,
         absorb=absorb, root=root, stun=stun, immunity=immunity, incapacitate=incapacitate,
         interrupt_lockout=interrupt_lockout, fear=fear, disorient=disorient,
-        per_combo_point=per_combo_point, combo_points=combo_points, haste_pct=haste_pct,
+        per_combo_point=per_combo_point, periodic_per_combo_point=periodic_per_combo_point,
+        combo_points=combo_points, haste_pct=haste_pct,
         ranged_attack_power=ranged_attack_power,
         weapon_bonus=weapon_bonus, weapon_normalized=weapon_normalized, weapon_pct=weapon_pct,
         weapon_hits=weapon_hits, damage_shield=damage_shield, damage_shield_coefficient=damage_shield_coefficient,

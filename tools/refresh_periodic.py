@@ -4,6 +4,7 @@
 
 Datasets saved before #382 read leech DoTs (aura 53: Devouring Plague, Siphon Life, Drain Life) as 0 damage.
 #388 adds ranged_attack_power (Aspect of the Hawk); spells without it keep no key.
+#397 adds periodic_per_combo_point (Rip).
 Reads data/cache/wago/<build>/, runs normalize_spells.class_spells for every class, and writes only the
 periodic fields (periodic_damage, periodic_coefficient, tick_period) of spells whose values changed into
 data/datasets/<build>.json, printing each change. Everything else in the dataset stays as saved.
@@ -18,7 +19,8 @@ from wowforever.normalize import read_tables
 from wowforever.normalize_spells import class_spells
 
 ROOT = Path(__file__).resolve().parents[1]
-FIELDS = ("periodic_damage", "periodic_coefficient", "tick_period", "ranged_attack_power")
+FIELDS = ("periodic_damage", "periodic_coefficient", "tick_period", "ranged_attack_power",
+          "periodic_per_combo_point")
 
 for build in sys.argv[1:]:
     tables = read_tables(ROOT / "data" / "cache" / "wago" / build)

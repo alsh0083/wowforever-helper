@@ -203,6 +203,7 @@ class SpellRank:
     weapon_pct: float = 0.0            # effect 31 base points, e.g. 150 for 150%; 0 = no percentage effect
     weapon_hits: int = 0               # weapon strikes per use: 1 for a direct effect, or the triggered count
     per_combo_point: float = 0.0       # extra damage per combo point (EffectPointsPerResource of the damage effect)
+    periodic_per_combo_point: float = 0.0   # extra periodic damage per combo point, over the duration (Rip, #397)
     combo_points: int = 0              # combo points awarded (effect 30 with EffectMiscValue_0 == 4)
     damage_shield: float = 0.0         # damage per melee hit taken (aura 15: Thorns), base points (#261)
     damage_shield_coefficient: float = 0.0  # spell power coefficient of that damage
