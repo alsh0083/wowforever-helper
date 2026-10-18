@@ -156,13 +156,15 @@ def dual_wield(stats):
 
 
 def _rotation(stats, spells, cls, ranks, target, pack=1):
-    """The better of the two-hander and dual wield (owner: the best weapons for the scenario, #386, #391), each
-    with its best Weaponmaster branch."""
+    """The better of the two-hander and dual wield for a Fury build (owner: the best weapons for the scenario,
+    #386, #391); other builds keep the two-hander (owner, 2026-10-18). Each with its best Weaponmaster branch."""
     from wowforever.classes.warrior_rotation import warrior_rotation
+    from wowforever.melee_scenarios import main_tree
     from wowforever.weapon_talents import best_weapon
 
+    rows = (stats, dual_wield(stats)) if main_tree(cls, ranks) == "Fury" else (stats,)
     runs = [best_weapon(lambda s, t: warrior_rotation(s, spells, cls, ranks, t, pack=pack), row, target, cls, ranks)[0]
-            for row in (stats, dual_wield(stats))]
+            for row in rows]
     return max(runs, key=lambda r: r.dps)
 
 
