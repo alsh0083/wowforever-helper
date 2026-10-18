@@ -32,7 +32,8 @@ def test_siphon_life_by_hand():
     siphon = best_rank(cls.spells, "Siphon Life", 60)         # rank 4: 410 over 30 s, 0.5 of spell power
     st = talent_stats("warlock", stats, cls, ranks)
     ev, seconds, _ = cast(siphon, st, cls, ranks, 63, Assumptions.load())
-    # (410 + 0.5 x 294) x 1.25 (Demonic Sacrifice 15 + Shadow Mastery 10); a +3 target: 17% miss
+    # (410 + 0.5 x 313 spell power, 70425 gear) x 1.25 (Demonic Sacrifice 15 + Shadow Mastery 10); a +3 target:
+    # 17% miss
     # minus 2.79 hit and Suppression 5 leaves 90.79% hit; periodic damage doesn't crit
-    assert ev == pytest.approx((410 + 0.5 * 294) * 1.25 * 0.9079, rel=1e-3)
+    assert ev == pytest.approx((410 + 0.5 * 313) * 1.25 * 0.9079, rel=1e-3)
     assert seconds == 1.5

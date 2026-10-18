@@ -47,20 +47,25 @@ Mana-short (Restoration PvP 60 at heal mana share 0.05): 251.5 of 885 mana, so t
   by 0.284181: budget 1466.609 at the opening's 5160.832 / 4.0 = 1290.208/s
 """
 
+from pathlib import Path
+
 import pytest
 
 from wowforever.assumptions import Assumptions
 from wowforever.builds import load_builds
 from wowforever.classes.druid import TALENT_EFFECTS, UNMODELED
 from wowforever.effects import attach_effects
-from wowforever.melee_scenarios import stat_table
+from wowforever.melee_scenarios import HybridTable, MeleeStatTable
 from wowforever.pvp import class_pvp
 from wowforever.pvp.class_pvp import heal_capacity, heal_modifiers
 from wowforever.report import ranks_at
 from wowforever.schema import Dataset, latest_dataset_path
+from wowforever.stats import StatTable
 
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("druid"), TALENT_EFFECTS, UNMODELED)
-TABLE = stat_table("druid")
+# the stat rows the hand-worked values below use, frozen (1.60.1.70205 gear; #416 moved the live tables)
+FROZEN = Path(__file__).parent / "fixtures" / "stats-70205"
+TABLE = HybridTable(StatTable.load("druid", FROZEN), MeleeStatTable.load("druid_melee", config_dir=FROZEN))
 BUILDS = {b.id: b for b in load_builds(class_name="druid")}
 CONSUMES = Assumptions.load().with_values(swiftmend_consumes_hot=True)
 
