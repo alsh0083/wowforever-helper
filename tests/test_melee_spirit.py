@@ -25,7 +25,10 @@ def test_tables_carry_spirit():
 
 
 def test_a_table_without_the_column_reads_zero(tmp_path):
-    src = ROOT / "config" / "stats" / "rogue.csv"
-    rows = list(csv.reader(src.open(encoding="utf-8")))
-    (tmp_path / "old.csv").write_text("\n".join(",".join(r[:-1]) for r in rows) + "\n", encoding="utf-8")
+    with open(ROOT / "config" / "stats" / "rogue.csv", encoding="utf-8") as handle:
+        rows = [{k: v for k, v in r.items() if k != "spirit"} for r in csv.DictReader(handle)]
+    with open(tmp_path / "old.csv", "w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
     assert MeleeStatTable.load("old", config_dir=tmp_path).at(60).spirit == 0.0
