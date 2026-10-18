@@ -56,7 +56,8 @@ class MeleeStatTable:
                 return None
             return (round(row[f"{prefix}_min"]), round(row[f"{prefix}_max"]), round(row[f"{prefix}_speed"], 2))
 
-        plain = {f.name: row[f.name] for f in fields(MeleeStats) if f.name not in WEAPON_COLUMNS and f.name != "level"}
+        plain = {f.name: row.get(f.name, 0.0) for f in fields(MeleeStats)
+                 if f.name not in WEAPON_COLUMNS and f.name != "level"}      # older tables have no spirit column
         return MeleeStats(level=level, **plain, **{name: weapon(p) for name, p in WEAPON_COLUMNS.items()})
 
 
