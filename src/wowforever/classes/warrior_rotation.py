@@ -10,8 +10,8 @@ Against a pack (`pack` > 1, AoE pulls #262) Whirlwind and Thunder Clap hit up to
 MaxTargets, Cleave replaces Heroic Strike, and Sweeping Strikes gives its attacks to a second mob.
 
 Flurry is an average uptime (#391). With an off hand (Fury, #391) both hands swing and Bloodthirst
-joins the priority. Execute takes all Rage in the last 20% of the fight (#391). Not modeled yet:
-Overpower procs, Slam, and Rage from damage taken.
+joins the priority. Execute takes all Rage in the last 20% of the fight (#391). Overpower follows
+dodges (#391). Not modeled yet: Slam and Rage from damage taken.
 """
 
 from __future__ import annotations
@@ -51,6 +51,12 @@ def execute_casts(income: float, cost: float, gcd: float) -> tuple[float, float]
     """(Executes per second, extra Rage per Execute) when all Rage goes to Execute, one per global cooldown (#391)."""
     rate = min(1 / gcd, income / cost) if cost > 0 else 1 / gcd
     return rate, max(0.0, income / rate - cost) if rate > 0 else 0.0
+
+
+def overpower_rate(attacks: float, dodge: float, cooldown: float, rage: float, cost: float) -> float:
+    """Overpowers per second (#391): one per dodged attack, at most one per cooldown, as Rage allows."""
+    rate = min(attacks * dodge, 1 / cooldown if cooldown > 0 else float("inf"))
+    return min(rate, rage / cost) if cost > 0 else rate
 
 
 def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
@@ -154,6 +160,24 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
         used.append(name)
         if n > 1 and rate > 0:
             aoe.append(name)
+
+    overpower = learned("Overpower")
+    if overpower is not None and rage > 0 and not taken("Bloodthirst"):
+        # after a dodge, and it can't be dodged (#391); Fury's Berserker Stance can't use it
+        dodge = land_chance(attacker, target, can_dodge=False) - land_chance(attacker, target)
+        op_rate = overpower_rate(attacks, dodge, overpower.cooldown, rage, cost(overpower))
+        base = (normalized if overpower.weapon_normalized else avg_weapon + stats.attack_power / 14 * weapon[2])
+        op_hit = yellow_attack(base + overpower.weapon_bonus, attacker, target, can_dodge=False,
+                               crit_bonus=total("crit_chance", "Overpower"),
+                               damage_pct=weapon_pct + total("damage_pct", "Overpower"), crit_damage_pct=crit_damage)
+        if op_rate > 0:
+            rage -= op_rate * cost(overpower)
+            yellow += op_rate * op_hit
+            parts.append(("Overpower", op_rate * op_hit))
+            single, attacks = single + op_rate * op_hit, attacks + op_rate
+            crits += op_rate * land_chance(attacker, target, can_dodge=False) * yellow_crit_chance(
+                attacker, target, total("crit_chance", "Overpower"))
+            used.append("Overpower")
 
     sweeping = learned("Sweeping Strikes") if pack > 1 and taken("Sweeping Strikes") else None
     sweep_rate = 0.0
