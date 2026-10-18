@@ -1,7 +1,8 @@
 """Fury dual wield, part A (#391): a second warrior stat table whose gear picks two one-handers instead of a
 two-hander (config/melee.toml [warrior_dw], config/stats/warrior_dw.csv)."""
 
-from wowforever.melee_stats import MeleeStatTable, class_config
+from wowforever.melee_scenarios import MeleeStatTable
+from wowforever.melee_stats import class_config
 
 
 def test_config_section_dual_wields():
