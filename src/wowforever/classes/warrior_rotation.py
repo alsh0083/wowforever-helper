@@ -9,8 +9,9 @@ the physical combat table.
 Against a pack (`pack` > 1, AoE pulls #262) Whirlwind and Thunder Clap hit up to their data
 MaxTargets, Cleave replaces Heroic Strike, and Sweeping Strikes gives its attacks to a second mob.
 
-Flurry is an average uptime (#391). Not modeled yet: Fury dual wield and Bloodthirst, Execute below
-20%, Overpower procs, Slam, and Rage from damage taken.
+Flurry is an average uptime (#391). With an off hand (Fury, #391) both hands swing and Bloodthirst
+joins the priority. Not modeled yet: Execute below 20%, Overpower procs, Slam, and Rage from damage
+taken.
 """
 
 from __future__ import annotations
@@ -73,7 +74,8 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
         return WarriorRotation(0.0, 0.0, 0.0, 0.0, ())
     attacker = Attacker(level, stats.attack_power, stats.crit_pct + total("crit_chance", "all"),
                         stats.hit_pct + total("hit_chance", "all"))
-    weapon_pct = total("damage_pct", "@two_hand")
+    off = stats.off_hand                  # dual wield (#391)
+    weapon_pct = total("damage_pct", "@two_hand") if off is None else 0.0
     death_wish = 1.0
     if taken("Death Wish"):
         dw = c["death_wish"]
@@ -85,9 +87,17 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
         crit = yellow_crit_chance(attacker, target)
         haste += total("haste_pct", "@flurry") / 100 * (1 - (1 - crit) ** c["flurry_swings"])
     swings = haste / weapon[2]
-    swing_ev = white_swing(weapon, attacker, target, damage_pct=weapon_pct)
+    swing_ev = white_swing(weapon, attacker, target, damage_pct=weapon_pct, dual_wield=off is not None)
     rage_per_swing = swing_ev * conv + land_chance(attacker, target) * total("proc_chance", "@white_rage") / 100
     income = swings * rage_per_swing
+    oh_swings = oh_ev = 0.0
+    if off is not None:
+        oh_attacker = replace(attacker, hit_pct=attacker.hit_pct + total("hit_chance", "@off_hand"))
+        oh_swings = haste / off[2]
+        oh_ev = white_swing(off, oh_attacker, target, dual_wield=True, off_hand=True,
+                            damage_pct=total("damage_pct", "@off_hand"))
+        income += oh_swings * (oh_ev * conv * (1 + total("resource_pct", "@off_hand") / 100)
+                               + land_chance(oh_attacker, target) * total("proc_chance", "@white_rage") / 100)
     bloodrage = learned("Bloodrage")
     if bloodrage is not None and bloodrage.cooldown > 0:
         income += c["bloodrage_rage"] / bloodrage.cooldown
@@ -95,13 +105,16 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
         income += c["anger_management_rage_per_second"]
 
     avg_weapon = (weapon[0] + weapon[1]) / 2
-    normalized = avg_weapon + stats.attack_power / 14 * c["normalized_speed"]["two_hand"]
+    normalized = avg_weapon + stats.attack_power / 14 * c["normalized_speed"]["two_hand" if off is None
+                                                                             else "one_hand"]
     crit_damage = total("crit_damage_pct", "@ability")
 
     def strike(spell: SpellRank) -> float:
         base = (normalized if spell.weapon_normalized else avg_weapon + stats.attack_power / 14 * weapon[2])
         if not spell.weapon_hits:          # flat damage (Thunder Clap)
             base = (spell.min_damage + spell.max_damage) / 2
+        if spell.name == "Bloodthirst":     # plus a share of attack power (#391)
+            base += c["bloodthirst_ap_pct"] / 100 * stats.attack_power
         return yellow_attack(base + spell.weapon_bonus, attacker, target,
                              crit_bonus=total("crit_chance", spell.name),
                              damage_pct=weapon_pct + total("damage_pct", spell.name),
@@ -114,10 +127,11 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
         return min(pack, spell.max_targets) if spell.max_targets > 0 else 1
 
     rage, yellow, used, crits, aoe, parts = income, 0.0, [], 0.0, [], []
-    single, attacks = 0.0, swings      # one target's ability damage and attacks per second (Sweeping Strikes)
-    names = ("Mortal Strike", "Whirlwind") + (("Thunder Clap",) if pack > 1 else ())
+    single, attacks = 0.0, swings + oh_swings   # one target's ability damage and attacks/s (Sweeping Strikes)
+    names = ("Mortal Strike", "Bloodthirst", "Whirlwind") + (("Thunder Clap",) if pack > 1 else ())
     plan = [s for s in map(learned, names)
-            if s is not None and s.cooldown > 0 and (s.name != "Mortal Strike" or taken(s.name))]
+            if s is not None and s.cooldown > 0
+            and (s.name not in ("Mortal Strike", "Bloodthirst") or taken(s.name))]
     if pack > 1:   # against a pack, the most damage per Rage over all the mobs goes first
         plan.sort(key=lambda s: -strike(s) * targets(s) / cost(s) if cost(s) else float("-inf"))
     for spell in plan:
@@ -154,7 +168,7 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
         used.append(heroic.name)
         if n > 1:
             aoe.append(heroic.name)
-    white = swings * swing_ev
+    white = swings * swing_ev + oh_swings * oh_ev
     if sweep_rate > 0:
         # its attacks also hit a second mob: an average attack each, swings and abilities alike
         extra = sweep_rate * c["sweeping_strikes_attacks"] * (white + single) / attacks
@@ -165,6 +179,8 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
 
     # Deep Wounds: every crit bleeds a share of the weapon's average damage
     crits += (swings - hs_rate) * land_chance(attacker, target) * yellow_crit_chance(attacker, target)
+    if off is not None:
+        crits += oh_swings * land_chance(oh_attacker, target) * yellow_crit_chance(oh_attacker, target)
     bleed = crits * total("dot_pct", "@crit") / 100 * avg_weapon
     yellow += bleed
 

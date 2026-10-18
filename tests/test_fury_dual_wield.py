@@ -51,7 +51,7 @@ def test_dual_wield_specialization_and_furious_precision():
     assert spec.rage_per_second > base.rage_per_second
     aimed = replace(a, hit_pct=a.hit_pct + 10)
     oh_hit = white_swing(DW.off_hand, aimed, BOSS, dual_wield=True, off_hand=True) / DW.off_hand[2]
-    precise = warrior_rotation(DW, CLS.spells, CLS, only("Furious Precision", 5), BOSS)
+    precise = warrior_rotation(DW, CLS.spells, CLS, only("Furious Precision", 3), BOSS)
     assert precise.white_dps - base.white_dps == pytest.approx(oh_hit - oh)
 
 

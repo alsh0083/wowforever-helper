@@ -18,3 +18,6 @@ cleave_targets = 2
 sweeping_strikes_attacks = 5
 # Flurry lasts this many swings after a crit (rank text: "your next 3 swings", #391)
 flurry_swings = 3
+
+# Bloodthirst: base damage plus this % of attack power ($s2: SpellEffect 23894 effect 1, 1.60.1.70425; #391)
+bloodthirst_ap_pct = 45.0

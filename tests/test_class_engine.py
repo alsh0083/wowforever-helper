@@ -56,6 +56,8 @@ def test_output_wraps_the_class_rotation(name, pack):
     stats = ms.stat_table(name).at(60)
     for ranks in builds:
         row = melee_talent_stats(name, stats, cls, ranks) if name == "paladin" else stats   # #383
+        if name == "warrior":
+            row = class_module("warrior").fury_stats(row, cls, ranks)                    # dual wield (#391)
         r, _ = best_weapon(lambda s, t: ADAPTED[name](s, cls.spells, cls, ranks, t, pack=pack),
                            row, BOSS, cls, ranks)        # weapon-type talents (#386)
         out = engine(name).output(stats, cls.spells, cls, ranks, BOSS, pack=pack)
