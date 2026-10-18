@@ -147,6 +147,13 @@ def questing(class_name: str, stats: MeleeStats, spells, cls, ranks, *, melee: b
     armor, mob_dps, eat = _anchor_at(_config()["questing"]["anchors"], level)
     out = engine(class_name).output(stats, spells, cls, ranks, Target(0, armor),
                                     drink_mana_per_second=q.drink_mana_per_second, melee=melee)
+    # the best of the Output and its alternatives (a DoT, shock or Consecration dropped; #390, #399)
+    return max(questing_kills_per_hour(o, q, mob_dps, eat) for o in (out, *out.alternatives))
+
+
+def questing_kills_per_hour(out: Output, q, mob_dps: float, eat: float) -> float:
+    """Kills per hour for one Output: kill time + recovery downtime (eating back the damage taken, unless a pet
+    tanks; drinking back the mana) + travel."""
     kill = q.mob_hp / out.dps
     downtime = 0.0 if out.pet else mob_dps * kill / eat     # a pet tanks while the hunter shoots
     if out.mana_per_second > 0:

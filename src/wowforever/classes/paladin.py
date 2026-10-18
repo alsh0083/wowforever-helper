@@ -77,6 +77,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("seal_refund_pct", r"(\d+(?:\.\d+)?)% chance to return (\d+(?:\.\d+)?)% of the Mana cost",
                    ("Judgement",), combine=lambda m: float(m.group(1)) * float(m.group(2)) / 100),
     ),
+    "Divine Precision": (
+        EffectRule("hit_chance", r"chance to hit with Holy spells by (\d+(?:\.\d+)?)%", ("@holy_spell",)),
+    ),
 }
 
 # Every paladin talent, with why it isn't modeled.
@@ -90,7 +93,6 @@ UNMODELED: dict[str, str] = {
     "Infusion of Light": "proc: crits speed up the next Holy Light",
     "Illumination": "proc: heal crits refund mana",
     "Divine Favor": "grants_spell",
-    "Divine Precision": "damage: +18% Holy spell hit",
     "Holy Shock": "grants_spell",
     "Consecrated Ground": "damage: Holy damage vs enemies entering Consecration",
     "Light's Vigil": "grants_spell",
@@ -141,12 +143,18 @@ def playstyle(cls, ranks) -> str:
 
 
 def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):
+    from dataclasses import replace
     from wowforever.classes.paladin_rotation import paladin_rotation
     from wowforever.melee_scenarios import Output
     from wowforever.classes.engines import melee_talent_stats
 
     r = paladin_rotation(melee_talent_stats("paladin", stats, cls, ranks), spells, cls, ranks, target, pack=pack)
-    return Output(r.dps, r.mana_per_second, r.white_dps, r.aoe)
+    out = Output(r.dps, r.mana_per_second, r.white_dps, r.aoe)
+    if r.consecration_dps > 0:      # Consecration can be dropped when mana is short (#399)
+        out = replace(out, alternatives=(Output(r.dps - r.consecration_dps,
+                                                r.mana_per_second - r.consecration_mana_per_second,
+                                                r.white_dps, r.aoe),))
+    return out
 
 
 def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):

@@ -33,14 +33,14 @@ def rotation(pack):
 
 def test_one_mob_is_unchanged():
     assert rotation(1) == paladin_rotation(STATS, CLS.spells, CLS, RET, MOBS)
-    assert rotation(1).aoe == () and "Consecration" not in rotation(1).abilities
+    assert rotation(1).aoe == () and "Consecration" in rotation(1).abilities      # on one target too (#399)
 
 
 def test_consecration_hits_every_mob():
     one, two, three = rotation(1), rotation(2), rotation(3)
-    per_mob = (two.holy_dps - one.holy_dps) / 2
+    per_mob = two.holy_dps - one.holy_dps          # one target already has it (#399)
     assert per_mob > 0
-    assert three.holy_dps - one.holy_dps == pytest.approx(3 * per_mob)
+    assert three.holy_dps - one.holy_dps == pytest.approx(2 * per_mob)
     assert two.white_dps == one.white_dps
     assert two.aoe == three.aoe == ("Consecration",)
 

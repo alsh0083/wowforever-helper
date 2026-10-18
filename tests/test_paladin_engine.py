@@ -36,7 +36,7 @@ def test_rules_parse():
 
 def test_retribution_uses_seal_judgement_and_holy_strike():
     r = paladin_rotation(STATS, CLS.spells, CLS, RET, BOSS)
-    assert r.abilities == ("Seal of Command", "Judgement", "Holy Strike", "Hammer of Wrath")   # execute (#399)
+    assert r.abilities == ("Seal of Command", "Judgement", "Holy Strike", "Hammer of Wrath", "Consecration")   # #399
     assert r.holy_dps > 0.3 * r.dps
 
 
