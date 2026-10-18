@@ -154,8 +154,9 @@ UNSCORED_TREES = ("Restoration",)
 CAVEAT = ("Elemental (#167): Flame Shock kept up, Lava Burst and Chain Lightning on cooldown, Lightning Bolt in "
           "between on the caster engine; Lava Burst gets its +20% while Flame Shock is up. Enhancement (#175): "
           "two-hander swings with Windfury (Classic chance and attack power) and Flurry, Stormstrike and Earth "
-          "Shock on cooldown on the melee engine; Stormstrike's debuff, Maelstrom Weapon, totems and "
-          "Enhancement's mana aren't modeled. Restoration stays unscored. Base stats are estimates.")
+          "Shock on cooldown on the melee engine; Stormstrike's bonus counts on the share of Earth Shocks after "
+          "one; Maelstrom Weapon, totems and Enhancement's mana aren't modeled. Restoration stays unscored. "
+          "Base stats are estimates.")
 
 
 # --- class engine (#311): this module is the shaman's ClassEngine ------------------------------------

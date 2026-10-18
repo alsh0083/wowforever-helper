@@ -8,7 +8,8 @@ stat table carries no spell power).
 Against a pack (`pack` > 1, AoE pulls #262) Fire Nova goes out on cooldown and hits every mob, rolled
 like Earth Shock.
 
-Not modeled yet: Stormstrike's Nature-damage debuff, Maelstrom Weapon's cheaper Lightning Bolt,
+Stormstrike's bonus on the next Earth Shock counts for the share of shocks after one (#398).
+Not modeled yet: Maelstrom Weapon's cheaper Lightning Bolt,
 Lightning Shield orbs, totems, and mana (shocks are the main cost).
 """
 
@@ -94,7 +95,12 @@ def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: Cl
     if shock is not None and shock.cooldown > 0:
         avg = (((shock.min_damage + shock.max_damage) / 2 + shock.coefficient * spell_power)
                * (1 + total("damage_pct", "Earth Shock") / 100))
-        spell_dps = hit * avg * (1 + spell_crit * 0.5) / max(shock.cooldown + total("cooldown", "Earth Shock"), 1.5)
+        shock_period = max(shock.cooldown + total("cooldown", "Earth Shock"), 1.5)
+        spell_dps = hit * avg * (1 + spell_crit * 0.5) / shock_period
+        if storm is not None and taken("Stormstrike") and storm.cooldown > 0:
+            # Stormstrike's bonus on the next shock within its window: the share of shocks after one (#398)
+            share = min(1.0, shock_period / storm.cooldown) if shock_period <= c["stormstrike"]["seconds"] else 0.0
+            spell_dps *= 1 + c["stormstrike"]["bonus_pct"] / 100 * share
     nova = best_rank(spells, "Fire Nova", level) if pack > 1 else None
     aoe: tuple[str, ...] = ()
     if nova is not None and nova.min_damage > 0:
