@@ -60,6 +60,10 @@ def test_output_wraps_the_class_rotation(name, pack):
         r = max((best_weapon(lambda s, t: ADAPTED[name](s, cls.spells, cls, ranks, t, pack=pack),
                              w, BOSS, cls, ranks)[0] for w in rows),          # weapon-type talents (#386)
                 key=lambda rot: rot.dps)
+        if name == "rogue":   # or a dagger and Backstab, whichever scores higher (#392)
+            stab = best_weapon(lambda s, t: ADAPTED[name](s, cls.spells, cls, ranks, t, pack=pack, backstab=True),
+                               class_module("rogue").dagger(stats), BOSS, cls, ranks, only="dagger")[0]
+            r = max(r, stab, key=lambda rot: rot.dps)
         out = engine(name).output(stats, cls.spells, cls, ranks, BOSS, pack=pack)
         if name == "paladin":   # Retribution tracks mana and swings white once dry (#399)
             assert out == ms.Output(r.dps, r.mana_per_second, r.white_dps, r.aoe)
