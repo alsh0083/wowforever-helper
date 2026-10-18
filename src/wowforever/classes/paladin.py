@@ -89,7 +89,7 @@ UNMODELED: dict[str, str] = {
     "Spiritual Focus": "utility: heals resist pushback",
     "Unyielding Faith": "defensive: shorter Fear and Disorient",
     "Voice of Truth": "defensive: immune to Silence and Interrupt for 6 s",
-    "Purifying Power": "resource: cheaper Cleanse, shorter Exorcism and Holy Wrath cooldowns",
+    "Purifying Power": "resource: cheaper Cleanse, shorter Exorcism/Holy Wrath cooldowns; neither is cast (#399)",
     "Infusion of Light": "proc: crits speed up the next Holy Light",
     "Illumination": "proc: heal crits refund mana",
     "Divine Favor": "grants_spell",
@@ -106,7 +106,7 @@ UNMODELED: dict[str, str] = {
     "Shield Specialization": "defensive: stronger shield blocks that restore mana",
     "Sacred Duty": "defensive: Stamina, shorter Divine Shield cooldowns",
     "Swift Judgement": "grants_spell",
-    "One-Handed Weapon Specialization": "damage: +10% one-handed damage",
+    "One-Handed Weapon Specialization": "damage: +10% one-handed damage; Retribution swings a two-hander (#399)",
     "Improved Hammer of Justice": "control: Hammer of Justice cooldown -15 s",
     "Templar's Bulwark": "grants_spell",
     "Reckoning": "proc: extra attacks after blocking",
@@ -119,7 +119,7 @@ UNMODELED: dict[str, str] = {
     "Pursuit of Justice": "mobility: +15% movement speed",
     "Eye for an Eye": "damage: reflects crit damage",
     "Repentance": "grants_spell",
-    "Instrument of Law": "damage: faster Hammer of Wrath, less threat",
+    "Instrument of Law": "damage: faster Hammer of Wrath cast, less threat; its cast time isn't charged (#399)",
 }
 
 # Paladin skill lines in SkillLineAbility: Holy, Protection, Retribution.
@@ -131,8 +131,9 @@ UNSCORED_TREES = ("Holy", "Protection")
 CAVEAT = ("Retribution model (#175): a two-hander's white swings with Seal of Command procs, Judgement and Holy "
           "Strike on cooldown; Holy damage ignores armor. Seal of Command's proc rate and Judgement of "
           "Command's damage are Classic values. Hammer of Wrath counts for the execute phase with Champion of "
-          "the Light's spell power; Consecration against one target, Exorcism, Vindication and mana aren't "
-          "modeled; base stats are estimates. Holy and Protection stay unscored.")
+          "the Light's spell power; Consecration stays down (dropped when mana is short). Retribution spends mana "
+          "and swings white once dry. Exorcism and Vindication aren't modeled; base stats are estimates. Holy and "
+          "Protection stay unscored.")
 
 
 # --- class engine (#309): this module is the paladin's ClassEngine ------------------------------------
