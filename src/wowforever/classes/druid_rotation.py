@@ -6,8 +6,9 @@ Strikes adds attack power by level. The builder is Shred when Shredding Attacks 
 otherwise Claw; Rend and Tear counts as always on (Rake keeps the target bleeding).
 
 Rip is kept up when it beats Ferocious Bite (#397). Rake takes a builder's place once per its
-duration when it gains (#397). Not modeled yet: Tiger's Fury, Berserk's cleave, Omen of Clarity,
-powershifting and Shifting Power.
+duration when it gains (#397). Blood Frenzy's extra combo point on builder crits and Berserk's builder crit
+(averaged over a guessed cooldown) count (#397). Not modeled yet: Tiger's Fury, Berserk's cleave, Omen of
+Clarity, powershifting and Shifting Power.
 """
 
 from __future__ import annotations
@@ -17,7 +18,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from wowforever.melee_stats import MeleeStats
-from wowforever.physical import Attacker, Target, land_chance, white_swing, yellow_attack
+from wowforever.physical import Attacker, Target, land_chance, white_swing, yellow_attack, yellow_crit_chance
 from wowforever.scenarios import _anchor_at, best_rank
 from wowforever.schema import ClassData, SpellRank
 from wowforever.toml_cache import load_toml
@@ -31,6 +32,8 @@ class CatRotation:
     white_dps: float
     yellow_dps: float
     builder: str
+    builder_ev: float = 0.0                 # one builder's expected damage (#397)
+    combo_points_per_builder: float = 0.0
 
 
 def finisher_dps(energy: float, builders: float, builder_cost: float, builder_ev: float, bite_cost: float,
@@ -89,10 +92,22 @@ def cat_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
     avg = (lo + hi) / 2 + ap / 14 * paws[2]
     crit_damage = total("crit_damage_pct", "@ability")
     base = (avg * (builder.weapon_pct / 100 if builder.weapon_pct else 1)) + builder.weapon_bonus
-    builder_ev = yellow_attack(base, attacker, target, damage_pct=bleeding + total("damage_pct", builder.name),
-                               crit_damage_pct=crit_damage)
+    share = 0.0
+    if taken("Berserk"):
+        # Berserk (#397): +100% builder crit for its duration, averaged over its (guessed) cooldown
+        share = c["berserk"]["duration"] / c["berserk"]["cooldown"]
+    land = land_chance(attacker, target)
+    extra_cp = total("proc_chance", "@builder_crit") / 100       # Blood Frenzy (#397)
+    builder_ev = cp_per_builder = 0.0
+    for weight, bonus in ((1 - share, 0.0), (share, 100.0)):
+        if weight <= 0:
+            continue
+        builder_ev += weight * yellow_attack(base, attacker, target, crit_bonus=bonus,
+                                             damage_pct=bleeding + total("damage_pct", builder.name),
+                                             crit_damage_pct=crit_damage)
+        cp_per_builder += weight * land * (builder.combo_points
+                                           + yellow_crit_chance(attacker, target, bonus) * extra_cp)
     cost = max(0.0, builder.energy_cost + total("energy_cost", builder.name))
-    cp_per_builder = builder.combo_points * land_chance(attacker, target)
 
     k = c["finisher_combo_points"]
     bite = best_rank(spells, "Ferocious Bite", level)
@@ -121,4 +136,5 @@ def cat_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
                        + rake.periodic_damage * land_chance(attacker, target) * (1 + pct / 100))
         rake_cost = max(0.0, rake.energy_cost + total("energy_cost", "Rake"))
         yellow += rake_gain(rake_damage, builder_ev, cost, rake_cost, yellow / energy, rake.duration)
-    return CatRotation(dps=white + yellow, white_dps=white, yellow_dps=yellow, builder=builder.name)
+    return CatRotation(dps=white + yellow, white_dps=white, yellow_dps=yellow, builder=builder.name,
+                       builder_ev=builder_ev, combo_points_per_builder=cp_per_builder)

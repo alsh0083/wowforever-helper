@@ -136,6 +136,11 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Living Spirit": (
         EffectRule("stat_pct", r"Increases your Spirit by (\d+(?:\.\d+)?)%", ("spirit",)),
     ),
+    "Blood Frenzy": (
+        # the Cat Form part (#397); the Bear Form Rage part stays out (bear isn't scored)
+        EffectRule("proc_chance", r"Combo Points have a (\d+(?:\.\d+)?)% chance to add an additional Combo Point",
+                   ("@builder_crit",)),
+    ),
 }
 
 # Every druid talent, with why it isn't modeled.
@@ -150,10 +155,9 @@ UNMODELED: dict[str, str] = {
     "Feral Charge": "grants_spell",
     "Shifting Power": "grants_spell",
     "Primal Bite": "grants_spell",
-    "Blood Frenzy": "resource: Rage on bear crits",
     "Improved Shifting Power": "resource: Shifting Power cooldown -8 s",
     "Natural Reaction": "defensive: +5% dodge, Rage on dodge",
-    "Berserk": "damage: Primal Bite cleaves and crits more",
+    "Berserk": "damage: builder crit averaged in druid_rotation (#397); Primal Bite's cleave not modeled",
     # Restoration
     "Furor": "resource: Rage or Energy on shapeshift",
     "Subtlety": "threat: less threat from Nature and Arcane spells",
