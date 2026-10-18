@@ -159,7 +159,7 @@ UNMODELED: dict[str, str] = {
     "Arcane Subtlety": "resistance reduction + threat, v1",
     "Improved Channeling": "utility: no interruption from damage; the model has no pushback (#394)",
     "Magic Absorption": "defensive: resistances / mana restore",
-    "Missile Barrage": "proc/stack mechanic, v1",
+    "Missile Barrage": "handled in mage_rotation",
     "Presence of Mind": "handled in mage_rotation",
     "Wand Specialization": "wand-only weapon damage",
     "Arctic Reach": "utility: range",

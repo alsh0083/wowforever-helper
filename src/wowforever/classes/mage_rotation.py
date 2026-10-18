@@ -69,6 +69,19 @@ def combustion_extra_crits(p: float, hit: float, step: float, limit: int) -> flo
     return extra
 
 
+def missile_barrage_rule(cls, rank: int) -> dict[str, float]:
+    """Missile Barrage's proc chance (%) at `rank` per cast of each spell, and per hit for "Arcane Missiles" (#394)."""
+    import re
+
+    text = cls.talent_named("Missile Barrage").rank_text[rank - 1]
+    blast, missile, other = (float(x) for x in re.search(
+        r"Arcane Blast spell a (\d+(?:\.\d+)?)% chance, your Arcane Missile hits a (\d+(?:\.\d+)?)% chance, "
+        r"and your Arcane Wrath, Fireball, Frostbolt, and Frostfire Bolt spells a (\d+(?:\.\d+)?)% chance",
+        text).groups())
+    return {"Arcane Blast": blast, "Arcane Missiles": missile, "Arcane Wrath": other, "Fireball": other,
+            "Frostbolt": other, "Frostfire Bolt": other}
+
+
 def frozen_hit_gain(char: Character, filler: SpellRank, *, target_level: int,
                     assumptions: Assumptions) -> float:
     """Extra damage of one hit on a frozen target (Frost Nova, #97) over spending that time on
@@ -176,6 +189,13 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
     cast = effective_cast_time(filler, filler_mods)
     if filler.channeled:
         cast = max(cast, filler.duration)
+    barrage = (missile_barrage_rule(char.cls, taken("Missile Barrage")) if taken("Missile Barrage") > 0
+               else {})
+    barrage_share = 0.0     # Arcane Missiles filler: the share of its casts that are barrages (#394)
+    if filler.name == "Arcane Missiles" and barrage and filler.tick_period > 0:
+        missiles = round(filler.duration / filler.tick_period)
+        barrage_share = 1 - (1 - hit * barrage["Arcane Missiles"] / 100.0) ** missiles
+        cast *= 1 - barrage_share / 2
     filler_ev = ev_of(filler, filler_mods)
 
     # Frostbite (#96): on normal mobs a landed Chill can freeze the target for FREEZE_SECONDS, and
@@ -228,6 +248,14 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
             add(frozen, (60.0 / cast) * (chance + freeze_procs), GCD_SECONDS,
                 mods_for(lance, conditions | {"frozen"}))
 
+    if filler.name != "Arcane Missiles" and barrage.get(filler.name, 0.0) > 0:
+        # a landed filler cast can proc a free, half-length Arcane Missiles: woven in when it gains (#394)
+        missiles = best_rank(char.spells, "Arcane Missiles", char.level)
+        if missiles is not None:
+            free, missile_mods = replace(missiles, mana_cost=0), mods_for(missiles)
+            if ev_of(free, missile_mods) > filler_dps * missiles.duration / 2:
+                add(free, (60.0 / cast) * hit * barrage[filler.name] / 100.0, missiles.duration / 2, missile_mods)
+
     blast = best_rank(char.spells, "Arcane Blast", char.level) if blast_stacks > 0 else None
     stacks = arcane_blast_stacks(char.cls) if blast is not None else None
     window_bonus = 0.0     # filler DPS gained inside the buff windows, per second of the minute
@@ -258,7 +286,7 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
         return cost
 
     dps = filler_dps + window_bonus * (1.0 - busy / 60.0)
-    mana_per_second = cost(filler, filler_mods) / cast * (1.0 - busy / 60.0)
+    mana_per_second = cost(filler, filler_mods) * (1 - barrage_share) / cast * (1.0 - busy / 60.0)
     for spell, n, cast_w, mods in weaves:
         gain = ev_of(spell, mods) - filler_dps * cast_w
         dps += n * gain / 60.0
