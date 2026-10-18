@@ -10,8 +10,8 @@ Against a pack (`pack` > 1, AoE pulls #262) Whirlwind and Thunder Clap hit up to
 MaxTargets, Cleave replaces Heroic Strike, and Sweeping Strikes gives its attacks to a second mob.
 
 Flurry is an average uptime (#391). With an off hand (Fury, #391) both hands swing and Bloodthirst
-joins the priority. Not modeled yet: Execute below 20%, Overpower procs, Slam, and Rage from damage
-taken.
+joins the priority. Execute takes all Rage in the last 20% of the fight (#391). Not modeled yet:
+Overpower procs, Slam, and Rage from damage taken.
 """
 
 from __future__ import annotations
@@ -20,6 +20,7 @@ from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, replace
 from pathlib import Path
 
+from wowforever.calc.ev import GCD_SECONDS
 from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Attacker, Target, land_chance, white_swing, yellow_attack, yellow_crit_chance
 from wowforever.scenarios import best_rank
@@ -44,6 +45,12 @@ def rage_conversion(level: int) -> float:
     """Classic damage-to-Rage divisor at `level`."""
     k = load_toml(CONFIG)["rage_conversion"]
     return k["a"] * level ** 2 + k["b"] * level + k["k"]
+
+
+def execute_casts(income: float, cost: float, gcd: float) -> tuple[float, float]:
+    """(Executes per second, extra Rage per Execute) when all Rage goes to Execute, one per global cooldown (#391)."""
+    rate = min(1 / gcd, income / cost) if cost > 0 else 1 / gcd
+    return rate, max(0.0, income / rate - cost) if rate > 0 else 0.0
 
 
 def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
@@ -184,6 +191,18 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
     bleed = crits * total("dot_pct", "@crit") / 100 * avg_weapon
     yellow += bleed
 
-    return WarriorRotation(dps=(white + yellow) * death_wish, white_dps=white * death_wish,
-                           yellow_dps=yellow * death_wish, rage_per_second=income, abilities=tuple(used),
+    dps = white + yellow
+    execute = learned("Execute")
+    if execute is not None and pack == 1:      # single target: a pack dies unevenly
+        # the execute phase: every point of Rage into Execute, white swings unchanged (#391)
+        ex = c["execute"]
+        rate, extra = execute_casts(income, cost(execute), GCD_SECONDS)
+        hit = yellow_attack(ex["base"] + ex["per_rage"] * extra, attacker, target,
+                            crit_bonus=total("crit_chance", "Execute"),
+                            damage_pct=weapon_pct + total("damage_pct", "Execute"), crit_damage_pct=crit_damage)
+        share = ex["health_pct"] / 100
+        dps = (1 - share) * dps + share * (white + rate * hit)
+        used.append("Execute")
+    return WarriorRotation(dps=dps * death_wish, white_dps=white * death_wish,
+                           yellow_dps=(dps - white) * death_wish, rage_per_second=income, abilities=tuple(used),
                            aoe=tuple(aoe), parts=tuple(parts))

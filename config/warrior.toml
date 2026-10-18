@@ -21,3 +21,7 @@ flurry_swings = 3
 
 # Bloodthirst: base damage plus this % of attack power ($s2: SpellEffect 23894 effect 1, 1.60.1.70425; #391)
 bloodthirst_ap_pct = 45.0
+
+# Execute (#391): usable at or below 20% health; 600 damage (SpellEffect 20662 effect 0) plus 10 per extra Rage
+# (description "$*10"); counted for that share of the fight with all Rage going to it
+execute = { health_pct = 20.0, base = 600.0, per_rage = 10.0 }

@@ -120,9 +120,9 @@ UNSCORED_TREES = ("Protection",)
 CAVEAT = ("Warrior model (#162): a two-hander's white swings build Rage for Mortal Strike, Whirlwind and Heroic "
           "Strike, against Classic combat-table rules; Flurry is an average uptime and Weaponmaster takes the "
           "best weapon for each fight. each build takes the better of its two-hander and dual wield (the gear "
-          "table's best one-handers), and Fury uses Bloodthirst; Execute, Overpower and Slam aren't modeled "
-          "yet, and base stats are estimates. Protection stays unscored. PvP uses the mage's duel model from "
-          "the warrior's side.")
+          "table's best one-handers), and Fury uses Bloodthirst; Execute takes all Rage in the last 20% of the "
+          "fight; Overpower and Slam aren't modeled yet, and base stats are estimates. Protection stays "
+          "unscored. PvP uses the mage's duel model from the warrior's side.")
 
 # Icons for talents wowforevertalent.com doesn't show, by the client's SpellMisc.SpellIconFileDataID, named
 # through wago.tools' documented file-info API (/api/info/{fdid}). Empty since build 1.60.1.70291: the four
