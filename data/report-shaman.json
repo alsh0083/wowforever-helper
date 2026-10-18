@@ -1413,10 +1413,10 @@
       }
      },
      "60": {
-      "score": 0.471,
+      "score": 0.468,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.556,
+       "druid-balance": 0.538,
        "hunter-marksmanship": 0.416,
        "mage-frost": 0.449,
        "priest-discipline": 0.505,
@@ -1648,7 +1648,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.132,
+      "score": 0.131,
       "unit": "2v1 0-1"
      }
     }
@@ -2134,10 +2134,10 @@
       }
      },
      "60": {
-      "score": 0.471,
+      "score": 0.468,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.556,
+       "druid-balance": 0.538,
        "hunter-marksmanship": 0.416,
        "mage-frost": 0.449,
        "priest-discipline": 0.505,
@@ -2369,7 +2369,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.132,
+      "score": 0.131,
       "unit": "2v1 0-1"
      }
     }
@@ -2424,14 +2424,14 @@
      "hit_pct": 0.002564
     },
     "60": {
-     "score": 0.4288,
-     "stamina": 0.000938,
+     "score": 0.4283,
+     "stamina": 0.000939,
      "intellect": 3.4e-05,
      "spirit": 0.0,
      "spell_power": 0.000272,
      "crit_rating": 9e-05,
      "hit_rating": 0.000122,
-     "crit_pct": 0.001262,
+     "crit_pct": 0.001263,
      "hit_pct": 0.001708
     }
    },
@@ -2857,10 +2857,10 @@
       }
      },
      "60": {
-      "score": 0.456,
+      "score": 0.453,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.541,
+       "druid-balance": 0.524,
        "hunter-marksmanship": 0.398,
        "mage-frost": 0.434,
        "priest-discipline": 0.491,
@@ -3205,7 +3205,7 @@
    "about": [
     "33 points in Enhancement, with 10 in Restoration and 8 in Elemental. Built for PvE. On this order the key talents arrive as follows: Stormstrike at 37, Shamanistic Focus at 38, Spirit Weapons at 39 and Rage of the Farseer at 45.",
     "A melee shaman: auto-attacks and weapon procs carry it, with shocks and Stormstrike on top. Damage comes from auto-attacks 47%, abilities 31% and spells and procs 22%.",
-    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and duels against casters (97%), and weakest at survivability (42%).",
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and surviving stealth openers (97%), and weakest at survivability (42%).",
     "In a dungeon group it gains most from Sunder Armor, Strength of Earth Totem and Blessing of Might: about 32% more damage at 60 than unbuffed, on average across groups.",
     "Gear priority per point, relative to the best stat: at level 30, weapon DPS 1, crit rating 0.14, strength 0.14 and hit rating 0.11; at level 60, weapon DPS 1, crit rating 0.14, strength 0.14 and agility 0.1. The Recommended gear panel ranks items by these weights at your level."
    ]
@@ -3572,7 +3572,7 @@
       "score": 0.463,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.594,
+       "druid-balance": 0.595,
        "hunter-marksmanship": 0.404,
        "mage-frost": 0.191,
        "priest-discipline": 0.493,
@@ -3597,10 +3597,10 @@
       }
      },
      "60": {
-      "score": 0.469,
+      "score": 0.466,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.554,
+       "druid-balance": 0.537,
        "hunter-marksmanship": 0.411,
        "mage-frost": 0.447,
        "priest-discipline": 0.504,
@@ -3832,7 +3832,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.121,
+      "score": 0.12,
       "unit": "2v1 0-1"
      }
     }
@@ -3893,7 +3893,7 @@
      "weapon_dps": 0.001823
     },
     "60": {
-     "score": 0.4174,
+     "score": 0.417,
      "strength": 0.000209,
      "agility": 0.000136,
      "stamina": 0.000638,
@@ -5388,11 +5388,11 @@
    "archetype": "deep Elemental",
    "focus": "PvP",
    "standard": "shaman-elemental",
-   "standard_score": 0.42876216603287576,
+   "standard_score": 0.4283290473803352,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "shaman-elemental": 0.42876216603287576
+    "shaman-elemental": 0.4283290473803352
    },
    "qualifying": [
     "shaman-elemental"
@@ -5470,7 +5470,7 @@
    "archetype": "deep Enhancement",
    "focus": "PvP",
    "standard": "shaman-enhancement",
-   "standard_score": 0.41741851176280453,
+   "standard_score": 0.41698514751908816,
    "model_pick": {
     "Rage of the Farseer": 1,
     "Improved Stormstrike": 2,
@@ -5491,9 +5491,9 @@
     "Call of Flame": 3,
     "Concussion": 5
    },
-   "model_pick_score": 0.45204699481562277,
+   "model_pick_score": 0.4516137688264462,
    "candidates": {
-    "shaman-enhancement": 0.41741851176280453
+    "shaman-enhancement": 0.41698514751908816
    },
    "qualifying": [
     "shaman-enhancement"

@@ -1189,22 +1189,21 @@
       "solo": 183.5
      },
      "60": {
-      "score": 358.3,
-      "low": 342.1,
-      "high": 376.4,
-      "unbuffed": 324.1,
+      "score": 389.9,
+      "low": 373.4,
+      "high": 410.8,
+      "unbuffed": 360.9,
       "top_buffs": [
-       "mark_of_the_wild",
-       "blessing_of_kings",
-       "moonkin_aura"
+       "moonkin_aura",
+       "curse_of_the_elements"
       ],
       "unit": "dps",
-      "solo": 324.1
+      "solo": 360.9
      }
     },
     "raid": {
      "60": {
-      "score": 250.5,
+      "score": 277.7,
       "unit": "dps"
      }
     },
@@ -1294,16 +1293,16 @@
       }
      },
      "60": {
-      "score": 0.75,
+      "score": 0.758,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.804,
-       "hunter-survival": 0.704,
-       "paladin-retribution": 0.78,
-       "rogue-combat": 0.718,
-       "rogue-subtlety": 0.754,
-       "shaman-enhancement": 0.777,
-       "warrior-arms": 0.711
+       "druid-feral": 0.81,
+       "hunter-survival": 0.712,
+       "paladin-retribution": 0.787,
+       "rogue-combat": 0.728,
+       "rogue-subtlety": 0.764,
+       "shaman-enhancement": 0.785,
+       "warrior-arms": 0.722
       }
      }
     },
@@ -1361,16 +1360,16 @@
       }
      },
      "60": {
-      "score": 0.736,
+      "score": 0.745,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.791,
-       "hunter-survival": 0.697,
-       "paladin-retribution": 0.78,
-       "rogue-combat": 0.681,
-       "rogue-subtlety": 0.722,
-       "shaman-enhancement": 0.777,
-       "warrior-arms": 0.706
+       "druid-feral": 0.797,
+       "hunter-survival": 0.705,
+       "paladin-retribution": 0.787,
+       "rogue-combat": 0.692,
+       "rogue-subtlety": 0.732,
+       "shaman-enhancement": 0.785,
+       "warrior-arms": 0.717
       }
      }
     },
@@ -1379,7 +1378,7 @@
       "score": 0.52,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.626,
+       "druid-balance": 0.627,
        "hunter-marksmanship": 0.573,
        "mage-frost": 0.077,
        "priest-discipline": 0.572,
@@ -1432,17 +1431,17 @@
       }
      },
      "60": {
-      "score": 0.637,
+      "score": 0.643,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.67,
-       "hunter-marksmanship": 0.668,
-       "mage-frost": 0.65,
-       "priest-discipline": 0.644,
-       "priest-shadow": 0.555,
-       "shaman-elemental": 0.661,
-       "warlock-affliction": 0.647,
-       "warlock-destruction": 0.602
+       "druid-balance": 0.661,
+       "hunter-marksmanship": 0.676,
+       "mage-frost": 0.66,
+       "priest-discipline": 0.652,
+       "priest-shadow": 0.564,
+       "shaman-elemental": 0.669,
+       "warlock-affliction": 0.656,
+       "warlock-destruction": 0.61
       }
      }
     },
@@ -1484,12 +1483,12 @@
       }
      },
      "60": {
-      "score": 0.731,
+      "score": 0.741,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.791,
-       "rogue-combat": 0.681,
-       "rogue-subtlety": 0.722
+       "druid-feral": 0.797,
+       "rogue-combat": 0.692,
+       "rogue-subtlety": 0.732
       }
      }
     },
@@ -1643,7 +1642,7 @@
       "unit": "0-1",
       "components": {
        "kill": 1.0,
-       "endurance": 0.423,
+       "endurance": 0.429,
        "survival": 0.14,
        "control": 0.35
       }
@@ -1667,7 +1666,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.404,
+      "score": 0.418,
       "unit": "2v1 0-1"
      }
     }
@@ -1720,14 +1719,14 @@
      "hit_pct": 0.0
     },
     "60": {
-     "score": 0.6745,
-     "stamina": 0.000136,
-     "intellect": 0.000243,
+     "score": 0.6812,
+     "stamina": 0.000133,
+     "intellect": 0.000233,
      "spirit": 0.0,
-     "spell_power": 0.000204,
-     "crit_rating": 8.2e-05,
+     "spell_power": 0.000205,
+     "crit_rating": 8.1e-05,
      "hit_rating": 0.0,
-     "crit_pct": 0.001142,
+     "crit_pct": 0.001128,
      "hit_pct": 0.0
     }
    },
@@ -1742,28 +1741,28 @@
      },
      {
       "stat": "spell_power",
-      "share": 0.84,
+      "share": 0.88,
       "tier": 2
      },
      {
       "stat": "stamina",
-      "share": 0.56,
+      "share": 0.571,
       "tier": 3
      },
      {
       "stat": "crit_rating",
-      "share": 0.337,
+      "share": 0.348,
       "tier": 4
      }
     ]
    },
    "about": [
     "41 points in Balance, with 10 in Restoration. Built for PvP. On this order the key talents arrive as follows: Insect Swarm at 25, Nature's Grace at 31, Moonkin Form at 40 and Nature's Splendor at 52.",
-    "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Starfire.",
+    "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Wrath + Starfire.",
     "Against the class's best build in each scenario at level 60 it is strongest at questing speed (100%) and duels against melee (100%), and weakest at AoE pulls (39%).",
-    "In a dungeon group it gains most from Mark of the Wild, Blessing of Kings and Moonkin Aura: about 11% more damage at 60 than unbuffed, on average across groups.",
+    "In a dungeon group it gains most from Moonkin Aura and Curse of the Elements: about 8% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, intellect 0.52, stamina 0.38 and crit rating 0.24; at level 60, intellect 1, spell power 0.84, stamina 0.56 and crit rating 0.34. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, intellect 0.52, stamina 0.38 and crit rating 0.24; at level 60, intellect 1, spell power 0.88, stamina 0.57 and crit rating 0.35. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -1902,22 +1901,22 @@
       "solo": 189.6
      },
      "60": {
-      "score": 372.8,
-      "low": 363.9,
-      "high": 400.3,
-      "unbuffed": 339.3,
+      "score": 401.3,
+      "low": 394.0,
+      "high": 433.4,
+      "unbuffed": 369.6,
       "top_buffs": [
        "mark_of_the_wild",
        "blessing_of_kings",
        "moonkin_aura"
       ],
       "unit": "dps",
-      "solo": 339.3
+      "solo": 369.6
      }
     },
     "raid": {
      "60": {
-      "score": 277.0,
+      "score": 305.6,
       "unit": "dps"
      }
     },
@@ -2007,16 +2006,16 @@
       }
      },
      "60": {
-      "score": 0.746,
+      "score": 0.755,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.802,
-       "hunter-survival": 0.7,
-       "paladin-retribution": 0.777,
-       "rogue-combat": 0.714,
-       "rogue-subtlety": 0.75,
-       "shaman-enhancement": 0.773,
-       "warrior-arms": 0.706
+       "druid-feral": 0.808,
+       "hunter-survival": 0.708,
+       "paladin-retribution": 0.784,
+       "rogue-combat": 0.724,
+       "rogue-subtlety": 0.76,
+       "shaman-enhancement": 0.782,
+       "warrior-arms": 0.717
       }
      }
     },
@@ -2074,16 +2073,16 @@
       }
      },
      "60": {
-      "score": 0.732,
+      "score": 0.741,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.788,
-       "hunter-survival": 0.693,
-       "paladin-retribution": 0.777,
-       "rogue-combat": 0.676,
-       "rogue-subtlety": 0.717,
-       "shaman-enhancement": 0.773,
-       "warrior-arms": 0.702
+       "druid-feral": 0.794,
+       "hunter-survival": 0.702,
+       "paladin-retribution": 0.784,
+       "rogue-combat": 0.687,
+       "rogue-subtlety": 0.728,
+       "shaman-enhancement": 0.782,
+       "warrior-arms": 0.713
       }
      }
     },
@@ -2092,7 +2091,7 @@
       "score": 0.52,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.626,
+       "druid-balance": 0.627,
        "hunter-marksmanship": 0.573,
        "mage-frost": 0.077,
        "priest-discipline": 0.572,
@@ -2106,7 +2105,7 @@
       "score": 0.543,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.641,
+       "druid-balance": 0.642,
        "hunter-marksmanship": 0.575,
        "mage-frost": 0.184,
        "priest-discipline": 0.573,
@@ -2145,17 +2144,17 @@
       }
      },
      "60": {
-      "score": 0.633,
+      "score": 0.639,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.666,
-       "hunter-marksmanship": 0.664,
-       "mage-frost": 0.645,
-       "priest-discipline": 0.64,
-       "priest-shadow": 0.551,
-       "shaman-elemental": 0.656,
-       "warlock-affliction": 0.643,
-       "warlock-destruction": 0.597
+       "druid-balance": 0.657,
+       "hunter-marksmanship": 0.672,
+       "mage-frost": 0.655,
+       "priest-discipline": 0.648,
+       "priest-shadow": 0.56,
+       "shaman-elemental": 0.665,
+       "warlock-affliction": 0.652,
+       "warlock-destruction": 0.606
       }
      }
     },
@@ -2197,12 +2196,12 @@
       }
      },
      "60": {
-      "score": 0.727,
+      "score": 0.736,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.788,
-       "rogue-combat": 0.676,
-       "rogue-subtlety": 0.717
+       "druid-feral": 0.794,
+       "rogue-combat": 0.687,
+       "rogue-subtlety": 0.728
       }
      }
     },
@@ -2356,7 +2355,7 @@
       "unit": "0-1",
       "components": {
        "kill": 1.0,
-       "endurance": 0.47,
+       "endurance": 0.478,
        "survival": 0.14,
        "control": 0.35
       }
@@ -2380,7 +2379,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.398,
+      "score": 0.411,
       "unit": "2v1 0-1"
      }
     }
@@ -2433,15 +2432,15 @@
      "hit_pct": 0.003828
     },
     "60": {
-     "score": 1.4882,
+     "score": 1.5818,
      "stamina": 0.0,
-     "intellect": 0.000496,
-     "spirit": 0.000237,
-     "spell_power": 0.0019,
-     "crit_rating": 0.000622,
-     "hit_rating": 0.000373,
-     "crit_pct": 0.008708,
-     "hit_pct": 0.005224
+     "intellect": 0.000258,
+     "spirit": 8.7e-05,
+     "spell_power": 0.002132,
+     "crit_rating": 0.000703,
+     "hit_rating": 0.000412,
+     "crit_pct": 0.009912,
+     "hit_pct": 0.005764
     }
    },
    "stat_priority": {
@@ -2455,32 +2454,27 @@
      },
      {
       "stat": "crit_rating",
-      "share": 0.327,
+      "share": 0.33,
       "tier": 2
      },
      {
-      "stat": "intellect",
-      "share": 0.261,
+      "stat": "hit_rating",
+      "share": 0.193,
       "tier": 3
      },
      {
-      "stat": "hit_rating",
-      "share": 0.196,
+      "stat": "intellect",
+      "share": 0.121,
       "tier": 4
-     },
-     {
-      "stat": "spirit",
-      "share": 0.125,
-      "tier": 5
      }
     ]
    },
    "about": [
     "36 points in Balance, with 15 in Restoration. Built for PvE. On this order the key talents arrive as follows: Nature's Splendor at 24, Insect Swarm at 25, Nature's Grace at 31 and Moonkin Form at 40.",
-    "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Starfire.",
+    "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Wrath + Starfire.",
     "Against the class's best build in each scenario at level 60 it is strongest at dungeon damage (100%) and raid damage (100%), and weakest at AoE pulls (39%).",
-    "In a dungeon group it gains most from Mark of the Wild, Blessing of Kings and Moonkin Aura: about 10% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, crit rating 0.2, hit rating 0.15 and intellect 0.04; at level 60, spell power 1, crit rating 0.33, intellect 0.26 and hit rating 0.2. The Recommended gear panel ranks items by these weights at your level."
+    "In a dungeon group it gains most from Mark of the Wild, Blessing of Kings and Moonkin Aura: about 9% more damage at 60 than unbuffed, on average across groups.",
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, crit rating 0.2, hit rating 0.15 and intellect 0.04; at level 60, spell power 1, crit rating 0.33, hit rating 0.19 and intellect 0.12. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -2995,10 +2989,10 @@
       }
      },
      "60": {
-      "score": 0.534,
+      "score": 0.532,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.598,
+       "druid-balance": 0.581,
        "hunter-marksmanship": 0.499,
        "mage-frost": 0.532,
        "priest-discipline": 0.559,
@@ -3230,7 +3224,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.233,
+      "score": 0.232,
       "unit": "2v1 0-1"
      }
     }
@@ -3278,7 +3272,7 @@
      "weapon_dps": 0.0
     },
     "50": {
-     "score": 0.5409,
+     "score": 0.541,
      "strength": 0.000207,
      "agility": 0.000176,
      "stamina": 0.000335,
@@ -3291,7 +3285,7 @@
      "weapon_dps": 0.0
     },
     "60": {
-     "score": 0.5379,
+     "score": 0.5375,
      "strength": 0.000191,
      "agility": 0.000156,
      "stamina": 0.000281,
@@ -3771,7 +3765,7 @@
    },
    "about": [
     "43 points in Balance, with 8 in Restoration. Built for PvE. On this order the key talents arrive as follows: Insect Swarm at 25, Moonkin Form at 40, Nature's Grace at 41 and Nature's Splendor at 50.",
-    "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Starfire.",
+    "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Wrath + Starfire.",
     "Questing pace in the model, in kills per hour: 80 at 20, 85 at 30, 98 at 40, 87 at 50 and 98 at 60.",
     "While leveling it also takes Genesis 5 and Overgrowth 2, which pay off for questing; respec those points into Balance Moonkin (PvE) at 60. A model leveling path, not yet tried in game.",
     "Gear priority per point, relative to the best stat: at level 30, spell power 1, crit rating 0.21 and intellect 0.04; at level 60, spell power 1, crit rating 0.27 and intellect 0.09. The Recommended gear panel ranks items by these weights at your level."
@@ -3953,7 +3947,7 @@
    },
    "about": [
     "46 points in Balance, with 5 in Restoration. Built for PvP. On this order the key talents arrive as follows: Insect Swarm at 25, Moonkin Form at 40, Nature's Grace at 41 and Nature's Splendor at 50.",
-    "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Starfire.",
+    "In the model's rotation it keeps Moonfire and Insect Swarm up and fills with Wrath + Starfire.",
     "Questing pace in the model, in kills per hour: 78 at 20, 84 at 30, 98 at 40, 87 at 50 and 96 at 60.",
     "While leveling it also takes Overgrowth 2 and Improved Entangling Roots 3, which pay off for questing; respec those points into Balance (PvP, model) at 60. A model leveling path, not yet tried in game.",
     "Gear priority per point, relative to the best stat: at level 30, spell power 1, crit rating 0.14 and intellect 0.04; at level 60, spell power 1, crit rating 0.3 and intellect 0.1. The Recommended gear panel ranks items by these weights at your level."
@@ -4761,11 +4755,11 @@
    "archetype": "deep Balance",
    "focus": "PvP",
    "standard": "druid-balance-pvp",
-   "standard_score": 0.6744665372548455,
+   "standard_score": 0.6811591660702858,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "druid-balance-pvp": 0.6744665372548455
+    "druid-balance-pvp": 0.6811591660702858
    },
    "qualifying": [
     "druid-balance-pvp"
@@ -4775,11 +4769,11 @@
    "archetype": "deep Balance",
    "focus": "PvE",
    "standard": "druid-balance",
-   "standard_score": 1.4881884632193185,
+   "standard_score": 1.5817723548970168,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "druid-balance": 1.4881884632193185
+    "druid-balance": 1.5817723548970168
    },
    "qualifying": [
     "druid-balance"
@@ -4789,7 +4783,7 @@
    "archetype": "deep Feral Combat",
    "focus": "PvP",
    "standard": "druid-feral",
-   "standard_score": 0.537935771872607,
+   "standard_score": 0.5375127202802491,
    "model_pick": {
     "Improved Wrath": 1,
     "Genesis": 5,
@@ -4813,9 +4807,9 @@
     "Nature's Focus": 2,
     "Furor": 4
    },
-   "model_pick_score": 0.5703873091282554,
+   "model_pick_score": 0.5699694952761152,
    "candidates": {
-    "druid-feral": 0.537935771872607
+    "druid-feral": 0.5375127202802491
    },
    "qualifying": [
     "druid-feral"
@@ -5206,7 +5200,7 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Balance (#166): Moonfire and Insect Swarm kept up, then Starfire or Wrath on the caster engine; Nature's Grace counts as an average haste from crits; Eclipse and Omen of Clarity aren't modeled. Feral cat (#175): paw swings and a Shred or Claw to Ferocious Bite energy cycle on the melee engine, Classic paw damage; Rake and Rip bleeds, Tiger's Fury and powershifting aren't modeled. The bear tank and Restoration stay unscored. Base stats are estimates.",
+  "Balance (#166): Moonfire and Insect Swarm kept up, then Starfire or Wrath on the caster engine; Nature's Grace counts as an average haste from crits; Eclipse weighs a Wrath-then-two-Starfires filler; Omen of Clarity isn't modeled. Feral cat (#175): paw swings and a Shred or Claw to Ferocious Bite energy cycle on the melee engine, Classic paw damage; Rake and Rip bleeds, Tiger's Fury and powershifting aren't modeled. The bear tank and Restoration stay unscored. Base stats are estimates.",
   "Dungeon scores assume a 5-player group (#220): a tank, a healer, two more DPS and you, weighted by how often each class and spec shows up in Forever Logs. Group buffs come from the game client at your level; each provider uses the option that helps your build type (Might and Windfury for physical damage, Kings and the Elements for casters); a warrior tank keeps 5 Sunders up. Shadow Weaving, Improved Scorch and Winter's Chill only help their own caster in Forever, so they aren't group buffs. Raids and questing are unbuffed."
  ],
  "leveling": [
