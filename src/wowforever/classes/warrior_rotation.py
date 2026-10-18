@@ -11,7 +11,8 @@ MaxTargets, Cleave replaces Heroic Strike, and Sweeping Strikes gives its attack
 
 Flurry is an average uptime (#391). With an off hand (Fury, #391) both hands swing and Bloodthirst
 joins the priority. Execute takes all Rage in the last 20% of the fight (#391). Overpower follows
-dodges and Rend is kept up on one target (#391). Not modeled yet: Slam and Rage from damage taken.
+dodges and Rend is kept up on one target (#391). Slam joins with Improved
+Slam (#391). Not modeled yet: Rage from damage taken.
 """
 
 from __future__ import annotations
@@ -141,10 +142,11 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
 
     rage, yellow, used, crits, aoe, parts = income, 0.0, [], 0.0, [], []
     single, attacks = 0.0, swings + oh_swings   # one target's ability damage and attacks/s (Sweeping Strikes)
-    names = ("Mortal Strike", "Bloodthirst", "Whirlwind") + (("Thunder Clap",) if pack > 1 else ())
-    plan = [s for s in map(learned, names)
+    names = ("Mortal Strike", "Bloodthirst", "Whirlwind", "Slam") + (("Thunder Clap",) if pack > 1 else ())
+    plan = [replace(s, cooldown=s.cooldown + total("cooldown", s.name)) for s in map(learned, names)
             if s is not None and s.cooldown > 0
-            and (s.name not in ("Mortal Strike", "Bloodthirst") or taken(s.name))]
+            and (s.name not in ("Mortal Strike", "Bloodthirst") or taken(s.name))
+            and (s.name != "Slam" or taken("Improved Slam"))]      # Slam only once it stops delaying swings (#391)
     if pack > 1:   # against a pack, the most damage per Rage over all the mobs goes first
         plan.sort(key=lambda s: -strike(s) * targets(s) / cost(s) if cost(s) else float("-inf"))
     for spell in plan:

@@ -62,6 +62,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Furious Precision": (
         EffectRule("hit_chance", r"chance to hit with off-hand attacks by (\d+(?:\.\d+)?)%", ("@off_hand",)),
     ),
+    "Improved Slam": (
+        EffectRule("cooldown", r"Slam's cooldown is reduced by (\d+(?:\.\d+)?) sec", ("Slam",), sign=-1),
+    ),
 }
 
 # Every warrior talent, with why it isn't modeled (trees as reworked in build 1.60.1.70291, #239).
@@ -75,7 +78,6 @@ UNMODELED: dict[str, str] = {
     "Bloodthrill": "proc: main-hand hits on Rend targets can enable an ability",
     "Sweeping Strikes": "grants_spell",
     "Weaponmaster": "melee damage: weapon-type bonus, best branch per scenario (weapon_talents.py, #386)",
-    "Improved Slam": "melee damage: faster Slam that doesn't reset swings",
     "Improved Hamstring": "control: Hamstring has 15% chance to root 5 s",
     "Mortal Strike": "grants_spell",
     # Fury
@@ -123,8 +125,8 @@ CAVEAT = ("Warrior model (#162): a two-hander's white swings build Rage for Mort
           "Strike, against Classic combat-table rules; Flurry is an average uptime and Weaponmaster takes the "
           "best weapon for each fight. each build takes the better of its two-hander and dual wield (the gear "
           "table's best one-handers), and Fury uses Bloodthirst; Execute takes all Rage in the last 20% of the "
-          "fight; Overpower follows dodges; Slam isn't modeled yet, and base stats are estimates. Protection "
-          "stays unscored. PvP uses the mage's duel model from the warrior's side.")
+          "fight; Overpower follows dodges, Rend is kept up and Slam joins with Improved Slam, and base stats "
+          "are estimates. Protection stays unscored. PvP uses the mage's duel model from the warrior's side.")
 
 # Icons for talents wowforevertalent.com doesn't show, by the client's SpellMisc.SpellIconFileDataID, named
 # through wago.tools' documented file-info API (/api/info/{fdid}). Empty since build 1.60.1.70291: the four
