@@ -71,8 +71,8 @@ def test_output_wraps_the_class_rotation(name, pack):
         if name == "paladin":   # Retribution tracks mana and swings white once dry (#399)
             # plus the rotation without Consecration as an alternative (#399)
             assert replace(out, alternatives=()) == ms.Output(r.dps, r.mana_per_second, r.white_dps, r.aoe)
-        else:
-            assert out == ms.Output(r.dps, 0.0, r.dps, r.aoe)
+        else:      # the rogue's questing opener rides along (#431)
+            assert out == ms.Output(r.dps, 0.0, r.dps, r.aoe, opener_damage=getattr(r, "opener_damage", 0.0))
         assert engine(name).playstyle(cls, ranks) == "melee"
 
 

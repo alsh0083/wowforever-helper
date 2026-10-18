@@ -115,6 +115,14 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
                    r"abilities cause (\d+(?:\.\d+)?)% more damage against targets below (\d+(?:\.\d+)?)% health",
                    ("Sinister Strike", "Ghostly Strike", "Hemorrhage"), combine=below_health),
     ),
+    "Remorseless Attacks": (
+        EffectRule("crit_chance", r"gives you a (\d+(?:\.\d+)?)% increased critical strike chance on your next",
+                   ("@after_kill",)),
+    ),
+    "Initiative": (
+        EffectRule("proc_chance", r"a (\d+(?:\.\d+)?)% chance to add an additional combo point to your target",
+                   ("@initiative",)),
+    ),
 }
 
 # Every rogue talent, with why it is not modeled yet. "grants_spell" marks talents that teach an
@@ -122,7 +130,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
 UNMODELED: dict[str, str] = {
     # Assassination
     "Improved Gouge": "control: longer Gouge duration",
-    "Remorseless Attacks": "melee damage: post-kill crit buff on core abilities (#111)",
     "Improved Expose Armor": "resource: cheaper Expose Armor, refunds Combo Points",
     "Cold Blood": "grants_spell",
     "Vigor": "resource: +10 maximum Energy; no effect on a steady-state Energy cycle (#392)",
@@ -145,7 +152,6 @@ UNMODELED: dict[str, str] = {
     "Setup": "resource: Combo Point after dodges or resisted spells",
     "Elusiveness": "utility: shorter Vanish and Blind cooldowns",
     "Dirty Tricks": "resource: cheaper Sap and Blind",
-    "Initiative": "resource: extra Combo Point from Ambush/Garrote/Cheap Shot",
     "Ghostly Strike": "grants_spell",
     "Improved Distract": "utility: larger Distract radius, less detection of distracted enemies",
     "Heightened Senses": "stealth: better Stealth detection, less hit by spells and ranged",
@@ -207,7 +213,7 @@ def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=N
         stab, _ = best_weapon(lambda s, t: rogue_rotation(s, spells, cls, ranks, t, pack=pack, backstab=True),
                               dagger(stats), target, cls, ranks, only="dagger")
         r = max(r, stab, key=lambda x: x.dps)
-    return Output(r.dps, 0.0, r.dps, r.aoe)
+    return Output(r.dps, 0.0, r.dps, r.aoe, opener_damage=r.opener_damage)
 
 
 def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):

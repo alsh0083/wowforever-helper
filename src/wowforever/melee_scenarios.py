@@ -74,6 +74,7 @@ class Output:
                                                        # refill when a raid fight would run it dry (Evocation, #317)
     alternatives: tuple[Output, ...] = ()   # the same rotation with one DoT or cooldown dropped (#390);
                                             # the dungeon and raid scores take the best
+    opener_damage: float = 0.0   # damage once per fight on top of the rotation (questing openers, #431)
 
 
 def _config() -> dict:
@@ -154,7 +155,7 @@ def questing(class_name: str, stats: MeleeStats, spells, cls, ranks, *, melee: b
 def questing_kills_per_hour(out: Output, q, mob_dps: float, eat: float) -> float:
     """Kills per hour for one Output: kill time + recovery downtime (eating back the damage taken, unless a pet
     tanks; drinking back the mana) + travel."""
-    kill = q.mob_hp / out.dps
+    kill = max(0.0, q.mob_hp - out.opener_damage) / out.dps     # the opener takes its share first (#431)
     downtime = 0.0 if out.pet else mob_dps * kill / eat     # a pet tanks while the hunter shoots
     if out.mana_per_second > 0:
         downtime = max(downtime, out.mana_per_second * kill / q.drink_mana_per_second)

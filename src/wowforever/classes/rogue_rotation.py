@@ -41,6 +41,7 @@ class RogueRotation:
     aoe: tuple[str, ...] = ()  # abilities that hit more than one mob of the pack (#262)
     poisons: tuple[str, ...] = ()   # the poison on each weapon (main hand, then off hand), #387
     poison_dps: float = 0.0
+    opener_damage: float = 0.0   # once per kill: Ambush, Initiative, Remorseless Attacks (#431)
 
 
 def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
@@ -105,14 +106,28 @@ def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDat
         builder, speed = learned("Sinister Strike"), c["normalized_speed"]["one_hand"]
     hands = [stats.main_hand, stats.off_hand][:max(1, builder.weapon_hits)]
     crit_bonus = total("crit_chance", builder.name)
-    builder_ev = 0.0
-    for weapon in hands:
-        norm = (weapon[0] + weapon[1]) / 2 + stats.attack_power / 14 * speed
-        base = (norm + builder.weapon_bonus) * (builder.weapon_pct / 100 if builder.weapon_pct else 1)
-        builder_ev += yellow_attack(base, attacker, target, crit_bonus=crit_bonus,
-                                    damage_pct=total("damage_pct", builder.name),
-                                    crit_damage_pct=total("crit_damage_pct", builder.name),
-                                    dodge_reduction=dr)
+    def strike(spell: SpellRank, spell_speed: float, weapons, extra_crit: float = 0.0) -> float:
+        """Expected damage of `spell` hitting with each of `weapons` (#431: also Ambush, and Remorseless' crit)."""
+        out = 0.0
+        for weapon in weapons:
+            norm = (weapon[0] + weapon[1]) / 2 + stats.attack_power / 14 * spell_speed
+            base = (norm + spell.weapon_bonus) * (spell.weapon_pct / 100 if spell.weapon_pct else 1)
+            out += yellow_attack(base, attacker, target, crit_bonus=total("crit_chance", spell.name) + extra_crit,
+                                 damage_pct=total("damage_pct", spell.name),
+                                 crit_damage_pct=total("crit_damage_pct", spell.name), dodge_reduction=dr)
+        return out
+
+    builder_ev = strike(builder, speed, hands)
+    # once per kill (#431): with a dagger, Ambush from stealth replaces the first builder and Initiative's combo
+    # point saves another; Remorseless Attacks crits the first attack after a kill
+    after_kill = total("crit_chance", "@after_kill")
+    ambush = learned("Ambush") if backstab else None
+    opener = 0.0
+    if ambush is not None:
+        opener = (strike(ambush, c["normalized_speed"]["dagger"], [stats.main_hand], after_kill) - builder_ev
+                  + total("proc_chance", "@initiative") / 100 * builder_ev)
+    elif after_kill > 0:
+        opener = strike(builder, speed, hands, after_kill) - builder_ev
     cost = builder.energy_cost + total("energy_cost", builder.name)
     land = land_chance(attacker, target, dodge_reduction=dr)
     crit = yellow_crit_chance(attacker, target, crit_bonus)
@@ -161,4 +176,4 @@ def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDat
         white, yellow, aoe = white * (1 + share), yellow * (1 + share), ("Blade Flurry",)
     return RogueRotation(dps=white + yellow, white_dps=white, yellow_dps=yellow, builder=builder.name,
                          energy_per_second=energy, cycles_per_second=cycles, aoe=aoe,
-                         poisons=poisons, poison_dps=poison_dps)
+                         poisons=poisons, poison_dps=poison_dps, opener_damage=opener)
