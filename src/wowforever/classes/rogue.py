@@ -125,7 +125,7 @@ UNMODELED: dict[str, str] = {
     "Remorseless Attacks": "melee damage: post-kill crit buff on core abilities (#111)",
     "Improved Expose Armor": "resource: cheaper Expose Armor, refunds Combo Points",
     "Cold Blood": "grants_spell",
-    "Vigor": "resource: +10 maximum Energy",
+    "Vigor": "resource: +10 maximum Energy; no effect on a steady-state Energy cycle (#392)",
     "Mutilate": "grants_spell",
     "Improved Kidney Shot": "control: more damage to Kidney Shot stuns",
     "Venom": "grants_spell",
@@ -154,7 +154,7 @@ UNMODELED: dict[str, str] = {
     "Preparation": "grants_spell",
     "Hemorrhage": "grants_spell",
     "Cutthroat": "stealth: Backstab can enable Ambush without Stealth",
-    "Thousand Cuts": "resource: Rupture ticks reduce Hemorrhage/Backstab Energy cost",
+    "Thousand Cuts": "resource: Rupture ticks cut Hemorrhage/Backstab cost; Rupture loses to Eviscerate, so 0 (#392)",
 }
 
 # Two-tree builds the community actually plays (#104): Subtlety Preparation is 16/12/23.
