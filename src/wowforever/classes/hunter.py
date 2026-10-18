@@ -89,6 +89,15 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("cooldown", r"cooldown on your Rapid Fire ability by (\d+(?:\.\d+)?) min", ("Rapid Fire",),
                    sign=-1, combine=lambda m: 60 * float(m.group(1))),
     ),
+    "Bestial Discipline": (
+        EffectRule("regen_while_casting", r"allows (\d+(?:\.\d+)?)% of your Mana regeneration to continue while casting",
+                   ("all",)),
+    ),
+    "Rapid Recuperation": (
+        # the Serpent Sting share is the first percent; old (<=70205) and new (70425) wordings both fit (#358)
+        EffectRule("regen_while_casting", r"Serpent Sting (?:ability )?(?:grants you|allows) (\d+(?:\.\d+)?)%",
+                   ("@sting",)),
+    ),
 }
 
 # Every hunter talent without an effect rule, with why it isn't modeled.
@@ -103,14 +112,12 @@ UNMODELED: dict[str, str] = {
     "Summon Hawk": "grants_spell",
     "Spirit Bond": "pet: health regen for you and your pet while it is active (#111)",
     "Intimidation": "grants_spell",
-    "Bestial Discipline": "resource: pet focus regen + 50% mana regen while casting",
     "Frenzy": "pet: pet attack speed proc after crits (#111)",
     "Bestial Wrath": "grants_spell",
     # Marksmanship
     "Hawk Eye": "utility: +6 yds ranged weapon range",
     "Improved Concussive Shot": "control: 20% chance to stun with Concussive Shot",
     "Trueshot Aura": "grants_spell",
-    "Rapid Recuperation": "resource: mana regen while casting after Serpent Sting hits",
     "Scatter Shot": "grants_spell",
     "Sniper Shot": "grants_spell",
     # Survival

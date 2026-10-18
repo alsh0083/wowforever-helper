@@ -187,6 +187,13 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
         best += parts["Explosive Trap"]
         trap_mana = trap.mana_cost / trap.cooldown
         mana_r, mana_m = mana_r + trap_mana, mana_m + trap_mana
+    # the share of Spirit regen that keeps going while shooting (Bestial Discipline, Rapid Recuperation, #393)
+    m = load_toml(MELEE)["hunter"]
+    share = total("regen_while_casting", "all")
+    if learned("Serpent Sting") is not None:
+        share += total("regen_while_casting", "@sting")
+    regen = min(100.0, share) / 100 * (m["regen_base"] + stats.spirit / m["regen_spirit_div"]) / 2
+    mana_r, mana_m = mana_r - regen, mana_m - regen
     return HunterRotation(dps=best + pet_dps, ranged_dps=ranged, melee_dps=melee, pet_dps=pet_dps, mode=mode,
                           mana_per_second=mana_r if mode == "ranged" else mana_m, auto_dps=auto,
                           aoe=tuple(parts), parts=tuple(parts.items()))
