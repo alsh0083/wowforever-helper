@@ -78,7 +78,7 @@ UNMODELED: dict[str, str] = {
     "Deflection": "defensive: +5% parry",
     "Improved Charge": "rage: Charge generates 6 more Rage",
     "Improved Tactical Mastery": "rage: keep 15 more Rage on stance change",
-    "Anger Management": "rage: 1 Rage every 3 s in combat",
+    "Anger Management": "rage: 1 Rage every 3 s, a fixed effect in warrior_rotation (config/warrior.toml)",
     "Spearing Strike": "grants_spell",
     "Sweeping Strikes": "grants_spell",
     "Weaponmaster": "melee damage: weapon-type bonus, best branch per scenario (weapon_talents.py, #386)",
@@ -89,7 +89,7 @@ UNMODELED: dict[str, str] = {
     "Lingering Rage": "rage: Rage starts decaying up to 10 s later out of combat",
     "Piercing Howl": "grants_spell",
     "Blood Craze": "defensive: regenerate health after being crit",
-    "Enrage": "melee damage: +10% Physical damage after being hit",
+    "Enrage": "melee damage: +10% Physical damage after being hit; a boss hits the tank, so 0 for DPS (#391)",
     "Death Wish": "grants_spell",
     "Improved Intercept": "mobility: Intercept cooldown -10 s",
     "Improved Berserker Rage": "rage: Berserker Rage generates 10 Rage and frees movement",
@@ -97,7 +97,7 @@ UNMODELED: dict[str, str] = {
     "Bloodthirst": "grants_spell",
     # Protection
     "Shield Specialization": "defensive: +5% block, Rage on block",
-    "Improved Bloodrage": "rage: Bloodrage generates up to 50% more Rage",
+    "Improved Bloodrage": "rage: Bloodrage generates up to 50% more Rage; Protection only, unscored (#391)",
     "Anticipation": "defensive: up to +20 Defense",
     "Iron Will": "defensive: stun and fear durations up to -15%",
     "Improved Thunder Clap": "rage: Thunder Clap costs 6 less Rage",
@@ -112,7 +112,7 @@ UNMODELED: dict[str, str] = {
     "Concussion Blow": "grants_spell",
     "Improved Shield Bash": "control: Shield Bash silences for 3 s",
     "Bastion": "melee damage: up to +10% damage with a shield (Protection is unscored)",
-    "Focused Rage": "rage: offensive abilities cost up to 3 less Rage",
+    "Focused Rage": "rage: offensive abilities cost up to 3 less Rage; Protection only, unscored (#391)",
     "Shield Slam": "grants_spell",
 }
 
