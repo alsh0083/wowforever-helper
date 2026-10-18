@@ -2667,20 +2667,18 @@
    "model_filled": {},
    "must_have_by": {},
    "order": [
+    105802,
+    105814,
     105814,
     105814,
     105815,
-    105815,
-    105814,
     105810,
     105810,
     105810,
     105810,
     105810,
     105797,
-    105796,
-    105796,
-    105796,
+    105815,
     105814,
     105814,
     105813,
@@ -2688,7 +2686,6 @@
     105813,
     105813,
     105813,
-    105802,
     105812,
     105812,
     105811,
@@ -2699,10 +2696,19 @@
     105799,
     105799,
     105799,
+    105796,
+    105806,
+    105796,
+    105800,
+    105796,
+    105800,
+    105807,
+    105800,
+    105800,
+    105807,
+    105800,
+    105807,
     105808,
-    105807,
-    105807,
-    105807,
     105805,
     105805,
     105804,
@@ -2711,40 +2717,34 @@
     105803,
     105803,
     105801,
-    105800,
-    105800,
-    105800,
-    105800,
-    105800,
-    105798,
-    105806
+    105798
    ],
    "order_source": "optimized for questing kills/hour",
    "open_points": 0,
    "scores": {
     "questing": {
      "20": {
-      "score": 54.0,
+      "score": 60.4,
       "unit": "kills/hour",
       "spell": "Frostbolt"
      },
      "30": {
-      "score": 59.0,
+      "score": 67.3,
       "unit": "kills/hour",
-      "spell": "Frostbolt"
+      "spell": "Arcane Missiles"
      },
      "40": {
-      "score": 79.4,
+      "score": 90.7,
       "unit": "kills/hour",
       "spell": "Arcane Missiles"
      },
      "50": {
-      "score": 86.1,
+      "score": 96.3,
       "unit": "kills/hour",
       "spell": "Arcane Missiles"
      },
      "60": {
-      "score": 94.6,
+      "score": 105.0,
       "unit": "kills/hour",
       "spell": "Arcane Missiles"
      }
@@ -2774,7 +2774,7 @@
      "50": {
       "score": 2.0,
       "unit": "pack size",
-      "spell": "Flamestrike",
+      "spell": "Arcane Explosion",
       "break_even": 2,
       "lower_better": true
      },
@@ -2788,11 +2788,11 @@
     },
     "raid": {
      "60": {
-      "score": 239.7,
+      "score": 289.3,
       "unit": "dps",
       "spell": "Arcane Missiles",
-      "time_to_oom": 156.60093434964347,
-      "raw_dps": 283.1,
+      "time_to_oom": null,
+      "raw_dps": 315.6,
       "fallback_spell": "Arcane Missiles rank 2"
      }
     },
@@ -2860,10 +2860,10 @@
       }
      },
      "30": {
-      "score": 0.654,
+      "score": 0.374,
       "unit": "0-1",
       "components": {
-       "slow": 0.4,
+       "slow": 0.0,
        "root": 19.2,
        "stun": 0.0,
        "interrupt": 20.0
@@ -2886,7 +2886,7 @@
        "slow": 0.0,
        "root": 19.2,
        "stun": 0.0,
-       "interrupt": 28.0
+       "interrupt": 20.0
       }
      },
      "60": {
@@ -2902,324 +2902,310 @@
     },
     "wpvp_melee": {
      "20": {
-      "score": 0.444,
+      "score": 0.467,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
-       "druid-feral": 0.494,
-       "hunter-survival": 0.293,
-       "paladin-retribution": 0.536,
-       "rogue-combat": 0.429,
-       "rogue-subtlety": 0.399,
-       "shaman-enhancement": 0.578,
-       "warrior-arms": 0.38
+       "druid-feral": 0.518,
+       "hunter-survival": 0.313,
+       "paladin-retribution": 0.56,
+       "rogue-combat": 0.452,
+       "rogue-subtlety": 0.422,
+       "shaman-enhancement": 0.601,
+       "warrior-arms": 0.403
       }
      },
      "30": {
-      "score": 0.436,
+      "score": 0.447,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
-       "druid-feral": 0.562,
-       "hunter-survival": 0.316,
-       "paladin-retribution": 0.574,
-       "rogue-combat": 0.41,
-       "rogue-subtlety": 0.382,
-       "shaman-enhancement": 0.516,
-       "warrior-arms": 0.295
+       "druid-feral": 0.573,
+       "hunter-survival": 0.326,
+       "paladin-retribution": 0.584,
+       "rogue-combat": 0.421,
+       "rogue-subtlety": 0.393,
+       "shaman-enhancement": 0.527,
+       "warrior-arms": 0.304
       }
      },
      "40": {
-      "score": 0.413,
+      "score": 0.446,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
-       "druid-feral": 0.528,
-       "hunter-survival": 0.306,
-       "paladin-retribution": 0.407,
-       "rogue-combat": 0.431,
-       "rogue-subtlety": 0.391,
-       "shaman-enhancement": 0.522,
-       "warrior-arms": 0.308
+       "druid-feral": 0.563,
+       "hunter-survival": 0.336,
+       "paladin-retribution": 0.441,
+       "rogue-combat": 0.465,
+       "rogue-subtlety": 0.425,
+       "shaman-enhancement": 0.556,
+       "warrior-arms": 0.338
       }
      },
      "50": {
-      "score": 0.376,
+      "score": 0.403,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
-       "druid-feral": 0.488,
-       "hunter-survival": 0.296,
-       "paladin-retribution": 0.372,
-       "rogue-combat": 0.367,
-       "rogue-subtlety": 0.363,
-       "shaman-enhancement": 0.435,
-       "warrior-arms": 0.316
+       "druid-feral": 0.516,
+       "hunter-survival": 0.32,
+       "paladin-retribution": 0.398,
+       "rogue-combat": 0.394,
+       "rogue-subtlety": 0.389,
+       "shaman-enhancement": 0.463,
+       "warrior-arms": 0.34
       }
      },
      "60": {
-      "score": 0.402,
+      "score": 0.429,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
-       "druid-feral": 0.478,
-       "hunter-survival": 0.329,
-       "paladin-retribution": 0.429,
-       "rogue-combat": 0.378,
-       "rogue-subtlety": 0.385,
-       "shaman-enhancement": 0.458,
-       "warrior-arms": 0.356
+       "druid-feral": 0.506,
+       "hunter-survival": 0.355,
+       "paladin-retribution": 0.457,
+       "rogue-combat": 0.405,
+       "rogue-subtlety": 0.413,
+       "shaman-enhancement": 0.486,
+       "warrior-arms": 0.383
       }
      }
     },
     "wpvp_melee_they_open": {
      "20": {
-      "score": 0.412,
+      "score": 0.434,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
-       "druid-feral": 0.453,
-       "hunter-survival": 0.278,
-       "paladin-retribution": 0.536,
-       "rogue-combat": 0.355,
-       "rogue-subtlety": 0.313,
-       "shaman-enhancement": 0.578,
-       "warrior-arms": 0.372
+       "druid-feral": 0.476,
+       "hunter-survival": 0.297,
+       "paladin-retribution": 0.56,
+       "rogue-combat": 0.376,
+       "rogue-subtlety": 0.334,
+       "shaman-enhancement": 0.601,
+       "warrior-arms": 0.394
       }
      },
      "30": {
-      "score": 0.397,
+      "score": 0.407,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
-       "druid-feral": 0.518,
-       "hunter-survival": 0.295,
-       "paladin-retribution": 0.574,
-       "rogue-combat": 0.317,
-       "rogue-subtlety": 0.274,
-       "shaman-enhancement": 0.516,
-       "warrior-arms": 0.283
+       "druid-feral": 0.529,
+       "hunter-survival": 0.305,
+       "paladin-retribution": 0.584,
+       "rogue-combat": 0.326,
+       "rogue-subtlety": 0.283,
+       "shaman-enhancement": 0.527,
+       "warrior-arms": 0.292
       }
      },
      "40": {
-      "score": 0.351,
+      "score": 0.381,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
-       "druid-feral": 0.461,
-       "hunter-survival": 0.28,
-       "paladin-retribution": 0.407,
-       "rogue-combat": 0.283,
-       "rogue-subtlety": 0.211,
-       "shaman-enhancement": 0.522,
-       "warrior-arms": 0.29
+       "druid-feral": 0.496,
+       "hunter-survival": 0.309,
+       "paladin-retribution": 0.441,
+       "rogue-combat": 0.312,
+       "rogue-subtlety": 0.235,
+       "shaman-enhancement": 0.556,
+       "warrior-arms": 0.319
       }
      },
      "50": {
-      "score": 0.293,
+      "score": 0.315,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
-       "druid-feral": 0.389,
-       "hunter-survival": 0.266,
-       "paladin-retribution": 0.372,
-       "rogue-combat": 0.157,
-       "rogue-subtlety": 0.138,
-       "shaman-enhancement": 0.435,
-       "warrior-arms": 0.294
+       "druid-feral": 0.416,
+       "hunter-survival": 0.289,
+       "paladin-retribution": 0.398,
+       "rogue-combat": 0.173,
+       "rogue-subtlety": 0.152,
+       "shaman-enhancement": 0.463,
+       "warrior-arms": 0.318
       }
      },
      "60": {
-      "score": 0.278,
+      "score": 0.298,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
-       "druid-feral": 0.338,
-       "hunter-survival": 0.287,
-       "paladin-retribution": 0.429,
-       "rogue-combat": 0.053,
-       "rogue-subtlety": 0.051,
-       "shaman-enhancement": 0.458,
-       "warrior-arms": 0.329
+       "druid-feral": 0.364,
+       "hunter-survival": 0.311,
+       "paladin-retribution": 0.457,
+       "rogue-combat": 0.059,
+       "rogue-subtlety": 0.057,
+       "shaman-enhancement": 0.486,
+       "warrior-arms": 0.355
       }
      }
     },
     "wpvp_caster": {
      "20": {
-      "score": 0.345,
+      "score": 0.366,
       "unit": "duel 0-1",
       "spell": "Arcane Missiles",
       "matchups": {
-       "druid-balance": 0.46,
-       "hunter-marksmanship": 0.306,
-       "mage-frost": 0.032,
-       "priest-discipline": 0.394,
-       "priest-shadow": 0.352,
-       "shaman-elemental": 0.434,
-       "warlock-affliction": 0.401,
-       "warlock-destruction": 0.384
+       "druid-balance": 0.484,
+       "hunter-marksmanship": 0.327,
+       "mage-frost": 0.035,
+       "priest-discipline": 0.418,
+       "priest-shadow": 0.374,
+       "shaman-elemental": 0.458,
+       "warlock-affliction": 0.424,
+       "warlock-destruction": 0.407
       }
      },
      "30": {
-      "score": 0.443,
+      "score": 0.453,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
-       "druid-balance": 0.58,
-       "hunter-marksmanship": 0.321,
-       "mage-frost": 0.113,
-       "priest-discipline": 0.499,
-       "priest-shadow": 0.452,
-       "shaman-elemental": 0.548,
-       "warlock-affliction": 0.524,
-       "warlock-destruction": 0.504
+       "druid-balance": 0.591,
+       "hunter-marksmanship": 0.33,
+       "mage-frost": 0.118,
+       "priest-discipline": 0.51,
+       "priest-shadow": 0.462,
+       "shaman-elemental": 0.559,
+       "warlock-affliction": 0.535,
+       "warlock-destruction": 0.515
       }
      },
      "40": {
-      "score": 0.432,
+      "score": 0.461,
       "unit": "duel 0-1",
       "spell": "Arcane Missiles",
       "matchups": {
-       "druid-balance": 0.57,
-       "hunter-marksmanship": 0.316,
-       "mage-frost": 0.176,
-       "priest-discipline": 0.468,
-       "priest-shadow": 0.417,
-       "shaman-elemental": 0.481,
-       "warlock-affliction": 0.509,
-       "warlock-destruction": 0.516
+       "druid-balance": 0.601,
+       "hunter-marksmanship": 0.344,
+       "mage-frost": 0.195,
+       "priest-discipline": 0.5,
+       "priest-shadow": 0.449,
+       "shaman-elemental": 0.513,
+       "warlock-affliction": 0.541,
+       "warlock-destruction": 0.549
       }
      },
      "50": {
-      "score": 0.463,
-      "unit": "duel 0-1",
-      "spell": "Fireball",
-      "matchups": {
-       "druid-balance": 0.574,
-       "hunter-marksmanship": 0.293,
-       "mage-frost": 0.291,
-       "priest-discipline": 0.52,
-       "priest-shadow": 0.455,
-       "shaman-elemental": 0.511,
-       "warlock-affliction": 0.554,
-       "warlock-destruction": 0.507
-      }
-     },
-     "60": {
-      "score": 0.457,
+      "score": 0.442,
       "unit": "duel 0-1",
       "spell": "Arcane Missiles",
       "matchups": {
-       "druid-balance": 0.539,
-       "hunter-marksmanship": 0.316,
-       "mage-frost": 0.45,
-       "priest-discipline": 0.506,
-       "priest-shadow": 0.396,
-       "shaman-elemental": 0.501,
-       "warlock-affliction": 0.498,
-       "warlock-destruction": 0.449
+       "druid-balance": 0.546,
+       "hunter-marksmanship": 0.317,
+       "mage-frost": 0.268,
+       "priest-discipline": 0.492,
+       "priest-shadow": 0.427,
+       "shaman-elemental": 0.483,
+       "warlock-affliction": 0.526,
+       "warlock-destruction": 0.479
+      }
+     },
+     "60": {
+      "score": 0.486,
+      "unit": "duel 0-1",
+      "spell": "Arcane Missiles",
+      "matchups": {
+       "druid-balance": 0.569,
+       "hunter-marksmanship": 0.342,
+       "mage-frost": 0.479,
+       "priest-discipline": 0.536,
+       "priest-shadow": 0.424,
+       "shaman-elemental": 0.531,
+       "warlock-affliction": 0.527,
+       "warlock-destruction": 0.478
       }
      }
     },
     "stealth_ambush": {
      "20": {
-      "score": 0.374,
+      "score": 0.396,
       "unit": "duel 0-1",
       "spell": "Frostbolt",
       "matchups": {
-       "druid-feral": 0.453,
-       "rogue-combat": 0.355,
-       "rogue-subtlety": 0.313
+       "druid-feral": 0.476,
+       "rogue-combat": 0.376,
+       "rogue-subtlety": 0.334
       }
      },
      "30": {
-      "score": 0.37,
+      "score": 0.379,
       "unit": "duel 0-1",
       "spell": "Fireball",
       "matchups": {
-       "druid-feral": 0.518,
-       "rogue-combat": 0.317,
-       "rogue-subtlety": 0.274
+       "druid-feral": 0.529,
+       "rogue-combat": 0.326,
+       "rogue-subtlety": 0.283
       }
      },
      "40": {
-      "score": 0.319,
+      "score": 0.348,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
-       "druid-feral": 0.461,
-       "rogue-combat": 0.283,
-       "rogue-subtlety": 0.211
+       "druid-feral": 0.496,
+       "rogue-combat": 0.312,
+       "rogue-subtlety": 0.235
       }
      },
      "50": {
-      "score": 0.228,
+      "score": 0.247,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
-       "druid-feral": 0.389,
-       "rogue-combat": 0.157,
-       "rogue-subtlety": 0.138
+       "druid-feral": 0.416,
+       "rogue-combat": 0.173,
+       "rogue-subtlety": 0.152
       }
      },
      "60": {
-      "score": 0.147,
+      "score": 0.16,
       "unit": "duel 0-1",
       "spell": "Frostfire Bolt",
       "matchups": {
-       "druid-feral": 0.338,
-       "rogue-combat": 0.053,
-       "rogue-subtlety": 0.051
+       "druid-feral": 0.364,
+       "rogue-combat": 0.059,
+       "rogue-subtlety": 0.057
       }
      }
     },
     "outnumbered": {
      "20": {
-      "score": 0.104,
+      "score": 0.113,
       "unit": "2v1 0-1",
       "spell": "Arcane Missiles"
      },
      "30": {
-      "score": 0.118,
+      "score": 0.122,
       "unit": "2v1 0-1",
       "spell": "Fireball"
      },
      "40": {
-      "score": 0.109,
+      "score": 0.122,
       "unit": "2v1 0-1",
       "spell": "Arcane Missiles"
      },
      "50": {
-      "score": 0.095,
+      "score": 0.102,
       "unit": "2v1 0-1",
-      "spell": "Fireball"
+      "spell": "Arcane Missiles"
      },
      "60": {
-      "score": 0.1,
+      "score": 0.111,
       "unit": "2v1 0-1",
       "spell": "Arcane Missiles"
      }
     },
     "dungeon": {
      "20": {
-      "score": 41.3,
-      "low": 39.3,
-      "high": 42.5,
-      "unbuffed": 37.5,
-      "top_buffs": [
-       "arcane_intellect",
-       "blessing_of_kings",
-       "mark_of_the_wild"
-      ],
-      "unit": "dps",
-      "spell": "Frostbolt",
-      "solo": 37.0
-     },
-     "30": {
-      "score": 68.0,
-      "low": 64.0,
-      "high": 70.6,
-      "unbuffed": 59.1,
+      "score": 47.6,
+      "low": 46.6,
+      "high": 49.3,
+      "unbuffed": 44.5,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -3227,27 +3213,41 @@
       ],
       "unit": "dps",
       "spell": "Arcane Missiles",
-      "solo": 63.9
+      "solo": 43.4
+     },
+     "30": {
+      "score": 74.7,
+      "low": 70.3,
+      "high": 77.6,
+      "unbuffed": 64.9,
+      "top_buffs": [
+       "arcane_intellect",
+       "blessing_of_kings",
+       "mark_of_the_wild"
+      ],
+      "unit": "dps",
+      "spell": "Arcane Missiles",
+      "solo": 81.4
      },
      "40": {
-      "score": 110.7,
-      "low": 103.5,
-      "high": 116.8,
-      "unbuffed": 97.3,
+      "score": 142.0,
+      "low": 132.8,
+      "high": 149.7,
+      "unbuffed": 124.7,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
        "mark_of_the_wild"
       ],
       "unit": "dps",
-      "spell": "Frostbolt",
-      "solo": 100.4
+      "spell": "Arcane Missiles",
+      "solo": 120.0
      },
      "50": {
-      "score": 158.4,
-      "low": 147.4,
-      "high": 169.9,
-      "unbuffed": 137.2,
+      "score": 191.9,
+      "low": 178.5,
+      "high": 205.4,
+      "unbuffed": 165.4,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
@@ -3255,75 +3255,75 @@
       ],
       "unit": "dps",
       "spell": "Frostbolt",
-      "solo": 147.8
+      "solo": 167.4
      },
      "60": {
-      "score": 292.3,
-      "low": 269.9,
-      "high": 310.0,
-      "unbuffed": 251.4,
+      "score": 347.6,
+      "low": 342.2,
+      "high": 376.4,
+      "unbuffed": 320.6,
       "top_buffs": [
        "arcane_intellect",
        "blessing_of_kings",
        "mark_of_the_wild"
       ],
       "unit": "dps",
-      "spell": "Frostbolt",
-      "solo": 266.1
+      "spell": "Arcane Missiles",
+      "solo": 318.7
      }
     },
     "battleground": {
      "20": {
-      "score": 0.387,
+      "score": 0.405,
       "unit": "0-1",
       "spell": "Frostbolt",
       "components": {
-       "kill": 0.453,
-       "endurance": 0.578,
+       "kill": 0.498,
+       "endurance": 0.624,
        "survival": 0.16,
        "control": 0.504
       }
      },
      "30": {
-      "score": 0.443,
+      "score": 0.464,
       "unit": "0-1",
       "spell": "Frostbolt",
       "components": {
-       "kill": 0.478,
-       "endurance": 0.624,
+       "kill": 0.532,
+       "endurance": 0.678,
        "survival": 0.16,
        "control": 0.654
       }
      },
      "40": {
-      "score": 0.492,
+      "score": 0.527,
       "unit": "0-1",
       "spell": "Frostfire Bolt",
       "components": {
-       "kill": 0.662,
-       "endurance": 0.32,
+       "kill": 0.76,
+       "endurance": 0.342,
        "survival": 0.16,
        "control": 0.654
       }
      },
      "50": {
-      "score": 0.534,
+      "score": 0.568,
       "unit": "0-1",
       "spell": "Frostfire Bolt",
       "components": {
-       "kill": 0.786,
-       "endurance": 0.295,
+       "kill": 0.879,
+       "endurance": 0.316,
        "survival": 0.16,
        "control": 0.654
       }
      },
      "60": {
-      "score": 0.618,
+      "score": 0.621,
       "unit": "0-1",
       "spell": "Frostbolt",
       "components": {
        "kill": 1.0,
-       "endurance": 0.485,
+       "endurance": 0.528,
        "survival": 0.16,
        "control": 0.654
       }
@@ -3331,64 +3331,64 @@
     }
    },
    "sensitivity": [
-    "sub20_spell_penalty=False: raid DPS 239.7 -> 242.4"
+    "sub20_spell_penalty=False: raid DPS 289.3 -> 290.5"
    ],
    "mode": "endgame",
    "stat_weights": {
     "20": {
-     "score": 0.4432,
+     "score": 0.4752,
      "stamina": 0.0,
-     "intellect": 0.000388,
+     "intellect": 5.8e-05,
      "spirit": 0.0,
-     "spell_power": 0.001804,
-     "crit_rating": 0.000369,
-     "hit_rating": 0.001245,
-     "crit_pct": 0.001194,
-     "hit_pct": 0.004367
+     "spell_power": 0.001922,
+     "crit_rating": 0.000355,
+     "hit_rating": 0.001344,
+     "crit_pct": 0.001148,
+     "hit_pct": 0.004753
     },
     "30": {
-     "score": 0.6314,
+     "score": 0.6693,
      "stamina": 0.0,
-     "intellect": 0.000691,
-     "spirit": 2.7e-05,
-     "spell_power": 0.001581,
-     "crit_rating": 0.000479,
-     "hit_rating": 0.000653,
-     "crit_pct": 0.002839,
-     "hit_pct": 0.003871
+     "intellect": 0.0007,
+     "spirit": 0.0,
+     "spell_power": 0.00163,
+     "crit_rating": 0.000382,
+     "hit_rating": 0.000501,
+     "crit_pct": 0.002264,
+     "hit_pct": 0.002966
     },
     "40": {
-     "score": 0.8305,
+     "score": 0.9439,
      "stamina": 0.0,
-     "intellect": 0.000808,
-     "spirit": 3.6e-05,
-     "spell_power": 0.001212,
-     "crit_rating": 0.000113,
-     "hit_rating": 0.000561,
-     "crit_pct": 0.000969,
-     "hit_pct": 0.004835
+     "intellect": 0.001027,
+     "spirit": 4.6e-05,
+     "spell_power": 0.0014,
+     "crit_rating": 0.000114,
+     "hit_rating": 0.000643,
+     "crit_pct": 0.000979,
+     "hit_pct": 0.005539
     },
     "50": {
-     "score": 0.9642,
+     "score": 1.0822,
      "stamina": 0.0,
-     "intellect": 0.000888,
-     "spirit": 0.000144,
-     "spell_power": 0.001145,
-     "crit_rating": 7.5e-05,
-     "hit_rating": -0.001418,
-     "crit_pct": 0.000853,
-     "hit_pct": -0.013281
+     "intellect": 0.001153,
+     "spirit": 5e-05,
+     "spell_power": 0.001348,
+     "crit_rating": 0.000184,
+     "hit_rating": 0.00032,
+     "crit_pct": 0.002086,
+     "hit_pct": 0.003617
     },
     "60": {
-     "score": 1.3587,
+     "score": 1.5587,
      "stamina": 0.0,
-     "intellect": 0.001338,
-     "spirit": 0.000663,
-     "spell_power": 0.001153,
-     "crit_rating": 0.000214,
-     "hit_rating": 0.000412,
-     "crit_pct": 0.002997,
-     "hit_pct": 0.005677
+     "intellect": 9e-05,
+     "spirit": 0.000138,
+     "spell_power": 0.001287,
+     "crit_rating": 0.00014,
+     "hit_rating": 0.000432,
+     "crit_pct": 0.001965,
+     "hit_pct": 0.006052
     }
    },
    "stat_priority": {
@@ -3396,29 +3396,29 @@
     "basis": "PvE score",
     "stats": [
      {
-      "stat": "intellect",
+      "stat": "spell_power",
       "share": 1.0,
       "tier": 1
      },
      {
-      "stat": "spell_power",
-      "share": 0.862,
+      "stat": "hit_rating",
+      "share": 0.336,
       "tier": 2
      },
      {
-      "stat": "spirit",
-      "share": 0.496,
+      "stat": "crit_rating",
+      "share": 0.109,
       "tier": 3
      },
      {
-      "stat": "hit_rating",
-      "share": 0.308,
-      "tier": 4
+      "stat": "spirit",
+      "share": 0.107,
+      "tier": 3
      },
      {
-      "stat": "crit_rating",
-      "share": 0.16,
-      "tier": 5
+      "stat": "intellect",
+      "share": 0.07,
+      "tier": 3
      }
     ]
    },
@@ -3434,11 +3434,11 @@
     "bonus": 0.0
    },
    "about": [
-    "47 points in Arcane, with 4 in Fire. Built for PvE. On this order the key talents arrive as follows: Presence of Mind at 53, Arcane Power at 59 and Arcane Blast at 60.",
+    "47 points in Arcane, with 4 in Fire. Built for PvE. On this order the key talents arrive as follows: Arcane Blast at 40, Presence of Mind at 59 and Arcane Power at 60.",
     "In the model it levels with Arcane Missiles, pulls packs with Arcane Explosion and duels with Arcane Missiles as its main spell.",
-    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and duels against casters (85%), and weakest at survivability (18%).",
-    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 16% more damage at 60 than unbuffed, on average across groups.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, intellect 0.44, hit rating 0.41 and crit rating 0.3; at level 60, intellect 1, spell power 0.86, spirit 0.5 and hit rating 0.31. The Recommended gear panel ranks items by these weights at your level."
+    "Against the class's best build in each scenario at level 60 it is strongest at AoE pulls (100%) and raid damage (93%), and weakest at survivability (18%).",
+    "In a dungeon group it gains most from Arcane Intellect, Blessing of Kings and Mark of the Wild: about 8% more damage at 60 than unbuffed, on average across groups.",
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, intellect 0.43, hit rating 0.31 and crit rating 0.23; at level 60, spell power 1, hit rating 0.34, crit rating 0.11 and spirit 0.11. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -11560,22 +11560,22 @@
       "spell": "Frostbolt"
      },
      "30": {
-      "score": 59.0,
+      "score": 77.9,
       "unit": "kills/hour",
-      "spell": "Frostbolt"
+      "spell": "Arcane Missiles"
      },
      "40": {
-      "score": 79.9,
+      "score": 101.9,
       "unit": "kills/hour",
       "spell": "Arcane Missiles"
      },
      "50": {
-      "score": 90.7,
+      "score": 106.5,
       "unit": "kills/hour",
-      "spell": "Frostbolt"
+      "spell": "Arcane Missiles"
      },
      "60": {
-      "score": 100.5,
+      "score": 115.5,
       "unit": "kills/hour",
       "spell": "Frostbolt"
      }
@@ -11605,47 +11605,47 @@
      "hit_pct": 0.5
     },
     "30": {
-     "score": 59.0,
+     "score": 77.9,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.0,
-     "spell_power": 0.19,
-     "crit_rating": 0.03,
-     "hit_rating": 0.07,
-     "crit_pct": 0.2,
-     "hit_pct": 0.4
+     "spell_power": 0.2,
+     "crit_rating": 0.0,
+     "hit_rating": 0.0,
+     "crit_pct": 0.0,
+     "hit_pct": 0.0
     },
     "40": {
-     "score": 79.9,
+     "score": 101.9,
      "stamina": 0.0,
      "intellect": 0.0,
      "spirit": 0.0,
-     "spell_power": 0.11,
+     "spell_power": 0.13,
      "crit_rating": 0.0,
      "hit_rating": 0.0,
      "crit_pct": 0.0,
      "hit_pct": 0.0
     },
     "50": {
-     "score": 90.7,
+     "score": 106.5,
      "stamina": 0.0,
-     "intellect": 0.01,
+     "intellect": 0.0,
      "spirit": 0.0,
      "spell_power": 0.1,
-     "crit_rating": 0.02,
-     "hit_rating": 0.05,
-     "crit_pct": 0.3,
-     "hit_pct": 0.6
+     "crit_rating": 0.0,
+     "hit_rating": 0.0,
+     "crit_pct": 0.0,
+     "hit_pct": 0.0
     },
     "60": {
-     "score": 100.5,
+     "score": 115.5,
      "stamina": 0.0,
      "intellect": 0.01,
      "spirit": 0.0,
      "spell_power": 0.07,
      "crit_rating": 0.02,
      "hit_rating": 0.0,
-     "crit_pct": 0.3,
+     "crit_pct": 0.2,
      "hit_pct": 0.0
     }
    },
@@ -11674,9 +11674,9 @@
    "about": [
     "45 points in Arcane, with 6 in Frost. Built for PvE. On this order the key talents arrive as follows: Presence of Mind at 40 and Arcane Power at 46.",
     "In the model it levels with Frostbolt.",
-    "Questing pace in the model, in kills per hour: 54 at 20, 59 at 30, 80 at 40, 91 at 50 and 100 at 60.",
+    "Questing pace in the model, in kills per hour: 54 at 20, 78 at 30, 102 at 40, 106 at 50 and 116 at 60.",
     "While leveling it also takes Missile Barrage 1, Improved Frostbolt 5 and Elemental Precision 1, which pay off for questing; respec those points into Deep Arcane (PvE) at 60. A model leveling path, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.37 and crit rating 0.16; at level 60, spell power 1, crit rating 0.29 and intellect 0.14. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1; at level 60, spell power 1, crit rating 0.29 and intellect 0.14. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -12591,12 +12591,12 @@
       "spell": "Frostbolt"
      },
      "50": {
-      "score": 96.5,
+      "score": 103.5,
       "unit": "kills/hour",
       "spell": "Frostbolt"
      },
      "60": {
-      "score": 106.5,
+      "score": 113.5,
       "unit": "kills/hour",
       "spell": "Frostbolt"
      }
@@ -12648,25 +12648,25 @@
      "hit_pct": 0.6
     },
     "50": {
-     "score": 96.5,
+     "score": 103.5,
      "stamina": 0.0,
-     "intellect": 0.01,
+     "intellect": 0.0,
      "spirit": 0.0,
      "spell_power": 0.1,
-     "crit_rating": 0.03,
+     "crit_rating": 0.02,
      "hit_rating": 0.01,
-     "crit_pct": 0.3,
+     "crit_pct": 0.2,
      "hit_pct": 0.1
     },
     "60": {
-     "score": 106.5,
+     "score": 113.5,
      "stamina": 0.0,
-     "intellect": 0.01,
+     "intellect": 0.0,
      "spirit": 0.0,
-     "spell_power": 0.07,
+     "spell_power": 0.06,
      "crit_rating": 0.02,
      "hit_rating": 0.0,
-     "crit_pct": 0.3,
+     "crit_pct": 0.2,
      "hit_pct": 0.0
     }
    },
@@ -12711,9 +12711,9 @@
    "about": [
     "35 points in Arcane, with 16 in Frost. Built for PvP. On this order the key talents arrive as follows: Arcane Instability at 51 and Arcane Blast at 57.",
     "In the model it levels with Frostbolt.",
-    "Questing pace in the model, in kills per hour: 54 at 20, 65 at 30, 88 at 40, 96 at 50 and 106 at 60.",
+    "Questing pace in the model, in kills per hour: 54 at 20, 65 at 30, 88 at 40, 104 at 50 and 114 at 60.",
     "While leveling it also takes Elemental Precision 2, Frost Channeling 3, Missile Barrage 1 and Arcane Instability 1, which pay off for questing; respec those points into Arcane (PvP, model) at 60. A model leveling path, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.2 and crit rating 0.15; at level 60, spell power 1, crit rating 0.29 and intellect 0.14. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, hit rating 0.2 and crit rating 0.15; at level 60, spell power 1 and crit rating 0.33. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -13343,29 +13343,87 @@
    "focus": "PvP",
    "standard": "mage-arcane-pvp",
    "standard_score": 0.5205308650760725,
-   "model_pick": null,
-   "model_pick_score": null,
+   "model_pick": {
+    "Piercing Ice": 1,
+    "Frostbite": 3,
+    "Improved Frost Nova": 2,
+    "Permafrost": 3,
+    "Improved Frostbolt": 5,
+    "Arcane Instability": 3,
+    "Missile Barrage": 2,
+    "Improved Counterspell": 2,
+    "Arcane Shielding": 1,
+    "Arcane Blast": 1,
+    "Arcane Impact": 3,
+    "Arcane Geometry": 2,
+    "Arcane Resilience": 2,
+    "Arcane Concentration": 5,
+    "Magic Absorption": 2,
+    "Arcane Subtlety": 2,
+    "Improved Channeling": 5,
+    "Arcane Focus": 5,
+    "Wand Specialization": 2
+   },
+   "model_pick_score": 0.5542061992169333,
    "candidates": {
     "mage-arcane-pvp": 0.5205308650760725
    },
    "qualifying": [
     "mage-arcane-pvp"
-   ]
+   ],
+   "model_pick_changes": [
+    {
+     "talent": "Ice Lance",
+     "from": 1,
+     "to": 0
+    },
+    {
+     "talent": "Piercing Ice",
+     "from": 3,
+     "to": 1
+    },
+    {
+     "talent": "Permafrost",
+     "from": 1,
+     "to": 3
+    },
+    {
+     "talent": "Arcane Instability",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Missile Barrage",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Arcane Meditation",
+     "from": 3,
+     "to": 0
+    },
+    {
+     "talent": "Arcane Shielding",
+     "from": 2,
+     "to": 1
+    }
+   ],
+   "model_pick_seed": "mage-arcane-pvp"
   },
   {
    "archetype": "deep Arcane",
    "focus": "PvE",
    "standard": "deep-arcane",
-   "standard_score": 1.3586545012688431,
+   "standard_score": 1.5587151617425001,
    "model_pick": {
     "Incineration": 3,
     "Arcane Power": 1,
     "Arcane Instability": 3,
     "Arcane Mind": 5,
     "Presence of Mind": 1,
-    "Missile Barrage": 1,
+    "Missile Barrage": 2,
     "Arcane Meditation": 3,
-    "Improved Counterspell": 2,
+    "Improved Counterspell": 1,
     "Arcane Shielding": 2,
     "Arcane Blast": 1,
     "Arcane Impact": 3,
@@ -13379,10 +13437,10 @@
     "Wand Specialization": 2,
     "Arcane Wrath": 1
    },
-   "model_pick_score": 1.6845436906464972,
+   "model_pick_score": 1.813425637169162,
    "candidates": {
     "deep-arcane-model": 1.5756730842447024,
-    "deep-arcane": 1.3586545012688431
+    "deep-arcane": 1.5587151617425001
    },
    "qualifying": [
     "deep-arcane",
@@ -13393,6 +13451,16 @@
      "talent": "Improved Fire Blast",
      "from": 1,
      "to": 0
+    },
+    {
+     "talent": "Missile Barrage",
+     "from": 1,
+     "to": 2
+    },
+    {
+     "talent": "Improved Counterspell",
+     "from": 2,
+     "to": 1
     },
     {
      "talent": "Arcane Wrath",
@@ -13421,14 +13489,77 @@
    "focus": "PvE",
    "standard": "deep-fire",
    "standard_score": 1.5309147760424788,
-   "model_pick": null,
-   "model_pick_score": null,
+   "model_pick": {
+    "Elemental Precision": 1,
+    "Combustion": 1,
+    "Fire Power": 3,
+    "Critical Mass": 5,
+    "Master of Elements": 2,
+    "Heating Up": 1,
+    "Improved Scorch": 2,
+    "Burning Soul": 1,
+    "Pyroblast": 1,
+    "Improved Flamestrike": 3,
+    "Ignite": 5,
+    "Improved Fireball": 5,
+    "Incineration": 3,
+    "Missile Barrage": 2,
+    "Arcane Meditation": 3,
+    "Arcane Blast": 1,
+    "Arcane Concentration": 5,
+    "Arcane Subtlety": 2,
+    "Arcane Focus": 5
+   },
+   "model_pick_score": 1.941628345920821,
    "candidates": {
     "deep-fire": 1.5309147760424788
    },
    "qualifying": [
     "deep-fire"
-   ]
+   ],
+   "model_pick_changes": [
+    {
+     "talent": "Ice Shards",
+     "from": 4,
+     "to": 0
+    },
+    {
+     "talent": "Elemental Precision",
+     "from": 5,
+     "to": 1
+    },
+    {
+     "talent": "Master of Elements",
+     "from": 3,
+     "to": 2
+    },
+    {
+     "talent": "Improved Scorch",
+     "from": 3,
+     "to": 2
+    },
+    {
+     "talent": "Improved Flamestrike",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Missile Barrage",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Arcane Meditation",
+     "from": 0,
+     "to": 3
+    },
+    {
+     "talent": "Arcane Concentration",
+     "from": 3,
+     "to": 5
+    }
+   ],
+   "model_pick_seed": "deep-fire"
   },
   {
    "archetype": "deep Frost",
@@ -13459,16 +13590,15 @@
     "Ice Shards": 5,
     "Elemental Precision": 5,
     "Improved Frostbolt": 5,
-    "Incineration": 1,
-    "Arcane Meditation": 3,
+    "Missile Barrage": 2,
     "Arcane Blast": 1,
-    "Arcane Impact": 2,
-    "Arcane Resilience": 1,
+    "Arcane Impact": 3,
+    "Arcane Resilience": 2,
     "Arcane Concentration": 5,
     "Arcane Subtlety": 2,
     "Arcane Focus": 5
    },
-   "model_pick_score": 1.5762459677634568,
+   "model_pick_score": 1.7408282864964841,
    "candidates": {
     "mage-frost-pve-model": 1.5583539276005105,
     "mage-frost-pve": 1.4941115677506216
@@ -13509,23 +13639,18 @@
      "to": 5
     },
     {
-     "talent": "Incineration",
+     "talent": "Missile Barrage",
      "from": 0,
-     "to": 1
+     "to": 2
+    },
+    {
+     "talent": "Arcane Meditation",
+     "from": 3,
+     "to": 0
     },
     {
      "talent": "Arcane Blast",
      "from": 0,
-     "to": 1
-    },
-    {
-     "talent": "Arcane Impact",
-     "from": 3,
-     "to": 2
-    },
-    {
-     "talent": "Arcane Resilience",
-     "from": 2,
      "to": 1
     }
    ],
@@ -13550,8 +13675,25 @@
    "focus": "PvE",
    "standard": "fire-frost-shatter",
    "standard_score": 1.5694160932764838,
-   "model_pick": null,
-   "model_pick_score": null,
+   "model_pick": {
+    "Ice Lance": 1,
+    "Shatter": 3,
+    "Frost Channeling": 3,
+    "Frostbite": 3,
+    "Ice Shards": 5,
+    "Elemental Precision": 5,
+    "Fire Power": 3,
+    "Critical Mass": 5,
+    "Master of Elements": 3,
+    "Improved Scorch": 3,
+    "Burning Soul": 3,
+    "Pyroblast": 1,
+    "Flame Throwing": 1,
+    "Ignite": 5,
+    "Improved Fireball": 5,
+    "Missile Barrage": 2
+   },
+   "model_pick_score": 1.8261377797624747,
    "candidates": {
     "elementalist-pve-v2": 1.726382370096921,
     "fire-frost-shatter": 1.5694160932764838
@@ -13559,35 +13701,193 @@
    "qualifying": [
     "elementalist-pve-v2",
     "fire-frost-shatter"
-   ]
+   ],
+   "model_pick_changes": [
+    {
+     "talent": "Fingers of Frost",
+     "from": 2,
+     "to": 0
+    },
+    {
+     "talent": "Piercing Ice",
+     "from": 3,
+     "to": 0
+    },
+    {
+     "talent": "Frostbite",
+     "from": 1,
+     "to": 3
+    },
+    {
+     "talent": "Critical Mass",
+     "from": 3,
+     "to": 5
+    },
+    {
+     "talent": "Heating Up",
+     "from": 1,
+     "to": 0
+    },
+    {
+     "talent": "Missile Barrage",
+     "from": 0,
+     "to": 2
+    }
+   ],
+   "model_pick_seed": "fire-frost-shatter"
   },
   {
    "archetype": "Arcane/Fire",
    "focus": "PvP",
    "standard": "arcane-pom-pyro",
    "standard_score": 0.4435193726824349,
-   "model_pick": null,
-   "model_pick_score": null,
+   "model_pick": {
+    "Fire Power": 3,
+    "Critical Mass": 4,
+    "Burning Soul": 3,
+    "Impact": 3,
+    "Flame Throwing": 1,
+    "Ignite": 5,
+    "Improved Fireball": 5,
+    "Incineration": 2,
+    "Improved Fire Blast": 2,
+    "Presence of Mind": 1,
+    "Missile Barrage": 2,
+    "Arcane Meditation": 3,
+    "Improved Counterspell": 2,
+    "Arcane Blast": 1,
+    "Arcane Resilience": 2,
+    "Arcane Concentration": 5,
+    "Arcane Subtlety": 2,
+    "Arcane Focus": 5
+   },
+   "model_pick_score": 0.480276791690434,
    "candidates": {
     "arcane-pom-pyro": 0.4435193726824349
    },
    "qualifying": [
     "arcane-pom-pyro"
-   ]
+   ],
+   "model_pick_changes": [
+    {
+     "talent": "Elemental Precision",
+     "from": 2,
+     "to": 0
+    },
+    {
+     "talent": "Fire Power",
+     "from": 1,
+     "to": 3
+    },
+    {
+     "talent": "Blast Wave",
+     "from": 1,
+     "to": 0
+    },
+    {
+     "talent": "Critical Mass",
+     "from": 3,
+     "to": 4
+    },
+    {
+     "talent": "Heating Up",
+     "from": 1,
+     "to": 0
+    },
+    {
+     "talent": "Improved Scorch",
+     "from": 3,
+     "to": 0
+    },
+    {
+     "talent": "Pyroblast",
+     "from": 1,
+     "to": 0
+    },
+    {
+     "talent": "Flame Throwing",
+     "from": 2,
+     "to": 1
+    },
+    {
+     "talent": "Incineration",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Improved Fire Blast",
+     "from": 0,
+     "to": 2
+    },
+    {
+     "talent": "Missile Barrage",
+     "from": 0,
+     "to": 2
+    }
+   ],
+   "model_pick_seed": "arcane-pom-pyro"
   },
   {
    "archetype": "Arcane/Fire",
    "focus": "PvE",
    "standard": "mage-arcane-fire-pve",
    "standard_score": 1.6174576266567637,
-   "model_pick": null,
-   "model_pick_score": null,
+   "model_pick": {
+    "Fire Power": 3,
+    "Critical Mass": 5,
+    "Master of Elements": 3,
+    "Improved Scorch": 1,
+    "Pyroblast": 1,
+    "Improved Flamestrike": 2,
+    "Impact": 1,
+    "Flame Throwing": 2,
+    "Ignite": 5,
+    "Improved Fireball": 5,
+    "Presence of Mind": 1,
+    "Missile Barrage": 2,
+    "Arcane Meditation": 3,
+    "Improved Counterspell": 2,
+    "Arcane Blast": 1,
+    "Arcane Resilience": 2,
+    "Arcane Concentration": 5,
+    "Arcane Subtlety": 2,
+    "Arcane Focus": 5
+   },
+   "model_pick_score": 1.876491389497912,
    "candidates": {
     "mage-arcane-fire-pve": 1.6174576266567637
    },
    "qualifying": [
     "mage-arcane-fire-pve"
-   ]
+   ],
+   "model_pick_changes": [
+    {
+     "talent": "Heating Up",
+     "from": 1,
+     "to": 0
+    },
+    {
+     "talent": "Improved Scorch",
+     "from": 2,
+     "to": 1
+    },
+    {
+     "talent": "Improved Flamestrike",
+     "from": 1,
+     "to": 2
+    },
+    {
+     "talent": "Impact",
+     "from": 2,
+     "to": 1
+    },
+    {
+     "talent": "Missile Barrage",
+     "from": 0,
+     "to": 2
+    }
+   ],
+   "model_pick_seed": "mage-arcane-fire-pve"
   }
  ],
  "spell_milestones": [
@@ -14447,7 +14747,7 @@
    "archetype": "deep Arcane",
    "focus": "PvE",
    "build": "deep-arcane-leveling",
-   "score": 76.8
+   "score": 91.2
   },
   {
    "archetype": "deep Fire",
@@ -14477,7 +14777,7 @@
    "archetype": "deep Arcane",
    "focus": "PvP",
    "build": "mage-arcane-pvp-leveling",
-   "score": 82.1
+   "score": 84.9
   },
   {
    "archetype": "Fire/Frost",
