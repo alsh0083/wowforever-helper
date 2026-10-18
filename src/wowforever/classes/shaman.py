@@ -101,6 +101,12 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
                    ("@devastation",)),
         EffectRule("duration", r"melee attacks by \d+(?:\.\d+)?% for (\d+(?:\.\d+)?) sec", ("@devastation",)),
     ),
+    "Improved Stormstrike": (
+        # a chance to gain a share: counted at chance x share (#398)
+        EffectRule("regen_while_casting",
+                   r"(\d+(?:\.\d+)?)% chance to gain (\d+(?:\.\d+)?)% mana regeneration while casting",
+                   ("@stormstrike",), combine=lambda m: float(m.group(1)) * float(m.group(2)) / 100),
+    ),
 }
 
 # Every shaman talent, with why it isn't modeled.
@@ -120,7 +126,6 @@ UNMODELED: dict[str, str] = {
     "Toughness": "defensive: +10% Stamina",
     "Stormstrike": "grants_spell",
     "Spirit Weapons": "defensive: parry, less threat",
-    "Improved Stormstrike": "resource: mana regeneration after Stormstrike",
     "Maelstrom Weapon": "proc: melee hits speed up the next spell",
     "Rage of the Farseer": "grants_spell",
     # Restoration
@@ -177,7 +182,9 @@ def _melee_output(stats, spells, cls, ranks, target, *, pack=1):
     from wowforever.melee_scenarios import Output
 
     r = enhancement_rotation(stats, spells, cls, ranks, target, pack=pack)
-    return Output(r.dps, 0.0, r.dps, r.aoe)
+    fallback = r.white_dps + r.windfury_dps      # out of mana: swings and Windfury (#398)
+    no_shock = Output(r.dps - r.shock_dps, r.mana_per_second - r.shock_mana_per_second, fallback, r.aoe)
+    return Output(r.dps, r.mana_per_second, fallback, r.aoe, alternatives=(no_shock,))
 
 
 def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):

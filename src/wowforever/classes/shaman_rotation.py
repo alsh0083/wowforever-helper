@@ -9,8 +9,9 @@ Against a pack (`pack` > 1, AoE pulls #262) Fire Nova goes out on cooldown and h
 like Earth Shock.
 
 Stormstrike's bonus on the next Earth Shock counts for the share of shocks after one (#398).
-Not modeled yet: Maelstrom Weapon's cheaper Lightning Bolt,
-Lightning Shield orbs, totems, and mana (shocks are the main cost).
+Mana (#398): Earth Shock, Stormstrike and Fire Nova cost it; Improved Stormstrike keeps part of the Spirit regen.
+Not modeled yet: Maelstrom Weapon's cheaper Lightning Bolt, Lightning Shield orbs (they fire when the shaman is
+hit), totems.
 """
 
 from __future__ import annotations
@@ -27,6 +28,7 @@ from wowforever.schema import ClassData, SpellRank
 from wowforever.toml_cache import load_toml
 
 CONFIG = Path(__file__).resolve().parents[3] / "config" / "shaman.toml"
+MELEE = Path(__file__).resolve().parents[3] / "config" / "melee.toml"
 
 
 @dataclass(frozen=True)
@@ -36,6 +38,10 @@ class EnhancementRotation:
     yellow_dps: float
     spell_dps: float
     aoe: tuple[str, ...] = ()   # spells that hit more than one mob of the pack (#262)
+    windfury_dps: float = 0.0            # the Windfury part of yellow_dps (#398)
+    shock_dps: float = 0.0               # the Earth Shock part of spell_dps, Stormstrike's bonus included
+    mana_per_second: float = 0.0         # net of Improved Stormstrike's regen
+    shock_mana_per_second: float = 0.0   # Earth Shock's part of the mana
 
 
 def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
@@ -57,6 +63,9 @@ def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: Cl
             if rank > 0:
                 out += sum(e.values[rank - 1] for e in t.effects if e.kind == kind and applies in e.applies_to)
         return out
+
+    def cost(spell: SpellRank) -> float:
+        return spell.mana_cost * max(0.0, 1 + total("mana_cost_pct", spell.name) / 100)
 
     weapon = stats.main_hand
     if weapon is None:
@@ -83,16 +92,18 @@ def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: Cl
     swing = white_swing(weapon, attacker, target)
     white = swings * swing
 
-    yellow = 0.0
+    yellow = windfury = mana = shock_mana = 0.0
     if level >= 30 and best_rank(spells, "Windfury Weapon", level) is not None:
         bonus = _anchor_at(c["windfury_attack_power"], level)[0] * (1 + total("damage_pct", "Windfury Weapon") / 100)
         extra = white_swing(weapon, replace(attacker, attack_power=ap + bonus), target)
-        yellow += swings * c["windfury_chance"] * extra
+        windfury = swings * c["windfury_chance"] * extra
+        yellow += windfury
 
     storm = best_rank(spells, "Stormstrike", level)
     if storm is not None and taken("Stormstrike") and storm.cooldown > 0:
         normalized = (weapon[0] + weapon[1]) / 2 + ap / 14 * c["normalized_speed"]["two_hand"]
         yellow += yellow_attack(normalized, attacker, target, crit_damage_pct=total("crit_damage_pct", "@ability")) / storm.cooldown
+        mana += cost(storm) / storm.cooldown
 
     spell_dps = 0.0
     hit = 1 - miss_chance(level, level + target.level_diff, stats.hit_pct) / 100
@@ -108,12 +119,22 @@ def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: Cl
             # Stormstrike's bonus on the next shock within its window: the share of shocks after one (#398)
             share = min(1.0, shock_period / storm.cooldown) if shock_period <= c["stormstrike"]["seconds"] else 0.0
             spell_dps *= 1 + c["stormstrike"]["bonus_pct"] / 100 * share
+        shock_mana = cost(shock) / shock_period
+        mana += shock_mana
+    shock_dps = spell_dps
     nova = best_rank(spells, "Fire Nova", level) if pack > 1 else None
     aoe: tuple[str, ...] = ()
     if nova is not None and nova.min_damage > 0:
         avg = (((nova.min_damage + nova.max_damage) / 2 + nova.coefficient * spell_power)
                * (1 + total("damage_pct", "Fire Nova") / 100))
         spell_dps += hit * avg * (1 + spell_crit * 0.5) * pack / max(nova.cooldown + total("cooldown", "Fire Nova"), 1.5)
+        mana += cost(nova) / max(nova.cooldown + total("cooldown", "Fire Nova"), 1.5)
         aoe = ("Fire Nova",)
+    if storm is not None and taken("Stormstrike") and storm.cooldown > 0:
+        # Improved Stormstrike: a share of Spirit regen keeps going while casting (#398)
+        m = load_toml(MELEE)["shaman_melee"]
+        mana -= (min(100.0, total("regen_while_casting", "@stormstrike")) / 100
+                 * (m["regen_base"] + stats.spirit / m["regen_spirit_div"]) / 2)
     return EnhancementRotation(dps=white + yellow + spell_dps, white_dps=white, yellow_dps=yellow, spell_dps=spell_dps,
-                               aoe=aoe)
+                               aoe=aoe, windfury_dps=windfury, shock_dps=shock_dps, mana_per_second=mana,
+                               shock_mana_per_second=shock_mana)

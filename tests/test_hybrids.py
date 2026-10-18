@@ -41,7 +41,7 @@ def test_builds_pick_their_engine_by_main_tree(name, melee, caster):
     assert main_tree(cls, builds[melee]) in class_module(name).MELEE_TREES
     assert main_tree(cls, builds[caster]) not in class_module(name).MELEE_TREES
     melee_out = engine(name).output(stats, cls.spells, cls, builds[melee], BOSS)
-    assert melee_out.mana_per_second == 0 and melee_out.dps > 100
+    assert (melee_out.mana_per_second == 0) == (name == "druid") and melee_out.dps > 100
 
 
 @pytest.mark.parametrize("talent", ["Predatory Strikes", "Sharpened Claws", "Savage Fury", "Predatory Instincts"])
