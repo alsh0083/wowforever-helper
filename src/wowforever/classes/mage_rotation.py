@@ -40,6 +40,35 @@ def frozen_lance_multiplier(cls) -> float:
     return 1 + float(re.search(r"Deals (\d+(?:\.\d+)?)% increased damage to Frozen targets", text).group(1)) / 100
 
 
+def combustion_rule(cls) -> tuple[float, int]:
+    """Combustion's (crit % per Fire hit, crits until it ends) from its rank text (#394)."""
+    import re
+
+    text = cls.talent_named("Combustion").rank_text[-1]
+    step = re.search(r"critical strike chance with Fire damage spells by (\d+(?:\.\d+)?)%", text).group(1)
+    limit = re.search(r"until you have caused (\d+) non-periodic critical strikes", text).group(1)
+    return float(step), int(limit)
+
+
+def combustion_extra_crits(p: float, hit: float, step: float, limit: int) -> float:
+    """Expected extra crit chance summed over the casts while Combustion lasts (#394). Cast i (from 0) crits with
+    min(1, p + step x i) instead of p; a cast crits with `hit` x that chance, and Combustion ends after `limit`
+    crits. Exact over the number of crits so far, cut off once it has ended with certainty (or after 200 casts)."""
+    active = [1.0] + [0.0] * (limit - 1)    # chance of being on c crits, Combustion still up
+    extra, i = 0.0, 0
+    while sum(active) > 1e-12 and i < 200:
+        chance = min(1.0, p + step * i)
+        extra += sum(active) * (chance - p)
+        q = hit * chance
+        nxt = [0.0] * limit
+        for c, pr in enumerate(active):
+            nxt[c] += pr * (1 - q)
+            if c + 1 < limit:
+                nxt[c + 1] += pr * q
+        active, i = nxt, i + 1
+    return extra
+
+
 def frozen_hit_gain(char: Character, filler: SpellRank, *, target_level: int,
                     assumptions: Assumptions) -> float:
     """Extra damage of one hit on a frozen target (Frost Nova, #97) over spending that time on
@@ -234,6 +263,27 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
         gain = ev_of(spell, mods) - filler_dps * cast_w
         dps += n * gain / 60.0
         mana_per_second += n * cost(spell, mods) / 60.0
+
+    if sustained and taken("Presence of Mind") > 0:
+        # one instant cast per cooldown: a GCD of filler time for the filler or Pyroblast, whichever gains more (#394)
+        pom = best_rank(char.spells, "Presence of Mind", char.level)
+        options = [(filler, filler_mods)]
+        pyro = best_rank(char.spells, "Pyroblast", char.level) if taken("Pyroblast") > 0 else None
+        if pyro is not None:
+            options.append((pyro, mods_for(pyro)))
+        if pom is not None and pom.cooldown > 0:
+            spell, mods = max(options, key=lambda o: ev_of(*o))
+            dps += (ev_of(spell, mods) - filler_dps * GCD_SECONDS) / pom.cooldown
+            mana_per_second += cost(spell, mods) / pom.cooldown
+    if sustained and taken("Combustion") > 0 and "fire" in filler.schools:
+        # Fire crit rising per cast until a few crits, once per cooldown (#394)
+        combustion = best_rank(char.spells, "Combustion", char.level)
+        if combustion is not None and combustion.cooldown > 0:
+            step, limit = combustion_rule(char.cls)
+            plus = replace(filler_mods, crit_chance_bonus=filler_mods.crit_chance_bonus + 1.0)
+            per_crit = (ev_of(filler, plus) - ev_of(filler, filler_mods)) / 0.01
+            extra = combustion_extra_crits(min(1.0, crit), hit, step / 100.0, limit)
+            dps += extra * per_crit / combustion.cooldown
 
     return Rotation(
         dps=dps,
