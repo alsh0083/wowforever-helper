@@ -107,6 +107,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
                    r"(\d+(?:\.\d+)?)% chance to gain (\d+(?:\.\d+)?)% mana regeneration while casting",
                    ("@stormstrike",), combine=lambda m: float(m.group(1)) * float(m.group(2)) / 100),
     ),
+    "Maelstrom Weapon": (
+        EffectRule("stack_pct", r"Mana cost of your next Lightning Bolt spell by (\d+(?:\.\d+)?)%", ("@maelstrom",)),
+    ),
 }
 
 # Every shaman talent, with why it isn't modeled.
@@ -126,7 +129,6 @@ UNMODELED: dict[str, str] = {
     "Toughness": "defensive: +10% Stamina",
     "Stormstrike": "grants_spell",
     "Spirit Weapons": "defensive: parry, less threat",
-    "Maelstrom Weapon": "proc: melee hits speed up the next spell",
     "Rage of the Farseer": "grants_spell",
     # Restoration
     "Improved Healing Wave": "healing: faster Healing Wave",
@@ -164,8 +166,9 @@ CAVEAT = ("Elemental (#167): Flame Shock kept up, Lava Burst and Chain Lightning
           "between on the caster engine; Lava Burst gets its +20% while Flame Shock is up. Enhancement (#175): "
           "two-hander swings with Windfury (Classic chance and attack power) and Flurry, Stormstrike and Earth "
           "Shock on cooldown on the melee engine; Stormstrike's bonus counts on the share of Earth Shocks after "
-          "one; Elemental Devastation counts as an average uptime; Maelstrom Weapon, totems and Enhancement's "
-          "mana aren't modeled. Restoration stays unscored. Base stats are estimates.")
+          "one; Elemental Devastation counts as an average uptime. Enhancement spends mana on shocks and "
+          "Stormstrike and swings white once dry; Maelstrom Weapon casts a Lightning Bolt at 5 stacks (proc rate "
+          "a guess). Totems aren't modeled. Restoration stays unscored. Base stats are estimates.")
 
 
 # --- class engine (#311): this module is the shaman's ClassEngine ------------------------------------

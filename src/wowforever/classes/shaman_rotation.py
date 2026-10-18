@@ -10,8 +10,8 @@ like Earth Shock.
 
 Stormstrike's bonus on the next Earth Shock counts for the share of shocks after one (#398).
 Mana (#398): Earth Shock, Stormstrike and Fire Nova cost it; Improved Stormstrike keeps part of the Spirit regen.
-Not modeled yet: Maelstrom Weapon's cheaper Lightning Bolt, Lightning Shield orbs (they fire when the shaman is
-hit), totems.
+Maelstrom Weapon (#398): a cheaper, faster Lightning Bolt at the stack cap. Not modeled yet: Lightning Shield
+orbs (they fire when the shaman is hit), totems.
 """
 
 from __future__ import annotations
@@ -22,7 +22,7 @@ from pathlib import Path
 
 from wowforever.calc.ev import miss_chance
 from wowforever.melee_stats import MeleeStats
-from wowforever.physical import Attacker, Target, white_swing, yellow_attack, yellow_crit_chance
+from wowforever.physical import Attacker, Target, white_land_chance, white_swing, yellow_attack, yellow_crit_chance
 from wowforever.scenarios import _anchor_at, best_rank
 from wowforever.schema import ClassData, SpellRank
 from wowforever.toml_cache import load_toml
@@ -42,6 +42,7 @@ class EnhancementRotation:
     shock_dps: float = 0.0               # the Earth Shock part of spell_dps, Stormstrike's bonus included
     mana_per_second: float = 0.0         # net of Improved Stormstrike's regen
     shock_mana_per_second: float = 0.0   # Earth Shock's part of the mana
+    maelstrom_dps: float = 0.0           # Maelstrom Weapon's Lightning Bolts, net of the swings they cost (#398)
 
 
 def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
@@ -122,6 +123,23 @@ def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: Cl
         shock_mana = cost(shock) / shock_period
         mana += shock_mana
     shock_dps = spell_dps
+    maelstrom = 0.0
+    bolt = best_rank(spells, "Lightning Bolt", level)
+    per_stack = total("stack_pct", "@maelstrom")
+    if bolt is not None and per_stack > 0:
+        # Maelstrom Weapon (#398): landed swings build stacks; at the cap a cheaper, faster Lightning Bolt, cast
+        # when it out-damages the swings its cast time left costs
+        mw = c["maelstrom_weapon"]
+        wf_share = c["windfury_chance"] if windfury > 0 else 0.0
+        procs = mw["ppm"] / 60 * swings * weapon[2] * (1 + wf_share) * white_land_chance(attacker, target)
+        left = max(0.0, 1 - per_stack * mw["stacks"] / 100)
+        avg = (((bolt.min_damage + bolt.max_damage) / 2 + bolt.coefficient * spell_power)
+               * (1 + total("damage_pct", "Lightning Bolt") / 100))
+        gain = hit * avg * (1 + spell_crit * 0.5) - (white + windfury) * bolt.cast_time * left
+        if gain > 0:
+            maelstrom = procs / mw["stacks"] * gain
+            spell_dps += maelstrom
+            mana += procs / mw["stacks"] * cost(bolt) * left
     nova = best_rank(spells, "Fire Nova", level) if pack > 1 else None
     aoe: tuple[str, ...] = ()
     if nova is not None and nova.min_damage > 0:
@@ -137,4 +155,4 @@ def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: Cl
                  * (m["regen_base"] + stats.spirit / m["regen_spirit_div"]) / 2)
     return EnhancementRotation(dps=white + yellow + spell_dps, white_dps=white, yellow_dps=yellow, spell_dps=spell_dps,
                                aoe=aoe, windfury_dps=windfury, shock_dps=shock_dps, mana_per_second=mana,
-                               shock_mana_per_second=shock_mana)
+                               shock_mana_per_second=shock_mana, maelstrom_dps=maelstrom)

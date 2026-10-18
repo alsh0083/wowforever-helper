@@ -11,3 +11,6 @@ normalized_speed = { one_hand = 2.4, two_hand = 3.3 }
 # Stormstrike: +20% damage on the next Lightning Bolt, Chain Lightning or Earth Shock within 12 s
 # (description and SpellEffect 17364 effect 1, base points 20, 1.60.1.70425; #398)
 stormstrike = { bonus_pct = 20.0, seconds = 12.0 }
+# Maelstrom Weapon (#398): the rank text gives no proc chance. Best-effort guess: 10 procs per minute (normalized to
+# the weapon's speed, so per landed swing: ppm x speed / 60), up to 5 stacks (rank text). Confidence LOW.
+maelstrom_weapon = { ppm = 10.0, stacks = 5 }
