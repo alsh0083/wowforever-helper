@@ -61,7 +61,10 @@ def test_output_wraps_the_class_rotation(name, pack):
                              w, BOSS, cls, ranks)[0] for w in rows),          # weapon-type talents (#386)
                 key=lambda rot: rot.dps)
         out = engine(name).output(stats, cls.spells, cls, ranks, BOSS, pack=pack)
-        assert out == ms.Output(r.dps, 0.0, r.dps, r.aoe)
+        if name == "paladin":   # Retribution tracks mana and swings white once dry (#399)
+            assert out == ms.Output(r.dps, r.mana_per_second, r.white_dps, r.aoe)
+        else:
+            assert out == ms.Output(r.dps, 0.0, r.dps, r.aoe)
         assert engine(name).playstyle(cls, ranks) == "melee"
 
 

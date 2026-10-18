@@ -58,6 +58,25 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Champion of the Light": (
         EffectRule("spell_power_from", r"by up to (\d+(?:\.\d+)?)% of your Intellect", ("intellect",)),
     ),
+    "Reverence": (
+        EffectRule("regen_while_casting", r"Allows (\d+(?:\.\d+)?)% of your Mana regeneration to continue", ("all",)),
+    ),
+    "Benediction": (
+        EffectRule("mana_cost_pct", r"Mana cost of all instant cast spells and abilities by (\d+(?:\.\d+)?)%",
+                   ("@instant",), sign=-1),
+    ),
+    "Twist of Light": (
+        EffectRule("mana_cost_pct", r"Mana cost of your Seal spells by (\d+(?:\.\d+)?)%", ("@seal",), sign=-1),
+    ),
+    "Holy Conduit": (
+        EffectRule("mana_cost_pct", r"Exorcism, and Hammer of Wrath spells by (\d+(?:\.\d+)?)%",
+                   ("Consecration", "Holy Wrath", "Exorcism", "Hammer of Wrath"), sign=-1),
+    ),
+    "Sanctified Judgement": (
+        # a chance to return a share: counted at chance x share
+        EffectRule("seal_refund_pct", r"(\d+(?:\.\d+)?)% chance to return (\d+(?:\.\d+)?)% of the Mana cost",
+                   ("Judgement",), combine=lambda m: float(m.group(1)) * float(m.group(2)) / 100),
+    ),
 }
 
 # Every paladin talent, with why it isn't modeled.
@@ -67,7 +86,6 @@ UNMODELED: dict[str, str] = {
     "Spiritual Focus": "utility: heals resist pushback",
     "Unyielding Faith": "defensive: shorter Fear and Disorient",
     "Voice of Truth": "defensive: immune to Silence and Interrupt for 6 s",
-    "Reverence": "resource: 30% mana regeneration while casting",
     "Purifying Power": "resource: cheaper Cleanse, shorter Exorcism and Holy Wrath cooldowns",
     "Infusion of Light": "proc: crits speed up the next Holy Light",
     "Illumination": "proc: heal crits refund mana",
@@ -94,16 +112,12 @@ UNMODELED: dict[str, str] = {
     "Holy Shield": "grants_spell",
     # Retribution
     "Deflection": "defensive: +5% parry",
-    "Benediction": "resource: instant spells cost 10% less mana",
-    "Holy Conduit": "resource: cheaper Consecration, Holy Wrath, Exorcism, Hammer of Wrath",
     "Vindication": "proc: melee hits lower enemy attack power",
-    "Sanctified Judgement": "resource: Judgement refunds seal mana",
     "Seal of Command": "grants_spell",
     "Pursuit of Justice": "mobility: +15% movement speed",
     "Eye for an Eye": "damage: reflects crit damage",
     "Repentance": "grants_spell",
     "Instrument of Law": "damage: faster Hammer of Wrath, less threat",
-    "Twist of Light": "resource: cheaper Seals, echo on seal swap",
 }
 
 # Paladin skill lines in SkillLineAbility: Holy, Protection, Retribution.
@@ -132,7 +146,7 @@ def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=N
     from wowforever.classes.engines import melee_talent_stats
 
     r = paladin_rotation(melee_talent_stats("paladin", stats, cls, ranks), spells, cls, ranks, target, pack=pack)
-    return Output(r.dps, 0.0, r.dps, r.aoe)
+    return Output(r.dps, r.mana_per_second, r.white_dps, r.aoe)
 
 
 def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):

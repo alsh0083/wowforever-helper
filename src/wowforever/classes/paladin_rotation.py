@@ -28,6 +28,7 @@ from wowforever.schema import ClassData, SpellRank
 from wowforever.toml_cache import load_toml
 
 CONFIG = Path(__file__).resolve().parents[3] / "config" / "paladin.toml"
+MELEE = Path(__file__).resolve().parents[3] / "config" / "melee.toml"
 
 
 @dataclass(frozen=True)
@@ -37,6 +38,7 @@ class PaladinRotation:
     holy_dps: float
     abilities: tuple[str, ...]
     aoe: tuple[str, ...] = ()   # abilities that hit more than one mob of the pack (#262)
+    mana_per_second: float = 0.0   # net of Reverence's regen (#399)
 
 
 def paladin_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
@@ -58,6 +60,11 @@ def paladin_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
                 out += sum(e.values[rank - 1] for e in t.effects if e.kind == kind and applies in e.applies_to)
         return out
 
+    def cost(spell: SpellRank, *groups: str) -> float:
+        """`spell`'s mana cost after the mana_cost_pct talents for its name, instants and `groups` (#399)."""
+        cut = sum(total("mana_cost_pct", g) for g in (spell.name, "@instant", *groups))
+        return spell.mana_cost * max(0.0, 1 + cut / 100)
+
     weapon = stats.main_hand
     if weapon is None:
         return PaladinRotation(0.0, 0.0, 0.0, ())
@@ -71,6 +78,7 @@ def paladin_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
     white = swings * white_swing(weapon, attacker, target, damage_pct=weapon_pct)
     holy, used = 0.0, []
     spell_power = stats.intellect * total("spell_power_from", "intellect") / 100   # Champion of the Light (#399)
+    mana = 0.0
 
     if taken("Seal of Command") and best_rank(spells, "Seal of Command", stats.level) is not None:
         chance = c["seal_of_command_ppm"] * weapon[2] / 60
@@ -78,11 +86,15 @@ def paladin_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
                              damage_pct=all_pct + total("damage_pct", "Seal of Command"))
         holy += swings * chance * proc
         judgement = best_rank(spells, "Judgement", stats.level)
+        seal = cost(best_rank(spells, "Seal of Command", stats.level), "@seal")
+        if judgement is None:
+            mana += seal / max(1.0, best_rank(spells, "Seal of Command", stats.level).duration)
         if judgement is not None:
             from wowforever.scenarios import _anchor_at
 
             damage = _anchor_at(c["judgement_of_command"], stats.level)[0]
             cooldown = max(1.0, judgement.cooldown + total("cooldown", "Judgement"))
+            mana += (seal * (1 - total("seal_refund_pct", "Judgement") / 100) + cost(judgement)) / cooldown
             holy += yellow_attack(damage, attacker, holy_target,
                                   damage_pct=all_pct + total("damage_pct", "Judgement")) / cooldown
             used += ["Seal of Command", "Judgement"]
@@ -93,6 +105,7 @@ def paladin_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
         base = (normalized + strike.weapon_bonus) * (strike.weapon_pct / 100 if strike.weapon_pct else 1)
         holy += yellow_attack(base, attacker, holy_target, crit_bonus=total("crit_chance", "Holy Strike"),
                               damage_pct=all_pct + total("damage_pct", "Holy Strike")) / strike.cooldown
+        mana += cost(strike) / strike.cooldown
         used.append("Holy Strike")
     hammer = best_rank(spells, "Hammer of Wrath", stats.level)
     if hammer is not None and hammer.cooldown > 0:
@@ -103,6 +116,7 @@ def paladin_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
                   * (1 + (all_pct + total("damage_pct", "Hammer of Wrath")) / 100))
         holy += (c["hammer_of_wrath_health_pct"] / 100 * hit * damage * (1 + spell_crit * 0.5)
                  / max(hammer.cooldown, 1.5))
+        mana += c["hammer_of_wrath_health_pct"] / 100 * cost(hammer) / max(hammer.cooldown, 1.5)
         used.append("Hammer of Wrath")
     aoe: tuple[str, ...] = ()
     consecration = best_rank(spells, "Consecration", stats.level) if pack > 1 else None
@@ -111,6 +125,12 @@ def paladin_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
         holy += ((consecration.periodic_damage + consecration.periodic_coefficient * spell_power)
                  * (1 + (all_pct + total("damage_pct", "Consecration")) / 100)
                  * pack / period)
+        mana += cost(consecration) / period
         used.append("Consecration")
         aoe = ("Consecration",)
-    return PaladinRotation(dps=white + holy, white_dps=white, holy_dps=holy, abilities=tuple(used), aoe=aoe)
+    # the share of Spirit regen that keeps going while casting (Reverence, #399)
+    m = load_toml(MELEE)["paladin"]
+    regen = (min(100.0, total("regen_while_casting", "all")) / 100
+             * (m["regen_base"] + stats.spirit / m["regen_spirit_div"]) / 2)
+    return PaladinRotation(dps=white + holy, white_dps=white, holy_dps=holy, abilities=tuple(used), aoe=aoe,
+                           mana_per_second=mana - regen)

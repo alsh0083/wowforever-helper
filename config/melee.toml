@@ -125,6 +125,9 @@ rap_agi = 0
 rap_const = 0
 agi_per_crit_at_60 = 20.0
 uses_mana = true
+# Spirit regen outside the five-second rule, per 2 s tick: regen_base + spirit / regen_spirit_div (Classic, #399)
+regen_base = 15
+regen_spirit_div = 5
 [paladin.weights]
 strength = 1.0
 agility = 0.5

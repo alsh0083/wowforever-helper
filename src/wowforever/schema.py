@@ -106,6 +106,7 @@ EFFECT_KINDS = frozenset({
     "defensive",        # absorb/immunity/damage reduction
     "resource",         # mana regen / return
     "regen_while_casting",  # share of spirit regen that continues while casting (Arcane Meditation)
+    "seal_refund_pct",  # % of the judged seal's mana cost Judgement returns (Sanctified Judgement)
     "grants_spell",     # talent teaches a spell (value unused)
     "other",            # understood by a human, not modeled yet
 })
