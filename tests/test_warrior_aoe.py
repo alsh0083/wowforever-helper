@@ -47,7 +47,7 @@ def test_single_target_is_unchanged():
     one = rotation("warrior-fury-pve", 1)
     default = wr.warrior_rotation(STATS, CLS.spells, CLS, ranks_of("warrior-fury-pve"), MOBS)
     assert one == default
-    assert one.aoe == () and [n for n, _ in one.parts] == ["Whirlwind", "Overpower", "Rend", "Heroic Strike"]   # #391
+    assert one.aoe == () and [n for n, _ in one.parts] == ["Overpower", "Rend", "Whirlwind", "Heroic Strike"]   # #391, #424
 
 
 def test_whirlwind_hits_up_to_four_mobs():
