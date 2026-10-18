@@ -149,12 +149,13 @@ def test_hybrids_fight_with_the_row_their_main_tree_picks(name, melee_build, cas
     melee, caster = builds[melee_build], builds[caster_build]
     assert engine(name).playstyle(cls, melee) == "melee" and engine(name).playstyle(cls, caster) == "caster"
     as_melee = engine(name).output(stats, cls.spells, cls, melee, BOSS)
-    assert as_melee.mana_per_second == 0.0 and not as_melee.ranged
+    # Enhancement spends mana on shocks and Stormstrike (#398); Feral has none
+    assert (as_melee.mana_per_second == 0.0) == (name == "druid") and not as_melee.ranged
     as_caster = engine(name).output(stats, cls.spells, cls, caster, BOSS)
     assert as_caster.ranged
     # the melee override wins over the main tree (a Feral leveling path while its points sit in Balance)
     forced = engine(name).output(stats, cls.spells, cls, caster, BOSS, melee=True)
-    assert forced.mana_per_second == 0.0 and not forced.ranged
+    assert (forced.mana_per_second == 0.0) == (name == "druid") and not forced.ranged
 
 
 def test_scenarios_ask_the_engine_with_no_class_chain():
