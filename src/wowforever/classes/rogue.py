@@ -4,6 +4,9 @@ Stage 2 of the alts (#131 part 2): the damage talents carry effect rules read fr
 text; the rest stay classified but unmodeled until the alts-engine milestone (#111).
 """
 
+from dataclasses import replace
+from pathlib import Path
+
 from wowforever.classes import EffectRule, TraitLayout, TreeBand, below_health
 
 # Trait tree 1111 holds all three rogue trees side by side, on the same grid as the mage's 1112.
@@ -172,6 +175,18 @@ EXTRA_SPELLS = {
 }
 
 
+CONFIG = Path(__file__).resolve().parents[3] / "config" / "rogue.toml"
+
+
+def dagger(stats):
+    """`stats` with a dagger in the main hand (#392): the same weapon DPS at config/rogue.toml's `dagger_speed`."""
+    from wowforever.toml_cache import load_toml
+
+    mn, mx, speed = stats.main_hand
+    f = load_toml(CONFIG)["dagger_speed"] / speed
+    return replace(stats, main_hand=(mn * f, mx * f, speed * f))
+
+
 # --- class engine (#309): this module is the rogue's ClassEngine ------------------------------------
 
 
@@ -182,10 +197,16 @@ def playstyle(cls, ranks) -> str:
 def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):
     from wowforever.classes.rogue_rotation import rogue_rotation
     from wowforever.melee_scenarios import Output
+    from wowforever.scenarios import best_rank
     from wowforever.weapon_talents import best_weapon
 
+    # the usual weapon, or a dagger and Backstab: whichever scores higher (#386, #392)
     r, _ = best_weapon(lambda s, t: rogue_rotation(s, spells, cls, ranks, t, pack=pack),
                        stats, target, cls, ranks)
+    if stats.main_hand is not None and best_rank(spells, "Backstab", stats.level) is not None:
+        stab, _ = best_weapon(lambda s, t: rogue_rotation(s, spells, cls, ranks, t, pack=pack, backstab=True),
+                              dagger(stats), target, cls, ranks, only="dagger")
+        r = max(r, stab, key=lambda x: x.dps)
     return Output(r.dps, 0.0, r.dps, r.aoe)
 
 

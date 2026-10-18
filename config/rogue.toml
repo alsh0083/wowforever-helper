@@ -10,6 +10,8 @@ blade_flurry = { haste_pct = 20.0, duration = 15.0, cooldown = 120.0 }
 snd_seconds_per_combo_point = 3.0
 # normalized weapon speed for "normalized" strikes (Classic)
 normalized_speed = { dagger = 1.7, one_hand = 2.4, two_hand = 3.3 }
+# Backstab needs a dagger (#392): the main hand's weapon DPS at this speed (a typical dagger's)
+dagger_speed = 1.8
 # finishers are spent at this many combo points
 finisher_combo_points = 5
 # Poisons (#387): chance per landed hit to apply each poison, and Deadly Poison's stack cap. Classic 1.12 values

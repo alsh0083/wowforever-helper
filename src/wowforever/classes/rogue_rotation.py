@@ -8,7 +8,8 @@ from the parsed spells (#131 part 1), the rogue's talent effect rules (part 2), 
 Against a pack (`pack` > 1, AoE pulls #262), Blade Flurry's attacks also hit a second mob for its
 share of the cooldown (15 s of 120 s), averaged like its haste.
 
-Poisons (#387): classes/poisons.py, on every landed hit. Not modeled yet: Backstab (#392).
+Poisons (#387): classes/poisons.py, on every landed hit. Backstab (#392): the builder when the
+caller passes backstab=True with a dagger row.
 """
 
 from __future__ import annotations
@@ -43,7 +44,8 @@ class RogueRotation:
 
 
 def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
-                   ranks: Mapping[int, int], target: Target, *, pack: int = 1) -> RogueRotation:
+                   ranks: Mapping[int, int], target: Target, *, pack: int = 1,
+                   backstab: bool = False) -> RogueRotation:
     """Sustained DPS against `target` with the rogue's talents `ranks`; with `pack` > 1, the damage
     summed over a pack of that many such mobs (#262)."""
     c = load_toml(CONFIG)
@@ -97,6 +99,8 @@ def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDat
         builder, speed = learned("Mutilate"), c["normalized_speed"]["dagger"]
     elif taken("Hemorrhage") and learned("Hemorrhage") is not None:
         builder, speed = learned("Hemorrhage"), c["normalized_speed"]["one_hand"]
+    elif backstab and learned("Backstab") is not None:
+        builder, speed = learned("Backstab"), c["normalized_speed"]["dagger"]
     else:
         builder, speed = learned("Sinister Strike"), c["normalized_speed"]["one_hand"]
     hands = [stats.main_hand, stats.off_hand][:max(1, builder.weapon_hits)]
@@ -114,6 +118,8 @@ def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDat
     crit = yellow_crit_chance(attacker, target, crit_bonus)
     crit_use = 1 - (1 - crit) ** len(hands)
     cp = builder.combo_points * land + land * crit_use * total("proc_chance", "@builder_crit") / 100
+    if builder.name == "Backstab":
+        cp += land * total("proc_chance", "@backstab_combo") / 100   # Puncturing Wounds (#392)
 
     k = c["finisher_combo_points"]
     evis = learned("Eviscerate")
