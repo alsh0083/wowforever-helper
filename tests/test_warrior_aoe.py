@@ -69,8 +69,10 @@ def test_heroic_strike_gives_way_to_cleave():
 
 
 def test_arms_whirls_before_mortal_strike_against_a_pack():
-    assert rotation("warrior-arms", 1).abilities[0] == "Mortal Strike"
-    assert rotation("warrior-arms", 3).abilities[0] == "Whirlwind"
+    # among the cooldown abilities (Overpower and Rend go first on one target, #424)
+    one, three = rotation("warrior-arms", 1).abilities, rotation("warrior-arms", 3).abilities
+    assert one.index("Mortal Strike") < one.index("Whirlwind")
+    assert three.index("Whirlwind") < three.index("Mortal Strike")
     assert rotation("warrior-arms", 3).dps > rotation("warrior-arms", 1).dps
 
 

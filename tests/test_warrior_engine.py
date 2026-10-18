@@ -62,7 +62,9 @@ def test_damage_talents_carry_rules():
 
 def test_arms_spends_rage_on_mortal_strike():
     r = warrior_rotation(STATS, SPELLS, CLS, ARMS, BOSS)
-    assert r.abilities[0] == "Mortal Strike" and r.dps > r.white_dps > 0
+    # Mortal Strike leads the cooldown abilities, after Overpower and Rend (#424)
+    assert [a for a in r.abilities if a not in ("Overpower", "Rend")][0] == "Mortal Strike"
+    assert r.dps > r.white_dps > 0
     assert 2 < r.rage_per_second < 10
 
 
