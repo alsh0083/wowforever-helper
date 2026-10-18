@@ -5,8 +5,9 @@ Cat form replaces the weapon with paws (Classic damage by level, config/druid.to
 Strikes adds attack power by level. The builder is Shred when Shredding Attacks makes it cheap,
 otherwise Claw; Rend and Tear counts as always on (Rake keeps the target bleeding).
 
-Rip is kept up when it beats Ferocious Bite (#397). Not modeled yet: Rake's bleed, Tiger's Fury,
-Berserk's cleave, Omen of Clarity, powershifting and Shifting Power.
+Rip is kept up when it beats Ferocious Bite (#397). Rake takes a builder's place once per its
+duration when it gains (#397). Not modeled yet: Tiger's Fury, Berserk's cleave, Omen of Clarity,
+powershifting and Shifting Power.
 """
 
 from __future__ import annotations
@@ -45,6 +46,13 @@ def finisher_dps(energy: float, builders: float, builder_cost: float, builder_ev
         left -= rate * cycle
         out += rate * (rip_damage + builders * builder_ev)
     return out + left / (builders * builder_cost + bite_cost) * (builders * builder_ev + bite_ev)
+
+
+def rake_gain(rake_damage: float, builder_ev: float, builder_cost: float, rake_cost: float,
+              damage_per_energy: float, duration: float) -> float:
+    """Extra damage per second from Rake taking a builder's place once per its duration (#397), or 0 if it loses."""
+    gain = (rake_damage - builder_ev + (builder_cost - rake_cost) * damage_per_energy) / duration
+    return max(0.0, gain)
 
 
 def cat_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
@@ -104,4 +112,13 @@ def cat_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
                                               rip=(rip.energy_cost, rip_damage, rip.duration)))
     elif cost > 0:
         yellow = energy / cost * builder_ev
+    rake = best_rank(spells, "Rake", level)
+    if rake is not None and rake.duration > 0 and yellow > 0 and energy > 0:
+        # Rake in a builder's place once per its duration (#397): its hit and its bleed (armor-free)
+        pct = bleeding + total("damage_pct", "Rake")
+        rake_damage = (yellow_attack((rake.min_damage + rake.max_damage) / 2, attacker, target, damage_pct=pct,
+                                     crit_damage_pct=crit_damage)
+                       + rake.periodic_damage * land_chance(attacker, target) * (1 + pct / 100))
+        rake_cost = max(0.0, rake.energy_cost + total("energy_cost", "Rake"))
+        yellow += rake_gain(rake_damage, builder_ev, cost, rake_cost, yellow / energy, rake.duration)
     return CatRotation(dps=white + yellow, white_dps=white, yellow_dps=yellow, builder=builder.name)
