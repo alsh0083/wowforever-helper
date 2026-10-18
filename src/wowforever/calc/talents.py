@@ -16,6 +16,7 @@ _KIND_TO_FIELD = {
     "cast_time": "cast_time_delta",
     "mana_cost_pct": "mana_cost_pct",
     "hit_chance": "hit_bonus",
+    "direct_damage_pct": "direct_damage_pct",
 }
 
 

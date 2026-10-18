@@ -108,6 +108,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("damage_pct", r"Wrack spells by (\d+(?:\.\d+)?)% per each of your other Affliction effects",
                    ("Drain Life", "Drain Soul", "Wrack", f"@dot:{dot}"))
         for dot in ("Corruption", "Bane of Agony", "Siphon Life")),
+    "Aftermath": (
+        EffectRule("direct_damage_pct", r"initial damage of your Immolate spell by (\d+(?:\.\d+)?)%", ("Immolate",)),
+    ),
 }
 
 # Every warlock talent, with why it isn't modeled.
@@ -139,7 +142,6 @@ UNMODELED: dict[str, str] = {
     # Destruction
     "Destructive Reach": "utility: +20% spell range",
     "Molten Skin": "defensive: 10% less damage taken",
-    "Aftermath": "control: Conflagrate dazes, stronger Immolate",
     "Shadowburn": "grants_spell",
     "Conflagrate": "grants_spell",
     "Pyroclasm": "control: Soul Fire and AoE can stun",

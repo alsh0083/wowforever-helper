@@ -78,6 +78,7 @@ def newest_saved_dataset(datasets_dir: Path = DATASETS_DIR) -> Path:
 # Effect kinds the calculator understands. Extend here (one place) when a new kind is needed.
 EFFECT_KINDS = frozenset({
     "damage_pct",       # % more damage
+    "direct_damage_pct",  # % more damage on the initial hit only, not the periodic part (Aftermath)
     "crit_chance",      # + crit chance (percentage points)
     "crit_damage_pct",  # % more crit damage / bonus
     "hit_chance",       # + hit chance (percentage points)
