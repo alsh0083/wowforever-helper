@@ -5,8 +5,8 @@ Cat form replaces the weapon with paws (Classic damage by level, config/druid.to
 Strikes adds attack power by level. The builder is Shred when Shredding Attacks makes it cheap,
 otherwise Claw; Rend and Tear counts as always on (Rake keeps the target bleeding).
 
-Not modeled yet: Rake's and Rip's bleeds as separate damage, Tiger's Fury, Berserk's cleave,
-Omen of Clarity, powershifting and Shifting Power.
+Rip is kept up when it beats Ferocious Bite (#397). Not modeled yet: Rake's bleed, Tiger's Fury,
+Berserk's cleave, Omen of Clarity, powershifting and Shifting Power.
 """
 
 from __future__ import annotations
@@ -30,6 +30,21 @@ class CatRotation:
     white_dps: float
     yellow_dps: float
     builder: str
+
+
+def finisher_dps(energy: float, builders: float, builder_cost: float, builder_ev: float, bite_cost: float,
+                 bite_ev: float, rip: tuple[float, float, float] | None = None) -> float:
+    """Yellow damage per second of `builders` builders to full combo points and a finisher (#397): Ferocious Bite
+    every cycle, or with `rip` = (energy cost, damage, duration) Rip as often as energy allows (at most once per
+    duration) and Bite cycles on the energy left."""
+    left, out = energy, 0.0
+    if rip is not None:
+        rip_cost, rip_damage, rip_duration = rip
+        cycle = builders * builder_cost + rip_cost
+        rate = min(1 / rip_duration, energy / cycle)          # Rip cycles per second
+        left -= rate * cycle
+        out += rate * (rip_damage + builders * builder_ev)
+    return out + left / (builders * builder_cost + bite_cost) * (builders * builder_ev + bite_ev)
 
 
 def cat_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
@@ -79,8 +94,14 @@ def cat_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
         bite_ev = yellow_attack((bite.min_damage + bite.max_damage) / 2 + bite.per_combo_point * k, attacker, target,
                                 damage_pct=bleeding + total("damage_pct", "Ferocious Bite"), crit_damage_pct=crit_damage)
         n = k / cp_per_builder
-        cycles = energy / (n * cost + bite.energy_cost)
-        yellow = cycles * (n * builder_ev + bite_ev)
+        yellow = finisher_dps(energy, n, cost, builder_ev, bite.energy_cost, bite_ev)
+        rip = best_rank(spells, "Rip", level)
+        if rip is not None and rip.duration > 0:
+            # Rip at k combo points: a bleed, so it lands or not but armor and crits don't touch it (#397)
+            rip_damage = ((rip.periodic_damage + rip.periodic_per_combo_point * k) * land_chance(attacker, target)
+                          * (1 + (bleeding + total("damage_pct", "Rip")) / 100))
+            yellow = max(yellow, finisher_dps(energy, n, cost, builder_ev, bite.energy_cost, bite_ev,
+                                              rip=(rip.energy_cost, rip_damage, rip.duration)))
     elif cost > 0:
         yellow = energy / cost * builder_ev
     return CatRotation(dps=white + yellow, white_dps=white, yellow_dps=yellow, builder=builder.name)
