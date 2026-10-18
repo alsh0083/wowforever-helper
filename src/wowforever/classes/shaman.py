@@ -96,13 +96,17 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Mental Quickness": (
         EffectRule("spell_power_from", r"by up to (\d+(?:\.\d+)?)% of your Intellect", ("intellect",)),
     ),
+    "Elemental Devastation": (
+        EffectRule("crit_chance", r"chance to get a Critical Strike with melee attacks by (\d+(?:\.\d+)?)%",
+                   ("@devastation",)),
+        EffectRule("duration", r"melee attacks by \d+(?:\.\d+)?% for (\d+(?:\.\d+)?) sec", ("@devastation",)),
+    ),
 }
 
 # Every shaman talent, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Elemental
     "Elemental Warding": "defensive: 10% less Fire, Frost, Nature damage",
-    "Elemental Devastation": "proc: spell crits raise melee crit",
     "Trial by Fire": "damage: Fire Nova damage and cooldown, longer Magma Totem",
     "Elemental Reach": "utility: longer spell range",
     "Earthbound": "control: Earthbind Totem roots 5 s",
@@ -155,8 +159,8 @@ CAVEAT = ("Elemental (#167): Flame Shock kept up, Lava Burst and Chain Lightning
           "between on the caster engine; Lava Burst gets its +20% while Flame Shock is up. Enhancement (#175): "
           "two-hander swings with Windfury (Classic chance and attack power) and Flurry, Stormstrike and Earth "
           "Shock on cooldown on the melee engine; Stormstrike's bonus counts on the share of Earth Shocks after "
-          "one; Maelstrom Weapon, totems and Enhancement's mana aren't modeled. Restoration stays unscored. "
-          "Base stats are estimates.")
+          "one; Elemental Devastation counts as an average uptime; Maelstrom Weapon, totems and Enhancement's "
+          "mana aren't modeled. Restoration stays unscored. Base stats are estimates.")
 
 
 # --- class engine (#311): this module is the shaman's ClassEngine ------------------------------------

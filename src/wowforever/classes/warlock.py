@@ -103,6 +103,11 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("crit_debuff_seconds", r"from your attacks by \d+(?:\.\d+)?% for (\d+(?:\.\d+)?) sec",
                    ("Shadow Bolt", "shadow")),
     ),
+    # one rule per Affliction DoT, each counting while that DoT is up (#396)
+    "Soul Siphon": tuple(
+        EffectRule("damage_pct", r"Wrack spells by (\d+(?:\.\d+)?)% per each of your other Affliction effects",
+                   ("Drain Life", "Drain Soul", "Wrack", f"@dot:{dot}"))
+        for dot in ("Corruption", "Bane of Agony", "Siphon Life")),
 }
 
 # Every warlock talent, with why it isn't modeled.
@@ -113,7 +118,6 @@ UNMODELED: dict[str, str] = {
     "Amplify Curse": "control: stronger next curse",
     "Curse of Exhaustion": "grants_spell",
     "Siphon Life": "grants_spell",
-    "Soul Siphon": "damage: drains scale with afflictions",
     "Wrack": "grants_spell",
     "Grim Reach": "utility: range of Affliction spells (1.60.1.70425)",
     # Demonology
@@ -156,9 +160,9 @@ ROTATION = {
 }
 CAVEAT = ("Caster model (#163, #165): Corruption, Bane of Agony, Siphon Life and Immolate kept up, Conflagrate "
           "and Shadowburn on cooldown, then the best of Shadow Bolt, Incinerate, Searing Pain, Wrack or Drain "
-          "Life, with Life Tap as steady mana. Improved Shadow Bolt and Nightfall count as averages; pets "
-          "aren't modeled; Demonic Sacrifice counts the Imp (+Shadow) and Demonic Knowledge assumes a demon is "
-          "out. Base stats are estimates.")
+          "Life, with Life Tap as steady mana. Improved Shadow Bolt and Nightfall count as averages and Soul "
+          "Siphon counts the DoTs kept up; pets aren't modeled; Demonic Sacrifice counts the Imp (+Shadow) and "
+          "Demonic Knowledge assumes a demon is out. Base stats are estimates.")
 
 
 # --- class engine (#311): this module is the warlock's ClassEngine ------------------------------------

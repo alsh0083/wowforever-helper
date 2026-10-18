@@ -62,7 +62,14 @@ def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: Cl
     if weapon is None:
         return EnhancementRotation(0.0, 0.0, 0.0, 0.0)
     ap = stats.attack_power + total("ap_from_int_pct", "all") / 100 * stats.intellect
-    attacker = Attacker(level, ap, stats.crit_pct + total("crit_chance", "all"), stats.hit_pct + total("hit_chance", "all"))
+    melee_crit = stats.crit_pct + total("crit_chance", "all")
+    shock = best_rank(spells, "Earth Shock", level)
+    if shock is not None and shock.cooldown > 0 and total("duration", "@devastation") > 0:
+        # Earth Shock crits raise melee crit for a while (Elemental Devastation, #398): its average uptime
+        shocks = total("duration", "@devastation") / max(shock.cooldown + total("cooldown", "Earth Shock"), 1.5)
+        uptime = 1 - (1 - min(1.0, (stats.crit_pct + total("crit_chance", "all")) / 100)) ** shocks
+        melee_crit += total("crit_chance", "@devastation") * uptime
+    attacker = Attacker(level, ap, melee_crit, stats.hit_pct + total("hit_chance", "all"))
     crit = yellow_crit_chance(attacker, target)
 
     haste = 1.0
