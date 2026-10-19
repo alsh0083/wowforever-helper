@@ -1,11 +1,14 @@
 """Class engine (#309, #310): each scored class module runs its own rotation behind one interface
 (docs/planning/2026-10-14-class-engine.md). A refactor: adapters must equal the rotations they wrap."""
 
+from dataclasses import replace
+
 import pytest
 
 from wowforever import melee_scenarios as ms
 from wowforever.builds import load_builds
 from wowforever.classes import ENGINE_MEMBERS, class_module, engine
+from wowforever.classes.engines import melee_talent_stats
 from wowforever.classes.hunter import has_pet
 from wowforever.classes.hunter_rotation import hunter_rotation
 from wowforever.classes.paladin_rotation import paladin_rotation
@@ -54,10 +57,22 @@ def test_output_wraps_the_class_rotation(name, pack):
     cls, builds = loaded(name)
     stats = ms.stat_table(name).at(60)
     for ranks in builds:
-        r, _ = best_weapon(lambda s, t: ADAPTED[name](s, cls.spells, cls, ranks, t, pack=pack),
-                           stats, BOSS, cls, ranks)      # weapon-type talents (#386)
+        row = melee_talent_stats(name, stats, cls, ranks) if name == "paladin" else stats   # #383
+        fury = name == "warrior" and ms.main_tree(cls, ranks) == "Fury"       # only Fury dual wields (#391)
+        rows = (row, class_module("warrior").dual_wield(row)) if fury else (row,)
+        r = max((best_weapon(lambda s, t: ADAPTED[name](s, cls.spells, cls, ranks, t, pack=pack),
+                             w, BOSS, cls, ranks)[0] for w in rows),          # weapon-type talents (#386)
+                key=lambda rot: rot.dps)
+        if name == "rogue":   # or a dagger and Backstab, whichever scores higher (#392)
+            stab = best_weapon(lambda s, t: ADAPTED[name](s, cls.spells, cls, ranks, t, pack=pack, backstab=True),
+                               class_module("rogue").dagger(stats), BOSS, cls, ranks, only="dagger")[0]
+            r = max(r, stab, key=lambda rot: rot.dps)
         out = engine(name).output(stats, cls.spells, cls, ranks, BOSS, pack=pack)
-        assert out == ms.Output(r.dps, 0.0, r.dps, r.aoe)
+        if name == "paladin":   # Retribution tracks mana and swings white once dry (#399)
+            # plus the rotation without Consecration as an alternative (#399)
+            assert replace(out, alternatives=()) == ms.Output(r.dps, r.mana_per_second, r.white_dps, r.aoe)
+        else:      # the rogue's questing opener rides along (#431)
+            assert out == ms.Output(r.dps, 0.0, r.dps, r.aoe, opener_damage=getattr(r, "opener_damage", 0.0))
         assert engine(name).playstyle(cls, ranks) == "melee"
 
 
@@ -116,10 +131,12 @@ def test_casters_run_the_caster_rotation(name):
         gross = r.mana_per_second + r.regen_per_second
         assert out.dps == r.dps and out.mana_per_second == r.mana_per_second and out.ranged
         if name == "warlock":       # once dry, the warlock taps (#348)
+            from wowforever.caster import life_tap_pct
             from wowforever.classes.engines import life_tap_fallback
             from wowforever.gear import caster_config
 
-            expected = life_tap_fallback(r.dps, r.mana_per_second, 60, caster_config("warlock")["life_tap"])
+            expected = life_tap_fallback(r.dps, r.mana_per_second, 60, caster_config("warlock")["life_tap"],
+                                         bonus_pct=life_tap_pct(cls, ranks))     # Improved Life Tap (#396)
         else:
             expected = r.dps * min(1.0, r.regen_per_second / gross) if gross else r.dps
         assert out.fallback_dps == pytest.approx(expected)
@@ -136,12 +153,13 @@ def test_hybrids_fight_with_the_row_their_main_tree_picks(name, melee_build, cas
     melee, caster = builds[melee_build], builds[caster_build]
     assert engine(name).playstyle(cls, melee) == "melee" and engine(name).playstyle(cls, caster) == "caster"
     as_melee = engine(name).output(stats, cls.spells, cls, melee, BOSS)
-    assert as_melee.mana_per_second == 0.0 and not as_melee.ranged
+    # Enhancement spends mana on shocks and Stormstrike (#398); Feral has none
+    assert (as_melee.mana_per_second == 0.0) == (name == "druid") and not as_melee.ranged
     as_caster = engine(name).output(stats, cls.spells, cls, caster, BOSS)
     assert as_caster.ranged
     # the melee override wins over the main tree (a Feral leveling path while its points sit in Balance)
     forced = engine(name).output(stats, cls.spells, cls, caster, BOSS, melee=True)
-    assert forced.mana_per_second == 0.0 and not forced.ranged
+    assert (forced.mana_per_second == 0.0) == (name == "druid") and not forced.ranged
 
 
 def test_scenarios_ask_the_engine_with_no_class_chain():

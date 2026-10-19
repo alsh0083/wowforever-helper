@@ -9,7 +9,7 @@ Against a pack (`pack` > 1, AoE pulls #262): Multi-Shot hits up to config multi_
 the ranged hunter channels Volley instead when that does more, and Explosive Trap goes out on
 cooldown in either mode, hitting every mob.
 
-Not modeled yet: Rapid Killing's cooldown cut, Deadly Aspects procs, Expose Prey, hawk damage,
+Not modeled yet: Expose Prey, hawk damage,
 Resourcefulness, and pet talents beyond Unleashed Fury and Bestial Wrath.
 """
 
@@ -80,6 +80,8 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
     parts: dict[str, float] = {}
     if stats.ranged is not None:
         rap = stats.ranged_attack_power + int_ap + 2 * extra_agi + (c["trueshot_aura_rap"] if taken("Trueshot Aura") else 0)
+        hawk = learned("Aspect of the Hawk")       # kept up while shooting (#388)
+        rap += hawk.ranged_attack_power if hawk is not None else 0.0
         a_r = Attacker(level, rap, stats.ranged_crit_pct + crit_all, hit)
         weapon_pct = total("damage_pct", "@ranged") + shared_pct
         cd_r = total("crit_damage_pct", "@ranged")
@@ -87,7 +89,12 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
         haste = 1 + c["quiver_haste_pct"] / 100
         rapid = learned("Rapid Fire")
         if rapid is not None:
-            haste *= 1 + rapid.haste_pct / 100 * rapid.duration / rapid.cooldown
+            haste *= 1 + rapid.haste_pct / 100 * rapid.duration / (rapid.cooldown + total("cooldown", "Rapid Fire"))
+        if taken("Deadly Aspects") and learned("Aspect of the Hawk") is not None:
+            # each Auto Shot may haste the next window; uptime from the shots in one window (#393)
+            shots = total("duration", "@deadly_aspects") * haste / speed
+            uptime = 1 - (1 - total("proc_chance", "@deadly_aspects") / 100) ** shots
+            haste *= 1 + total("haste_pct", "@deadly_aspects") / 100 * uptime
         auto = ranged_shot((low + high) / 2 + rap / 14 * speed, a_r, target, damage_pct=weapon_pct,
                            crit_damage_pct=cd_r) * haste / speed
         norm = (low + high) / 2 + rap / 14 * c["normalized_speed"]["ranged"]
@@ -180,6 +187,13 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
         best += parts["Explosive Trap"]
         trap_mana = trap.mana_cost / trap.cooldown
         mana_r, mana_m = mana_r + trap_mana, mana_m + trap_mana
+    # the share of Spirit regen that keeps going while shooting (Bestial Discipline, Rapid Recuperation, #393)
+    m = load_toml(MELEE)["hunter"]
+    share = total("regen_while_casting", "all")
+    if learned("Serpent Sting") is not None:
+        share += total("regen_while_casting", "@sting")
+    regen = min(100.0, share) / 100 * (m["regen_base"] + stats.spirit / m["regen_spirit_div"]) / 2
+    mana_r, mana_m = mana_r - regen, mana_m - regen
     return HunterRotation(dps=best + pet_dps, ranged_dps=ranged, melee_dps=melee, pet_dps=pet_dps, mode=mode,
                           mana_per_second=mana_r if mode == "ranged" else mana_m, auto_dps=auto,
                           aoe=tuple(parts), parts=tuple(parts.items()))

@@ -36,6 +36,7 @@ class MeleeStats:
     main_hand: tuple[int, int, float] | None    # (min, max, speed)
     off_hand: tuple[int, int, float] | None
     ranged: tuple[int, int, float] | None
+    spirit: float = 0.0                         # base + gear (#393, #399)
 
 
 def class_config(class_name: str) -> dict:
@@ -115,13 +116,14 @@ def melee_stat_table(class_name: str, items: list[Item], weapons: Mapping[int, W
             health=base["base_health"] + HEALTH_PER_STAMINA * stamina,
             mana=(base["base_mana"] + MANA_PER_INT * intellect) if cfg["uses_mana"] else 0.0,
             main_hand=main, off_hand=off, ranged=ranged,
+            spirit=base["spirit"] + totals.get("spirit", 0),
         ))
     return rows
 
 
 COLUMNS = ("level", "strength", "agility", "stamina", "intellect", "attack_power", "ranged_attack_power",
            "crit_pct", "ranged_crit_pct", "hit_pct", "health", "mana", "mh_min", "mh_max", "mh_speed",
-           "oh_min", "oh_max", "oh_speed", "ranged_min", "ranged_max", "ranged_speed")
+           "oh_min", "oh_max", "oh_speed", "ranged_min", "ranged_max", "ranged_speed", "spirit")
 
 
 def write_melee_csv(rows: Iterable[MeleeStats], path: Path) -> None:
@@ -132,5 +134,6 @@ def write_melee_csv(rows: Iterable[MeleeStats], path: Path) -> None:
         for r in rows:
             weapons = [v for w in (r.main_hand, r.off_hand, r.ranged) for v in (w or (0, 0, 0))]
             values = [r.level, r.strength, r.agility, r.stamina, r.intellect, r.attack_power,
-                      r.ranged_attack_power, r.crit_pct, r.ranged_crit_pct, r.hit_pct, r.health, r.mana, *weapons]
+                      r.ranged_attack_power, r.crit_pct, r.ranged_crit_pct, r.hit_pct, r.health, r.mana,
+                      *weapons, r.spirit]
             writer.writerow(round(v, 2) if isinstance(v, float) else v for v in values)

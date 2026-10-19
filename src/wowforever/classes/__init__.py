@@ -53,6 +53,13 @@ class EffectRule:
     combine: Callable[[Match[str]], float] | None = None  # several numbers, e.g. % x stacks
 
 
+def below_health(match: Match[str]) -> float:
+    """A bonus that holds below a health threshold, averaged over the fight (#392): with steady damage the target
+    spends N% of the fight below N% health, so the bonus counts at bonus x N / 100. The two captured numbers
+    multiply, so their order in the rank text doesn't matter."""
+    return float(match.group(1)) * float(match.group(2)) / 100
+
+
 # Registered classes: name (also the wowforevertalent.com page slug) -> module with LAYOUT,
 # TALENT_EFFECTS, UNMODELED and SKILL_LINES. Add a class here once its module exists.
 CLASSES: dict[str, str] = {

@@ -47,6 +47,10 @@ last time), **moved** (rewrites it) or **settled** (20+ saves and unchanged, so 
 the leveling builds and regenerate the reports when anything was rewritten. Builds still marked `provisional` show as
 "Community standard (provisional, N saves)" on the dashboard.
 
+After a patch, fetch only post-patch logs: `.venv/Scripts/python -m wowforever foreverlogs-refresh --week 147`
+(weeks from 2024-01-01; add `--day 1 --day 2` for single days), then compare with
+`validate-logs --stats stats-w147` (repeat `--stats` to add slices up). A 429 waits 60 s and retries once.
+
 ## 6. Move the model
 - `patch-readiness` is clean on the new build.
 - Regenerate every class report and the dashboard (`wowforever report ...`, `wowforever dashboard`).

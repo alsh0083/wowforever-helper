@@ -36,11 +36,12 @@ def top(name):
 
 def test_untalented_ranged_rotation():
     rot = hunter_rotation(STATS, SPELLS, CLS, {}, BOSS)
-    a = Attacker(60, 800, 12, 4)
+    rap = 800 + 120                     # Aspect of the Hawk rank 7 (#388)
+    a = Attacker(60, rap, 12, 4)
     rapid = top("Rapid Fire")
     haste = 1.15 * (1 + rapid.haste_pct / 100 * rapid.duration / rapid.cooldown)
-    auto = ranged_shot(125 + 800 / 14 * 2.8, a, BOSS) * haste / 2.8
-    norm = 125 + 800 / 14 * 2.8
+    auto = ranged_shot(125 + rap / 14 * 2.8, a, BOSS) * haste / 2.8
+    norm = 125 + rap / 14 * 2.8
     aimed, multi, arcane = top("Aimed Shot"), top("Multi-Shot"), top("Arcane Shot")
     shots = (ranged_shot(norm + aimed.weapon_bonus, a, BOSS) / aimed.cooldown
              + ranged_shot(norm + multi.weapon_bonus, a, BOSS) / multi.cooldown
@@ -104,7 +105,7 @@ def test_marksmanship_shot_talents():
     talents = ranks(("Lone Wolf", 1), ("Mortal Shots", 5), ("Barrage", 3), ("Ranged Weapon Specialization", 5),
                     ("Careful Aim", 5), ("Trueshot Aura", 1), ("Improved Arcane Shot", 5), ("Efficiency", 5))
     rot = hunter_rotation(STATS, SPELLS, CLS, talents, BOSS)
-    rap = 800 + 80 + 30
+    rap = 800 + 80 + 30 + 120           # Aspect of the Hawk rank 7 (#388)
     a = Attacker(60, rap, 12, 4)
     rapid = top("Rapid Fire")
     haste = 1.15 * (1 + rapid.haste_pct / 100 * rapid.duration / rapid.cooldown)

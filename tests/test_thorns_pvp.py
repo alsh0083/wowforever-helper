@@ -7,17 +7,22 @@ the melee (feral) row has none. With the 0.168 coefficient toggled on:
 The opponent's melee hits per second is a config estimate (1.0).
 """
 
+from pathlib import Path
+
 import pytest
 
 from wowforever.assumptions import Assumptions
 from wowforever.builds import load_builds
-from wowforever.melee_scenarios import stat_table
+from wowforever.melee_scenarios import HybridTable, MeleeStatTable
 from wowforever.pvp.class_pvp import class_side, thorns_dps
 from wowforever.scenarios import best_rank
 from wowforever.schema import Dataset, latest_dataset_path
+from wowforever.stats import StatTable
 
 CLS = Dataset.load(latest_dataset_path()).class_data("druid")
-TABLE = stat_table("druid")
+# the stat rows the hand-worked values below use, frozen (1.60.1.70205 gear; #416 moved the live tables)
+FROZEN = Path(__file__).parent / "fixtures" / "stats-70205"
+TABLE = HybridTable(StatTable.load("druid", FROZEN), MeleeStatTable.load("druid_melee", config_dir=FROZEN))
 ON = Assumptions.load().with_values(thorns_spell_power_coefficient=0.168)
 
 

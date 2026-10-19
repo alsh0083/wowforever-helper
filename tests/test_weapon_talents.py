@@ -75,5 +75,5 @@ def test_rank_text_matches_per_rank_values():
 def test_class_outputs_use_best_weapon():
     from wowforever.classes import rogue, warrior
     import inspect
-    assert "best_weapon" in inspect.getsource(warrior.output)
+    assert "best_weapon" in inspect.getsource(warrior._rotation)          # both weapon sets (#391)
     assert "best_weapon" in inspect.getsource(rogue.output)

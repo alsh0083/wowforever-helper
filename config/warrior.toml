@@ -16,3 +16,12 @@ normalized_speed = { one_hand = 2.4, two_hand = 3.3 }
 cleave_targets = 2
 # Sweeping Strikes: "Your next 5 melee attacks strike an additional nearby opponent" (rank text)
 sweeping_strikes_attacks = 5
+# Flurry lasts this many swings after a crit (rank text: "your next 3 swings", #391)
+flurry_swings = 3
+
+# Bloodthirst: base damage plus this % of attack power ($s2: SpellEffect 23894 effect 1, 1.60.1.70425; #391)
+bloodthirst_ap_pct = 45.0
+
+# Execute (#391): usable at or below 20% health; 600 damage (SpellEffect 20662 effect 0) plus 10 per extra Rage
+# (description "$*10"); counted for that share of the fight with all Rage going to it
+execute = { health_pct = 20.0, base = 600.0, per_rage = 10.0 }

@@ -15,8 +15,8 @@ Not modeled here: procs, cleave, pets (warlock, #165) and Life Tap; classes add 
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
-from dataclasses import dataclass
+from collections.abc import Collection, Mapping, Sequence
+from dataclasses import dataclass, replace
 
 from wowforever.assumptions import Assumptions, periodic_can_crit, sub20_penalized
 from wowforever.calc.ev import GCD_SECONDS, effective_cast_time, expected_damage
@@ -57,10 +57,14 @@ def regen_while_casting(class_name: str, stats: Stats, cls: ClassData, ranks: Ma
 
 
 def cast(spell: SpellRank, stats: Stats, cls: ClassData, ranks: Mapping[int, int], target_level: int,
-         assumptions: Assumptions) -> tuple[float, float, float]:
+         assumptions: Assumptions, conditions: frozenset[str] = frozenset(),
+         extra_damage_pct: float = 0.0) -> tuple[float, float, float]:
     """(expected damage, seconds of casting, mana) for one cast; instants take a global cooldown and
-    channels their full duration."""
-    mods = modifiers_for(spell, cls, ranks)
+    channels their full duration. `conditions` switch on `@`-token talent rules (`dot:<name>` while that DoT is
+    up) and `extra_damage_pct` adds a spell's own bonus (Lava Burst with Flame Shock, #384)."""
+    mods = modifiers_for(spell, cls, ranks, conditions)
+    if extra_damage_pct:
+        mods = replace(mods, damage_pct=mods.damage_pct + extra_damage_pct)
     ev = expected_damage(sub20_penalized(scaled(spell, stats.level), assumptions),
                          spell_power=stats.spell_power, crit_pct=stats.crit_pct, hit_pct=stats.hit_pct,
                          caster_level=stats.level, target_level=target_level, mods=mods,
@@ -68,12 +72,17 @@ def cast(spell: SpellRank, stats: Stats, cls: ClassData, ranks: Mapping[int, int
     seconds = max(GCD_SECONDS, effective_cast_time(spell, mods))
     if spell.channeled:
         seconds = max(seconds, spell.duration)
+    grace = sum(e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
+                for e in t.effects if e.kind == "crit_haste_pct")
+    if grace and not spell.channeled:
+        # a crit speeds up the next cast (Nature's Grace, #397): on average by the crit chance
+        seconds *= 1 - grace / 100 * min(1.0, (stats.crit_pct + mods.crit_chance_bonus) / 100)
     return ev, seconds, spell.mana_cost * (1 + mods.mana_cost_pct / 100)
 
 
 def talent_stats(class_name: str, stats: Stats, cls: ClassData, ranks: Mapping[int, int]) -> Stats:
     """The build's `stat_pct` talents (Mental Strength, Dark Inspiration; 70425, #356) through the
-    class's conversions."""
+    class's conversions, then its `spell_power_from` talents (Demonic Knowledge, Mental Quickness, #396)."""
     from wowforever.stat_weights import apply
 
     for talent in cls.talents:
@@ -84,25 +93,67 @@ def talent_stats(class_name: str, stats: Stats, cls: ClassData, ranks: Mapping[i
             if effect.kind != "stat_pct":
                 continue
             stat = effect.applies_to[0]
+            if getattr(stats, stat, None) is None:       # Cat Form Strength on a caster row (#383)
+                continue
             bumped = apply(class_name, stats, stat, getattr(stats, stat) * effect.values[rank - 1] / 100)
             if bumped is not None:
                 stats = bumped
+    for talent in cls.talents:
+        rank = ranks.get(talent.talent_id, 0)
+        for effect in (talent.effects if rank > 0 else ()):
+            if effect.kind == "spell_power_from":
+                base = stats.level if effect.applies_to[0] == "level" else getattr(stats, effect.applies_to[0])
+                stats = replace(stats, spell_power=stats.spell_power + base * effect.values[rank - 1] / 100)
     return stats
+
+
+def longer_dot(spell: SpellRank, cls: ClassData, ranks: Mapping[int, int]) -> SpellRank:
+    """`spell` with its talents' extra DoT seconds (Improved Shadow Word: Pain, Call of Flame, #384): more ticks, so
+    its periodic damage and coefficient grow with the duration."""
+    extra = sum(e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
+                for e in t.effects if e.kind == "dot_seconds" and spell.name in e.applies_to)
+    if extra <= 0 or spell.duration <= 0:
+        return spell
+    scale = (spell.duration + extra) / spell.duration
+    return replace(spell, duration=spell.duration + extra, periodic_damage=spell.periodic_damage * scale,
+                   periodic_coefficient=spell.periodic_coefficient * scale)
+
+
+def life_tap_pct(cls: ClassData, ranks: Mapping[int, int]) -> float:
+    """Percent more mana per Life Tap from the build's talents (Improved Life Tap, #396)."""
+    return sum(e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
+               for e in t.effects if e.kind == "life_tap_pct")
+
+
+def crit_debuff_uptime(crit: float, casts_per_second: float, seconds: float) -> float:
+    """Share of the time a debuff applied by a crit (Improved Shadow Bolt, #396) is up: the chance that one of the
+    casts in the last `seconds` critted."""
+    return 1 - (1 - crit) ** (casts_per_second * seconds) if casts_per_second > 0 else 0.0
+
+
+def consumed_period(duration: float, cooldown: float, keep_pct: float) -> float:
+    """Seconds between casts of a DoT that a cooldown consumes (Conflagrate eats Immolate, #385): the DoT runs
+    its full duration when kept (keep_pct%), else only until the next consuming cast."""
+    keep = min(1.0, keep_pct / 100)
+    return keep * duration + (1 - keep) * min(duration, cooldown)
 
 
 def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], cls: ClassData,
                     ranks: Mapping[int, int], target: Target, *,
-                    drink_mana_per_second: float | None = None) -> CasterRotation:
+                    drink_mana_per_second: float | None = None,
+                    skip: Collection[str] = ()) -> CasterRotation:
     """Sustained DPS and mana use against `target` with the class's ROTATION and talents `ranks`.
 
     The filler is the one with the best damage per second; with `drink_mana_per_second` (questing,
     where drinking is the bottleneck) it is the one with the best damage per second of kill time
-    plus drinking, so a cheaper filler (Mind Flay over Smite) wins when mana runs out first."""
+    plus drinking, so a cheaper filler (Mind Flay over Smite) wins when mana runs out first.
+    `skip` names DoTs and cooldowns to leave out (#390)."""
     stats = talent_stats(class_name, stats, cls, ranks)
     plan = class_module(class_name).ROTATION
     assumptions = Assumptions.load()
     target_level = stats.level + target.level_diff
     time_left, dps, mana, used = 1.0, 0.0, 0.0, []
+    by_school: list[tuple[tuple[str, ...], float]] = []   # (schools, damage per second) of each cast spell
 
     talent_ids = {t.name: t.talent_id for t in cls.talents}
 
@@ -112,25 +163,56 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
             return None
         return best_rank(spells, name, stats.level)
 
+    def cooldown_of(spell: SpellRank) -> float:
+        return spell.cooldown + sum(
+            e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
+            for e in t.effects if e.kind == "cooldown" and spell.name in e.applies_to)
+
+    consumers = {}   # DoT -> (seconds between the casts that consume it, % chance to keep it), #385
+    for name, dot in plan.get("consumes", {}).items():
+        spell = learned(name)
+        if spell is None or name in skip:
+            continue
+        keep = sum(e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
+                   for e in t.effects if e.kind == "proc_chance" and f"@keep_{dot}" in e.applies_to)
+        consumers[dot] = (cooldown_of(spell), keep)
+
+    def boosts(name: str) -> tuple[frozenset[str], float]:
+        """Conditions and extra damage % for `name` from the DoTs already kept up (#384, #395)."""
+        up = frozenset(f"dot:{n}" for n in used if n in plan.get("dots", ()))
+        dot, pct = plan.get("dot_bonus", {}).get(name, (None, 0.0))
+        return up, (pct if f"dot:{dot}" in up else 0.0)
+
     for kind in ("dots", "cooldowns"):
         for name in plan.get(kind, ()):
+            if name in skip:
+                continue
             spell = learned(name)
             if spell is None:
                 continue
-            ev, seconds, cost = cast(spell, stats, cls, ranks, target_level, assumptions)
-            cooldown = spell.cooldown + sum(
-                e.values[ranks[t.talent_id] - 1] for t in cls.talents if ranks.get(t.talent_id, 0) > 0
-                for e in t.effects if e.kind == "cooldown" and name in e.applies_to)
+            if kind == "dots":
+                spell = longer_dot(spell, cls, ranks)
+            conditions, extra = boosts(name)
+            ev, seconds, cost = cast(spell, stats, cls, ranks, target_level, assumptions, conditions, extra)
+            cooldown = cooldown_of(spell)
             period = spell.duration if kind == "dots" else max(cooldown, seconds)
+            if kind == "dots" and name in consumers and spell.duration > 0:
+                # a consuming cooldown cuts the DoT short: only its ticks until then count (#385)
+                direct, _, _ = cast(replace(spell, periodic_damage=0.0, periodic_coefficient=0.0), stats, cls,
+                                    ranks, target_level, assumptions)
+                period = consumed_period(spell.duration, *consumers[name])
+                ev = direct + (ev - direct) * period / spell.duration
             if ev <= 0 or period <= 0 or time_left <= seconds / period:
                 continue
             time_left -= seconds / period
             dps += ev / period
+            by_school.append((spell.schools, ev / period))
             mana += cost / period
             used.append(name)
 
     regen = regen_while_casting(class_name, stats, cls, ranks)
-    regen += caster_config(class_name).get("extra_regen_per_second", 0.0)   # Life Tap
+    regen += (caster_config(class_name).get("extra_regen_per_second", 0.0)        # Life Tap
+              * (1 + life_tap_pct(cls, ranks) / 100))
 
     def worth(ev: float, seconds: float, cost: float) -> float:
         total_dps = dps + time_left * ev / seconds
@@ -144,13 +226,56 @@ def caster_rotation(class_name: str, stats: Stats, spells: Sequence[SpellRank], 
         spell = learned(name)
         if spell is None:
             continue
-        ev, seconds, cost = cast(spell, stats, cls, ranks, target_level, assumptions)
+        conditions, extra = boosts(name)
+        ev, seconds, cost = cast(spell, stats, cls, ranks, target_level, assumptions, conditions, extra)
         if ev > 0 and (best is None or worth(ev, seconds, cost) > worth(*best[:3])):
             best = (ev, seconds, cost, name)
+    mix_schools: tuple[str, ...] = ()
+    mix = plan.get("filler_mix")
+    if mix is not None:
+        # a mixed filler: an opener, then followers cast with its condition on (Eclipse, #397)
+        first, follow, count, condition = mix
+        a, b = learned(first), learned(follow)
+        if a is not None and b is not None:
+            ev1, s1, c1 = cast(a, stats, cls, ranks, target_level, assumptions, *boosts(first))
+            conditions, extra = boosts(follow)
+            ev2, s2, c2 = cast(b, stats, cls, ranks, target_level, assumptions, conditions | {condition}, extra)
+            mixed = (ev1 + count * ev2, s1 + count * s2, c1 + count * c2, f"{first} + {follow}")
+            if mixed[0] > 0 and (best is None or worth(*mixed[:3]) > worth(*best[:3])):
+                best = mixed
+                mix_schools = tuple(dict.fromkeys(a.schools + b.schools))
     if best is not None:
         dps += time_left * best[0] / best[1]
         mana += time_left * best[2] / best[1]
         used.append(best[3])
+        # procs that make the filler instant (Nightfall, #396): each saves its cast time minus the GCD, and the
+        # saved time goes to more of the filler
+        for talent in cls.talents:
+            rank = ranks.get(talent.talent_id, 0)
+            for e in (talent.effects if rank > 0 else ()):
+                if e.kind != "instant_proc_pct" or f"@{best[3]}" not in e.applies_to:
+                    continue
+                ticks = sum(1 / s.tick_period for s in map(learned, used) if s is not None and s.tick_period > 0
+                            and s.name in e.applies_to and s.name in plan.get("dots", ()))
+                extra = ticks * e.values[rank - 1] / 100 * max(0.0, best[1] - GCD_SECONDS) / best[1]
+                dps += extra * best[0]
+                mana += extra * best[2]
+        filler = learned(best[3])
+        by_school.append((filler.schools if filler is not None else mix_schools, time_left * best[0] / best[1]))
+        # a debuff that a crit of the filler puts on the target (Improved Shadow Bolt, #396)
+        for talent in cls.talents:
+            rank = ranks.get(talent.talent_id, 0)
+            pct = {e.applies_to: e.values[rank - 1] for e in (talent.effects if rank > 0 else ())
+                   if e.kind == "crit_debuff_pct"}
+            secs = {e.applies_to: e.values[rank - 1] for e in (talent.effects if rank > 0 else ())
+                    if e.kind == "crit_debuff_seconds"}
+            for (trigger, school), bonus in pct.items():
+                if trigger != best[3] or (trigger, school) not in secs:
+                    continue
+                spell = learned(trigger)
+                crit = min(1.0, (stats.crit_pct + modifiers_for(spell, cls, ranks).crit_chance_bonus) / 100)
+                uptime = crit_debuff_uptime(crit, time_left / best[1], secs[(trigger, school)])
+                dps += bonus / 100 * uptime * sum(d for schools, d in by_school if school in schools)
     return CasterRotation(dps=dps, mana_per_second=mana - regen, regen_per_second=regen, spells=tuple(used))
 
 

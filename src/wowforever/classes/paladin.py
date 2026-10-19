@@ -45,26 +45,56 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Improved Seals": (
         EffectRule("damage_pct", r"damage done by your Seals and Judgements by (\d+(?:\.\d+)?)%", ("Seal of Command", "Judgement")),
     ),
+    "Divine Strength": (
+        EffectRule("stat_pct", r"Increases your Strength by (\d+(?:\.\d+)?)%", ("strength",)),
+    ),
+    "Divine Intellect": (
+        EffectRule("stat_pct", r"total Intellect by (\d+(?:\.\d+)?)%", ("intellect",)),
+    ),
+    "Holy Power": (
+        EffectRule("crit_chance", r"critical strike chance of your Holy Shock and Holy Strike spells by (\d+(?:\.\d+)?)%",
+                   ("Holy Strike", "Holy Shock")),
+    ),
+    "Champion of the Light": (
+        EffectRule("spell_power_from", r"by up to (\d+(?:\.\d+)?)% of your Intellect", ("intellect",)),
+    ),
+    "Reverence": (
+        EffectRule("regen_while_casting", r"Allows (\d+(?:\.\d+)?)% of your Mana regeneration to continue", ("all",)),
+    ),
+    "Benediction": (
+        EffectRule("mana_cost_pct", r"Mana cost of all instant cast spells and abilities by (\d+(?:\.\d+)?)%",
+                   ("@instant",), sign=-1),
+    ),
+    "Twist of Light": (
+        EffectRule("mana_cost_pct", r"Mana cost of your Seal spells by (\d+(?:\.\d+)?)%", ("@seal",), sign=-1),
+    ),
+    "Holy Conduit": (
+        EffectRule("mana_cost_pct", r"Exorcism, and Hammer of Wrath spells by (\d+(?:\.\d+)?)%",
+                   ("Consecration", "Holy Wrath", "Exorcism", "Hammer of Wrath"), sign=-1),
+    ),
+    "Sanctified Judgement": (
+        # a chance to return a share: counted at chance x share
+        EffectRule("seal_refund_pct", r"(\d+(?:\.\d+)?)% chance to return (\d+(?:\.\d+)?)% of the Mana cost",
+                   ("Judgement",), combine=lambda m: float(m.group(1)) * float(m.group(2)) / 100),
+    ),
+    "Divine Precision": (
+        EffectRule("hit_chance", r"chance to hit with Holy spells by (\d+(?:\.\d+)?)%", ("@holy_spell",)),
+    ),
 }
 
 # Every paladin talent, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Holy
-    "Divine Strength": "buff: +10% Strength",
-    "Divine Intellect": "buff: +10% Intellect",
     "Healing Light": "healing: +12% Holy Light, Flash of Light, Holy Shock",
     "Spiritual Focus": "utility: heals resist pushback",
     "Unyielding Faith": "defensive: shorter Fear and Disorient",
     "Voice of Truth": "defensive: immune to Silence and Interrupt for 6 s",
-    "Reverence": "resource: 30% mana regeneration while casting",
-    "Purifying Power": "resource: cheaper Cleanse, shorter Exorcism and Holy Wrath cooldowns",
+    "Purifying Power": "resource: cheaper Cleanse, shorter Exorcism/Holy Wrath cooldowns; neither is cast (#399)",
     "Infusion of Light": "proc: crits speed up the next Holy Light",
     "Illumination": "proc: heal crits refund mana",
     "Divine Favor": "grants_spell",
-    "Divine Precision": "damage: +18% Holy spell hit",
     "Holy Shock": "grants_spell",
     "Consecrated Ground": "damage: Holy damage vs enemies entering Consecration",
-    "Holy Power": "damage: Holy Shock, Holy Strike and spell crit",
     "Light's Vigil": "grants_spell",
     # Protection
     "Toughness": "defensive: +10% armor from items",
@@ -76,7 +106,7 @@ UNMODELED: dict[str, str] = {
     "Shield Specialization": "defensive: stronger shield blocks that restore mana",
     "Sacred Duty": "defensive: Stamina, shorter Divine Shield cooldowns",
     "Swift Judgement": "grants_spell",
-    "One-Handed Weapon Specialization": "damage: +10% one-handed damage",
+    "One-Handed Weapon Specialization": "damage: +10% one-handed damage; Retribution swings a two-hander (#399)",
     "Improved Hammer of Justice": "control: Hammer of Justice cooldown -15 s",
     "Templar's Bulwark": "grants_spell",
     "Reckoning": "proc: extra attacks after blocking",
@@ -84,17 +114,12 @@ UNMODELED: dict[str, str] = {
     "Holy Shield": "grants_spell",
     # Retribution
     "Deflection": "defensive: +5% parry",
-    "Benediction": "resource: instant spells cost 10% less mana",
-    "Holy Conduit": "resource: cheaper Consecration, Holy Wrath, Exorcism, Hammer of Wrath",
     "Vindication": "proc: melee hits lower enemy attack power",
-    "Sanctified Judgement": "resource: Judgement refunds seal mana",
     "Seal of Command": "grants_spell",
     "Pursuit of Justice": "mobility: +15% movement speed",
     "Eye for an Eye": "damage: reflects crit damage",
     "Repentance": "grants_spell",
-    "Champion of the Light": "damage: spell damage from 30% of Intellect (1.60.1.70425); the Retribution model carries no spell power",
-    "Instrument of Law": "damage: faster Hammer of Wrath, less threat",
-    "Twist of Light": "resource: cheaper Seals, echo on seal swap",
+    "Instrument of Law": "damage: faster Hammer of Wrath cast, less threat; its cast time isn't charged (#399)",
 }
 
 # Paladin skill lines in SkillLineAbility: Holy, Protection, Retribution.
@@ -104,9 +129,11 @@ SKILL_LINES = (594, 267, 184)
 ENGINE = "melee"
 UNSCORED_TREES = ("Holy", "Protection")
 CAVEAT = ("Retribution model (#175): a two-hander's white swings with Seal of Command procs, Judgement and Holy "
-          "Strike on cooldown; Holy damage ignores armor. Seal of Command's proc rate and Judgement of Command's "
-          "damage are Classic values. Consecration, Exorcism, Hammer of Wrath, Vindication, Divine Strength and "
-          "mana aren't modeled; base stats are estimates. Holy and Protection stay unscored.")
+          "Strike on cooldown; Holy damage ignores armor. Seal of Command's proc rate and Judgement of "
+          "Command's damage are Classic values. Hammer of Wrath counts for the execute phase with Champion of "
+          "the Light's spell power; Consecration stays down (dropped when mana is short). Retribution spends mana "
+          "and swings white once dry. Exorcism and Vindication aren't modeled; base stats are estimates. Holy and "
+          "Protection stay unscored.")
 
 
 # --- class engine (#309): this module is the paladin's ClassEngine ------------------------------------
@@ -117,11 +144,18 @@ def playstyle(cls, ranks) -> str:
 
 
 def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):
+    from dataclasses import replace
     from wowforever.classes.paladin_rotation import paladin_rotation
     from wowforever.melee_scenarios import Output
+    from wowforever.classes.engines import melee_talent_stats
 
-    r = paladin_rotation(stats, spells, cls, ranks, target, pack=pack)
-    return Output(r.dps, 0.0, r.dps, r.aoe)
+    r = paladin_rotation(melee_talent_stats("paladin", stats, cls, ranks), spells, cls, ranks, target, pack=pack)
+    out = Output(r.dps, r.mana_per_second, r.white_dps, r.aoe)
+    if r.consecration_dps > 0:      # Consecration can be dropped when mana is short (#399)
+        out = replace(out, alternatives=(Output(r.dps - r.consecration_dps,
+                                                r.mana_per_second - r.consecration_mana_per_second,
+                                                r.white_dps, r.aoe),))
+    return out
 
 
 def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):

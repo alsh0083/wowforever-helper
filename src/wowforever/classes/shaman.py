@@ -34,6 +34,7 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     ),
     "Call of Flame": (
         EffectRule("damage_pct", r"Flame Shock, Fire Nova, and Lava Burst spells by (\d+(?:\.\d+)?)%", ("Flame Shock", "Lava Burst")),
+        EffectRule("dot_seconds", r"duration of your Flame Shock spell by (\d+(?:\.\d+)?) sec", ("Flame Shock",)),
     ),
     "Elemental Alacrity": (
         EffectRule("cast_time", r"cast time of your Lightning Bolt, Chain Lightning, and Lava Burst spells by (\d+(?:\.\d+)?) sec",
@@ -76,33 +77,58 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Mental Dexterity": (
         EffectRule("ap_from_int_pct", r"Attack Power by an amount equal to (\d+(?:\.\d+)?)% of your Intellect", ("all",)),
     ),
+    "Ancestral Knowledge": (
+        EffectRule("stat_pct", r"Increases your Intellect by (\d+(?:\.\d+)?)%", ("intellect",)),
+    ),
+    "Reverberation": (
+        EffectRule("cooldown", r"cooldown of your Shock spells by (\d+(?:\.\d+)?) sec",
+                   ("Earth Shock", "Flame Shock", "Frost Shock"), sign=-1),
+    ),
+    "Shamanistic Focus": (
+        EffectRule("mana_cost_pct", r"Shock and Lightning Shield spells by (\d+(?:\.\d+)?)%",
+                   ("Earth Shock", "Flame Shock", "Frost Shock", "Lightning Shield"), sign=-1),
+    ),
+    # best effort (#384): a 10% chance of a free next damage spell averages to 10% less mana
+    "Elemental Focus": (
+        EffectRule("mana_cost_pct", r"(\d+(?:\.\d+)?)% chance to enter a Clearcasting state",
+                   ("fire", "frost", "nature"), sign=-1),
+    ),
+    "Mental Quickness": (
+        EffectRule("spell_power_from", r"by up to (\d+(?:\.\d+)?)% of your Intellect", ("intellect",)),
+    ),
+    "Elemental Devastation": (
+        EffectRule("crit_chance", r"chance to get a Critical Strike with melee attacks by (\d+(?:\.\d+)?)%",
+                   ("@devastation",)),
+        EffectRule("duration", r"melee attacks by \d+(?:\.\d+)?% for (\d+(?:\.\d+)?) sec", ("@devastation",)),
+    ),
+    "Improved Stormstrike": (
+        # a chance to gain a share: counted at chance x share (#398)
+        EffectRule("regen_while_casting",
+                   r"(\d+(?:\.\d+)?)% chance to gain (\d+(?:\.\d+)?)% mana regeneration while casting",
+                   ("@stormstrike",), combine=lambda m: float(m.group(1)) * float(m.group(2)) / 100),
+    ),
+    "Maelstrom Weapon": (
+        EffectRule("stack_pct", r"Mana cost of your next Lightning Bolt spell by (\d+(?:\.\d+)?)%", ("@maelstrom",)),
+    ),
 }
 
 # Every shaman talent, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Elemental
     "Elemental Warding": "defensive: 10% less Fire, Frost, Nature damage",
-    "Reverberation": "damage: Shock cooldown -1 s",
-    "Elemental Devastation": "proc: spell crits raise melee crit",
-    "Elemental Focus": "proc: Clearcasting after damage spells",
     "Trial by Fire": "damage: Fire Nova damage and cooldown, longer Magma Totem",
     "Elemental Reach": "utility: longer spell range",
     "Earthbound": "control: Earthbind Totem roots 5 s",
     "Lava Burst": "grants_spell",
     # Enhancement
     "Earth's Grasp": "utility: Stoneclaw health, Earthbind radius",
-    "Ancestral Knowledge": "buff: +10% Intellect",
     "Guardian Totems": "defensive: stronger Stoneskin and Windwall Totems",
     "Improved Ghost Wolf": "mobility: faster Ghost Wolf, usable indoors",
     "Improved Lightning Shield": "damage: +15% Lightning Shield",
-    "Shamanistic Focus": "resource: cheaper Shocks and Lightning Shield",
     "Anticipation": "defensive: +6% dodge",
     "Toughness": "defensive: +10% Stamina",
     "Stormstrike": "grants_spell",
     "Spirit Weapons": "defensive: parry, less threat",
-    "Mental Quickness": "damage: spell power from Intellect",
-    "Improved Stormstrike": "resource: mana regeneration after Stormstrike",
-    "Maelstrom Weapon": "proc: melee hits speed up the next spell",
     "Rage of the Farseer": "grants_spell",
     # Restoration
     "Improved Healing Wave": "healing: faster Healing Wave",
@@ -130,15 +156,19 @@ ROTATION = {
     "dots": ("Flame Shock",),
     "cooldowns": ("Lava Burst", "Chain Lightning"),
     "fillers": ("Lightning Bolt",),
+    # Lava Burst's own effect 1 (SpellEffect 408490, 1.60.1.70425): +20% damage with Flame Shock up (#384)
+    "dot_bonus": {"Lava Burst": ("Flame Shock", 20.0)},
 }
 # Enhancement fights in melee on the melee engine (#175); Restoration stays unscored (Q3).
 MELEE_TREES = ("Enhancement",)
 UNSCORED_TREES = ("Restoration",)
 CAVEAT = ("Elemental (#167): Flame Shock kept up, Lava Burst and Chain Lightning on cooldown, Lightning Bolt in "
-          "between on the caster engine. Enhancement (#175): two-hander swings with Windfury (Classic chance and "
-          "attack power) and Flurry, Stormstrike and Earth Shock on cooldown on the melee engine; Stormstrike's "
-          "debuff, Maelstrom Weapon, totems and Enhancement's mana aren't modeled. Restoration stays unscored. "
-          "Base stats are estimates.")
+          "between on the caster engine; Lava Burst gets its +20% while Flame Shock is up. Enhancement (#175): "
+          "two-hander swings with Windfury (Classic chance and attack power) and Flurry, Stormstrike and Earth "
+          "Shock on cooldown on the melee engine; Stormstrike's bonus counts on the share of Earth Shocks after "
+          "one; Elemental Devastation counts as an average uptime. Enhancement spends mana on shocks and "
+          "Stormstrike and swings white once dry; Maelstrom Weapon casts a Lightning Bolt at 5 stacks (proc rate "
+          "a guess). Totems aren't modeled. Restoration stays unscored. Base stats are estimates.")
 
 
 # --- class engine (#311): this module is the shaman's ClassEngine ------------------------------------
@@ -155,7 +185,9 @@ def _melee_output(stats, spells, cls, ranks, target, *, pack=1):
     from wowforever.melee_scenarios import Output
 
     r = enhancement_rotation(stats, spells, cls, ranks, target, pack=pack)
-    return Output(r.dps, 0.0, r.dps, r.aoe)
+    fallback = r.white_dps + r.windfury_dps      # out of mana: swings and Windfury (#398)
+    no_shock = Output(r.dps - r.shock_dps, r.mana_per_second - r.shock_mana_per_second, fallback, r.aoe)
+    return Output(r.dps, r.mana_per_second, fallback, r.aoe, alternatives=(no_shock,))
 
 
 def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):

@@ -4,7 +4,7 @@ Stage 1 (#152, #158): trees, spells and every talent classified. Stage 2 (#164):
 Discipline Smite on the caster spell engine.
 """
 
-from wowforever.classes import EffectRule, TraitLayout, TreeBand
+from wowforever.classes import EffectRule, TraitLayout, TreeBand, below_health
 
 # Trait tree 1114 holds all three priest trees side by side, on the same grid as the mage's 1112.
 LAYOUT = TraitLayout(
@@ -51,6 +51,14 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Twilight Focus": (
         EffectRule("pushback_pct", r"Gives you a (\d+(?:\.\d+)?)% chance to avoid interruption", ("all",)),
     ),
+    "Early Demise": (
+        EffectRule("crit_chance", r"targets at or below (\d+(?:\.\d+)?)% health by (\d+(?:\.\d+)?)%",
+                   ("Shadow Word: Death",), combine=below_health),
+    ),
+    "Power in Light": (
+        EffectRule("damage_pct", r"Smite and Penance spells deal (\d+(?:\.\d+)?)% increased damage",
+                   ("Smite", "Penance", "@dot:Shadow Word: Pain")),
+    ),
     "Holy Specialization": (
         EffectRule("crit_chance", r"critical effect chance of your Holy spells by (\d+(?:\.\d+)?)%", ("holy",)),
     ),
@@ -78,14 +86,23 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Meditation": (
         EffectRule("regen_while_casting", r"Allows (\d+(?:\.\d+)?)% of your Mana regeneration", ("all",)),
     ),
+    "Twin Disciplines": (
+        EffectRule("damage_pct", r"instant cast spells by (\d+(?:\.\d+)?)%",
+                   ("Shadow Word: Pain", "Devouring Plague", "Shadow Word: Death", "Holy Nova", "Chastise")),
+    ),
+    "Improved Shadow Word: Pain": (
+        EffectRule("dot_seconds", r"Shadow Word: Pain spell by (\d+(?:\.\d+)?) sec", ("Shadow Word: Pain",)),
+    ),
+    "Devouring Contagion": (
+        EffectRule("mana_cost_pct", r"mana cost of your Devouring Plague by (\d+(?:\.\d+)?)%",
+                   ("Devouring Plague",), sign=-1),
+    ),
 }
 
 # Every priest talent, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Discipline
-    "Power in Light": "damage: Smite and Penance vs Holy Fire targets",
     "Wand Specialization": "damage: +25% wand damage",
-    "Twin Disciplines": "damage: +5% instant spell damage and healing",
     "Silent Resolve": "defensive: shorter stuns, fears and silences, less threat",
     "Improved Power Word: Shield": "defensive: stronger Power Word: Shield",
     "Martyrdom": "defensive: pushback immunity after being crit",
@@ -114,14 +131,11 @@ UNMODELED: dict[str, str] = {
     # Shadow
     "Blackout": "control: Shadow spells can stun 3 s",
     "Spirit Tap": "resource: Spirit after kills",
-    "Improved Shadow Word: Pain": "damage: longer Shadow Word: Pain",
     "Shadow Reach": "utility: +20% Shadow range",
     "Improved Psychic Scream": "control: Psychic Scream cooldown -4 s",
     "Mind Flay": "grants_spell",
     "Vampiric Embrace": "grants_spell",
     "Silence": "grants_spell",
-    "Devouring Contagion": "damage: cheaper, spreading Devouring Plague",
-    "Early Demise": "damage: Shadow Word: Death crit below 20%",
 }
 
 # Priest skill lines in SkillLineAbility: Discipline, Holy, Shadow.
@@ -138,9 +152,10 @@ ROTATION = {
 UNSCORED_TREES = ("Holy",)
 UNSCORED_BUILDS = ("priest-discipline",)
 CAVEAT = ("Caster model (#163): Shadow Word: Pain and Devouring Plague kept up, Mind Blast and Shadow Word: "
-          "Death on cooldown, Mind Flay or Smite in between, with Classic hit, crit and mana rules. Shadow "
-          "Weaving counts at full stacks; Vampiric Embrace's healing, Twin Disciplines and Improved Shadow "
-          "Word: Pain's longer duration aren't modeled. Base stats are estimates; healer builds stay unscored.")
+          "Death on cooldown, Mind Flay or Smite in between, with Classic hit, crit and mana rules; a DoT or "
+          "cooldown is dropped when its mana is worth more on the filler. Shadow Weaving counts at full stacks, "
+          "and execute-range talents count for the share of the fight below their threshold. Vampiric Embrace's "
+          "healing isn't modeled. Base stats are estimates; healer builds stay unscored.")
 
 
 # --- class engine (#311): this module is the priest's ClassEngine ------------------------------------

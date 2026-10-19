@@ -56,7 +56,8 @@ class MeleeStatTable:
                 return None
             return (round(row[f"{prefix}_min"]), round(row[f"{prefix}_max"]), round(row[f"{prefix}_speed"], 2))
 
-        plain = {f.name: row[f.name] for f in fields(MeleeStats) if f.name not in WEAPON_COLUMNS and f.name != "level"}
+        plain = {f.name: row.get(f.name, 0.0) for f in fields(MeleeStats)
+                 if f.name not in WEAPON_COLUMNS and f.name != "level"}      # older tables have no spirit column
         return MeleeStats(level=level, **plain, **{name: weapon(p) for name, p in WEAPON_COLUMNS.items()})
 
 
@@ -71,6 +72,9 @@ class Output:
     spell: str | None = None    # the filler the rotation chose, where it chooses one (mage, #316)
     mana_cooldown: tuple[float, float] | None = None   # (channel seconds, mana) a class spends to
                                                        # refill when a raid fight would run it dry (Evocation, #317)
+    alternatives: tuple[Output, ...] = ()   # the same rotation with one DoT or cooldown dropped (#390);
+                                            # the dungeon and raid scores take the best
+    opener_damage: float = 0.0   # damage once per fight on top of the rotation (questing openers, #431)
 
 
 def _config() -> dict:
@@ -144,7 +148,14 @@ def questing(class_name: str, stats: MeleeStats, spells, cls, ranks, *, melee: b
     armor, mob_dps, eat = _anchor_at(_config()["questing"]["anchors"], level)
     out = engine(class_name).output(stats, spells, cls, ranks, Target(0, armor),
                                     drink_mana_per_second=q.drink_mana_per_second, melee=melee)
-    kill = q.mob_hp / out.dps
+    # the best of the Output and its alternatives (a DoT, shock or Consecration dropped; #390, #399)
+    return max(questing_kills_per_hour(o, q, mob_dps, eat) for o in (out, *out.alternatives))
+
+
+def questing_kills_per_hour(out: Output, q, mob_dps: float, eat: float) -> float:
+    """Kills per hour for one Output: kill time + recovery downtime (eating back the damage taken, unless a pet
+    tanks; drinking back the mana) + travel."""
+    kill = max(0.0, q.mob_hp - out.opener_damage) / out.dps     # the opener takes its share first (#431)
     downtime = 0.0 if out.pet else mob_dps * kill / eat     # a pet tanks while the hunter shoots
     if out.mana_per_second > 0:
         downtime = max(downtime, out.mana_per_second * kill / q.drink_mana_per_second)
@@ -165,6 +176,11 @@ def dungeon_pull(out: Output, mana: float, level: int) -> float:
 
 
 def raid_dps(out: Output, mana: float, p) -> float:
+    """The best of `out` and its alternatives (#390) on the mana budget; see _raid_dps_one."""
+    return max(_raid_dps_one(o, mana, p) for o in (out, *out.alternatives))
+
+
+def _raid_dps_one(out: Output, mana: float, p) -> float:
     """Sustained DPS over a fight-length mix for one Output (#317): full DPS while the mana budget
     (pool + one-off mana + each consumable once per started cooldown) lasts, then fallback DPS;
     when the budget would run dry, `out.mana_cooldown` (channel seconds, mana) refills it and

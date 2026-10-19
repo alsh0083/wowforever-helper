@@ -80,12 +80,29 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("crit_damage_pct", r"melee (?:ability )?critical strike damage by (\d+(?:\.\d+)?)%", ("@ability",)),
         EffectRule("damage_pct", r"Off Hand weapon damage by (\d+(?:\.\d+)?)%", ("@off_hand",)),
     ),
+    "Deadly Aspects": (
+        EffectRule("proc_chance", r"Auto Shot has a (\d+(?:\.\d+)?)% chance", ("@deadly_aspects",)),
+        EffectRule("haste_pct", r"ranged attack speed by (\d+(?:\.\d+)?)% for", ("@deadly_aspects",)),
+        EffectRule("duration", r"ranged attack speed by \d+(?:\.\d+)?% for (\d+(?:\.\d+)?) sec", ("@deadly_aspects",)),
+    ),
+    "Rapid Killing": (
+        EffectRule("cooldown", r"cooldown on your Rapid Fire ability by (\d+(?:\.\d+)?) min", ("Rapid Fire",),
+                   sign=-1, combine=lambda m: 60 * float(m.group(1))),
+    ),
+    "Bestial Discipline": (
+        EffectRule("regen_while_casting", r"allows (\d+(?:\.\d+)?)% of your Mana regeneration to continue while casting",
+                   ("all",)),
+    ),
+    "Rapid Recuperation": (
+        # the Serpent Sting share is the first percent; old (<=70205) and new (70425) wordings both fit (#358)
+        EffectRule("regen_while_casting", r"Serpent Sting (?:ability )?(?:grants you|allows) (\d+(?:\.\d+)?)%",
+                   ("@sting",)),
+    ),
 }
 
 # Every hunter talent without an effect rule, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Beast Mastery
-    "Deadly Aspects": "proc: attack speed proc while Aspects of Hawk or Beast are active",
     "Endurance Training": "pet: +15% pet health and armor (#111)",
     "Improved Aspect of the Monkey": "defensive: bigger dodge from Aspect of the Monkey",
     "Pathfinding": "mobility: faster Aspect of the Cheetah and Aspect of the Pack",
@@ -95,15 +112,12 @@ UNMODELED: dict[str, str] = {
     "Summon Hawk": "grants_spell",
     "Spirit Bond": "pet: health regen for you and your pet while it is active (#111)",
     "Intimidation": "grants_spell",
-    "Bestial Discipline": "resource: pet focus regen + 50% mana regen while casting",
     "Frenzy": "pet: pet attack speed proc after crits (#111)",
     "Bestial Wrath": "grants_spell",
     # Marksmanship
     "Hawk Eye": "utility: +6 yds ranged weapon range",
     "Improved Concussive Shot": "control: 20% chance to stun with Concussive Shot",
-    "Rapid Killing": "ranged damage: Rapid Fire cooldown + shot damage after kills (#111)",
     "Trueshot Aura": "grants_spell",
-    "Rapid Recuperation": "resource: mana regen while casting after Serpent Sting hits",
     "Scatter Shot": "grants_spell",
     "Sniper Shot": "grants_spell",
     # Survival

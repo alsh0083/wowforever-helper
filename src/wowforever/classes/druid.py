@@ -51,6 +51,13 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Improved Starfire": (
         EffectRule("cast_time", r"cast time of Starfire by (\d+(?:\.\d+)?) sec", ("Starfire",), sign=-1),
     ),
+    "Eclipse": (
+        EffectRule("cast_time", r"cast time of your next 2 Starfire spells by (\d+(?:\.\d+)?) sec",
+                   ("Starfire", "@eclipse"), sign=-1),
+    ),
+    "Nature's Grace": (
+        EffectRule("crit_haste_pct", r"reducing your global cooldown by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
     "Moonfury": (
         EffectRule("damage_pct", r"damage done by your Arcane and Nature spells by (\d+(?:\.\d+)?)%", ("arcane", "nature")),
     ),
@@ -122,16 +129,25 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Rend and Tear": (
         EffectRule("damage_pct", r"damage done by your melee abilities on Bleeding targets by (\d+(?:\.\d+)?)%", ("@bleeding",)),
     ),
+    "Heart of the Wild": (
+        EffectRule("stat_pct", r"Increases your Intellect by (\d+(?:\.\d+)?)%", ("intellect",)),
+        EffectRule("stat_pct", r"Cat Form your Strength is increased by (\d+(?:\.\d+)?)%", ("strength",)),
+    ),
+    "Living Spirit": (
+        EffectRule("stat_pct", r"Increases your Spirit by (\d+(?:\.\d+)?)%", ("spirit",)),
+    ),
+    "Blood Frenzy": (
+        # the Cat Form part (#397); the Bear Form Rage part stays out (bear isn't scored)
+        EffectRule("proc_chance", r"Combo Points have a (\d+(?:\.\d+)?)% chance to add an additional Combo Point",
+                   ("@builder_crit",)),
+    ),
 }
 
 # Every druid talent, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Balance
     "Insect Swarm": "grants_spell",
-    "Nature's Grace": "proc: spell crits speed up the next cast",
-    "Eclipse": "proc: Wrath speeds up Starfire",
     # Feral Combat
-    "Heart of the Wild": "buff: +10% Intellect, bear Stamina",
     "Feral Swiftness": "mobility: Cat Form speed and dodge",
     "Feral Instinct": "damage: Swipe damage, stealthier Prowl",
     "Brutal Impact": "control: longer Bash and Pounce stuns",
@@ -139,17 +155,15 @@ UNMODELED: dict[str, str] = {
     "Feral Charge": "grants_spell",
     "Shifting Power": "grants_spell",
     "Primal Bite": "grants_spell",
-    "Blood Frenzy": "resource: Rage on bear crits",
     "Improved Shifting Power": "resource: Shifting Power cooldown -8 s",
     "Natural Reaction": "defensive: +5% dodge, Rage on dodge",
-    "Berserk": "damage: Primal Bite cleaves and crits more",
+    "Berserk": "damage: builder crit averaged in druid_rotation (#397); its cleave is bear-only Primal Bite (#431)",
     # Restoration
-    "Furor": "resource: Rage or Energy on shapeshift",
+    "Furor": "resource: Energy kept across shifts plus 10/s outside (no more than regen), so no powershift gain (#431)",
     "Subtlety": "threat: less threat from Nature and Arcane spells",
     "Natural Shapeshifter": "resource: cheaper shapeshifting",
     "Swiftmend": "grants_spell",
     "Nature's Swiftness": "grants_spell",
-    "Living Spirit": "buff: +15% Spirit",
     "Improved Tranquility": "healing: Tranquility cooldown and threat",
     "Wild Growth": "grants_spell",
 }
@@ -163,15 +177,18 @@ ROTATION = {
     "dots": ("Moonfire", "Insect Swarm"),
     "cooldowns": (),
     "fillers": ("Starfire", "Wrath"),
+    # one Wrath, then two Starfires with Eclipse's cut (#397)
+    "filler_mix": ("Wrath", "Starfire", 2, "eclipse"),
 }
 # Feral builds fight in cat form on the melee engine (#175); the bear tank and Restoration stay
 # unscored (Q3).
 MELEE_TREES = ("Feral Combat",)
 UNSCORED_TREES = ("Restoration",)
 UNSCORED_BUILDS = ("druid-feral-bear",)
-CAVEAT = ("Balance (#166): Moonfire and Insect Swarm kept up, then Starfire or Wrath on the caster engine; Eclipse, "
-          "Nature's Grace and Omen of Clarity aren't modeled. Feral cat (#175): paw swings and a Shred or Claw to "
-          "Ferocious Bite energy cycle on the melee engine, Classic paw damage; Rake and Rip bleeds, Tiger's Fury and "
+CAVEAT = ("Balance (#166): Moonfire and Insect Swarm kept up, then Starfire or Wrath on the caster engine; "
+          "Nature's Grace counts as an average haste from crits; Eclipse weighs a Wrath-then-two-Starfires "
+          "filler; Omen of Clarity isn't modeled. Feral cat (#175): paw swings and a Shred or Claw to Ferocious "
+          "Bite energy cycle on the melee engine, Classic paw damage; Rake and Rip bleeds, Tiger's Fury and "
           "powershifting aren't modeled. The bear tank and Restoration stay unscored. Base stats are estimates.")
 
 

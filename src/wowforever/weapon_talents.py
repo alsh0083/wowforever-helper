@@ -24,9 +24,10 @@ PER_RANK = {"crit": 1.0, "armor": 3.0, "extra": 1.0}
 
 
 def best_weapon(run: Callable[[Any, Target], Any], stats: Any, target: Target, cls: ClassData,
-                ranks: Mapping[int, int]) -> tuple[Any, str | None]:
+                ranks: Mapping[int, int], *, only: str | None = None) -> tuple[Any, str | None]:
     """(result, weapon) with the most DPS, where `run(stats, target)` returns a rotation result with
-    `dps` and `white_dps`; weapon is None when the build takes no weapon-type talent."""
+    `dps` and `white_dps`; weapon is None when the build takes no weapon-type talent. With `only`,
+    just that weapon's branch."""
     taken = [(t.name, ranks[t.talent_id]) for t in cls.talents
              if t.name in BRANCHES and ranks.get(t.talent_id, 0) > 0]
     if not taken:
@@ -34,6 +35,8 @@ def best_weapon(run: Callable[[Any, Target], Any], stats: Any, target: Target, c
     name, rank = taken[0]
     best = None
     for weapon, kind in BRANCHES[name].items():
+        if only is not None and weapon != only:
+            continue
         value = PER_RANK[kind] * rank
         if kind == "crit":
             r = run(replace(stats, crit_pct=stats.crit_pct + value), target)

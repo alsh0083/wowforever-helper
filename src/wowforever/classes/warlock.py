@@ -4,7 +4,7 @@ Stage 1 of class-specific opponents (#34, #152): the trees and spells load and e
 classified; nothing is modeled yet. The warlock is an opponent, not a dashboard class.
 """
 
-from wowforever.classes import EffectRule, TraitLayout, TreeBand
+from wowforever.classes import EffectRule, TraitLayout, TreeBand, below_health
 
 # Trait tree 1116 holds all three warlock trees side by side, on the same grid as the mage's 1112.
 LAYOUT = TraitLayout(
@@ -43,6 +43,10 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Malevolence": (
         EffectRule("crit_chance", r"critical effect chance of your Shadow spells by (\d+(?:\.\d+)?)%", ("shadow",)),
     ),
+    "Nightfall": (
+        EffectRule("instant_proc_pct", r"Wrack spells a (\d+(?:\.\d+)?)% chance to cause you to enter a Shadow Trance",
+                   ("Corruption", "Drain Soul", "Drain Life", "Wrack", "@Shadow Bolt")),
+    ),
     "Shadow Mastery": (
         EffectRule("damage_pct", r"damage dealt or life drained by your Shadow spells by (\d+(?:\.\d+)?)%", ("shadow",)),
     ),
@@ -70,21 +74,53 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     ),
     "Shadow and Flame": (
         EffectRule("damage_pct", r"Conflagrate increases all Shadow damage you deal by (\d+(?:\.\d+)?)%", ("shadow",)),
+        EffectRule("damage_pct", r"Shadowburn increases all Fire damage you deal by (\d+(?:\.\d+)?)%", ("fire",)),
+        EffectRule("proc_chance", r"Conflagrate has a (\d+(?:\.\d+)?)% chance not to consume Immolate",
+                   ("@keep_Immolate",)),
+    ),
+    "Fel Vitality": (
+        EffectRule("stat_pct", r"increases your maximum Mana by (\d+(?:\.\d+)?)%", ("mana",)),
+    ),
+    "Improved Drains": (
+        EffectRule("damage_pct", r"Drain Life, Drain Soul, and Wrack spells by (\d+(?:\.\d+)?)%",
+                   ("Drain Life", "Drain Soul", "Wrack")),
+    ),
+    # the model's warlock keeps a demon out (#396)
+    "Demonic Knowledge": (
+        EffectRule("spell_power_from", r"by up to (\d+(?:\.\d+)?)% of your level", ("level",)),
+    ),
+    "Improved Life Tap": (
+        EffectRule("life_tap_pct", r"Mana awarded by your Life Tap spell by (\d+(?:\.\d+)?)%", ("all",)),
+    ),
+    # the Shadow Bolt and Searing Pain part; Soul Fire isn't in the rotation (#396)
+    "Decimation": (
+        EffectRule("damage_pct", r"enemy below (\d+(?:\.\d+)?)% health, they deal (\d+(?:\.\d+)?)% increased damage",
+                   ("Shadow Bolt", "Searing Pain"), combine=below_health),
+    ),
+    "Improved Shadow Bolt": (
+        EffectRule("crit_debuff_pct", r"Shadow damage taken by the target from your attacks by (\d+(?:\.\d+)?)%",
+                   ("Shadow Bolt", "shadow")),
+        EffectRule("crit_debuff_seconds", r"from your attacks by \d+(?:\.\d+)?% for (\d+(?:\.\d+)?) sec",
+                   ("Shadow Bolt", "shadow")),
+    ),
+    # one rule per Affliction DoT, each counting while that DoT is up (#396)
+    "Soul Siphon": tuple(
+        EffectRule("damage_pct", r"Wrack spells by (\d+(?:\.\d+)?)% per each of your other Affliction effects",
+                   ("Drain Life", "Drain Soul", "Wrack", f"@dot:{dot}"))
+        for dot in ("Corruption", "Bane of Agony", "Siphon Life")),
+    "Aftermath": (
+        EffectRule("direct_damage_pct", r"initial damage of your Immolate spell by (\d+(?:\.\d+)?)%", ("Immolate",)),
     ),
 }
 
 # Every warlock talent, with why it isn't modeled.
 UNMODELED: dict[str, str] = {
     # Affliction
-    "Improved Life Tap": "resource: +20% Life Tap mana",
     "Soul Harvest": "resource: mana regeneration after Drain Soul kills",
-    "Improved Drains": "damage: +20% drains",
     "Fel Concentration": "utility: drains resist pushback",
     "Amplify Curse": "control: stronger next curse",
-    "Nightfall": "proc: Shadow Trance from drains and Corruption",
     "Curse of Exhaustion": "grants_spell",
     "Siphon Life": "grants_spell",
-    "Soul Siphon": "damage: drains scale with afflictions",
     "Wrack": "grants_spell",
     "Grim Reach": "utility: range of Affliction spells (1.60.1.70425)",
     # Demonology
@@ -94,23 +130,18 @@ UNMODELED: dict[str, str] = {
     "Unholy Power": "pet: +10% pet damage",
     "Demonic Aegis": "defensive: stronger Demon Skin and Demon Armor",
     "Improved Voidwalker": "pet: stronger Voidwalker",
-    "Fel Vitality": "pet: pet health and mana",
     "Demonic Energies": "pet: heal pet from spell damage",
     "Improved Sayaad": "pet: stronger Succubus and Incubus",
     "Master Summoner": "pet: faster pet summons",
-    "Decimation": "damage: Soul Fire cooldown and execute",
     "Fel Domination": "grants_spell",
     "Demonic Brand": "pet: pet bonus vs branded targets",
     "Improved Felhunter": "pet: stronger Felhunter",
     "Soul Link": "grants_spell",
-    "Demonic Knowledge": "damage: spell damage with a demon out",
     "Master Demonologist": "pet: bonus per active demon",
     "Demonic Pact": "pet: Demonic Sacrifice persists",
     # Destruction
     "Destructive Reach": "utility: +20% spell range",
-    "Improved Shadow Bolt": "damage: Shadow Bolt crits raise Shadow damage taken",
     "Molten Skin": "defensive: 10% less damage taken",
-    "Aftermath": "control: Conflagrate dazes, stronger Immolate",
     "Shadowburn": "grants_spell",
     "Conflagrate": "grants_spell",
     "Pyroclasm": "control: Soul Fire and AoE can stun",
@@ -125,13 +156,15 @@ SKILL_LINES = (355, 354, 593)
 ENGINE = "spell"
 ROTATION = {
     "dots": ("Corruption", "Bane of Agony", "Siphon Life", "Immolate"),
-    "cooldowns": ("Conflagrate",),
+    "cooldowns": ("Conflagrate", "Shadowburn"),
     "fillers": ("Shadow Bolt", "Incinerate", "Searing Pain", "Wrack", "Drain Life"),
+    "consumes": {"Conflagrate": "Immolate"},
 }
-CAVEAT = ("Caster model (#163, #165): Corruption, Bane of Agony and Immolate kept up, Conflagrate on cooldown, "
-          "then the best of Shadow Bolt, Incinerate, Searing Pain or Wrack, with Life Tap as steady mana. Pets, "
-          "Siphon Life and Drain Life (health drains), Shadowburn, Nightfall and Improved Shadow Bolt procs aren't "
-          "modeled; Demonic Sacrifice counts the Imp (+Shadow). Base stats are estimates.")
+CAVEAT = ("Caster model (#163, #165): Corruption, Bane of Agony, Siphon Life and Immolate kept up, Conflagrate "
+          "and Shadowburn on cooldown, then the best of Shadow Bolt, Incinerate, Searing Pain, Wrack or Drain "
+          "Life, with Life Tap as steady mana. Improved Shadow Bolt and Nightfall count as averages and Soul "
+          "Siphon counts the DoTs kept up; pets aren't modeled; Demonic Sacrifice counts the Imp (+Shadow) and "
+          "Demonic Knowledge assumes a demon is out. Base stats are estimates.")
 
 
 # --- class engine (#311): this module is the warlock's ClassEngine ------------------------------------

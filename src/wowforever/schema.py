@@ -78,6 +78,7 @@ def newest_saved_dataset(datasets_dir: Path = DATASETS_DIR) -> Path:
 # Effect kinds the calculator understands. Extend here (one place) when a new kind is needed.
 EFFECT_KINDS = frozenset({
     "damage_pct",       # % more damage
+    "direct_damage_pct",  # % more damage on the initial hit only, not the periodic part (Aftermath)
     "crit_chance",      # + crit chance (percentage points)
     "crit_damage_pct",  # % more crit damage / bonus
     "hit_chance",       # + hit chance (percentage points)
@@ -106,6 +107,8 @@ EFFECT_KINDS = frozenset({
     "defensive",        # absorb/immunity/damage reduction
     "resource",         # mana regen / return
     "regen_while_casting",  # share of spirit regen that continues while casting (Arcane Meditation)
+    "stack_pct",        # % per stack of a stacking proc (Maelstrom Weapon)
+    "seal_refund_pct",  # % of the judged seal's mana cost Judgement returns (Sanctified Judgement)
     "grants_spell",     # talent teaches a spell (value unused)
     "other",            # understood by a human, not modeled yet
 })
@@ -203,6 +206,7 @@ class SpellRank:
     weapon_pct: float = 0.0            # effect 31 base points, e.g. 150 for 150%; 0 = no percentage effect
     weapon_hits: int = 0               # weapon strikes per use: 1 for a direct effect, or the triggered count
     per_combo_point: float = 0.0       # extra damage per combo point (EffectPointsPerResource of the damage effect)
+    periodic_per_combo_point: float = 0.0   # extra periodic damage per combo point, over the duration (Rip, #397)
     combo_points: int = 0              # combo points awarded (effect 30 with EffectMiscValue_0 == 4)
     damage_shield: float = 0.0         # damage per melee hit taken (aura 15: Thorns), base points (#261)
     damage_shield_coefficient: float = 0.0  # spell power coefficient of that damage
@@ -212,6 +216,7 @@ class SpellRank:
     periodic_heal: float = 0.0             # heal over time (aura 8), total over the duration
     periodic_heal_coefficient: float = 0.0  # its spell power coefficient, total over the duration
     haste_pct: float = 0.0             # melee haste aura (aura 319) base points
+    ranged_attack_power: float = 0.0   # ranged attack power aura (aura 124) base points (Aspect of the Hawk, #388)
 
 
 @dataclass(frozen=True)

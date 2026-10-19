@@ -8,3 +8,6 @@ seal_of_command_weapon_pct = 70.0
 judgement_of_command = { 20 = [48], 30 = [77], 40 = [107], 50 = [137], 60 = [240] }
 # normalized weapon speed for "normalized" strikes (Classic)
 normalized_speed = { one_hand = 2.4, two_hand = 3.3 }
+# Hammer of Wrath is usable at or below this % of the target's health (spell description); counted for that share
+# of the fight (#399)
+hammer_of_wrath_health_pct = 20.0

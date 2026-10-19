@@ -4,7 +4,10 @@ Stage 2 of the alts (#131 part 2): the damage talents carry effect rules read fr
 text; the rest stay classified but unmodeled until the alts-engine milestone (#111).
 """
 
-from wowforever.classes import EffectRule, TraitLayout, TreeBand
+from dataclasses import replace
+from pathlib import Path
+
+from wowforever.classes import EffectRule, TraitLayout, TreeBand, below_health
 
 # Trait tree 1111 holds all three rogue trees side by side, on the same grid as the mage's 1112.
 LAYOUT = TraitLayout(
@@ -53,6 +56,10 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("damage_pct", r"damage dealt by your poisons by (\d+(?:\.\d+)?)%",
                    ("@poison",)),
     ),
+    "Improved Poisons": (
+        EffectRule("proc_chance", r"chance to apply Poisons to your target by (\d+(?:\.\d+)?)%",
+                   ("@poison",)),
+    ),
     "Seal Fate": (
         EffectRule("proc_chance",
                    r"a (\d+(?:\.\d+)?)% chance to add an additional Combo Point",
@@ -61,6 +68,10 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     # Combat
     "Improved Eviscerate": (
         EffectRule("damage_pct", r"Eviscerate ability by (\d+(?:\.\d+)?)%", ("Eviscerate",)),
+    ),
+    "Flawless Execution": (
+        EffectRule("energy_cost", r"Energy cost of your Eviscerate ability by (\d+(?:\.\d+)?)",
+                   ("Eviscerate",), sign=-1),
     ),
     "Improved Sinister Strike": (
         EffectRule("energy_cost",
@@ -99,6 +110,19 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Serrated Blades": (
         EffectRule("armor_pen", r"ignore (\d+(?:\.\d+)?)% of your target's Armor", ("all",)),
     ),
+    "Quietus": (
+        EffectRule("damage_pct",
+                   r"abilities cause (\d+(?:\.\d+)?)% more damage against targets below (\d+(?:\.\d+)?)% health",
+                   ("Sinister Strike", "Ghostly Strike", "Hemorrhage"), combine=below_health),
+    ),
+    "Remorseless Attacks": (
+        EffectRule("crit_chance", r"gives you a (\d+(?:\.\d+)?)% increased critical strike chance on your next",
+                   ("@after_kill",)),
+    ),
+    "Initiative": (
+        EffectRule("proc_chance", r"a (\d+(?:\.\d+)?)% chance to add an additional combo point to your target",
+                   ("@initiative",)),
+    ),
 }
 
 # Every rogue talent, with why it is not modeled yet. "grants_spell" marks talents that teach an
@@ -106,11 +130,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
 UNMODELED: dict[str, str] = {
     # Assassination
     "Improved Gouge": "control: longer Gouge duration",
-    "Remorseless Attacks": "melee damage: post-kill crit buff on core abilities (#111)",
     "Improved Expose Armor": "resource: cheaper Expose Armor, refunds Combo Points",
     "Cold Blood": "grants_spell",
-    "Improved Poisons": "poison: better apply chance, charge savings",
-    "Vigor": "resource: +10 maximum Energy",
+    "Vigor": "resource: +10 maximum Energy; no effect on a steady-state Energy cycle (#392)",
     "Mutilate": "grants_spell",
     "Improved Kidney Shot": "control: more damage to Kidney Shot stuns",
     "Venom": "grants_spell",
@@ -121,7 +143,6 @@ UNMODELED: dict[str, str] = {
     "Riposte": "grants_spell",
     "Improved Sprint": "mobility: Sprint cleanses movement impairments",
     "Improved Kick": "control: Kick silences the target",
-    "Flawless Execution": "resource: cheaper Eviscerate",
     "Blade Flurry": "grants_spell",
     "Hack and Slash": "proc: weapon-type bonus, best branch per scenario (weapon_talents.py, #386)",
     "Adrenaline Rush": "grants_spell",
@@ -131,7 +152,6 @@ UNMODELED: dict[str, str] = {
     "Setup": "resource: Combo Point after dodges or resisted spells",
     "Elusiveness": "utility: shorter Vanish and Blind cooldowns",
     "Dirty Tricks": "resource: cheaper Sap and Blind",
-    "Initiative": "resource: extra Combo Point from Ambush/Garrote/Cheap Shot",
     "Ghostly Strike": "grants_spell",
     "Improved Distract": "utility: larger Distract radius, less detection of distracted enemies",
     "Heightened Senses": "stealth: better Stealth detection, less hit by spells and ranged",
@@ -139,9 +159,8 @@ UNMODELED: dict[str, str] = {
     "Dirty Deeds": "stealth: cheaper openers, Garrote works from the front",
     "Preparation": "grants_spell",
     "Hemorrhage": "grants_spell",
-    "Quietus": "melee damage: +10% damage vs targets below 35% health (#111)",
     "Cutthroat": "stealth: Backstab can enable Ambush without Stealth",
-    "Thousand Cuts": "resource: Rupture ticks reduce Hemorrhage/Backstab Energy cost",
+    "Thousand Cuts": "resource: Rupture ticks cut Hemorrhage/Backstab cost; Rupture loses to Eviscerate, so 0 (#392)",
 }
 
 # Two-tree builds the community actually plays (#104): Subtlety Preparation is 16/12/23.
@@ -152,6 +171,26 @@ ENGINE = "melee"
 
 # Rogue skill lines in SkillLineAbility: Assassination, Combat, Subtlety, Poisons.
 SKILL_LINES = (253, 38, 39, 40)
+
+# Poison damage spells (#387), not on a skill line: each rank's proc spell, by learn level.
+EXTRA_SPELLS = {
+    8680: "Instant Poison", 8685: "Instant Poison", 8689: "Instant Poison", 11335: "Instant Poison",
+    11336: "Instant Poison", 11337: "Instant Poison",
+    2818: "Deadly Poison", 2819: "Deadly Poison", 11353: "Deadly Poison", 11354: "Deadly Poison",
+    25349: "Deadly Poison",
+}
+
+
+CONFIG = Path(__file__).resolve().parents[3] / "config" / "rogue.toml"
+
+
+def dagger(stats):
+    """`stats` with a dagger in the main hand (#392): the same weapon DPS at config/rogue.toml's `dagger_speed`."""
+    from wowforever.toml_cache import load_toml
+
+    mn, mx, speed = stats.main_hand
+    f = load_toml(CONFIG)["dagger_speed"] / speed
+    return replace(stats, main_hand=(mn * f, mx * f, speed * f))
 
 
 # --- class engine (#309): this module is the rogue's ClassEngine ------------------------------------
@@ -164,11 +203,17 @@ def playstyle(cls, ranks) -> str:
 def output(stats, spells, cls, ranks, target, *, pack=1, drink_mana_per_second=None, melee=None, sustained=False):
     from wowforever.classes.rogue_rotation import rogue_rotation
     from wowforever.melee_scenarios import Output
+    from wowforever.scenarios import best_rank
     from wowforever.weapon_talents import best_weapon
 
+    # the usual weapon, or a dagger and Backstab: whichever scores higher (#386, #392)
     r, _ = best_weapon(lambda s, t: rogue_rotation(s, spells, cls, ranks, t, pack=pack),
                        stats, target, cls, ranks)
-    return Output(r.dps, 0.0, r.dps, r.aoe)
+    if stats.main_hand is not None and best_rank(spells, "Backstab", stats.level) is not None:
+        stab, _ = best_weapon(lambda s, t: rogue_rotation(s, spells, cls, ranks, t, pack=pack, backstab=True),
+                              dagger(stats), target, cls, ranks, only="dagger")
+        r = max(r, stab, key=lambda x: x.dps)
+    return Output(r.dps, 0.0, r.dps, r.aoe, opener_damage=r.opener_damage)
 
 
 def aoe(stats, spells, cls, ranks, *, pack, mob_hp, armor):

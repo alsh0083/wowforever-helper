@@ -21,27 +21,39 @@ def pack_aoe(output: Callable[..., Any], stats: Any, spells: Sequence[SpellRank]
 def caster_output(class_name: str, stats: Any, spells: Sequence[SpellRank], cls: ClassData,
                   ranks: Mapping[int, int], target: Target, *, drink_mana_per_second: float | None = None) -> Any:
     """The caster rotation's Output (caster.py, #163); once dry, a caster keeps casting at the rate its
-    regen pays for."""
-    from wowforever.caster import caster_rotation
+    regen pays for. It also offers the rotation with each DoT or cooldown dropped (#390)."""
+    from dataclasses import replace
+    from wowforever.caster import caster_rotation, life_tap_pct
+    from wowforever.classes import class_module
     from wowforever.gear import caster_config
     from wowforever.melee_scenarios import Output
 
-    r = caster_rotation(class_name, stats, spells, cls, ranks, target, drink_mana_per_second=drink_mana_per_second)
-    gross = r.mana_per_second + r.regen_per_second
-    fallback = r.dps * min(1.0, r.regen_per_second / gross) if gross > 0 else r.dps
+    def one(skip=()):
+        r = caster_rotation(class_name, stats, spells, cls, ranks, target,
+                            drink_mana_per_second=drink_mana_per_second, skip=skip)
+        gross = r.mana_per_second + r.regen_per_second
+        fallback = r.dps * min(1.0, r.regen_per_second / gross) if gross > 0 else r.dps
+        if "life_tap" in cfg:
+            fallback = life_tap_fallback(r.dps, r.mana_per_second, stats.level, cfg["life_tap"],
+                                         bonus_pct=life_tap_pct(cls, ranks))
+        return r, Output(r.dps, r.mana_per_second, fallback, ranged=True)
+
     cfg = caster_config(class_name)
-    if "life_tap" in cfg:
-        fallback = life_tap_fallback(r.dps, r.mana_per_second, stats.level, cfg["life_tap"])
-    return Output(r.dps, r.mana_per_second, fallback, ranged=True)
+    r, out = one()
+    fillers = class_module(class_name).ROTATION["fillers"]
+    filler = r.spells[-1] if r.spells and (r.spells[-1] in fillers or " + " in r.spells[-1]) else None
+    alternatives = tuple(one((name,))[1] for name in r.spells if name != filler)
+    return replace(out, alternatives=alternatives)
 
 
-def life_tap_fallback(dps: float, drain: float, level: int, tap) -> float:
+def life_tap_fallback(dps: float, drain: float, level: int, tap, bonus_pct: float = 0.0) -> float:
     """Once dry, the warlock taps instead of waiting on regen (#348): one GCD per tap, the highest rank
-    the level can use, and its mana (rank base + 1 per level above the rank)."""
+    the level can use, and its mana (rank base + 1 per level above the rank). Improved Life Tap adds
+    `bonus_pct`% (#396)."""
     if drain <= 0:
         return dps
     rank = max((r for r in tap["ranks"] if r[0] <= level), key=lambda r: r[0])
-    return dps / (1 + drain * tap["gcd"] / (rank[1] + level - rank[0]))
+    return dps / (1 + drain * tap["gcd"] / ((rank[1] + level - rank[0]) * (1 + bonus_pct / 100)))
 
 
 def caster_aoe(class_name: str, stats: Any, spells: Sequence[SpellRank], cls: ClassData,
@@ -51,6 +63,28 @@ def caster_aoe(class_name: str, stats: Any, spells: Sequence[SpellRank], cls: Cl
 
     pull = aoe_pull(class_name, stats, spells, cls, ranks, pack, mob_hp)
     return pull.seconds, pull.spell
+
+
+def melee_talent_stats(class_name: str, stats: Any, cls: ClassData, ranks: Mapping[int, int]) -> Any:
+    """The build's `stat_pct` talents (Divine Strength, Heart of the Wild, #383) on a melee row: a MeleeStats,
+    or a hybrid's melee row."""
+    from wowforever.melee_scenarios import HybridStats
+    from wowforever.stat_weights import apply
+
+    row = stats.melee if isinstance(stats, HybridStats) else stats
+    for talent in cls.talents:
+        rank = ranks.get(talent.talent_id, 0)
+        if rank <= 0:
+            continue
+        for effect in talent.effects:
+            if effect.kind != "stat_pct" or getattr(row, effect.applies_to[0], None) is None:
+                continue
+            stat = effect.applies_to[0]
+            bumped = apply(class_name, stats, stat, getattr(row, stat) * effect.values[rank - 1] / 100,
+                           melee_build=True)
+            if bumped is not None:
+                stats = bumped
+    return stats
 
 
 def melee_build(melee_trees: Sequence[str], cls: ClassData, ranks: Mapping[int, int]) -> bool:
@@ -69,6 +103,7 @@ def hybrid_output(class_name: str, melee_trees: Sequence[str], melee_output: Cal
 
     if isinstance(stats, HybridStats):
         if melee if melee is not None else melee_build(melee_trees, cls, ranks):
+            stats = melee_talent_stats(class_name, stats, cls, ranks)
             return melee_output(stats.melee, spells, cls, ranks, target, pack=pack)
         stats = stats.caster
     return caster_output(class_name, stats, spells, cls, ranks, target, drink_mana_per_second=drink_mana_per_second)
@@ -94,7 +129,7 @@ def caster_facts(class_name: str, plan: Mapping[str, Sequence[str]], stats: Any,
     r = caster_rotation(class_name, stats, cls.spells, cls, ranks, Target(0, 0))
     return {"kind": "caster", "dots": [s for s in r.spells if s in plan.get("dots", ())],
             "cooldowns": [s for s in r.spells if s in plan.get("cooldowns", ())],
-            "filler": next((s for s in r.spells if s in plan.get("fillers", ())), None)}
+            "filler": next((s for s in r.spells if s in plan.get("fillers", ()) or " + " in s), None)}
 
 
 def hybrid_facts(class_name: str, melee_trees: Sequence[str], melee_facts: Callable[..., dict[str, Any]],

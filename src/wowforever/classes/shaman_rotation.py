@@ -8,8 +8,10 @@ stat table carries no spell power).
 Against a pack (`pack` > 1, AoE pulls #262) Fire Nova goes out on cooldown and hits every mob, rolled
 like Earth Shock.
 
-Not modeled yet: Stormstrike's Nature-damage debuff, Maelstrom Weapon's cheaper Lightning Bolt,
-Lightning Shield orbs, totems, and mana (shocks are the main cost).
+Stormstrike's bonus on the next Earth Shock counts for the share of shocks after one (#398).
+Mana (#398): Earth Shock, Stormstrike and Fire Nova cost it; Improved Stormstrike keeps part of the Spirit regen.
+Maelstrom Weapon (#398): a cheaper, faster Lightning Bolt at the stack cap. Not modeled yet: Lightning Shield
+orbs (they fire when the shaman is hit), totems.
 """
 
 from __future__ import annotations
@@ -20,12 +22,13 @@ from pathlib import Path
 
 from wowforever.calc.ev import miss_chance
 from wowforever.melee_stats import MeleeStats
-from wowforever.physical import Attacker, Target, white_swing, yellow_attack, yellow_crit_chance
+from wowforever.physical import Attacker, Target, white_land_chance, white_swing, yellow_attack, yellow_crit_chance
 from wowforever.scenarios import _anchor_at, best_rank
 from wowforever.schema import ClassData, SpellRank
 from wowforever.toml_cache import load_toml
 
 CONFIG = Path(__file__).resolve().parents[3] / "config" / "shaman.toml"
+MELEE = Path(__file__).resolve().parents[3] / "config" / "melee.toml"
 
 
 @dataclass(frozen=True)
@@ -35,6 +38,11 @@ class EnhancementRotation:
     yellow_dps: float
     spell_dps: float
     aoe: tuple[str, ...] = ()   # spells that hit more than one mob of the pack (#262)
+    windfury_dps: float = 0.0            # the Windfury part of yellow_dps (#398)
+    shock_dps: float = 0.0               # the Earth Shock part of spell_dps, Stormstrike's bonus included
+    mana_per_second: float = 0.0         # net of Improved Stormstrike's regen
+    shock_mana_per_second: float = 0.0   # Earth Shock's part of the mana
+    maelstrom_dps: float = 0.0           # Maelstrom Weapon's Lightning Bolts, net of the swings they cost (#398)
 
 
 def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassData,
@@ -57,11 +65,21 @@ def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: Cl
                 out += sum(e.values[rank - 1] for e in t.effects if e.kind == kind and applies in e.applies_to)
         return out
 
+    def cost(spell: SpellRank) -> float:
+        return spell.mana_cost * max(0.0, 1 + total("mana_cost_pct", spell.name) / 100)
+
     weapon = stats.main_hand
     if weapon is None:
         return EnhancementRotation(0.0, 0.0, 0.0, 0.0)
     ap = stats.attack_power + total("ap_from_int_pct", "all") / 100 * stats.intellect
-    attacker = Attacker(level, ap, stats.crit_pct + total("crit_chance", "all"), stats.hit_pct + total("hit_chance", "all"))
+    melee_crit = stats.crit_pct + total("crit_chance", "all")
+    shock = best_rank(spells, "Earth Shock", level)
+    if shock is not None and shock.cooldown > 0 and total("duration", "@devastation") > 0:
+        # Earth Shock crits raise melee crit for a while (Elemental Devastation, #398): its average uptime
+        shocks = total("duration", "@devastation") / max(shock.cooldown + total("cooldown", "Earth Shock"), 1.5)
+        uptime = 1 - (1 - min(1.0, (stats.crit_pct + total("crit_chance", "all")) / 100)) ** shocks
+        melee_crit += total("crit_chance", "@devastation") * uptime
+    attacker = Attacker(level, ap, melee_crit, stats.hit_pct + total("hit_chance", "all"))
     crit = yellow_crit_chance(attacker, target)
 
     haste = 1.0
@@ -75,29 +93,66 @@ def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: Cl
     swing = white_swing(weapon, attacker, target)
     white = swings * swing
 
-    yellow = 0.0
+    yellow = windfury = mana = shock_mana = 0.0
     if level >= 30 and best_rank(spells, "Windfury Weapon", level) is not None:
         bonus = _anchor_at(c["windfury_attack_power"], level)[0] * (1 + total("damage_pct", "Windfury Weapon") / 100)
         extra = white_swing(weapon, replace(attacker, attack_power=ap + bonus), target)
-        yellow += swings * c["windfury_chance"] * extra
+        windfury = swings * c["windfury_chance"] * extra
+        yellow += windfury
 
     storm = best_rank(spells, "Stormstrike", level)
     if storm is not None and taken("Stormstrike") and storm.cooldown > 0:
         normalized = (weapon[0] + weapon[1]) / 2 + ap / 14 * c["normalized_speed"]["two_hand"]
         yellow += yellow_attack(normalized, attacker, target, crit_damage_pct=total("crit_damage_pct", "@ability")) / storm.cooldown
+        mana += cost(storm) / storm.cooldown
 
     spell_dps = 0.0
     hit = 1 - miss_chance(level, level + target.level_diff, stats.hit_pct) / 100
     spell_crit = min(1.0, (stats.crit_pct + total("crit_chance", "all")) / 100)
+    spell_power = stats.intellect * total("spell_power_from", "intellect") / 100   # Mental Quickness (#398)
     shock = best_rank(spells, "Earth Shock", level)
     if shock is not None and shock.cooldown > 0:
-        avg = (shock.min_damage + shock.max_damage) / 2 * (1 + total("damage_pct", "Earth Shock") / 100)
-        spell_dps = hit * avg * (1 + spell_crit * 0.5) / max(shock.cooldown + total("cooldown", "Earth Shock"), 1.5)
+        avg = (((shock.min_damage + shock.max_damage) / 2 + shock.coefficient * spell_power)
+               * (1 + total("damage_pct", "Earth Shock") / 100))
+        shock_period = max(shock.cooldown + total("cooldown", "Earth Shock"), 1.5)
+        spell_dps = hit * avg * (1 + spell_crit * 0.5) / shock_period
+        if storm is not None and taken("Stormstrike") and storm.cooldown > 0:
+            # Stormstrike's bonus on the next shock within its window: the share of shocks after one (#398)
+            share = min(1.0, shock_period / storm.cooldown) if shock_period <= c["stormstrike"]["seconds"] else 0.0
+            spell_dps *= 1 + c["stormstrike"]["bonus_pct"] / 100 * share
+        shock_mana = cost(shock) / shock_period
+        mana += shock_mana
+    shock_dps = spell_dps
+    maelstrom = 0.0
+    bolt = best_rank(spells, "Lightning Bolt", level)
+    per_stack = total("stack_pct", "@maelstrom")
+    if bolt is not None and per_stack > 0:
+        # Maelstrom Weapon (#398): landed swings build stacks; at the cap a cheaper, faster Lightning Bolt, cast
+        # when it out-damages the swings its cast time left costs
+        mw = c["maelstrom_weapon"]
+        wf_share = c["windfury_chance"] if windfury > 0 else 0.0
+        procs = mw["ppm"] / 60 * swings * weapon[2] * (1 + wf_share) * white_land_chance(attacker, target)
+        left = max(0.0, 1 - per_stack * mw["stacks"] / 100)
+        avg = (((bolt.min_damage + bolt.max_damage) / 2 + bolt.coefficient * spell_power)
+               * (1 + total("damage_pct", "Lightning Bolt") / 100))
+        gain = hit * avg * (1 + spell_crit * 0.5) - (white + windfury) * bolt.cast_time * left
+        if gain > 0:
+            maelstrom = procs / mw["stacks"] * gain
+            spell_dps += maelstrom
+            mana += procs / mw["stacks"] * cost(bolt) * left
     nova = best_rank(spells, "Fire Nova", level) if pack > 1 else None
     aoe: tuple[str, ...] = ()
     if nova is not None and nova.min_damage > 0:
-        avg = (nova.min_damage + nova.max_damage) / 2 * (1 + total("damage_pct", "Fire Nova") / 100)
+        avg = (((nova.min_damage + nova.max_damage) / 2 + nova.coefficient * spell_power)
+               * (1 + total("damage_pct", "Fire Nova") / 100))
         spell_dps += hit * avg * (1 + spell_crit * 0.5) * pack / max(nova.cooldown + total("cooldown", "Fire Nova"), 1.5)
+        mana += cost(nova) / max(nova.cooldown + total("cooldown", "Fire Nova"), 1.5)
         aoe = ("Fire Nova",)
+    if storm is not None and taken("Stormstrike") and storm.cooldown > 0:
+        # Improved Stormstrike: a share of Spirit regen keeps going while casting (#398)
+        m = load_toml(MELEE)["shaman_melee"]
+        mana -= (min(100.0, total("regen_while_casting", "@stormstrike")) / 100
+                 * (m["regen_base"] + stats.spirit / m["regen_spirit_div"]) / 2)
     return EnhancementRotation(dps=white + yellow + spell_dps, white_dps=white, yellow_dps=yellow, spell_dps=spell_dps,
-                               aoe=aoe)
+                               aoe=aoe, windfury_dps=windfury, shock_dps=shock_dps, mana_per_second=mana,
+                               shock_mana_per_second=shock_mana, maelstrom_dps=maelstrom)

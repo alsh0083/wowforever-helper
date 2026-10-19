@@ -40,6 +40,48 @@ def frozen_lance_multiplier(cls) -> float:
     return 1 + float(re.search(r"Deals (\d+(?:\.\d+)?)% increased damage to Frozen targets", text).group(1)) / 100
 
 
+def combustion_rule(cls) -> tuple[float, int]:
+    """Combustion's (crit % per Fire hit, crits until it ends) from its rank text (#394)."""
+    import re
+
+    text = cls.talent_named("Combustion").rank_text[-1]
+    step = re.search(r"critical strike chance with Fire damage spells by (\d+(?:\.\d+)?)%", text).group(1)
+    limit = re.search(r"until you have caused (\d+) non-periodic critical strikes", text).group(1)
+    return float(step), int(limit)
+
+
+def combustion_extra_crits(p: float, hit: float, step: float, limit: int) -> float:
+    """Expected extra crit chance summed over the casts while Combustion lasts (#394). Cast i (from 0) crits with
+    min(1, p + step x i) instead of p; a cast crits with `hit` x that chance, and Combustion ends after `limit`
+    crits. Exact over the number of crits so far, cut off once it has ended with certainty (or after 200 casts)."""
+    active = [1.0] + [0.0] * (limit - 1)    # chance of being on c crits, Combustion still up
+    extra, i = 0.0, 0
+    while sum(active) > 1e-12 and i < 200:
+        chance = min(1.0, p + step * i)
+        extra += sum(active) * (chance - p)
+        q = hit * chance
+        nxt = [0.0] * limit
+        for c, pr in enumerate(active):
+            nxt[c] += pr * (1 - q)
+            if c + 1 < limit:
+                nxt[c + 1] += pr * q
+        active, i = nxt, i + 1
+    return extra
+
+
+def missile_barrage_rule(cls, rank: int) -> dict[str, float]:
+    """Missile Barrage's proc chance (%) at `rank` per cast of each spell, and per hit for "Arcane Missiles" (#394)."""
+    import re
+
+    text = cls.talent_named("Missile Barrage").rank_text[rank - 1]
+    blast, missile, other = (float(x) for x in re.search(
+        r"Arcane Blast spell a (\d+(?:\.\d+)?)% chance, your Arcane Missile hits a (\d+(?:\.\d+)?)% chance, "
+        r"and your Arcane Wrath, Fireball, Frostbolt, and Frostfire Bolt spells a (\d+(?:\.\d+)?)% chance",
+        text).groups())
+    return {"Arcane Blast": blast, "Arcane Missiles": missile, "Arcane Wrath": other, "Fireball": other,
+            "Frostbolt": other, "Frostfire Bolt": other}
+
+
 def frozen_hit_gain(char: Character, filler: SpellRank, *, target_level: int,
                     assumptions: Assumptions) -> float:
     """Extra damage of one hit on a frozen target (Frost Nova, #97) over spending that time on
@@ -147,6 +189,13 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
     cast = effective_cast_time(filler, filler_mods)
     if filler.channeled:
         cast = max(cast, filler.duration)
+    barrage = (missile_barrage_rule(char.cls, taken("Missile Barrage")) if taken("Missile Barrage") > 0
+               else {})
+    barrage_share = 0.0     # Arcane Missiles filler: the share of its casts that are barrages (#394)
+    if filler.name == "Arcane Missiles" and barrage and filler.tick_period > 0:
+        missiles = round(filler.duration / filler.tick_period)
+        barrage_share = 1 - (1 - hit * barrage["Arcane Missiles"] / 100.0) ** missiles
+        cast *= 1 - barrage_share / 2
     filler_ev = ev_of(filler, filler_mods)
 
     # Frostbite (#96): on normal mobs a landed Chill can freeze the target for FREEZE_SECONDS, and
@@ -199,6 +248,14 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
             add(frozen, (60.0 / cast) * (chance + freeze_procs), GCD_SECONDS,
                 mods_for(lance, conditions | {"frozen"}))
 
+    if filler.name != "Arcane Missiles" and barrage.get(filler.name, 0.0) > 0:
+        # a landed filler cast can proc a free, half-length Arcane Missiles: woven in when it gains (#394)
+        missiles = best_rank(char.spells, "Arcane Missiles", char.level)
+        if missiles is not None:
+            free, missile_mods = replace(missiles, mana_cost=0), mods_for(missiles)
+            if ev_of(free, missile_mods) > filler_dps * missiles.duration / 2:
+                add(free, (60.0 / cast) * hit * barrage[filler.name] / 100.0, missiles.duration / 2, missile_mods)
+
     blast = best_rank(char.spells, "Arcane Blast", char.level) if blast_stacks > 0 else None
     stacks = arcane_blast_stacks(char.cls) if blast is not None else None
     window_bonus = 0.0     # filler DPS gained inside the buff windows, per second of the minute
@@ -229,11 +286,34 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
         return cost
 
     dps = filler_dps + window_bonus * (1.0 - busy / 60.0)
-    mana_per_second = cost(filler, filler_mods) / cast * (1.0 - busy / 60.0)
+    mana_per_second = cost(filler, filler_mods) * (1 - barrage_share) / cast * (1.0 - busy / 60.0)
     for spell, n, cast_w, mods in weaves:
         gain = ev_of(spell, mods) - filler_dps * cast_w
         dps += n * gain / 60.0
         mana_per_second += n * cost(spell, mods) / 60.0
+
+    if sustained and taken("Presence of Mind") > 0:
+        # one instant cast per cooldown: a GCD of filler time for the filler or Pyroblast, whichever gains more (#394)
+        pom = best_rank(char.spells, "Presence of Mind", char.level)
+        options = [] if filler.channeled else [(filler, filler_mods)]   # a channel can't be made instant
+        pyro = best_rank(char.spells, "Pyroblast", char.level) if taken("Pyroblast") > 0 else None
+        if pyro is not None:
+            options.append((pyro, mods_for(pyro)))
+        if pom is not None and pom.cooldown > 0 and options:
+            spell, mods = max(options, key=lambda o: ev_of(*o))
+            dps += (ev_of(spell, mods) - filler_dps * GCD_SECONDS) / pom.cooldown
+            # its mana, less the filler's for the GCD it takes
+            mana_per_second += ((cost(spell, mods) - cost(filler, filler_mods) * GCD_SECONDS / cast)
+                                / pom.cooldown)
+    if sustained and taken("Combustion") > 0 and "fire" in filler.schools:
+        # Fire crit rising per cast until a few crits, once per cooldown (#394)
+        combustion = best_rank(char.spells, "Combustion", char.level)
+        if combustion is not None and combustion.cooldown > 0:
+            step, limit = combustion_rule(char.cls)
+            plus = replace(filler_mods, crit_chance_bonus=filler_mods.crit_chance_bonus + 1.0)
+            per_crit = (ev_of(filler, plus) - ev_of(filler, filler_mods)) / 0.01
+            extra = combustion_extra_crits(min(1.0, crit), hit, step / 100.0, limit)
+            dps += extra * per_crit / combustion.cooldown
 
     return Rotation(
         dps=dps,

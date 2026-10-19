@@ -5,3 +5,7 @@ paws = { 10 = [9, 13], 20 = [17, 24], 30 = [25, 36], 40 = [33, 47], 50 = [41, 58
 paw_speed = 1.0
 energy_per_second = 10.0
 finisher_combo_points = 5
+
+# Berserk (#397): +100% builder crit for 15 s (rank text); the cooldown isn't in the client data, 180 s is a
+# best-effort guess (confidence LOW)
+berserk = { duration = 15.0, cooldown = 180.0 }

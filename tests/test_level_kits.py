@@ -48,7 +48,7 @@ def test_ranks_follow_the_build_order_when_it_has_one():
 def test_load_kits_at_60_is_the_config():
     by_id = {k.id: k for k in load_kits()}
     assert {k.id: k for k in load_kits(60)} == by_id
-    assert by_id["warrior-arms"].health == 3420 and by_id["warrior-arms"].at_level == 60
+    assert by_id["warrior-arms"].health == 3580 and by_id["warrior-arms"].at_level == 60
 
 
 def test_load_kits_below_60_scales_engine_kits_and_keeps_the_rest():

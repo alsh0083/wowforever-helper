@@ -77,6 +77,15 @@ def land_chance(attacker: Attacker, target: Target, *, can_dodge: bool = True,
     return (100 - miss - dodge) / 100
 
 
+def white_land_chance(attacker: Attacker, target: Target, *, dual_wield: bool = False,
+                      dodge_reduction: float = 0.0) -> float:
+    """Probability (0-1) that an auto-attack swing connects (hits, glances or crits)."""
+    c, i = _config(), _row(target)
+    miss = max(0.0, c["miss"][i] + (c["dual_wield_miss"] if dual_wield else 0) - _effective_hit(attacker, i))
+    dodge = max(0.0, c["dodge"][i] - dodge_reduction)
+    return (100 - miss - dodge) / 100
+
+
 def yellow_crit_chance(attacker: Attacker, target: Target, crit_bonus: float = 0.0) -> float:
     """Probability (0-1) that a landed yellow attack crits."""
     c, i = _config(), _row(target)

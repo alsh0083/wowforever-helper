@@ -226,7 +226,8 @@ def build_report(cls: ClassData, spells: tuple[SpellRank, ...], builds: Sequence
         "checklist": [asdict(item) for item in checklist(assumptions)],
         "caveats": [
             "Questing and raid scenarios use a filler-plus-weaves rotation (Fire Blast, Scorch, "
-            "Pyroblast, Ice Lance); Combustion, utility and PvP talents are not modeled yet (#57).",
+            "Pyroblast, Ice Lance); raids average Arcane Power, Combustion and Presence of Mind over "
+            "their cooldowns (#394). Utility and PvP talents are not modeled yet (#57).",
             "Stats, mob HP and mana budgets are rough Classic-era defaults (low confidence).",
             "Respecs: Dual Specialization reportedly unlocks at 40, so a PvP and a PvE build can be "
             "carried together from then on. Before 40 a respec costs gold at a class trainer; the "
@@ -321,7 +322,7 @@ def route_report(cls: ClassData, builds: Sequence[Build], dataset: dict[str, Any
 
 
 MELEE_CAVEAT = ("Melee and ranged model (#111): expected-value rotations against Classic combat-table "
-                "rules; poisons, Backstab, Hack and Slash and hunter pet details aren't modeled yet, and "
+                "rules; rogue poisons use Classic proc chances, Backstab and hunter pet details aren't modeled yet, and "
                 "base stats are estimates. PvP scores use the mage's duel model from this class's side "
                 "(#134); stealth openers, Evasion, Vanish, Deterrence and Feign Death aren't counted yet.")
 

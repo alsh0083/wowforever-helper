@@ -33,15 +33,21 @@ STATS = ms.stat_table("warrior").at(60)
 MOBS = Target(0, 3300)
 
 
+def ranks_of(build_id):
+    # Bloodthirst (#391) left out: these hand-worked checks keep Rage free for Whirlwind and Thunder Clap
+    bloodthirst = CLS.talent_named("Bloodthirst").talent_id
+    return {t: r for t, r in BUILDS[build_id].final_ids(CLS).items() if t != bloodthirst}
+
+
 def rotation(build_id, pack, **kw):
-    return wr.warrior_rotation(STATS, CLS.spells, CLS, BUILDS[build_id].final_ids(CLS), MOBS, pack=pack, **kw)
+    return wr.warrior_rotation(STATS, CLS.spells, CLS, ranks_of(build_id), MOBS, pack=pack, **kw)
 
 
 def test_single_target_is_unchanged():
     one = rotation("warrior-fury-pve", 1)
-    default = wr.warrior_rotation(STATS, CLS.spells, CLS, BUILDS["warrior-fury-pve"].final_ids(CLS), MOBS)
+    default = wr.warrior_rotation(STATS, CLS.spells, CLS, ranks_of("warrior-fury-pve"), MOBS)
     assert one == default
-    assert one.aoe == () and [n for n, _ in one.parts] == ["Whirlwind", "Heroic Strike"]
+    assert one.aoe == () and [n for n, _ in one.parts] == ["Overpower", "Rend", "Whirlwind", "Heroic Strike"]   # #391, #424
 
 
 def test_whirlwind_hits_up_to_four_mobs():
@@ -63,8 +69,10 @@ def test_heroic_strike_gives_way_to_cleave():
 
 
 def test_arms_whirls_before_mortal_strike_against_a_pack():
-    assert rotation("warrior-arms", 1).abilities[0] == "Mortal Strike"
-    assert rotation("warrior-arms", 3).abilities[0] == "Whirlwind"
+    # among the cooldown abilities (Overpower and Rend go first on one target, #424)
+    one, three = rotation("warrior-arms", 1).abilities, rotation("warrior-arms", 3).abilities
+    assert one.index("Mortal Strike") < one.index("Whirlwind")
+    assert three.index("Whirlwind") < three.index("Mortal Strike")
     assert rotation("warrior-arms", 3).dps > rotation("warrior-arms", 1).dps
 
 
