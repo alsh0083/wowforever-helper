@@ -4547,7 +4547,7 @@
  "assumptions": {},
  "checklist": [],
  "caveats": [
-  "Retribution model (#175): a two-hander's white swings with Seal of Command procs, Judgement and Holy Strike on cooldown; Holy damage ignores armor. Seal of Command's proc rate and Judgement of Command's damage are Classic values. Hammer of Wrath counts for the execute phase with Champion of the Light's spell power; Consecration against one target, Exorcism, Vindication and mana aren't modeled; base stats are estimates. Holy and Protection stay unscored.",
+  "Retribution model (#175): a two-hander's white swings with Seal of Command procs, Judgement and Holy Strike on cooldown; Holy damage ignores armor. Seal of Command's proc rate and Judgement of Command's damage are Classic values. Hammer of Wrath counts for the execute phase with Champion of the Light's spell power; Consecration stays down (dropped when mana is short). Retribution spends mana and swings white once dry. Exorcism and Vindication aren't modeled; base stats are estimates. Holy and Protection stay unscored.",
   "Dungeon scores assume a 5-player group (#220): a tank, a healer, two more DPS and you, weighted by how often each class and spec shows up in Forever Logs. Group buffs come from the game client at your level; each provider uses the option that helps your build type (Might and Windfury for physical damage, Kings and the Elements for casters); a warrior tank keeps 5 Sunders up. Shadow Weaving, Improved Scorch and Winter's Chill only help their own caster in Forever, so they aren't group buffs. Raids and questing are unbuffed."
  ],
  "leveling": [
