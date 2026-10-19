@@ -147,6 +147,9 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Shatter": (
         EffectRule("crit_chance", r"against Frozen targets by (\d+(?:\.\d+)?)%", ("all", "@frozen")),
     ),
+    "Arcane Subtlety": (
+        EffectRule("resistance_reduction", r"resistance to all your spells by (\d+(?:\.\d+)?)", ("all",)),
+    ),
 }
 
 UNMODELED: dict[str, str] = {
@@ -156,7 +159,6 @@ UNMODELED: dict[str, str] = {
     "Arcane Power": "handled in mage_rotation",
     "Arcane Resilience": "defensive: armor from intellect",
     "Arcane Shielding": "defensive: mana shield / armor",
-    "Arcane Subtlety": "resistance reduction + threat, v1",
     "Improved Channeling": "utility: no interruption from damage; the model has no pushback (#394)",
     "Magic Absorption": "defensive: resistances / mana restore",
     "Missile Barrage": "handled in mage_rotation",

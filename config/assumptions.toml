@@ -97,3 +97,11 @@ why = "Fire Power (1.60.1.70425) adds its % once per Fire effect on the target, 
 source = "Fire Power rank text, 1.60.1.70425; issue #354"
 tested = ""
 talents = ["Fire Power"]
+
+[level_resistance]
+value = true
+options = [false, true]
+why = "A target above the caster's level resists spells as if it had 8 resistance per level of difference: on average resistance / (caster level x 5) x 0.75 of the damage (-6% at 60 against a 63 boss). Holy damage isn't resisted; physical damage is untouched (owner decision 2026-10-19, #409)."
+source = "Classic resistance mechanics (level-based resistance, average partial resist); not yet checked in Forever"
+tested = ""
+talents = ["Arcane Subtlety"]

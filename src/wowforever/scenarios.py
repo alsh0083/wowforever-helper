@@ -159,6 +159,7 @@ def _cast(char: Character, spell: SpellRank, target_level: int,
             target_level=target_level,
             mods=mods,
             periodic_can_crit=periodic_can_crit(spell.name, assumptions),
+            level_resistance=bool(assumptions["level_resistance"]),
         )
 
     ev = ev_of(spell)

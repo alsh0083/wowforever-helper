@@ -23,7 +23,7 @@ M = class_module("mage")
 CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("mage"), M.TALENT_EFFECTS, M.UNMODELED)
 STATS = Stats(60, intellect=270, spirit=190, stamina=220, spell_power=150, crit_pct=6, hit_pct=3,
               mana=3600, health=2900)
-A = Assumptions.load()
+A = Assumptions.load().with_values(level_resistance=False)   # pins the formula; resistance: #409
 SUSTAINED = frozenset({"sustained"})
 
 

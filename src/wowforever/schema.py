@@ -79,6 +79,7 @@ def newest_saved_dataset(datasets_dir: Path = DATASETS_DIR) -> Path:
 EFFECT_KINDS = frozenset({
     "damage_pct",       # % more damage
     "direct_damage_pct",  # % more damage on the initial hit only, not the periodic part (Aftermath)
+    "resistance_reduction",  # resistance taken off the target for your spells (Arcane Subtlety)
     "crit_chance",      # + crit chance (percentage points)
     "crit_damage_pct",  # % more crit damage / bonus
     "hit_chance",       # + hit chance (percentage points)
