@@ -65,6 +65,16 @@ def level_resist_pct(caster_level: int, target_level: int, reduction: float = 0.
     return resistance / (caster_level * 5.0) * 0.75 * 100.0
 
 
+def level_resist_factor(caster_level: int, target_level: int, reduction: float = 0.0) -> float:
+    """Share of spell damage left after the average level resist when the `level_resistance` assumption is on,
+    else 1 (#435: for spell damage the melee engines compute by hand)."""
+    from wowforever.assumptions import Assumptions
+
+    if not Assumptions.load()["level_resistance"]:
+        return 1.0
+    return 1.0 - level_resist_pct(caster_level, target_level, reduction) / 100.0
+
+
 def expected_damage(
     spell: SpellRank,
     *,

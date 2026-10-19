@@ -33,7 +33,7 @@ def bolt_per_cap():
     land = white_land_chance(Attacker(60, STATS.attack_power, STATS.crit_pct, STATS.hit_pct), BOSS)
     procs = C["maelstrom_weapon"]["ppm"] / 60 * (1 + C["windfury_chance"]) * land   # haste 1, so swings x speed = 1
     bolt = best_rank(CLS.spells, "Lightning Bolt", 60)
-    hit = 1 - miss_chance(60, 63, STATS.hit_pct) / 100
+    hit = (1 - miss_chance(60, 63, STATS.hit_pct) / 100) * 0.94     # and the average level resist (#435)
     ev = hit * (bolt.min_damage + bolt.max_damage) / 2 * (1 + STATS.crit_pct / 100 * 0.5)
     return procs / C["maelstrom_weapon"]["stacks"], ev, bolt
 

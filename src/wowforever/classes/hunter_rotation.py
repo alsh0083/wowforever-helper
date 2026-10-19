@@ -19,6 +19,7 @@ from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
 
+from wowforever.calc.ev import level_resist_factor
 from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Attacker, Target, land_chance, ranged_shot, white_swing, yellow_attack
 from wowforever.scenarios import best_rank
@@ -120,14 +121,16 @@ def hunter_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDa
         dot = 0.0
         if sting is not None:
             dot = (sting.periodic_damage * (1 + (total("damage_pct", "Serpent Sting") + shared_pct) / 100)
-                   * land_chance(a_r, target, can_dodge=False) / sting.duration)
+                   * land_chance(a_r, target, can_dodge=False) / sting.duration
+                   * level_resist_factor(stats.level, stats.level + target.level_diff))     # Nature (#435)
             mana_r += sting.mana_cost * (1 + total("mana_cost_pct", "@sting") / 100) / sting.duration
         ranged = auto * (1 - casting) + shots + dot
         volley = learned("Volley") if pack > 1 else None
         if volley is not None and volley.duration > 0:
             # channelled back to back instead of shooting
             channel = (volley.periodic_damage * (1 + (total("damage_pct", "Volley") + shared_pct) / 100)
-                       * land_chance(a_r, target, can_dodge=False) * pack / volley.duration)
+                       * land_chance(a_r, target, can_dodge=False) * pack / volley.duration
+                       * level_resist_factor(stats.level, stats.level + target.level_diff))   # Arcane (#435)
             if channel > ranged:
                 ranged, mana_r = channel, volley.mana_cost * efficiency / volley.duration
                 parts = {"Volley": channel}

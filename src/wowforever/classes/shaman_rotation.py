@@ -20,7 +20,7 @@ from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, replace
 from pathlib import Path
 
-from wowforever.calc.ev import miss_chance
+from wowforever.calc.ev import level_resist_factor, miss_chance
 from wowforever.melee_stats import MeleeStats
 from wowforever.physical import Attacker, Target, white_land_chance, white_swing, yellow_attack, yellow_crit_chance
 from wowforever.scenarios import _anchor_at, best_rank
@@ -107,7 +107,8 @@ def enhancement_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: Cl
         mana += cost(storm) / storm.cooldown
 
     spell_dps = 0.0
-    hit = 1 - miss_chance(level, level + target.level_diff, stats.hit_pct) / 100
+    hit = ((1 - miss_chance(level, level + target.level_diff, stats.hit_pct) / 100)
+           * level_resist_factor(level, level + target.level_diff))      # the average level resist (#435)
     spell_crit = min(1.0, (stats.crit_pct + total("crit_chance", "all")) / 100)
     spell_power = stats.intellect * total("spell_power_from", "intellect") / 100   # Mental Quickness (#398)
     shock = best_rank(spells, "Earth Shock", level)
