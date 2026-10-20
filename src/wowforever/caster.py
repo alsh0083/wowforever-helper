@@ -68,7 +68,8 @@ def cast(spell: SpellRank, stats: Stats, cls: ClassData, ranks: Mapping[int, int
     ev = expected_damage(sub20_penalized(scaled(spell, stats.level), assumptions),
                          spell_power=stats.spell_power, crit_pct=stats.crit_pct, hit_pct=stats.hit_pct,
                          caster_level=stats.level, target_level=target_level, mods=mods,
-                         periodic_can_crit=periodic_can_crit(spell.name, assumptions))
+                         periodic_can_crit=periodic_can_crit(spell.name, assumptions),
+                         level_resistance=bool(assumptions["level_resistance"]))
     seconds = max(GCD_SECONDS, effective_cast_time(spell, mods))
     if spell.channeled:
         seconds = max(seconds, spell.duration)

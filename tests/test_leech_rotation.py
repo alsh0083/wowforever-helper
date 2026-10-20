@@ -31,7 +31,7 @@ def test_siphon_life_by_hand():
     stats, cls, ranks = _engine("warlock", "warlock-affliction")
     siphon = best_rank(cls.spells, "Siphon Life", 60)         # rank 4: 410 over 30 s, 0.5 of spell power
     st = talent_stats("warlock", stats, cls, ranks)
-    ev, seconds, _ = cast(siphon, st, cls, ranks, 63, Assumptions.load())
+    ev, seconds, _ = cast(siphon, st, cls, ranks, 63, Assumptions.load().with_values(level_resistance=False))
     # (410 + 0.5 x 313 spell power, 70425 gear) x 1.25 (Demonic Sacrifice 15 + Shadow Mastery 10); a +3 target:
     # 17% miss
     # minus 2.79 hit and Suppression 5 leaves 90.79% hit; periodic damage doesn't crit

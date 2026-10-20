@@ -14,7 +14,7 @@ from wowforever.schema import ClassData, SpellRank
 from wowforever.stats import Stats
 
 EMPTY = ClassData("testclass", (), ())
-A = Assumptions.load()
+A = Assumptions.load().with_values(level_resistance=False)   # pins the formula; resistance: #409
 
 
 def stats(level, mana):

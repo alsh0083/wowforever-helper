@@ -21,7 +21,7 @@ from wowforever.sources.wowforevertalent import parse_page
 from wowforever.stats import Stats
 
 EMPTY = ClassData("testclass", (), ())
-A = Assumptions.load()
+A = Assumptions.load().with_values(level_resistance=False)   # pins the formula; resistance: #409
 NUKE1 = SpellRank(4, "Fireball", 1, 50, ("fire",), 2.5, mana_cost=200, min_damage=600, max_damage=600)
 NUKE = SpellRank(3, "Fireball", 2, 60, ("fire",), 2.5, mana_cost=400, min_damage=1000, max_damage=1000)
 

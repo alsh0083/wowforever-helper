@@ -52,6 +52,6 @@ def test_caster_output_offers_each_dot_dropped():
 
 def test_smite_drops_devouring_plague_in_the_dungeon_shadow_keeps_it():
     # from the probe in #390, re-run with Twin Disciplines and Improved Shadow Word: Pain (#384) and the 70425 gear
-    # tables (#416): Smite drops Devouring Plague, Shadow keeps it
-    assert dungeon("priest", STATS, CLS.spells, CLS, BUILDS["priest-discipline-smite"]) == pytest.approx(176.73, abs=0.01)
-    assert dungeon("priest", STATS, CLS.spells, CLS, BUILDS["priest-shadow"]) == pytest.approx(497.27, abs=0.01)
+    # tables (#416) and level resistance (#409): Smite drops Devouring Plague, Shadow keeps it
+    assert dungeon("priest", STATS, CLS.spells, CLS, BUILDS["priest-discipline-smite"]) == pytest.approx(172.99, abs=0.01)
+    assert dungeon("priest", STATS, CLS.spells, CLS, BUILDS["priest-shadow"]) == pytest.approx(477.38, abs=0.01)

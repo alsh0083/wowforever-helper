@@ -2,7 +2,8 @@
 
 Pure functions over `wowforever.schema.SpellRank`; rules are the Classic-era spell rules
 worked out in `tests/test_ev_golden.py` (miss by level difference, 150% base crit with a
-scalable bonus, fire-school Ignite, periodic damage). Resistances are ignored in v0.
+scalable bonus, fire-school Ignite, periodic damage). Level-based resistance (#409) is an average partial
+resist, when the caller asks for it.
 """
 
 from __future__ import annotations
@@ -29,6 +30,7 @@ class Modifiers:
     mana_cost_pct: float = 0.0
     hit_bonus: float = 0.0
     direct_damage_pct: float = 0.0   # the initial hit only (Aftermath, #384)
+    resistance_reduction: float = 0.0   # resistance taken off the target (Arcane Subtlety, #409)
 
 
 def _base_miss_pct(level_diff: int) -> float:
@@ -56,6 +58,23 @@ def casts_to_oom(spell: SpellRank, mana: float, mods: Modifiers) -> int:
     return math.floor(mana / cost)
 
 
+def level_resist_pct(caster_level: int, target_level: int, reduction: float = 0.0) -> float:
+    """Average % of spell damage a higher-level target resists (#409, Classic): 8 resistance per level above the
+    caster, less `reduction`, resisted on average resistance / (caster level x 5) x 0.75."""
+    resistance = max(0.0, 8.0 * (target_level - caster_level) - reduction)
+    return resistance / (caster_level * 5.0) * 0.75 * 100.0
+
+
+def level_resist_factor(caster_level: int, target_level: int, reduction: float = 0.0) -> float:
+    """Share of spell damage left after the average level resist when the `level_resistance` assumption is on,
+    else 1 (#435: for spell damage the melee engines compute by hand)."""
+    from wowforever.assumptions import Assumptions
+
+    if not Assumptions.load()["level_resistance"]:
+        return 1.0
+    return 1.0 - level_resist_pct(caster_level, target_level, reduction) / 100.0
+
+
 def expected_damage(
     spell: SpellRank,
     *,
@@ -66,6 +85,7 @@ def expected_damage(
     target_level: int,
     mods: Modifiers,
     periodic_can_crit: bool = False,
+    level_resistance: bool = False,
 ) -> float:
     """Expected damage per cast: direct + periodic + Ignite (fire-school spells only)."""
     damage_factor = 1.0 + mods.damage_pct / 100.0
@@ -83,4 +103,7 @@ def expected_damage(
     if "fire" in spell.schools:
         ignite = hit * crit * (avg * (1.0 + crit_bonus)) * (mods.ignite_pct / 100.0)
 
-    return direct + periodic + ignite
+    total = direct + periodic + ignite
+    if level_resistance and "holy" not in spell.schools:
+        total *= 1.0 - level_resist_pct(caster_level, target_level, mods.resistance_reduction) / 100.0
+    return total

@@ -96,6 +96,7 @@ def frozen_hit_gain(char: Character, filler: SpellRank, *, target_level: int,
             hit_pct=char.stats.hit_pct, caster_level=char.level, target_level=target_level,
             mods=modifiers_for(spell, char.cls, ranks, conditions),
             periodic_can_crit=periodic_can_crit(spell.name, assumptions),
+            level_resistance=bool(assumptions["level_resistance"]),
         )
 
     lance_taken = any(t.name == "Ice Lance" and ranks.get(t.talent_id, 0) > 0 for t in char.cls.talents)
@@ -181,6 +182,7 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
             target_level=target_level,
             mods=mods,
             periodic_can_crit=periodic_can_crit(spell.name, assumptions),
+            level_resistance=bool(assumptions["level_resistance"]),
         )
 
     filler_mods = mods_for(filler)

@@ -48,7 +48,8 @@ def test_untalented_ranged_rotation():
              + ranged_shot((arcane.min_damage + arcane.max_damage) / 2, a, BOSS) / arcane.cooldown)
     casting = aimed.cast_time / aimed.cooldown + multi.cast_time / multi.cooldown
     sting = top("Serpent Sting")
-    dot = sting.periodic_damage * land_chance(a, BOSS, can_dodge=False) / sting.duration
+    # Nature damage: the average level resist against a +3 boss (#435)
+    dot = sting.periodic_damage * land_chance(a, BOSS, can_dodge=False) / sting.duration * 0.94
     assert rot.ranged_dps == pytest.approx(auto * (1 - casting) + shots + dot)
     assert rot.mode == "ranged" and rot.pet_dps == 0
 
@@ -118,7 +119,7 @@ def test_marksmanship_shot_talents():
                            crit_damage_pct=30) / (arcane.cooldown - 1.5))
     casting = aimed.cast_time / aimed.cooldown + multi.cast_time / multi.cooldown
     sting = top("Serpent Sting")
-    dot = sting.periodic_damage * 1.2 * land_chance(a, BOSS, can_dodge=False) / sting.duration
+    dot = sting.periodic_damage * 1.2 * land_chance(a, BOSS, can_dodge=False) / sting.duration * 0.94
     assert rot.ranged_dps == pytest.approx(auto * (1 - casting) + shots + dot)
     mana = (aimed.mana_cost / aimed.cooldown + multi.mana_cost / multi.cooldown
             + arcane.mana_cost / (arcane.cooldown - 1.5)) * 0.85 + sting.mana_cost * 0.85 / sting.duration

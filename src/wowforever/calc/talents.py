@@ -17,6 +17,7 @@ _KIND_TO_FIELD = {
     "mana_cost_pct": "mana_cost_pct",
     "hit_chance": "hit_bonus",
     "direct_damage_pct": "direct_damage_pct",
+    "resistance_reduction": "resistance_reduction",
 }
 
 

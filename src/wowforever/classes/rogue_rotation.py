@@ -18,7 +18,7 @@ from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, replace
 from pathlib import Path
 
-from wowforever.calc.ev import miss_chance
+from wowforever.calc.ev import level_resist_factor, miss_chance
 from wowforever.classes.poisons import best_poisons
 from wowforever.melee_stats import MeleeStats
 from wowforever.physical import (Attacker, Target, land_chance, white_land_chance, white_swing,
@@ -165,7 +165,8 @@ def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDat
         known, tuple(hits),
         chance_pct={"Instant Poison": p["instant_chance_pct"] + chance,
                     "Deadly Poison": p["deadly_chance_pct"] + chance},
-        land=1 - miss_chance(level, level + target.level_diff, 0.0) / 100,
+        land=((1 - miss_chance(level, level + target.level_diff, 0.0) / 100)
+              * level_resist_factor(level, level + target.level_diff)),       # poisons are resisted (#435)
         crit=yellow_crit_chance(attacker, target), damage_pct=total("damage_pct", "@poison"),
         max_stacks=p["deadly_max_stacks"])
     yellow += poison_dps
