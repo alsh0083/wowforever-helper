@@ -70,16 +70,19 @@ def combustion_extra_crits(p: float, hit: float, step: float, limit: int) -> flo
 
 
 def missile_barrage_rule(cls, rank: int) -> dict[str, float]:
-    """Missile Barrage's proc chance (%) at `rank` per cast of each spell, and per hit for "Arcane Missiles" (#394)."""
+    """Missile Barrage's proc chance (%) at `rank`: per cast of each spell named in the rank text, and per missile
+    hit for "Arcane Missiles" when the text has that clause (0 on 70685, where it was dropped, #439)."""
     import re
 
     text = cls.talent_named("Missile Barrage").rank_text[rank - 1]
-    blast, missile, other = (float(x) for x in re.search(
-        r"Arcane Blast spell a (\d+(?:\.\d+)?)% chance, your Arcane Missile hits a (\d+(?:\.\d+)?)% chance, "
-        r"and your Arcane Wrath, Fireball, Frostbolt, and Frostfire Bolt spells a (\d+(?:\.\d+)?)% chance",
-        text).groups())
-    return {"Arcane Blast": blast, "Arcane Missiles": missile, "Arcane Wrath": other, "Fireball": other,
-            "Frostbolt": other, "Frostfire Bolt": other}
+    blast = float(re.search(r"Arcane Blast spell a (\d+(?:\.\d+)?)% chance", text).group(1))
+    missile = re.search(r"your Arcane Missile hits a (\d+(?:\.\d+)?)% chance", text)
+    clause = re.search(r"and your ([A-Z][\w ,]*?) spells a (\d+(?:\.\d+)?)% chance", text)
+    rule: dict[str, float] = {"Arcane Blast": blast,
+                              "Arcane Missiles": float(missile.group(1)) if missile else 0.0}
+    for name in re.split(r", and |, | and ", clause.group(1)):
+        rule[name] = float(clause.group(2))
+    return rule
 
 
 def frozen_hit_gain(char: Character, filler: SpellRank, *, target_level: int,
