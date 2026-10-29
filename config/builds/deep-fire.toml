@@ -12,7 +12,7 @@ summary = "Deep Fire to Combustion with Arcane Concentration and Elemental Preci
 sources = ["wft_popular"]
 confidence = "medium"
 
-adjusted = "1.60.1.70425: Fire Power 5 -> 3, Critical Mass 3 -> 5"   # points moved by Claude, not a player (#369)
+adjusted = "1.60.1.70425: Fire Power 5 -> 3, Critical Mass 3 -> 5; 1.60.1.70685: Elemental Precision 5 -> 3, model-filled"   # points moved by Claude, not a player (#369)
 # 1.60.1.70425 (#353): Fire Power capped at 3 and Critical Mass raised to 5; the points move from one to the other.
 [final]
 "Arcane Focus" = 5
@@ -30,5 +30,11 @@ adjusted = "1.60.1.70425: Fire Power 5 -> 3, Critical Mass 3 -> 5"   # points mo
 "Critical Mass" = 5
 "Fire Power" = 3
 "Combustion" = 1
-"Elemental Precision" = 5
+"Elemental Precision" = 3
 "Ice Shards" = 4
+
+# 1.60.1.70685 (#443) removed Piercing Ice and capped Elemental Precision at 3; the freed points go one
+# at a time to the legal talent that raises the PvE score most (rows first).
+# [final] is as published, less the removed points; the model fills the rest.
+[model_filled]
+"Improved Frostbolt" = 2

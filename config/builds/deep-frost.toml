@@ -12,14 +12,14 @@ summary = "Full Frost: Ice Barrier, Ice Block, Cold Snap, Permafrost, Improved F
 sources = ["wft_popular"]
 confidence = "medium"
 
+adjusted = "1.60.1.70685: Piercing Ice removed, Elemental Precision capped at 3"   # points moved by Claude, not a player (#369)
 [final]
 "Improved Frostbolt" = 5
-"Elemental Precision" = 5
+"Elemental Precision" = 3
 "Ice Shards" = 5
 "Permafrost" = 3
 "Improved Frost Nova" = 2
 "Frostbite" = 3
-"Piercing Ice" = 3
 "Frost Channeling" = 3
 "Ice Lance" = 1
 "Improved Blizzard" = 3
@@ -31,3 +31,10 @@ confidence = "medium"
 "Fingers of Frost" = 2
 "Winter's Chill" = 5
 "Ice Barrier" = 1
+
+# 1.60.1.70685 (#443) removed Piercing Ice and capped Elemental Precision at 3; the freed points go one
+# at a time to the legal talent that raises the PvP score most (rows first).
+# [final] is as published, less the removed points; the model fills the rest.
+[model_filled]
+"Incineration" = 3
+"Missile Barrage" = 2

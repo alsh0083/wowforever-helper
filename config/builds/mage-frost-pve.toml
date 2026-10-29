@@ -12,6 +12,7 @@ sources = ["wft_builds_mage"]
 confidence = "medium"
 summary = "51 points (Arcane 20 / Fire 0 / Frost 31). Arcane Focus is one of the spent talents. From the site's Frost Mage with a Protection Paladin for AoE pulls · Group leveling · PvE · levels 10–60 plan."
 
+adjusted = "1.60.1.70685: Piercing Ice removed, Elemental Precision capped at 3"   # points moved by Claude, not a player (#369)
 [final]
 "Arcane Concentration" = 5
 "Arcane Focus" = 5
@@ -31,4 +32,9 @@ summary = "51 points (Arcane 20 / Fire 0 / Frost 31). Arcane Focus is one of the
 "Improved Frost Nova" = 2
 "Improved Frostbolt" = 5
 "Permafrost" = 3
-"Piercing Ice" = 3
+
+# 1.60.1.70685 (#443) removed Piercing Ice and capped Elemental Precision at 3; the freed points go one
+# at a time to the legal talent that raises the PvE score most (rows first).
+# [final] is as published, less the removed points; the model fills the rest.
+[model_filled]
+"Ice Shards" = 3

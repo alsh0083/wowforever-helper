@@ -109,9 +109,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
                    r"critical strike damage bonus of your Frost spells by (\d+(?:\.\d+)?)%",
                    ("frost",)),
     ),
-    "Piercing Ice": (
-        EffectRule("damage_pct", r"damage done by your Frost spells by (\d+(?:\.\d+)?)%", ("frost",)),
-    ),
     "Improved Frostbolt": (
         EffectRule("cast_time", r"casting time of your Frostbolt(?: and Frost Blast)? spells? by (\d+(?:\.\d+)?) sec",
                    ("Frostbolt", "Frost Blast"), sign=-1),
@@ -174,7 +171,8 @@ UNMODELED: dict[str, str] = {
     "Ice Barrier": "defensive: absorb shield",
     "Ice Block": "defensive: immunity",
     "Ice Lance": "grants_spell",
-    "Winter's Chill": "damage: Cone of Cold +40% per stack on the target (1.60.1.70425); stacks need repeated Frost hits on one target, not modeled",
+    "Winter's Chill": ("damage: Cone of Cold +5% damage taken and +7% spell damage per stack, up to 5, from Frostbolt, "
+                       "Frost Blast and Fingers of Frost Ice Lance (1.60.1.70685); Cone of Cold isn't in the rotations"),
     "Improved Blizzard": "slow effect, v1",
     "Improved Fire Ward": "defensive: reflect",
     "Pyroblast": "grants_spell",

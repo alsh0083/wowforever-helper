@@ -11,6 +11,8 @@ sources = []
 confidence = "low"
 summary = "Model build for Fire/Frost PvP: the report's model pick for this slot. Not a community standard."
 
+# 1.60.1.70685 (#443) removed Piercing Ice and capped Elemental Precision at 3; the freed points go one
+# at a time to the legal talent that raises the PvP score most (rows first).
 [final]
 "Blast Wave" = 1
 "Burning Soul" = 3
@@ -29,8 +31,8 @@ summary = "Model build for Fire/Frost PvP: the report's model pick for this slot
 "Improved Frost Nova" = 1
 "Improved Frostbolt" = 5
 "Incineration" = 3
+"Missile Barrage" = 1
 "Permafrost" = 1
-"Piercing Ice" = 1
 "Pyroblast" = 1
 "Shatter" = 3
 "Wake of Fire" = 2
