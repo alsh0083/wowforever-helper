@@ -9,9 +9,11 @@ origin = "model"
 confidence = "low"
 primary_spell = "Frostbolt"  # the spell its leveling order is optimized around
 name = "Offensive Elementalist (PvE)"
-summary = "A Frost-then-Fire route to level 40 (Ice Block 25, Cold Snap 30, Impact 40). From 41 the PvE spec takes Shatter-style sustain from the Fire/Frost Shatter standard: Frost Channeling 3 and Master of Elements 3 for mana, Piercing Ice 3, Winter's Chill 1, Improved Flamestrike 3 for packs, and drops Heating Up/Pyroblast, Burning Soul and Blast Wave. Model-derived (PvE score 1.71 vs 1.62 for Fire/Frost Shatter); not yet tried in game."
+summary = "A Frost-then-Fire route to level 40 (Ice Block 25, Cold Snap 30, Impact 40). From 41 the PvE spec takes Shatter-style sustain from the Fire/Frost Shatter standard: Frost Channeling 3 and Master of Elements 3 for mana, Winter's Chill 1, Improved Flamestrike 3 for packs, and drops Heating Up/Pyroblast, Burning Soul and Blast Wave. Model-derived (PvE score 1.71 vs 1.62 for Fire/Frost Shatter); not yet tried in game."
 gives_up = ["Ice Barrier", "Heating Up", "Pyroblast", "Burning Soul", "Blast Wave"]
 
+# 1.60.1.70685 (#443) removed Piercing Ice: its 3 points (levels 44-46) go one at a time to the legal talent
+# that raises the PvE score most.
 # One talent name per point, starting at level 10.
 order = [
   "Improved Frostbolt",  # 10
@@ -48,9 +50,9 @@ order = [
   "Frost Channeling",  # 41
   "Frost Channeling",  # 42
   "Frost Channeling",  # 43
-  "Piercing Ice",  # 44
-  "Piercing Ice",  # 45
-  "Piercing Ice",  # 46
+  "Missile Barrage",  # 44
+  "Missile Barrage",  # 45
+  "Elemental Precision",  # 46
   "Winter's Chill",  # 47
   "Ignite",  # 48
   "Ignite",  # 49

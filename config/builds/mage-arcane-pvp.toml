@@ -11,6 +11,8 @@ sources = []
 confidence = "low"
 summary = "Model build for Arcane PvP: the report's model pick for this slot. Not a community standard."
 
+# 1.60.1.70685 (#443) removed Piercing Ice and capped Elemental Precision at 3; the freed points go one
+# at a time to the legal talent that raises the PvP score most (rows first).
 [final]
 "Arcane Blast" = 1
 "Arcane Concentration" = 5
@@ -28,6 +30,6 @@ summary = "Model build for Arcane PvP: the report's model pick for this slot. No
 "Improved Frost Nova" = 2
 "Improved Frostbolt" = 5
 "Magic Absorption" = 2
-"Permafrost" = 1
-"Piercing Ice" = 3
+"Missile Barrage" = 2
+"Permafrost" = 2
 "Wand Specialization" = 2

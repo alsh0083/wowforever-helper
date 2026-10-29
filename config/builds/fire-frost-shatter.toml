@@ -14,10 +14,11 @@ confidence = "medium"
 
 refreshed = "1:Burning Soul=3,Critical Mass=3,Elemental Precision=5,Fingers of Frost=2,Fire Power=3,Flame Throwing=1,Frost Channeling=3,Heating Up=1,Ice Lance=1,Ice Shards=5,Ignite=5,Improved Fireball=5,Improved Scorch=3,Master of Elements=3,Piercing Ice=3,Pyroblast=1,Shatter=3"
 # refreshed from wowforevertalent.com popularity (since the Oct 15 patch (build 70425), updated daily): rank 1, saved 190, points 0/28/22 (#369)
+adjusted = "1.60.1.70685: Piercing Ice removed, Elemental Precision capped at 3"   # points moved by Claude, not a player (#369)
 [final]
 "Burning Soul" = 3
 "Critical Mass" = 3
-"Elemental Precision" = 5
+"Elemental Precision" = 3
 "Fingers of Frost" = 2
 "Fire Power" = 3
 "Flame Throwing" = 1
@@ -29,11 +30,13 @@ refreshed = "1:Burning Soul=3,Critical Mass=3,Elemental Precision=5,Fingers of F
 "Improved Fireball" = 5
 "Improved Scorch" = 3
 "Master of Elements" = 3
-"Piercing Ice" = 3
 "Pyroblast" = 1
 "Shatter" = 3
 
-# The community build spends fewer than 51 points (owner request, 2026-10-07): the model
-# fills the rest with the best legal talents under the PvE score. [final] is as published.
+# 1.60.1.70685 (#443) removed Piercing Ice and capped Elemental Precision at 3; the freed points go one
+# at a time to the legal talent that raises the PvE score most (rows first).
+# [final] is as published, less the removed points; the model fills the rest.
 [model_filled]
-"Frostbite" = 1
+"Frostbite" = 3
+"Improved Frostbolt" = 2
+"Missile Barrage" = 1

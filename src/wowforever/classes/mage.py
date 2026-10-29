@@ -109,9 +109,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
                    r"critical strike damage bonus of your Frost spells by (\d+(?:\.\d+)?)%",
                    ("frost",)),
     ),
-    "Piercing Ice": (
-        EffectRule("damage_pct", r"damage done by your Frost spells by (\d+(?:\.\d+)?)%", ("frost",)),
-    ),
     "Improved Frostbolt": (
         EffectRule("cast_time", r"casting time of your Frostbolt(?: and Frost Blast)? spells? by (\d+(?:\.\d+)?) sec",
                    ("Frostbolt", "Frost Blast"), sign=-1),
