@@ -110,6 +110,14 @@ EFFECT_KINDS = frozenset({
     "regen_while_casting",  # share of spirit regen that continues while casting (Arcane Meditation)
     "stack_pct",        # % per stack of a stacking proc (Maelstrom Weapon)
     "seal_refund_pct",  # % of the judged seal's mana cost Judgement returns (Sanctified Judgement)
+    "crit_haste_pct",   # % faster next cast after a crit (Nature's Grace)
+    "spell_power_from", # spell power as % of a stat or level; applies_to names it (Demonic Knowledge)
+    "dot_seconds",      # change to a DoT's duration, seconds (Improved Shadow Word: Pain)
+    "life_tap_pct",     # % more mana from Life Tap
+    "instant_proc_pct", # % chance a spell makes the next cast instant (Nightfall)
+    "crit_debuff_pct",  # % more damage taken by the target after a crit (Improved Shadow Bolt)
+    "crit_debuff_seconds",  # how long that crit debuff lasts, seconds
+    "resource_pct",     # % more resource generated (off-hand Rage)
     "grants_spell",     # talent teaches a spell (value unused)
     "other",            # understood by a human, not modeled yet
 })

@@ -2,8 +2,9 @@ from dataclasses import replace
 
 import pytest
 
+from wowforever.classes import CLASSES, class_module
 from wowforever.schema import (
-    ClassData, Dataset, Effect, Prerequisite, Provenance, SchemaError, SpellRank, Talent, Tree,
+    EFFECT_KINDS, ClassData, Dataset, Effect, Prerequisite, Provenance, SchemaError, SpellRank, Talent, Tree,
 )
 
 PROV = Provenance("wago.tools", "1.60.1.70205", "1.60.1.70205", "2026-10-04T00:00:00Z", "ab" * 32)
@@ -86,3 +87,11 @@ def test_the_pinned_build_is_the_default_dataset(tmp_path):
     for build in ("1.60.1.70291", "1.60.1.70425"):
         (tmp_path / f"{build}.json").write_text("{}", encoding="utf-8")
     assert latest_dataset_path(tmp_path).stem == "1.60.1.70425"      # other folders ignore the pin
+
+
+@pytest.mark.parametrize("class_name", CLASSES)
+def test_every_effect_rule_kind_is_a_schema_kind(class_name):
+    # a kind missing here fails the next update check for that class (#440)
+    module = class_module(class_name)
+    kinds = {rule.kind for rules in module.TALENT_EFFECTS.values() for rule in rules}
+    assert kinds - EFFECT_KINDS == set()
