@@ -171,7 +171,8 @@ UNMODELED: dict[str, str] = {
     "Ice Barrier": "defensive: absorb shield",
     "Ice Block": "defensive: immunity",
     "Ice Lance": "grants_spell",
-    "Winter's Chill": "damage: Cone of Cold +40% per stack on the target (1.60.1.70425); stacks need repeated Frost hits on one target, not modeled",
+    "Winter's Chill": ("damage: Cone of Cold +5% damage taken and +7% spell damage per stack, up to 5, from Frostbolt, "
+                       "Frost Blast and Fingers of Frost Ice Lance (1.60.1.70685); Cone of Cold isn't in the rotations"),
     "Improved Blizzard": "slow effect, v1",
     "Improved Fire Ward": "defensive: reflect",
     "Pyroblast": "grants_spell",
