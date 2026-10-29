@@ -16,7 +16,9 @@ def build(class_name, build_id):
 
 
 def top(class_name):
-    return json.loads((ROOT / "data" / "popularity" / f"{class_name}.json").read_text(encoding="utf-8"))["top"]
+    # popularity as of the 2026-10-16 update check, frozen so later checks don't move these pins
+    path = ROOT / "tests" / "fixtures" / "popularity-20261016" / f"{class_name}.json"
+    return json.loads(path.read_text(encoding="utf-8"))["top"]
 
 
 def test_adjusted_builds_say_what_moved():

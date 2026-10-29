@@ -1,5 +1,33 @@
 # Data changelog
 
+## 1.60.1.70685 (2026-10-29)
+
+- Affliction/Amplify Curse: rank text changed
+- Affliction/Fel Concentration: rank text changed
+- Arcane/Improved Channeling: rank text changed
+- Arcane/Missile Barrage: rank text changed
+- Destruction/Intensity: rank text changed
+- Elemental/Eye of the Storm: rank text changed
+- Frost Blast rank 1: coefficient 0.34299999475 -> 0.27099999785
+- Frost Blast rank 2: coefficient 0.34299999475 -> 0.27099999785
+- Frost Blast rank 3: coefficient 0.34299999475 -> 0.27099999785
+- Frost/Elemental Precision: max rank 5 -> 3
+- Frost/Elemental Precision: rank text changed
+- Frost/Frost Channeling: moved from row 3 col 2 to row 3 col 1
+- Frost/Frost Warding: rank text changed
+- Frost/Frostbite: moved from row 2 col 4 to row 2 col 2
+- Frost/Ice Barrier: rank text changed
+- Frost/Improved Blizzard: moved from row 3 col 4 to row 3 col 2
+- Frost/Permafrost: moved from row 2 col 2 to row 2 col 4
+- Frost/Piercing Ice: removed
+- Frost/Winter's Chill: rank text changed
+- Holy Fire rank 1: max_damage 64.59090928745 -> 60.13636381935
+- Holy Fire rank 1: min_damage 51.40909071255 -> 47.86363618065
+- Holy/Twilight Focus: rank text changed
+- Restoration/Healing Focus: rank text changed
+- Restoration/Nature's Focus: rank text changed
+- Retribution/Champion of the Light: rank text changed
+
 ## 1.60.1.70425 (2026-10-16)
 
 - Affliction/Amplify Curse: rank text changed
