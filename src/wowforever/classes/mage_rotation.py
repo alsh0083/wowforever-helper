@@ -136,6 +136,9 @@ def rotation(char: Character, filler: SpellRank, *, target_level: int,
     Blast buff window opens with n Arcane Blasts and the filler casts the rest of it with n stacks (#355)."""
     stats = char.stats
     conditions = frozenset({"sustained"}) if sustained else frozenset()
+    # Ice Barrier's extra Frost damage while the shield holds (#443).
+    if assumptions["ice_barrier_shield_holds"]:
+        conditions |= {"shielded"}
     ranks = {t.name: char.ranks.get(t.talent_id, 0) for t in char.cls.talents}
 
     def taken(name: str) -> int:

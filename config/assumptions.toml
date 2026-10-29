@@ -105,3 +105,11 @@ why = "A target above the caster's level resists spells as if it had 8 resistanc
 source = "Classic resistance mechanics (level-based resistance, average partial resist); not yet checked in Forever"
 tested = ""
 talents = ["Arcane Subtlety"]
+
+[ice_barrier_shield_holds]
+value = true
+options = [true, false]
+why = "Ice Barrier (1.60.1.70685) adds 3% Frost damage for its minute and another 3% while the shield holds. On a boss nothing hits the mage, so the shield holds; in PvP it breaks fast."
+source = "Ice Barrier rank text, 1.60.1.70685; issue #443 (best-effort)"
+tested = ""
+talents = ["Ice Barrier"]
