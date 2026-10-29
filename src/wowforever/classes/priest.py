@@ -49,7 +49,8 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("cooldown", r"cooldown of your Mind Blast spell by (\d+(?:\.\d+)?) sec", ("Mind Blast",), sign=-1),
     ),
     "Twilight Focus": (
-        EffectRule("pushback_pct", r"Gives you a (\d+(?:\.\d+)?)% chance to avoid interruption", ("all",)),
+        EffectRule("pushback_pct", r"(\d+(?:\.\d+)?)% chance to "
+                                  r"(?:avoid interruption|not lose casting time)", ("all",)),
     ),
     "Early Demise": (
         EffectRule("crit_chance", r"targets at or below (\d+(?:\.\d+)?)% health by (\d+(?:\.\d+)?)%",
