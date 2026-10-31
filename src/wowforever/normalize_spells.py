@@ -67,6 +67,7 @@ def class_spells(tables: Tables, *, skill_lines: Sequence[int],
     sla_spells = {int(row["Spell"]) for row in tables["SkillLineAbility"]}
     names = {int(row["ID"]): row["Name_lang"] for row in tables["SpellName"]}
     levels = _by_spell(tables["SpellLevels"])
+    spell_rows = {int(row["ID"]) for row in tables["Spell"]} if "Spell" in tables else None
 
     trainable: list[tuple[str, int, int]] = []
     seen: set[int] = set()
@@ -84,6 +85,8 @@ def class_spells(tables: Tables, *, skill_lines: Sequence[int],
         if level <= 0:
             continue
         name = names.get(spell_id)
+        if name is None and spell_rows is not None and spell_id not in spell_rows:
+            continue                    # removed by a hotfix (Spell and SpellName rows gone, skill line kept, #456)
         if name is None:
             raise ValueError(f"skill line {row['SkillLine']}: no SpellName for spell {spell_id}")
         trainable.append((name, level, spell_id))
