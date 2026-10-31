@@ -4,7 +4,8 @@ from pathlib import Path
 
 import pytest
 
-from wowforever.sources.wowforevertalents import TalentPage, parse_talent, talent_slugs, talent_url
+from wowforever.sources.wowforevertalents import (TalentPage, as_page, class_trees, parse_talent, talent_slugs,
+                                                  talent_url)
 
 FIX = Path(__file__).resolve().parent / "fixtures" / "wowforevertalents"
 HOTFIX_SOURCES = ("Forever client build 1.60.1.70707",
@@ -65,3 +66,62 @@ def test_class_page_lists_each_talent_once_in_page_order():
 
 def test_talent_url():
     assert talent_url("druid", "lacerate") == "https://wowforevertalents.com/druid/talents/lacerate/"
+
+
+# ---- part 2: the class page's grid as the calculator page normalize reads (#458) ----
+
+def node(trees, name):
+    return next((tree["name"], t) for tree in trees for t in tree["talents"] if t["name"] == name)
+
+
+def test_class_trees_reads_the_grid():
+    trees = class_trees(page("druid"))
+    assert [t["name"] for t in trees] == ["Balance", "Feral Combat", "Restoration"]
+    assert sum(len(t["talents"]) for t in trees) == 52
+    assert node(trees, "Improved Wrath") == ("Balance", {
+        "name": "Improved Wrath", "row": 1, "col": 2, "maxRank": 5, "icon": "spell_nature_abolishmagic",
+        "classic": {"status": "changed"}})
+    assert node(trees, "Genesis")[1]["classic"] == {"status": "new"}
+    assert node(trees, "Lacerate") == ("Feral Combat", {
+        "name": "Lacerate", "row": 4, "col": 2, "maxRank": 1, "icon": "ability_druid_lacerate",
+        "classic": {"status": "new"}})
+    assert node(trees, "Bloom")[1]["row"] == 3 and node(trees, "Bloom")[1]["col"] == 4
+
+
+def test_unflagged_talents_are_the_same_as_classic_and_tree_names_follow_our_layouts():
+    trees = class_trees(page("priest"))
+    assert [t["name"] for t in trees] == ["Discipline", "Holy", "Shadow"]       # the site says "Shadow Magic"
+    statuses = {t["classic"]["status"] for tree in trees for t in tree["talents"]}
+    assert statuses == {"same", "changed", "new"}
+
+
+def fake(name, max_rank, tree="Balance"):
+    return TalentPage(name, "Druid", tree, max_rank, tuple(f"{name} rank {r}" for r in range(1, max_rank + 1)), ())
+
+
+def talents_for(trees):
+    return {t["name"]: fake(t["name"], t["maxRank"], tree["name"]) for tree in trees for t in tree["talents"]}
+
+
+def test_as_page_puts_each_rank_text_on_its_node():
+    trees = class_trees(page("druid"))
+    talents = talents_for(trees) | {"Genesis": parse_talent(page("druid-talents-genesis"))}
+    result = as_page("druid", page("druid"), talents, game_build="1.60.1.70707", data_version="20261031")
+    assert (result.class_id, result.game_build, result.page_data_version, result.popular) == \
+        ("druid", "1.60.1.70707", "wowforevertalents-20261031", None)
+    _, genesis = node(result.trees, "Genesis")
+    assert genesis["ranks"][0] == {"rank": 1, "text": "Increases the periodic damage and healing done by your "
+                                                      "spells and abilities by 2%."}
+    assert [r["rank"] for r in genesis["ranks"]] == [1, 2, 3, 4, 5]
+    assert node(result.trees, "Lacerate")[1]["ranks"] == [{"rank": 1, "text": "Lacerate rank 1"}]
+
+
+def test_as_page_needs_every_talent_page_with_the_same_rank_count():
+    trees = class_trees(page("druid"))
+    talents = talents_for(trees)
+    del talents["Bloom"]
+    with pytest.raises(ValueError, match="no talent page for Bloom"):
+        as_page("druid", page("druid"), talents, game_build="1.60.1.70707", data_version="20261031")
+    talents = talents_for(trees) | {"Genesis": fake("Genesis", 3)}
+    with pytest.raises(ValueError, match="Genesis: the grid has 5 ranks, its page 3"):
+        as_page("druid", page("druid"), talents, game_build="1.60.1.70707", data_version="20261031")
