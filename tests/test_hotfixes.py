@@ -107,3 +107,48 @@ def test_apply_csv_ignores_other_tables_and_quotes_like_wago():
     other = h(1, 5, data=b"x\0", table=TRAITNODE)
     added = h(2, 7, data=b"Shield, Sworn\0")
     assert apply_csv("ID,Name_lang\n", s, SPELLNAME, [other, added]) == 'ID,Name_lang\n7,"Shield, Sworn"\n'
+
+
+# ---- part B: a build's cached tables with the hotfixes applied (#456) ----
+
+DB2_FIX = Path(__file__).resolve().parent / "fixtures" / "db2"
+SPELLRANGE = 0xE051A69C      # the table hash in SpellRange-1.60.1.70205.db2's header
+
+
+def build_dir(tmp_path):
+    """A cached build with SpellRange (game file + definition + CSV) and a table without a game file."""
+    src = tmp_path / "1.60.1.70205"
+    (src / "db2").mkdir(parents=True)
+    (src / "db2" / "SpellRange.db2").write_bytes((DB2_FIX / "SpellRange-1.60.1.70205.db2").read_bytes())
+    (src / "db2" / "SpellRange.dbd").write_bytes((DB2_FIX / "SpellRange.dbd").read_bytes())
+    (src / "SpellRange.csv").write_text(
+        'ID,DisplayName_lang,DisplayNameShort_lang,Flags,RangeMin_0,RangeMin_1,RangeMax_0,RangeMax_1\n'
+        '1,"Self Only",Self,0,0,0,0,0\n2,"Combat Range",Combat,1,0,0,5,5\n', encoding="utf-8")
+    (src / "Talent.csv").write_text("ID,Name\n7,Old\n", encoding="utf-8")
+    return src
+
+
+def test_table_hash_reads_the_db2_header():
+    from wowforever.sources.hotfixes import table_hash
+    assert table_hash((DB2_FIX / "SpellRange-1.60.1.70205.db2").read_bytes()) == SPELLRANGE
+
+
+def test_overlay_build_writes_every_table_and_applies_rows(tmp_path):
+    from wowforever.sources.hotfixes import overlay_build
+    src, out = build_dir(tmp_path), tmp_path / "out"
+    row = b"Long Range\0Long\0" + struct.pack("<iffff", 0, 0.0, 0.0, 40.0, 40.0)
+    hotfixes = [h(3, 2, data=row, table=SPELLRANGE), h(4, 1, status=2, table=SPELLRANGE),
+                h(5, 9, data=b"x\0", table=TRAITNODE)]
+    assert overlay_build(src, out, "1.60.1.70205", hotfixes) == ["SpellRange"]
+    assert (out / "SpellRange.csv").read_text(encoding="utf-8") == (
+        "ID,DisplayName_lang,DisplayNameShort_lang,Flags,RangeMin_0,RangeMin_1,RangeMax_0,RangeMax_1\n"
+        '2,"Long Range",Long,0,0,0,40,40\n')
+    assert (out / "Talent.csv").read_text(encoding="utf-8") == "ID,Name\n7,Old\n"   # no game file: copied
+    assert not (out / "db2").exists()                                               # only the CSVs
+
+
+def test_overlay_build_with_nothing_for_these_tables_copies_them(tmp_path):
+    from wowforever.sources.hotfixes import overlay_build
+    src, out = build_dir(tmp_path), tmp_path / "out"
+    assert overlay_build(src, out, "1.60.1.70205", [h(1, 5, data=b"x\0", table=TRAITNODE)]) == []
+    assert (out / "SpellRange.csv").read_text(encoding="utf-8") == (src / "SpellRange.csv").read_text(encoding="utf-8")

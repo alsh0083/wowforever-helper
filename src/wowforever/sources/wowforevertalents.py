@@ -6,9 +6,14 @@ use it and credit it).
 
 from __future__ import annotations
 
+import hashlib
 import html
+import json
 import re
+import time
+from collections.abc import Callable
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any
 
 from wowforever.sources.wowforevertalent import WftPage
@@ -99,3 +104,44 @@ def as_page(class_slug: str, class_html: str, talents: dict[str, TalentPage], *,
             talent["ranks"] = [{"rank": i, "text": text} for i, text in enumerate(found.ranks, start=1)]
     return WftPage(class_id=class_slug, game_build=game_build, page_data_version=f"wowforevertalents-{data_version}",
                    props_version="", trees=trees, popular=None)
+
+
+CLIENT_BUILD = re.compile(r"Forever client build (1\.60\.\d+\.\d+)")
+
+
+def fetch(class_slug: str, *, http_get: Callable[[str], str], raw_dir: Path, delay: float = 1.5,
+          sleep: Callable[[float], None] = time.sleep) -> tuple[Path, WftPage]:
+    """A class page and every talent page it links, saved under `raw_dir/<class>/` (immutable: a saved snapshot is
+    read back instead of fetched again), as the page normalize reads. `raw_dir`'s name is the data version."""
+    folder = raw_dir / class_slug
+    class_path = folder / "class.html"
+    if not class_path.exists():
+        class_html = http_get(f"{BASE_URL}/{class_slug}/")
+        pages = {}
+        for slug in talent_slugs(class_html, class_slug):
+            sleep(delay)
+            pages[slug] = http_get(talent_url(class_slug, slug))
+        (folder / "talents").mkdir(parents=True, exist_ok=True)
+        for slug, text in pages.items():
+            (folder / "talents" / f"{slug}.html").write_text(text, encoding="utf-8", newline="")
+        class_path.write_text(class_html, encoding="utf-8", newline="")
+    class_html = class_path.read_text(encoding="utf-8")
+    talents = {}
+    builds = []
+    for slug in talent_slugs(class_html, class_slug):
+        talent = parse_talent((folder / "talents" / f"{slug}.html").read_text(encoding="utf-8"))
+        talents[talent.name] = talent
+        builds += [m.group(1) for line in talent.sources for m in [CLIENT_BUILD.search(line)] if m]
+    if not builds:
+        raise ValueError(f"{class_slug}: no client build on any talent page")
+    game_build = max(set(builds), key=builds.count)
+    result = as_page(class_slug, class_html, talents, game_build=game_build, data_version=raw_dir.name)
+    files = sorted(folder.rglob("*.html"))
+    digest = hashlib.sha256(b"".join(p.read_bytes() for p in files)).hexdigest()
+    manifest_path = folder / "manifest.json"
+    if not manifest_path.exists():
+        manifest_path.write_text(json.dumps({
+            "source": "wowforevertalents.com", "url": f"{BASE_URL}/{class_slug}/", "game_build": game_build,
+            "pages": len(files), "sha256": digest,
+        }, indent=1), encoding="utf-8", newline="\n")
+    return manifest_path, result

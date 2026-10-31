@@ -25,11 +25,13 @@ from wowforever.classes import class_module
 from wowforever.crosscheck import CrosscheckResult
 from wowforever.revisions import Change
 from wowforever.schema import ClassData, Dataset, Provenance
-from wowforever.sources import wago, wowforevertalent
+from wowforever.sources import hotfixes as hotfixes_module
+from wowforever.sources import wago, wowforevertalent, wowforevertalents
 from wowforever.sources.http import http_get as default_http_get
 from wowforever.sources.http import http_get_bytes as default_file_get
 
 WAGO_BUILDS_URL = "https://wago.tools/api/builds"
+RANK_TEXT_SOURCES = ("wowforevertalent", "wowforevertalents")
 MAX_LISTED_CHANGES = 20
 
 
@@ -116,17 +118,30 @@ def check_for_updates(
     class_name: str = "mage",
     table_http_get: Callable[[str], str] | None = None,
     file_get: Callable[[str], bytes] | None = None,
+    hotfixes: Path | None = None,
+    rank_text_source: str = "wowforevertalent",
 ) -> UpdateSummary:
     """Fetch both sources, normalize `class_name`, and diff it against the last dataset.
 
     Saves a new dataset and changelog entry when anything changed, then records the
     check in `data_dir/builds.json`. `now` (ISO 8601, defaults to current UTC) is used
     for every timestamp.
+
+    `hotfixes` is a saved hotfix snapshot (`data/raw/hotfixes/<build>-<date>/`: the client's DBCache.bin and a
+    manifest, #456): its rows are applied to the build's tables first. `rank_text_source` picks where talent rank
+    text comes from: wowforevertalent.com (default) or wowforevertalents.com (#458).
     """
+    if rank_text_source not in RANK_TEXT_SOURCES:
+        raise ValueError(f"unknown rank text source {rank_text_source!r}")
     if now is None:
         now = datetime.now(timezone.utc).isoformat()
 
     build = wago.latest_build(json.loads(http_get(WAGO_BUILDS_URL)))
+    hotfix_entries = None
+    if hotfixes is not None:
+        cache_build, hotfix_entries = hotfixes_module.read_cache((hotfixes / "DBCache.bin").read_bytes())
+        if str(cache_build) != build.rsplit(".", 1)[1]:
+            raise ValueError(f"hotfix cache is for build {cache_build}; the latest build is {build}")
     # table CSVs aren't in wago.tools' published API: missing ones are read from the game files
     # through it (`file_get`, #234), else saved by hand (wago.MissingTables); only tests pass a
     # table_http_get
@@ -139,11 +154,34 @@ def check_for_updates(
         delay=delay,
     )
     module = class_module(class_name)
-    page_path, page = wowforevertalent.fetch(
-        class_name, http_get=http_get, raw_dir=data_dir / "raw" / "wowforevertalent"
-    )
+    if rank_text_source == "wowforevertalents":
+        raw_dir = data_dir / "raw" / "wowforevertalents" / now[:10].replace("-", "")
+        page_manifest, page = wowforevertalents.fetch(class_name, http_get=http_get, raw_dir=raw_dir, delay=delay)
+        page_provenance = Provenance(
+            source="wowforevertalents.com", game_build=page.game_build, data_version=page.page_data_version,
+            fetched_at=now, snapshot_sha256=json.loads(page_manifest.read_text(encoding="utf-8"))["sha256"],
+        )
+    else:
+        page_path, page = wowforevertalent.fetch(
+            class_name, http_get=http_get, raw_dir=data_dir / "raw" / "wowforevertalent"
+        )
+        page_provenance = Provenance(
+            source=wowforevertalent.SOURCE, game_build=page.game_build, data_version=page.page_data_version,
+            fetched_at=now, snapshot_sha256=wowforevertalent.manifest_for(page_path)["sha256"],
+        )
 
-    tables = normalize_module.read_tables(data_dir / "cache" / "wago" / build)
+    tables_dir = data_dir / "cache" / "wago" / build
+    extra_provenance: tuple[Provenance, ...] = ()
+    if hotfixes is not None:
+        overlay_dir = data_dir / "cache" / "hotfixed" / hotfixes.name
+        hotfixes_module.overlay_build(tables_dir, overlay_dir, build, hotfix_entries)
+        tables_dir = overlay_dir
+        manifest = json.loads((hotfixes / "manifest.json").read_text(encoding="utf-8"))
+        extra_provenance = (Provenance(
+            source="client hotfix cache", game_build=build, data_version=hotfixes.name,
+            fetched_at=manifest["captured_at"], snapshot_sha256=manifest["sha256"],
+        ),)
+    tables = normalize_module.read_tables(tables_dir)
     cls, report = normalize_module.normalize_class(tables, module.LAYOUT, page, wago_build=build,
                                                    icon_overrides=getattr(module, "ICON_OVERRIDES", None))
     cls, effect_problems = effects_module.attach_effects(cls, module.TALENT_EFFECTS, module.UNMODELED)
@@ -152,7 +190,6 @@ def check_for_updates(
                                                          extra_spells=getattr(module, "EXTRA_SPELLS", {}))
     )
 
-    wft_manifest = wowforevertalent.manifest_for(page_path)
     dataset = Dataset(
         version=build,
         game_build=build,
@@ -165,13 +202,8 @@ def check_for_updates(
                 fetched_at=now,
                 snapshot_sha256=hashlib.sha256(manifest_path.read_bytes()).hexdigest(),
             ),
-            Provenance(
-                source=wowforevertalent.SOURCE,
-                game_build=page.game_build,
-                data_version=page.page_data_version,
-                fetched_at=now,
-                snapshot_sha256=wft_manifest["sha256"],
-            ),
+            page_provenance,
+            *extra_provenance,
         ),
     )
     dataset.validate()
