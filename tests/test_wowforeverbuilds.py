@@ -4,8 +4,9 @@ from pathlib import Path
 
 import pytest
 
-from wowforever.sources.wowforeverbuilds import (Calculator, GuideBuild, decode, guide_slugs, parse_calculator,
-                                                 parse_guide)
+from wowforever.schema import ClassData, Prerequisite, Talent, Tree
+from wowforever.sources.wowforeverbuilds import (Calculator, GuideBuild, Snapshot, decode, guide_slugs,
+                                                 parse_calculator, parse_guide, standard_build)
 
 FIX = Path(__file__).resolve().parent / "fixtures" / "wowforeverbuilds"
 
@@ -62,3 +63,91 @@ def test_class_listing_gives_the_spec_guides_once_each():
         "balance-druid-pve-guide", "balance-druid-pvp-guide", "feral-combat-druid-pve-guide",
         "feral-combat-druid-pvp-guide", "restoration-druid-pve-guide", "restoration-druid-pvp-guide",
     ]
+
+
+def test_calculator_keeps_each_talents_position():
+    c = calc()
+    assert c.positions[1][:3] == ((0, 1), (0, 2), (1, 0))
+    assert c.positions[1][-1] == (6, 1)
+    assert [len(tree) for tree in c.positions] == [16, 20, 16]
+
+
+# ---- part 2: a guide's digits follow the calculator in place when its code was last changed (#460) ----
+# Tree One goes from A(5) B(3) C(1) to A(5) D(5) C(1): B is replaced in the same slot, so an old code still decodes,
+# to talents nobody picked. Tree Two never changes. Our trees are the new ones.
+
+def mini_calc(build, middle):
+    return Calculator("testclass", build, ("One", "Two"), (
+        (("A", 5), middle, ("C", 1)), (("X", 5),),
+    ), (((0, 0), (0, 1), (1, 0)), ((0, 0),)))
+
+
+OLD, NEW = mini_calc("1.60.1.100", ("B", 3)), mini_calc("1.60.1.200", ("D", 5))
+OURS = ClassData(
+    "testclass",
+    (Tree(1, "One", (1, 2, 3)), Tree(2, "Two", (4,))),
+    (Talent(1, "A", 1, 0, 0, 5, (), ()), Talent(2, "D", 1, 0, 1, 5, (), ()),
+     Talent(3, "C", 1, 1, 0, 1, (), (), Prerequisite(1, 5)), Talent(4, "X", 2, 0, 0, 5, (), ())),
+)
+
+
+def snap(date, calculator, **codes):
+    return Snapshot(date, {"testclass": calculator},
+                    {slug: GuideBuild(slug, "testclass", code, date, slug) for slug, code in codes.items()})
+
+
+def test_the_danger_an_old_code_reads_as_legal_new_talents():
+    assert decode("521", NEW) == {"A": 5, "D": 2, "C": 1}
+
+
+def test_first_snapshot_is_read_with_its_own_calculator():
+    assert standard_build("g", [snap("2026-11-05", NEW, g="541")], OURS) == ({"A": 5, "D": 4, "C": 1}, "")
+
+
+def test_a_code_that_outlived_a_calculator_change_is_read_with_the_old_one():
+    ranks, why = standard_build("g", [snap("2026-10-24", OLD, g="521"), snap("2026-11-05", NEW, g="521")], OURS)
+    assert ranks is None
+    assert why == ("g: One: the build was made on the 1.60.1.100 calculator (2026-10-24), "
+                   "whose tree differs from ours")
+
+
+def test_a_code_changed_after_the_calculator_is_read_with_the_new_one():
+    history = [snap("2026-10-24", OLD, g="521"), snap("2026-11-05", NEW, g="521"), snap("2026-11-12", NEW, g="541")]
+    assert standard_build("g", history, OURS) == ({"A": 5, "D": 4, "C": 1}, "")
+
+
+def test_code_and_calculator_changed_in_the_same_gap():
+    ranks, why = standard_build("g", [snap("2026-10-24", OLD, g="521"), snap("2026-11-05", NEW, g="531")], OURS)
+    assert ranks is None
+    assert why == ("g: the build and the calculator both changed between 2026-10-24 and 2026-11-05; "
+                   "can't tell which trees it was made on")
+    # unless the old calculator can't read the new code (B has 3 ranks)
+    history = [snap("2026-10-24", OLD, g="521"), snap("2026-11-05", NEW, g="541")]
+    assert standard_build("g", history, OURS) == ({"A": 5, "D": 4, "C": 1}, "")
+
+
+def test_a_change_in_a_tree_the_build_leaves_empty_does_not_matter():
+    history = [snap("2026-10-24", OLD, g="-5"), snap("2026-11-05", NEW, g="-5")]
+    assert standard_build("g", history, OURS) == ({"X": 5}, "")
+    history = [snap("2026-10-24", OLD, g="-4"), snap("2026-11-05", NEW, g="-5")]
+    assert standard_build("g", history, OURS) == ({"X": 5}, "")
+
+
+def test_a_reordered_calculator_is_a_change():
+    swapped = Calculator("testclass", "1.60.1.200", ("One", "Two"), ((("D", 5), ("A", 5), ("C", 1)), (("X", 5),)),
+                         (((0, 1), (0, 0), (1, 0)), ((0, 0),)))
+    history = [snap("2026-10-24", swapped, g="451"), snap("2026-11-05", NEW, g="451")]
+    assert standard_build("g", history, OURS) == ({"D": 4, "A": 5, "C": 1}, "")   # read with `swapped`
+    ranks, why = standard_build("g", history[:1] + [snap("2026-11-05", NEW, g="541")], OURS)
+    assert why.startswith("g: the build and the calculator both changed")
+
+
+def test_the_build_must_be_legal_on_our_trees():
+    ranks, why = standard_build("g", [snap("2026-11-05", NEW, g="401")], OURS)
+    assert ranks is None
+    assert why.startswith("g: not legal: C requires")
+
+
+def test_codes_the_calculator_cant_read_and_missing_guides():
+    assert standard_build("g", [snap("2026-11-05", NEW, g="5555")], OURS) == (None, "g: One: 4 digits for 3 talents")
+    assert standard_build("h", [snap("2026-11-05", NEW, g="5")], OURS) == (None, "h: not in the 2026-11-05 snapshot")
