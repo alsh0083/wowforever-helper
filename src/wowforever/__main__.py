@@ -56,6 +56,9 @@ def main(argv: list[str] | None = None) -> int:
     upd = sub.add_parser("update", help="fetch both sources, diff against the last saved dataset, record the check")
     upd.add_argument("--data-dir", default="data")
     upd.add_argument("--delay", type=float, default=1.0, help="seconds between table downloads")
+    upd.add_argument("--hotfixes", help="saved hotfix snapshot folder to apply (data/raw/hotfixes/<build>-<date>, #456)")
+    upd.add_argument("--rank-text", default="wowforevertalent", choices=("wowforevertalent", "wowforevertalents"),
+                     help="where talent rank text comes from (#458)")
     pr = sub.add_parser("patch-readiness",
                         help="list what still breaks on a saved build before the model moves to it (#366)")
     pr.add_argument("--dataset", help="saved dataset to check (default: the newest saved dataset)")
@@ -304,6 +307,7 @@ def main(argv: list[str] | None = None) -> int:
                 summary = update.check_for_updates(
                     update.default_http_get, data_dir=Path(args.data_dir), delay=args.delay, now=now,
                     class_name=class_name, file_get=update.default_file_get,
+                    hotfixes=Path(args.hotfixes) if args.hotfixes else None, rank_text_source=args.rank_text,
                 )
             except MissingTables as missing:
                 print(missing)
