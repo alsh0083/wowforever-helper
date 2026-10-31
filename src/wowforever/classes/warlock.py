@@ -64,7 +64,8 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("crit_damage_pct", r"critical strike damage bonus of your Destruction spells by (\d+(?:\.\d+)?)%", DESTRUCTION_SPELLS),
     ),
     "Intensity": (
-        EffectRule("pushback_pct", r"Gives you a (\d+(?:\.\d+)?)% chance to resist interruption", ("destruction",)),
+        EffectRule("pushback_pct", r"(\d+(?:\.\d+)?)% chance to "
+                                  r"(?:resist interruption|not lose casting time)", ("destruction",)),
     ),
     "Agonizing Flames": (
         EffectRule("damage_pct", r"damage done by all your Destruction spells by (\d+(?:\.\d+)?)%", DESTRUCTION_SPELLS),

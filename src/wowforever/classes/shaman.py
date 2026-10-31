@@ -42,7 +42,7 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     ),
     "Eye of the Storm": (
         EffectRule("pushback_pct",
-                   r"Reduces the pushback suffered from damaging attacks while casting Lightning Bolt, Chain Lightning, and Lava Burst by (\d+(?:\.\d+)?)%",
+                   r"(?:Lava Burst by |Lava Burst spells a )(\d+(?:\.\d+)?)%",
                    ("Lightning Bolt", "Chain Lightning", "Lava Burst")),
     ),
     "Elemental Fury": (
