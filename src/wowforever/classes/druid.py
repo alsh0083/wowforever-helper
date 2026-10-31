@@ -65,7 +65,8 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("crit_chance", r"Critical Strike chance increased by (\d+(?:\.\d+)?)%", ("all",)),
     ),
     "Nature's Focus": (
-        EffectRule("pushback_pct", r"Gives you a (\d+(?:\.\d+)?)% chance to avoid interruption", ("arcane", "nature")),
+        EffectRule("pushback_pct", r"(\d+(?:\.\d+)?)% chance to "
+                                  r"(?:avoid interruption|not lose casting time)", ("arcane", "nature")),
     ),
     "Naturalist": (
         EffectRule("cast_time", r"cast time of your Healing Touch spell by (\d+(?:\.\d+)?) sec", ("Healing Touch",), sign=-1),
