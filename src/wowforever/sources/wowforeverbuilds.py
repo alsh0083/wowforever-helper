@@ -6,17 +6,22 @@ robots.txt allows everything but /api/, /auth/ and /account. No license is state
 
 from __future__ import annotations
 
+import gzip
+import hashlib
 import html
 import json
 import re
-from collections.abc import Iterable, Mapping, Sequence
+import time
+from collections.abc import Callable, Iterable, Mapping, Sequence
 from dataclasses import dataclass
+from pathlib import Path
 
 from wowforever.rules import check_build
 from wowforever.schema import ClassData
 from wowforever.sources.wowforevertalent import decode_astro
 
 BASE_URL = "https://wowforeverbuilds.com"
+CLASSES = ("druid", "hunter", "mage", "paladin", "priest", "rogue", "shaman", "warlock", "warrior")
 ROW_POINTS = 5                                        # points spent in a tree's earlier rows per row
 
 
@@ -211,3 +216,67 @@ def standard_build(slug: str, history: Sequence[Snapshot], cls: ClassData) -> tu
     if errors:
         return None, f"{slug}: not legal: " + "; ".join(errors)
     return ranks, ""
+
+
+def fetch(*, http_get: Callable[[str], str], raw_dir: Path, classes: Sequence[str] = CLASSES, delay: float = 1.5,
+          sleep: Callable[[float], None] = time.sleep) -> Path:
+    """Each class's calculator, guide listing and spec guides, saved gzipped under `raw_dir` (named YYYYMMDD). A
+    saved snapshot is immutable: when its manifest exists nothing is fetched. Returns the manifest's path."""
+    manifest_path = raw_dir / "manifest.json"
+    if manifest_path.exists():
+        return manifest_path
+    pages: dict[str, str] = {}
+    for n, class_slug in enumerate(classes):
+        if n:
+            sleep(delay)
+        pages[f"talents-{class_slug}.html"] = http_get(f"{BASE_URL}/talents/{class_slug}")
+        sleep(delay)
+        listing = http_get(f"{BASE_URL}/guides/{class_slug}")
+        pages[f"guides-{class_slug}.html"] = listing
+        for slug in guide_slugs(listing):
+            sleep(delay)
+            pages[f"guide-{slug}.html"] = http_get(f"{BASE_URL}/guide/{slug}")
+    raw_dir.mkdir(parents=True, exist_ok=True)
+    for name, text in pages.items():
+        (raw_dir / f"{name}.gz").write_bytes(gzip.compress(text.encode("utf-8"), mtime=0))
+    manifest_path.write_text(json.dumps({
+        "source": "wowforeverbuilds.com", "url": BASE_URL, "captured": _date(raw_dir.name),
+        "classes": list(classes), "pages": len(pages), "sha256": _digest(raw_dir),
+    }, indent=1), encoding="utf-8", newline="\n")
+    return manifest_path
+
+
+def _date(folder_name: str) -> str:
+    return f"{folder_name[:4]}-{folder_name[4:6]}-{folder_name[6:]}"
+
+
+def _read(path: Path) -> str:
+    return gzip.decompress(path.read_bytes()).decode("utf-8")
+
+
+def _digest(folder: Path) -> str:
+    """sha256 of the pages as fetched (uncompressed), in file-name order."""
+    pages = sorted(folder.glob("*.html.gz"))
+    return hashlib.sha256(b"".join(gzip.decompress(p.read_bytes()) for p in pages)).hexdigest()
+
+
+def load_snapshot(folder: Path) -> Snapshot:
+    """A saved snapshot, checked against its manifest."""
+    manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
+    if _digest(folder) != manifest["sha256"]:
+        raise ValueError(f"{folder}: pages changed since the snapshot was saved")
+    calculators = {}
+    for path in sorted(folder.glob("talents-*.html.gz")):
+        calc = parse_calculator(_read(path))
+        calculators[calc.class_slug] = calc
+    guides = {}
+    for path in sorted(folder.glob("guide-*.html.gz")):
+        slug = path.name.removeprefix("guide-").removesuffix(".html.gz")
+        guides[slug] = parse_guide(_read(path), slug)
+    return Snapshot(manifest["captured"], calculators, guides)
+
+
+def load_history(root: Path) -> list[Snapshot]:
+    """Every saved snapshot under `root` (`data/raw/wowforeverbuilds/`), oldest first."""
+    folders = [f for f in root.iterdir() if re.fullmatch(r"\d{8}", f.name) and (f / "manifest.json").exists()]
+    return [load_snapshot(f) for f in sorted(folders, key=lambda f: f.name)]
