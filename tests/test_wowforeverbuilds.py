@@ -1,13 +1,16 @@
 """wowforeverbuilds.com spec guides as a source of community standards (#460)."""
 
+import gzip
+import hashlib
+import json
 from pathlib import Path
 
 import pytest
 
 from wowforever.schema import ClassData, Prerequisite, Talent, Tree
-from wowforever.sources.wowforeverbuilds import (Calculator, GuideBuild, Snapshot, calculator_errors, decode,
-                                                 guide_slugs, parse_calculator, parse_guide, standard_build,
-                                                 title_misses)
+from wowforever.sources.wowforeverbuilds import (Calculator, GuideBuild, Snapshot, calculator_errors, decode, fetch,
+                                                 guide_slugs, load_history, load_snapshot, parse_calculator,
+                                                 parse_guide, standard_build, title_misses)
 
 FIX = Path(__file__).resolve().parent / "fixtures" / "wowforeverbuilds"
 
@@ -199,3 +202,81 @@ def test_readings_that_break_their_own_trees_dont_count():
 def test_readings_that_agree_are_kept():
     history = [snap("2026-10-24", OLD, g="5"), snap("2026-11-05", NEW, g="501")]
     assert standard_build("g", history, OURS) == ({"A": 5, "C": 1}, "")
+
+
+# ---- part 4: saved snapshots of the site are the history (#460) ----
+
+DRUID_GUIDES = ["balance-druid-pve-guide", "balance-druid-pvp-guide", "feral-combat-druid-pve-guide",
+                "feral-combat-druid-pvp-guide", "restoration-druid-pve-guide", "restoration-druid-pvp-guide"]
+
+
+class FakeSite:
+    """The druid calculator and listing; every guide URL serves the saved feral guide."""
+
+    def __init__(self):
+        self.asked = []
+
+    def __call__(self, url):
+        self.asked.append(url)
+        if url == "https://wowforeverbuilds.com/talents/druid":
+            return page("talents-druid")
+        if url == "https://wowforeverbuilds.com/guides/druid":
+            return page("guides-druid")
+        assert url.startswith("https://wowforeverbuilds.com/guide/"), url
+        return page("guide-feral-combat-druid-pve-guide")
+
+
+def offline(url):
+    raise AssertionError(f"fetched {url}")
+
+
+def test_fetch_saves_the_calculator_listing_and_guides(tmp_path):
+    site, naps = FakeSite(), []
+    manifest_path = fetch(http_get=site, raw_dir=tmp_path / "20261031", classes=("druid",), sleep=naps.append)
+    assert site.asked == ["https://wowforeverbuilds.com/talents/druid", "https://wowforeverbuilds.com/guides/druid",
+                          *(f"https://wowforeverbuilds.com/guide/{slug}" for slug in DRUID_GUIDES)]
+    assert naps == [1.5] * 7                                    # a pause before every page but the first
+    assert manifest_path == tmp_path / "20261031" / "manifest.json"
+    assert sorted(p.name for p in (tmp_path / "20261031").glob("*.html.gz")) == sorted(
+        ["talents-druid.html.gz", "guides-druid.html.gz", *(f"guide-{slug}.html.gz" for slug in DRUID_GUIDES)])
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert {k: manifest[k] for k in ("source", "url", "captured", "classes", "pages")} == {
+        "source": "wowforeverbuilds.com", "url": "https://wowforeverbuilds.com", "captured": "2026-10-31",
+        "classes": ["druid"], "pages": 8}
+    assert len(manifest["sha256"]) == 64
+    saved = (tmp_path / "20261031" / "talents-druid.html.gz").read_bytes()
+    assert gzip.decompress(saved) == (FIX / "talents-druid.html").read_bytes()   # as fetched, byte for byte
+    assert saved[4:8] == bytes(4)                                # no timestamp: the same page saves the same bytes
+    pages = sorted((tmp_path / "20261031").glob("*.html.gz"))
+    assert manifest["sha256"] == hashlib.sha256(b"".join(gzip.decompress(p.read_bytes()) for p in pages)).hexdigest()
+
+
+def test_a_saved_snapshot_is_never_fetched_again(tmp_path):
+    first = fetch(http_get=FakeSite(), raw_dir=tmp_path / "20261031", classes=("druid",), sleep=lambda s: None)
+    assert fetch(http_get=offline, raw_dir=tmp_path / "20261031", classes=("druid",), sleep=lambda s: None) == first
+
+
+def test_load_snapshot_reads_the_calculators_and_guides(tmp_path):
+    fetch(http_get=FakeSite(), raw_dir=tmp_path / "20261031", classes=("druid",), sleep=lambda s: None)
+    snapshot = load_snapshot(tmp_path / "20261031")
+    assert snapshot.date == "2026-10-31"
+    assert list(snapshot.calculators) == ["druid"] and snapshot.calculators["druid"] == calc()
+    assert sorted(snapshot.guides) == DRUID_GUIDES
+    assert snapshot.guides["balance-druid-pvp-guide"].code == "-55200332120132012501-05503"
+    assert snapshot.guides["balance-druid-pvp-guide"].slug == "balance-druid-pvp-guide"
+
+
+def test_load_snapshot_refuses_edited_pages(tmp_path):
+    fetch(http_get=FakeSite(), raw_dir=tmp_path / "20261031", classes=("druid",), sleep=lambda s: None)
+    path = tmp_path / "20261031" / "guide-balance-druid-pve-guide.html.gz"
+    path.write_bytes(gzip.compress(gzip.decompress(path.read_bytes()).replace(b"55200332", b"55200333")))
+    with pytest.raises(ValueError, match="pages changed since the snapshot was saved"):
+        load_snapshot(tmp_path / "20261031")
+
+
+def test_load_history_is_every_saved_snapshot_oldest_first(tmp_path):
+    for name in ("20261107", "20261031"):
+        fetch(http_get=FakeSite(), raw_dir=tmp_path / name, classes=("druid",), sleep=lambda s: None)
+    (tmp_path / "20261114").mkdir()                             # no manifest: an interrupted fetch
+    (tmp_path / "README.md").write_text("notes", encoding="utf-8")
+    assert [s.date for s in load_history(tmp_path)] == ["2026-10-31", "2026-11-07"]
