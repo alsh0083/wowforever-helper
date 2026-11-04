@@ -11,12 +11,12 @@ CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("s
 
 def test_every_shaman_talent_maps():
     assert PROBLEMS == []
-    assert "Call of Thunder" not in TALENT_EFFECTS and "Improved Fire Nova" not in UNMODELED
+    assert "Call of Thunder" in TALENT_EFFECTS and "Improved Fire Nova" not in UNMODELED      # back on 70755 (#466)
     assert "Trial by Fire" in UNMODELED
 
 
-def test_elemental_mastery_is_its_uptime_share_of_half_a_second():
-    # -0.5 s on Lightning Bolt and Lava Burst for 15 s every 180 s (wago SpellCooldowns, spell 16166)
-    (effect,) = CLS.talent_named("Elemental Mastery").effects
-    assert (effect.kind, effect.applies_to) == ("cast_time", ("Lightning Bolt", "Lava Burst"))
+def test_lightning_mastery_is_its_uptime_share_of_half_a_second():
+    # Elemental Mastery, renamed on 70755 (#466): -0.5 s on Lightning Bolt for 15 s every 180 s (spell 16166)
+    (effect,) = CLS.talent_named("Lightning Mastery").effects
+    assert (effect.kind, effect.applies_to) == ("cast_time", ("Lightning Bolt",))
     assert effect.values == pytest.approx((-0.5 * 15 / 180,))

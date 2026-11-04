@@ -42,7 +42,7 @@ def test_spells_taught_by_talents_need_the_talent():
     assert "Conflagrate" not in rotation("warlock", "warlock-affliction").spells
     assert "Conflagrate" in rotation("warlock", "warlock-destruction").spells
     assert "Insect Swarm" in rotation("druid", "druid-balance").spells
-    assert "Lava Burst" in rotation("shaman", "shaman-elemental").spells
+    assert "Lava Burst" not in rotation("shaman", "shaman-elemental").spells    # removed on 70755 (#466)
 
 
 def test_life_tap_pays_part_of_the_warlocks_mana():

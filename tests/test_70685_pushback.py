@@ -24,7 +24,8 @@ DS_70685 = Dataset.load(ROOT / "data" / "datasets" / "1.60.1.70685.json")
     # Twilight Focus 70685 rank 3: "Gives your spells a 70% chance to not lose casting time ..."
     ("priest", "Twilight Focus", (23.0, 47.0, 70.0), ("all",)),
     # Eye of the Storm 70685 rank 3: "Gives your Lightning Bolt, Chain Lightning, and Lava Burst spells a 70% chance ..."
-    ("shaman", "Eye of the Storm", (23.0, 47.0, 70.0), ("Lightning Bolt", "Chain Lightning", "Lava Burst")),
+    # (the rule reads that text and 70755's, which drops Lava Burst; it applies to Lightning Bolt and Chain Lightning)
+    ("shaman", "Eye of the Storm", (23.0, 47.0, 70.0), ("Lightning Bolt", "Chain Lightning")),
     # Intensity 70685 rank 3: "Gives your Destruction spells a 70% chance to not lose casting time ..."
     ("warlock", "Intensity", (23.0, 47.0, 70.0), ("destruction",)),
 ])

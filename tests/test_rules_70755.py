@@ -77,6 +77,19 @@ def test_warlock():
     assert rules(cls, "Improved Drains") == [("damage_pct", ("Drain Life", "Drain Soul"), (7.0, 13.0, 20.0))]
 
 
+def test_shaman():
+    # 1.60.1.70755 with the 3 Nov hotfixes (#466): Call of Thunder in Lava Burst's place (its rank text from the client
+    # tooltip, wowforevertalents.com serves no page for it), Lightning Mastery is Elemental Mastery renamed
+    cls, problems = effects("shaman")
+    assert problems == []
+    assert rules(cls, "Call of Thunder") == [("crit_chance", ("Lightning Bolt", "Chain Lightning"), (5.0,))]
+    assert rules(cls, "Elemental Alacrity") == [("cast_time", ("Lightning Bolt", "Chain Lightning"), (-0.17, -0.33, -0.5))]
+    assert rules(cls, "Eye of the Storm") == [("pushback_pct", ("Lightning Bolt", "Chain Lightning"), (23.0, 47.0, 70.0))]
+    assert rules(cls, "Convection")[0][1] == ("Flame Shock", "Lightning Bolt", "Chain Lightning")
+    (kind, applies, values), = rules(cls, "Lightning Mastery")
+    assert (kind, applies) == ("cast_time", ("Lightning Bolt",)) and values[0] == pytest.approx(-0.5 * 15 / 180)
+
+
 def test_hunter():
     _, problems = effects("hunter")
     assert problems == []
