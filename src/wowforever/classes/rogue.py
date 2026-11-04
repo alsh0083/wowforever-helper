@@ -7,7 +7,7 @@ text; the rest stay classified but unmodeled until the alts-engine milestone (#1
 from dataclasses import replace
 from pathlib import Path
 
-from wowforever.classes import EffectRule, TraitLayout, TreeBand, below_health
+from wowforever.classes import EffectRule, TraitLayout, TreeBand
 
 # Trait tree 1111 holds all three rogue trees side by side, on the same grid as the mage's 1112.
 LAYOUT = TraitLayout(
@@ -34,9 +34,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Ruthlessness": (
         EffectRule("proc_chance", r"a (\d+(?:\.\d+)?)% chance to add a Combo Point",
                    ("@finisher",)),
-    ),
-    "Murder": (
-        EffectRule("damage_pct", r"damage dealt by (\d+(?:\.\d+)?)%", ("@humanoid",)),
     ),
     "Improved Slice and Dice": (
         EffectRule("duration",
@@ -66,17 +63,18 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
                    ("@builder_crit",)),
     ),
     # Combat
-    "Improved Eviscerate": (
+    "Coup de Grace": (
+        # its Death Mark part waits for Death Mark in the engine (#470)
         EffectRule("damage_pct", r"Eviscerate ability by (\d+(?:\.\d+)?)%", ("Eviscerate",)),
     ),
     "Flawless Execution": (
         EffectRule("energy_cost", r"Energy cost of your Eviscerate ability by (\d+(?:\.\d+)?)",
                    ("Eviscerate",), sign=-1),
     ),
-    "Improved Sinister Strike": (
+    "Efficient Strikes": (
         EffectRule("energy_cost",
-                   r"Energy cost of your Sinister Strike ability by (\d+(?:\.\d+)?)",
-                   ("Sinister Strike",), sign=-1),
+                   r"Energy cost of your Sinister Strike and Hemorrhage abilities by (\d+(?:\.\d+)?)",
+                   ("Sinister Strike", "Hemorrhage"), sign=-1),
     ),
     "Puncturing Wounds": (
         EffectRule("crit_chance",
@@ -97,7 +95,7 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     ),
     "Aggression": (
         EffectRule("damage_pct", r"damage of your .* abilities by (\d+(?:\.\d+)?)%",
-                   ("Sinister Strike", "Backstab", "Eviscerate")),
+                   ("Sinister Strike", "Eviscerate")),
     ),
     # Subtlety
     "Opportunity": (
@@ -109,11 +107,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     ),
     "Serrated Blades": (
         EffectRule("armor_pen", r"ignore (\d+(?:\.\d+)?)% of your target's Armor", ("all",)),
-    ),
-    "Quietus": (
-        EffectRule("damage_pct",
-                   r"abilities cause (\d+(?:\.\d+)?)% more damage against targets below (\d+(?:\.\d+)?)% health",
-                   ("Sinister Strike", "Ghostly Strike", "Hemorrhage"), combine=below_health),
     ),
     "Remorseless Attacks": (
         EffectRule("crit_chance", r"gives you a (\d+(?:\.\d+)?)% increased critical strike chance on your next",
@@ -135,7 +128,8 @@ UNMODELED: dict[str, str] = {
     "Vigor": "resource: +10 maximum Energy; no effect on a steady-state Energy cycle (#392)",
     "Mutilate": "grants_spell",
     "Improved Kidney Shot": "control: more damage to Kidney Shot stuns",
-    "Venom": "grants_spell",
+    "Venom": "proc: Shank raises poison damage and application chance; Shank not in the engine yet (#470)",
+    "Blood Splatter": "dot: longer Rupture and Garrote; the rotation casts neither for damage (#392)",
     # Combat
     "Lightning Reflexes": "defensive: +5% Dodge chance",
     "Deflection": "defensive: +6% Parry chance",
@@ -146,6 +140,8 @@ UNMODELED: dict[str, str] = {
     "Blade Flurry": "grants_spell",
     "Hack and Slash": "proc: weapon-type bonus, best branch per scenario (weapon_talents.py, #386)",
     "Adrenaline Rush": "grants_spell",
+    "Composure": "resource: bigger Poised discount; Poised not in the engine yet (#470)",
+    "Flash of Steel": "resource: more Shank Energy, shorter Shank cooldown; Shank not in the engine yet (#470)",
     # Subtlety
     "Camouflage": "stealth: faster Stealth, shorter cooldown",
     "Master of Deception": "stealth: harder to detect while Stealthed",
@@ -153,14 +149,14 @@ UNMODELED: dict[str, str] = {
     "Elusiveness": "utility: shorter Vanish and Blind cooldowns",
     "Dirty Tricks": "resource: cheaper Sap and Blind",
     "Ghostly Strike": "grants_spell",
-    "Improved Distract": "utility: larger Distract radius, less detection of distracted enemies",
     "Heightened Senses": "stealth: better Stealth detection, less hit by spells and ranged",
     "Premeditation": "grants_spell",
     "Dirty Deeds": "stealth: cheaper openers, Garrote works from the front",
     "Preparation": "grants_spell",
     "Hemorrhage": "grants_spell",
-    "Cutthroat": "stealth: Backstab can enable Ambush without Stealth",
-    "Thousand Cuts": "resource: Rupture ticks cut Hemorrhage/Backstab cost; Rupture loses to Eviscerate, so 0 (#392)",
+    "Quick Getaway": "control: one more Sapped target, speed after Sap",
+    "Boot Knife": "resource: Shank adds Combo Points; Shank not in the engine yet (#470)",
+    "Death Mark": "grants_spell",
 }
 
 # Two-tree builds the community actually plays (#104): Subtlety Preparation is 16/12/23.
