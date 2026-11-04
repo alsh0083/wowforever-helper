@@ -24,6 +24,7 @@ from wowforever.checklist import retest_names
 from wowforever.classes import class_module
 from wowforever.crosscheck import CrosscheckResult
 from wowforever.revisions import Change
+from wowforever import client_text
 from wowforever.schema import ClassData, Dataset, Provenance
 from wowforever.sources import hotfixes as hotfixes_module
 from wowforever.sources import wago, wowforevertalent, wowforevertalents
@@ -154,9 +155,23 @@ def check_for_updates(
         delay=delay,
     )
     module = class_module(class_name)
+    tables_dir = data_dir / "cache" / "wago" / build
+    extra_provenance: tuple[Provenance, ...] = ()
+    if hotfixes is not None:
+        overlay_dir = data_dir / "cache" / "hotfixed" / hotfixes.name
+        hotfixes_module.overlay_build(tables_dir, overlay_dir, build, hotfix_entries)
+        tables_dir = overlay_dir
+        manifest = json.loads((hotfixes / "manifest.json").read_text(encoding="utf-8"))
+        extra_provenance = (Provenance(
+            source="client hotfix cache", game_build=build, data_version=hotfixes.name,
+            fetched_at=manifest["captured_at"], snapshot_sha256=manifest["sha256"],
+        ),)
+    tables = normalize_module.read_tables(tables_dir)
     if rank_text_source == "wowforevertalents":
         raw_dir = data_dir / "raw" / "wowforevertalents" / now[:10].replace("-", "")
-        page_manifest, page = wowforevertalents.fetch(class_name, http_get=http_get, raw_dir=raw_dir, delay=delay)
+        # a talent the site links but serves no page for takes the client tooltip (#466)
+        page_manifest, page = wowforevertalents.fetch(class_name, http_get=http_get, raw_dir=raw_dir, delay=delay,
+                                                      fallback=lambda name: client_text.talent_texts(tables, name))
         page_provenance = Provenance(
             source="wowforevertalents.com", game_build=page.game_build, data_version=page.page_data_version,
             fetched_at=now, snapshot_sha256=json.loads(page_manifest.read_text(encoding="utf-8"))["sha256"],
@@ -170,18 +185,7 @@ def check_for_updates(
             fetched_at=now, snapshot_sha256=wowforevertalent.manifest_for(page_path)["sha256"],
         )
 
-    tables_dir = data_dir / "cache" / "wago" / build
-    extra_provenance: tuple[Provenance, ...] = ()
-    if hotfixes is not None:
-        overlay_dir = data_dir / "cache" / "hotfixed" / hotfixes.name
-        hotfixes_module.overlay_build(tables_dir, overlay_dir, build, hotfix_entries)
-        tables_dir = overlay_dir
-        manifest = json.loads((hotfixes / "manifest.json").read_text(encoding="utf-8"))
-        extra_provenance = (Provenance(
-            source="client hotfix cache", game_build=build, data_version=hotfixes.name,
-            fetched_at=manifest["captured_at"], snapshot_sha256=manifest["sha256"],
-        ),)
-    tables = normalize_module.read_tables(tables_dir)
+
     cls, report = normalize_module.normalize_class(tables, module.LAYOUT, page, wago_build=build,
                                                    icon_overrides=getattr(module, "ICON_OVERRIDES", None))
     cls, effect_problems = effects_module.attach_effects(cls, module.TALENT_EFFECTS, module.UNMODELED)
