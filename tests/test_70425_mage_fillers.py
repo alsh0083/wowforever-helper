@@ -39,6 +39,6 @@ def test_arcane_wrath_gains_five_percent_of_max_mana_as_spell_damage():
     assert best_rank(char({WRATH: 1}).spells, "Frostbolt", 60) == best_rank(CLS.spells, "Frostbolt", 60)
 
 
-def test_frost_blast_is_a_baseline_filler():
-    spell = best_rank(char({}).spells, "Frost Blast", 60)
-    assert spell is not None and spell.cast_time == 1.5 and spell.slow_pct == 40.0
+def test_frost_blast_is_gone():
+    # a baseline filler on 70425; removed by the 2 Nov notes (1.60.1.70755, #463)
+    assert best_rank(char({}).spells, "Frost Blast", 60) is None
