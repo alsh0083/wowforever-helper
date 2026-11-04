@@ -180,6 +180,8 @@
 - Serpent Sting rank 7: periodic_damage 320.0 -> 375.0
 - Serpent Sting rank 8: periodic_damage 415.0 -> 500.0
 - Serpent Sting rank 9: periodic_damage 555.0 -> 675.0
+- Shank rank 1: new spell rank
+- Shank rank 2: new spell rank
 - Shred rank 1: weapon_pct 155.0 -> 200.0
 - Shred rank 2: weapon_pct 155.0 -> 200.0
 - Shred rank 3: weapon_pct 155.0 -> 200.0
