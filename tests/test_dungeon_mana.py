@@ -33,7 +33,7 @@ def test_life_tap_fallback_spends_gcds_tapping():
 # unbuffed dungeon DPS at 60 (group.dungeon_dps with no party) on the pinned dataset; regression pins, re-pinned
 # when a class's model changes (1.60.1.70425: #353; 1.60.1.70755 with its new builds: #463). The old ids resolve to
 # each spec's build through tests/_trees.py
-PINS = [("warrior", "warrior-arms", 184.88), ("rogue", "rogue-combat", 238.44),
+PINS = [("warrior", "warrior-arms", 184.88), ("rogue", "rogue-combat", 303.93),
         ("warlock", "warlock-affliction", 313.17), ("mage", "deep-frost", 352.90), ("mage", "deep-fire", 321.27),
         ("hunter", "hunter-marksmanship", 223.55), ("priest", "priest-discipline-smite", 172.99),
         ("shaman", "shaman-elemental", 261.92)]

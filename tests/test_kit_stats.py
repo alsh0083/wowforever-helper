@@ -33,6 +33,6 @@ def test_kit_matches_the_engine(kit_id):
 
 def test_engine_values_are_plausible():
     health, dps = engine_at_60("rogue-combat")
-    assert 2500 < health < 4500 and 150 < dps < 400
+    assert 2500 < health < 4500 and 150 < dps < 450          # Shank lifts the rogue ~25% (#470)
     # Subtlety's PvP build gives up damage for control
     assert engine_at_60("rogue-subtlety")[1] < dps
