@@ -22,7 +22,7 @@ BT = CLS.talent_named("Bloodthrill").talent_id
 def test_rule():
     assert PROBLEMS == []
     (rule,) = CLS.talent_named("Bloodthrill").effects
-    assert (rule.kind, rule.applies_to, rule.values) == ("proc_chance", ("@bloodthrill",), (4.0, 8.0, 12.0, 16.0, 20.0))
+    assert (rule.kind, rule.applies_to, rule.values) == ("proc_chance", ("@bloodthrill",), (10.0, 20.0))   # 2 ranks on 70755
 
 
 def test_extra_activations_by_hand():
@@ -36,13 +36,13 @@ def test_extra_activations_by_hand():
 
 def test_overpowers_more_with_bloodthrill():
     # Bloodthrill alone, so Rage is left after Whirlwind (the Arms build spends it all on Mortal Strike, #424)
-    with_bt = dict(warrior_rotation(STATS, CLS.spells, CLS, {BT: 5}, MOB).parts)
+    with_bt = dict(warrior_rotation(STATS, CLS.spells, CLS, {BT: 2}, MOB).parts)
     no_bt = dict(warrior_rotation(STATS, CLS.spells, CLS, {}, MOB).parts)
     assert with_bt["Overpower"] > no_bt["Overpower"] > 0
 
 
 def test_needs_rend():
     no_rend = [s for s in CLS.spells if s.name != "Rend"]
-    with_bt = dict(warrior_rotation(STATS, no_rend, CLS, {BT: 5}, MOB).parts)
+    with_bt = dict(warrior_rotation(STATS, no_rend, CLS, {BT: 2}, MOB).parts)
     no_bt = dict(warrior_rotation(STATS, no_rend, CLS, {}, MOB).parts)
     assert with_bt["Overpower"] == pytest.approx(no_bt["Overpower"])

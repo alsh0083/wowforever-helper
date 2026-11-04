@@ -1,6 +1,6 @@
 """Aspect of the Hawk (#388): its ranged attack power (aura 124) comes from the client data and the ranged hunter
-keeps it up. Hand values from SpellEffect of build 1.60.1.70425: rank 1 (13165) 20, rank 6 (14322) 55,
-rank 7 (25296) 120."""
+keeps it up. Hand values from SpellEffect of build 1.60.1.70755 with the 3 Nov hotfixes: rank 1 (13165) 20, rank 6
+(14322) 110 (55 on 70425; the 2 Nov notes give 20/35/50/70/90/110), rank 7 (25296) 120."""
 
 from dataclasses import replace
 from pathlib import Path
@@ -23,7 +23,7 @@ CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("hunter")
 
 def test_saved_dataset_has_hawk_attack_power():
     hawk = {s.rank: s.ranged_attack_power for s in CLS.spells if s.name == "Aspect of the Hawk"}
-    assert (hawk[1], hawk[6], hawk[7]) == (20.0, 55.0, 120.0)
+    assert (hawk[1], hawk[6], hawk[7]) == (20.0, 110.0, 120.0)
     assert best_rank(CLS.spells, "Aimed Shot", 60).ranged_attack_power == 0.0
 
 
