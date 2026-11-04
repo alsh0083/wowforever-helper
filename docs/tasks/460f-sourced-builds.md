@@ -205,8 +205,9 @@ def run(classes) -> int:
     for class_name in classes:
         cls = ds.class_data(class_name)
         print(f"[{class_name}]")
-        for path in sorted(BUILDS.glob(f"{class_name}-*.toml")):
-            if tomllib.loads(path.read_text(encoding="utf-8")).get("origin", "hand") != "hand":
+        for path in sorted(BUILDS.glob("*.toml")):              # mage builds may have no "mage-" prefix or class
+            raw = tomllib.loads(path.read_text(encoding="utf-8"))
+            if raw.get("class", "mage") == class_name and raw.get("origin", "hand") != "hand":
                 path.unlink()
         guides, top = candidates(class_name, cls, history, snapshot)
         chosen, skipped = pick(cls, guides, top, deep=arch["deep"], hybrid=arch["hybrid"],
