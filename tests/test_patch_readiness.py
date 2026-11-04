@@ -41,8 +41,9 @@ def test_readiness_flags_what_an_older_build_breaks():
 
     old = DATASETS_DIR / "1.60.1.70291.json"
     problems = readiness(old, tables_dir=ROOT / "no-such-folder")
-    # today's builds take Accelerant and Precision, which 70291 didn't have yet
-    assert "mage: build mage-arcane: unknown talents Accelerant, Arcane Wrath, Precision" in problems
+    # today's Arcane builds take Arcane Wrath, which 70291 didn't have yet (Accelerant and Precision resolve to their
+    # 70291 names through config/talent_renames.toml)
+    assert "mage: build mage-arcane: unknown talents Arcane Wrath" in problems
     # rules written for 70425 text don't all match 70291 (Dark Inspiration didn't exist)
     assert "priest: effect rule: Dark Inspiration: not a talent in the dataset" in problems
 
