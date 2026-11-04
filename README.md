@@ -21,7 +21,9 @@ not a leveling guide: it tells you which talent to take at each level, not where
     they pay off, respecced into the endgame build at 60. PvP builds pick up their PvP talents early.
   - **Endgame:** the builds below.
 - **Every class and spec:** a matrix of each talent tree (plus the common hybrids) for PvP and PvE.
-  Each slot holds the community standard. Where the model finds a better version, its pick sits right
+  Each slot holds the community standard, taken as published from a source on the current talent trees: a
+  wowforeverbuilds.com spec guide while its trees and talent text match the game, else talentsforever.com's most
+  saved complete build. A build is never adjusted to fit; if it doesn't fit, it's left out. Where the model finds a better version, its pick sits right
   under the standard as its own build, with the gain and the talents it changes. Slots with no community
   plan hold a clearly labeled model build.
 - **Talent paths:** a legal point-by-point order for every build from level 10 to 60, with a level
