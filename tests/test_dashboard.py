@@ -85,3 +85,29 @@ def test_render_puts_the_notice_under_the_header():
     assert html.index(notice) > html.index("</header>")
     assert ".pin-notice{" in html
     assert "__NOTICE__" not in render(PAYLOAD, ICONS) and 'class="pin-notice"' not in render(PAYLOAD, ICONS)
+
+
+def test_fetch_icons_leaves_out_an_icon_the_cdn_doesnt_have(tmp_path):
+    # 1.60.1.70755 talents use icons the CDN lacks (ability_rogue_blackjack, inv_sword_32): the page draws those
+    # talents without one instead of failing (#463)
+    import urllib.error
+
+    def get_bytes(url):
+        if "missing" in url:
+            raise urllib.error.HTTPError(url, 404, "Not Found", {}, None)
+        return b"jpeg:" + url.encode()
+
+    icons = fetch_icons(["a", "missing", "b"], http_get_bytes=get_bytes, cache_dir=tmp_path)
+    assert set(icons) == {"a", "b"} and not (tmp_path / "missing.jpg").exists()
+
+
+def test_fetch_icons_still_fails_on_other_errors(tmp_path):
+    import urllib.error
+
+    import pytest
+
+    def get_bytes(url):
+        raise urllib.error.HTTPError(url, 503, "Unavailable", {}, None)
+
+    with pytest.raises(urllib.error.HTTPError):
+        fetch_icons(["a"], http_get_bytes=get_bytes, cache_dir=tmp_path)
