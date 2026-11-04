@@ -77,5 +77,5 @@ def test_flawless_execution_speeds_the_energy_cycle():
     stats = stat_table("rogue").at(60)
     base = rogue_rotation(stats, cls.spells, cls, {}, BOSS)
     cheap = rogue_rotation(stats, cls.spells, cls, only(cls, "Flawless Execution"), BOSS)
-    # cycles = energy / (builders x cost + Eviscerate cost); 10 less Energy per Eviscerate
-    assert 1 / cheap.cycles_per_second == pytest.approx(1 / base.cycles_per_second - 10 / base.energy_per_second)
+    # cycles = energy / (builders x cost + Eviscerate cost); 15 less Energy per Eviscerate (10 before the 2 Nov notes)
+    assert 1 / cheap.cycles_per_second == pytest.approx(1 / base.cycles_per_second - 15 / base.energy_per_second)

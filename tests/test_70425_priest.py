@@ -45,9 +45,10 @@ def test_talent_stats_apply_the_build_percentages():
     from wowforever.caster import talent_stats
 
     ranks = builds_by_id("priest")["priest-shadow"].final_ids(CLS)
-    # priest-shadow (the players' post-patch build, #369) takes Mental Strength 5 (10%) and Dark Inspiration 3 (9%)
+    # priest-shadow (talentsforever.com's top Shadow build on 70755, #460) takes Mental Strength 5 (10%) and Dark
+    # Inspiration 5 (15%)
     out = talent_stats("priest", STATS, CLS, ranks)
     assert out.intellect == pytest.approx(STATS.intellect * 1.10)
-    assert out.spirit == pytest.approx(STATS.spirit * 1.09)
+    assert out.spirit == pytest.approx(STATS.spirit * 1.15)
     assert out.mana > STATS.mana and out.crit_pct > STATS.crit_pct
     assert talent_stats("priest", STATS, CLS, {}) == STATS

@@ -74,7 +74,9 @@ def test_reports_score_feral_and_enhancement_but_not_the_bear():
     druid = {(s["archetype"], s["focus"]): s for s in
              json.loads((ROOT / "data" / "report-druid.json").read_text(encoding="utf-8"))["shortlist"]}
     assert druid[("deep Feral Combat", "PvP")]["standard_score"] > 0
-    assert druid[("deep Feral Combat", "PvE")]["standard_score"] is None                  # bear tank
+    # 1.60.1.70755 (#460): the slot holds talentsforever.com's top Feral build, scored in cat form; the old bear
+    # build (druid.UNSCORED_BUILDS) is gone with the re-import, see #468
+    assert druid[("deep Feral Combat", "PvE")]["standard_score"] > 0
     shaman = {(s["archetype"], s["focus"]): s for s in
               json.loads((ROOT / "data" / "report-shaman.json").read_text(encoding="utf-8"))["shortlist"]}
     assert shaman[("deep Enhancement", "PvP")]["standard_score"] > 0
