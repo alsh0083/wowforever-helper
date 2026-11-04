@@ -12,12 +12,13 @@ from pathlib import Path
 import pytest
 
 from wowforever.assumptions import Assumptions
-from wowforever.builds import load_builds
 from wowforever.melee_scenarios import HybridTable, MeleeStatTable
 from wowforever.pvp.class_pvp import class_side, thorns_dps
 from wowforever.scenarios import best_rank
 from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.stats import StatTable
+
+from _trees import builds_by_id
 
 CLS = Dataset.load(latest_dataset_path()).class_data("druid")
 # the stat rows the hand-worked values below use, frozen (1.60.1.70205 gear; #416 moved the live tables)
@@ -27,7 +28,7 @@ ON = Assumptions.load().with_values(thorns_spell_power_coefficient=0.168)
 
 
 def ranks(build_id):
-    build = next(b for b in load_builds(class_name="druid") if b.id == build_id)
+    build = builds_by_id("druid")[build_id]
     return {CLS.talent_named(name).talent_id: r for name, r in build.final.items()}
 
 

@@ -11,22 +11,25 @@ from pathlib import Path
 import pytest
 
 from wowforever import report
-from wowforever.builds import load_builds
 from wowforever.classes import class_module, engine
 from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import stat_table
 from wowforever.pvp import class_pvp
 from wowforever.pvp.duel import best_outnumbered, load_kits, outnumbered_scores
+from wowforever.builds import load_builds
 from wowforever.schema import Dataset
+
 
 DATASET = Dataset.load(Path(__file__).resolve().parents[1] / "data" / "datasets" / "1.60.1.70291.json")
 KITS = load_kits()
+FIX70425 = Path(__file__).resolve().parent / "fixtures" / "builds-70425"
 
 
 def sides_of(name, build):
     m = class_module(name)
     cls, _ = attach_effects(DATASET.class_data(name), m.TALENT_EFFECTS, m.UNMODELED)
-    ranks = next(b for b in load_builds(class_name=name) if b.id == build).final_ids(cls)
+    # 70291 data: the 70425 builds it was pinned on (tests/fixtures/builds-70425/)
+    ranks = {b.id: b for b in load_builds(FIX70425, class_name=name)}[build].final_ids(cls)
     return engine(name).sides(stat_table(name).at(60), cls.spells, cls, ranks)
 
 
