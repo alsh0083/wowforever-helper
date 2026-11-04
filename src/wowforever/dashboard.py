@@ -5,6 +5,7 @@ from __future__ import annotations
 import base64
 import html
 import json
+import urllib.error
 from collections.abc import Mapping, Sequence
 from pathlib import Path
 
@@ -452,7 +453,12 @@ def fetch_icons(names: Sequence[str], *, http_get_bytes, cache_dir: Path) -> dic
         if path.is_file():
             icons[name] = path.read_bytes()
             continue
-        data = http_get_bytes(ICON_URL.format(name))
+        try:
+            data = http_get_bytes(ICON_URL.format(name))
+        except urllib.error.HTTPError as e:
+            if e.code != 404:
+                raise
+            continue                 # the CDN has no such icon: the talent is drawn without one (#463)
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(data)
         icons[name] = data
