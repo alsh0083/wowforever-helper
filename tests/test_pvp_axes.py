@@ -29,7 +29,8 @@ RAW, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
 CLS, REPORT = attach_effects(RAW, TALENT_EFFECTS, UNMODELED)
 SPELLS = class_spells(read_tables(FIX / "wago-1.60.1.70205-spells"), skill_lines=SKILL_LINES)
 # the owner's former hand-made Elementalist builds stay as fixtures (tests/fixtures/builds/)
-BUILDS = {b.id: b for b in [*load_builds(class_name="mage"), *load_builds(Path(__file__).parent / "fixtures" / "builds", class_name="mage")]}
+# and the 70425 deep Frost build (tests/fixtures/builds-70425/): these hand values are worked on the 70205 fixture
+BUILDS = {b.id: b for b in [*load_builds(FIX / "builds-70425", class_name="mage"), *load_builds(FIX / "builds", class_name="mage")]}
 STATS = Stats(60, intellect=270, spirit=190, stamina=220, spell_power=150, crit_pct=6, hit_pct=3,
               mana=3600, health=2900)
 FROSTBOLT = ranks_of(SPELLS, "Frostbolt")[-1]
@@ -41,8 +42,13 @@ def char(build_id):
 
 
 def test_new_effect_rules_parse_cleanly():
-    # talents newer than this fixture (1.60.1.70425's Arcane Wrath) aren't in it
-    assert all("not a talent in the dataset" in line for line in REPORT)
+    # the rules follow 1.60.1.70755: this 70205 fixture lacks Arcane Wrath, still has the removed Arcane Focus and
+    # Piercing Ice, and has the renamed talents' old text, which the new rules don't read (#463)
+    assert REPORT == ["Arcane Focus: in neither TALENT_EFFECTS nor UNMODELED",
+                      "Piercing Ice: in neither TALENT_EFFECTS nor UNMODELED",
+                      "Arcane Wrath: not a talent in the dataset",
+                      "Improved Fireball: rank 1 text didn't match cast_time pattern",
+                      "Elemental Precision: rank 1 text didn't match hit_chance pattern"]
     for name in ("Permafrost", "Improved Frost Nova", "Frostbite", "Improved Counterspell"):
         assert CLS.talent_named(name).effects, name
 
@@ -77,19 +83,20 @@ def test_deep_frost_control():
 
 
 def test_elementalist_with_a_fire_filler():
-    # Fireball 3.5 - 0.5 (Improved Fireball) = 3.0 s -> 20 fire hits/min; Fireball doesn't chill
+    # Fireball 3.5 s (Accelerant's 70755 rule doesn't read Improved Fireball's old text) -> 60/3.5 = 17.14 fire hits
+    # a minute; Fireball doesn't chill
     # survival: no barrier; immunity 0.05 -> 1; pushback Burning Soul 0.70 (fire filler) -> 0.7;
     #   escapes 4 + 60/25 = 6.4 -> 0.8  => .25 + .20*.7 + .20*.8 = 0.55
     # control: slow 0; root Frost Nova 8*60/25 = 19.2 (Frostbite needs chills) -> 0.64;
-    #   stun Impact 0.10 * 20 * 2 = 4 s/min -> 4/6; interrupt 20 -> 1
-    #   => .35*.64 + .15*(4/6) + .15 = 0.474
+    #   stun Impact 0.10 * 17.14 * 2 = 3.43 s/min -> 3.43/6; interrupt 20 -> 1
+    #   => .35*.64 + .15*(3.43/6) + .15
     s = survival(char("elementalist-pve"), FIREBALL)
     assert s.components["pushback"] == pytest.approx(0.7)
     assert s.score == pytest.approx(0.25 + 0.20 * 0.7 + 0.20 * 0.8)
     c = control(char("elementalist-pve"), FIREBALL)
-    assert c.components["stun"] == pytest.approx(4)
+    assert c.components["stun"] == pytest.approx(0.10 * 60 / 3.5 * 2)
     assert c.components["root"] == pytest.approx(19.2)
-    assert c.score == pytest.approx(0.35 * 0.64 + 0.15 * 4 / 6 + 0.15)
+    assert c.score == pytest.approx(0.35 * 0.64 + 0.15 * (0.10 * 60 / 3.5 * 2) / 6 + 0.15)
 
 
 def test_improved_counterspell_adds_silence():

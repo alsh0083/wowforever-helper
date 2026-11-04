@@ -1,0 +1,33 @@
+# Community standard build from wowforevertalent.com's popularity data: #3 of the most
+# popular complete mage builds since the Oct 1 patch (build 70170), as of 2026-10-04.
+# shared 14, saved 53, opened 524, 20 close variants. Focus label is Claude's judgment.
+
+id = "deep-frost"
+name = "Deep Frost Control (PvP)"
+pair = "deep-frost"
+variant = "PvP"
+primary_spell = "Frostbolt"
+origin = "community"
+summary = "Full Frost: Ice Barrier, Ice Block, Cold Snap, Permafrost, Improved Frost Nova, Arctic Reach; the control and survival build."
+sources = ["wft_popular"]
+confidence = "medium"
+
+[final]
+"Improved Frostbolt" = 5
+"Elemental Precision" = 5
+"Ice Shards" = 5
+"Permafrost" = 3
+"Improved Frost Nova" = 2
+"Frostbite" = 3
+"Piercing Ice" = 3
+"Frost Channeling" = 3
+"Ice Lance" = 1
+"Improved Blizzard" = 3
+"Arctic Reach" = 2
+"Ice Block" = 1
+"Shatter" = 3
+"Improved Cone of Cold" = 3
+"Cold Snap" = 1
+"Fingers of Frost" = 2
+"Winter's Chill" = 5
+"Ice Barrier" = 1
