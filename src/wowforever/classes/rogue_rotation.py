@@ -143,23 +143,42 @@ def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDat
                             dodge_reduction=dr)
     refund = total("resource", "@finisher") / 100 * k * 25
 
+    # Shank (#470), with an off-hand weapon: on cooldown, its net Energy, and Boot Knife's 2 Combo Points
+    shank = learned("Shank") if dual else None
+    shank_rate = shank_ev = shank_cp = 0.0
+    if shank is not None:
+        shank_rate = 1 / max(1.0, shank.cooldown + total("cooldown", "Shank"))
+        energy += shank_rate * (shank.energy_gain + total("resource", "@shank_energy")
+                                - (shank.energy_cost + total("energy_cost", "Shank")))
+        oh = stats.off_hand
+        shank_ev = yellow_attack(((oh[0] + oh[1]) / 2 + stats.attack_power / 14 * oh[2]) * shank.weapon_pct / 100,
+                                 attacker, target, crit_bonus=total("crit_chance", "Shank"),
+                                 damage_pct=total("damage_pct", "@off_hand") + total("damage_pct", "Shank"),
+                                 crit_damage_pct=total("crit_damage_pct", "Shank"), dodge_reduction=dr)
+        shank_cp = shank_rate * land * total("proc_chance", "@shank_combo") / 100 * 2
+
     start = total("proc_chance", "@finisher") / 100
-    n = (k - start) / cp
-    cycles = energy / (n * cost + evis.energy_cost + total("energy_cost", "Eviscerate") - refund)
+    finisher_cost = evis.energy_cost + total("energy_cost", "Eviscerate") - refund
+    # builders b and finishers f a second: cp b + Shank's points = (k - start) f, and b cost + f finisher_cost = energy
+    cycles = (energy + shank_cp * cost / cp) / ((k - start) / cp * cost + finisher_cost)
+    n = ((k - start) - shank_cp / cycles) / cp
     finish_share = 1.0
     if snd is not None:
         snd_seconds = ((snd.duration + c["snd_seconds_per_combo_point"] * k)
                        * (1 + total("duration", "Slice and Dice") / 100))
         finish_share = max(0.0, 1 - (1 / snd_seconds) / cycles)
-    yellow = cycles * (n * builder_ev + finish_share * evis_ev)
+    yellow = cycles * (n * builder_ev + finish_share * evis_ev) + shank_rate * shank_ev
     # poisons (#387): every landed hit of a poisoned weapon can apply its poison
     p = c["poisons"]
     white_land = white_land_chance(attacker, target, dual_wield=dual, dodge_reduction=dr)
     hits = [haste / stats.main_hand[2] * white_land + cycles * land * (n + finish_share)]
     if dual:
         hits.append(haste / stats.off_hand[2] * white_land
-                    + (cycles * land * n if builder.weapon_hits >= 2 else 0.0))
+                    + (cycles * land * n if builder.weapon_hits >= 2 else 0.0) + shank_rate * land)
     chance = total("proc_chance", "@poison")
+    # Venom (#470): Shank's poison buff, up for its duration out of every Shank cooldown
+    venom = min(1.0, c["venom_seconds"] * shank_rate) if shank_rate else 0.0
+    chance += venom * total("proc_chance", "@venom")
     known = tuple(s for s in map(learned, ("Instant Poison", "Deadly Poison")) if s is not None)
     poison_dps, poisons = best_poisons(
         known, tuple(hits),
@@ -167,7 +186,8 @@ def rogue_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassDat
                     "Deadly Poison": p["deadly_chance_pct"] + chance},
         land=((1 - miss_chance(level, level + target.level_diff, 0.0) / 100)
               * level_resist_factor(level, level + target.level_diff)),       # poisons are resisted (#435)
-        crit=yellow_crit_chance(attacker, target), damage_pct=total("damage_pct", "@poison"),
+        crit=yellow_crit_chance(attacker, target),
+        damage_pct=total("damage_pct", "@poison") + venom * total("damage_pct", "@venom"),
         max_stacks=p["deadly_max_stacks"])
     yellow += poison_dps
     aoe: tuple[str, ...] = ()
