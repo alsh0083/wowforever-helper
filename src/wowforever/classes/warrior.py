@@ -42,6 +42,7 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     ),
     "Improved Whirlwind": (
         EffectRule("cooldown", r"cooldown of your Whirlwind ability by (\d+(?:\.\d+)?) sec", ("Whirlwind",), sign=-1),
+        EffectRule("damage_pct", r"damage it deals to the closest enemy by (\d+(?:\.\d+)?)%", ("@closest_Whirlwind",)),
     ),
     "Improved Execute": (
         EffectRule("rage_cost", r"Rage cost of your Execute ability by (\d+(?:\.\d+)?)", ("Execute",), sign=-1),
