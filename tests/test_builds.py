@@ -16,24 +16,20 @@ FIXTURES = {b.id: b for b in load_builds(Path(__file__).parent / "fixtures" / "b
 
 
 def test_the_builds_exist_and_names_end_in_their_focus():
-    assert {k for k, b in BUILDS.items() if b.mode == "endgame"} == {"elementalist-pve-v2", "deep-frost",
-                           "deep-fire", "arcane-pom-pyro", "fire-frost-shatter", "deep-arcane",
-                           # matrix fill (owner request, 2026-10-05): catalog plan and model builds
-                           "mage-frost-pve", "mage-arcane-pvp", "mage-fire-pvp", "mage-fire-frost-pvp",
-                           "mage-arcane-fire-pve",
-                           # model picks next to the standards they beat (owner request, 2026-10-07)
-                           "deep-arcane-model", "mage-frost-pve-model"}
+    # 1.60.1.70755 (#460, #463): community standards only from a current source, model builds for the rest
+    assert {k for k, b in BUILDS.items() if b.mode == "endgame"} == {
+        "mage-arcane", "mage-fire",                                  # talentsforever.com's top builds
+        "mage-frost-pve",                                            # seeded: no source publishes deep Frost
+        "mage-arcane-pvp", "mage-fire-pvp", "mage-frost-pvp",        # tools/derive_slot_builds.py
+        "mage-fire-model"}                                           # tools/derive_model_picks.py
     for b in BUILDS.values():
         assert b.variant in ("PvP", "PvE") and f"({b.variant}" in b.name
 
 
-def test_elementalist_pair_shares_the_route_to_40():
-    # #101: the revised PvE variant is the PvP build's pair; dual spec from 40 keeps levels 10-40
-    pvp, pve = FIXTURES["elementalist-v4"], BUILDS["elementalist-pve-v2"]
-    assert pvp.pair == pve.pair == "offensive-elementalist"
-    assert pve.origin == "model" and pve.name == "Offensive Elementalist (PvE)"
-    assert pvp.order[:31] == pve.order[:31] and pvp.order[31:] != pve.order[31:]
-
+def test_the_former_elementalist_builds_stay_fixtures():
+    # the owner's hand-made Elementalist route (#101) and its PvE pair left the app with the 70755 standards (#460)
+    pvp = FIXTURES["elementalist-v4"]
+    assert pvp.pair == "offensive-elementalist" and "elementalist-pve-v2" not in BUILDS
 
 @pytest.mark.parametrize("build_id", sorted(BUILDS))
 def test_build_uses_only_existing_talents(build_id):
@@ -45,16 +41,9 @@ def test_final_allocation_is_legal_at_60(build_id):
     assert check_build(CLS, BUILDS[build_id].final_ids(CLS), level=60) == []
 
 
-@pytest.mark.parametrize("build_id", ["deep-frost", "deep-fire", "arcane-pom-pyro"])
-def test_reference_builds_spend_every_point(build_id):
+@pytest.mark.parametrize("build_id", sorted(k for k, b in BUILDS.items() if b.mode == "endgame"))
+def test_endgame_builds_spend_every_point(build_id):
     assert sum(BUILDS[build_id].final.values()) == points_available(60, CLS.rules)
-
-
-def test_elementalist_order_is_legal_point_by_point_and_spends_60():
-    b = BUILDS["elementalist-pve-v2"]
-    assert check_order(CLS, b.order_ids(CLS)) == []
-    assert len(b.order) == 51
-    assert b.order.index("Ice Block") + 10 == 25 and b.order.index("Cold Snap") + 10 == 30
 
 
 @pytest.mark.parametrize("build_id", sorted(BUILDS))
@@ -68,7 +57,7 @@ def test_community_builds_cite_known_sources():
     from wowforever.consensus import Consensus
     sources = Consensus.load().sources
     community = [b for b in BUILDS.values() if b.origin == "community"]
-    assert len(community) == 6          # 5 from #23 plus the catalog's Frost PvE plan
+    assert {b.id for b in community} == {"mage-arcane", "mage-fire"}      # talentsforever.com, 4 Nov (#460)
     for b in community:
         assert b.sources and all(s in sources for s in b.sources) and b.confidence in ("low", "medium", "high")
 
@@ -87,7 +76,8 @@ def test_leveling_builds_follow_their_endgame_build_with_few_detours():
     # owner feedback, 2026-10-07: a leveling build is its endgame build's path, plus at most 7
     # leveling-only points at a time (respecced at 60)
     leveling = [b for b in BUILDS.values() if b.mode == "leveling"]
-    assert {b.levels_into for b in leveling} >= {"deep-frost", "fire-frost-shatter", "mage-fire-frost-pvp"}
+    assert {b.levels_into for b in leveling} == {"mage-arcane", "mage-fire", "mage-frost-pve", "mage-arcane-pvp",
+                                                 "mage-fire-pvp", "mage-frost-pvp"}
     for b in leveling:
         target = BUILDS[b.levels_into].final_ids(CLS)
         ids = b.order_ids(CLS)

@@ -9,7 +9,7 @@ import pytest
 
 from wowforever.builds import load_builds
 from wowforever.pvp.duel import load_kits
-from wowforever.pvp.kit_stats import KIT_BUILDS, engine_at, engine_at_60, kit_ranks_at
+from wowforever.pvp.kit_stats import engine_at, engine_at_60, kit_build, kit_ranks_at
 from wowforever.schema import Dataset, latest_dataset_path
 
 DS = Dataset.load(latest_dataset_path())
@@ -27,7 +27,7 @@ def test_a_level_30_kit_is_weaker_than_at_60():
 
 def test_kit_ranks_at_a_level_spend_level_minus_9_points_within_the_final_build():
     cls = DS.class_data("rogue")
-    build = {b.id: b for b in load_builds(class_name="rogue")}[KIT_BUILDS["rogue-combat"]]
+    build = kit_build("rogue-combat", cls)
     final = build.final_ids(cls)
     for level in (10, 30, 60):
         ranks = kit_ranks_at(build, cls, level)

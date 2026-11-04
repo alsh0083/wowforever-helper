@@ -28,7 +28,7 @@ RAW, _ = normalize_class(TABLES, W.LAYOUT, parse_page((FIX / "wowforevertalent" 
 CLS, REPORT = attach_effects(RAW, W.TALENT_EFFECTS, W.UNMODELED)
 SPELLS = class_spells(TABLES, skill_lines=W.SKILL_LINES)
 STATS = MeleeStatTable.load("warrior").at(60)
-BUILDS = {b.id: b for b in load_builds(class_name="warrior")}
+BUILDS = {b.id: b for b in load_builds(FIX / "builds-70425", class_name="warrior")}   # fixture trees: 70425 builds
 ARMS = BUILDS["warrior-arms"].final_ids(CLS)
 BOSS = Target(3, 976)
 
@@ -54,7 +54,9 @@ def test_rage_conversion_matches_classic():
 
 
 def test_damage_talents_carry_rules():
-    assert REPORT == []
+    # the rules follow 1.60.1.70755 (#463, #465); this fixture is 70291, which still had Raging Blows
+    assert REPORT == ["Raging Blows: in neither TALENT_EFFECTS nor UNMODELED", "Improved Whirlwind: not a talent in the dataset",
+                      "Reckless Swings: not a talent in the dataset", "Improved Slam: rank 1 text didn't match cooldown pattern"]
     assert {"Cruelty", "Impale", "Deep Wounds", "Unbridled Wrath", "Two-Handed Weapon Specialization"} <= set(W.TALENT_EFFECTS)
     heroic = CLS.talent_named("Improved Heroic Strike")
     assert heroic.effects[0].values[-1] == -3          # reductions are negative
@@ -98,4 +100,5 @@ def test_report_scores_arms_and_leaves_protection_unscored():
     assert all(s["standard_score"] is None and s["model_pick"] is None
                for (a, _), s in slots.items() if a == "deep Protection")
     builds = {b["id"]: b for b in r["builds"]}
-    assert builds["warrior-arms"]["scores"] and not builds["warrior-protection"]["scores"]
+    arms, prot = slots[("deep Arms", "PvE")]["standard"], slots[("deep Protection", "PvE")]["standard"]
+    assert builds[arms]["scores"] and not builds[prot]["scores"]

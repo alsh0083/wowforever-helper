@@ -68,3 +68,53 @@ def test_popular_builds_carry_the_decoded_talents():
     assert fire["final"]["Critical Mass"] == 5 and fire["final"]["Combustion"] == 1
     assert sum(fire["final"].values()) == 51
     assert "code" in fire and "name" in fire
+
+
+# ---- snapshots (#460): builds pages and exports saved gzipped, immutable, checked on load ----
+
+class FakeSite:
+    def __init__(self):
+        self.asked = []
+
+    def __call__(self, url):
+        self.asked.append(url)
+        if url.endswith("/mage/builds"):
+            return PAGE
+        if url.endswith("/export/mage.json"):
+            return json.dumps(EXPORT)
+        raise AssertionError(f"unexpected {url}")
+
+
+def test_fetch_saves_each_class_once_and_load_reads_it_back(tmp_path):
+    from wowforever.sources.talentsforever import fetch, latest_snapshot, load_snapshot
+
+    site, naps = FakeSite(), []
+    manifest = fetch(http_get=site, raw_dir=tmp_path / "20261104", classes=("mage",), sleep=naps.append)
+    assert site.asked == ["https://talentsforever.com/mage/builds", "https://talentsforever.com/export/mage.json"]
+    assert naps == [1.5]
+    assert sorted(p.name for p in (tmp_path / "20261104").iterdir()) == [
+        "builds-mage.html.gz", "export-mage.json.gz", "manifest.json"]
+    saved = json.loads(manifest.read_text(encoding="utf-8"))
+    assert (saved["source"], saved["captured"], saved["classes"], saved["files"], saved["license"]) == (
+        "talentsforever.com", "2026-11-04", ["mage"], 2, "CC BY 4.0")
+    assert load_snapshot(tmp_path / "20261104") == {"mage": (PAGE, EXPORT)}
+    assert latest_snapshot(tmp_path) == tmp_path / "20261104" and latest_snapshot(tmp_path / "none") is None
+
+    def offline(url):
+        raise AssertionError(f"fetched {url}")
+
+    assert fetch(http_get=offline, raw_dir=tmp_path / "20261104", classes=("mage",)) == manifest
+
+
+def test_load_snapshot_refuses_edited_pages(tmp_path):
+    import gzip
+
+    import pytest
+
+    from wowforever.sources.talentsforever import fetch, load_snapshot
+
+    fetch(http_get=FakeSite(), raw_dir=tmp_path / "20261104", classes=("mage",), sleep=lambda s: None)
+    page = tmp_path / "20261104" / "builds-mage.html.gz"
+    page.write_bytes(gzip.compress(b"edited", mtime=0))
+    with pytest.raises(ValueError, match="pages changed since the snapshot was saved"):
+        load_snapshot(tmp_path / "20261104")
