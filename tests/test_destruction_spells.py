@@ -26,8 +26,9 @@ def test_shadow_bolt_gets_ruin_agonizing_flames_and_cataclysm():
     stats, cls, ranks = _engine("warlock", "warlock-destruction-pve")
     bolt = best_rank(cls.spells, "Shadow Bolt", 60)
     m = modifiers_for(bolt, cls, ranks)
-    # Demonic Sacrifice 15 + Shadow and Flame 10 + Agonizing Flames 10; Ruin +100% crit damage; Cataclysm -10% mana
-    assert m.damage_pct == pytest.approx(35.0) and m.crit_damage_bonus_pct == pytest.approx(100.0)
+    # Demonic Sacrifice 15 + Shadow and Flame 20 (10 on 70425) + Agonizing Flames 10; Ruin +100% crit damage;
+    # Cataclysm -10% mana
+    assert m.damage_pct == pytest.approx(45.0) and m.crit_damage_bonus_pct == pytest.approx(100.0)
     assert m.mana_cost_pct == pytest.approx(-10.0)
 
 
@@ -39,5 +40,5 @@ def test_shadow_bolt_by_hand():
     avg = (bolt.min_damage + bolt.max_damage) / 2 + bolt.coefficient * st.spell_power
     hit = 0.99                                                   # 4% base miss, hit 2.79 + Suppression: floor 1%
     crit = st.crit_pct / 100
-    assert ev == pytest.approx(hit * avg * 1.35 * (1 + crit * 0.5 * 2.0))   # crit bonus 50% x (1 + Ruin 100%)
+    assert ev == pytest.approx(hit * avg * 1.45 * (1 + crit * 0.5 * 2.0))   # crit bonus 50% x (1 + Ruin 100%)
     assert seconds == pytest.approx(2.5)                         # 3.0 s - Bane 0.5 s

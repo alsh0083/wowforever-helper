@@ -35,8 +35,8 @@ def test_rotation_plan():
 def test_shadow_and_flame_rules():
     assert PROBLEMS == []
     effects = {(e.kind, e.applies_to): e.values for e in CLS.talent_named("Shadow and Flame").effects}
-    assert effects[("damage_pct", ("shadow",))][-1] == 10
-    assert effects[("damage_pct", ("fire",))][-1] == 10
+    assert effects[("damage_pct", ("shadow",))][-1] == 20          # 10 on 70425; the 2 Nov notes double it
+    assert effects[("damage_pct", ("fire",))][-1] == 20
     assert effects[("proc_chance", ("@keep_Immolate",))] == (20, 40, 60, 80, 100)
 
 
@@ -46,8 +46,9 @@ def test_destruction_casts_shadowburn_and_conflagrate():
 
 
 def test_conflagrate_without_shadow_and_flame_costs_immolate_damage(monkeypatch):
-    ranks = BUILDS["warlock-demonology-pve-model"]
-    assert ranks.get(CLS.talent_named("Shadow and Flame").talent_id, 0) == 0
+    # the Destruction build without Shadow and Flame: Conflagrate then always eats Immolate
+    snf = CLS.talent_named("Shadow and Flame").talent_id
+    ranks = {t: r for t, r in BUILDS["warlock-destruction-pve"].items() if t != snf}
     consumed = caster_rotation("warlock", STATS, CLS.spells, CLS, ranks, BOSS).dps
     monkeypatch.setitem(W.ROTATION, "consumes", {})
     assert caster_rotation("warlock", STATS, CLS.spells, CLS, ranks, BOSS).dps > consumed
