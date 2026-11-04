@@ -32,7 +32,7 @@ def without(ranks, name):
 
 def test_rules_parse():
     assert PROBLEMS == [] and M.ENGINE == "melee"
-    assert CLS.talent_named("Vengeance").effects[0].values[-1] == 9          # 3% x 3 stacks
+    assert CLS.talent_named("Vengeance").effects[0].values[-1] == 15         # 3% x 5 stacks since 70755 (3 before)
 
 
 def test_retribution_uses_seal_judgement_and_holy_strike():

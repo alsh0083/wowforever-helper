@@ -88,7 +88,7 @@ def test_improved_entangling_roots_raises_the_threshold():
                for e in next(t for t in CLS.talents if t.name == "Improved Entangling Roots").effects]
     assert effects == [("break_threshold_pct", (25.0, 50.0, 75.0), ("Entangling Roots",))]
     stats = stat_table("druid").at(60)
-    ranks = BUILDS["druid-balance-pvp-leveling"].final_ids(CLS)   # Improved Entangling Roots 3/3
+    ranks = {CLS.talent_named("Improved Entangling Roots").talent_id: 3}
     side = class_side("druid", stats, CLS.spells, CLS, ranks)
     assert (side.root_break_health, side.root_duration) == (pytest.approx(0.175), 10.0)
     talent = next(t.talent_id for t in CLS.talents if t.name == "Improved Entangling Roots")
