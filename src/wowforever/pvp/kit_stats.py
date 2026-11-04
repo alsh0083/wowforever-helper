@@ -24,22 +24,42 @@ ROOT = Path(__file__).resolve().parents[3]
 DATASET = latest_dataset_path()
 
 # kit id (config/opponents/<kit>.toml) -> community build id (config/builds/<build>.toml)
-KIT_BUILDS: dict[str, str] = {
-    "rogue-combat": "rogue-combat-pvp",
-    "rogue-subtlety": "rogue-subtlety",
-    "hunter-marksmanship": "hunter-marksmanship",
-    "hunter-survival": "hunter-survival-pvp",
-    "warrior-arms": "warrior-arms",
-    "priest-shadow": "priest-shadow",
-    "priest-discipline": "priest-discipline-smite",
-    "warlock-affliction": "warlock-affliction",
-    "warlock-destruction": "warlock-destruction",
-    "druid-balance": "druid-balance",
-    "shaman-elemental": "shaman-elemental",
-    "paladin-retribution": "paladin-retribution-pvp",
-    "druid-feral": "druid-feral",
-    "shaman-enhancement": "shaman-enhancement",
+# Each kit plays its tree's build (#463): build ids change whenever the standards are re-imported (#460), trees don't.
+KIT_TREES: dict[str, str] = {
+    "rogue-combat": "Combat",
+    "rogue-subtlety": "Subtlety",
+    "hunter-marksmanship": "Marksmanship",
+    "hunter-survival": "Survival",
+    "warrior-arms": "Arms",
+    "priest-shadow": "Shadow",
+    "priest-discipline": "Discipline",
+    "warlock-affliction": "Affliction",
+    "warlock-destruction": "Destruction",
+    "druid-balance": "Balance",
+    "shaman-elemental": "Elemental",
+    "paladin-retribution": "Retribution",
+    "druid-feral": "Feral Combat",
+    "shaman-enhancement": "Enhancement",
 }
+
+
+def kit_build(kit_id: str, cls):
+    """The build a kit plays: of the class's endgame builds with the most points in the kit's tree, the PvP one
+    before the PvE one and a community standard before a model build (ties: the lowest id)."""
+    tree = next(tree for tree in cls.trees if tree.name == KIT_TREES[kit_id])
+    names = {t.name for t in cls.talents}
+
+    def main_tree(build):
+        if not set(build.final) <= names:
+            return None
+        ids = build.final_ids(cls)
+        return max(cls.trees, key=lambda tr: (sum(ids.get(t, 0) for t in tr.talent_ids), -tr.tree_id)).name
+
+    mine = [b for b in load_builds(class_name=kit_id.split("-", 1)[0])
+            if b.mode != "leveling" and main_tree(b) == tree.name]
+    if not mine:
+        raise KeyError(f"{kit_id}: no {tree.name} build in config/builds")
+    return min(mine, key=lambda b: (b.variant != "PvP", b.origin != "community", b.id))
 
 
 def engine_at_60(kit_id: str) -> tuple[float, float]:
@@ -48,7 +68,7 @@ def engine_at_60(kit_id: str) -> tuple[float, float]:
     m = class_module(class_name)
     cls, _ = attach_effects(Dataset.load(DATASET).class_data(class_name), m.TALENT_EFFECTS, m.UNMODELED)
     stats = stat_table(class_name).at(60)
-    build = {b.id: b for b in load_builds(class_name=class_name)}[KIT_BUILDS[kit_id]]
+    build = kit_build(kit_id, cls)
     ranks = build.final_ids(cls)
     cloth_armor = load_toml(ROOT / "config" / "pvp_self.toml")["cloth_armor"]
     dps = engine(class_name).output(stats, cls.spells, cls, ranks, Target(0, cloth_armor)).dps
@@ -77,7 +97,7 @@ def engine_at(kit_id: str, level: int) -> tuple[float, float]:
     m = class_module(class_name)
     cls, _ = attach_effects(Dataset.load(DATASET).class_data(class_name), m.TALENT_EFFECTS, m.UNMODELED)
     stats = stat_table(class_name).at(level)
-    build = {b.id: b for b in load_builds(class_name=class_name)}[KIT_BUILDS[kit_id]]
+    build = kit_build(kit_id, cls)
     ranks = kit_ranks_at(build, cls, level)
     cloth_armor = load_toml(ROOT / "config" / "pvp_self.toml")["cloth_armor"]
     dps = engine(class_name).output(stats, cls.spells, cls, ranks, Target(0, cloth_armor)).dps

@@ -11,7 +11,10 @@ and DPS are estimates; everything else stays byte-for-byte.
 
 from pathlib import Path
 
-from wowforever.pvp.kit_stats import KIT_BUILDS, engine_at_60
+from wowforever.classes import class_module
+from wowforever.effects import attach_effects
+from wowforever.pvp.kit_stats import DATASET, KIT_TREES, engine_at_60, kit_build
+from wowforever.schema import Dataset
 
 ROOT = Path(__file__).resolve().parents[1]
 OPPONENTS = ROOT / "config" / "opponents"
@@ -20,7 +23,10 @@ HEADER_NOTE = "Health and DPS: level-60 values vs cloth from the damage engine (
 
 def rewrite(path: Path, kit_id: str) -> None:
     health, dps = engine_at_60(kit_id)
-    note = f"# damage engine (#147, #163), build {KIT_BUILDS[kit_id]}"
+    class_name = kit_id.split("-", 1)[0]
+    m = class_module(class_name)
+    cls, _ = attach_effects(Dataset.load(DATASET).class_data(class_name), m.TALENT_EFFECTS, m.UNMODELED)
+    note = f"# damage engine (#147, #163), build {kit_build(kit_id, cls).id}"
     lines = path.read_text(encoding="utf-8").split("\n")
     old_health = old_dps = None
     in_at_60 = False
@@ -40,5 +46,5 @@ def rewrite(path: Path, kit_id: str) -> None:
     print(f"{kit_id}: health {old_health} -> {round(health)}, dps {old_dps} -> {round(dps)}")
 
 
-for kit_id in sorted(KIT_BUILDS):
+for kit_id in sorted(KIT_TREES):
     rewrite(OPPONENTS / f"{kit_id}.toml", kit_id)
