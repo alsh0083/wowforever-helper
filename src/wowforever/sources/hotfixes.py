@@ -8,8 +8,9 @@ from __future__ import annotations
 import csv
 import io
 import struct
-from collections.abc import Iterable
+from collections.abc import Iterable, Sequence
 from dataclasses import dataclass
+from pathlib import Path
 
 from wowforever.sources import db2
 
@@ -117,3 +118,28 @@ def apply_csv(csv_text: str, schema: db2.Schema, table_hash: int, hotfixes: Iter
             added.append((record_id, row))
     out = [header, *by_id.values(), *(row for _, row in sorted(added))]
     return "".join(",".join(db2._quote(value) for value in row) + "\n" for row in out)
+
+
+def table_hash(db2_data: bytes) -> int:
+    """The table hash in a WDC5 file's header (what a hotfix entry names its table by)."""
+    return db2.HEADER.unpack_from(db2_data, 0)[7]
+
+
+def overlay_build(build_dir: Path, out_dir: Path, build: str, hotfixes: Sequence[Hotfix]) -> list[str]:
+    """Write every table CSV of a cached build to `out_dir` with the hotfixes applied. Tables with a game file and
+    definition (`db2/<table>.db2`, `.dbd`) get their rows changed; the rest are copied. Returns the changed tables."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    changed = []
+    for csv_path in sorted(build_dir.glob("*.csv")):
+        text = csv_path.read_text(encoding="utf-8")
+        db2_path = build_dir / "db2" / f"{csv_path.stem}.db2"
+        dbd_path = build_dir / "db2" / f"{csv_path.stem}.dbd"
+        if db2_path.exists() and dbd_path.exists():
+            data = db2_path.read_bytes()
+            schema = db2.schema_for(db2.parse_dbd(dbd_path.read_text(encoding="utf-8")), build, db2.layout_hash(data))
+            new_text = apply_csv(text, schema, table_hash(data), hotfixes)
+            if new_text != text:
+                changed.append(csv_path.stem)
+                text = new_text
+        (out_dir / csv_path.name).write_text(text, encoding="utf-8", newline="")
+    return changed

@@ -1,5 +1,6 @@
 """wowforevertalents.com talent pages as the rank-text source (#458)."""
 
+import json
 from pathlib import Path
 
 import pytest
@@ -125,3 +126,71 @@ def test_as_page_needs_every_talent_page_with_the_same_rank_count():
     talents = talents_for(trees) | {"Genesis": fake("Genesis", 3)}
     with pytest.raises(ValueError, match="Genesis: the grid has 5 ranks, its page 3"):
         as_page("druid", page("druid"), talents, game_build="1.60.1.70707", data_version="20261031")
+
+
+# ---- part 3: fetch a class with its talent pages into an immutable snapshot (#458) ----
+
+def node_html(name, row, col, max_rank):
+    return (f'<div class="node" style="grid-row:{row};grid-column:{col}"><div class="node-inner">'
+            f'<button type="button" class="node-btn" aria-label="{name}, rank 0 of {max_rank}"></button></div></div>')
+
+
+MINI_CLASS = ('<div class="trees"><article class="tree" aria-label="Balance tree"><h2>Balance</h2>'
+              + node_html("Genesis", 1, 3, 5)
+              + '<a href="/druid/talents/genesis/">Genesis</a></article>'
+              + '<article class="tree" aria-label="Feral Combat tree"><h2>Feral Combat</h2>'
+              + node_html("Lacerate", 4, 2, 1)
+              + '<a href="/druid/talents/lacerate/">Lacerate</a></article></div>')
+
+
+class FakeSite:
+    def __init__(self):
+        self.pages = {"https://wowforevertalents.com/druid/": MINI_CLASS,
+                      talent_url("druid", "genesis"): page("druid-talents-genesis"),
+                      talent_url("druid", "lacerate"): page("druid-talents-lacerate")}
+        self.asked = []
+
+    def __call__(self, url):
+        self.asked.append(url)
+        return self.pages[url]
+
+
+def test_fetch_snapshots_the_class_and_returns_the_page(tmp_path):
+    from wowforever.sources.wowforevertalents import fetch
+    site, naps = FakeSite(), []
+    manifest_path, result = fetch("druid", http_get=site, raw_dir=tmp_path / "20261031", sleep=naps.append)
+    assert site.asked == ["https://wowforevertalents.com/druid/", talent_url("druid", "genesis"),
+                          talent_url("druid", "lacerate")]
+    assert naps == [1.5, 1.5]                                   # a pause before each talent page
+    assert (result.class_id, result.game_build, result.page_data_version) == \
+        ("druid", "1.60.1.70707", "wowforevertalents-20261031")
+    assert [t["name"] for tree in result.trees for t in tree["talents"]] == ["Genesis", "Lacerate"]
+    assert result.trees[0]["talents"][0]["ranks"][4]["text"].endswith("by 10%.")
+    folder = tmp_path / "20261031" / "druid"
+    assert manifest_path == folder / "manifest.json"
+    assert sorted(p.relative_to(folder).as_posix() for p in folder.rglob("*.html")) == [
+        "class.html", "talents/genesis.html", "talents/lacerate.html"]
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert manifest["source"] == "wowforevertalents.com" and manifest["game_build"] == "1.60.1.70707"
+    assert manifest["url"] == "https://wowforevertalents.com/druid/" and manifest["pages"] == 3
+    assert len(manifest["sha256"]) == 64
+
+
+def test_fetch_reads_a_saved_snapshot_without_the_network(tmp_path):
+    from wowforever.sources.wowforevertalents import fetch
+    first = fetch("druid", http_get=FakeSite(), raw_dir=tmp_path / "20261031", sleep=lambda s: None)
+
+    def offline(url):
+        raise AssertionError(f"fetched {url}")
+
+    again = fetch("druid", http_get=offline, raw_dir=tmp_path / "20261031", sleep=lambda s: None)
+    assert again == first
+
+
+def test_fetch_needs_a_client_build_on_the_talent_pages(tmp_path):
+    from wowforever.sources.wowforevertalents import fetch
+    site = FakeSite()
+    for url in list(site.pages)[1:]:
+        site.pages[url] = site.pages[url].replace("Forever client build 1.60.1.70707", "transcribed from footage")
+    with pytest.raises(ValueError, match="no client build"):
+        fetch("druid", http_get=site, raw_dir=tmp_path / "20261031", sleep=lambda s: None)

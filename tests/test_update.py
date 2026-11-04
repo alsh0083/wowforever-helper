@@ -149,3 +149,91 @@ def test_a_new_build_points_to_patch_readiness(data):
     # #366: when a check saves a changed build, the summary names the next step; an unchanged one doesn't
     assert "patch-readiness" in run(data).text()
     assert "patch-readiness" not in run(data, FakeHttp()).text()
+
+
+# ---- server hotfixes (#456) and wowforevertalents.com rank text (#458) ----
+
+import dataclasses  # noqa: E402
+import struct  # noqa: E402
+
+from wowforever import update  # noqa: E402
+from wowforever.sources import wowforevertalent  # noqa: E402
+
+
+def hotfix_snapshot(root, build_number, name="1.60.1.70205-20261031"):
+    """A saved hotfix snapshot with no entries: header only (XFTH, version 9, build, 32-byte hash)."""
+    folder = root / name
+    folder.mkdir(parents=True)
+    (folder / "DBCache.bin").write_bytes(b"XFTH" + struct.pack("<II", 9, build_number) + bytes(32))
+    (folder / "manifest.json").write_text(json.dumps({"captured_at": "2026-10-31T13:15:00", "sha256": "ab" * 32}),
+                                          encoding="utf-8")
+    return folder
+
+
+def test_hotfix_snapshot_must_be_for_the_latest_build(data, tmp_path):
+    snapshot = hotfix_snapshot(tmp_path / "hf", 70707)
+    with pytest.raises(ValueError, match="hotfix cache is for build 70707; the latest build is 1.60.1.70205"):
+        check_for_updates(FakeHttp(), data_dir=data, delay=0, now="2026-10-04T20:00:00Z", table_http_get=FakeHttp(),
+                          hotfixes=snapshot)
+
+
+def test_hotfixes_change_where_tables_are_read_and_are_recorded(data, tmp_path):
+    snapshot = hotfix_snapshot(tmp_path / "hf", 70205)
+    http = FakeHttp()
+    check_for_updates(http, data_dir=data, delay=0, now="2026-10-04T20:00:00Z", table_http_get=http,
+                      hotfixes=snapshot)
+    overlay = data / "cache" / "hotfixed" / "1.60.1.70205-20261031"
+    assert (overlay / "TraitNode.csv").exists()
+    saved = json.loads((data / "datasets" / "1.60.1.70205.json").read_text(encoding="utf-8"))
+    assert {"source": "client hotfix cache", "game_build": "1.60.1.70205", "data_version": "1.60.1.70205-20261031",
+            "fetched_at": "2026-10-31T13:15:00", "snapshot_sha256": "ab" * 32} in saved["provenance"]
+
+
+def test_rank_text_from_wowforevertalents(data, tmp_path, monkeypatch):
+    asked = []
+
+    def fake_fetch(class_slug, *, http_get, raw_dir, delay):
+        asked.append((class_slug, raw_dir, delay))
+        folder = raw_dir / class_slug
+        folder.mkdir(parents=True)
+        manifest = folder / "manifest.json"
+        manifest.write_text(json.dumps({"sha256": "cd" * 32}), encoding="utf-8")
+        page = dataclasses.replace(wowforevertalent.parse_page(HTML), page_data_version="wowforevertalents-20261004",
+                                   popular=None)
+        return manifest, page
+
+    monkeypatch.setattr(update.wowforevertalents, "fetch", fake_fetch)
+    http = FakeHttp()
+    summary = check_for_updates(http, data_dir=data, delay=0.5, now="2026-10-04T20:00:00Z", table_http_get=http,
+                                rank_text_source="wowforevertalents")
+    assert asked == [("mage", data / "raw" / "wowforevertalents" / "20261004", 0.5)]
+    assert "https://wowforevertalent.com/mage/" not in http.calls
+    saved = json.loads((data / "datasets" / "1.60.1.70205.json").read_text(encoding="utf-8"))
+    assert {p["source"] for p in saved["provenance"]} == {"wago.tools", "wowforevertalents.com"}
+    wft = next(p for p in saved["provenance"] if p["source"] == "wowforevertalents.com")
+    assert (wft["data_version"], wft["snapshot_sha256"]) == ("wowforevertalents-20261004", "cd" * 32)
+    assert summary.popular_top == [] and not (data / "popularity").exists()
+
+
+def test_unknown_rank_text_source(data):
+    with pytest.raises(ValueError, match="unknown rank text source 'wowhead'"):
+        check_for_updates(FakeHttp(), data_dir=data, delay=0, now="2026-10-04T20:00:00Z", table_http_get=FakeHttp(),
+                          rank_text_source="wowhead")
+
+
+def test_cli_passes_the_hotfix_snapshot_and_rank_text_source(data, monkeypatch, capsys):
+    from wowforever.__main__ import main
+    seen = []
+
+    def fake_check(http_get, **kwargs):
+        seen.append({k: kwargs[k] for k in ("class_name", "hotfixes", "rank_text_source")})
+        raise wago_module.MissingTables("1.60.1.70205", [], Path("x"))   # stops the CLI after one class
+
+    from wowforever.sources import wago as wago_module
+    monkeypatch.setattr(update, "check_for_updates", fake_check)
+    assert main(["update", "--data-dir", str(data), "--hotfixes", "data/raw/hotfixes/x",
+                 "--rank-text", "wowforevertalents"]) == 2
+    assert seen == [{"class_name": "mage", "hotfixes": Path("data/raw/hotfixes/x"),
+                     "rank_text_source": "wowforevertalents"}]
+    assert main(["update", "--data-dir", str(data)]) == 2
+    assert seen[-1] == {"class_name": "mage", "hotfixes": None, "rank_text_source": "wowforevertalent"}

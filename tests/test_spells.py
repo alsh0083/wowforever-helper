@@ -98,3 +98,16 @@ def test_rune_spells_and_npc_versions_are_excluded():
 
 def test_ice_lance_is_trainable_from_20_in_forever():
     assert [s.level for s in ranks_of(SPELLS, "Ice Lance")] == [20, 28, 34, 42, 48, 56]
+
+
+def test_a_spell_removed_by_hotfix_is_skipped_but_a_missing_name_alone_is_an_error():
+    # the 30 Oct hotfixes removed Salvation's Spell and SpellName rows but left its SkillLineAbility row (#456)
+    names = [r for r in TABLES["SpellName"] if r["ID"] != "133"]
+    spells_left = [{"ID": r["ID"]} for r in names]                       # the Spell table, minus Fireball rank 1
+    fireball = ranks_of(class_spells(dict(TABLES, SpellName=names, Spell=spells_left), skill_lines=(6, 8, 237)),
+                        "Fireball")
+    assert fireball[0].spell_id == 143 and len(fireball) == 11
+    with pytest.raises(ValueError, match="skill line 8: no SpellName for spell 133"):
+        class_spells(dict(TABLES, SpellName=names, Spell=spells_left + [{"ID": "133"}]), skill_lines=(6, 8, 237))
+    with pytest.raises(ValueError, match="no SpellName for spell 133"):                # no Spell table: stay strict
+        class_spells(dict(TABLES, SpellName=names), skill_lines=(6, 8, 237))

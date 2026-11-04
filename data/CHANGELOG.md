@@ -1,5 +1,227 @@
 # Data changelog
 
+## 1.60.1.70707 (2026-10-31)
+
+- Affliction/Improved Drains: rank text changed
+- Arcane/Arcane Blast: rank text changed
+- Arcane/Arcane Focus: removed
+- Arcane/Arcane Resilience: rank text changed
+- Arcane/Arcane Resilience: renamed to Missile Barrage
+- Arcane/Arcane Wrath: rank text changed
+- Arcane/Improved Channeling: moved from row 1 col 3 to row 1 col 2
+- Arcane/Missile Barrage: max rank 2 -> 3
+- Arcane/Missile Barrage: moved from row 1 col 4 to row 1 col 3
+- Arcane/Missile Barrage: rank text changed
+- Arcane/Missile Barrage: renamed to Arcane Resilience
+- Arms/Improved Slam: rank text changed
+- Arms/Weaponmaster: rank text changed
+- Aspect of the Hawk rank 1: ranged_attack_power 20.0 -> 15.0
+- Aspect of the Hawk rank 2: ranged_attack_power 35.0 -> 22.0
+- Aspect of the Hawk rank 3: ranged_attack_power 50.0 -> 30.0
+- Aspect of the Hawk rank 4: ranged_attack_power 70.0 -> 38.0
+- Aspect of the Hawk rank 5: ranged_attack_power 90.0 -> 47.0
+- Assassination/Mutilate: rank text changed
+- Assassination/Venom: rank text changed
+- Balance/Eclipse: rank text changed
+- Balance/Genesis: rank text changed
+- Balance/Moonkin Form: rank text changed
+- Beast Mastery/Improved Revive Pet: moved from row 2 col 4 to row 2 col 3
+- Beast Mastery/Pathfinding: moved from row 2 col 3 to row 3 col 1
+- Beast Mastery/Summon Hawk: rank text changed
+- Blessing of Light rank 1: removed
+- Blessing of Light rank 2: removed
+- Blessing of Light rank 3: removed
+- Combat/Hack and Slash: rank text changed
+- Demonology/Demonic Brand: rank text changed
+- Demonology/Demonic Sacrifice: rank text changed
+- Demonology/Master Demonologist: rank text changed
+- Destruction/Conflagrate: rank text changed
+- Destruction/Incinerate: rank text changed
+- Destruction/Shadowburn: rank text changed
+- Discipline/Divine Aegis: rank text changed
+- Discipline/Improved Mana Burn: rank text changed
+- Discipline/Penance: rank text changed
+- Discipline/Renewed Hope: rank text changed
+- Elemental/Elemental Alacrity: rank text changed
+- Elemental/Lava Burst: rank text changed
+- Elemental/Reverberation: rank text changed
+- Enhancement/Improved Ghost Wolf: rank text changed
+- Feral Combat/Berserk: rank text changed
+- Feral Combat/Berserk: renamed to Primal Bite
+- Feral Combat/Feral Charge: rank text changed
+- Feral Combat/Heart of the Wild: rank text changed
+- Feral Combat/Heart of the Wild: renamed to Furor
+- Feral Combat/Improved Shifting Power: max rank 2 -> 1
+- Feral Combat/Improved Shifting Power: moved from row 5 col 1 to row 7 col 3
+- Feral Combat/Improved Shifting Power: rank text changed
+- Feral Combat/Improved Shifting Power: renamed to Shifting Power
+- Feral Combat/Leader of the Pack: rank text changed
+- Feral Combat/Natural Reaction: moved from row 6 col 1 to row 6 col 4
+- Feral Combat/Predatory Strikes: moved from row 4 col 3 to row 4 col 1
+- Feral Combat/Primal Bite: rank text changed
+- Feral Combat/Primal Bite: renamed to Lacerate
+- Feral Combat/Rend and Tear: moved from row 6 col 3 to row 6 col 1
+- Feral Combat/Shifting Power: moved from row 4 col 1 to row 4 col 3
+- Feral Combat/Shifting Power: prerequisite Shredding Attacks (rank 3) -> none
+- Feral Combat/Shifting Power: rank text changed
+- Feral Combat/Shifting Power: renamed to Predatory Discipline
+- Feral Combat/Thick Hide: rank text changed
+- Ferocious Bite rank 1: new spell rank
+- Fire/Blast Wave: rank text changed
+- Fire/Combustion: prerequisite Critical Mass (rank 5) -> Critical Mass (rank 3)
+- Fire/Critical Mass: max rank 5 -> 3
+- Fire/Critical Mass: rank text changed
+- Fire/Improved Fire Blast: moved from row 1 col 1 to row 3 col 4
+- Fire/Improved Fireball: rank text changed
+- Fire/Improved Fireball: renamed to Accelerant
+- Fire/Incineration: max rank 3 -> 5
+- Fire/Incineration: rank text changed
+- Fire/Pyroblast: rank text changed
+- Frost Blast rank 1: removed
+- Frost Blast rank 2: removed
+- Frost Blast rank 3: removed
+- Frost/Arctic Reach: rank text changed
+- Frost/Elemental Precision: rank text changed
+- Frost/Elemental Precision: renamed to Precision
+- Frost/Ice Barrier: rank text changed
+- Frost/Ice Lance: rank text changed
+- Frost/Winter's Chill: rank text changed
+- Fury/Gore Drinker: rank text changed
+- Greater Blessing of Light rank 1: removed
+- Holy Shield rank 1: level 40 -> 30
+- Holy Shield rank 1: mana_cost 150 -> 100
+- Holy Shield rank 2: level 50 -> 40
+- Holy Shield rank 2: mana_cost 195 -> 150
+- Holy Shield rank 3: level 60 -> 50
+- Holy Shield rank 3: mana_cost 240 -> 195
+- Holy/Binding Heal: rank text changed
+- Holy/Binding Heal: renamed to Holy Binding
+- Holy/Boundless Light: new talent
+- Holy/Consecrated Ground: moved from row 5 col 3 to row 5 col 1
+- Holy/Divine Favor: moved from row 4 col 3 to row 3 col 1
+- Holy/Divine Intellect: moved from row 1 col 3 to row 1 col 2
+- Holy/Divine Precision: max rank 3 -> 2
+- Holy/Divine Precision: moved from row 5 col 1 to row 4 col 1
+- Holy/Divine Precision: rank text changed
+- Holy/Divine Strength: max rank 5 -> 2
+- Holy/Divine Strength: moved from row 1 col 2 to row 5 col 1
+- Holy/Divine Strength: new talent
+- Holy/Divine Strength: rank text changed
+- Holy/Divine Strength: renamed to Stoicism
+- Holy/Holy Nova: rank text changed
+- Holy/Holy Power: rank text changed
+- Holy/Illumination: moved from row 4 col 2 to row 3 col 2
+- Holy/Illumination: prerequisite Reverence (rank 3) -> Reverence (rank 2)
+- Holy/Improved Seals: max rank 3 -> 5
+- Holy/Improved Seals: rank text changed
+- Holy/Infusion of Light: moved from row 4 col 1 to row 4 col 2
+- Holy/Infusion of Light: rank text changed
+- Holy/Light's Vigil: rank text changed
+- Holy/Prayer of Mending: rank text changed
+- Holy/Purifying Power: moved from row 3 col 3 to row 2 col 4
+- Holy/Reverence: max rank 3 -> 2
+- Holy/Reverence: moved from row 3 col 2 to row 2 col 2
+- Holy/Reverence: rank text changed
+- Holy/Spiritual Focus: max rank 2 -> 5
+- Holy/Spiritual Focus: moved from row 2 col 2 to row 1 col 2
+- Holy/Spiritual Focus: rank text changed
+- Holy/Unyielding Faith: moved from row 2 col 4 to row 3 col 2
+- Holy/Voice of Truth: moved from row 3 col 1 to row 4 col 3
+- Holy/Voice of Truth: rank text changed
+- Holy/Voice of Truth: renamed to Oath of Light
+- Ice Lance rank 1: cooldown 0.0 -> 8.0
+- Ice Lance rank 2: cooldown 0.0 -> 8.0
+- Ice Lance rank 3: cooldown 0.0 -> 8.0
+- Ice Lance rank 4: cooldown 0.0 -> 8.0
+- Ice Lance rank 5: cooldown 0.0 -> 8.0
+- Ice Lance rank 6: cooldown 0.0 -> 8.0
+- Lacerate rank 1: new spell rank
+- Lacerate rank 2: new spell rank
+- Light's Vigil rank 1: range 20.0 -> 40.0
+- Light's Vigil rank 2: range 20.0 -> 40.0
+- Light's Vigil rank 3: range 20.0 -> 40.0
+- Marksmanship/Trueshot Aura: rank text changed
+- Mass Salvation rank 1: removed
+- Primal Bite rank 1: level 25 -> 40
+- Primal Bite rank 1: weapon_bonus 26.0 -> 42.0
+- Primal Bite rank 2: level 36 -> 50
+- Primal Bite rank 2: weapon_bonus 38.0 -> 62.0
+- Primal Bite rank 3: level 48 -> 60
+- Primal Bite rank 3: weapon_bonus 59.0 -> 77.0
+- Primal Bite rank 4: removed
+- Protection/Anticipation: moved from row 2 col 4 to row 4 col 3
+- Protection/Holy Shield: moved from row 7 col 2 to row 5 col 2
+- Protection/Holy Shield: prerequisite Templar's Bulwark (rank 1) -> none
+- Protection/Holy Shield: rank text changed
+- Protection/Improved Hammer of Justice: moved from row 4 col 3 to row 3 col 2
+- Protection/Improved Righteous Fury: moved from row 3 col 2 to row 4 col 2
+- Protection/Improved Righteous Fury: rank text changed
+- Protection/Improved Seal of Fury: moved from row 3 col 1 to row 7 col 2
+- Protection/Improved Seal of Fury: prerequisite none -> Holy Shield (rank 1)
+- Protection/Improved Seal of Fury: rank text changed
+- Protection/Improved Seal of Fury: renamed to Shieldsworn
+- Protection/Improved Shield Wall: rank text changed
+- Protection/Iron Creed: max rank 5 -> 3
+- Protection/Iron Creed: rank text changed
+- Protection/One-Handed Weapon Specialization: removed
+- Protection/Redoubt: rank text changed
+- Protection/Sacred Duty: moved from row 3 col 4 to row 2 col 4
+- Protection/Sacred Duty: rank text changed
+- Protection/Shield Specialization: max rank 3 -> 2
+- Protection/Shield Specialization: rank text changed
+- Protection/Swift Judgement: prerequisite Improved Seal of Fury (rank 1) -> Templar's Bulwark (rank 1)
+- Protection/Swift Judgement: rank text changed
+- Protection/Templar's Bulwark: moved from row 5 col 2 to row 3 col 1
+- Protection/Toughness: moved from row 1 col 2 to row 3 col 4
+- Restoration/Furor: rank text changed
+- Restoration/Furor: renamed to Heart of the Wild
+- Restoration/Gift of the Earthmother: rank text changed
+- Restoration/Gift of the Earthmother: renamed to Bloom
+- Restoration/Naturalist: rank text changed
+- Restoration/Reflection: rank text changed
+- Restoration/Reflection: renamed to Subtlety
+- Restoration/Riptide: rank text changed
+- Restoration/Subtlety: rank text changed
+- Restoration/Subtlety: renamed to Reflection
+- Restoration/Swiftmend: rank text changed
+- Restoration/Water Shield: rank text changed
+- Restoration/Wild Growth: rank text changed
+- Retribution/Champion of the Light: max rank 3 -> 5
+- Retribution/Champion of the Light: moved from row 6 col 2 to row 6 col 3
+- Retribution/Champion of the Light: rank text changed
+- Retribution/Conviction: max rank 5 -> 3
+- Retribution/Conviction: moved from row 2 col 3 to row 2 col 2
+- Retribution/Conviction: rank text changed
+- Retribution/Holy Conduit: moved from row 2 col 2 to row 3 col 3
+- Retribution/Instrument of Law: removed
+- Retribution/Repentance: moved from row 5 col 3 to row 5 col 2
+- Retribution/Sacred Arbiter: moved from row 4 col 3 to row 4 col 2
+- Retribution/Sanctified Judgement: moved from row 3 col 2 to row 2 col 3
+- Retribution/Seal of Command: rank text changed
+- Retribution/Turn Evil: new talent
+- Retribution/Twist of Light: prerequisite none -> Repentance (rank 1)
+- Retribution/Twist of Light: rank text changed
+- Retribution/Twist of Light: renamed to Unsealed Wrath
+- Retribution/Two-Handed Weapon Specialization: moved from row 5 col 1 to row 4 col 4
+- Retribution/Two-Handed Weapon Specialization: rank text changed
+- Retribution/Vengeance: moved from row 5 col 2 to row 5 col 3
+- Retribution/Vengeance: prerequisite Sanctified Judgement (rank 3) -> Seal of Command (rank 1)
+- Retribution/Vindication: rank text changed
+- Revoke rank 1: removed
+- Righteous Fury rank 1: level 16 -> 10
+- Salvation rank 1: removed
+- Shadow/Devouring Contagion: rank text changed
+- Subtlety/Improved Distract: rank text changed
+- Survival/Counterattack: rank text changed
+- Survival/Resourcefulness: rank text changed
+- Swift Judgement rank 1: duration -0.001 -> 0.0
+- Swift Judgement rank 1: range 0.0 -> 10.0
+- Swift Judgement rank 1: schools ('physical',) -> ('holy',)
+- Templar's Bulwark rank 1: removed
+- Wild Growth rank 1: cast_time 0.0 -> 3.0
+- Wild Growth rank 2: cast_time 0.0 -> 3.0
+- Wild Growth rank 3: cast_time 0.0 -> 3.0
+
 ## 1.60.1.70685 (2026-10-29)
 
 - Affliction/Amplify Curse: rank text changed
