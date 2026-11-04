@@ -196,7 +196,8 @@ def test_hotfixes_change_where_tables_are_read_and_are_recorded(data, tmp_path):
 def test_rank_text_from_wowforevertalents(data, tmp_path, monkeypatch):
     asked = []
 
-    def fake_fetch(class_slug, *, http_get, raw_dir, delay):
+    def fake_fetch(class_slug, *, http_get, raw_dir, delay, fallback=None):
+        assert fallback is not None and fallback("no such talent") is None      # the client tooltip fallback (#466)
         asked.append((class_slug, raw_dir, delay))
         folder = raw_dir / class_slug
         folder.mkdir(parents=True)

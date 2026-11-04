@@ -233,3 +233,26 @@ def test_a_plain_html_snapshot_from_before_458_still_reads_offline(tmp_path):
     assert again == first
     assert json.loads(manifest.read_text(encoding="utf-8"))["sha256"] == \
         json.loads(first_manifest.read_text(encoding="utf-8"))["sha256"]      # checksum of the pages, not the files
+
+def test_a_talent_the_site_serves_no_page_for_takes_the_fallback(tmp_path):
+    # 4 Nov 2026: the shaman page links /talents/call-of-thunder/ and the site serves the class page there (#466)
+    from wowforever.sources.wowforevertalents import fetch
+    site = FakeSite()
+    site.pages[talent_url("druid", "lacerate")] = MINI_CLASS
+    _, result = fetch("druid", http_get=site, raw_dir=tmp_path / "20261104", sleep=lambda s: None,
+                      fallback=lambda name: ("Lacerate from the client.",) if name == "Lacerate" else None)
+    lacerate = next(t for tree in result.trees for t in tree["talents"] if t["name"] == "Lacerate")
+    assert lacerate["ranks"] == [{"rank": 1, "text": "Lacerate from the client."}]
+    genesis = next(t for tree in result.trees for t in tree["talents"] if t["name"] == "Genesis")
+    assert genesis["ranks"][4]["text"].endswith("by 10%.")                       # the site's pages still count
+
+
+def test_without_a_fallback_or_with_the_wrong_rank_count_the_update_stops(tmp_path):
+    from wowforever.sources.wowforevertalents import fetch
+    site = FakeSite()
+    site.pages[talent_url("druid", "lacerate")] = MINI_CLASS
+    with pytest.raises(ValueError, match="not a wowforevertalents.com talent page"):
+        fetch("druid", http_get=site, raw_dir=tmp_path / "a", sleep=lambda s: None)
+    with pytest.raises(ValueError, match="no talent page for Lacerate"):
+        fetch("druid", http_get=site, raw_dir=tmp_path / "b", sleep=lambda s: None,
+              fallback=lambda name: ("one", "two"))
