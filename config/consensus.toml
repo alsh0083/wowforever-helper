@@ -143,7 +143,7 @@ strong = ["Improved Frost Nova", "Permafrost", "Blast Wave", "Improved Blizzard"
 sources = ["barrens_pvp_builds"]
 
 [tiers.mage.questing]
-core = ["Improved Frostbolt", "Elemental Precision"]
+core = ["Improved Frostbolt", "Precision"]   # the guide's Elemental Precision, renamed Precision in 70707
 strong = ["Ice Shards", "Shatter", "Frostbite", "Permafrost"]
 sources = ["method_forever_leveling", "wt_forever_mage"]
 
@@ -193,22 +193,22 @@ sources = ["wt_forever_warrior"]
 
 [tiers.paladin.wpvp_melee]
 core = ["Repentance"]
-strong = ["Voice of Truth"]
+strong = []          # Voice of Truth, removed in 1.60.1.70755 (#463)
 sources = ["wt_forever_paladin"]
 
 [tiers.paladin.wpvp_caster]
 core = ["Repentance"]
-strong = ["Voice of Truth"]
+strong = []          # Voice of Truth, removed in 1.60.1.70755 (#463)
 sources = ["wt_forever_paladin"]
 
 [tiers.paladin.stealth_ambush]
 core = ["Repentance"]
-strong = ["Voice of Truth"]
+strong = []          # Voice of Truth, removed in 1.60.1.70755 (#463)
 sources = ["wt_forever_paladin"]
 
 [tiers.paladin.battleground]
 core = ["Repentance"]
-strong = ["Voice of Truth"]
+strong = []          # Voice of Truth, removed in 1.60.1.70755 (#463)
 sources = ["wt_forever_paladin"]
 
 [tiers.rogue.wpvp_melee]
