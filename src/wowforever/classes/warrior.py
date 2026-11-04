@@ -40,8 +40,8 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Improved Heroic Strike": (
         EffectRule("rage_cost", r"cost of your Heroic Strike ability by (\d+(?:\.\d+)?) Rage", ("Heroic Strike",), sign=-1),
     ),
-    "Raging Blows": (
-        EffectRule("rage_cost", r"Rage cost of your Cleave and Whirlwind abilities by (\d+(?:\.\d+)?)", ("Cleave", "Whirlwind"), sign=-1),
+    "Improved Whirlwind": (
+        EffectRule("cooldown", r"cooldown of your Whirlwind ability by (\d+(?:\.\d+)?) sec", ("Whirlwind",), sign=-1),
     ),
     "Improved Execute": (
         EffectRule("rage_cost", r"Rage cost of your Execute ability by (\d+(?:\.\d+)?)", ("Execute",), sign=-1),
@@ -63,7 +63,7 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("hit_chance", r"chance to hit with off-hand attacks by (\d+(?:\.\d+)?)%", ("@off_hand",)),
     ),
     "Improved Slam": (
-        EffectRule("cooldown", r"Slam's cooldown is reduced by (\d+(?:\.\d+)?) sec", ("Slam",), sign=-1),
+        EffectRule("cooldown", r"cooldown of your Slam ability by (\d+(?:\.\d+)?) sec", ("Slam",), sign=-1),
     ),
     "Bloodthrill": (
         # 70425 "an activation of Overpower"; <= 70205 "the use of your Overpower ability"
@@ -91,6 +91,7 @@ UNMODELED: dict[str, str] = {
     "Blood Craze": "defensive: regenerate health after being crit",
     "Enrage": "melee damage: +10% Physical damage after being hit; a boss hits the tank, so 0 for DPS (#391)",
     "Death Wish": "grants_spell",
+    "Reckless Swings": "grants_spell",
     "Improved Intercept": "mobility: Intercept cooldown -10 s",
     "Improved Berserker Rage": "rage: Berserker Rage generates 10 Rage and frees movement",
     "Gore Drinker": "defensive: rage abilities make the next 3 swings heal up to 1% Health",

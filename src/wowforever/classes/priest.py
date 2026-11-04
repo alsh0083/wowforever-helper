@@ -123,7 +123,7 @@ UNMODELED: dict[str, str] = {
     "Inspiration": "healing: crit heals raise target armor",
     "Holy Reach": "utility: Smite, Holy Fire and Holy Nova range",
     "Improved Healing": "resource: cheaper heals",
-    "Binding Heal": "grants_spell",
+    "Holy Binding": "healing: Flash Heal on others heals the Priest for 50%",
     "Litany of Light": "resource: mana back when alternating heals",
     "Spirit of Redemption": "healing: keep healing after death",
     "Spiritual Guidance": "healing: spell power from Spirit",
