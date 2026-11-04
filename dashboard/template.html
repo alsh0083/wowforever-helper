@@ -40,7 +40,7 @@
 <section class="surface spells" aria-labelledby="spells-title"><div class="section-head"><div><h2 id="spells-title">Spell training</h2><p class="school-desc" id="spells-desc"></p></div></div><div id="spell-chips"></div></section>
 </div>
 <aside class="side"><section class="surface next" aria-live="polite"><div class="eyebrow" id="next-label">Your next point</div><div id="next-icon"></div><h2 id="next-title"></h2><div class="subtle" id="next-meta"></div><p id="next-why"></p><button id="check-next" class="primary">Check off point</button></section><div class="stats" id="tree-stats"></div></aside></div>
-<footer><span id="footer-data"></span><span>Talent text and icons: <a id="source-link" href="https://wowforevertalent.com/mage/" target="_blank" rel="noopener noreferrer">wowforevertalent.com</a> (Creative Commons Attribution) · Game data: wago.tools · Model checks: <a href="https://foreverlogs.gg/" target="_blank" rel="noopener noreferrer">Forever Logs</a> · Fan project, not affiliated with Blizzard · Works offline</span><button class="reset" id="reset">Reset progress</button></footer>
+<footer><span id="footer-data"></span><span>Talent text: <a id="source-link" href="https://wowforevertalents.com/mage/" target="_blank" rel="noopener noreferrer">wowforevertalents.com</a> · Icons: <a href="https://wowforevertalent.com/" target="_blank" rel="noopener noreferrer">wowforevertalent.com</a> (Creative Commons Attribution) · Community builds: <a href="https://talentsforever.com/" target="_blank" rel="noopener noreferrer">talentsforever.com</a> (CC BY 4.0) and <a href="https://wowforeverbuilds.com/" target="_blank" rel="noopener noreferrer">wowforeverbuilds.com</a> guides · Game data: wago.tools and the client's hotfix cache · Model checks: <a href="https://foreverlogs.gg/" target="_blank" rel="noopener noreferrer">Forever Logs</a> · Fan project, not affiliated with Blizzard · Works offline</span><button class="reset" id="reset">Reset progress</button></footer>
 </main>
 <script>
 'use strict';
@@ -498,7 +498,7 @@ document.querySelectorAll('[data-class-tab]').forEach(a=>{if(a.dataset.classTab=
 document.querySelectorAll('[data-class-matrix]').forEach(m=>{m.hidden=m.dataset.classMatrix!==CLASS});
 $('hero-eyebrow').textContent=`${THEME.label} field guide`;
 {const official=ICONS['class_'+CLASS];if(official)$('crest').innerHTML=`<img class="crest-icon" src="${official}" alt="${THEME.label} class icon">`;else if(THEME.crest)$('crest').innerHTML=THEME.crest}
-$('source-link').href=`https://wowforevertalent.com/${CLASS}/`;
+$('source-link').href=`https://wowforevertalents.com/${CLASS}/`;
 if(DATA.engine===false)$('hero-intro').textContent='Community-standard talent orders for each tree. Pick a build, follow the path, and check off points as you level. '+(DATA.scoring_note||'Scores come with the damage model.');
 $('checklist-section').hidden=!(DATA.checklist||[]).length;
 if(DATA.engine===false)$('matrix-caption').textContent='Community-standard builds for each tree, PvP and PvE. '+(DATA.scoring_note||'Scores and model picks come with the damage model.');

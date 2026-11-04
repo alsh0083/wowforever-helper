@@ -111,3 +111,11 @@ def test_fetch_icons_still_fails_on_other_errors(tmp_path):
 
     with pytest.raises(urllib.error.HTTPError):
         fetch_icons(["a"], http_get_bytes=get_bytes, cache_dir=tmp_path)
+
+
+def test_footer_credits_every_talent_and_build_source():
+    html = render(PAYLOAD, ICONS)
+    footer = html[html.index("<footer>"):html.index("</footer>")]
+    for source in ("wowforevertalents.com", "wowforevertalent.com", "talentsforever.com", "CC BY 4.0",
+                   "wowforeverbuilds.com", "wago.tools"):
+        assert source in footer, source
