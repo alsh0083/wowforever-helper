@@ -96,6 +96,24 @@ def test_unflagged_talents_are_the_same_as_classic_and_tree_names_follow_our_lay
     assert statuses == {"same", "changed", "new"}
 
 
+def test_announced_and_latest_nodes_are_read_like_the_rest():
+    # 2026-11-03: the site marks talents from Blizzard's 2 Nov notes `node is-announced` and recent ones `node is-latest`
+    article = ('<div class="trees"><article class="tree" aria-label="Assassination tree"><h2>Assassination</h2>'
+               '<div class="node" style="grid-row:1;grid-column:2"><div class="node-inner"><button type="button" '
+               'class="node-btn locked" aria-label="Malice, rank 0 of 5"></button></div></div>'
+               '<div class="node is-announced" style="grid-row:3;grid-column:3"><div class="node-inner"><button '
+               'type="button" class="node-btn locked" aria-label="Lethality, rank 0 of 2. Announced by Blizzard on 2 '
+               'November, not in the game client yet."><img src="https://wow.zamimg.com/images/wow/icons/large/'
+               'ability_criticalstrike.jpg"/></button></div><span class="flag new" title="New in Forever">★</span></div>'
+               '<div class="node is-latest" style="grid-row:5;grid-column:3"><div class="node-inner"><button '
+               'type="button" class="node-btn locked" aria-label="Seal Fate, rank 0 of 3"></button></div></div>'
+               '</article></div>')
+    [tree] = class_trees(article)
+    assert [(t["name"], t["row"], t["col"], t["maxRank"]) for t in tree["talents"]] == [
+        ("Malice", 1, 2, 5), ("Lethality", 3, 3, 2), ("Seal Fate", 5, 3, 3)]
+    assert tree["talents"][1]["icon"] == "ability_criticalstrike" and tree["talents"][1]["classic"] == {"status": "new"}
+
+
 def fake(name, max_rank, tree="Balance"):
     return TalentPage(name, "Druid", tree, max_rank, tuple(f"{name} rank {r}" for r in range(1, max_rank + 1)), ())
 
