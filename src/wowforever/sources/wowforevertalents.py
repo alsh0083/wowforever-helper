@@ -76,7 +76,7 @@ def class_trees(class_html: str) -> list[dict[str, Any]]:
     for article in re.findall(r'<article class="tree"[^>]*>(.*?)</article>', class_html, re.S):
         name = _text(re.search(r"<h2[^>]*>(.*?)</h2>", article, re.S).group(1))
         talents = []
-        for cell in re.split(r'(?=<div class="node" )', article)[1:]:
+        for cell in re.split(r'(?=<div class="node[ "])', article)[1:]:
             where = re.search(r'grid-row:(\d+);grid-column:(\d+)', cell)
             label = re.search(r'aria-label="([^"]+), rank \d+ of (\d+)', cell)
             icon = re.search(r'/icons/large/([^."/]+)\.jpg', cell)
