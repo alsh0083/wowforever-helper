@@ -33,6 +33,7 @@ class Calculator:
     trees: tuple[tuple[tuple[str, int], ...], ...]    # per tree, (talent name, max rank) in build-code order
     positions: tuple[tuple[tuple[int, int], ...], ...]  # per tree, each talent's (row, col) in the same order
     requires: tuple[tuple[tuple[int, int] | None, ...], ...]  # per tree, (index in the tree, rank) each talent needs
+    texts: tuple[tuple[tuple[str, ...], ...], ...] = ()  # per tree, each talent's rank text (#463); () when unknown
 
 
 @dataclass(frozen=True)
@@ -65,8 +66,9 @@ def parse_calculator(page_html: str) -> Calculator:
     trees = tuple(tuple((t["name"], int(t["maxRank"])) for t in tree["talents"]) for tree in cls["trees"])
     positions = tuple(tuple((int(t["row"]), int(t["col"])) for t in tree["talents"]) for tree in cls["trees"])
     requires = tuple(_requires(tree["talents"]) for tree in cls["trees"])
+    texts = tuple(tuple(tuple(r["description"] for r in t["ranks"]) for t in tree["talents"]) for tree in cls["trees"])
     return Calculator(cls["slug"], build.group(1), tuple(tree["name"] for tree in cls["trees"]), trees, positions,
-                      requires)
+                      requires, texts)
 
 
 def _requires(talents: list[dict]) -> tuple[tuple[int, int] | None, ...]:
@@ -154,6 +156,19 @@ def _changed(a: Calculator, b: Calculator, used: Sequence[int]) -> bool:
     return any(i >= len(a.trees) or i >= len(b.trees) or _tree(a, i) != _tree(b, i) for i in used)
 
 
+_NUMBER = re.compile(r"\d+(?:\.\d+)?")
+
+
+def _same_text(a: str, b: str) -> bool:
+    """Rank text compared word for word, numbers within 1% (sites round computed values differently and write 3 or
+    3.0); spacing and a final full stop don't count."""
+    a, b = (" ".join(text.split()).rstrip(".") for text in (a, b))
+    if _NUMBER.sub("#", a) != _NUMBER.sub("#", b):
+        return False
+    return all(abs(float(x) - float(y)) <= 0.01 * max(float(x), float(y))
+               for x, y in zip(_NUMBER.findall(a), _NUMBER.findall(b)))
+
+
 def standard_build(slug: str, history: Sequence[Snapshot], cls: ClassData) -> tuple[dict[str, int] | None, str]:
     """The build a guide stands for on our trees, or (None, why not).
 
@@ -162,7 +177,8 @@ def standard_build(slug: str, history: Sequence[Snapshot], cls: ClassData) -> tu
     old calculator. When a code changed in the same gap as its calculator, each calculator reads it, and a reading
     counts only if it is legal on that calculator's trees and takes every talent the guide's title names; the guide
     is kept only when exactly one reading counts, or both count and agree. The trees the build spends points in must
-    then match ours exactly, and the build must be legal.
+    then match ours exactly, in layout and in every talent's rank text (a build picked for other numbers isn't a
+    current standard, #463), and the build must be legal.
     """
     latest = history[-1]
     guide = latest.guides.get(slug)
@@ -209,6 +225,12 @@ def standard_build(slug: str, history: Sequence[Snapshot], cls: ClassData) -> tu
         if set(_tree(calc, i)) != {(t.name, t.max_rank, t.row, t.col) for t in talents.values()}:
             return None, (f"{slug}: {label}: the build was made on the {calc.build} calculator "
                           f"({made_on}), whose tree differs from ours")
+        changed = [name for (name, _), text in zip(calc.trees[i], calc.texts[i] if calc.texts else ())
+                   if len(text) != len(talents[name].rank_text)
+                   or not all(map(_same_text, text, talents[name].rank_text))]
+        if changed:
+            return None, (f"{slug}: {label}: the build was made on the {calc.build} calculator ({made_on}), "
+                          f"whose rank text differs from ours for " + ", ".join(changed))
         for name, _ in calc.trees[i]:
             if name in ranks:
                 build[talents[name].talent_id] = ranks[name]
