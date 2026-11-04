@@ -85,17 +85,19 @@ def effects(name):
 
 def test_hot_talents_parse_from_their_rank_texts():
     assert PROBLEMS == []
-    assert ("healing_pct", (1.0, 2.0, 3.0, 4.0, 5.0), ("periodic",)) in effects("Genesis")
+    assert ("healing_pct", (2.0, 4.0, 6.0, 8.0, 10.0), ("periodic",)) in effects("Genesis")      # doubled on 70755
     assert effects("Improved Rejuvenation") == [("healing_pct", (5.0, 10.0, 15.0), ("Rejuvenation",))]
     assert effects("Nature's Splendor") == [("duration", (3.0,), ("Rejuvenation",)), ("duration", (6.0,), ("Regrowth",))]
-    assert effects("Gift of the Earthmother") == [("gcd", (-0.5,), ("Rejuvenation", "Swiftmend", "Wild Growth"))]
+    assert "Gift of the Earthmother" not in {t.name for t in CLS.talents}     # Bloom took its place (70755)
 
 
 def test_heal_modifiers_split_direct_and_periodic_healing():
     resto = heal_modifiers(spell("Rejuvenation"), CLS, final("druid-restoration-pvp"))
-    assert (resto.direct_pct, resto.periodic_pct, resto.gcd) == (pytest.approx(19.0), pytest.approx(19.0), pytest.approx(-0.5))
+    # Gift of Nature 10 + Improved Rejuvenation 15; Genesis +10 periodic; no GCD cut (Gift of the Earthmother gone, 70755)
+    assert (resto.direct_pct, resto.periodic_pct, resto.gcd) == (pytest.approx(25.0), pytest.approx(35.0), 0.0)
     balance = heal_modifiers(spell("Regrowth"), CLS, final("druid-balance-pvp"))
-    assert (balance.direct_pct, balance.periodic_pct, balance.duration) == (0.0, pytest.approx(5.0), pytest.approx(6.0))
+    assert (balance.direct_pct, balance.periodic_pct, balance.duration) == (pytest.approx(10.0), pytest.approx(20.0),
+                                                                            pytest.approx(6.0))
     # Moonglow cuts damaging spells only; Naturalist names Healing Touch
     touch = heal_modifiers(spell("Healing Touch"), CLS, final("druid-balance-pvp"))
     assert (touch.cast, touch.cost) == (pytest.approx(-0.5), 0.0)
@@ -103,29 +105,30 @@ def test_heal_modifiers_split_direct_and_periodic_healing():
 
 def test_restoration_opens_with_hots_and_swiftmend():
     hps, budget = heal_capacity("druid", TABLE.at(60), CLS.spells, CLS, final("druid-restoration-pvp"))
-    assert hps == pytest.approx(1105.632, rel=1e-4) and budget == pytest.approx(10990.241, rel=1e-4)
+    assert hps == pytest.approx(1172.589, rel=1e-4) and budget == pytest.approx(13447.546, rel=1e-4)
 
 
 def test_swiftmend_adds_nothing_when_it_consumes_the_hot():
     hps, budget = heal_capacity("druid", TABLE.at(60), CLS.spells, CLS, final("druid-restoration-pvp"),
                                 assumptions=CONSUMES)
-    assert hps == pytest.approx(1092.788, rel=1e-4) and budget == pytest.approx(9769.777, rel=1e-4)
+    assert hps == pytest.approx(1171.188, rel=1e-4) and budget == pytest.approx(11674.704, rel=1e-4)
 
 
-def test_balance_gets_longer_hots_but_no_swiftmend():
+def test_balance_pvp_heals_close_to_restoration():
+    # the 70755 Balance PvP model build takes Gift of Nature and Swiftmend (#463)
     hps, budget = heal_capacity("druid", TABLE.at(60), CLS.spells, CLS, final("druid-balance-pvp"))
-    assert hps == pytest.approx(1051.076, rel=1e-4) and budget == pytest.approx(9797.533, rel=1e-4)
+    assert hps == pytest.approx(1171.222, rel=1e-4) and budget == pytest.approx(12674.300, rel=1e-4)
 
 
 def test_feral_hots_without_spell_power():
     hps, budget = heal_capacity("druid", TABLE.at(60), CLS.spells, CLS, final("druid-feral"))
-    assert hps == pytest.approx(775.848, rel=1e-4) and budget == pytest.approx(4202.509, rel=1e-4)
+    assert hps == pytest.approx(834.363, rel=1e-4) and budget == pytest.approx(4291.009, rel=1e-4)
 
 
 def test_restoration_at_the_beta_cap():
     ranks = ranks_at(BUILDS["druid-restoration-pvp-leveling"].order_ids(CLS), 30, CLS)
     hps, budget = heal_capacity("druid", TABLE.at(30), CLS.spells, CLS, ranks)
-    assert hps == pytest.approx(238.946, rel=1e-4) and budget == pytest.approx(2935.618, rel=1e-4)
+    assert hps == pytest.approx(234.260, rel=1e-4) and budget == pytest.approx(2878.057, rel=1e-4)
 
 
 def test_opening_heals_scale_down_when_mana_is_short(monkeypatch):
@@ -137,12 +140,13 @@ def test_opening_heals_scale_down_when_mana_is_short(monkeypatch):
 
     monkeypatch.setattr(class_pvp, "load_toml", short)
     hps, budget = heal_capacity("druid", TABLE.at(60), CLS.spells, CLS, final("druid-restoration-pvp"))
-    assert hps == pytest.approx(1290.208, rel=1e-4) and budget == pytest.approx(1466.609, rel=1e-4)
+    assert hps == pytest.approx(1321.669, rel=1e-4) and budget == pytest.approx(1877.965, rel=1e-4)
 
 
 def test_crit_talents_reach_heals_by_name_or_all():
     assert ("crit_chance", (10.0, 20.0, 30.0, 40.0, 50.0), ("Regrowth",)) in effects("Improved Regrowth")
-    assert heal_modifiers(spell("Regrowth"), CLS, final("druid-restoration-pvp")).crit == pytest.approx(50.0)
+    improved = {CLS.talent_named("Improved Regrowth").talent_id: 5}     # the 70755 Restoration build skips it
+    assert heal_modifiers(spell("Regrowth"), CLS, improved).crit == pytest.approx(50.0)
     # Nature's Majesty and Moonkin Form target "all"; Improved Moonfire names Moonfire
     assert heal_modifiers(spell("Healing Touch"), CLS, final("druid-balance-pvp")).crit == pytest.approx(7.0)
     # Sharpened Claws and Leader of the Pack need cat or bear form

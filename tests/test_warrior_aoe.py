@@ -48,13 +48,15 @@ def test_single_target_is_unchanged():
     one = rotation("warrior-fury-pve", 1)
     default = wr.warrior_rotation(STATS, CLS.spells, CLS, ranks_of("warrior-fury-pve"), MOBS)
     assert one == default
-    assert one.aoe == () and [n for n, _ in one.parts] == ["Overpower", "Rend", "Whirlwind", "Heroic Strike"]   # #391, #424
+    # #391, #424; on 70755 the Fury build has no Rage left for Heroic Strike on one target
+    assert one.aoe == () and [n for n, _ in one.parts] == ["Overpower", "Rend", "Whirlwind"]
 
 
 def test_whirlwind_hits_up_to_four_mobs():
-    one, three, five = (dict(rotation("warrior-fury-pve", p).parts) for p in (1, 3, 5))
-    assert three["Whirlwind"] == pytest.approx(3 * one["Whirlwind"])
-    assert five["Whirlwind"] == pytest.approx(4 * one["Whirlwind"])
+    # per mob against two (on one target Rend takes Rage Whirlwind gets in a pack, where Rend isn't cast)
+    two, three, four, five = (dict(rotation("warrior-fury-pve", p).parts) for p in (2, 3, 4, 5))
+    assert three["Whirlwind"] == pytest.approx(3 / 2 * two["Whirlwind"])
+    assert four["Whirlwind"] == five["Whirlwind"] == pytest.approx(2 * two["Whirlwind"])
 
 
 def test_thunder_clap_joins_against_a_pack():
