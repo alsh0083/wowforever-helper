@@ -19,6 +19,8 @@ from wowforever.physical import Target
 from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.weapon_talents import best_weapon
 
+from _trees import builds_by_id
+
 DATASET = Dataset.load(latest_dataset_path())
 BOSS = Target(3, 976)
 ADAPTED = {"rogue": rogue_rotation, "warrior": warrior_rotation, "paladin": paladin_rotation}
@@ -148,7 +150,7 @@ def test_casters_run_the_caster_rotation(name):
 def test_hybrids_fight_with_the_row_their_main_tree_picks(name, melee_build, caster_build):
     m = class_module(name)
     cls, _ = attach_effects(DATASET.class_data(name), m.TALENT_EFFECTS, m.UNMODELED)
-    builds = {b.id: b.final_ids(cls) for b in load_builds(class_name=name)}
+    builds = {k: b.final_ids(cls) for k, b in builds_by_id(name).items()}
     stats = ms.stat_table(name).at(60)
     melee, caster = builds[melee_build], builds[caster_build]
     assert engine(name).playstyle(cls, melee) == "melee" and engine(name).playstyle(cls, caster) == "caster"

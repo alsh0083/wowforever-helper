@@ -3,6 +3,8 @@
 from wowforever.schema import latest_dataset_path
 from wowforever.group import Member, effective, load_resolved, options
 
+from _trees import builds_by_id
+
 BUFFS = load_resolved()["buffs"]
 BY_ID = {b["id"]: b for b in BUFFS}
 
@@ -47,7 +49,6 @@ def _engine(class_name, build_id):
     from pathlib import Path
 
     from wowforever import melee_scenarios as ms
-    from wowforever.builds import load_builds
     from wowforever.classes import class_module
     from wowforever.effects import attach_effects
     from wowforever.schema import Dataset
@@ -56,7 +57,7 @@ def _engine(class_name, build_id):
     m = class_module(class_name)
     cls, _ = attach_effects(Dataset.load(latest_dataset_path())
                             .class_data(class_name), m.TALENT_EFFECTS, m.UNMODELED)
-    b = {x.id: x for x in load_builds(class_name=class_name)}[build_id]
+    b = builds_by_id(class_name)[build_id]
     stats = StatTable.load("mage").at(60) if class_name == "mage" else ms.stat_table(class_name).at(60)
     return stats, cls, b.final_ids(cls)
 

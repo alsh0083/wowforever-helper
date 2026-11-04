@@ -2,11 +2,12 @@
 
 import pytest
 
-from wowforever.builds import load_builds
 from wowforever.classes.priest import TALENT_EFFECTS, UNMODELED
 from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import stat_table
 from wowforever.schema import Dataset, latest_dataset_path
+
+from _trees import builds_by_id
 
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("priest"), TALENT_EFFECTS, UNMODELED)
 STATS = stat_table("priest").at(60)
@@ -43,7 +44,7 @@ def test_mental_strength_and_dark_inspiration_raise_stats():
 def test_talent_stats_apply_the_build_percentages():
     from wowforever.caster import talent_stats
 
-    ranks = {b.id: b for b in load_builds(class_name="priest")}["priest-shadow"].final_ids(CLS)
+    ranks = builds_by_id("priest")["priest-shadow"].final_ids(CLS)
     # priest-shadow (the players' post-patch build, #369) takes Mental Strength 5 (10%) and Dark Inspiration 3 (9%)
     out = talent_stats("priest", STATS, CLS, ranks)
     assert out.intellect == pytest.approx(STATS.intellect * 1.10)

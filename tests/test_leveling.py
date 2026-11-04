@@ -6,10 +6,11 @@ from pathlib import Path
 import pytest
 
 from wowforever.schema import latest_dataset_path
-from wowforever.builds import load_builds
 from wowforever.classes import CLASSES
 from wowforever.melee_scenarios import main_tree
 from wowforever.schema import Dataset
+
+from _trees import builds_by_id
 
 DS = Dataset.load(latest_dataset_path())
 
@@ -17,7 +18,7 @@ DS = Dataset.load(latest_dataset_path())
 @pytest.mark.parametrize("class_name", CLASSES)
 def test_leveling_paths_start_in_the_endgame_builds_main_tree(class_name):
     cls = DS.class_data(class_name)
-    builds = {b.id: b for b in load_builds(class_name=class_name)}
+    builds = builds_by_id(class_name)
     leveling = [b for b in builds.values() if b.mode == "leveling"]
     assert leveling, class_name
     for b in leveling:

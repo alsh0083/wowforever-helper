@@ -4,7 +4,6 @@ one Wrath then two Starfires with the cut (`ROTATION["filler_mix"]`), against ea
 import pytest
 
 from wowforever.assumptions import Assumptions
-from wowforever.builds import load_builds
 from wowforever.caster import cast, caster_rotation
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
@@ -12,6 +11,8 @@ from wowforever.melee_scenarios import stat_table
 from wowforever.physical import Target
 from wowforever.scenarios import best_rank
 from wowforever.schema import Dataset, latest_dataset_path
+
+from _trees import builds_by_id
 
 D = class_module("druid")
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("druid"), D.TALENT_EFFECTS, D.UNMODELED)
@@ -47,7 +48,7 @@ def test_the_mix_is_one_wrath_and_two_fast_starfires():
 
 
 def test_balance_does_not_lose_from_eclipse():
-    ranks = {b.id: b.final_ids(CLS) for b in load_builds(class_name="druid")}["druid-balance"]
+    ranks = {k: b.final_ids(CLS) for k, b in builds_by_id("druid").items()}["druid-balance"]
     tid = CLS.talent_named("Eclipse").talent_id
     without = {t: r for t, r in ranks.items() if t != tid}
     assert (caster_rotation("druid", STATS, CLS.spells, CLS, ranks, BOSS).dps

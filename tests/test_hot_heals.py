@@ -52,7 +52,6 @@ from pathlib import Path
 import pytest
 
 from wowforever.assumptions import Assumptions
-from wowforever.builds import load_builds
 from wowforever.classes.druid import TALENT_EFFECTS, UNMODELED
 from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import HybridTable, MeleeStatTable
@@ -62,11 +61,13 @@ from wowforever.report import ranks_at
 from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.stats import StatTable
 
+from _trees import builds_by_id
+
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("druid"), TALENT_EFFECTS, UNMODELED)
 # the stat rows the hand-worked values below use, frozen (1.60.1.70205 gear; #416 moved the live tables)
 FROZEN = Path(__file__).parent / "fixtures" / "stats-70205"
 TABLE = HybridTable(StatTable.load("druid", FROZEN), MeleeStatTable.load("druid_melee", config_dir=FROZEN))
-BUILDS = {b.id: b for b in load_builds(class_name="druid")}
+BUILDS = builds_by_id("druid")
 CONSUMES = Assumptions.load().with_values(swiftmend_consumes_hot=True)
 
 

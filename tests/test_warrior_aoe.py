@@ -18,7 +18,6 @@ import pytest
 
 from wowforever.classes import engine
 from wowforever import melee_scenarios as ms
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes import warrior_rotation as wr
 from wowforever.effects import attach_effects
@@ -26,9 +25,11 @@ from wowforever.physical import Target
 from wowforever.scenarios import default_params
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import builds_by_id
+
 W = class_module("warrior")
 CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("warrior"), W.TALENT_EFFECTS, W.UNMODELED)
-BUILDS = {b.id: b for b in load_builds(class_name="warrior")}
+BUILDS = builds_by_id("warrior")
 STATS = ms.stat_table("warrior").at(60)
 MOBS = Target(0, 3300)
 

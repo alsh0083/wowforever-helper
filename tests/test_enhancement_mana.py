@@ -6,7 +6,6 @@ drop Earth Shock (an alternative, as #390's DoT drops)."""
 import pytest
 
 from wowforever import melee_scenarios as ms
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.shaman_rotation import enhancement_rotation
 from wowforever.effects import attach_effects
@@ -15,12 +14,14 @@ from wowforever.physical import Target
 from wowforever.scenarios import best_rank
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import builds_by_id
+
 S = class_module("shaman")
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("shaman"), S.TALENT_EFFECTS,
                                S.UNMODELED)
 STATS = MeleeStatTable.load("shaman_melee").at(60)
 BOSS = Target(3, 3731)
-BUILD = next(b for b in load_builds(class_name="shaman") if b.id == "shaman-enhancement").final_ids(CLS)
+BUILD = builds_by_id("shaman")["shaman-enhancement"].final_ids(CLS)
 
 
 def total(ranks, kind, applies):

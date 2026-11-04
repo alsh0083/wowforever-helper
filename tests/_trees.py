@@ -20,3 +20,27 @@ def tree_build(cls, tree: str, variant: str | None = None, *, mode: str = "endga
     if not mine:
         raise KeyError(f"{cls.class_name}: no {mode} {tree} build")
     return min(mine, key=lambda b: (b.variant != "PvP", b.origin != "community", b.id))
+
+
+# Build ids tests used before the 70755 re-import (#460), each resolved to the build that holds its spec now.
+OLD_IDS = {
+    "mage": {"deep-arcane": ("Arcane", "PvE"), "deep-frost": ("Frost", "PvE"), "deep-fire": ("Fire", "PvE"),
+             "arcane-pom-pyro": ("Arcane", "PvE")},
+    "druid": {"druid-feral": ("Feral Combat", "PvE"), "druid-restoration": ("Restoration", "PvE"),
+              "druid-balance": ("Balance", "PvE")},
+    "shaman": {"shaman-elemental": ("Elemental", "PvE"), "shaman-enhancement-pve": ("Enhancement", "PvE")},
+    "warlock": {"warlock-destruction-pve": ("Destruction", "PvE"), "warlock-demonology-pve-model": ("Demonology", "PvE")},
+    "priest": {"priest-discipline-smite": ("Discipline", "PvE")},
+    "warrior": {"warrior-arms": ("Arms", "PvP")},          # the Arms PvP build takes Mortal Strike; the PvE seed doesn't
+}
+
+
+def builds_by_id(class_name: str) -> dict:
+    """Today's builds by id, plus the retired ids tests used (OLD_IDS), each mapped to its spec's build."""
+    from wowforever.schema import Dataset, latest_dataset_path
+
+    cls = Dataset.load(latest_dataset_path()).class_data(class_name)
+    out = {b.id: b for b in load_builds(class_name=class_name)}
+    for old, (tree, variant) in OLD_IDS.get(class_name, {}).items():
+        out.setdefault(old, tree_build(cls, tree, variant))
+    return out

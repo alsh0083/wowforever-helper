@@ -3,7 +3,6 @@ consuming Immolate unless Shadow and Flame keeps it (20% per rank)."""
 
 import pytest
 
-from wowforever.builds import load_builds
 from wowforever.caster import caster_rotation, consumed_period
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
@@ -11,10 +10,12 @@ from wowforever.melee_scenarios import stat_table
 from wowforever.physical import Target
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import builds_by_id
+
 W = class_module("warlock")
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("warlock"), W.TALENT_EFFECTS,
                                W.UNMODELED)
-BUILDS = {b.id: b.final_ids(CLS) for b in load_builds(class_name="warlock")}
+BUILDS = {k: b.final_ids(CLS) for k, b in builds_by_id("warlock").items()}
 STATS = stat_table("warlock").at(60)
 BOSS = Target(3, 0)
 

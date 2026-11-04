@@ -7,7 +7,6 @@ from pathlib import Path
 
 import pytest
 
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.hunter_rotation import hunter_rotation
 from wowforever.effects import attach_effects
@@ -15,6 +14,8 @@ from wowforever.melee_scenarios import stat_table
 from wowforever.physical import Target
 from wowforever.scenarios import best_rank
 from wowforever.schema import Dataset, latest_dataset_path
+
+from _trees import builds_by_id
 
 ROOT = Path(__file__).resolve().parents[1]
 H = class_module("hunter")
@@ -37,7 +38,7 @@ def test_normalizer_reads_aura_124():
 
 
 def test_rotation_adds_the_best_known_rank():
-    ranks = {b.id: b.final_ids(CLS) for b in load_builds(class_name="hunter")}["hunter-marksmanship"]
+    ranks = {k: b.final_ids(CLS) for k, b in builds_by_id("hunter").items()}["hunter-marksmanship"]
     deadly = CLS.talent_named("Deadly Aspects").talent_id          # also needs the Hawk (#393): leave it out
     ranks = {t: r for t, r in ranks.items() if t != deadly}
     stats = stat_table("hunter").at(60)

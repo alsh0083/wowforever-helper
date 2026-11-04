@@ -8,7 +8,6 @@ from dataclasses import replace
 
 import pytest
 
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.poisons import best_poisons, poison_dps
 from wowforever.classes.rogue_rotation import rogue_rotation
@@ -16,6 +15,8 @@ from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import stat_table
 from wowforever.physical import Attacker, Target, white_land_chance
 from wowforever.schema import Dataset, latest_dataset_path
+
+from _trees import builds_by_id
 
 R = class_module("rogue")
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("rogue"), R.TALENT_EFFECTS, R.UNMODELED)
@@ -66,7 +67,7 @@ def test_improved_poisons_parses():
 
 
 def test_rotation_adds_poisons_at_60_not_before_20():
-    ranks = {b.id: b.final_ids(CLS) for b in load_builds(class_name="rogue")}["rogue-combat"]
+    ranks = {k: b.final_ids(CLS) for k, b in builds_by_id("rogue").items()}["rogue-combat"]
     stats = stat_table("rogue").at(60)
     with_poisons = rogue_rotation(stats, CLS.spells, CLS, ranks, Target(3, 0))
     no_poisons = [s for s in CLS.spells if "Poison" not in s.name]

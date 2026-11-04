@@ -10,7 +10,6 @@ import pytest
 
 from wowforever.classes import engine
 from wowforever import melee_scenarios as ms
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.rogue_rotation import rogue_rotation
 from wowforever.effects import attach_effects
@@ -18,9 +17,11 @@ from wowforever.physical import Target
 from wowforever.scenarios import default_params
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import builds_by_id
+
 R = class_module("rogue")
 CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("rogue"), R.TALENT_EFFECTS, R.UNMODELED)
-BUILDS = {b.id: b for b in load_builds(class_name="rogue")}
+BUILDS = builds_by_id("rogue")
 STATS = ms.stat_table("rogue").at(60)
 MOBS = Target(0, 3300)
 COMBAT = BUILDS["rogue-combat"].final_ids(CLS)

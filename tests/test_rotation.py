@@ -11,7 +11,6 @@ from pathlib import Path
 import pytest
 
 from wowforever.assumptions import Assumptions
-from wowforever.builds import load_builds
 from wowforever.calc.ev import Modifiers, effective_cast_time, expected_damage
 from wowforever.calc.talents import modifiers_for
 from wowforever.classes.mage import LAYOUT, SKILL_LINES, TALENT_EFFECTS, UNMODELED
@@ -23,13 +22,15 @@ from wowforever.scenarios import Character, scaled
 from wowforever.sources.wowforevertalent import parse_page
 from wowforever.stats import Stats
 
+from _trees import builds_by_id
+
 FIX = Path(__file__).parent / "fixtures"
 RAW, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
                          parse_page((FIX / "wowforevertalent" / "mage.html").read_text(encoding="utf-8")),
                          wago_build="1.60.1.70205")
 CLS, REPORT = attach_effects(RAW, TALENT_EFFECTS, UNMODELED)
 SPELLS = class_spells(read_tables(FIX / "wago-1.60.1.70205-spells"), skill_lines=SKILL_LINES)
-BUILDS = {b.id: b for b in load_builds(class_name="mage")}
+BUILDS = builds_by_id("mage")
 STATS = Stats(60, intellect=270, spirit=190, stamina=220, spell_power=150, crit_pct=6, hit_pct=3,
               mana=3600, health=2900)
 A = Assumptions.load().with_values(level_resistance=False)   # pins the formula; resistance: #409

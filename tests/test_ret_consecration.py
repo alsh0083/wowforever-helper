@@ -8,7 +8,6 @@ raises Holy spell hit for Hammer of Wrath."""
 import pytest
 
 from wowforever import melee_scenarios as ms
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.engines import melee_talent_stats
 from wowforever.classes.paladin_rotation import paladin_rotation
@@ -17,13 +16,15 @@ from wowforever.physical import Target
 from wowforever.scenarios import _anchor_at, best_rank, default_params
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import builds_by_id
+
 P = class_module("paladin")
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("paladin"), P.TALENT_EFFECTS,
                                P.UNMODELED)
 STATS = ms.stat_table("paladin").at(60)
 BOSS = Target(3, 3731)
 SOC = {CLS.talent_named("Seal of Command").talent_id: 1}
-RET = next(b for b in load_builds(class_name="paladin") if b.id == "paladin-retribution").final_ids(CLS)
+RET = builds_by_id("paladin")["paladin-retribution"].final_ids(CLS)
 
 
 def test_rule():

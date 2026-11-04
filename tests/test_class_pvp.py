@@ -17,6 +17,8 @@ from wowforever.pvp.class_pvp import class_side
 from wowforever.pvp.duel import Control, load_kits, lockout_seconds
 from wowforever.schema import Dataset
 
+from _trees import builds_by_id
+
 DATASET = latest_dataset_path()
 
 
@@ -46,7 +48,7 @@ def test_lockout_seconds_matches_the_duel_rules():
 
 def test_hunter_controls_follow_talents():
     cls, stats = loaded("hunter")
-    builds = {b.id: b for b in load_builds(class_name="hunter")}
+    builds = builds_by_id("hunter")
     bm = class_side("hunter", stats, cls.spells, cls, builds["hunter-beast-mastery"].final_ids(cls))
     mm = class_side("hunter", stats, cls.spells, cls, builds["hunter-marksmanship"].final_ids(cls))
     assert bm.stun > mm.stun                 # Intimidation is a Beast Mastery talent

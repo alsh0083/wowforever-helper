@@ -18,7 +18,6 @@ Hand-worked (pack 3, 1000 health, single DPS 100: rotation alone 30 s):
 import pytest
 
 from wowforever.assumptions import Assumptions
-from wowforever.builds import load_builds
 from wowforever.caster import aoe_pull, caster_rotation, chain_hits, pull_seconds
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
@@ -26,6 +25,8 @@ from wowforever.melee_scenarios import build_stats, stat_table
 from wowforever.physical import Target
 from wowforever.scenarios import default_params
 from wowforever.schema import Dataset, latest_dataset_path
+
+from _trees import builds_by_id
 
 DATASET = Dataset.load(latest_dataset_path())
 
@@ -50,7 +51,7 @@ def test_pull_seconds_mix_the_aoe_spell_into_the_rotation():
 def pull(class_name, build_id, level=60, pack=3, **assumed):
     module = class_module(class_name)
     cls, problems = attach_effects(DATASET.class_data(class_name), module.TALENT_EFFECTS, module.UNMODELED)
-    ranks = {b.id: b for b in load_builds(class_name=class_name)}[build_id].final_ids(cls)
+    ranks = builds_by_id(class_name)[build_id].final_ids(cls)
     stats = build_stats(class_name, stat_table(class_name).at(level), cls, ranks)
     mob_hp = default_params("aoe", level).mob_hp
     single = pack * mob_hp / caster_rotation(class_name, stats, cls.spells, cls, ranks, Target(0, 0)).dps

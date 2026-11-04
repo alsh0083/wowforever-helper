@@ -48,13 +48,14 @@ import pytest
 
 from wowforever.classes.druid import TALENT_EFFECTS, UNMODELED
 from wowforever.effects import attach_effects
-from wowforever.builds import load_builds
 from wowforever.melee_scenarios import stat_table
 from wowforever.classes import engine
 from wowforever.pvp.class_pvp import class_side
 from wowforever.pvp.duel import best_outnumbered
 from wowforever.pvp.duel import Control, Kit, Side, combined_lockout, load_kits, outnumbered, outnumbered_scores
 from wowforever.schema import Dataset, latest_dataset_path
+
+from _trees import builds_by_id
 
 A = Kit(id="a", role="melee", stealth=False, dispels_buffs=False, health=3000, dps=100, opener_damage=0,
         opener_stun=0, controls=(), removes=(), immunity=None)
@@ -116,7 +117,7 @@ def test_pairs_need_a_melee_opponent_and_take_the_better_kill_order():
 
 
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("druid"), TALENT_EFFECTS, UNMODELED)
-BUILDS = {b.id: b for b in load_builds(class_name="druid")}
+BUILDS = builds_by_id("druid")
 
 
 def test_overgrowth_parses_and_sets_root_targets():

@@ -5,7 +5,6 @@ from types import SimpleNamespace
 
 import pytest
 
-from wowforever.builds import load_builds
 from wowforever.caster import caster_rotation
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
@@ -13,9 +12,11 @@ from wowforever.melee_scenarios import Output, dungeon, raid_dps, stat_table
 from wowforever.physical import Target
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import builds_by_id
+
 P = class_module("priest")
 CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("priest"), P.TALENT_EFFECTS, P.UNMODELED)
-BUILDS = {b.id: b.final_ids(CLS) for b in load_builds(class_name="priest")}
+BUILDS = {k: b.final_ids(CLS) for k, b in builds_by_id("priest").items()}
 STATS = stat_table("priest").at(60)
 ONE_MINUTE = SimpleNamespace(mana_per_second=0.0, fight_lengths=None, fight_seconds=60, extra_mana=0.0,
                              consumables=())
