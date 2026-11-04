@@ -42,7 +42,7 @@ def test_report_has_no_mage_stat_table_branch():
 
 
 # builds without Arcane Blast: its stacks (#355) exist only on the shared path
-@pytest.mark.parametrize("build", ["deep-frost", "elementalist-pve-v2", "mage-frost-pve", "fire-frost-shatter"])
+@pytest.mark.parametrize("build", ["mage-frost-pve", "mage-frost-pvp"])        # the 70755 builds without it
 def test_mage_pve_is_its_own_models_plus_shared_questing(build):
     ranks, a = BUILDS[build], Assumptions.load()
     char = Character(60, STATS, CLS.spells, CLS, dict(ranks))

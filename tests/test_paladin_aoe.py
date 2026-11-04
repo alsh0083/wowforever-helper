@@ -12,7 +12,6 @@ import pytest
 
 from wowforever.classes import engine
 from wowforever import melee_scenarios as ms
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.paladin_rotation import paladin_rotation
 from wowforever.effects import attach_effects
@@ -20,9 +19,11 @@ from wowforever.physical import Target
 from wowforever.scenarios import default_params
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import builds_by_id
+
 P = class_module("paladin")
 CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("paladin"), P.TALENT_EFFECTS, P.UNMODELED)
-RET = {b.id: b for b in load_builds(class_name="paladin")}["paladin-retribution"].final_ids(CLS)
+RET = builds_by_id("paladin")["paladin-retribution"].final_ids(CLS)
 STATS = ms.stat_table("paladin").at(60)
 MOBS = Target(0, 3300)
 

@@ -3,7 +3,7 @@
 
 id = "paladin-holy-leveling"
 class = "paladin"
-name = "Holy Shock (PvE, leveling)"
+name = "Holy (PvE, leveling)"
 pair = "paladin-holy-leveling"
 variant = "PvE"
 mode = "leveling"
@@ -11,58 +11,58 @@ levels_into = "paladin-holy"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Holy Shock (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Holy Shock (PvE) at 60."
+summary = "Holy (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Holy (PvE) at 60."
 
 order = [
-  "Divine Intellect",  # 10
-  "Divine Intellect",  # 11
-  "Divine Intellect",  # 12
-  "Divine Intellect",  # 13
-  "Divine Intellect",  # 14
-  "Healing Light",  # 15
-  "Healing Light",  # 16
-  "Healing Light",  # 17
+  "Divine Strength",  # 10
+  "Divine Strength",  # 11
+  "Divine Strength",  # 12
+  "Divine Strength",  # 13
+  "Divine Strength",  # 14
+  "Spiritual Focus",  # 15
+  "Spiritual Focus",  # 16
+  "Spiritual Focus",  # 17
   "Spiritual Focus",  # 18
   "Spiritual Focus",  # 19
-  "Voice of Truth",  # 20
-  "Reverence",  # 21
-  "Reverence",  # 22
-  "Reverence",  # 23
-  "Purifying Power",  # 24
-  "Infusion of Light",  # 25
-  "Infusion of Light",  # 26
-  "Illumination",  # 27
-  "Illumination",  # 28
-  "Illumination",  # 29
-  "Divine Precision",  # 30
-  "Divine Precision",  # 31
-  "Divine Precision",  # 32
-  "Holy Shock",  # 33
-  "Illumination",  # 34
+  "Holy Conduit",  # 20
+  "Holy Conduit",  # 21
+  "Healing Light",  # 22
+  "Healing Light",  # 23
+  "Healing Light",  # 24
+  "Divine Precision",  # 25
+  "Divine Precision",  # 26
+  "Infusion of Light",  # 27
+  "Reverence",  # 28
+  "Reverence",  # 29
+  "Holy Shock",  # 30
+  "Boundless Light",  # 31
+  "Boundless Light",  # 32
+  "Infusion of Light",  # 33
+  "Oath of Light",  # 34
   "Holy Power",  # 35
   "Holy Power",  # 36
   "Holy Power",  # 37
   "Holy Power",  # 38
   "Holy Power",  # 39
   "Light's Vigil",  # 40
-  "Illumination",  # 41
-  "Divine Favor",  # 42
-  "Purifying Power",  # 43
-  "Unyielding Faith",  # 44
-  "Unyielding Faith",  # 45
-  "Consecrated Ground",  # 46
-  "Consecrated Ground",  # 47
-  "Improved Seals",  # 48
-  "Improved Seals",  # 49
-  "Improved Seals",  # 50
-  "Divine Strength",  # 51
-  "Divine Strength",  # 52
-  "Toughness",  # 53
-  "Toughness",  # 54
-  "Toughness",  # 55
-  "Toughness",  # 56
-  "Toughness",  # 57
-  "Precision",  # 58
-  "Precision",  # 59
-  "Precision",  # 60
+  "Divine Favor",  # 41
+  "Illumination",  # 42
+  "Illumination",  # 43
+  "Illumination",  # 44
+  "Illumination",  # 45
+  "Illumination",  # 46
+  "Purifying Power",  # 47
+  "Purifying Power",  # 48
+  "Divine Intellect",  # 49
+  "Divine Intellect",  # 50
+  "Divine Intellect",  # 51
+  "Divine Intellect",  # 52
+  "Divine Intellect",  # 53
+  "Precision",  # 54
+  "Guardian's Favor",  # 55
+  "Guardian's Favor",  # 56
+  "Sacred Duty",  # 57
+  "Sacred Duty",  # 58
+  "Templar's Bulwark",  # 59
+  "Benediction",  # 60
 ]

@@ -6,7 +6,6 @@ from dataclasses import replace
 
 import pytest
 
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.warrior_rotation import warrior_rotation
 from wowforever.effects import attach_effects
@@ -14,12 +13,14 @@ from wowforever.melee_scenarios import MeleeStatTable
 from wowforever.physical import Attacker, Target, white_swing
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import builds_by_id
+
 W = class_module("warrior")
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("warrior"), W.TALENT_EFFECTS,
                                W.UNMODELED)
 DW = MeleeStatTable.load("warrior_dw").at(60)
 BOSS = Target(3, 0)
-BUILDS = {b.id: b.final_ids(CLS) for b in load_builds(class_name="warrior")}
+BUILDS = {k: b.final_ids(CLS) for k, b in builds_by_id("warrior").items()}
 
 
 def only(name, rank):

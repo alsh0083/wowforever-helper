@@ -1,0 +1,68 @@
+# Leveling version of warrior-arms-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "warrior-arms-pvp-leveling"
+class = "warrior"
+name = "Arms (PvP, leveling, model)"
+pair = "warrior-arms-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "warrior-arms-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Arms (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arms (PvP, model) at 60."
+
+order = [
+  "Improved Rend",  # 10
+  "Improved Rend",  # 11
+  "Improved Rend",  # 12
+  "Improved Heroic Strike",  # 13
+  "Cruelty",  # 14
+  "Cruelty",  # 15
+  "Cruelty",  # 16
+  "Cruelty",  # 17
+  "Cruelty",  # 18
+  "Unbridled Wrath",  # 19
+  "Improved Heroic Strike",  # 20
+  "Unbridled Wrath",  # 21
+  "Improved Overpower",  # 22
+  "Improved Overpower",  # 23
+  "Unbridled Wrath",  # 24
+  "Unbridled Wrath",  # 25
+  "Improved Heroic Strike",  # 26
+  "Unbridled Wrath",  # 27
+  "Furious Precision",  # 28
+  "Furious Precision",  # 29
+  "Deflection",  # 30
+  "Deflection",  # 31
+  "Deep Wounds",  # 32
+  "Deep Wounds",  # 33
+  "Furious Precision",  # 34
+  "Deep Wounds",  # 35
+  "Piercing Howl",  # 36
+  "Booming Voice",  # 37
+  "Improved Execute",  # 38
+  "Improved Execute",  # 39
+  "Deflection",  # 40
+  "Deflection",  # 41
+  "Impale",  # 42
+  "Two-Handed Weapon Specialization",  # 43
+  "Two-Handed Weapon Specialization",  # 44
+  "Two-Handed Weapon Specialization",  # 45
+  "Impale",  # 46
+  "Bloodthrill",  # 47
+  "Bloodthrill",  # 48
+  "Weaponmaster",  # 49
+  "Weaponmaster",  # 50
+  "Weaponmaster",  # 51
+  "Weaponmaster",  # 52
+  "Weaponmaster",  # 53
+  "Improved Slam",  # 54
+  "Deflection",  # 55
+  "Improved Charge",  # 56
+  "Improved Charge",  # 57
+  "Improved Tactical Mastery",  # 58
+  "Improved Tactical Mastery",  # 59
+  "Improved Tactical Mastery",  # 60
+]

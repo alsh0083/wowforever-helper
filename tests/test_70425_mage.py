@@ -19,7 +19,7 @@ def test_every_mage_talent_maps():
 
 
 def test_critical_mass_is_two_percent_a_rank():
-    assert effects("Critical Mass") == {("crit_chance", ("fire",)): (2.0, 4.0, 6.0, 8.0, 10.0)}
+    assert effects("Critical Mass") == {("crit_chance", ("fire",)): (2.0, 4.0, 6.0)}     # 3 ranks since 70707
 
 
 def test_fire_power_counts_the_assumed_fire_effects_up_to_its_cap():
@@ -45,4 +45,4 @@ def test_winters_chill_no_longer_adds_crit():
 def test_ice_lance_frozen_multiplier_reads_the_rank_text():
     from wowforever.classes.mage_rotation import frozen_lance_multiplier
 
-    assert frozen_lance_multiplier(CLS) == pytest.approx(3.0)      # +200% on 1.60.1.70425 (was +300%)
+    assert frozen_lance_multiplier(CLS) == pytest.approx(4.0)      # +300% on 1.60.1.70755 (+200% on 70425)

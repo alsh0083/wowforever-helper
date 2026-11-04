@@ -1,6 +1,6 @@
-# Holy Paladin · Endgame · PvP · level 60: from wowforevertalent.com's build catalog (/builds/pub-holy-paladin-pvp-guide/),
-# verified final ranks, public source, checked 2026-10-05. Not playtested.
-# Imported to fill an empty spec-matrix slot (owner request, 2026-10-05).
+# Community standard (#460) from wowforeverbuilds.com, saved 2026-11-04: spec guide.
+# https://wowforeverbuilds.com/guide/holy-paladin-pvp-guide
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "paladin-holy-pvp"
 class = "paladin"
@@ -8,15 +8,18 @@ name = "Holy (PvP)"
 pair = "paladin-holy"
 variant = "PvP"
 origin = "community"
-sources = ["wft_builds_paladin"]
+sources = ["wowforeverbuilds_guides"]
 confidence = "medium"
-summary = "51 points (Holy 33 / Protection 18 / Retribution 0). Divine Intellect is one of the spent talents. From the site's Holy Paladin · Endgame · PvP · level 60 plan."
+summary = "Holy Paladin PvP guide: unkillable battleground healer with Hammer of Justice control (wowforeverbuilds.com, spec guide)."
 
 [final]
+"Boundless Light" = 2
 "Divine Favor" = 1
 "Divine Intellect" = 5
+"Divine Precision" = 2
 "Guardian's Favor" = 2
 "Healing Light" = 3
+"Holy Conduit" = 2
 "Holy Power" = 5
 "Holy Shock" = 1
 "Illumination" = 5
@@ -26,9 +29,6 @@ summary = "51 points (Holy 33 / Protection 18 / Retribution 0). Divine Intellect
 "Light's Vigil" = 1
 "Purifying Power" = 2
 "Redoubt" = 3
-"Reverence" = 3
+"Reverence" = 2
 "Sacred Duty" = 2
-"Spiritual Focus" = 2
-"Toughness" = 5
-"Unyielding Faith" = 2
-"Voice of Truth" = 1
+"Spiritual Focus" = 5

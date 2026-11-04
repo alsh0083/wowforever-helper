@@ -6,7 +6,6 @@ from pathlib import Path
 import pytest
 
 from wowforever.schema import latest_dataset_path
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.druid_rotation import cat_rotation
 from wowforever.classes.shaman_rotation import enhancement_rotation
@@ -16,6 +15,8 @@ from wowforever.melee_scenarios import HybridStats, main_tree, stat_table
 from wowforever.physical import Target
 from wowforever.schema import Dataset
 
+from _trees import builds_by_id
+
 ROOT = Path(__file__).resolve().parents[1]
 DATASET = Dataset.load(latest_dataset_path())
 BOSS = Target(3, 976)
@@ -24,7 +25,7 @@ BOSS = Target(3, 976)
 def loaded(name):
     m = class_module(name)
     cls, problems = attach_effects(DATASET.class_data(name), m.TALENT_EFFECTS, m.UNMODELED)
-    return cls, problems, {b.id: b.final_ids(cls) for b in load_builds(class_name=name)}
+    return cls, problems, {k: b.final_ids(cls) for k, b in builds_by_id(name).items()}
 
 
 def without(cls, ranks, name):
@@ -73,7 +74,9 @@ def test_reports_score_feral_and_enhancement_but_not_the_bear():
     druid = {(s["archetype"], s["focus"]): s for s in
              json.loads((ROOT / "data" / "report-druid.json").read_text(encoding="utf-8"))["shortlist"]}
     assert druid[("deep Feral Combat", "PvP")]["standard_score"] > 0
-    assert druid[("deep Feral Combat", "PvE")]["standard_score"] is None                  # bear tank
+    # 1.60.1.70755 (#460): the slot holds talentsforever.com's top Feral build, scored in cat form; the old bear
+    # build (druid.UNSCORED_BUILDS) is gone with the re-import, see #468
+    assert druid[("deep Feral Combat", "PvE")]["standard_score"] > 0
     shaman = {(s["archetype"], s["focus"]): s for s in
               json.loads((ROOT / "data" / "report-shaman.json").read_text(encoding="utf-8"))["shortlist"]}
     assert shaman[("deep Enhancement", "PvP")]["standard_score"] > 0

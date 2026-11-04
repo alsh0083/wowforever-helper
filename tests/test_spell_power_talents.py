@@ -43,9 +43,11 @@ def test_demonic_knowledge_adds_the_level_as_spell_power():
 
 def test_improved_drains():
     cls, _ = loaded("warlock")
-    for spell in ("Drain Life", "Wrack"):
+    for spell in ("Drain Life", "Drain Soul"):
         assert modifiers_for(best_rank(cls.spells, spell, 60), cls, only(cls, "Improved Drains")).damage_pct == 20
-    assert modifiers_for(best_rank(cls.spells, "Shadow Bolt", 60), cls, only(cls, "Improved Drains")).damage_pct == 0
+    # 1.60.1.70755: Drain Mana in Wrack's place (#469)
+    for spell in ("Wrack", "Shadow Bolt"):
+        assert modifiers_for(best_rank(cls.spells, spell, 60), cls, only(cls, "Improved Drains")).damage_pct == 0
 
 
 def test_mental_quickness_on_a_caster_row():

@@ -1,33 +1,32 @@
-# Shaman community standard (#159) from wowforevertalent.com's popularity data: #1 of the most
-# popular complete shaman builds (since the Sep 24 patch (build 70009), updated daily), points 18/33/0, shared 34,
-# saved 108, opened 821, 103 close variants. Focus label is Claude's judgment.
+# Community standard (#460) from talentsforever.com, saved 2026-11-04: top build #1 since the Nov 2 hotfixes to build 70753, saved 194. Data (c) Talents Forever, https://talentsforever.com, CC BY 4.0.
+# https://talentsforever.com/shaman/60/0530031-055030310051012251-05-11
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "shaman-enhancement"
 class = "shaman"
-name = "Enhancement Stormstrike (PvP)"
+name = "Enhancement (PvE)"
 pair = "shaman-enhancement"
-variant = "PvP"
+variant = "PvE"
 origin = "community"
-sources = ["wft_popular_shaman"]
+sources = ["talentsforever_top"]
 confidence = "medium"
-summary = "Enhancement with Stormstrike, Maelstrom Weapon, Flurry, Spirit Weapons and Rage of the Farseer; Concussion, Call of Flame and Reverberation from Elemental for shock burst. The community's PvP standard."
+summary = "Enhancement Shaman 12/34/5 (talentsforever.com, top build #1 since the Nov 2 hotfixes to build 70753, saved 194)."
 
 [final]
-"Ancestral Knowledge" = 2
+"Ancestral Knowledge" = 5
 "Call of Flame" = 3
 "Concussion" = 5
 "Elemental Devastation" = 3
+"Elemental Focus" = 1
 "Elemental Weapons" = 3
 "Flurry" = 5
-"Improved Fire Nova" = 2
-"Improved Ghost Wolf" = 2
 "Improved Stormstrike" = 2
 "Maelstrom Weapon" = 5
 "Mental Dexterity" = 3
 "Mental Quickness" = 2
 "Rage of the Farseer" = 1
-"Reverberation" = 5
 "Shamanistic Focus" = 1
 "Spirit Weapons" = 1
 "Stormstrike" = 1
 "Thundering Strikes" = 5
+"Tidal Focus" = 5

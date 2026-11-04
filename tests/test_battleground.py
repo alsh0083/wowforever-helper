@@ -5,7 +5,6 @@ from pathlib import Path
 import pytest
 
 from wowforever.assumptions import Assumptions
-from wowforever.builds import load_builds
 from wowforever.calc.pvp_axes import control, survival
 from wowforever.classes.mage import LAYOUT, SKILL_LINES, TALENT_EFFECTS, UNMODELED
 from wowforever.classes.mage_rotation import rotation
@@ -19,11 +18,13 @@ from wowforever.sources.wowforevertalent import parse_page
 from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.stats import StatTable
 
+from _trees import builds_by_id
+
 FIX = Path(__file__).parent / "fixtures"
 # the real builds on the dataset the model reads (config/dataset.toml)
 CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("mage"), TALENT_EFFECTS, UNMODELED)
 SPELLS = CLS.spells
-BUILDS = {b.id: b for b in load_builds(class_name="mage")}
+BUILDS = builds_by_id("mage")
 A = Assumptions.load()
 
 

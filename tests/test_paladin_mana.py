@@ -37,7 +37,6 @@ def test_rules():
     expected = {
         "Reverence": ("regen_while_casting", ("all",), 30.0),
         "Benediction": ("mana_cost_pct", ("@instant",), -10.0),
-        "Twist of Light": ("mana_cost_pct", ("@seal",), -20.0),
         "Holy Conduit": ("mana_cost_pct", ("Consecration", "Holy Wrath", "Exorcism", "Hammer of Wrath"), -40.0),
         "Sanctified Judgement": ("seal_refund_pct", ("Judgement",), 60.0),
     }
@@ -58,10 +57,11 @@ def test_costs_without_mana_talents():
 
 
 def test_costs_with_mana_talents():
-    talents = ranks("Seal of Command", "Benediction", "Twist of Light", "Holy Conduit", "Sanctified Judgement",
+    # Twist of Light (-20% Seal cost) was removed in 1.60.1.70755 (#469)
+    talents = ranks("Seal of Command", "Benediction", "Holy Conduit", "Sanctified Judgement",
                     "Reverence")
     r = paladin_rotation(STATS, CLS.spells, CLS, talents, BOSS)
-    seal = SOC.mana_cost * (1 - 0.10 - 0.20) * (1 - 0.60)
+    seal = SOC.mana_cost * (1 - 0.10) * (1 - 0.60)
     expected = ((seal + J.mana_cost * 0.9) / J.cooldown + HS.mana_cost * 0.9 / HS.cooldown
                 + 0.20 * HOW.mana_cost * 0.5 / HOW.cooldown
                 + CONS.mana_cost * 0.5 / max(CONS.duration, CONS.cooldown)

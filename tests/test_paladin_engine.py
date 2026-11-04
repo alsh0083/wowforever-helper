@@ -6,7 +6,6 @@ from pathlib import Path
 import pytest
 
 from wowforever.schema import latest_dataset_path
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.paladin_rotation import paladin_rotation
 from wowforever.effects import attach_effects
@@ -15,11 +14,13 @@ from wowforever.physical import Target
 from wowforever.pvp.class_pvp import class_side
 from wowforever.schema import Dataset
 
+from _trees import builds_by_id
+
 ROOT = Path(__file__).resolve().parents[1]
 M = class_module("paladin")
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("paladin"),
                                M.TALENT_EFFECTS, M.UNMODELED)
-RET = {b.id: b.final_ids(CLS) for b in load_builds(class_name="paladin")}["paladin-retribution"]
+RET = {k: b.final_ids(CLS) for k, b in builds_by_id("paladin").items()}["paladin-retribution"]
 STATS = stat_table("paladin").at(60)
 BOSS = Target(3, 976)
 
@@ -31,7 +32,7 @@ def without(ranks, name):
 
 def test_rules_parse():
     assert PROBLEMS == [] and M.ENGINE == "melee"
-    assert CLS.talent_named("Vengeance").effects[0].values[-1] == 9          # 3% x 3 stacks
+    assert CLS.talent_named("Vengeance").effects[0].values[-1] == 15         # 3% x 5 stacks since 70755 (3 before)
 
 
 def test_retribution_uses_seal_judgement_and_holy_strike():

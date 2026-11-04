@@ -3,61 +3,61 @@
 
 id = "warlock-destruction-leveling"
 class = "warlock"
-name = "Destruction Conflagrate (PvP, leveling)"
+name = "Destruction (PvE, leveling)"
 pair = "warlock-destruction-leveling"
-variant = "PvP"
+variant = "PvE"
 mode = "leveling"
 levels_into = "warlock-destruction"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Destruction Conflagrate (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Destruction Conflagrate (PvP) at 60."
+summary = "Destruction (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Destruction (PvE) at 60."
 
 order = [
   "Bane",  # 10
   "Bane",  # 11
-  "Destructive Reach",  # 12
-  "Destructive Reach",  # 13
-  "Improved Shadow Bolt",  # 14
-  "Aftermath",  # 15
+  "Improved Shadow Bolt",  # 12
+  "Improved Life Tap",  # 13
+  "Bane",  # 14
+  "Bane",  # 15
   "Aftermath",  # 16
   "Aftermath",  # 17
   "Aftermath",  # 18
   "Aftermath",  # 19
-  "Cataclysm",  # 20
-  "Cataclysm",  # 21
-  "Cataclysm",  # 22
+  "Aftermath",  # 20
+  "Shadowburn",  # 21
+  "Bane",  # 22
   "Ruin",  # 23
-  "Ruin",  # 24
-  "Agonizing Flames",  # 25
-  "Conflagrate",  # 26
-  "Agonizing Flames",  # 27
-  "Agonizing Flames",  # 28
-  "Ruin",  # 29
-  "Fire and Brimstone",  # 30
-  "Fire and Brimstone",  # 31
-  "Fire and Brimstone",  # 32
-  "Ruin",  # 33
-  "Ruin",  # 34
-  "Shadow and Flame",  # 35
-  "Shadow and Flame",  # 36
+  "Improved Life Tap",  # 24
+  "Ruin",  # 25
+  "Ruin",  # 26
+  "Conflagrate",  # 27
+  "Cataclysm",  # 28
+  "Agonizing Flames",  # 29
+  "Agonizing Flames",  # 30
+  "Cataclysm",  # 31
+  "Cataclysm",  # 32
+  "Agonizing Flames",  # 33
+  "Fire and Brimstone",  # 34
+  "Fire and Brimstone",  # 35
+  "Fire and Brimstone",  # 36
   "Shadow and Flame",  # 37
   "Shadow and Flame",  # 38
   "Shadow and Flame",  # 39
-  "Bane",  # 40
-  "Bane",  # 41
-  "Suppression",  # 42
-  "Suppression",  # 43
-  "Bane",  # 44
-  "Bane of Havoc",  # 45
-  "Incinerate",  # 46
-  "Shadowburn",  # 47
-  "Intensity",  # 48
-  "Intensity",  # 49
-  "Intensity",  # 50
-  "Pyroclasm",  # 51
-  "Pyroclasm",  # 52
-  "Improved Corruption",  # 53
+  "Shadow and Flame",  # 40
+  "Shadow and Flame",  # 41
+  "Ruin",  # 42
+  "Ruin",  # 43
+  "Suppression",  # 44
+  "Suppression",  # 45
+  "Improved Shadow Bolt",  # 46
+  "Improved Shadow Bolt",  # 47
+  "Improved Corruption",  # 48
+  "Improved Shadow Bolt",  # 49
+  "Bane of Havoc",  # 50
+  "Incinerate",  # 51
+  "Destructive Reach",  # 52
+  "Destructive Reach",  # 53
   "Suppression",  # 54
   "Suppression",  # 55
   "Suppression",  # 56

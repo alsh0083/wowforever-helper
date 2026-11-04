@@ -1,16 +1,16 @@
-# Warlock community standard (#160) from wowforevertalent.com's popularity data: #2 of the most
-# popular complete warlock builds (since the Oct 1 patch (build 70170), updated daily), points 5/11/35, shared 59,
-# saved 132, opened 633, 15 close variants. Focus label is Claude's judgment.
+# Community standard (#460) from talentsforever.com, saved 2026-11-04: top build #4, saved 258. Data (c) Talents Forever, https://talentsforever.com, CC BY 4.0.
+# https://talentsforever.com/warlock/60/05-0050203001-2050355103101351-11
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "warlock-destruction"
 class = "warlock"
-name = "Destruction Conflagrate (PvP)"
+name = "Destruction (PvE)"
 pair = "warlock-destruction"
-variant = "PvP"
+variant = "PvE"
 origin = "community"
-sources = ["wft_popular_warlock"]
+sources = ["talentsforever_top"]
 confidence = "medium"
-summary = "Destruction with Conflagrate, Shadowburn, Incinerate, Ruin and Shadow and Flame; Demonic Sacrifice from Demonology. Burst and execute: the community's PvP standard."
+summary = "Destruction Warlock 5/11/35, Demonic Sacrifice, Ruin and Incinerate (talentsforever.com, top build #4, saved 258)."
 
 [final]
 "Aftermath" = 5

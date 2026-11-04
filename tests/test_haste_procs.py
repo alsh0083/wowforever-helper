@@ -37,8 +37,9 @@ def test_flurry_uptime_hastes_white_swings():
     base = warrior_rotation(stats, cls.spells, cls, {}, BOSS)
     flurry = warrior_rotation(stats, cls.spells, cls, only(cls, "Flurry"), BOSS)
     crit = yellow_crit_chance(Attacker(60, stats.attack_power, stats.crit_pct, stats.hit_pct), BOSS)
-    # 25% faster while any of the last 3 swings critted: 1 + 0.25 x (1 - (1 - crit)^3)
-    assert flurry.white_dps == pytest.approx(base.white_dps * (1 + 0.25 * (1 - (1 - crit) ** 3)))
+    # 30% faster (3 ranks on 70755, 25% at 5 ranks before) while any of the last 3 swings critted:
+    # 1 + 0.30 x (1 - (1 - crit)^3)
+    assert flurry.white_dps == pytest.approx(base.white_dps * (1 + 0.30 * (1 - (1 - crit) ** 3)))
 
 
 def test_deadly_aspects_uptime_hastes_auto_shot():

@@ -59,13 +59,13 @@ def test_pair_divergence_is_described():
 
 
 def test_a_model_pick_build_sits_next_to_its_community_standard():
-    # Deep Frost PvE: the community standard, then its model pick as a build with the gain and changes
-    # (deep Arcane PvE lost its pick when the mage moved to the shared PvE score, #317)
+    # Deep Fire PvE on 1.60.1.70755: talentsforever.com's top build, then its model pick as a build with the gain and
+    # changes (#460, #463)
     live = render(json.loads((Path(__file__).parents[1] / "data" / "report.json").read_text(encoding="utf-8")), {})
-    start = live.index('data-slot="deep Frost|PvE"')
+    start = live.index('data-slot="deep Fire|PvE"')
     cell = live[start:live.index('data-slot=', start + 10)]
-    assert cell.index('data-build="mage-frost-pve"') < cell.index('data-build="mage-frost-pve-model"')
-    assert "Model pick: " in cell and "vs standard" in cell and "Talent changes from Frost (PvE)" in cell
+    assert cell.index('data-build="mage-fire"') < cell.index('data-build="mage-fire-model"')
+    assert "Model pick: " in cell and "vs standard" in cell and "Talent changes from Fire (PvE)" in cell
     assert 'class="model"' not in cell                # no separate pick box for the same build
 
 
@@ -74,7 +74,7 @@ def test_leveling_mode_has_its_own_table_and_respec_suggestions():
     html = render(live, {})
     assert 'data-mode-pick="leveling"' in html and 'data-mode-pick="endgame"' in html
     assert '<div class="mode-leveling">' in html and 'aria-label="Leveling builds by archetype and focus"' in html
-    assert 'data-build="fire-frost-shatter-leveling"' in html and "Levels into Fire/Frost Shatter (PvE)" in html
-    hybrid = next(b for b in live["builds"] if b["id"] == "fire-frost-shatter-leveling")
-    assert hybrid["mode"] == "leveling" and hybrid["respec"][0] == "fire-frost-shatter"
-    assert set(hybrid["scores"]) == {"questing"} and sum(hybrid["detours"].values()) <= 7
+    assert 'data-build="mage-fire-leveling"' in html and "Levels into Fire (PvE)" in html
+    fire = next(b for b in live["builds"] if b["id"] == "mage-fire-leveling")
+    assert fire["mode"] == "leveling" and fire["respec"][0] == "mage-fire"
+    assert set(fire["scores"]) == {"questing"} and sum(fire["detours"].values()) <= 7

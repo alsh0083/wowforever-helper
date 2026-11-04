@@ -1,0 +1,68 @@
+# Leveling version of rogue-assassination (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "rogue-assassination-leveling"
+class = "rogue"
+name = "Assassination (PvE, leveling)"
+pair = "rogue-assassination-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "rogue-assassination"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Assassination (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Assassination (PvE) at 60."
+
+order = [
+  "Remorseless Attacks",  # 10
+  "Remorseless Attacks",  # 11
+  "Malice",  # 12
+  "Malice",  # 13
+  "Malice",  # 14
+  "Malice",  # 15
+  "Malice",  # 16
+  "Improved Gouge",  # 17
+  "Opportunity",  # 18
+  "Opportunity",  # 19
+  "Improved Slice and Dice",  # 20
+  "Opportunity",  # 21
+  "Opportunity",  # 22
+  "Opportunity",  # 23
+  "Improved Ambush",  # 24
+  "Improved Ambush",  # 25
+  "Improved Ambush",  # 26
+  "Improved Gouge",  # 27
+  "Lethality",  # 28
+  "Lethality",  # 29
+  "Vigor",  # 30
+  "Vigor",  # 31
+  "Improved Slice and Dice",  # 32
+  "Improved Poisons",  # 33
+  "Improved Poisons",  # 34
+  "Improved Poisons",  # 35
+  "Improved Poisons",  # 36
+  "Improved Poisons",  # 37
+  "Vile Poisons",  # 38
+  "Vile Poisons",  # 39
+  "Vile Poisons",  # 40
+  "Vile Poisons",  # 41
+  "Vile Poisons",  # 42
+  "Relentless Strikes",  # 43
+  "Relentless Strikes",  # 44
+  "Relentless Strikes",  # 45
+  "Relentless Strikes",  # 46
+  "Relentless Strikes",  # 47
+  "Venom",  # 48
+  "Mutilate",  # 49
+  "Improved Slice and Dice",  # 50
+  "Seal Fate",  # 51
+  "Seal Fate",  # 52
+  "Seal Fate",  # 53
+  "Ruthlessness",  # 54
+  "Ruthlessness",  # 55
+  "Ruthlessness",  # 56
+  "Coup de Grace",  # 57
+  "Coup de Grace",  # 58
+  "Coup de Grace",  # 59
+  "Efficient Strikes",  # 60
+]

@@ -14,7 +14,6 @@ import pytest
 
 from wowforever.classes import engine
 from wowforever import melee_scenarios as ms
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.hunter_rotation import hunter_rotation
 from wowforever.effects import attach_effects
@@ -22,9 +21,11 @@ from wowforever.physical import Target
 from wowforever.scenarios import default_params
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import builds_by_id
+
 H = class_module("hunter")
 CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("hunter"), H.TALENT_EFFECTS, H.UNMODELED)
-MM = {b.id: b for b in load_builds(class_name="hunter")}["hunter-marksmanship"].final_ids(CLS)
+MM = builds_by_id("hunter")["hunter-marksmanship"].final_ids(CLS)
 MOBS = Target(0, 3300)
 
 
@@ -48,16 +49,18 @@ def test_multi_shot_hits_up_to_three_mobs():
 
 
 def test_volley_and_explosive_trap_hit_every_mob():
-    three, five = rotation(60, 3), rotation(60, 5)
-    assert three.aoe == five.aoe == ("Volley", "Explosive Trap")
+    # 1.60.1.70755: Multi-Shot out-damages Volley on 3 mobs (Multi-Shot's three targets), Volley from 5 (#467)
+    assert rotation(60, 3).aoe == ("Multi-Shot", "Explosive Trap")
+    five, eight = rotation(60, 5), rotation(60, 8)
+    assert five.aoe == eight.aoe == ("Volley", "Explosive Trap")
     for name in ("Volley", "Explosive Trap"):
-        assert dict(five.parts)[name] == pytest.approx(dict(three.parts)[name] * 5 / 3)
-    assert three.ranged_dps == pytest.approx(dict(three.parts)["Volley"])
-    assert three.dps == pytest.approx(three.ranged_dps + dict(three.parts)["Explosive Trap"] + three.pet_dps)
+        assert dict(eight.parts)[name] == pytest.approx(dict(five.parts)[name] * 8 / 5)
+    assert five.ranged_dps == pytest.approx(dict(five.parts)["Volley"])
+    assert five.dps == pytest.approx(five.ranged_dps + dict(five.parts)["Explosive Trap"] + five.pet_dps)
 
 
 def test_aoe_pull_runs_the_rotation_against_the_pack():
     stats = ms.stat_table("hunter").at(60)
     out = engine("hunter").output(stats, CLS.spells, CLS, MM, MOBS, pack=3)
     assert ms.aoe("hunter", stats, CLS.spells, CLS, MM) == (pytest.approx(3 * default_params("aoe", 60).mob_hp / out.dps),
-                                                           "Volley, Explosive Trap")
+                                                           "Multi-Shot, Explosive Trap")

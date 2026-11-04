@@ -3,7 +3,7 @@
 
 id = "shaman-restoration-leveling"
 class = "shaman"
-name = "Restoration Riptide (PvE, leveling)"
+name = "Restoration (PvE, leveling)"
 pair = "shaman-restoration-leveling"
 variant = "PvE"
 mode = "leveling"
@@ -11,7 +11,7 @@ levels_into = "shaman-restoration"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Restoration Riptide (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Restoration Riptide (PvE) at 60."
+summary = "Restoration (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Restoration (PvE) at 60."
 
 order = [
   "Tidal Focus",  # 10
@@ -25,17 +25,17 @@ order = [
   "Improved Healing Wave",  # 18
   "Improved Healing Wave",  # 19
   "Improved Healing Wave",  # 20
-  "Convection",  # 21
-  "Ancestral Healing",  # 22
-  "Convection",  # 23
-  "Convection",  # 24
-  "Convection",  # 25
+  "Tidal Focus",  # 21
+  "Convection",  # 22
+  "Ancestral Healing",  # 23
+  "Ancestral Healing",  # 24
+  "Ancestral Healing",  # 25
   "Convection",  # 26
-  "Ancestral Healing",  # 27
-  "Elemental Alacrity",  # 28
-  "Elemental Alacrity",  # 29
-  "Ancestral Healing",  # 30
-  "Healing Focus",  # 31
+  "Convection",  # 27
+  "Convection",  # 28
+  "Convection",  # 29
+  "Elemental Alacrity",  # 30
+  "Elemental Alacrity",  # 31
   "Tidal Mastery",  # 32
   "Tidal Mastery",  # 33
   "Tidal Mastery",  # 34
@@ -59,8 +59,8 @@ order = [
   "Mana Tide Totem",  # 52
   "Healing Focus",  # 53
   "Healing Focus",  # 54
-  "Water Shield",  # 55
-  "Tidal Focus",  # 56
+  "Healing Focus",  # 55
+  "Water Shield",  # 56
   "Tidal Focus",  # 57
   "Thundering Strikes",  # 58
   "Thundering Strikes",  # 59

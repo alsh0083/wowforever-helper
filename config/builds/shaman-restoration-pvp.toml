@@ -1,34 +1,28 @@
-# Restoration Shaman · Endgame · PvP · level 60: from wowforevertalent.com's build catalog (/builds/pub-restoration-shaman-pvp-guide/),
-# verified final ranks, public source, checked 2026-10-05. Not playtested.
-# Imported to fill an empty spec-matrix slot (owner request, 2026-10-05).
+# Model build for the empty deep Restoration PvP slot (owner request, 2026-10-05): hill-climbed from shaman-restoration under the PvP score.
+# No community plan with talents exists for this slot yet; replace it when one does.
 
 id = "shaman-restoration-pvp"
 class = "shaman"
-name = "Restoration (PvP)"
+name = "Restoration (PvP, model)"
 pair = "shaman-restoration"
 variant = "PvP"
-origin = "community"
-sources = ["wft_builds_shaman"]
-confidence = "medium"
-summary = "51 points (Elemental 0 / Enhancement 15 / Restoration 36). Ancestral Knowledge is one of the spent talents. From the site's Restoration Shaman · Endgame · PvP · level 60 plan."
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Restoration PvP: hill-climbed from shaman-restoration under the PvP score. Not a community standard."
 
 [final]
-"Ancestral Healing" = 2
-"Ancestral Knowledge" = 5
-"Anticipation" = 3
-"Earth's Grasp" = 2
-"Guardian Totems" = 2
+"Ancestral Healing" = 3
+"Ancestral Knowledge" = 4
+"Call of Flame" = 3
+"Concussion" = 5
+"Elemental Alacrity" = 3
 "Healing Focus" = 3
-"Healing Way" = 3
-"Improved Ghost Wolf" = 2
-"Improved Healing Wave" = 3
+"Improved Healing Wave" = 5
 "Mana Tide Totem" = 1
 "Mindfulness" = 3
-"Nature's Swiftness" = 1
-"Purification" = 5
-"Riptide" = 1
-"Shamanistic Focus" = 1
+"Restorative Totems" = 5
+"Thundering Strikes" = 5
 "Tidal Focus" = 5
 "Tidal Mastery" = 5
-"Totemic Focus" = 3
 "Water Shield" = 1

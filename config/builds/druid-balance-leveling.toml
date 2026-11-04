@@ -3,7 +3,7 @@
 
 id = "druid-balance-leveling"
 class = "druid"
-name = "Balance Moonkin (PvE, leveling)"
+name = "Balance (PvE, leveling)"
 pair = "druid-balance-leveling"
 variant = "PvE"
 mode = "leveling"
@@ -11,7 +11,7 @@ levels_into = "druid-balance"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Balance Moonkin (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Balance Moonkin (PvE) at 60."
+summary = "Balance (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Balance (PvE) at 60."
 
 order = [
   "Improved Wrath",  # 10
@@ -34,8 +34,8 @@ order = [
   "Vengeance",  # 27
   "Vengeance",  # 28
   "Vengeance",  # 29
-  "Vengeance",  # 30
-  "Genesis",  # 31
+  "Nature's Grace",  # 30
+  "Vengeance",  # 31
   "Genesis",  # 32
   "Genesis",  # 33
   "Genesis",  # 34
@@ -45,7 +45,7 @@ order = [
   "Moonfury",  # 38
   "Moonfury",  # 39
   "Moonkin Form",  # 40
-  "Nature's Grace",  # 41
+  "Genesis",  # 41
   "Eclipse",  # 42
   "Eclipse",  # 43
   "Eclipse",  # 44

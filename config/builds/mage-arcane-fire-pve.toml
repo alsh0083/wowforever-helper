@@ -1,4 +1,4 @@
-# Model build for the empty Arcane/Fire PvE slot (owner request, 2026-10-05): the report's model pick for this slot.
+# Model build for the empty Arcane/Fire PvE slot (owner request, 2026-10-05): seeded from an empty tree (its talents first, then the rest) and hill-climbed under the PvE score (#463).
 # No community plan with talents exists for this slot yet; replace it when one does.
 
 id = "mage-arcane-fire-pve"
@@ -9,26 +9,26 @@ variant = "PvE"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Model build for Arcane/Fire PvE: the report's model pick for this slot. Not a community standard."
+summary = "Model build for Arcane/Fire PvE: seeded from an empty tree (its talents first, then the rest) and hill-climbed under the PvE score (#463). Not a community standard."
 
-# 1.60.1.70425 (#353): Fire Power capped at 3 and Critical Mass raised to 5; the points move from one to the other.
 [final]
+"Accelerant" = 5
 "Arcane Blast" = 1
 "Arcane Concentration" = 5
-"Arcane Focus" = 5
+"Arcane Impact" = 3
+"Arcane Instability" = 3
 "Arcane Meditation" = 3
-"Arcane Resilience" = 2
+"Arcane Mind" = 5
+"Arcane Resilience" = 3
 "Arcane Subtlety" = 2
-"Critical Mass" = 5
-"Fire Power" = 3
-"Flame Throwing" = 2
+"Arcane Wrath" = 1
+"Burning Soul" = 3
 "Heating Up" = 1
-"Ignite" = 5
-"Impact" = 2
-"Improved Counterspell" = 2
-"Improved Fireball" = 5
+"Improved Channeling" = 2
+"Improved Fire Ward" = 1
 "Improved Flamestrike" = 1
-"Improved Scorch" = 2
-"Master of Elements" = 3
-"Presence of Mind" = 1
+"Incineration" = 5
+"Master of Elements" = 1
+"Missile Barrage" = 2
+"Precision" = 3
 "Pyroblast" = 1

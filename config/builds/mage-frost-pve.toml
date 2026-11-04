@@ -1,34 +1,31 @@
-# Frost Mage with a Protection Paladin for AoE pulls · Group leveling · PvE · levels 10–60: from wowforevertalent.com's build catalog (/builds/pub-paladin-mage-frost-mage-group-leveling-mage-frost/),
-# verified point order, public source, checked 2026-10-05. Not playtested.
-# Imported to fill an empty spec-matrix slot (owner request, 2026-10-05).
+# Model build for the empty deep Frost PvE slot (owner request, 2026-10-05): seeded from an empty tree (its talents first, then the rest) and hill-climbed under the PvE score (#463).
+# No community plan with talents exists for this slot yet; replace it when one does.
 
 id = "mage-frost-pve"
 class = "mage"
-name = "Frost (PvE)"
+name = "Frost (PvE, model)"
 pair = "mage-frost"
 variant = "PvE"
-origin = "community"
-sources = ["wft_builds_mage"]
-confidence = "medium"
-summary = "51 points (Arcane 20 / Fire 0 / Frost 31). Arcane Focus is one of the spent talents. From the site's Frost Mage with a Protection Paladin for AoE pulls · Group leveling · PvE · levels 10–60 plan."
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Frost PvE: seeded from an empty tree (its talents first, then the rest) and hill-climbed under the PvE score (#463). Not a community standard."
 
 [final]
-"Arcane Concentration" = 5
-"Arcane Focus" = 5
-"Arcane Impact" = 3
-"Arcane Meditation" = 3
-"Arcane Resilience" = 2
-"Arcane Subtlety" = 2
 "Arctic Reach" = 2
-"Cold Snap" = 1
-"Elemental Precision" = 3
+"Fingers of Frost" = 2
 "Frost Channeling" = 3
-"Ice Barrier" = 1
+"Frost Warding" = 2
+"Frostbite" = 3
 "Ice Block" = 1
-"Ice Shards" = 1
+"Ice Lance" = 1
+"Ice Shards" = 5
+"Ignite" = 5
 "Improved Blizzard" = 3
-"Improved Cone of Cold" = 3
+"Improved Flamestrike" = 3
 "Improved Frost Nova" = 2
 "Improved Frostbolt" = 5
+"Incineration" = 5
 "Permafrost" = 3
-"Piercing Ice" = 3
+"Precision" = 3
+"Shatter" = 3

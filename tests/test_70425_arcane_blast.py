@@ -1,9 +1,9 @@
-"""1.60.1.70425 Arcane Blast (#355, part B): stacks of spell damage from Intellect, bought with a rising mana cost."""
+"""1.60.1.70425 Arcane Blast (#355, part B): stacks of spell damage from Intellect, bought with a rising mana cost.
+Numbers re-pinned on 1.60.1.70755 (#463): 12% of Intellect and +100% mana per stack, 18 s (2 Nov notes)."""
 
 import pytest
 
 from wowforever.assumptions import Assumptions
-from wowforever.builds import load_builds
 from wowforever.classes.mage import TALENT_EFFECTS, UNMODELED, _blast_options
 from wowforever.classes.mage_rotation import arcane_blast_stacks, rotation
 from wowforever.effects import attach_effects
@@ -11,9 +11,11 @@ from wowforever.scenarios import Character, best_rank
 from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.stats import StatTable
 
+from _trees import tree_build
+
 CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("mage"), TALENT_EFFECTS, UNMODELED)
 STATS = StatTable.load("mage").at(60)
-BUILDS = {b.id: b.final_ids(CLS) for b in load_builds(class_name="mage")}
+BUILDS = {tree: tree_build(CLS, tree, "PvE").final_ids(CLS) for tree in ("Arcane", "Frost")}
 A = Assumptions.load()
 
 
@@ -22,18 +24,17 @@ def char(build_id):
 
 
 def test_the_stack_buff_comes_from_the_rank_text():
-    # "you gain 15% of your Intellect as Spell Damage and the mana cost of Arcane Blast is increased by 175%.
-    #  Effect stacks up to 4 times and lasts 15 sec from time of initial application."
-    assert arcane_blast_stacks(CLS) == (15.0, 175.0, 4, 15.0)
+    # 70755: 12% of Intellect as Spell Damage and +100% mana cost per stack, up to 4 stacks, 18 sec (2 Nov notes)
+    assert arcane_blast_stacks(CLS) == (12.0, 100.0, 4, 18.0)
 
 
 def test_stack_options_need_the_talent():
-    assert list(_blast_options(char("deep-arcane"))) == [0, 1, 2, 3, 4]
-    assert list(_blast_options(char("deep-frost"))) == [0]
+    assert list(_blast_options(char("Arcane"))) == [0, 1, 2, 3, 4]
+    assert list(_blast_options(char("Frost"))) == [0]
 
 
 def test_no_stacks_is_the_plain_rotation():
-    c = char("deep-arcane")
+    c = char("Arcane")
     filler = best_rank(c.spells, "Arcane Missiles", 60)
     plain = rotation(c, filler, target_level=63, assumptions=A, sustained=True)
     assert rotation(c, filler, target_level=63, assumptions=A, sustained=True, blast_stacks=0) == plain
@@ -41,14 +42,14 @@ def test_no_stacks_is_the_plain_rotation():
 
 
 def test_one_stack_is_one_arcane_blast_per_window():
-    c = char("deep-arcane")
+    c = char("Arcane")
     filler = best_rank(c.spells, "Frostbolt", 60)
     r = rotation(c, filler, target_level=63, assumptions=A, sustained=True, blast_stacks=1)
-    assert r.weaves["Arcane Blast"] == pytest.approx(60 / 15)            # four 15 s windows a minute
+    assert r.weaves["Arcane Blast"] == pytest.approx(60 / 18)            # one 18 s window after another
 
 
 def test_more_stacks_cost_more_mana_and_do_more_damage():
-    c = char("deep-arcane")
+    c = char("Arcane")
     filler = best_rank(c.spells, "Frostbolt", 60)
     runs = [rotation(c, filler, target_level=63, assumptions=A, sustained=True, blast_stacks=n) for n in range(5)]
     assert all(a.dps < b.dps for a, b in zip(runs, runs[1:]))

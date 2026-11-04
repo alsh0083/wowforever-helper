@@ -3,7 +3,7 @@
 
 id = "rogue-combat-pvp-leveling"
 class = "rogue"
-name = "Combat Swords (PvP, leveling)"
+name = "Combat (PvP, leveling, model)"
 pair = "rogue-combat-pvp-leveling"
 variant = "PvP"
 mode = "leveling"
@@ -11,58 +11,58 @@ levels_into = "rogue-combat-pvp"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Combat Swords (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Combat Swords (PvP) at 60."
+summary = "Combat (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Combat (PvP, model) at 60."
 
 order = [
-  "Improved Sinister Strike",  # 10
-  "Improved Sinister Strike",  # 11
-  "Improved Eviscerate",  # 12
-  "Improved Eviscerate",  # 13
-  "Improved Eviscerate",  # 14
-  "Deflection",  # 15
-  "Deflection",  # 16
-  "Deflection",  # 17
-  "Precision",  # 18
-  "Precision",  # 19
+  "Efficient Strikes",  # 10
+  "Efficient Strikes",  # 11
+  "Coup de Grace",  # 12
+  "Coup de Grace",  # 13
+  "Coup de Grace",  # 14
+  "Puncturing Wounds",  # 15
+  "Puncturing Wounds",  # 16
+  "Puncturing Wounds",  # 17
+  "Remorseless Attacks",  # 18
+  "Remorseless Attacks",  # 19
   "Precision",  # 20
-  "Lightning Reflexes",  # 21
-  "Lightning Reflexes",  # 22
-  "Lightning Reflexes",  # 23
-  "Lightning Reflexes",  # 24
-  "Flawless Execution",  # 25
-  "Dual Wield Specialization",  # 26
-  "Dual Wield Specialization",  # 27
-  "Dual Wield Specialization",  # 28
-  "Dual Wield Specialization",  # 29
-  "Blade Flurry",  # 30
-  "Dual Wield Specialization",  # 31
-  "Lightning Reflexes",  # 32
-  "Puncturing Wounds",  # 33
-  "Puncturing Wounds",  # 34
-  "Weapon Expertise",  # 35
-  "Weapon Expertise",  # 36
+  "Precision",  # 21
+  "Precision",  # 22
+  "Endurance",  # 23
+  "Endurance",  # 24
+  "Lightning Reflexes",  # 25
+  "Lightning Reflexes",  # 26
+  "Flawless Execution",  # 27
+  "Weapon Expertise",  # 28
+  "Weapon Expertise",  # 29
+  "Malice",  # 30
+  "Malice",  # 31
+  "Malice",  # 32
+  "Malice",  # 33
+  "Malice",  # 34
+  "Improved Slice and Dice",  # 35
+  "Aggression",  # 36
   "Aggression",  # 37
-  "Aggression",  # 38
-  "Aggression",  # 39
-  "Adrenaline Rush",  # 40
-  "Malice",  # 41
-  "Malice",  # 42
-  "Malice",  # 43
-  "Malice",  # 44
-  "Malice",  # 45
+  "Dual Wield Specialization",  # 38
+  "Dual Wield Specialization",  # 39
+  "Blade Flurry",  # 40
+  "Hack and Slash",  # 41
+  "Hack and Slash",  # 42
+  "Hack and Slash",  # 43
+  "Hack and Slash",  # 44
+  "Hack and Slash",  # 45
   "Improved Slice and Dice",  # 46
   "Improved Slice and Dice",  # 47
-  "Improved Slice and Dice",  # 48
+  "Ruthlessness",  # 48
   "Ruthlessness",  # 49
   "Ruthlessness",  # 50
-  "Relentless Strikes",  # 51
-  "Ruthlessness",  # 52
-  "Hack and Slash",  # 53
-  "Hack and Slash",  # 54
-  "Hack and Slash",  # 55
-  "Hack and Slash",  # 56
-  "Hack and Slash",  # 57
-  "Endurance",  # 58
-  "Endurance",  # 59
-  "Improved Sprint",  # 60
+  "Lethality",  # 51
+  "Lethality",  # 52
+  "Improved Poisons",  # 53
+  "Vile Poisons",  # 54
+  "Improved Poisons",  # 55
+  "Flash of Steel",  # 56
+  "Flash of Steel",  # 57
+  "Flash of Steel",  # 58
+  "Adrenaline Rush",  # 59
+  "Aggression",  # 60
 ]

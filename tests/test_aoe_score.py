@@ -15,13 +15,14 @@ import pytest
 from wowforever.classes import engine
 from wowforever import group
 from wowforever import melee_scenarios as ms
-from wowforever.builds import load_builds
 from wowforever.caster import aoe_pull
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
 from wowforever.physical import Target
 from wowforever.scenarios import _anchor_at, default_params
 from wowforever.schema import Dataset, latest_dataset_path
+
+from _trees import builds_by_id
 
 DATASET = Dataset.load(latest_dataset_path())
 MOB_60 = default_params("aoe", 60).mob_hp
@@ -30,7 +31,7 @@ MOB_60 = default_params("aoe", 60).mob_hp
 def setup(class_name, build_id):
     module = class_module(class_name)
     cls, _ = attach_effects(DATASET.class_data(class_name), module.TALENT_EFFECTS, module.UNMODELED)
-    ranks = {b.id: b for b in load_builds(class_name=class_name)}[build_id].final_ids(cls)
+    ranks = builds_by_id(class_name)[build_id].final_ids(cls)
     return cls, ranks, ms.stat_table(class_name).at(60)
 
 

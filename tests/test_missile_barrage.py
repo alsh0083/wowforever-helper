@@ -46,19 +46,19 @@ def hit_of(s):
 
 
 def test_rule_per_rank():
-    assert missile_barrage_rule(CLS, 2) == {"Arcane Blast": 40.0, "Arcane Missiles": 10.0, "Arcane Wrath": 20.0,
+    # 1.60.1.70755: Arcane Missiles no longer procs its own Barrage (the 70707 rank text drops it)
+    assert missile_barrage_rule(CLS, 2) == {"Arcane Blast": 40.0, "Arcane Missiles": 0.0, "Arcane Wrath": 20.0,
                                             "Fireball": 20.0, "Frostbolt": 20.0, "Frostfire Bolt": 20.0}
-    assert missile_barrage_rule(CLS, 1)["Arcane Missiles"] == 5.0
+    assert missile_barrage_rule(CLS, 1)["Arcane Missiles"] == 0.0
 
 
 def test_arcane_missiles_filler():
     am = spell("Arcane Missiles")
-    missiles = round(am.duration / am.tick_period)
-    assert missiles == 5
-    q = 1 - (1 - hit_of(am) * 0.10) ** missiles
+    assert round(am.duration / am.tick_period) == 5
     base, barrage = run(0, "Arcane Missiles"), run(2, "Arcane Missiles")
-    assert barrage.dps / base.dps == pytest.approx(1 / (1 - q / 2))
-    assert barrage.mana_per_second / base.mana_per_second == pytest.approx((1 - q) / (1 - q / 2))
+    # a filler of Arcane Missiles alone never procs Barrage on 70755: no change
+    assert barrage.dps == pytest.approx(base.dps)
+    assert barrage.mana_per_second == pytest.approx(base.mana_per_second)
 
 
 def test_frostbolt_weaves_a_free_barrage():

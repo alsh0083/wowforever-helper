@@ -1,34 +1,33 @@
-# Paladin community standard (#157) from wowforevertalent.com's popularity data: #1 of the most
-# popular complete paladin builds (since the Sep 24 patch (build 70009), updated daily), points 8/8/35, shared 75,
-# saved 157, opened 1223, 100 close variants. Focus label is Claude's judgment.
+# Model build for the empty deep Retribution PvP slot (owner request, 2026-10-05): the report's model pick for this slot.
+# No community plan with talents exists for this slot yet; replace it when one does.
 
 id = "paladin-retribution-pvp"
 class = "paladin"
-name = "Retribution Repentance (PvP)"
+name = "Retribution (PvP, model)"
 pair = "paladin-retribution"
 variant = "PvP"
-origin = "community"
-sources = ["wft_popular_paladin"]
-confidence = "medium"
-summary = "Retribution with Repentance, Seal of Command, Vengeance and Champion of the Light; Precision and Toughness from Protection and Pursuit of Justice for mobility. The community's PvP standard."
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Retribution PvP: the report's model pick for this slot. Not a community standard."
 
 [final]
 "Benediction" = 5
-"Champion of the Light" = 3
-"Conviction" = 5
+"Champion of the Light" = 5
+"Conviction" = 3
+"Divine Intellect" = 5
 "Divine Strength" = 5
 "Holy Conduit" = 2
 "Improved Judgement" = 2
-"Improved Seals" = 3
-"Instrument of Law" = 2
-"Precision" = 3
+"Improved Seals" = 5
+"Precision" = 1
 "Pursuit of Justice" = 2
 "Repentance" = 1
+"Reverence" = 2
 "Sacred Arbiter" = 1
 "Sanctified Judgement" = 3
 "Seal of Command" = 1
-"Toughness" = 5
-"Twist of Light" = 1
 "Two-Handed Weapon Specialization" = 3
+"Unsealed Wrath" = 1
+"Unyielding Faith" = 1
 "Vengeance" = 3
-"Vindication" = 1

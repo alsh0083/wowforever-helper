@@ -43,11 +43,13 @@ def test_rapid_killing_shortens_rapid_fire():
                                            / (1 + share / rapid.cooldown))
 
 
-def test_holy_power_crit_on_holy_strike():
+def test_holy_power_is_a_healing_talent_since_70755():
+    # 70425: Holy Shock and Holy Strike crit chance; 1.60.1.70755: +10..50% crit healing of Holy heals (#469)
     cls, _ = loaded("paladin")
-    rule = next(e for e in cls.talent_named("Holy Power").effects if e.kind == "crit_chance")
-    assert set(rule.applies_to) == {"Holy Strike", "Holy Shock"} and rule.values[-1] == 15
+    (rule,) = cls.talent_named("Holy Power").effects
+    assert rule.kind == "crit_damage_pct" and set(rule.applies_to) == {"Holy Light", "Flash of Light", "Holy Shock"}
+    assert rule.values[-1] == 50
     stats = stat_table("paladin").at(60)
     base = paladin_rotation(stats, cls.spells, cls, {}, BOSS)
     holy = paladin_rotation(stats, cls.spells, cls, only(cls, "Holy Power"), BOSS)
-    assert holy.dps > base.dps
+    assert holy.dps == pytest.approx(base.dps)          # no damage from it any more

@@ -1,0 +1,36 @@
+# Model build for the empty Fire/Frost PvE slot (owner request, 2026-10-05): seeded from an empty tree (its talents first, then the rest) and hill-climbed under the PvE score (#463).
+# No community plan with talents exists for this slot yet; replace it when one does.
+
+id = "mage-fire-frost-pve"
+class = "mage"
+name = "Fire/Frost (PvE, model)"
+pair = "mage-fire-frost"
+variant = "PvE"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Fire/Frost PvE: seeded from an empty tree (its talents first, then the rest) and hill-climbed under the PvE score (#463). Not a community standard."
+
+[final]
+"Accelerant" = 1
+"Blast Wave" = 1
+"Burning Soul" = 3
+"Fingers of Frost" = 2
+"Fire Power" = 1
+"Flame Throwing" = 2
+"Frost Channeling" = 3
+"Frostbite" = 3
+"Heating Up" = 1
+"Ice Lance" = 1
+"Ice Shards" = 5
+"Ignite" = 2
+"Impact" = 3
+"Improved Fire Ward" = 2
+"Improved Flamestrike" = 3
+"Improved Frostbolt" = 5
+"Improved Scorch" = 3
+"Incineration" = 4
+"Master of Elements" = 1
+"Precision" = 1
+"Pyroblast" = 1
+"Shatter" = 3

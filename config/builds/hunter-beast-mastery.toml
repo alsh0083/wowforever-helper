@@ -1,6 +1,6 @@
-# Hunter community standard (#108) from wowforevertalent.com's popularity data: #4 of the most
-# popular complete hunter builds (Sep 13 to Oct 4, 2026, updated daily), points 31/20/0, shared 23,
-# saved 91, opened 615, 42 close variants. Focus label is Claude's judgment.
+# Community standard (#460) from talentsforever.com, saved 2026-11-04: top build #4 since the Oct 30 hotfixes to build 70685, saved 152. Data (c) Talents Forever, https://talentsforever.com, CC BY 4.0.
+# https://talentsforever.com/hunter/60/5120201505101251-00503520005--11
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "hunter-beast-mastery"
 class = "hunter"
@@ -8,9 +8,9 @@ name = "Beast Mastery (PvE)"
 pair = "hunter-beast-mastery"
 variant = "PvE"
 origin = "community"
-sources = ["wft_popular_hunter"]
+sources = ["talentsforever_top"]
 confidence = "medium"
-summary = "Beast Mastery with Bestial Wrath, Frenzy, Ferocity, Unleashed Fury, Intimidation and Summon Hawk, plus Marksmanship's Mortal Shots and Careful Aim. The community's pet build."
+summary = "Beast Mastery / Marksmanship Hunter 31/20/0, Efficiency build (talentsforever.com, top build #4 since the Oct 30 hotfixes to build 70685, saved 152)."
 
 [final]
 "Bestial Discipline" = 2

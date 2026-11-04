@@ -84,8 +84,12 @@ def test_summary_mentions_source_lag_and_effect_report(data):
     text = s.text()
     assert "1.60.1.70205" in text
     assert "wowforevertalent.com is on build 1.60.1.70170" in text
-    # the rules follow the pinned dataset; this 70205 fixture lacks talents added since (Arcane Wrath, 70425)
-    assert all("not a talent in the dataset" in p for p in s.effect_problems)
+    # the rules follow the pinned dataset (1.60.1.70755); this 70205 fixture lacks talents added since (Arcane Wrath),
+    # still has two that 70755 removed, and the old text of two it renamed (#463)
+    old = {"Arcane Focus: in neither TALENT_EFFECTS nor UNMODELED", "Piercing Ice: in neither TALENT_EFFECTS nor UNMODELED",
+           "Improved Fireball: rank 1 text didn't match cast_time pattern",
+           "Elemental Precision: rank 1 text didn't match hit_chance pattern"}
+    assert all("not a talent in the dataset" in p or p in old for p in s.effect_problems)
 
 
 def test_second_check_with_no_changes_saves_nothing_new(data):
@@ -109,7 +113,7 @@ def test_new_build_with_a_changed_talent_is_diffed_and_flags_builds(data):
     assert s.build == "1.60.1.70300" and s.previous_build == "1.60.1.70205"
     assert s.changed
     assert any("Critical Mass" in str(c) for c in s.changes)
-    assert "elementalist-pve-v2" in s.affected_builds and "deep-frost" not in s.affected_builds
+    assert "mage-fire" in s.affected_builds and "mage-frost-pve" not in s.affected_builds      # Critical Mass
     assert (data / "datasets" / "1.60.1.70300.json").exists()
     log = (data / "CHANGELOG.md").read_text(encoding="utf-8")
     assert log.index("1.60.1.70300") < log.index("1.60.1.70205")

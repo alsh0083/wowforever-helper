@@ -1,16 +1,16 @@
-# Hunter community standard (#108) from wowforevertalent.com's popularity data: #1 of the most
-# popular complete hunter builds (Sep 13 to Oct 4, 2026, updated daily), points 5/11/35, shared 300,
-# saved 377, opened 3888, 177 close variants. Focus label is Claude's judgment.
+# Community standard (#460) from talentsforever.com, saved 2026-11-04: top build #1 since the Oct 30 hotfixes to build 70685, saved 526. Data (c) Talents Forever, https://talentsforever.com, CC BY 4.0.
+# https://talentsforever.com/hunter/60/5-005005001-500230230250222151-11
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "hunter-survival"
 class = "hunter"
-name = "Survival Lone Wolf (PvE)"
+name = "Survival (PvE)"
 pair = "hunter-survival"
 variant = "PvE"
 origin = "community"
-sources = ["wft_popular_hunter"]
+sources = ["talentsforever_top"]
 confidence = "medium"
-summary = "Most popular complete Forever hunter build: petless Survival with Lone Wolf (+20% damage with no pet), Predator's Edge (melee crit damage, off-hand damage), Lacerating Strikes, Strider Kick and Lightning Reflexes 5, over Marksmanship's Lethal Attacks and Careful Aim. A dual-wield melee hunter; the community's leveling and PvE standard."
+summary = "Survival Hunter 5/11/35: in melee and without a pet (talentsforever.com, top build #1 since the Oct 30 hotfixes to build 70685, saved 526)."
 
 [final]
 "Careful Aim" = 5

@@ -3,7 +3,7 @@
 
 id = "priest-holy-pvp-leveling"
 class = "priest"
-name = "Holy (PvP, leveling)"
+name = "Holy (PvP, leveling, model)"
 pair = "priest-holy-pvp-leveling"
 variant = "PvP"
 mode = "leveling"
@@ -11,7 +11,7 @@ levels_into = "priest-holy-pvp"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Holy (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Holy (PvP) at 60."
+summary = "Holy (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Holy (PvP, model) at 60."
 
 order = [
   "Twilight Focus",  # 10
@@ -19,50 +19,50 @@ order = [
   "Twilight Focus",  # 12
   "Holy Specialization",  # 13
   "Holy Specialization",  # 14
-  "Spell Warding",  # 15
-  "Spell Warding",  # 16
-  "Spell Warding",  # 17
-  "Spell Warding",  # 18
-  "Spell Warding",  # 19
-  "Blessed Recovery",  # 20
-  "Blessed Recovery",  # 21
-  "Blessed Recovery",  # 22
-  "Divine Fury",  # 23
-  "Divine Fury",  # 24
-  "Binding Heal",  # 25
-  "Divine Fury",  # 26
-  "Divine Fury",  # 27
-  "Divine Fury",  # 28
-  "Searing Light",  # 29
-  "Searing Light",  # 30
-  "Holy Specialization",  # 31
-  "Holy Specialization",  # 32
-  "Holy Specialization",  # 33
-  "Litany of Light",  # 34
-  "Spiritual Healing",  # 35
-  "Spiritual Healing",  # 36
-  "Spiritual Healing",  # 37
-  "Spirit of Redemption",  # 38
-  "Spiritual Guidance",  # 39
-  "Prayer of Mending",  # 40
-  "Spiritual Guidance",  # 41
-  "Spiritual Guidance",  # 42
+  "Divine Fury",  # 15
+  "Divine Fury",  # 16
+  "Divine Fury",  # 17
+  "Divine Fury",  # 18
+  "Power in Light",  # 19
+  "Power in Light",  # 20
+  "Divine Fury",  # 21
+  "Holy Specialization",  # 22
+  "Holy Specialization",  # 23
+  "Holy Specialization",  # 24
+  "Improved Renew",  # 25
+  "Improved Renew",  # 26
+  "Searing Light",  # 27
+  "Searing Light",  # 28
+  "Shadow Focus",  # 29
+  "Blackout",  # 30
+  "Twin Disciplines",  # 31
+  "Twin Disciplines",  # 32
+  "Twin Disciplines",  # 33
+  "Holy Precision",  # 34
+  "Twin Disciplines",  # 35
+  "Twin Disciplines",  # 36
+  "Mental Strength",  # 37
+  "Mental Strength",  # 38
+  "Meditation",  # 39
+  "Meditation",  # 40
+  "Meditation",  # 41
+  "Improved Healing",  # 42
   "Improved Healing",  # 43
   "Improved Healing",  # 44
-  "Improved Healing",  # 45
-  "Holy Nova",  # 46
-  "Inspiration",  # 47
-  "Litany of Light",  # 48
+  "Litany of Light",  # 45
+  "Litany of Light",  # 46
+  "Spirit of Redemption",  # 47
+  "Spiritual Guidance",  # 48
   "Spiritual Guidance",  # 49
-  "Twin Disciplines",  # 50
-  "Twin Disciplines",  # 51
-  "Twin Disciplines",  # 52
-  "Twin Disciplines",  # 53
-  "Twin Disciplines",  # 54
-  "Martyrdom",  # 55
-  "Martyrdom",  # 56
-  "Mental Strength",  # 57
-  "Mental Strength",  # 58
-  "Mental Strength",  # 59
-  "Mental Agility",  # 60
+  "Spiritual Healing",  # 50
+  "Spiritual Healing",  # 51
+  "Spiritual Healing",  # 52
+  "Spiritual Guidance",  # 53
+  "Spiritual Guidance",  # 54
+  "Prayer of Mending",  # 55
+  "Spiritual Guidance",  # 56
+  "Holy Nova",  # 57
+  "Inspiration",  # 58
+  "Inspiration",  # 59
+  "Inspiration",  # 60
 ]

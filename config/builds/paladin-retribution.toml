@@ -1,6 +1,6 @@
-# Paladin community standard (#157) from wowforevertalent.com's popularity data: #3 of the most
-# popular complete paladin builds (since the Sep 24 patch (build 70009), updated daily), points 13/0/34, shared 69,
-# saved 223, opened 1268, 117 close variants. Focus label is Claude's judgment.
+# Community standard (#460) from talentsforever.com, saved 2026-11-04: top build #1 since the Oct 30 hotfixes to build 70685, saved 209. Data (c) Talents Forever, https://talentsforever.com, CC BY 4.0.
+# https://talentsforever.com/paladin/60/050050002-503-05233011201301351-11
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "paladin-retribution"
 class = "paladin"
@@ -8,29 +8,26 @@ name = "Retribution (PvE)"
 pair = "paladin-retribution"
 variant = "PvE"
 origin = "community"
-sources = ["wft_popular_paladin"]
+sources = ["talentsforever_top"]
 confidence = "medium"
-summary = "Retribution with Seal of Command, Sacred Arbiter, Vengeance and Twist of Light; Divine Intellect and Divine Strength from Holy. The most saved paladin build: the community's leveling and damage standard."
+summary = "Retribution Paladin 12/8/31 (talentsforever.com, top build #1 since the Oct 30 hotfixes to build 70685, saved 209)."
 
 [final]
 "Benediction" = 5
-"Champion of the Light" = 3
-"Conviction" = 5
+"Champion of the Light" = 5
+"Conviction" = 3
 "Divine Intellect" = 5
 "Divine Strength" = 5
 "Holy Conduit" = 2
 "Improved Judgement" = 2
-"Improved Seals" = 3
-"Instrument of Law" = 2
+"Improved Seals" = 5
+"Precision" = 3
+"Pursuit of Justice" = 2
+"Repentance" = 1
 "Sacred Arbiter" = 1
 "Sanctified Judgement" = 3
 "Seal of Command" = 1
-"Twist of Light" = 1
 "Two-Handed Weapon Specialization" = 3
+"Unsealed Wrath" = 1
+"Unyielding Faith" = 1
 "Vengeance" = 3
-"Vindication" = 3
-
-# The community build spends fewer than 51 points (owner request, 2026-10-07): the model
-# fills the rest with the best legal talents under the PvE score. [final] is as published.
-[model_filled]
-"Redoubt" = 4

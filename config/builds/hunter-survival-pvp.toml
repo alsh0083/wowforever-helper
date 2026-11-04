@@ -1,32 +1,29 @@
-# Hunter community standard (#108) from wowforevertalent.com's popularity data: #3 of the most
-# popular complete hunter builds (Sep 13 to Oct 4, 2026, updated daily), points 5/11/35, shared 80,
-# saved 106, opened 944, 120 close variants. Focus label is Claude's judgment.
+# Model build for the empty deep Survival PvP slot (owner request, 2026-10-05): the report's model pick for this slot.
+# No community plan with talents exists for this slot yet; replace it when one does.
 
 id = "hunter-survival-pvp"
 class = "hunter"
-name = "Survival Lone Wolf (PvP)"
+name = "Survival (PvP, model)"
 pair = "hunter-survival"
 variant = "PvP"
-origin = "community"
-sources = ["wft_popular_hunter"]
-confidence = "medium"
-summary = "Survival build #1 with Entrapment 3 (traps root their targets) in place of Survivalist: the control-leaning PvP variant of the same spec."
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Survival PvP: the report's model pick for this slot. Not a community standard."
 
 [final]
 "Careful Aim" = 5
 "Clever Traps" = 2
-"Deadly Aspects" = 5
-"Entrapment" = 3
 "Expose Prey" = 2
+"Improved Arcane Shot" = 5
 "Improved Tracking" = 5
-"Lacerating Strikes" = 1
 "Lethal Attacks" = 5
 "Lightning Reflexes" = 5
-"Lone Wolf" = 1
+"Mortal Shots" = 4
 "Predator's Edge" = 5
-"Resourcefulness" = 2
 "Savage Strikes" = 2
-"Strider Kick" = 1
 "Surefooted" = 3
 "Survival Tactics" = 2
+"Survivalist" = 3
 "Survivalist's Discipline" = 2
+"Trueshot Aura" = 1

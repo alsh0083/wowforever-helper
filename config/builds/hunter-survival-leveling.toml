@@ -3,7 +3,7 @@
 
 id = "hunter-survival-leveling"
 class = "hunter"
-name = "Survival Lone Wolf (PvE, leveling)"
+name = "Survival (PvE, leveling)"
 pair = "hunter-survival-leveling"
 variant = "PvE"
 mode = "leveling"
@@ -11,7 +11,7 @@ levels_into = "hunter-survival"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Survival Lone Wolf (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Survival Lone Wolf (PvE) at 60."
+summary = "Survival (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Survival (PvE) at 60."
 
 order = [
   "Improved Tracking",  # 10
@@ -36,33 +36,33 @@ order = [
   "Predator's Edge",  # 29
   "Resourcefulness",  # 30
   "Deflection",  # 31
-  "Predator's Edge",  # 32
-  "Predator's Edge",  # 33
-  "Deflection",  # 34
+  "Deflection",  # 32
+  "Entrapment",  # 33
+  "Entrapment",  # 34
   "Lightning Reflexes",  # 35
-  "Lethal Attacks",  # 36
+  "Lightning Reflexes",  # 36
   "Lightning Reflexes",  # 37
   "Lightning Reflexes",  # 38
   "Lightning Reflexes",  # 39
-  "Lightning Reflexes",  # 40
-  "Resourcefulness",  # 41
+  "Resourcefulness",  # 40
+  "Expose Prey",  # 41
   "Expose Prey",  # 42
-  "Expose Prey",  # 43
-  "Lacerating Strikes",  # 44
+  "Lacerating Strikes",  # 43
+  "Survivalist's Discipline",  # 44
   "Survivalist's Discipline",  # 45
-  "Survivalist's Discipline",  # 46
-  "Strider Kick",  # 47
-  "Survivalist",  # 48
+  "Strider Kick",  # 46
+  "Predator's Edge",  # 47
+  "Predator's Edge",  # 48
   "Survivalist",  # 49
   "Survivalist",  # 50
-  "Deterrence",  # 51
-  "Counterattack",  # 52
+  "Survivalist",  # 51
+  "Deadly Aspects",  # 52
   "Lethal Attacks",  # 53
   "Lethal Attacks",  # 54
   "Lethal Attacks",  # 55
-  "Lethal Attacks",  # 56
-  "Careful Aim",  # 57
-  "Careful Aim",  # 58
-  "Careful Aim",  # 59
+  "Deadly Aspects",  # 56
+  "Lethal Attacks",  # 57
+  "Lethal Attacks",  # 58
+  "Deadly Aspects",  # 59
   "Careful Aim",  # 60
 ]

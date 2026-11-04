@@ -4,7 +4,6 @@ cast is faster by crit chance x 10%."""
 import pytest
 
 from wowforever.assumptions import Assumptions
-from wowforever.builds import load_builds
 from wowforever.caster import cast, caster_rotation
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
@@ -12,6 +11,8 @@ from wowforever.melee_scenarios import stat_table
 from wowforever.physical import Target
 from wowforever.scenarios import best_rank
 from wowforever.schema import Dataset, latest_dataset_path
+
+from _trees import builds_by_id
 
 D = class_module("druid")
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("druid"), D.TALENT_EFFECTS, D.UNMODELED)
@@ -35,7 +36,7 @@ def test_casts_are_faster_by_crit_chance_times_ten_percent(spell):
 
 
 def test_balance_rotation_gains():
-    ranks = {b.id: b.final_ids(CLS) for b in load_builds(class_name="druid")}["druid-balance"]
+    ranks = {k: b.final_ids(CLS) for k, b in builds_by_id("druid").items()}["druid-balance"]
     tid = CLS.talent_named("Nature's Grace").talent_id
     assert ranks.get(tid, 0) == 1
     without = {t: r for t, r in ranks.items() if t != tid}

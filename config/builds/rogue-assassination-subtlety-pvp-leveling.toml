@@ -1,0 +1,68 @@
+# Leveling version of rogue-assassination-subtlety-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "rogue-assassination-subtlety-pvp-leveling"
+class = "rogue"
+name = "Assassination/Subtlety (PvP, leveling, model)"
+pair = "rogue-assassination-subtlety-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "rogue-assassination-subtlety-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Assassination/Subtlety (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Assassination/Subtlety (PvP, model) at 60."
+
+order = [
+  "Remorseless Attacks",  # 10
+  "Remorseless Attacks",  # 11
+  "Malice",  # 12
+  "Malice",  # 13
+  "Malice",  # 14
+  "Malice",  # 15
+  "Malice",  # 16
+  "Improved Gouge",  # 17
+  "Opportunity",  # 18
+  "Opportunity",  # 19
+  "Opportunity",  # 20
+  "Opportunity",  # 21
+  "Opportunity",  # 22
+  "Improved Ambush",  # 23
+  "Improved Ambush",  # 24
+  "Improved Ambush",  # 25
+  "Setup",  # 26
+  "Setup",  # 27
+  "Initiative",  # 28
+  "Initiative",  # 29
+  "Initiative",  # 30
+  "Improved Gouge",  # 31
+  "Improved Gouge",  # 32
+  "Lethality",  # 33
+  "Lethality",  # 34
+  "Improved Expose Armor",  # 35
+  "Improved Expose Armor",  # 36
+  "Improved Slice and Dice",  # 37
+  "Improved Poisons",  # 38
+  "Improved Poisons",  # 39
+  "Improved Poisons",  # 40
+  "Improved Poisons",  # 41
+  "Improved Poisons",  # 42
+  "Vile Poisons",  # 43
+  "Vile Poisons",  # 44
+  "Vile Poisons",  # 45
+  "Vile Poisons",  # 46
+  "Vile Poisons",  # 47
+  "Relentless Strikes",  # 48
+  "Relentless Strikes",  # 49
+  "Serrated Blades",  # 50
+  "Serrated Blades",  # 51
+  "Serrated Blades",  # 52
+  "Relentless Strikes",  # 53
+  "Relentless Strikes",  # 54
+  "Relentless Strikes",  # 55
+  "Vigor",  # 56
+  "Vigor",  # 57
+  "Blood Splatter",  # 58
+  "Venom",  # 59
+  "Mutilate",  # 60
+]

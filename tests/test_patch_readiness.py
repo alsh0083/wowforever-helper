@@ -41,8 +41,9 @@ def test_readiness_flags_what_an_older_build_breaks():
 
     old = DATASETS_DIR / "1.60.1.70291.json"
     problems = readiness(old, tables_dir=ROOT / "no-such-folder")
-    # today's builds put 5 points in Critical Mass, which had 3 ranks on 70291
-    assert any(p.startswith("mage: build deep-fire: ") and "Critical Mass" in p for p in problems)
+    # today's Arcane builds take Arcane Wrath, which 70291 didn't have yet (Accelerant and Precision resolve to their
+    # 70291 names through config/talent_renames.toml)
+    assert "mage: build mage-arcane: unknown talents Arcane Wrath" in problems
     # rules written for 70425 text don't all match 70291 (Dark Inspiration didn't exist)
     assert "priest: effect rule: Dark Inspiration: not a talent in the dataset" in problems
 
@@ -52,11 +53,12 @@ def test_readiness_command_exits_non_zero_while_problems_are_open(capsys):
 
     code = main(["patch-readiness", "--dataset", str(DATASETS_DIR / "1.60.1.70291.json"),
                  "--tables", str(ROOT / "no-such-folder")])
-    assert code == 1 and "mage: build deep-fire" in capsys.readouterr().out
+    assert code == 1 and "mage: build mage-arcane: " in capsys.readouterr().out
 
 
 def test_the_runbook_exists_and_names_the_steps():
     text = (ROOT / "docs" / "patch-update.md").read_text(encoding="utf-8")
-    for step in ("update", "patch-readiness", "config/dataset.toml", "refresh_community_builds", "derive_leveling_builds",
+    for step in ("update", "patch-readiness", "config/dataset.toml", "import_sourced_builds", "seed_tree_builds",
+                 "derive_leveling_builds",
                  "derive_opponent_kits", "validate-logs", "dashboard"):
         assert step in text, step

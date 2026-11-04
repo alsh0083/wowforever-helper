@@ -24,13 +24,18 @@ score is a **pre-patch** score, so say so whenever you report numbers. Build 1.6
 ## 3. One integration branch, one issue per class
 - Branch `patch-<build>` from main and move the pin to the new build there first.
 - Open one issue per class (plus group buffs and any data bug) under a milestone named for the build.
-- Fix the builds first, so the suite can collect:
-  - final allocations go legal, with a comment in each build file saying what moved and why;
-  - put renamed talents in `config/talent_renames.toml`;
-  - re-derive leveling builds with `tools/derive_leveling_builds.py <class ...>`.
-- Then `tools/refresh_community_builds.py` (#369) replaces hand-moved community points with post-patch player
-  data where it exists.
-
+- Rules first: each class's effect rules for the new rank text, checked against the saved dataset
+  (`tests/test_rules_<build>.py`), before the pin moves.
+- Then replace the builds, never repair them (owner, 2026-10-31, #460):
+  1. `tools/import_sourced_builds.py`: deletes each class's non-hand builds and writes one community standard per
+     slot from a current source (wowforeverbuilds.com's spec guide when its guard keeps it, then talentsforever.com's
+     most saved complete top build). A source build naming a missing talent is left out, not adjusted.
+  2. `tools/seed_tree_builds.py`: a PvE model build for each deep tree no source covers. The opponent kits play
+     their tree's build and every report needs them.
+  3. Every class report, then `tools/derive_slot_builds.py` (PvP slots), the reports again,
+     `tools/derive_model_picks.py`, and `tools/derive_leveling_builds.py <class ...>`.
+  4. `tools/derive_opponent_kits.py` re-derives the kits' level-60 health and DPS.
+- Put renamed talents in `config/talent_renames.toml`.
 ## 4. Class work
 - Golden tests come first. Each new or changed mechanic gets a hand-worked value in `tests/test_<build>_*.py`.
 - Rules should match both the old fixture text and the new where that's easy. Tests that check "every rule
@@ -41,12 +46,9 @@ score is a **pre-patch** score, so say so whenever you report numbers. Build 1.6
   - list every re-pinned value as old → new in the PR. Re-pinned values are consistency checks, not proof.
 
 ## 5. Keep checking while the meta settles
-Post-patch popularity data starts thin. Each time the owner asks for an update check in the weeks after a patch, also
-run `tools/refresh_community_builds.py`. It reports each refreshed community build as **stable** (same player build as
-last time), **moved** (rewrites it) or **settled** (20+ saves and unchanged, so the `provisional` mark goes). Re-derive
-the leveling builds and regenerate the reports when anything was rewritten. Builds still marked `provisional` show as
-"Community standard (provisional, N saves)" on the dashboard.
-
+Post-patch sources fill in over days: guides move to the new calculator, and top builds collect saves. Each time the
+owner asks for an update check in the weeks after a patch, rerun step 3's import and derive tools. A slot whose source
+now publishes a build takes it, and a guide whose tree or rank text still differs from ours stays out.
 After a patch, fetch only post-patch logs: `.venv/Scripts/python -m wowforever foreverlogs-refresh --week 147`
 (weeks from 2024-01-01; add `--day 1 --day 2` for single days), then compare with
 `validate-logs --stats stats-w147` (repeat `--stats` to add slices up). A 429 waits 60 s and retries once.

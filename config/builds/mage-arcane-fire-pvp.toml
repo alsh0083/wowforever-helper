@@ -1,0 +1,31 @@
+# Model build for the empty Arcane/Fire PvP slot (owner request, 2026-10-05): the report's model pick for this slot.
+# No community plan with talents exists for this slot yet; replace it when one does.
+
+id = "mage-arcane-fire-pvp"
+class = "mage"
+name = "Arcane/Fire (PvP, model)"
+pair = "mage-arcane-fire"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Arcane/Fire PvP: the report's model pick for this slot. Not a community standard."
+
+[final]
+"Accelerant" = 5
+"Arcane Blast" = 1
+"Arcane Concentration" = 5
+"Arcane Impact" = 3
+"Arcane Instability" = 3
+"Arcane Meditation" = 3
+"Arcane Mind" = 5
+"Arcane Resilience" = 3
+"Arcane Subtlety" = 2
+"Arcane Wrath" = 1
+"Burning Soul" = 3
+"Ignite" = 5
+"Impact" = 3
+"Improved Channeling" = 2
+"Improved Fire Blast" = 2
+"Incineration" = 3
+"Missile Barrage" = 2

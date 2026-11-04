@@ -1,0 +1,29 @@
+# Model pick for the deep Destruction PvE slot (owner request, 2026-10-07): the
+# community standard warlock-destruction hill-climbed under the PvE score, +5.3%.
+# Changes: Incinerate 1->0, Bane of Havoc 1->0, Fire and Brimstone 3->0, Conflagrate 1->0, Destructive Reach 2->0, Shadowburn 1->0, Improved Shadow Bolt 0->5, Improved Life Tap 0->2, Improved Corruption 0->2.
+
+id = "warlock-destruction-model"
+class = "warlock"
+name = "Destruction (PvE, model pick)"
+pair = "warlock-destruction-model"
+variant = "PvE"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "The model's alternative to Destruction (PvE): Incinerate 1->0, Bane of Havoc 1->0, Fire and Brimstone 3->0, Conflagrate 1->0, Destructive Reach 2->0, Shadowburn 1->0, Improved Shadow Bolt 0->5, Improved Life Tap 0->2, Improved Corruption 0->2. Scores +5.3% higher; not tried in game."
+
+[final]
+"Aftermath" = 5
+"Agonizing Flames" = 3
+"Bane" = 5
+"Cataclysm" = 3
+"Demonic Aegis" = 2
+"Demonic Embrace" = 5
+"Demonic Sacrifice" = 1
+"Fel Vitality" = 3
+"Improved Corruption" = 2
+"Improved Life Tap" = 2
+"Improved Shadow Bolt" = 5
+"Ruin" = 5
+"Shadow and Flame" = 5
+"Suppression" = 5

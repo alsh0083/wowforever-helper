@@ -4,7 +4,7 @@ Talents that name a heal change its cast time and mana cost; Gift of Nature (new
 `healing_pct`) multiplies all healing. Moonglow cuts only *damaging* spells' cost, so heals skip
 school-wide effects: only effects naming the heal by name, plus `healing_pct`, apply.
 
-Rank texts (Forever): Naturalist -0.1 s Healing Touch cast per rank; Gift of Nature +2% healing per
+Rank texts (Forever): Naturalist -0.1 s Healing Touch and Wild Growth cast per rank (Wild Growth since 70755); Gift of Nature +2% healing per
 rank; Tranquil Spirit -2% Healing Touch and Tranquility mana cost per rank.
 
 Healing amounts with these talents are pinned in tests/test_hot_heals.py (#279).
@@ -25,7 +25,8 @@ def effects(name):
 
 def test_healing_talents_parse_from_their_rank_texts():
     assert PROBLEMS == []
-    assert effects("Naturalist")["cast_time"] == (pytest.approx((-0.1, -0.2, -0.3, -0.4, -0.5)), ("Healing Touch",))
+    assert effects("Naturalist")["cast_time"] == (pytest.approx((-0.1, -0.2, -0.3, -0.4, -0.5)),
+                                                 ("Healing Touch", "Wild Growth"))        # Wild Growth too on 70755
     assert effects("Gift of Nature")["healing_pct"] == ((2.0, 4.0, 6.0, 8.0, 10.0), ("all",))
     assert effects("Tranquil Spirit")["mana_cost_pct"] == ((-2.0, -4.0, -6.0, -8.0, -10.0),
                                                            ("Healing Touch", "Tranquility"))

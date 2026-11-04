@@ -1,0 +1,68 @@
+# Leveling version of priest-shadow-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "priest-shadow-pvp-leveling"
+class = "priest"
+name = "Shadow (PvP, leveling, model)"
+pair = "priest-shadow-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "priest-shadow-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Shadow (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Shadow (PvP, model) at 60."
+
+order = [
+  "Blackout",  # 10
+  "Shadow Focus",  # 11
+  "Shadow Focus",  # 12
+  "Shadow Focus",  # 13
+  "Shadow Focus",  # 14
+  "Improved Shadow Word: Pain",  # 15
+  "Improved Shadow Word: Pain",  # 16
+  "Twilight Focus",  # 17
+  "Twilight Focus",  # 18
+  "Twilight Focus",  # 19
+  "Shadow Focus",  # 20
+  "Blackout",  # 21
+  "Blackout",  # 22
+  "Mind Flay",  # 23
+  "Improved Mind Flay",  # 24
+  "Improved Mind Flay",  # 25
+  "Blackout",  # 26
+  "Blackout",  # 27
+  "Shadow Weaving",  # 28
+  "Shadow Weaving",  # 29
+  "Shadow Weaving",  # 30
+  "Spirit Tap",  # 31
+  "Spirit Tap",  # 32
+  "Devouring Contagion",  # 33
+  "Devouring Contagion",  # 34
+  "Improved Mind Blast",  # 35
+  "Improved Mind Blast",  # 36
+  "Improved Mind Blast",  # 37
+  "Darkness",  # 38
+  "Darkness",  # 39
+  "Darkness",  # 40
+  "Darkness",  # 41
+  "Darkness",  # 42
+  "Early Demise",  # 43
+  "Early Demise",  # 44
+  "Improved Mind Blast",  # 45
+  "Improved Mind Blast",  # 46
+  "Silence",  # 47
+  "Dark Inspiration",  # 48
+  "Dark Inspiration",  # 49
+  "Vampiric Embrace",  # 50
+  "Shadowform",  # 51
+  "Shadow Reach",  # 52
+  "Dark Inspiration",  # 53
+  "Twin Disciplines",  # 54
+  "Twin Disciplines",  # 55
+  "Twin Disciplines",  # 56
+  "Twin Disciplines",  # 57
+  "Twin Disciplines",  # 58
+  "Mental Strength",  # 59
+  "Mental Strength",  # 60
+]

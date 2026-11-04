@@ -1,34 +1,35 @@
-# Rogue community standard (#104) from wowforevertalent.com's popularity data: #4 of the most
-# popular complete rogue builds (Sep 13 to Oct 4, 2026, updated daily), points 18/33/0, shared 44,
-# saved 131, opened 711, 195 close variants. Focus label is Claude's judgment.
+# Model build for the empty deep Combat PvP slot (owner request, 2026-10-05): the report's model pick for this slot.
+# No community plan with talents exists for this slot yet; replace it when one does.
 
 id = "rogue-combat-pvp"
 class = "rogue"
-name = "Combat Swords (PvP)"
+name = "Combat (PvP, model)"
 pair = "rogue-combat"
 variant = "PvP"
-origin = "community"
-sources = ["wft_popular_rogue"]
-confidence = "medium"
-summary = "Combat build #1 with Deflection 3 and Flawless Execution in place of Lightning Reflexes, keeping Improved Sprint 2 to break roots and slows: the PvP-leaning variant of the same spec."
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Combat PvP: the report's model pick for this slot. Not a community standard."
 
 [final]
 "Adrenaline Rush" = 1
 "Aggression" = 3
 "Blade Flurry" = 1
-"Cold Blood" = 1
+"Composure" = 2
+"Coup de Grace" = 3
 "Deflection" = 3
-"Dual Wield Specialization" = 5
+"Dual Wield Specialization" = 2
+"Efficient Strikes" = 2
 "Endurance" = 2
+"Flash of Steel" = 3
 "Flawless Execution" = 1
 "Hack and Slash" = 5
-"Improved Eviscerate" = 3
-"Improved Sinister Strike" = 2
+"Improved Poisons" = 2
 "Improved Slice and Dice" = 3
-"Improved Sprint" = 2
-"Lethality" = 5
+"Lethality" = 2
 "Malice" = 5
 "Precision" = 3
-"Relentless Strikes" = 1
 "Ruthlessness" = 3
+"Vigor" = 2
+"Vile Poisons" = 1
 "Weapon Expertise" = 2

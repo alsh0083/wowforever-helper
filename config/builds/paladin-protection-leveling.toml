@@ -3,7 +3,7 @@
 
 id = "paladin-protection-leveling"
 class = "paladin"
-name = "Protection Holy Shield (PvE, leveling)"
+name = "Protection (PvE, leveling)"
 pair = "paladin-protection-leveling"
 variant = "PvE"
 mode = "leveling"
@@ -11,58 +11,58 @@ levels_into = "paladin-protection"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Protection Holy Shield (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Protection Holy Shield (PvE) at 60."
+summary = "Protection (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Protection (PvE) at 60."
 
 order = [
-  "Toughness",  # 10
-  "Toughness",  # 11
-  "Toughness",  # 12
-  "Toughness",  # 13
-  "Toughness",  # 14
+  "Divine Intellect",  # 10
+  "Divine Intellect",  # 11
+  "Divine Intellect",  # 12
+  "Divine Intellect",  # 13
+  "Divine Intellect",  # 14
   "Precision",  # 15
   "Precision",  # 16
   "Precision",  # 17
   "Redoubt",  # 18
   "Redoubt",  # 19
-  "Deflection",  # 20
-  "Deflection",  # 21
-  "Deflection",  # 22
-  "Deflection",  # 23
-  "Deflection",  # 24
-  "Conviction",  # 25
-  "Conviction",  # 26
-  "Conviction",  # 27
-  "Conviction",  # 28
-  "Conviction",  # 29
-  "Seal of Command",  # 30
-  "Improved Seal of Fury",  # 31
-  "Improved Righteous Fury",  # 32
-  "Improved Judgement",  # 33
-  "Improved Judgement",  # 34
+  "Redoubt",  # 20
+  "Divine Strength",  # 21
+  "Divine Strength",  # 22
+  "Divine Strength",  # 23
+  "Divine Strength",  # 24
+  "Divine Strength",  # 25
+  "Reverence",  # 26
+  "Templar's Bulwark",  # 27
+  "Improved Hammer of Justice",  # 28
+  "Toughness",  # 29
+  "Reverence",  # 30
+  "Spiritual Focus",  # 31
+  "Spiritual Focus",  # 32
+  "Toughness",  # 33
+  "Swift Judgement",  # 34
   "Improved Righteous Fury",  # 35
   "Improved Righteous Fury",  # 36
-  "Sacred Duty",  # 37
-  "Swift Judgement",  # 38
-  "One-Handed Weapon Specialization",  # 39
-  "One-Handed Weapon Specialization",  # 40
-  "One-Handed Weapon Specialization",  # 41
-  "Sacred Duty",  # 42
-  "Templar's Bulwark",  # 43
-  "Reckoning",  # 44
-  "Reckoning",  # 45
-  "Reckoning",  # 46
+  "Improved Righteous Fury",  # 37
+  "Anticipation",  # 38
+  "Holy Shield",  # 39
+  "Reckoning",  # 40
+  "Reckoning",  # 41
+  "Reckoning",  # 42
+  "Reckoning",  # 43
+  "Iron Creed",  # 44
+  "Iron Creed",  # 45
+  "Iron Creed",  # 46
   "Reckoning",  # 47
-  "Iron Creed",  # 48
-  "Iron Creed",  # 49
-  "Iron Creed",  # 50
-  "Iron Creed",  # 51
-  "Iron Creed",  # 52
-  "Holy Shield",  # 53
-  "Reckoning",  # 54
-  "Anticipation",  # 55
-  "Anticipation",  # 56
-  "Anticipation",  # 57
-  "Anticipation",  # 58
-  "Anticipation",  # 59
-  "Redoubt",  # 60
+  "Anticipation",  # 48
+  "Shieldsworn",  # 49
+  "Anticipation",  # 50
+  "Anticipation",  # 51
+  "Anticipation",  # 52
+  "Toughness",  # 53
+  "Toughness",  # 54
+  "Toughness",  # 55
+  "Sacred Duty",  # 56
+  "Sacred Duty",  # 57
+  "Redoubt",  # 58
+  "Redoubt",  # 59
+  "Shield Specialization",  # 60
 ]

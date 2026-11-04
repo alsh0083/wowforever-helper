@@ -9,6 +9,8 @@ import pytest
 from wowforever.classes.mage import duel_side
 from wowforever.pvp.duel import Control, Kit, Side, duel, load_kits, scenario_scores
 
+from _trees import builds_by_id
+
 BASE_MAGE = Side(health=3000, dps=150, absorb_per_min=0, immunity_share=0,
                      root=20, stun=0, slow=0.5, interrupt=20)
 MELEE = Kit(id="test-melee", role="melee", stealth=False, dispels_buffs=False, health=4000, dps=200,
@@ -105,7 +107,6 @@ def test_scenario_scores_group_kits_by_role_and_stealth():
 
 
 def test_deep_frost_out_duels_deep_fire_against_melee():
-    from wowforever.builds import load_builds
     from wowforever.classes.mage import LAYOUT, SKILL_LINES, TALENT_EFFECTS, UNMODELED
     from wowforever.effects import attach_effects
     from wowforever.normalize import normalize_class, read_tables
@@ -116,7 +117,7 @@ def test_deep_frost_out_duels_deep_fire_against_melee():
     from wowforever.schema import Dataset, latest_dataset_path
     cls, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("mage"), TALENT_EFFECTS, UNMODELED)
     spells = cls.spells
-    builds = {b.id: b for b in load_builds(class_name="mage")}
+    builds = builds_by_id("mage")
     stats = StatTable.load("mage").at(60)
 
     def side(build_id, filler):

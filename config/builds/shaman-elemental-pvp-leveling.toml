@@ -1,0 +1,68 @@
+# Leveling version of shaman-elemental-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "shaman-elemental-pvp-leveling"
+class = "shaman"
+name = "Elemental (PvP, leveling, model)"
+pair = "shaman-elemental-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "shaman-elemental-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Elemental (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Elemental (PvP, model) at 60."
+
+order = [
+  "Convection",  # 10
+  "Convection",  # 11
+  "Convection",  # 12
+  "Convection",  # 13
+  "Convection",  # 14
+  "Call of Flame",  # 15
+  "Call of Flame",  # 16
+  "Elemental Alacrity",  # 17
+  "Call of Flame",  # 18
+  "Elemental Alacrity",  # 19
+  "Elemental Focus",  # 20
+  "Elemental Alacrity",  # 21
+  "Concussion",  # 22
+  "Concussion",  # 23
+  "Concussion",  # 24
+  "Eye of the Storm",  # 25
+  "Eye of the Storm",  # 26
+  "Eye of the Storm",  # 27
+  "Earthbound",  # 28
+  "Concussion",  # 29
+  "Lava Burst",  # 30
+  "Lightning Overload",  # 31
+  "Lightning Overload",  # 32
+  "Lightning Overload",  # 33
+  "Ancestral Knowledge",  # 34
+  "Ancestral Knowledge",  # 35
+  "Ancestral Knowledge",  # 36
+  "Ancestral Knowledge",  # 37
+  "Ancestral Knowledge",  # 38
+  "Concussion",  # 39
+  "Elemental Fury",  # 40
+  "Elemental Fury",  # 41
+  "Elemental Fury",  # 42
+  "Elemental Fury",  # 43
+  "Elemental Fury",  # 44
+  "Elemental Mastery",  # 45
+  "Thundering Strikes",  # 46
+  "Thundering Strikes",  # 47
+  "Thundering Strikes",  # 48
+  "Thundering Strikes",  # 49
+  "Thundering Strikes",  # 50
+  "Shamanistic Focus",  # 51
+  "Tidal Focus",  # 52
+  "Tidal Focus",  # 53
+  "Elemental Devastation",  # 54
+  "Elemental Devastation",  # 55
+  "Elemental Devastation",  # 56
+  "Reverberation",  # 57
+  "Reverberation",  # 58
+  "Reverberation",  # 59
+  "Reverberation",  # 60
+]

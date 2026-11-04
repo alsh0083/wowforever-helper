@@ -1,0 +1,68 @@
+# Leveling version of shaman-enhancement-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "shaman-enhancement-pvp-leveling"
+class = "shaman"
+name = "Enhancement (PvP, leveling, model)"
+pair = "shaman-enhancement-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "shaman-enhancement-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Enhancement (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Enhancement (PvP, model) at 60."
+
+order = [
+  "Thundering Strikes",  # 10
+  "Thundering Strikes",  # 11
+  "Thundering Strikes",  # 12
+  "Thundering Strikes",  # 13
+  "Thundering Strikes",  # 14
+  "Mental Dexterity",  # 15
+  "Mental Dexterity",  # 16
+  "Mental Dexterity",  # 17
+  "Ancestral Knowledge",  # 18
+  "Ancestral Knowledge",  # 19
+  "Shamanistic Focus",  # 20
+  "Ancestral Knowledge",  # 21
+  "Ancestral Knowledge",  # 22
+  "Ancestral Knowledge",  # 23
+  "Elemental Weapons",  # 24
+  "Flurry",  # 25
+  "Flurry",  # 26
+  "Flurry",  # 27
+  "Flurry",  # 28
+  "Flurry",  # 29
+  "Mental Quickness",  # 30
+  "Mental Quickness",  # 31
+  "Elemental Weapons",  # 32
+  "Elemental Weapons",  # 33
+  "Stormstrike",  # 34
+  "Maelstrom Weapon",  # 35
+  "Maelstrom Weapon",  # 36
+  "Maelstrom Weapon",  # 37
+  "Maelstrom Weapon",  # 38
+  "Maelstrom Weapon",  # 39
+  "Rage of the Farseer",  # 40
+  "Concussion",  # 41
+  "Concussion",  # 42
+  "Concussion",  # 43
+  "Concussion",  # 44
+  "Concussion",  # 45
+  "Reverberation",  # 46
+  "Reverberation",  # 47
+  "Reverberation",  # 48
+  "Reverberation",  # 49
+  "Reverberation",  # 50
+  "Elemental Devastation",  # 51
+  "Elemental Devastation",  # 52
+  "Elemental Devastation",  # 53
+  "Convection",  # 54
+  "Convection",  # 55
+  "Eye of the Storm",  # 56
+  "Eye of the Storm",  # 57
+  "Eye of the Storm",  # 58
+  "Earthbound",  # 59
+  "Improved Stormstrike",  # 60
+]

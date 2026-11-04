@@ -6,7 +6,6 @@ from pathlib import Path
 import pytest
 
 from wowforever.schema import latest_dataset_path
-from wowforever.builds import load_builds
 from wowforever.caster import caster_rotation
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
@@ -14,6 +13,8 @@ from wowforever.melee_scenarios import stat_table
 from wowforever.physical import Target
 from wowforever.pvp.class_pvp import class_side
 from wowforever.schema import Dataset
+
+from _trees import builds_by_id
 
 ROOT = Path(__file__).resolve().parents[1]
 DATASET = Dataset.load(latest_dataset_path())
@@ -23,7 +24,7 @@ BOSS = Target(3, 0)
 def loaded(name):
     m = class_module(name)
     cls, problems = attach_effects(DATASET.class_data(name), m.TALENT_EFFECTS, m.UNMODELED)
-    return cls, problems, {b.id: b.final_ids(cls) for b in load_builds(class_name=name)}
+    return cls, problems, {k: b.final_ids(cls) for k, b in builds_by_id(name).items()}
 
 
 def rotation(name, build):
