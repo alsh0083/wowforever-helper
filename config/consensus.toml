@@ -7,6 +7,8 @@
 # confidence: low | medium | high.
 
 [sources]
+wowforeverbuilds_guides = { url = "https://wowforeverbuilds.com/guides/", kind = "guide", era = "forever", date = "2026-11-04", note = "Spec guides with a talent build each (PvE and PvP per spec), read from the site's calculator codes; kept only while the guide's trees, rank text and legality match the current build (#460, #463)." }
+talentsforever_top = { url = "https://talentsforever.com/", kind = "popularity", era = "forever", date = "2026-11-04", note = "Each class's five most shared builds since the last talent change, with save counts; data (c) Talents Forever, CC BY 4.0. The most saved complete build legal on our trees fills an empty PvE slot (#460)." }
 wft_popular = { url = "https://wowforevertalent.com/mage/", kind = "popularity", era = "forever", date = "2026-10-04", note = "Calculator popularity data since the Oct 1 patch (build 70170): 40,615 mage builds; tree split 22/43/35 Arcane/Fire/Frost; top complete builds with shares/saves. Popularity of beta theorycraft, not proof of viability." }
 wft_popular_rogue = { url = "https://wowforevertalent.com/rogue/", kind = "popularity", era = "forever", date = "2026-10-05", note = "Rogue calculator popularity data (Sep 13 to Oct 4, 2026): 46,144 builds, tree split 29/28/43 Assassination/Combat/Subtlety; source for the rogue community builds (#104)." }
 wft_popular_warrior = { url = "https://wowforevertalent.com/warrior/", kind = "popularity", era = "forever", date = "2026-10-05", note = "Warrior calculator popularity data (since the Oct 2 hotfixes to build 70170, updated daily): 55,217 builds, tree split 23/38/39 Arms/Fury/Protection; source for the warrior community builds (#155)." }
@@ -141,7 +143,7 @@ strong = ["Improved Frost Nova", "Permafrost", "Blast Wave", "Improved Blizzard"
 sources = ["barrens_pvp_builds"]
 
 [tiers.mage.questing]
-core = ["Improved Frostbolt", "Elemental Precision"]
+core = ["Improved Frostbolt", "Precision"]   # the guide's Elemental Precision, renamed Precision in 70707
 strong = ["Ice Shards", "Shatter", "Frostbite", "Permafrost"]
 sources = ["method_forever_leveling", "wt_forever_mage"]
 
@@ -191,22 +193,22 @@ sources = ["wt_forever_warrior"]
 
 [tiers.paladin.wpvp_melee]
 core = ["Repentance"]
-strong = ["Voice of Truth"]
+strong = []          # Voice of Truth, removed in 1.60.1.70755 (#463)
 sources = ["wt_forever_paladin"]
 
 [tiers.paladin.wpvp_caster]
 core = ["Repentance"]
-strong = ["Voice of Truth"]
+strong = []          # Voice of Truth, removed in 1.60.1.70755 (#463)
 sources = ["wt_forever_paladin"]
 
 [tiers.paladin.stealth_ambush]
 core = ["Repentance"]
-strong = ["Voice of Truth"]
+strong = []          # Voice of Truth, removed in 1.60.1.70755 (#463)
 sources = ["wt_forever_paladin"]
 
 [tiers.paladin.battleground]
 core = ["Repentance"]
-strong = ["Voice of Truth"]
+strong = []          # Voice of Truth, removed in 1.60.1.70755 (#463)
 sources = ["wt_forever_paladin"]
 
 [tiers.rogue.wpvp_melee]
