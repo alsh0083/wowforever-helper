@@ -110,7 +110,14 @@ def main(argv: list[str] | None = None) -> int:
         gear_path, rules_path = Path("data/items/gear.json"), Path("config/gear_rules.toml")
         gear = json.loads(gear_path.read_text(encoding="utf-8")) if gear_path.exists() else None
         rules = tomllib.loads(rules_path.read_text(encoding="utf-8")) if rules_path.exists() else None
-        out.write_text(render(reports, icons, gear=gear, gear_rules=rules, favicon=FAVICON.read_bytes() if FAVICON.exists() else None), encoding="utf-8", newline="\n")
+        import re
+
+        from wowforever.dashboard import pin_notice
+        from wowforever.schema import DATASET_PIN, latest_dataset_path, newest_saved_dataset
+
+        tracked = re.findall(r"tracked in (#\d+)", DATASET_PIN.read_text(encoding="utf-8"))
+        notice = pin_notice(latest_dataset_path().stem, newest_saved_dataset().stem, tracked[-1] if tracked else "#463")
+        out.write_text(render(reports, icons, gear=gear, gear_rules=rules, favicon=FAVICON.read_bytes() if FAVICON.exists() else None, notice=notice), encoding="utf-8", newline="\n")
         print(f"wrote {out}")
         return 0
     if args.command == "group-buffs":
