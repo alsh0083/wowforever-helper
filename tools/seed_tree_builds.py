@@ -1,4 +1,4 @@
-"""A PvE model build for every deep tree no endgame build covers yet (#460, #463).
+"""A PvE model build for every deep tree and recognized hybrid no endgame build covers yet (#460, #463).
 
 After tools/import_sourced_builds.py a tree can have no build at all (no source publishes one), but each spec shows
 its model build, and each PvP opponent kit plays its tree's build (pvp/kit_stats.py), which every report needs. The
@@ -27,10 +27,12 @@ from wowforever.shortlist import classify, improve
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def fill_tree(cls, tree, fn):
-    """Points into `tree` one at a time, best score first, while a legal point is left there."""
-    ranks: dict[int, int] = {}
-    while sum(ranks.values()) < points_available(60, cls.rules):
+def fill_tree(cls, tree, fn, ranks=None, limit=None):
+    """Points into `tree` one at a time, best score first, while a legal point is left there (and, with `limit`,
+    until the tree holds that many)."""
+    ranks = dict(ranks or {})
+    total = points_available(60, cls.rules)
+    while sum(ranks.values()) < total and (limit is None or sum(ranks.get(t, 0) for t in tree.talent_ids) < limit):
         options = []
         for tid in tree.talent_ids:
             t = cls.talent(tid)
@@ -51,7 +53,8 @@ def run(classes) -> int:
     for c in classes:
         m = class_module(c)
         cls, _ = attach_effects(ds.class_data(c), m.TALENT_EFFECTS, m.UNMODELED)
-        recognized = tuple(getattr(m, "HYBRIDS", ()))
+        # the mage report reads its hybrids from config/consensus.toml, the other classes from their module
+        recognized = tuple(getattr(m, "HYBRIDS", arch["recognized"] if c == "mage" else ()))
         covered = set()
         for b in load_builds(class_name=c):
             if b.mode != "leveling" and b.variant == "PvE":
@@ -59,18 +62,24 @@ def run(classes) -> int:
                                      recognized=recognized))
         stats = stat_table(c).at(60)
         fn = lambda r, c=c, cls=cls, stats=stats: pve_score(c, stats, cls.spells, cls, r)
-        for tree in cls.trees:
-            archetype = f"deep {tree.name}"
+        trees = {tree.name: tree for tree in cls.trees}
+        targets = [(f"deep {tree.name}", (tree,)) for tree in cls.trees]
+        targets += [(hybrid, tuple(trees[n] for n in hybrid.split("/"))) for hybrid in recognized]
+        for archetype, parts in targets:
             if archetype in covered:
                 continue
-            ranks = top_up(cls, fill_tree(cls, tree, fn), fn)
+            if len(parts) == 1:
+                ranks = fill_tree(cls, parts[0], fn)
+            else:                      # a hybrid: its first tree up to 30 points, then its second
+                ranks = fill_tree(cls, parts[1], fn, fill_tree(cls, parts[0], fn, limit=30))
+            ranks = top_up(cls, ranks, fn)
             best, _ = improve(cls, ranks, fn, archetype=archetype, deep=arch["deep"], hybrid=arch["hybrid"],
                               recognized=recognized, max_evals=400)
             if classify(cls, best, deep=arch["deep"], hybrid=arch["hybrid"], recognized=recognized) != archetype:
                 print(f"{c} {archetype}: the seed left the archetype; no build written")
                 continue
             names = {t.talent_id: t.name for t in cls.talents}
-            slug = tree.name.lower().replace(" ", "-")
+            slug = archetype.removeprefix("deep ").lower().replace("/", "-").replace(" ", "-")
             write(c, f"{c}-{slug}-pve", archetype, "PvE", {names[t]: r for t, r in best.items() if r},
                   f"seeded from an empty tree (its talents first, then the rest) and hill-climbed under the PvE "
                   f"score (#463)")
