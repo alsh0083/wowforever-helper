@@ -69,6 +69,30 @@
 - Binding Heal rank 4: removed
 - Binding Heal rank 5: removed
 - Binding Heal rank 6: removed
+- Chain Lightning rank 1: cast_time 2.0 -> 2.5
+- Chain Lightning rank 1: coefficient 0.57099997997 -> 0.71399998665
+- Chain Lightning rank 1: damage_per_level 0.60000002384 -> 1.39999997616
+- Chain Lightning rank 1: mana_cost 145 -> 245
+- Chain Lightning rank 1: max_damage 93.6078434588 -> 228.70098117775
+- Chain Lightning rank 1: min_damage 82.3921565412 -> 201.29901882225
+- Chain Lightning rank 2: cast_time 2.0 -> 2.5
+- Chain Lightning rank 2: coefficient 0.57099997997 -> 0.71399998665
+- Chain Lightning rank 2: damage_per_level 0.60000002384 -> 2.20000004768
+- Chain Lightning rank 2: mana_cost 200 -> 360
+- Chain Lightning rank 2: max_damage 105.7823129 -> 368.12244889199997
+- Chain Lightning rank 2: min_damage 94.2176871 -> 327.87755110800003
+- Chain Lightning rank 3: cast_time 2.0 -> 2.5
+- Chain Lightning rank 3: coefficient 0.51700001955 -> 0.71399998665
+- Chain Lightning rank 3: damage_per_level 0.69999998808 -> 2.70000004768
+- Chain Lightning rank 3: mana_cost 250 -> 425
+- Chain Lightning rank 3: max_damage 118.42393958583999 -> 452.54862627446
+- Chain Lightning rank 3: min_damage 105.57606041416 -> 403.45137372554
+- Chain Lightning rank 4: cast_time 2.0 -> 2.5
+- Chain Lightning rank 4: coefficient 0.57099997997 -> 0.71399998665
+- Chain Lightning rank 4: damage_per_level 0.80000001192 -> 3.29999995232
+- Chain Lightning rank 4: mana_cost 315 -> 495
+- Chain Lightning rank 4: max_damage 129.83333338431 -> 538.3333335447
+- Chain Lightning rank 4: min_damage 116.16666661568999 -> 481.66666645529995
 - Claw rank 1: weapon_pct 110.0 -> 140.0
 - Claw rank 2: weapon_pct 110.0 -> 140.0
 - Claw rank 3: weapon_pct 110.0 -> 140.0
@@ -96,6 +120,36 @@
 - Death Mark rank 3: new spell rank
 - Death Mark rank 4: new spell rank
 - Destruction/Shadow and Flame: rank text changed
+- Earth Shock rank 1: max_damage 19.000000007460002 -> 21.1111111194
+- Earth Shock rank 1: min_damage 16.999999992539998 -> 18.8888888806
+- Earth Shock rank 2: max_damage 34.000000029765005 -> 37.09090912338
+- Earth Shock rank 2: min_damage 31.999999970235 -> 34.90909087662
+- Earth Shock rank 3: max_damage 50.580645114195 -> 69.161290258185
+- Earth Shock rank 3: min_damage 47.419354885805 -> 64.838709741815
+- Earth Shock rank 4: max_damage 83.63414624319 -> 134.2276421187
+- Earth Shock rank 4: min_damage 78.36585375681 -> 125.7723578813
+- Earth Shock rank 5: max_damage 135.98275854438 -> 249.30172399803
+- Earth Shock rank 5: min_damage 128.01724145562 -> 234.69827600197002
+- Earth Shock rank 6: max_damage 211.0945945516 -> 394.38648640616003
+- Earth Shock rank 6: min_damage 198.90540544840002 -> 371.61351359384
+- Earth Shock rank 7: damage_per_level 1.89999997616 -> 3.40000009537
+- Earth Shock rank 7: max_damage 308.93597007006997 -> 545.00000035617
+- Earth Shock rank 7: min_damage 293.06402992993003 -> 516.99999964383
+- Elemental/Call of Flame: rank text changed
+- Elemental/Convection: rank text changed
+- Elemental/Elemental Alacrity: rank text changed
+- Elemental/Elemental Mastery: rank text changed
+- Elemental/Elemental Mastery: renamed to Lightning Mastery
+- Elemental/Elemental Reach: rank text changed
+- Elemental/Eye of the Storm: rank text changed
+- Elemental/Lava Burst: rank text changed
+- Elemental/Lava Burst: renamed to Call of Thunder
+- Elemental/Lightning Overload: rank text changed
+- Enhancement/Flurry: rank text changed
+- Enhancement/Improved Ghost Wolf: moved from row 2 col 3 to row 4 col 4
+- Enhancement/Improved Lightning Shield: moved from row 2 col 4 to row 2 col 3
+- Enhancement/Mental Dexterity: rank text changed
+- Enhancement/Stormstrike: rank text changed
 - Feral Combat/Rend and Tear: rank text changed
 - Ferocious Bite rank 1: max_damage 19.00000011924 -> 23.071428716219998
 - Ferocious Bite rank 1: min_damage 8.99999988076 -> 10.92857128378
@@ -115,6 +169,32 @@
 - Ferocious Bite rank 6: max_damage 112.00000071532001 -> 139.31707406052
 - Ferocious Bite rank 6: min_damage 51.99999928468 -> 64.68292593948
 - Ferocious Bite rank 6: per_combo_point 147.0 -> 181.0
+- Flame Shock rank 1: max_damage 20.0 -> 25.0
+- Flame Shock rank 1: min_damage 20.0 -> 25.0
+- Flame Shock rank 2: max_damage 33.0 -> 51.0
+- Flame Shock rank 2: min_damage 33.0 -> 51.0
+- Flame Shock rank 2: periodic_damage 32.0 -> 48.0
+- Flame Shock rank 3: max_damage 43.0 -> 95.0
+- Flame Shock rank 3: min_damage 43.0 -> 95.0
+- Flame Shock rank 3: periodic_damage 56.0 -> 96.0
+- Flame Shock rank 4: max_damage 82.0 -> 164.0
+- Flame Shock rank 4: min_damage 82.0 -> 164.0
+- Flame Shock rank 4: periodic_damage 84.0 -> 168.0
+- Flame Shock rank 5: max_damage 128.0 -> 245.0
+- Flame Shock rank 5: min_damage 128.0 -> 245.0
+- Flame Shock rank 5: periodic_damage 136.0 -> 256.0
+- Flame Shock rank 6: damage_per_level 2.09999990463 -> 3.79999995232
+- Flame Shock rank 6: max_damage 166.0 -> 292.0
+- Flame Shock rank 6: min_damage 166.0 -> 292.0
+- Flame Shock rank 6: periodic_damage 176.0 -> 320.0
+- Frost Shock rank 1: max_damage 68.15217389178 -> 101.19565214234
+- Frost Shock rank 1: min_damage 63.84782610822 -> 94.80434785766
+- Frost Shock rank 2: max_damage 128.07511714084 -> 229.29577423602
+- Frost Shock rank 2: min_damage 119.92488285916001 -> 214.70422576398002
+- Frost Shock rank 3: max_damage 193.48104950056 -> 365.3498541101
+- Frost Shock rank 3: min_damage 182.51895049944 -> 344.6501458899
+- Frost Shock rank 4: max_damage 290.924000244795 -> 520.16800043769
+- Frost Shock rank 4: min_damage 275.07599975520503 -> 491.83199956231
 - Fury/Bloodthirst: prerequisite none -> Death Wish (rank 1)
 - Fury/Booming Voice: rank text changed
 - Fury/Enrage: moved from row 4 col 3 to row 3 col 4
@@ -130,6 +210,37 @@
 - Fury/Raging Blows: renamed to Improved Whirlwind
 - Fury/Reckless Swings: new talent
 - Holy Shield rank 4: new spell rank
+- Lava Burst rank 1: removed
+- Lava Burst rank 2: removed
+- Lava Burst rank 3: removed
+- Lava Burst rank 4: removed
+- Lightning Bolt rank 10: damage_per_level 1.20000004768 -> 2.09999990463
+- Lightning Bolt rank 10: max_damage 206.61851040992002 -> 372.12415395256005
+- Lightning Bolt rank 10: min_damage 185.38148959008 -> 333.87584604744
+- Lightning Bolt rank 1: max_damage 16.0714286193 -> 17.14285719392
+- Lightning Bolt rank 1: min_damage 13.928571380700001 -> 14.85714280608
+- Lightning Bolt rank 2: max_damage 28.928571514740003 -> 32.1428572386
+- Lightning Bolt rank 2: min_damage 25.07142848526 -> 27.857142761400002
+- Lightning Bolt rank 3: max_damage 48.673469312550004 -> 56.244897872280006
+- Lightning Bolt rank 3: min_damage 41.32653068745 -> 47.75510212772
+- Lightning Bolt rank 4: damage_per_level 0.40000000596 -> 0.5
+- Lightning Bolt rank 4: max_damage 65.11235947906499 -> 77.921348229045
+- Lightning Bolt rank 4: min_damage 56.887640520935 -> 68.078651770955
+- Lightning Bolt rank 5: damage_per_level 0.5 -> 0.69999998808
+- Lightning Bolt rank 5: max_damage 87.50746297853 -> 116.320895910485
+- Lightning Bolt rank 5: min_damage 76.49253702147 -> 101.679104089515
+- Lightning Bolt rank 6: damage_per_level 0.80000001192 -> 1.0
+- Lightning Bolt rank 6: max_damage 117.67213132597502 -> 156.8961751013
+- Lightning Bolt rank 6: min_damage 104.327868674025 -> 139.1038248987
+- Lightning Bolt rank 7: damage_per_level 0.80000001192 -> 1.0
+- Lightning Bolt rank 7: max_damage 155.53941912579 -> 205.26970959458
+- Lightning Bolt rank 7: min_damage 138.46058087421 -> 182.73029040542002
+- Lightning Bolt rank 8: damage_per_level 1.0 -> 1.5
+- Lightning Bolt rank 8: max_damage 171.21070260585003 -> 253.64548534200003
+- Lightning Bolt rank 8: min_damage 152.78929739415 -> 226.354514658
+- Lightning Bolt rank 9: damage_per_level 1.0 -> 1.60000002384
+- Lightning Bolt rank 9: max_damage 188.15760892593 -> 311.834239512075
+- Lightning Bolt rank 9: min_damage 167.84239107407 -> 278.165760487925
 - Marksmanship/Barrage: rank text changed
 - Marksmanship/Sniper Shot: rank text changed
 - Marksmanship/Trueshot Aura: rank text changed
@@ -157,6 +268,7 @@
 - Ravage rank 2: weapon_pct 350.0 -> 435.0
 - Ravage rank 3: weapon_pct 350.0 -> 435.0
 - Ravage rank 4: weapon_pct 350.0 -> 435.0
+- Restoration/Riptide: rank text changed
 - Retribution/Two-Handed Weapon Specialization: rank text changed
 - Retribution/Vengeance: rank text changed
 - Rip rank 1: periodic_damage 18.0 -> 24.0
@@ -171,6 +283,21 @@
 - Rip rank 5: periodic_per_combo_point 109.20000457764 -> 135.0
 - Rip rank 6: periodic_damage 90.0 -> 114.0
 - Rip rank 6: periodic_per_combo_point 153.0 -> 191.39999771118
+- Riptide rank 1: cooldown 6.0 -> 12.0
+- Riptide rank 1: heal_coefficient 0.21400000155 -> 0.0
+- Riptide rank 1: heal_max 504.0000003576001 -> 0.0
+- Riptide rank 1: heal_min 455.9999996424 -> 0.0
+- Riptide rank 1: mana_cost 245 -> 150
+- Riptide rank 2: cooldown 6.0 -> 12.0
+- Riptide rank 2: heal_coefficient 0.21400000155 -> 0.0
+- Riptide rank 2: heal_max 642.6000004559401 -> 0.0
+- Riptide rank 2: heal_min 581.39999954406 -> 0.0
+- Riptide rank 2: mana_cost 300 -> 180
+- Riptide rank 3: cooldown 6.0 -> 12.0
+- Riptide rank 3: heal_coefficient 0.21400000155 -> 0.0
+- Riptide rank 3: heal_max 883.050000626545 -> 0.0
+- Riptide rank 3: heal_min 798.9499993734551 -> 0.0
+- Riptide rank 3: mana_cost 385 -> 230
 - Serpent Sting rank 1: periodic_damage 10.0 -> 15.0
 - Serpent Sting rank 2: periodic_damage 30.0 -> 35.0
 - Serpent Sting rank 3: periodic_damage 60.0 -> 70.0
@@ -217,6 +344,8 @@
 - Starfire rank 7: damage_per_level 2.40000009537 -> 3.40000009537
 - Starfire rank 7: max_damage 412.04444354091004 -> 576.42962836563
 - Starfire rank 7: min_damage 349.95555645908996 -> 489.57037163436996
+- Stormstrike rank 1: cooldown 8.0 -> 6.0
+- Stormstrike rank 1: weapon_pct 0.0 -> 150.0
 - Subtlety/Camouflage: max rank 5 -> 3
 - Subtlety/Camouflage: moved from row 1 col 1 to row 2 col 2
 - Subtlety/Camouflage: rank text changed
@@ -245,6 +374,7 @@
 - Subtlety/Thousand Cuts: rank text changed
 - Subtlety/Thousand Cuts: renamed to Death Mark
 - Survival/Lightning Reflexes: rank text changed
+- Totemic Projection rank 1: cooldown 60.0 -> 30.0
 - Venom rank 1: new spell rank
 - Venom rank 1: removed
 - Wrack rank 1: periodic_coefficient 0.8580000400800001 -> 1.7160000801000002
