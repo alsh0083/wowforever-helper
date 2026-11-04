@@ -44,7 +44,8 @@ def test_mage():
 def test_warrior():
     cls, problems = effects("warrior")
     assert problems == []
-    assert rules(cls, "Improved Whirlwind") == [("cooldown", ("Whirlwind",), (-1.0, -2.0))]
+    assert rules(cls, "Improved Whirlwind") == [("cooldown", ("Whirlwind",), (-1.0, -2.0)),
+                                                ("damage_pct", ("@closest_Whirlwind",), (15.0, 30.0))]     # #465
     assert rules(cls, "Improved Slam") == [("cooldown", ("Slam",), (-2.5, -5.0))]
 
 

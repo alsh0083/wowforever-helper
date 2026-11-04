@@ -53,10 +53,11 @@ def test_single_target_is_unchanged():
 
 
 def test_whirlwind_hits_up_to_four_mobs():
-    # per mob against two (on one target Rend takes Rage Whirlwind gets in a pack, where Rend isn't cast)
+    # per mob against two (on one target Rend takes Rage Whirlwind gets in a pack, where Rend isn't cast); the build's
+    # Improved Whirlwind 2/2 adds 30% on the closest mob (#465): n mobs take n - 1 + 1.3 hits
     two, three, four, five = (dict(rotation("warrior-fury-pve", p).parts) for p in (2, 3, 4, 5))
-    assert three["Whirlwind"] == pytest.approx(3 / 2 * two["Whirlwind"])
-    assert four["Whirlwind"] == five["Whirlwind"] == pytest.approx(2 * two["Whirlwind"])
+    assert three["Whirlwind"] == pytest.approx(3.3 / 2.3 * two["Whirlwind"])
+    assert four["Whirlwind"] == five["Whirlwind"] == pytest.approx(4.3 / 2.3 * two["Whirlwind"])
 
 
 def test_thunder_clap_joins_against_a_pack():
