@@ -174,6 +174,8 @@ EXTRA_SPELLS = {
     11336: "Instant Poison", 11337: "Instant Poison",
     2818: "Deadly Poison", 2819: "Deadly Poison", 11353: "Deadly Poison", 11354: "Deadly Poison",
     25349: "Deadly Poison",
+    # Shank (#470): baseline since the 3 Nov hotfixes, not on a talent skill line; rank 2 at 44
+    1329283: "Shank", 1329549: "Shank",
 }
 
 
