@@ -6,7 +6,7 @@ Make `tests/test_wowforeverbuilds.py` pass without breaking the rest of the fast
 ## Environment note
 - `tools/local_agent.py` already sets `CODEX_EXE`; edit files with `tools/apply_patch.py` (see AGENTS.md).
 - Install nothing. Edit only `src/wowforever/sources/wowforeverbuilds.py`. No network.
-- Before you start, the four tests after "#463: a build picked for other numbers" fail; the other 26 pass.
+- Before you start, the five tests after "#463: a build picked for other numbers" fail; the other 26 pass.
 - `tests/test_rules_70755.py` may fail in the fast suite; that is expected (other tasks), leave it alone.
 - Each step replaces one block with another; copy both exactly, including blank lines. Apply them in order.
 - Run `.venv/Scripts/python -m pytest tests/test_wowforeverbuilds.py -q` at the end, then the fast suite once.
@@ -15,7 +15,8 @@ Make `tests/test_wowforeverbuilds.py` pass without breaking the rest of the fast
 wowforeverbuilds.com's guides were picked on its calculator's talent numbers. The guard already drops a guide whose
 tree layout differs from ours; a talent can keep its name and place and still change its numbers (70707 changed 219
 talents). The calculator page carries every rank's text, so the guard now compares it too, over the trees the build
-spends points in.
+spends points in: words exactly, numbers within 1% (sites round computed values differently and write 3 or 3.0).
+
 
 ## Step 1: `src/wowforever/sources/wowforeverbuilds.py`
 Replace
@@ -66,9 +67,17 @@ def standard_build(slug: str, history: Sequence[Snapshot], cls: ClassData) -> tu
 with
 ```python
 
-def _words(text: str) -> str:
-    """Rank text compared word for word: spacing and a final full stop don't count."""
-    return " ".join(text.split()).rstrip(".")
+_NUMBER = re.compile(r"\d+(?:\.\d+)?")
+
+
+def _same_text(a: str, b: str) -> bool:
+    """Rank text compared word for word, numbers within 1% (sites round computed values differently and write 3 or
+    3.0); spacing and a final full stop don't count."""
+    a, b = (" ".join(text.split()).rstrip(".") for text in (a, b))
+    if _NUMBER.sub("#", a) != _NUMBER.sub("#", b):
+        return False
+    return all(abs(float(x) - float(y)) <= 0.01 * max(float(x), float(y))
+               for x, y in zip(_NUMBER.findall(a), _NUMBER.findall(b)))
 
 
 def standard_build(slug: str, history: Sequence[Snapshot], cls: ClassData) -> tuple[dict[str, int] | None, str]:
@@ -99,7 +108,8 @@ with
 ```python
                           f"({made_on}), whose tree differs from ours")
         changed = [name for (name, _), text in zip(calc.trees[i], calc.texts[i] if calc.texts else ())
-                   if tuple(map(_words, text)) != tuple(map(_words, talents[name].rank_text))]
+                   if len(text) != len(talents[name].rank_text)
+                   or not all(map(_same_text, text, talents[name].rank_text))]
         if changed:
             return None, (f"{slug}: {label}: the build was made on the {calc.build} calculator ({made_on}), "
                           f"whose rank text differs from ours for " + ", ".join(changed))

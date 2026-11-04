@@ -320,3 +320,13 @@ def test_changed_rank_text_in_a_used_tree_drops_the_build():
 def test_changed_rank_text_in_a_tree_the_build_leaves_empty_does_not_matter():
     c = site(X=tuple(f"X by {9 * n}%." for n in range(1, 6)))
     assert standard_build("g", [snap("2026-11-05", c, g="541-0")], OURS_TEXT)[0] == {"A": 5, "D": 4, "C": 1}
+
+
+def test_numbers_may_differ_by_rounding_and_how_they_are_written():
+    ours = dataclasses.replace(OURS_TEXT, talents=tuple(
+        dataclasses.replace(t, rank_text=("Deals 147 damage over 3 sec.",)) if t.name == "C" else t
+        for t in OURS_TEXT.talents))
+    for text, kept in (("Deals 146 damage over 3.0 sec.", True), ("Deals 160 damage over 3 sec.", False),
+                       ("Deals 147 damage over 3 seconds.", False)):
+        ranks, _ = standard_build("g", [snap("2026-11-05", site(C=(text,)), g="541")], ours)
+        assert (ranks is not None) == kept, text
