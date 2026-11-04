@@ -67,10 +67,10 @@ tested = ""
 talents = ["Thorns"]
 
 [swiftmend_consumes_hot]
-value = false
+value = true
 options = [false, true]
-why = "Forever's Swiftmend heals for the HoT's full duration and, unlike Classic's text, doesn't say it consumes the HoT; if it does, Swiftmend only front-loads healing the HoT would have given (#279)."
-source = "Swiftmend rank text, build 1.60.1.70291; Classic: 'Consumes a Rejuvenation or Regrowth effect'"
+why = "Since 1.60.1.70707 Swiftmend's tooltip says it heals 'for an amount equal to the full duration of the periodic effect of the consumed spell', so Swiftmend only front-loads healing the HoT would have given (#279, #463). Up to 70685 the text didn't say it consumes the HoT. Check in game at launch (#438)."
+source = "Swiftmend spell 18562 Description, 1.60.1.70755 client and the 3 Nov server hotfix row; 70291 text had no 'consumed'"
 tested = ""
 talents = ["Swiftmend"]
 

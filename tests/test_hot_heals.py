@@ -68,7 +68,8 @@ CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("d
 FROZEN = Path(__file__).parent / "fixtures" / "stats-70205"
 TABLE = HybridTable(StatTable.load("druid", FROZEN), MeleeStatTable.load("druid_melee", config_dir=FROZEN))
 BUILDS = builds_by_id("druid")
-CONSUMES = Assumptions.load().with_values(swiftmend_consumes_hot=True)
+CONSUMES = Assumptions.load().with_values(swiftmend_consumes_hot=True)       # the default since 70707's tooltip (#463)
+KEEPS = Assumptions.load().with_values(swiftmend_consumes_hot=False)
 
 
 def final(build_id):
@@ -104,7 +105,8 @@ def test_heal_modifiers_split_direct_and_periodic_healing():
 
 
 def test_restoration_opens_with_hots_and_swiftmend():
-    hps, budget = heal_capacity("druid", TABLE.at(60), CLS.spells, CLS, final("druid-restoration-pvp"))
+    # if Swiftmend doesn't consume the HoT (the alternative, config/assumptions.toml)
+    hps, budget = heal_capacity("druid", TABLE.at(60), CLS.spells, CLS, final("druid-restoration-pvp"), assumptions=KEEPS)
     assert hps == pytest.approx(1172.589, rel=1e-4) and budget == pytest.approx(13447.546, rel=1e-4)
 
 
@@ -117,7 +119,7 @@ def test_swiftmend_adds_nothing_when_it_consumes_the_hot():
 def test_balance_pvp_heals_close_to_restoration():
     # the 70755 Balance PvP model build takes Gift of Nature and Swiftmend (#463)
     hps, budget = heal_capacity("druid", TABLE.at(60), CLS.spells, CLS, final("druid-balance-pvp"))
-    assert hps == pytest.approx(1171.222, rel=1e-4) and budget == pytest.approx(12674.300, rel=1e-4)
+    assert hps == pytest.approx(1169.505, rel=1e-4) and budget == pytest.approx(10901.458, rel=1e-4)
 
 
 def test_feral_hots_without_spell_power():
@@ -140,7 +142,7 @@ def test_opening_heals_scale_down_when_mana_is_short(monkeypatch):
 
     monkeypatch.setattr(class_pvp, "load_toml", short)
     hps, budget = heal_capacity("druid", TABLE.at(60), CLS.spells, CLS, final("druid-restoration-pvp"))
-    assert hps == pytest.approx(1321.669, rel=1e-4) and budget == pytest.approx(1877.965, rel=1e-4)
+    assert hps == pytest.approx(1381.572, rel=1e-4) and budget == pytest.approx(1374.157, rel=1e-4)
 
 
 def test_crit_talents_reach_heals_by_name_or_all():

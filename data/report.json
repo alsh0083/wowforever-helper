@@ -12764,8 +12764,8 @@
    "tested": ""
   },
   "swiftmend_consumes_hot": {
-   "value": false,
-   "why": "Forever's Swiftmend heals for the HoT's full duration and, unlike Classic's text, doesn't say it consumes the HoT; if it does, Swiftmend only front-loads healing the HoT would have given (#279).",
+   "value": true,
+   "why": "Since 1.60.1.70707 Swiftmend's tooltip says it heals 'for an amount equal to the full duration of the periodic effect of the consumed spell', so Swiftmend only front-loads healing the HoT would have given (#279, #463). Up to 70685 the text didn't say it consumes the HoT. Check in game at launch (#438).",
    "tested": ""
   },
   "roots_break_health_pct": {
@@ -12913,8 +12913,8 @@
   },
   {
    "name": "swiftmend_consumes_hot",
-   "question": "Forever's Swiftmend heals for the HoT's full duration and, unlike Classic's text, doesn't say it consumes the HoT; if it does, Swiftmend only front-loads healing the HoT would have given (#279).",
-   "assumed": false,
+   "question": "Since 1.60.1.70707 Swiftmend's tooltip says it heals 'for an amount equal to the full duration of the periodic effect of the consumed spell', so Swiftmend only front-loads healing the HoT would have given (#279, #463). Up to 70685 the text didn't say it consumes the HoT. Check in game at launch (#438).",
+   "assumed": true,
    "options": [
     false,
     true

@@ -1501,16 +1501,16 @@
       }
      },
      "60": {
-      "score": 0.762,
+      "score": 0.747,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.821,
-       "hunter-survival": 0.717,
-       "paladin-retribution": 0.775,
-       "rogue-combat": 0.744,
-       "rogue-subtlety": 0.76,
-       "shaman-enhancement": 0.771,
-       "warrior-arms": 0.747
+       "druid-feral": 0.813,
+       "hunter-survival": 0.704,
+       "paladin-retribution": 0.764,
+       "rogue-combat": 0.725,
+       "rogue-subtlety": 0.742,
+       "shaman-enhancement": 0.754,
+       "warrior-arms": 0.726
       }
      }
     },
@@ -1568,16 +1568,16 @@
       }
      },
      "60": {
-      "score": 0.75,
+      "score": 0.732,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.81,
-       "hunter-survival": 0.711,
-       "paladin-retribution": 0.775,
-       "rogue-combat": 0.709,
-       "rogue-subtlety": 0.728,
-       "shaman-enhancement": 0.771,
-       "warrior-arms": 0.743
+       "druid-feral": 0.799,
+       "hunter-survival": 0.697,
+       "paladin-retribution": 0.764,
+       "rogue-combat": 0.683,
+       "rogue-subtlety": 0.703,
+       "shaman-enhancement": 0.754,
+       "warrior-arms": 0.722
       }
      }
     },
@@ -1639,17 +1639,17 @@
       }
      },
      "60": {
-      "score": 0.655,
+      "score": 0.645,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-balance": 0.66,
-       "hunter-marksmanship": 0.674,
-       "mage-frost": 0.71,
-       "priest-discipline": 0.692,
-       "priest-shadow": 0.609,
-       "shaman-elemental": 0.6,
-       "warlock-affliction": 0.668,
-       "warlock-destruction": 0.626
+       "druid-balance": 0.652,
+       "hunter-marksmanship": 0.664,
+       "mage-frost": 0.697,
+       "priest-discipline": 0.683,
+       "priest-shadow": 0.598,
+       "shaman-elemental": 0.588,
+       "warlock-affliction": 0.658,
+       "warlock-destruction": 0.616
       }
      }
     },
@@ -1691,12 +1691,12 @@
       }
      },
      "60": {
-      "score": 0.749,
+      "score": 0.729,
       "unit": "duel 0-1",
       "matchups": {
-       "druid-feral": 0.81,
-       "rogue-combat": 0.709,
-       "rogue-subtlety": 0.728
+       "druid-feral": 0.799,
+       "rogue-combat": 0.683,
+       "rogue-subtlety": 0.703
       }
      }
     },
@@ -1874,7 +1874,7 @@
       "unit": "2v1 0-1"
      },
      "60": {
-      "score": 0.439,
+      "score": 0.414,
       "unit": "2v1 0-1"
      }
     }
@@ -1927,15 +1927,15 @@
      "hit_pct": 0.001133
     },
     "60": {
-     "score": 0.6854,
-     "stamina": 0.000112,
-     "intellect": 0.000196,
+     "score": 0.6727,
+     "stamina": 0.000133,
+     "intellect": 0.000243,
      "spirit": 0.0,
-     "spell_power": 0.000173,
-     "crit_rating": 7.9e-05,
-     "hit_rating": 6.6e-05,
-     "crit_pct": 0.001104,
-     "hit_pct": 0.000861
+     "spell_power": 0.000184,
+     "crit_rating": 8.9e-05,
+     "hit_rating": 7.2e-05,
+     "crit_pct": 0.001241,
+     "hit_pct": 0.000942
     }
    },
    "stat_priority": {
@@ -1949,22 +1949,22 @@
      },
      {
       "stat": "spell_power",
-      "share": 0.883,
+      "share": 0.757,
       "tier": 2
      },
      {
       "stat": "stamina",
-      "share": 0.571,
+      "share": 0.547,
       "tier": 3
      },
      {
       "stat": "crit_rating",
-      "share": 0.403,
+      "share": 0.366,
       "tier": 4
      },
      {
       "stat": "hit_rating",
-      "share": 0.337,
+      "share": 0.296,
       "tier": 5
      }
     ]
@@ -1975,7 +1975,7 @@
     "Against the class's best build in each scenario at level 60 it is strongest at duels against melee (100%) and duels where melee opens (100%), and weakest at AoE pulls (39%).",
     "In a dungeon group it gains most from Mark of the Wild, Blessing of Kings and Moonkin Aura: about 17% more damage at 60 than unbuffed, on average across groups.",
     "A model build: the calculator's pick for this slot, not yet tried in game.",
-    "Gear priority per point, relative to the best stat: at level 30, spell power 1, intellect 0.63, stamina 0.48 and hit rating 0.36; at level 60, intellect 1, spell power 0.88, stamina 0.57 and crit rating 0.4. The Recommended gear panel ranks items by these weights at your level."
+    "Gear priority per point, relative to the best stat: at level 30, spell power 1, intellect 0.63, stamina 0.48 and hit rating 0.36; at level 60, intellect 1, spell power 0.76, stamina 0.55 and crit rating 0.37. The Recommended gear panel ranks items by these weights at your level."
    ]
   },
   {
@@ -6311,11 +6311,11 @@
    "archetype": "deep Balance",
    "focus": "PvP",
    "standard": "druid-balance-pvp",
-   "standard_score": 0.6854096397349924,
+   "standard_score": 0.6726547235353235,
    "model_pick": null,
    "model_pick_score": null,
    "candidates": {
-    "druid-balance-pvp": 0.6854096397349924
+    "druid-balance-pvp": 0.6726547235353235
    },
    "qualifying": [
     "druid-balance-pvp"
