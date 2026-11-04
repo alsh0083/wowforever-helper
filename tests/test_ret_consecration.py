@@ -30,7 +30,7 @@ RET = builds_by_id("paladin")["paladin-retribution"].final_ids(CLS)
 def test_rule():
     assert PROBLEMS == []
     (rule,) = CLS.talent_named("Divine Precision").effects
-    assert (rule.kind, rule.applies_to, rule.values) == ("hit_chance", ("@holy_spell",), (6.0, 12.0, 18.0))
+    assert (rule.kind, rule.applies_to, rule.values) == ("hit_chance", ("@holy_spell",), (4.0, 8.0))     # 2 ranks on 70755 (was 6/12/18)
 
 
 def test_consecration_on_one_target():
@@ -52,7 +52,7 @@ def test_output_offers_the_rotation_without_consecration():
 
 
 def test_divine_precision_raises_the_holy_damage():
-    dp = {CLS.talent_named("Divine Precision").talent_id: 3}
+    dp = {CLS.talent_named("Divine Precision").talent_id: 2}
     base = paladin_rotation(STATS, CLS.spells, CLS, SOC, BOSS)
     with_dp = paladin_rotation(STATS, CLS.spells, CLS, {**SOC, **dp}, BOSS)
     assert with_dp.holy_dps > base.holy_dps and with_dp.white_dps == pytest.approx(base.white_dps)

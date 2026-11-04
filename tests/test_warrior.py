@@ -44,7 +44,12 @@ def test_every_talent_has_rank_text_after_the_rework():
 
 
 def test_every_talent_is_classified_exactly_once():
-    assert REPORT == []
+    # the rules follow the pinned build (1.60.1.70755, #465); this 70291 fixture checks the tree shape only
+    from wowforever.schema import Dataset, latest_dataset_path
+
+    _, problems = attach_effects(Dataset.load(latest_dataset_path()).class_data("warrior"), WARRIOR.TALENT_EFFECTS,
+                                 WARRIOR.UNMODELED)
+    assert problems == []
 
 
 def test_unmodeled_reasons_name_a_category():
