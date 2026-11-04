@@ -20,7 +20,9 @@ def test_rogue_lists_the_poison_damage_spells():
         8680: "Instant Poison", 8685: "Instant Poison", 8689: "Instant Poison", 11335: "Instant Poison",
         11336: "Instant Poison", 11337: "Instant Poison",
         2818: "Deadly Poison", 2819: "Deadly Poison", 11353: "Deadly Poison", 11354: "Deadly Poison",
-        25349: "Deadly Poison"}
+        25349: "Deadly Poison",
+        1329283: "Shank", 1329549: "Shank",          # #470: baseline, BaseLevel 0 on its skill line
+    }
 
 
 def test_saved_dataset_has_poison_ranks():
