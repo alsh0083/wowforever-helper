@@ -124,7 +124,7 @@ def test_overgrowth_parses_and_sets_root_targets():
     assert PROBLEMS == []
     effects = [(e.kind, e.values, e.applies_to) for e in next(t for t in CLS.talents if t.name == "Overgrowth").effects]
     assert effects == [("targets", (1.0, 2.0), ("Entangling Roots",))]
-    ranks = BUILDS["druid-balance-pvp-leveling"].final_ids(CLS)  # the model pick drops Overgrowth
+    ranks = {CLS.talent_named("Overgrowth").talent_id: 2}
     stats = stat_table("druid").at(60)
     assert class_side("druid", stats, CLS.spells, CLS, ranks).root_targets == 3
     overgrowth = next(t.talent_id for t in CLS.talents if t.name == "Overgrowth")

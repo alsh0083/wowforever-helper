@@ -19,8 +19,9 @@ def test_the_builds_exist_and_names_end_in_their_focus():
     # 1.60.1.70755 (#460, #463): community standards only from a current source, model builds for the rest
     assert {k for k, b in BUILDS.items() if b.mode == "endgame"} == {
         "mage-arcane", "mage-fire",                                  # talentsforever.com's top builds
-        "mage-frost-pve",                                            # seeded: no source publishes deep Frost
+        "mage-frost-pve", "mage-fire-frost-pve", "mage-arcane-fire-pve",   # seeded: no source publishes these
         "mage-arcane-pvp", "mage-fire-pvp", "mage-frost-pvp",        # tools/derive_slot_builds.py
+        "mage-fire-frost-pvp", "mage-arcane-fire-pvp",
         "mage-fire-model"}                                           # tools/derive_model_picks.py
     for b in BUILDS.values():
         assert b.variant in ("PvP", "PvE") and f"({b.variant}" in b.name
@@ -77,7 +78,8 @@ def test_leveling_builds_follow_their_endgame_build_with_few_detours():
     # leveling-only points at a time (respecced at 60)
     leveling = [b for b in BUILDS.values() if b.mode == "leveling"]
     assert {b.levels_into for b in leveling} == {"mage-arcane", "mage-fire", "mage-frost-pve", "mage-arcane-pvp",
-                                                 "mage-fire-pvp", "mage-frost-pvp"}
+                                                 "mage-fire-pvp", "mage-frost-pvp", "mage-fire-frost-pve",
+                                                 "mage-fire-frost-pvp", "mage-arcane-fire-pve", "mage-arcane-fire-pvp"}
     for b in leveling:
         target = BUILDS[b.levels_into].final_ids(CLS)
         ids = b.order_ids(CLS)
