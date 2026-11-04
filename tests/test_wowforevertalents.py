@@ -186,8 +186,8 @@ def test_fetch_snapshots_the_class_and_returns_the_page(tmp_path):
     assert result.trees[0]["talents"][0]["ranks"][4]["text"].endswith("by 10%.")
     folder = tmp_path / "20261031" / "druid"
     assert manifest_path == folder / "manifest.json"
-    assert sorted(p.relative_to(folder).as_posix() for p in folder.rglob("*.html")) == [
-        "class.html", "talents/genesis.html", "talents/lacerate.html"]
+    assert sorted(p.relative_to(folder).as_posix() for p in folder.rglob("*.html.gz")) == [     # gzipped (#458)
+        "class.html.gz", "talents/genesis.html.gz", "talents/lacerate.html.gz"]
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     assert manifest["source"] == "wowforevertalents.com" and manifest["game_build"] == "1.60.1.70707"
     assert manifest["url"] == "https://wowforevertalents.com/druid/" and manifest["pages"] == 3
@@ -212,3 +212,24 @@ def test_fetch_needs_a_client_build_on_the_talent_pages(tmp_path):
         site.pages[url] = site.pages[url].replace("Forever client build 1.60.1.70707", "transcribed from footage")
     with pytest.raises(ValueError, match="no client build"):
         fetch("druid", http_get=site, raw_dir=tmp_path / "20261031", sleep=lambda s: None)
+
+
+def test_a_plain_html_snapshot_from_before_458_still_reads_offline(tmp_path):
+    import gzip
+
+    from wowforever.sources.wowforevertalents import fetch
+    first_manifest, first = fetch("druid", http_get=FakeSite(), raw_dir=tmp_path / "new" / "20261031", sleep=lambda s: None)
+    old = tmp_path / "old" / "20261031" / "druid"
+    new = tmp_path / "new" / "20261031" / "druid"
+    for gz in new.rglob("*.html.gz"):                                   # the same pages, saved the old way
+        plain = old / gz.relative_to(new).with_suffix("")
+        plain.parent.mkdir(parents=True, exist_ok=True)
+        plain.write_bytes(gzip.decompress(gz.read_bytes()))
+
+    def offline(url):
+        raise AssertionError(f"fetched {url}")
+
+    manifest, again = fetch("druid", http_get=offline, raw_dir=tmp_path / "old" / "20261031", sleep=lambda s: None)
+    assert again == first
+    assert json.loads(manifest.read_text(encoding="utf-8"))["sha256"] == \
+        json.loads(first_manifest.read_text(encoding="utf-8"))["sha256"]      # checksum of the pages, not the files
