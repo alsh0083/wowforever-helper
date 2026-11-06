@@ -3,7 +3,7 @@
 
 id = "mage-frost-pve-leveling"
 class = "mage"
-name = "Frost (PvE, leveling)"
+name = "Frost (PvE, leveling, model)"
 pair = "mage-frost-pve-leveling"
 variant = "PvE"
 mode = "leveling"
@@ -11,58 +11,58 @@ levels_into = "mage-frost-pve"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Frost (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Frost (PvE) at 60."
+summary = "Frost (PvE, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Frost (PvE, model) at 60."
 
 order = [
-  "Improved Frostbolt",  # 10
+  "Precision",  # 10
   "Improved Frostbolt",  # 11
   "Improved Frostbolt",  # 12
-  "Elemental Precision",  # 13
+  "Improved Frostbolt",  # 13
   "Improved Frostbolt",  # 14
   "Improved Frostbolt",  # 15
-  "Elemental Precision",  # 16
-  "Elemental Precision",  # 17
-  "Ice Shards",  # 18
-  "Ice Shards",  # 19
-  "Frost Channeling",  # 20
-  "Frost Channeling",  # 21
-  "Frost Channeling",  # 22
-  "Piercing Ice",  # 23
-  "Piercing Ice",  # 24
-  "Piercing Ice",  # 25
+  "Precision",  # 16
+  "Wand Specialization",  # 17
+  "Wand Specialization",  # 18
+  "Improved Channeling",  # 19
+  "Improved Channeling",  # 20
+  "Improved Channeling",  # 21
+  "Missile Barrage",  # 22
+  "Missile Barrage",  # 23
+  "Ice Shards",  # 24
+  "Ice Shards",  # 25
   "Ice Shards",  # 26
-  "Ice Shards",  # 27
-  "Ice Shards",  # 28
-  "Arctic Reach",  # 29
-  "Improved Cone of Cold",  # 30
-  "Improved Cone of Cold",  # 31
-  "Improved Cone of Cold",  # 32
-  "Cold Snap",  # 33
-  "Arctic Reach",  # 34
-  "Ice Block",  # 35
-  "Improved Blizzard",  # 36
-  "Improved Blizzard",  # 37
-  "Improved Blizzard",  # 38
-  "Permafrost",  # 39
-  "Ice Barrier",  # 40
-  "Permafrost",  # 41
-  "Permafrost",  # 42
-  "Improved Frost Nova",  # 43
-  "Improved Frost Nova",  # 44
-  "Winter's Chill",  # 45
-  "Winter's Chill",  # 46
-  "Winter's Chill",  # 47
-  "Arcane Focus",  # 48
-  "Arcane Focus",  # 49
-  "Arcane Focus",  # 50
-  "Arcane Focus",  # 51
-  "Arcane Focus",  # 52
-  "Arcane Concentration",  # 53
-  "Arcane Concentration",  # 54
-  "Arcane Concentration",  # 55
-  "Arcane Concentration",  # 56
-  "Arcane Concentration",  # 57
-  "Arcane Impact",  # 58
-  "Arcane Impact",  # 59
-  "Arcane Impact",  # 60
+  "Frost Channeling",  # 27
+  "Frost Channeling",  # 28
+  "Frost Channeling",  # 29
+  "Ice Shards",  # 30
+  "Ice Shards",  # 31
+  "Frost Warding",  # 32
+  "Frost Warding",  # 33
+  "Precision",  # 34
+  "Frostbite",  # 35
+  "Shatter",  # 36
+  "Ice Lance",  # 37
+  "Fingers of Frost",  # 38
+  "Fingers of Frost",  # 39
+  "Shatter",  # 40
+  "Shatter",  # 41
+  "Frostbite",  # 42
+  "Frostbite",  # 43
+  "Arctic Reach",  # 44
+  "Arctic Reach",  # 45
+  "Ice Block",  # 46
+  "Improved Blizzard",  # 47
+  "Improved Blizzard",  # 48
+  "Improved Blizzard",  # 49
+  "Improved Frost Nova",  # 50
+  "Improved Frost Nova",  # 51
+  "Permafrost",  # 52
+  "Permafrost",  # 53
+  "Permafrost",  # 54
+  "Incineration",  # 55
+  "Incineration",  # 56
+  "Incineration",  # 57
+  "Incineration",  # 58
+  "Incineration",  # 59
+  "Ignite",  # 60
 ]

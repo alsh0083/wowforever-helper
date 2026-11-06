@@ -32,13 +32,14 @@ import dataclasses
 import pytest
 
 from wowforever.assumptions import Assumptions
-from wowforever.builds import load_builds
 from wowforever.classes.druid import TALENT_EFFECTS, UNMODELED
 from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import stat_table
 from wowforever.pvp.class_pvp import class_side
 from wowforever.pvp.duel import Control, Kit, Side, duel, outnumbered, root_hold
 from wowforever.schema import Dataset, latest_dataset_path
+
+from _trees import builds_by_id
 
 # as in test_duel.py
 BASE_MAGE = Side(health=3000, dps=150, absorb_per_min=0, immunity_share=0,
@@ -55,7 +56,7 @@ B = Kit(id="b", role="melee", stealth=False, dispels_buffs=False, health=2000, d
 SIDE = Side(health=4000, dps=200, absorb_per_min=0, immunity_share=0, root=20, stun=0, slow=0, interrupt=0)
 
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("druid"), TALENT_EFFECTS, UNMODELED)
-BUILDS = {b.id: b for b in load_builds(class_name="druid")}
+BUILDS = builds_by_id("druid")
 
 
 def test_a_damaged_target_breaks_free_after_the_threshold():
@@ -87,7 +88,7 @@ def test_improved_entangling_roots_raises_the_threshold():
                for e in next(t for t in CLS.talents if t.name == "Improved Entangling Roots").effects]
     assert effects == [("break_threshold_pct", (25.0, 50.0, 75.0), ("Entangling Roots",))]
     stats = stat_table("druid").at(60)
-    ranks = BUILDS["druid-balance-pvp-leveling"].final_ids(CLS)   # Improved Entangling Roots 3/3
+    ranks = {CLS.talent_named("Improved Entangling Roots").talent_id: 3}
     side = class_side("druid", stats, CLS.spells, CLS, ranks)
     assert (side.root_break_health, side.root_duration) == (pytest.approx(0.175), 10.0)
     talent = next(t.talent_id for t in CLS.talents if t.name == "Improved Entangling Roots")

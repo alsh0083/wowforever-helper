@@ -1,0 +1,32 @@
+# Model build for the empty Assassination/Subtlety PvP slot (owner request, 2026-10-05): hill-climbed from rogue-assassination-subtlety-pve under the PvP score.
+# No community plan with talents exists for this slot yet; replace it when one does.
+
+id = "rogue-assassination-subtlety-pvp"
+class = "rogue"
+name = "Assassination/Subtlety (PvP, model)"
+pair = "rogue-assassination-subtlety"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Assassination/Subtlety PvP: hill-climbed from rogue-assassination-subtlety-pve under the PvP score. Not a community standard."
+
+[final]
+"Blood Splatter" = 1
+"Dirty Deeds" = 2
+"Improved Ambush" = 3
+"Improved Expose Armor" = 2
+"Improved Poisons" = 5
+"Improved Slice and Dice" = 1
+"Initiative" = 3
+"Lethality" = 2
+"Malice" = 5
+"Opportunity" = 5
+"Premeditation" = 1
+"Preparation" = 1
+"Relentless Strikes" = 5
+"Remorseless Attacks" = 2
+"Serrated Blades" = 3
+"Setup" = 3
+"Vigor" = 2
+"Vile Poisons" = 5

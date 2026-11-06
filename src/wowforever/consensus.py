@@ -10,7 +10,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from wowforever.schema import ClassData
+from wowforever.schema import ClassData, talent_aliases
 from wowforever.toml_cache import load_toml
 
 CONFIG = Path(__file__).resolve().parents[2] / "config" / "consensus.toml"
@@ -72,9 +72,9 @@ class Consensus:
                 out += [f"tiers.{class_name}.{name}: unknown source {src!r}" for src in t.get("sources", ())
                         if src not in self.sources]
                 if cls is not None and cls.class_name == class_name:
-                    known = {x.name for x in cls.talents}
+                    known = {a for x in cls.talents for a in talent_aliases(x.name)}   # renames count (#463)
                     out += [f"tiers.{class_name}.{name}: {n!r} is not a talent" for tier in TIERS
-                            for n in t.get(tier, ()) if n not in known]
+                            for n in t.get(tier, ()) if n.lower() not in known]
         return out
 
     def tier_confidence(self, scenario: str, talent: str, cls: ClassData) -> str:

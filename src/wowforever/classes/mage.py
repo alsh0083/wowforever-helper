@@ -33,9 +33,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Arcane Meditation": (
         EffectRule("regen_while_casting", r"Allows (\d+(?:\.\d+)?)% of your Mana regeneration", ("all",)),
     ),
-    "Arcane Focus": (
-        EffectRule("hit_chance", r"chance to hit with Arcane spells by (\d+(?:\.\d+)?)%", ("arcane",)),
-    ),
     "Arcane Concentration": (
         EffectRule("mana_cost_pct",
                    r"a (\d+(?:\.\d+)?)% chance of entering a Clearcasting state",
@@ -71,10 +68,10 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Ignite": (
         EffectRule("dot_pct", r"additional (\d+(?:\.\d+)?)% of your spell", ("fire",)),
     ),
-    "Improved Fireball": (
+    "Accelerant": (
         EffectRule("cast_time",
-                   r"casting time of your Fireball and Frostfire Bolt spells by (\d+(?:\.\d+)?) sec",
-                   ("Fireball", "Frostfire Bolt"), sign=-1),
+                   r"casting time of your Fireball, Frostfire Bolt, and Arcane Wrath spells by (\d+(?:\.\d+)?) sec",
+                   ("Fireball", "Frostfire Bolt", "Arcane Wrath"), sign=-1),
     ),
     "Incineration": (
         EffectRule("crit_chance", r"and Scorch spells by (\d+(?:\.\d+)?)%",
@@ -109,9 +106,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
                    r"critical strike damage bonus of your Frost spells by (\d+(?:\.\d+)?)%",
                    ("frost",)),
     ),
-    "Piercing Ice": (
-        EffectRule("damage_pct", r"damage done by your Frost spells by (\d+(?:\.\d+)?)%", ("frost",)),
-    ),
     "Improved Frostbolt": (
         EffectRule("cast_time", r"casting time of your Frostbolt(?: and Frost Blast)? spells? by (\d+(?:\.\d+)?) sec",
                    ("Frostbolt", "Frost Blast"), sign=-1),
@@ -128,9 +122,8 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("damage_pct", r"damage dealt by your Cone of Cold spell by (\d+(?:\.\d+)?)%",
                    ("Cone of Cold",)),
     ),
-    "Elemental Precision": (
-        EffectRule("hit_chance", r"chance to hit with Frost and Fire spells by (\d+(?:\.\d+)?)%",
-                   ("fire", "frost")),
+    "Precision": (
+        EffectRule("hit_chance", r"chance to hit with all spells by (\d+(?:\.\d+)?)%", ("all",)),
     ),
     "Frost Channeling": (
         EffectRule("mana_cost_pct", r"mana cost of your Frost spells by (\d+(?:\.\d+)?)%",

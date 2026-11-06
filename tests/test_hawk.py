@@ -1,13 +1,12 @@
 """Aspect of the Hawk (#388): its ranged attack power (aura 124) comes from the client data and the ranged hunter
-keeps it up. Hand values from SpellEffect of build 1.60.1.70425: rank 1 (13165) 20, rank 6 (14322) 55,
-rank 7 (25296) 120."""
+keeps it up. Hand values from SpellEffect of build 1.60.1.70755 with the 3 Nov hotfixes: rank 1 (13165) 20, rank 6
+(14322) 110 (55 on 70425; the 2 Nov notes give 20/35/50/70/90/110), rank 7 (25296) 120."""
 
 from dataclasses import replace
 from pathlib import Path
 
 import pytest
 
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.hunter_rotation import hunter_rotation
 from wowforever.effects import attach_effects
@@ -16,6 +15,8 @@ from wowforever.physical import Target
 from wowforever.scenarios import best_rank
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import builds_by_id
+
 ROOT = Path(__file__).resolve().parents[1]
 H = class_module("hunter")
 CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("hunter"), H.TALENT_EFFECTS, H.UNMODELED)
@@ -23,7 +24,7 @@ CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("hunter")
 
 def test_saved_dataset_has_hawk_attack_power():
     hawk = {s.rank: s.ranged_attack_power for s in CLS.spells if s.name == "Aspect of the Hawk"}
-    assert (hawk[1], hawk[6], hawk[7]) == (20.0, 55.0, 120.0)
+    assert (hawk[1], hawk[6], hawk[7]) == (20.0, 110.0, 120.0)
     assert best_rank(CLS.spells, "Aimed Shot", 60).ranged_attack_power == 0.0
 
 
@@ -37,7 +38,7 @@ def test_normalizer_reads_aura_124():
 
 
 def test_rotation_adds_the_best_known_rank():
-    ranks = {b.id: b.final_ids(CLS) for b in load_builds(class_name="hunter")}["hunter-marksmanship"]
+    ranks = {k: b.final_ids(CLS) for k, b in builds_by_id("hunter").items()}["hunter-marksmanship"]
     deadly = CLS.talent_named("Deadly Aspects").talent_id          # also needs the Hawk (#393): leave it out
     ranks = {t: r for t, r in ranks.items() if t != deadly}
     stats = stat_table("hunter").at(60)

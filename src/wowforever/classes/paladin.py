@@ -24,10 +24,11 @@ LAYOUT = TraitLayout(
 # Numbers are read from the rank text (#175); Vengeance counts at full stacks.
 TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Conviction": (
-        EffectRule("crit_chance", r"critical strike with melee attacks by (\d+(?:\.\d+)?)%", ("all",)),
+        EffectRule("crit_chance", r"critical strike with all spells and attacks by (\d+(?:\.\d+)?)%", ("all",)),
     ),
     "Two-Handed Weapon Specialization": (
-        EffectRule("damage_pct", r"damage you deal with two-handed melee weapons by (\d+(?:\.\d+)?)%", ("@two_hand",)),
+        EffectRule("damage_pct", r"Physical and Holy damage you deal by (\d+(?:\.\d+)?)%, and reduces all threat",
+                   ("@two_hand",)),
     ),
     "Vengeance": (
         EffectRule("damage_pct", r"Physical and Holy damage dealt by (\d+)% for \d+ sec after landing a non-periodic critical strike. Stacks up to (\d+) times",
@@ -52,8 +53,8 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("stat_pct", r"total Intellect by (\d+(?:\.\d+)?)%", ("intellect",)),
     ),
     "Holy Power": (
-        EffectRule("crit_chance", r"critical strike chance of your Holy Shock and Holy Strike spells by (\d+(?:\.\d+)?)%",
-                   ("Holy Strike", "Holy Shock")),
+        EffectRule("crit_damage_pct", r"critical strike healing bonus of your Holy spells by (\d+(?:\.\d+)?)%",
+                   ("Holy Light", "Flash of Light", "Holy Shock")),
     ),
     "Champion of the Light": (
         EffectRule("spell_power_from", r"by up to (\d+(?:\.\d+)?)% of your Intellect", ("intellect",)),
@@ -64,9 +65,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Benediction": (
         EffectRule("mana_cost_pct", r"Mana cost of all instant cast spells and abilities by (\d+(?:\.\d+)?)%",
                    ("@instant",), sign=-1),
-    ),
-    "Twist of Light": (
-        EffectRule("mana_cost_pct", r"Mana cost of your Seal spells by (\d+(?:\.\d+)?)%", ("@seal",), sign=-1),
     ),
     "Holy Conduit": (
         EffectRule("mana_cost_pct", r"Exorcism, and Hammer of Wrath spells by (\d+(?:\.\d+)?)%",
@@ -88,7 +86,8 @@ UNMODELED: dict[str, str] = {
     "Healing Light": "healing: +12% Holy Light, Flash of Light, Holy Shock",
     "Spiritual Focus": "utility: heals resist pushback",
     "Unyielding Faith": "defensive: shorter Fear and Disorient",
-    "Voice of Truth": "defensive: immune to Silence and Interrupt for 6 s",
+    "Oath of Light": "grants_spell",
+    "Boundless Light": "healing: Holy Shock crit chance on allies without Oath of Light",
     "Purifying Power": "resource: cheaper Cleanse, shorter Exorcism/Holy Wrath cooldowns; neither is cast (#399)",
     "Infusion of Light": "proc: crits speed up the next Holy Light",
     "Illumination": "proc: heal crits refund mana",
@@ -101,12 +100,12 @@ UNMODELED: dict[str, str] = {
     "Redoubt": "defensive: block chance after being hit",
     "Guardian's Favor": "utility: Blessing of Protection and Freedom",
     "Anticipation": "defensive: +20 Defense",
-    "Improved Seal of Fury": "resource: mana when Seal of Fury's shield breaks",
+    "Stoicism": "defensive: shorter Stun and Charm effects",
+    "Shieldsworn": "threat: shorter Holy Strike cooldown, shield-based Holy Strike and spell blocks",
     "Improved Righteous Fury": "defensive: 6% less damage taken in Righteous Fury",
     "Shield Specialization": "defensive: stronger shield blocks that restore mana",
     "Sacred Duty": "defensive: Stamina, shorter Divine Shield cooldowns",
     "Swift Judgement": "grants_spell",
-    "One-Handed Weapon Specialization": "damage: +10% one-handed damage; Retribution swings a two-hander (#399)",
     "Improved Hammer of Justice": "control: Hammer of Justice cooldown -15 s",
     "Templar's Bulwark": "grants_spell",
     "Reckoning": "proc: extra attacks after blocking",
@@ -119,7 +118,8 @@ UNMODELED: dict[str, str] = {
     "Pursuit of Justice": "mobility: +15% movement speed",
     "Eye for an Eye": "damage: reflects crit damage",
     "Repentance": "grants_spell",
-    "Instrument of Law": "damage: faster Hammer of Wrath cast, less threat; its cast time isn't charged (#399)",
+    "Turn Evil": "control: faster, shorter-cooldown Turn Undead that also affects Demons",
+    "Unsealed Wrath": "proc: stores Seal copies for a second Seal's procs; the rotation keeps one Seal (#399)",
 }
 
 # Paladin skill lines in SkillLineAbility: Holy, Protection, Retribution.

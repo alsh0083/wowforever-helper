@@ -137,10 +137,10 @@ def _kits_at(directory: Path, level: int) -> tuple[Kit, ...]:
     kits = _config_kits(directory)
     if level == 60:
         return tuple(kits)
-    from wowforever.pvp.kit_stats import KIT_BUILDS, engine_at   # lazy: kit_stats runs the engines
+    from wowforever.pvp.kit_stats import KIT_TREES, engine_at   # lazy: kit_stats runs the engines
     out = []
     for kit in kits:
-        if kit.id not in KIT_BUILDS:
+        if kit.id not in KIT_TREES:
             out.append(kit)            # no engine build (the mage kit): level-60 values, at_level stays 60
             continue
         h, d = engine_at(kit.id, level)

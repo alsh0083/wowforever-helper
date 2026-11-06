@@ -1,16 +1,16 @@
-# Warrior community standard (#155) from wowforevertalent.com's popularity data: #2 of the most
-# popular complete warrior builds (since the Oct 2 hotfixes to build 70170, updated daily), points 5/5/36, shared 57,
-# saved 101, opened 1397, 38 close variants. Focus label is Claude's judgment.
+# Community standard (#460) from talentsforever.com, saved 2026-11-04: top build #2 since the Nov 2 hotfixes to build 70753, saved 302. Data (c) Talents Forever, https://talentsforever.com, CC BY 4.0.
+# https://talentsforever.com/warrior/60/0502-05-250533120321021351-11
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "warrior-protection"
 class = "warrior"
-name = "Protection Shield Slam (PvE)"
+name = "Protection (PvE)"
 pair = "warrior-protection"
 variant = "PvE"
 origin = "community"
-sources = ["wft_popular_warrior"]
+sources = ["talentsforever_top"]
 confidence = "medium"
-summary = "Protection with Shield Slam, Concussion Blow, Last Stand, Bastion and Focused Rage; Deflection and Cruelty on the way. The community's tank standard (routes only, unscored)."
+summary = "Protection Warrior 7/5/39 (talentsforever.com, top build #2 since the Nov 2 hotfixes to build 70753, saved 302)."
 
 [final]
 "Anticipation" = 5
@@ -21,17 +21,13 @@ summary = "Protection with Shield Slam, Concussion Blow, Last Stand, Bastion and
 "Deflection" = 5
 "Focused Rage" = 3
 "Improved Bloodrage" = 2
+"Improved Charge" = 2
 "Improved Revenge" = 3
 "Improved Shield Wall" = 2
 "Improved Sunder Armor" = 2
+"Improved Thunder Clap" = 3
 "Last Stand" = 1
 "Master of Defense" = 2
 "Shield Slam" = 1
 "Shield Specialization" = 5
 "Vanguard" = 1
-
-# The community build spends fewer than 51 points (owner request, 2026-10-07): the model
-# fills the rest with the best legal talents under the PvE score. [final] is as published.
-[model_filled]
-"Improved Heroic Strike" = 3
-"Unbridled Wrath" = 2

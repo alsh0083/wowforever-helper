@@ -11,7 +11,6 @@ import pytest
 
 from wowforever.classes import engine
 from wowforever import melee_scenarios as ms
-from wowforever.builds import load_builds
 from wowforever.caster import aoe_pull
 from wowforever.classes import class_module
 from wowforever.classes.shaman_rotation import enhancement_rotation
@@ -20,12 +19,13 @@ from wowforever.physical import Target
 from wowforever.scenarios import default_params
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import tree_build
+
 S = class_module("shaman")
 CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("shaman"), S.TALENT_EFFECTS, S.UNMODELED)
-BUILDS = {b.id: b for b in load_builds(class_name="shaman")}
 STATS = ms.stat_table("shaman").at(60)
 MOBS = Target(0, 3300)
-ENH = BUILDS["shaman-enhancement-pve"].final_ids(CLS)
+ENH = tree_build(CLS, "Enhancement", "PvE").final_ids(CLS)
 
 
 def rotation(pack):
@@ -50,6 +50,6 @@ def test_aoe_pull_for_enhancement_and_elemental():
     out = engine("shaman").output(STATS, CLS.spells, CLS, ENH, MOBS, pack=3)
     mob_hp = default_params("aoe", 60).mob_hp
     assert ms.aoe("shaman", STATS, CLS.spells, CLS, ENH) == (pytest.approx(3 * mob_hp / out.dps), "Fire Nova")
-    ele = BUILDS["shaman-elemental"].final_ids(CLS)
+    ele = tree_build(CLS, "Elemental", "PvE").final_ids(CLS)
     pull = aoe_pull("shaman", STATS.caster, CLS.spells, CLS, ele, 3, mob_hp)
     assert ms.aoe("shaman", STATS, CLS.spells, CLS, ele) == (pytest.approx(pull.seconds), pull.spell)

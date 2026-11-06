@@ -21,7 +21,9 @@ not a leveling guide: it tells you which talent to take at each level, not where
     they pay off, respecced into the endgame build at 60. PvP builds pick up their PvP talents early.
   - **Endgame:** the builds below.
 - **Every class and spec:** a matrix of each talent tree (plus the common hybrids) for PvP and PvE.
-  Each slot holds the community standard. Where the model finds a better version, its pick sits right
+  Each slot holds the community standard, taken as published from a source on the current talent trees: a
+  wowforeverbuilds.com spec guide while its trees and talent text match the game, else talentsforever.com's most
+  saved complete build. A build is never adjusted to fit; if it doesn't fit, it's left out. Where the model finds a better version, its pick sits right
   under the standard as its own build, with the gain and the talents it changes. Slots with no community
   plan hold a clearly labeled model build.
 - **Talent paths:** a legal point-by-point order for every build from level 10 to 60, with a level
@@ -119,9 +121,20 @@ Assumptions and their sources are in `config/` and `docs/research/`.
 
 ## Data sources and attribution
 
-- **[wowforevertalent.com](https://wowforevertalent.com/)**: talent rank text, icons, calculator popularity
-  and the build catalog, under Creative Commons Attribution. Raw page snapshots are kept unmodified under
-  `data/raw/wowforevertalent/`.
+- **[wowforevertalents.com](https://wowforevertalents.com/)**: talent rank text since 1.60.1.70707 (#458), read
+  from the client and its hotfix cache. No license is stated, so it's credited here and in the dashboard footer.
+  Snapshots are kept unmodified under `data/raw/wowforevertalents/`.
+- **[wowforevertalent.com](https://wowforevertalent.com/)**: talent icons, and rank text, calculator popularity and
+  the build catalog up to 1.60.1.70425, under Creative Commons Attribution. Raw page snapshots are kept
+  unmodified under `data/raw/wowforevertalent/`.
+- **[talentsforever.com](https://talentsforever.com/)**: each class's most shared builds and its talent export,
+  the source of most community standards since 1.60.1.70755 (#460). Data © Talents Forever, licensed CC BY 4.0
+  (https://creativecommons.org/licenses/by/4.0/). Snapshots under `data/raw/talentsforever/`.
+- **[wowforeverbuilds.com](https://wowforeverbuilds.com/)**: the talent builds of its spec guides, kept as a
+  community standard while the guide's trees and rank text match the current build (#460, #463). Only the builds
+  are kept, never guide text. Snapshots under `data/raw/wowforeverbuilds/`.
+- **The WoW Forever client's hotfix cache** (the owner's `DBCache.bin`, #456): server hotfixes the client
+  files don't have yet, saved under `data/raw/hotfixes/`.
 - **[wago.tools](https://wago.tools/)**: DB2 exports of the WoW Forever client (talent trees, spells, items),
   and game files such as the faction emblems through its published API.
 - **[Icy Veins](https://www.icy-veins.com/wow-forever/)**: the level-30 talent builds in its WoW Forever spec

@@ -1,0 +1,68 @@
+# Leveling version of mage-arcane (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "mage-arcane-leveling"
+class = "mage"
+name = "Arcane (PvE, leveling)"
+pair = "mage-arcane-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "mage-arcane"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Arcane (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arcane (PvE) at 60."
+
+order = [
+  "Wand Specialization",  # 10
+  "Wand Specialization",  # 11
+  "Improved Channeling",  # 12
+  "Improved Channeling",  # 13
+  "Improved Channeling",  # 14
+  "Missile Barrage",  # 15
+  "Missile Barrage",  # 16
+  "Arcane Concentration",  # 17
+  "Arcane Concentration",  # 18
+  "Arcane Concentration",  # 19
+  "Arcane Concentration",  # 20
+  "Arcane Concentration",  # 21
+  "Precision",  # 22
+  "Improved Channeling",  # 23
+  "Improved Channeling",  # 24
+  "Arcane Resilience",  # 25
+  "Arcane Resilience",  # 26
+  "Arcane Resilience",  # 27
+  "Arcane Subtlety",  # 28
+  "Arcane Subtlety",  # 29
+  "Magic Absorption",  # 30
+  "Magic Absorption",  # 31
+  "Arcane Geometry",  # 32
+  "Arcane Geometry",  # 33
+  "Arcane Impact",  # 34
+  "Arcane Impact",  # 35
+  "Arcane Impact",  # 36
+  "Arcane Blast",  # 37
+  "Arcane Wrath",  # 38
+  "Arcane Instability",  # 39
+  "Arcane Instability",  # 40
+  "Arcane Instability",  # 41
+  "Arcane Mind",  # 42
+  "Arcane Mind",  # 43
+  "Arcane Mind",  # 44
+  "Arcane Mind",  # 45
+  "Arcane Mind",  # 46
+  "Accelerant",  # 47
+  "Accelerant",  # 48
+  "Accelerant",  # 49
+  "Accelerant",  # 50
+  "Accelerant",  # 51
+  "Presence of Mind",  # 52
+  "Arcane Power",  # 53
+  "Arcane Shielding",  # 54
+  "Arcane Shielding",  # 55
+  "Arcane Meditation",  # 56
+  "Arcane Meditation",  # 57
+  "Arcane Meditation",  # 58
+  "Improved Counterspell",  # 59
+  "Improved Counterspell",  # 60
+]

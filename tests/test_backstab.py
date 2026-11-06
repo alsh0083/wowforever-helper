@@ -53,7 +53,8 @@ def test_puncturing_wounds_extra_combo_points():
     n = 5 / (land * (1 + 0.45))
     bs, evis = best_rank(CLS.spells, "Backstab", 60), best_rank(CLS.spells, "Eviscerate", 60)
     assert r.builder == "Backstab"
-    assert r.cycles_per_second == pytest.approx(10.0 / (n * bs.energy_cost + evis.energy_cost))
+    # 10 Energy a second plus Shank rank 2's net (25 - 5) / 10 s (#470)
+    assert r.cycles_per_second == pytest.approx(12.0 / (n * bs.energy_cost + evis.energy_cost))
 
 
 def test_hack_and_slash_only_dagger():

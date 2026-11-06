@@ -1,6 +1,6 @@
 # Model pick for the deep Marksmanship PvE slot (owner request, 2026-10-07): the
-# community standard hunter-marksmanship hill-climbed under the PvE score, +8.7%.
-# Changes: Deadly Aspects 5->1, Improved Arcane Shot 0->5, Lone Wolf 1->0.
+# community standard hunter-marksmanship hill-climbed under the PvE score, +7.3%.
+# Changes: Focused Fire 0->2, Improved Tracking 5->4, Lone Wolf 1->0.
 
 id = "hunter-marksmanship-model"
 class = "hunter"
@@ -10,17 +10,17 @@ variant = "PvE"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "The model's alternative to Marksmanship (PvE): Deadly Aspects 5->1, Improved Arcane Shot 0->5, Lone Wolf 1->0. Scores +8.7% higher; not tried in game."
+summary = "The model's alternative to Marksmanship (PvE): Focused Fire 0->2, Improved Tracking 5->4, Lone Wolf 1->0. Scores +7.3% higher; not tried in game."
 
 [final]
 "Barrage" = 3
 "Careful Aim" = 5
-"Deadly Aspects" = 1
+"Deadly Aspects" = 5
 "Efficiency" = 5
+"Focused Fire" = 2
 "Hawk Eye" = 3
-"Improved Arcane Shot" = 5
 "Improved Stings" = 3
-"Improved Tracking" = 5
+"Improved Tracking" = 4
 "Lethal Attacks" = 5
 "Mortal Shots" = 5
 "Ranged Weapon Specialization" = 5

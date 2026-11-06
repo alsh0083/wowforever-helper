@@ -2,6 +2,7 @@
 
 # energy per second (Classic: 20 every 2 s)
 energy_per_second = 10.0
+venom_seconds = 6.0     # Venom's Shank buff lasts 6 sec (rank text, 1.60.1.70755, #470)
 # Adrenaline Rush: +100% energy regen for 15 s every 5 min (rank text; cooldown Classic)
 adrenaline_rush = { bonus_pct = 100.0, duration = 15.0, cooldown = 300.0 }
 # Blade Flurry: +20% attack speed for 15 s every 2 min (rank text; data cooldown 120 s)

@@ -18,7 +18,6 @@ import pytest
 
 from wowforever.classes import engine
 from wowforever import melee_scenarios as ms
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes import warrior_rotation as wr
 from wowforever.effects import attach_effects
@@ -26,9 +25,11 @@ from wowforever.physical import Target
 from wowforever.scenarios import default_params
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import builds_by_id
+
 W = class_module("warrior")
 CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("warrior"), W.TALENT_EFFECTS, W.UNMODELED)
-BUILDS = {b.id: b for b in load_builds(class_name="warrior")}
+BUILDS = builds_by_id("warrior")
 STATS = ms.stat_table("warrior").at(60)
 MOBS = Target(0, 3300)
 
@@ -47,13 +48,16 @@ def test_single_target_is_unchanged():
     one = rotation("warrior-fury-pve", 1)
     default = wr.warrior_rotation(STATS, CLS.spells, CLS, ranks_of("warrior-fury-pve"), MOBS)
     assert one == default
-    assert one.aoe == () and [n for n, _ in one.parts] == ["Overpower", "Rend", "Whirlwind", "Heroic Strike"]   # #391, #424
+    # #391, #424; on 70755 the Fury build has no Rage left for Heroic Strike on one target
+    assert one.aoe == () and [n for n, _ in one.parts] == ["Overpower", "Rend", "Whirlwind"]
 
 
 def test_whirlwind_hits_up_to_four_mobs():
-    one, three, five = (dict(rotation("warrior-fury-pve", p).parts) for p in (1, 3, 5))
-    assert three["Whirlwind"] == pytest.approx(3 * one["Whirlwind"])
-    assert five["Whirlwind"] == pytest.approx(4 * one["Whirlwind"])
+    # per mob against two (on one target Rend takes Rage Whirlwind gets in a pack, where Rend isn't cast); the build's
+    # Improved Whirlwind 2/2 adds 30% on the closest mob (#465): n mobs take n - 1 + 1.3 hits
+    two, three, four, five = (dict(rotation("warrior-fury-pve", p).parts) for p in (2, 3, 4, 5))
+    assert three["Whirlwind"] == pytest.approx(3.3 / 2.3 * two["Whirlwind"])
+    assert four["Whirlwind"] == five["Whirlwind"] == pytest.approx(4.3 / 2.3 * two["Whirlwind"])
 
 
 def test_thunder_clap_joins_against_a_pack():

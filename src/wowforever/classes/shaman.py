@@ -25,25 +25,25 @@ ELEMENTAL_MASTERY_COOLDOWN = 180.0
 
 TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Convection": (
-        EffectRule("mana_cost_pct", r"mana cost of your Shock, Lightning Bolt, Lava Burst, and Chain Lightning spells by (\d+(?:\.\d+)?)%",
-                   ("Flame Shock", "Lightning Bolt", "Lava Burst", "Chain Lightning"), sign=-1),
+        EffectRule("mana_cost_pct", r"mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by (\d+(?:\.\d+)?)%",
+                   ("Flame Shock", "Lightning Bolt", "Chain Lightning"), sign=-1),
     ),
     "Concussion": (
         EffectRule("damage_pct", r"damage done by your Lightning Bolt, Chain Lightning, and Earth Shock spells by (\d+(?:\.\d+)?)%",
                    ("Lightning Bolt", "Chain Lightning")),
     ),
     "Call of Flame": (
-        EffectRule("damage_pct", r"Flame Shock, Fire Nova, and Lava Burst spells by (\d+(?:\.\d+)?)%", ("Flame Shock", "Lava Burst")),
+        EffectRule("damage_pct", r"Flame Shock and Fire Nova spells by (\d+(?:\.\d+)?)%", ("Flame Shock",)),
         EffectRule("dot_seconds", r"duration of your Flame Shock spell by (\d+(?:\.\d+)?) sec", ("Flame Shock",)),
     ),
     "Elemental Alacrity": (
-        EffectRule("cast_time", r"cast time of your Lightning Bolt, Chain Lightning, and Lava Burst spells by (\d+(?:\.\d+)?) sec",
-                   ("Lightning Bolt", "Chain Lightning", "Lava Burst"), sign=-1),
+        EffectRule("cast_time", r"cast time of your Lightning Bolt and Chain Lightning spells by (\d+(?:\.\d+)?) sec",
+                   ("Lightning Bolt", "Chain Lightning"), sign=-1),
     ),
     "Eye of the Storm": (
         EffectRule("pushback_pct",
-                   r"(?:Lava Burst by |Lava Burst spells a )(\d+(?:\.\d+)?)%",
-                   ("Lightning Bolt", "Chain Lightning", "Lava Burst")),
+                   r"Lightning Bolt(?:, Chain Lightning, and Lava Burst| and Chain Lightning) spells a (\d+(?:\.\d+)?)%",
+                   ("Lightning Bolt", "Chain Lightning")),
     ),
     "Elemental Fury": (
         EffectRule("crit_damage_pct", r"your Fire, Frost, and Nature spells by (\d+(?:\.\d+)?)%", ("fire", "frost", "nature")),
@@ -53,9 +53,13 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
                    ("Lightning Bolt", "Chain Lightning"), combine=lambda m: float(m.group(1)) / 2),
     ),
     # Uptime-weighted cast-time cut (15 s of the 180 s cooldown); Chain Lightning's cooldown removal isn't modeled.
-    "Elemental Mastery": (
-        EffectRule("cast_time", r"Lava Burst by (\d+(?:\.\d+)?) sec.*Lasts (\d+(?:\.\d+)?) sec",
-                   ("Lightning Bolt", "Lava Burst"), sign=-1,
+    "Call of Thunder": (                       # Lava Burst's place since the 3 Nov hotfixes (#466)
+        EffectRule("crit_chance", r"Lightning Bolt and Chain Lightning spells by (\d+(?:\.\d+)?)%",
+                   ("Lightning Bolt", "Chain Lightning")),
+    ),
+    "Lightning Mastery": (                     # Elemental Mastery, renamed (#466)
+        EffectRule("cast_time", r"Lightning Bolt spell by (\d+(?:\.\d+)?) sec.*Lasts (\d+(?:\.\d+)?) sec",
+                   ("Lightning Bolt",), sign=-1,
                    combine=lambda m: float(m.group(1)) * float(m.group(2)) / ELEMENTAL_MASTERY_COOLDOWN),
     ),
     "Thundering Strikes": (
@@ -119,8 +123,7 @@ UNMODELED: dict[str, str] = {
     "Trial by Fire": "damage: Fire Nova damage and cooldown, longer Magma Totem",
     "Elemental Reach": "utility: longer spell range",
     "Earthbound": "control: Earthbind Totem roots 5 s",
-    "Lava Burst": "grants_spell",
-    # Enhancement
+   # Enhancement
     "Earth's Grasp": "utility: Stoneclaw health, Earthbind radius",
     "Guardian Totems": "defensive: stronger Stoneskin and Windwall Totems",
     "Improved Ghost Wolf": "mobility: faster Ghost Wolf, usable indoors",
@@ -154,10 +157,10 @@ SKILL_LINES = (375, 373, 374)
 ENGINE = "spell"
 ROTATION = {
     "dots": ("Flame Shock",),
-    "cooldowns": ("Lava Burst", "Chain Lightning"),
+    "cooldowns": ("Chain Lightning",),             # Lava Burst left with the 3 Nov hotfixes (#466)
     "fillers": ("Lightning Bolt",),
-    # Lava Burst's own effect 1 (SpellEffect 408490, 1.60.1.70425): +20% damage with Flame Shock up (#384)
-    "dot_bonus": {"Lava Burst": ("Flame Shock", 20.0)},
+    # a spell's bonus while a DoT is up (#384); Lava Burst's +20% with Flame Shock was the only one
+    "dot_bonus": {},
 }
 # Enhancement fights in melee on the melee engine (#175); Restoration stays unscored (Q3).
 MELEE_TREES = ("Enhancement",)

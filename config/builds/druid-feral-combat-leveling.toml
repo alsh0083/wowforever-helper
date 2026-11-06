@@ -1,0 +1,68 @@
+# Leveling version of druid-feral-combat (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "druid-feral-combat-leveling"
+class = "druid"
+name = "Feral Combat (PvE, leveling)"
+pair = "druid-feral-combat-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "druid-feral-combat"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Feral Combat (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Feral Combat (PvE) at 60."
+
+order = [
+  "Ferocity",  # 10
+  "Ferocity",  # 11
+  "Ferocity",  # 12
+  "Ferocity",  # 13
+  "Ferocity",  # 14
+  "Furor",  # 15
+  "Furor",  # 16
+  "Furor",  # 17
+  "Furor",  # 18
+  "Furor",  # 19
+  "Sharpened Claws",  # 20
+  "Sharpened Claws",  # 21
+  "Savage Fury",  # 22
+  "Savage Fury",  # 23
+  "Feral Swiftness",  # 24
+  "Predatory Strikes",  # 25
+  "Predatory Strikes",  # 26
+  "Predatory Strikes",  # 27
+  "Blood Frenzy",  # 28
+  "Blood Frenzy",  # 29
+  "Leader of the Pack",  # 30
+  "Natural Instinct",  # 31
+  "Natural Instinct",  # 32
+  "Feral Swiftness",  # 33
+  "Feral Instinct",  # 34
+  "Rend and Tear",  # 35
+  "Rend and Tear",  # 36
+  "Natural Reaction",  # 37
+  "Natural Reaction",  # 38
+  "Natural Reaction",  # 39
+  "Primal Bite",  # 40
+  "Natural Reaction",  # 41
+  "Natural Reaction",  # 42
+  "Lacerate",  # 43
+  "Feral Charge",  # 44
+  "Feral Instinct",  # 45
+  "Feral Instinct",  # 46
+  "Thick Hide",  # 47
+  "Thick Hide",  # 48
+  "Heart of the Wild",  # 49
+  "Heart of the Wild",  # 50
+  "Heart of the Wild",  # 51
+  "Heart of the Wild",  # 52
+  "Heart of the Wild",  # 53
+  "Naturalist",  # 54
+  "Naturalist",  # 55
+  "Naturalist",  # 56
+  "Naturalist",  # 57
+  "Naturalist",  # 58
+  "Genesis",  # 59
+  "Genesis",  # 60
+]

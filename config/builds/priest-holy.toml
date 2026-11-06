@@ -1,16 +1,16 @@
-# Priest community standard (#158) from wowforevertalent.com's popularity data: #4 of the most
-# popular complete priest builds (Sep 13 to Oct 4, 2026, updated daily), points 19/32/0, shared 42,
-# saved 71, opened 451, 76 close variants. Focus label is Claude's judgment.
+# Community standard (#460) from talentsforever.com, saved 2026-11-04: top build #4 since the Oct 30 hotfixes to build 70685, saved 91. Data (c) Talents Forever, https://talentsforever.com, CC BY 4.0.
+# https://talentsforever.com/priest/60/00530300133001-03505103030021531--11
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "priest-holy"
 class = "priest"
-name = "Holy Prayer of Mending (PvE)"
+name = "Holy (PvE)"
 pair = "priest-holy"
 variant = "PvE"
 origin = "community"
-sources = ["wft_popular_priest"]
+sources = ["talentsforever_top"]
 confidence = "medium"
-summary = "Holy with Prayer of Mending, Spiritual Guidance, Spiritual Healing and Spirit of Redemption; Inner Focus and Meditation from Discipline. The community's Holy healer (routes only, unscored)."
+summary = "Holy Priest 19/32/0 (talentsforever.com, top build #4 since the Oct 30 hotfixes to build 70685, saved 91)."
 
 [final]
 "Divine Fury" = 5

@@ -1,16 +1,16 @@
-# Druid community standard (#156) from wowforevertalent.com's popularity data: #3 of the most
-# popular complete druid builds (since the Oct 1 patch (build 70170), updated daily), points 36/0/15, shared 39,
-# saved 181, opened 1099, 40 close variants. Focus label is Claude's judgment.
+# Community standard (#460) from talentsforever.com, saved 2026-11-04: top build #4 since the Oct 30 hotfixes to build 70685, saved 408. Data (c) Talents Forever, https://talentsforever.com, CC BY 4.0.
+# https://talentsforever.com/druid/60/5032220115501351--505302-11
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "druid-balance"
 class = "druid"
-name = "Balance Moonkin (PvE)"
+name = "Balance (PvE)"
 pair = "druid-balance"
 variant = "PvE"
 origin = "community"
-sources = ["wft_popular_druid"]
+sources = ["talentsforever_top"]
 confidence = "medium"
-summary = "Balance with Moonkin Form, Insect Swarm, Eclipse, Nature's Grace, Vengeance and Moonfury; Nature's Focus, Naturalist and Reflection from Restoration. The community's caster damage standard."
+summary = "Balance Druid 36/0/15, Moonkin (talentsforever.com, top build #4 since the Oct 30 hotfixes to build 70685, saved 408)."
 
 [final]
 "Eclipse" = 3

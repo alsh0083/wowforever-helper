@@ -5,7 +5,6 @@ Plague -50% mana) and Flawless Execution (Eviscerate -10 Energy)."""
 import pytest
 
 from wowforever.assumptions import Assumptions
-from wowforever.builds import load_builds
 from wowforever.caster import cast, caster_rotation
 from wowforever.calc.talents import modifiers_for
 from wowforever.classes import class_module
@@ -15,6 +14,8 @@ from wowforever.melee_scenarios import stat_table
 from wowforever.physical import Target
 from wowforever.scenarios import best_rank
 from wowforever.schema import Dataset, latest_dataset_path
+
+from _trees import builds_by_id
 
 DS = Dataset.load(latest_dataset_path())
 BOSS = Target(3, 0)
@@ -53,16 +54,18 @@ def test_cast_takes_conditions_and_extra_damage():
     assert boosted[0] == pytest.approx(plain[0] * 1.2) and boosted[1:] == plain[1:]
 
 
-def test_lava_burst_gets_its_flame_shock_bonus(monkeypatch):
+def test_a_spell_gets_its_bonus_while_its_dot_is_up(monkeypatch):
+    # Lava Burst's +20% with Flame Shock up was the only dot_bonus, and 1.60.1.70755 removed Lava Burst (#466);
+    # the mechanic is checked on Lightning Bolt instead
     S = class_module("shaman")
-    assert S.ROTATION["dot_bonus"] == {"Lava Burst": ("Flame Shock", 20.0)}
+    assert S.ROTATION["dot_bonus"] == {}
     cls, _ = loaded("shaman")
-    ranks = {b.id: b.final_ids(cls) for b in load_builds(class_name="shaman")}["shaman-elemental"]
+    ranks = {k: b.final_ids(cls) for k, b in builds_by_id("shaman").items()}["shaman-elemental"]
     stats = stat_table("shaman").at(60).caster
-    with_bonus = caster_rotation("shaman", stats, cls.spells, cls, ranks, BOSS)
-    assert "Flame Shock" in with_bonus.spells and "Lava Burst" in with_bonus.spells
-    monkeypatch.setitem(S.ROTATION, "dot_bonus", {})
-    assert caster_rotation("shaman", stats, cls.spells, cls, ranks, BOSS).dps < with_bonus.dps
+    plain = caster_rotation("shaman", stats, cls.spells, cls, ranks, BOSS)
+    monkeypatch.setitem(S.ROTATION, "dot_bonus", {"Lightning Bolt": ("Flame Shock", 20.0)})
+    bonus = caster_rotation("shaman", stats, cls.spells, cls, ranks, BOSS)
+    assert "Flame Shock" in bonus.spells and bonus.dps > plain.dps
 
 
 def test_devouring_contagion_halves_devouring_plague_mana():
@@ -76,5 +79,5 @@ def test_flawless_execution_speeds_the_energy_cycle():
     stats = stat_table("rogue").at(60)
     base = rogue_rotation(stats, cls.spells, cls, {}, BOSS)
     cheap = rogue_rotation(stats, cls.spells, cls, only(cls, "Flawless Execution"), BOSS)
-    # cycles = energy / (builders x cost + Eviscerate cost); 10 less Energy per Eviscerate
-    assert 1 / cheap.cycles_per_second == pytest.approx(1 / base.cycles_per_second - 10 / base.energy_per_second)
+    # cycles = energy / (builders x cost + Eviscerate cost); 15 less Energy per Eviscerate (10 before the 2 Nov notes)
+    assert 1 / cheap.cycles_per_second == pytest.approx(1 / base.cycles_per_second - 15 / base.energy_per_second)

@@ -1,5 +1,6 @@
 """wowforeverbuilds.com spec guides as a source of community standards (#460)."""
 
+import dataclasses
 import gzip
 import hashlib
 import json
@@ -280,3 +281,52 @@ def test_load_history_is_every_saved_snapshot_oldest_first(tmp_path):
     (tmp_path / "20261114").mkdir()                             # no manifest: an interrupted fetch
     (tmp_path / "README.md").write_text("notes", encoding="utf-8")
     assert [s.date for s in load_history(tmp_path)] == ["2026-10-31", "2026-11-07"]
+
+
+# ---- #463: a build picked for other numbers isn't a current standard ----
+# The calculator carries each talent's rank text; every talent in a tree the build uses must read as ours does.
+
+OUR_TEXT = {"A": tuple(f"A by {n}%." for n in range(1, 6)), "D": tuple(f"D by {n}%." for n in range(1, 6)),
+            "C": ("C once.",), "X": tuple(f"X by {n}%." for n in range(1, 6))}
+OURS_TEXT = dataclasses.replace(OURS, talents=tuple(dataclasses.replace(t, rank_text=OUR_TEXT[t.name])
+                                                     for t in OURS.talents))
+
+
+def site(**changed):
+    text = OUR_TEXT | changed
+    return dataclasses.replace(NEW, texts=((text["A"], text["D"], text["C"]), (text["X"],)))
+
+
+def test_the_calculator_keeps_each_talents_rank_text():
+    c = calc()
+    assert len(c.texts) == len(c.trees) and all(len(t) == len(n) for t, n in zip(c.texts, c.trees))
+    assert c.texts[0][0][1] == "Reduces the cast time of your Wrath spell by 0.2 sec and its Mana cost by 20%."
+    assert [len(text) for text in c.texts[1][3]] and len(c.texts[1][3]) == 3        # Feral Instinct, 3 ranks
+
+
+def test_the_same_rank_text_keeps_the_build():
+    spaced = tuple(f"A  by {n}%" for n in range(1, 6))         # spacing and a final full stop don't count
+    for c in (site(), site(A=spaced)):
+        assert standard_build("g", [snap("2026-11-05", c, g="541")], OURS_TEXT) == ({"A": 5, "D": 4, "C": 1}, "")
+
+
+def test_changed_rank_text_in_a_used_tree_drops_the_build():
+    c = site(D=tuple(f"D by {2 * n}%." for n in range(1, 6)), C=("C twice.",))
+    assert standard_build("g", [snap("2026-11-05", c, g="541")], OURS_TEXT) == (
+        None, "g: One: the build was made on the 1.60.1.200 calculator (2026-11-05), whose rank text differs "
+              "from ours for D, C")
+
+
+def test_changed_rank_text_in_a_tree_the_build_leaves_empty_does_not_matter():
+    c = site(X=tuple(f"X by {9 * n}%." for n in range(1, 6)))
+    assert standard_build("g", [snap("2026-11-05", c, g="541-0")], OURS_TEXT)[0] == {"A": 5, "D": 4, "C": 1}
+
+
+def test_numbers_may_differ_by_rounding_and_how_they_are_written():
+    ours = dataclasses.replace(OURS_TEXT, talents=tuple(
+        dataclasses.replace(t, rank_text=("Deals 147 damage over 3 sec.",)) if t.name == "C" else t
+        for t in OURS_TEXT.talents))
+    for text, kept in (("Deals 146 damage over 3.0 sec.", True), ("Deals 160 damage over 3 sec.", False),
+                       ("Deals 147 damage over 3 seconds.", False)):
+        ranks, _ = standard_build("g", [snap("2026-11-05", site(C=(text,)), g="541")], ours)
+        assert (ranks is not None) == kept, text

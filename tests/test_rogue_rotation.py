@@ -88,7 +88,8 @@ def test_combat_talents():
     energy = 10 * (1 + 1.0 * 15 / 300)
     snd = top("Slice and Dice")
     snd_seconds = (snd.duration + 3 * 5) * 1.45
-    r, yellow = cycle(builder, ss.energy_cost - 5, cp, evis_ev, energy, start=0.6, refund=0.2 * 5 * 25,
+    # Improved Sinister Strike's -5 Energy: its 70755 rule (Efficient Strikes) doesn't read this fixture's 70205 text
+    r, yellow = cycle(builder, ss.energy_cost, cp, evis_ev, energy, start=0.6, refund=0.2 * 5 * 25,
                       snd_seconds=snd_seconds)
     assert rot.white_dps == pytest.approx(white)
     assert rot.yellow_dps == pytest.approx(yellow)

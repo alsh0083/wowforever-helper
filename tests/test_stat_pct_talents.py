@@ -11,6 +11,8 @@ from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import stat_table
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import builds_by_id
+
 DS = Dataset.load(latest_dataset_path())
 
 
@@ -64,12 +66,11 @@ def test_caster_row_skips_strength():
 
 
 def test_divine_strength_raises_retribution_output():
-    from wowforever.builds import load_builds
     from wowforever.classes import engine
     from wowforever.physical import Target
 
     cls, _ = loaded("paladin")
-    ranks = {b.id: b.final_ids(cls) for b in load_builds(class_name="paladin")}["paladin-retribution"]
+    ranks = {k: b.final_ids(cls) for k, b in builds_by_id("paladin").items()}["paladin-retribution"]
     ds = cls.talent_named("Divine Strength").talent_id
     assert ranks.get(ds, 0) > 0
     stats = stat_table("paladin").at(60)

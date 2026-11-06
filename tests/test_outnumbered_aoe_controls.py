@@ -31,6 +31,8 @@ from wowforever.scenarios import Character, best_rank
 from wowforever.schema import Dataset, latest_dataset_path
 from wowforever.stats import StatTable
 
+from _trees import builds_by_id
+
 DATASET = Dataset.load(latest_dataset_path())
 A = Kit(id="a", role="melee", stealth=False, dispels_buffs=False, health=3000, dps=100, opener_damage=0,
         opener_stun=0, controls=(), removes=(), immunity=None)
@@ -48,7 +50,7 @@ def test_multi_target_stuns_reach_both_opponents():
 def side(class_name, build_id):
     module = class_module(class_name)
     cls, _ = attach_effects(DATASET.class_data(class_name), module.TALENT_EFFECTS, module.UNMODELED)
-    ranks = {b.id: b for b in load_builds(class_name=class_name)}[build_id].final_ids(cls)
+    ranks = builds_by_id(class_name)[build_id].final_ids(cls)
     return class_side(class_name, ms.stat_table(class_name).at(60), cls.spells, cls, ranks)
 
 

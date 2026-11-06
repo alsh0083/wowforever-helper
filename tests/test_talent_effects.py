@@ -14,16 +14,14 @@ from wowforever.calc.talents import modifiers_for
 from wowforever.classes.mage import LAYOUT, TALENT_EFFECTS, UNMODELED
 from wowforever.effects import attach_effects
 from wowforever.normalize import normalize_class, read_tables
-from wowforever.schema import Dataset, Effect, Provenance, SpellRank
+from wowforever.schema import Dataset, Effect, Provenance, SpellRank, latest_dataset_path
 from wowforever.sources.wowforevertalent import parse_page
 
+from _trees import tree_build
+
 FIX = Path(__file__).parent / "fixtures"
-RAW, _ = normalize_class(read_tables(FIX / "wago-1.60.1.70205"), LAYOUT,
-                         parse_page((FIX / "wowforevertalent" / "mage.html").read_text(encoding="utf-8")),
-                         wago_build="1.60.1.70205")
-CLS, REPORT = attach_effects(RAW, TALENT_EFFECTS, UNMODELED)
-# the owner's former hand-made Elementalist builds stay as fixtures (tests/fixtures/builds/)
-BUILDS = {b.id: b for b in [*load_builds(class_name="mage"), *load_builds(Path(__file__).parent / "fixtures" / "builds", class_name="mage")]}
+# the rules follow the pinned build (1.60.1.70755 with the 3 Nov hotfixes, #463)
+CLS, REPORT = attach_effects(Dataset.load(latest_dataset_path()).class_data("mage"), TALENT_EFFECTS, UNMODELED)
 
 FIREBALL = SpellRank(25306, "Fireball", 12, 60, ("fire",), 3.5, mana_cost=410,
                      min_damage=596, max_damage=760, coefficient=1.0)
@@ -52,12 +50,11 @@ def test_every_talent_is_either_modeled_or_listed_as_unmodeled():
 @pytest.mark.parametrize("name, kind, expected", [
     ("Ignite", "dot_pct", (8, 16, 24, 32, 40)),
     ("Critical Mass", "crit_chance", (2, 4, 6)),
-    ("Fire Power", "damage_pct", (2, 4, 6, 8, 10)),
-    ("Improved Fireball", "cast_time", (-0.1, -0.2, -0.3, -0.4, -0.5)),
-    ("Incineration", "crit_chance", (2, 4, 6)),
+    ("Fire Power", "damage_pct", (2, 4, 6)),        # 1/2/3% per Fire effect, two assumed (3 ranks on 70755)
+    ("Accelerant", "cast_time", (-0.1, -0.2, -0.3, -0.4, -0.5)),
+    ("Incineration", "crit_chance", (2, 4, 6, 8, 10)),
     ("Ice Shards", "crit_damage_pct", (20, 40, 60, 80, 100)),
-    ("Piercing Ice", "damage_pct", (2, 4, 6)),
-    ("Elemental Precision", "hit_chance", (1, 2, 3, 4, 5)),
+    ("Precision", "hit_chance", (2, 4, 6)),
     ("Frost Channeling", "mana_cost_pct", (-5, -10, -15)),
     ("Arcane Instability", "damage_pct", (1, 2, 3)),
     ("Arcane Instability", "crit_chance", (1, 2, 3)),
@@ -72,43 +69,45 @@ def test_values_per_rank_parsed_from_rank_text(name, kind, expected):
 def test_applies_to_and_conditions():
     (shatter,) = CLS.talent_named("Shatter").effects
     assert shatter.applies_to == ("all", "@frozen")
-    (imp_fb,) = CLS.talent_named("Improved Fireball").effects
-    assert set(imp_fb.applies_to) == {"Fireball", "Frostfire Bolt"}
+    (accelerant,) = CLS.talent_named("Accelerant").effects
+    assert set(accelerant.applies_to) == {"Fireball", "Frostfire Bolt", "Arcane Wrath"}
 
 
-def ranks(build_id):
-    return BUILDS[build_id].final_ids(CLS)
+def ranks(tree):
+    return tree_build(CLS, tree, "PvE").final_ids(CLS)
 
 
-def test_modifiers_for_fireball_in_current_elementalist_route():
-    # Critical Mass 3/3 (+6 crit), Ignite 5/5 (40), Improved Fireball 5/5 (-0.5 s),
-    # Elemental Precision 2/5 (+2 hit). Incineration doesn't list Fireball; no Fire Power.
-    assert modifiers_for(FIREBALL, CLS, ranks("elementalist-v4")) == Modifiers(
-        crit_chance_bonus=6, ignite_pct=40, cast_time_delta=-0.5, hit_bonus=2)
+def test_modifiers_for_fireball_in_deep_fire():
+    # Fire Power 3/3 (+3% per Fire effect, two assumed: +6), Critical Mass 3/3 (+6 crit), Ignite 5/5 (40),
+    # Accelerant 5/5 (-0.5 s), Precision 3/3 (+6 hit), Arcane Concentration 5/5 (-10% mana, expected value),
+    # Arcane Subtlety 2/2 (15 resistance). Incineration doesn't list Fireball.
+    assert modifiers_for(FIREBALL, CLS, ranks("Fire")) == Modifiers(
+        damage_pct=6, crit_chance_bonus=6, ignite_pct=40, cast_time_delta=-0.5, mana_cost_pct=-10, hit_bonus=6,
+        resistance_reduction=15)
 
 
 def test_modifiers_for_frostbolt_in_deep_frost():
-    # Piercing Ice +6% damage, Ice Shards +100 crit damage, Improved Frostbolt -0.5 s,
-    # Elemental Precision +5 hit, Frost Channeling -15% mana. Shatter only vs frozen targets.
-    assert modifiers_for(FROSTBOLT, CLS, ranks("deep-frost")) == Modifiers(
-        damage_pct=6, crit_damage_bonus_pct=100, cast_time_delta=-0.5, mana_cost_pct=-15, hit_bonus=5)
-    assert modifiers_for(FROSTBOLT, CLS, ranks("deep-frost"), conditions={"frozen"}).crit_chance_bonus == 50
+    # Ice Shards +100 crit damage, Improved Frostbolt -0.5 s, Precision +6 hit, Frost Channeling -15% mana.
+    # Shatter only vs frozen targets.
+    assert modifiers_for(FROSTBOLT, CLS, ranks("Frost")) == Modifiers(
+        crit_damage_bonus_pct=100, cast_time_delta=-0.5, mana_cost_pct=-15, hit_bonus=6)
+    assert modifiers_for(FROSTBOLT, CLS, ranks("Frost"), conditions={"frozen"}).crit_chance_bonus == 50
 
 
 def test_untaken_talents_with_rank_zero_add_nothing():
-    zeros = {t: 0 for t in ranks("deep-frost")}
+    zeros = {t: 0 for t in ranks("Frost")}
     assert modifiers_for(FROSTBOLT, CLS, zeros) == Modifiers()
 
 
 def test_incineration_applies_to_ice_lance_by_name():
-    # the Elementalist has Incineration 3/3 and Ice Shards 5/5
-    m = modifiers_for(ICE_LANCE, CLS, ranks("elementalist-v4"))
-    assert m.crit_chance_bonus == 6 and m.crit_damage_bonus_pct == 100
+    # deep Frost has Incineration 5/5 (+10 crit on 70755) and Ice Shards 5/5
+    m = modifiers_for(ICE_LANCE, CLS, ranks("Frost"))
+    assert m.crit_chance_bonus == 10 and m.crit_damage_bonus_pct == 100
 
 
 def test_damage_pct_stacks_additively():
     # Deep Arcane has Arcane Instability 3/3 and no Fire damage talents: +3% damage, +3 crit
-    m = modifiers_for(FIREBALL, CLS, ranks("deep-arcane"))
+    m = modifiers_for(FIREBALL, CLS, ranks("Arcane"))
     assert (m.damage_pct, m.crit_chance_bonus) == (3, 3)
 
 

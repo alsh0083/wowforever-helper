@@ -1,0 +1,68 @@
+# Leveling version of mage-arcane-fire-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "mage-arcane-fire-pvp-leveling"
+class = "mage"
+name = "Arcane/Fire (PvP, leveling, model)"
+pair = "mage-arcane-fire-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "mage-arcane-fire-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Arcane/Fire (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arcane/Fire (PvP, model) at 60."
+
+order = [
+  "Wand Specialization",  # 10
+  "Wand Specialization",  # 11
+  "Improved Channeling",  # 12
+  "Improved Channeling",  # 13
+  "Improved Channeling",  # 14
+  "Missile Barrage",  # 15
+  "Missile Barrage",  # 16
+  "Arcane Concentration",  # 17
+  "Arcane Concentration",  # 18
+  "Arcane Concentration",  # 19
+  "Arcane Concentration",  # 20
+  "Arcane Concentration",  # 21
+  "Precision",  # 22
+  "Arcane Impact",  # 23
+  "Arcane Impact",  # 24
+  "Arcane Impact",  # 25
+  "Arcane Meditation",  # 26
+  "Arcane Meditation",  # 27
+  "Improved Channeling",  # 28
+  "Improved Channeling",  # 29
+  "Arcane Resilience",  # 30
+  "Arcane Resilience",  # 31
+  "Arcane Resilience",  # 32
+  "Arcane Subtlety",  # 33
+  "Arcane Subtlety",  # 34
+  "Magic Absorption",  # 35
+  "Arcane Instability",  # 36
+  "Arcane Instability",  # 37
+  "Arcane Instability",  # 38
+  "Arcane Mind",  # 39
+  "Arcane Mind",  # 40
+  "Arcane Mind",  # 41
+  "Arcane Mind",  # 42
+  "Arcane Mind",  # 43
+  "Arcane Meditation",  # 44
+  "Arcane Blast",  # 45
+  "Arcane Wrath",  # 46
+  "Accelerant",  # 47
+  "Accelerant",  # 48
+  "Accelerant",  # 49
+  "Accelerant",  # 50
+  "Accelerant",  # 51
+  "Ignite",  # 52
+  "Ignite",  # 53
+  "Incineration",  # 54
+  "Incineration",  # 55
+  "Incineration",  # 56
+  "Burning Soul",  # 57
+  "Burning Soul",  # 58
+  "Burning Soul",  # 59
+  "Improved Fire Blast",  # 60
+]

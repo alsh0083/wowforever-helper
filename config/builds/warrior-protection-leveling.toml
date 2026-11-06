@@ -3,7 +3,7 @@
 
 id = "warrior-protection-leveling"
 class = "warrior"
-name = "Protection Shield Slam (PvE, leveling)"
+name = "Protection (PvE, leveling)"
 pair = "warrior-protection-leveling"
 variant = "PvE"
 mode = "leveling"
@@ -11,58 +11,58 @@ levels_into = "warrior-protection"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Protection Shield Slam (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Protection Shield Slam (PvE) at 60."
+summary = "Protection (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Protection (PvE) at 60."
 
 order = [
   "Improved Bloodrage",  # 10
   "Improved Bloodrage",  # 11
   "Shield Specialization",  # 12
-  "Shield Specialization",  # 13
-  "Shield Specialization",  # 14
-  "Shield Specialization",  # 15
-  "Shield Specialization",  # 16
-  "Anticipation",  # 17
-  "Anticipation",  # 18
-  "Anticipation",  # 19
-  "Last Stand",  # 20
-  "Master of Defense",  # 21
-  "Master of Defense",  # 22
-  "Defiance",  # 23
-  "Defiance",  # 24
-  "Improved Sunder Armor",  # 25
-  "Improved Sunder Armor",  # 26
-  "Vanguard",  # 27
-  "Defiance",  # 28
+  "Cruelty",  # 13
+  "Cruelty",  # 14
+  "Cruelty",  # 15
+  "Cruelty",  # 16
+  "Shield Specialization",  # 17
+  "Cruelty",  # 18
+  "Shield Specialization",  # 19
+  "Unbridled Wrath",  # 20
+  "Anticipation",  # 21
+  "Unbridled Wrath",  # 22
+  "Anticipation",  # 23
+  "Unbridled Wrath",  # 24
+  "Anticipation",  # 25
+  "Unbridled Wrath",  # 26
+  "Anticipation",  # 27
+  "Unbridled Wrath",  # 28
   "Anticipation",  # 29
-  "Improved Shield Wall",  # 30
-  "Improved Shield Wall",  # 31
-  "Concussion Blow",  # 32
-  "Focused Rage",  # 33
-  "Focused Rage",  # 34
-  "Cruelty",  # 35
-  "Cruelty",  # 36
-  "Cruelty",  # 37
-  "Cruelty",  # 38
-  "Cruelty",  # 39
-  "Bastion",  # 40
-  "Bastion",  # 41
-  "Bastion",  # 42
-  "Bastion",  # 43
-  "Bastion",  # 44
-  "Shield Slam",  # 45
-  "Focused Rage",  # 46
-  "Anticipation",  # 47
+  "Furious Precision",  # 30
+  "Last Stand",  # 31
+  "Furious Precision",  # 32
+  "Defiance",  # 33
+  "Deflection",  # 34
+  "Deflection",  # 35
+  "Deflection",  # 36
+  "Deflection",  # 37
+  "Deflection",  # 38
+  "Improved Charge",  # 39
+  "Improved Charge",  # 40
+  "Shield Specialization",  # 41
+  "Defiance",  # 42
+  "Defiance",  # 43
+  "Improved Sunder Armor",  # 44
+  "Improved Sunder Armor",  # 45
+  "Vanguard",  # 46
+  "Improved Revenge",  # 47
   "Improved Revenge",  # 48
-  "Improved Revenge",  # 49
-  "Improved Revenge",  # 50
-  "Improved Sunder Armor",  # 51
-  "Improved Shield Bash",  # 52
-  "Improved Shield Bash",  # 53
-  "Improved Disarm",  # 54
-  "Improved Disarm",  # 55
-  "Improved Disarm",  # 56
-  "Improved Thunder Clap",  # 57
-  "Unbridled Wrath",  # 58
-  "Unbridled Wrath",  # 59
-  "Improved Heroic Strike",  # 60
+  "Improved Shield Wall",  # 49
+  "Improved Shield Wall",  # 50
+  "Concussion Blow",  # 51
+  "Focused Rage",  # 52
+  "Focused Rage",  # 53
+  "Bastion",  # 54
+  "Bastion",  # 55
+  "Bastion",  # 56
+  "Bastion",  # 57
+  "Bastion",  # 58
+  "Shield Slam",  # 59
+  "Focused Rage",  # 60
 ]

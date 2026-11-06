@@ -43,9 +43,9 @@ def test_improved_shadow_word_pain():
 
 def test_call_of_flame_lengthens_flame_shock():
     cls, _ = loaded("shaman")
-    shock = best_rank(cls.spells, "Flame Shock", 60)                # 176 over 12 s
+    shock = best_rank(cls.spells, "Flame Shock", 60)                # 320 over 12 s on 70755 (176 before, #466)
     longer = longer_dot(shock, cls, only(cls, "Call of Flame"))
-    assert longer.duration == 21.0 and longer.periodic_damage == pytest.approx(176 * 21 / 12)
+    assert longer.duration == 21.0 and longer.periodic_damage == pytest.approx(320 * 21 / 12)
     assert longer.min_damage == shock.min_damage                    # the direct hit is unchanged
 
 

@@ -217,6 +217,7 @@ class SpellRank:
     per_combo_point: float = 0.0       # extra damage per combo point (EffectPointsPerResource of the damage effect)
     periodic_per_combo_point: float = 0.0   # extra periodic damage per combo point, over the duration (Rip, #397)
     combo_points: int = 0              # combo points awarded (effect 30 with EffectMiscValue_0 == 4)
+    energy_gain: int = 0               # Energy the spell restores (effect 30 with EffectMiscValue_0 == 3: Shank, #470)
     damage_shield: float = 0.0         # damage per melee hit taken (aura 15: Thorns), base points (#261)
     damage_shield_coefficient: float = 0.0  # spell power coefficient of that damage
     heal_min: float = 0.0                  # direct heal (Effect 10), with variance like damage (#270)

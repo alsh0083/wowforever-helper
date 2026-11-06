@@ -69,7 +69,8 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
                                   r"(?:avoid interruption|not lose casting time)", ("arcane", "nature")),
     ),
     "Naturalist": (
-        EffectRule("cast_time", r"cast time of your Healing Touch spell by (\d+(?:\.\d+)?) sec", ("Healing Touch",), sign=-1),
+        EffectRule("cast_time", r"cast time of your Healing Touch and Wild Growth spells by (\d+(?:\.\d+)?) sec",
+                   ("Healing Touch", "Wild Growth"), sign=-1),
         EffectRule("damage_pct", r"increases all damage you deal by (\d+(?:\.\d+)?)%", ("all",)),
     ),
     "Reflection": (
@@ -90,9 +91,6 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
     "Nature's Splendor": (
         EffectRule("duration", r"Moonfire and Rejuvenation spells by (\d+(?:\.\d+)?) sec", ("Rejuvenation",)),
         EffectRule("duration", r"your Regrowth spell by (\d+(?:\.\d+)?) sec", ("Regrowth",)),
-    ),
-    "Gift of the Earthmother": (
-        EffectRule("gcd", r"global cooldown by (\d+(?:\.\d+)?) seconds", ("Rejuvenation", "Swiftmend", "Wild Growth"), sign=-1),
     ),
     "Improved Regrowth": (
         EffectRule("crit_chance", r"critical effect chance of your Regrowth spell by (\d+(?:\.\d+)?)%", ("Regrowth",)),
@@ -156,10 +154,11 @@ UNMODELED: dict[str, str] = {
     "Feral Charge": "grants_spell",
     "Shifting Power": "grants_spell",
     "Primal Bite": "grants_spell",
-    "Improved Shifting Power": "resource: Shifting Power cooldown -8 s",
+    "Lacerate": "grants_spell",
+    "Predatory Discipline": "damage: Ferocious Bite keeps its excess-Energy bonus without spending the Energy; not modeled yet (#468)",
     "Natural Reaction": "defensive: +5% dodge, Rage on dodge",
-    "Berserk": "damage: builder crit averaged in druid_rotation (#397); its cleave is bear-only Primal Bite (#431)",
     # Restoration
+    "Bloom": "healing: Spirit-based heal when Rejuvenation or Regrowth runs its full duration; not modeled yet (#468)",
     "Furor": "resource: Energy kept across shifts plus 10/s outside (no more than regen), so no powershift gain (#431)",
     "Subtlety": "threat: less threat from Nature and Arcane spells",
     "Natural Shapeshifter": "resource: cheaper shapeshifting",

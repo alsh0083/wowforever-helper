@@ -1,6 +1,6 @@
 """Execute-phase talents (#392, #395, #396): a bonus below N% health counts at N% of its value, the share of a
-steady fight the target spends below N% health. Quietus 10% below 35% -> 3.5%; Early Demise +30% crit at or
-below 20% -> 6%; Decimation +6% below 35% -> 2.1%."""
+steady fight the target spends below N% health. Early Demise +30% crit at or
+below 20% -> 6%; Decimation +6% below 35% -> 2.1%. (The rogue's Quietus was removed in 1.60.1.70755, #464.)"""
 
 import pytest
 
@@ -17,11 +17,6 @@ def effects(cls_name, talent):
     assert problems == []
     return cls.talent_named(talent).effects
 
-
-def test_quietus():
-    (rule,) = effects("rogue", "Quietus")
-    assert rule.kind == "damage_pct" and set(rule.applies_to) == {"Sinister Strike", "Ghostly Strike", "Hemorrhage"}
-    assert rule.values[0] == pytest.approx(0.7) and rule.values[-1] == pytest.approx(3.5)
 
 
 def test_early_demise():

@@ -33,7 +33,7 @@ def hammer_dps(spell_power):
 def test_rule():
     assert PROBLEMS == []
     (rule,) = CLS.talent_named("Champion of the Light").effects
-    assert (rule.kind, rule.applies_to, rule.values) == ("spell_power_from", ("intellect",), (10.0, 20.0, 30.0))
+    assert (rule.kind, rule.applies_to, rule.values) == ("spell_power_from", ("intellect",), (12.0, 24.0, 36.0, 48.0, 60.0))
 
 
 def test_hammer_of_wrath_in_the_execute_phase():
@@ -46,4 +46,4 @@ def test_hammer_of_wrath_in_the_execute_phase():
 def test_champion_of_the_light_powers_the_hammer():
     gain = (paladin_rotation(STATS, CLS.spells, CLS, CHAMPION, BOSS).dps
             - paladin_rotation(STATS, NO_HAMMER, CLS, CHAMPION, BOSS).dps)
-    assert gain == pytest.approx(hammer_dps(0.30 * STATS.intellect))
+    assert gain == pytest.approx(hammer_dps(0.36 * STATS.intellect))       # rank 3 of 5 on 70755 (#445)

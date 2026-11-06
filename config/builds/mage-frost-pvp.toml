@@ -1,0 +1,33 @@
+# Model build for the empty deep Frost PvP slot (owner request, 2026-10-05): the report's model pick for this slot.
+# No community plan with talents exists for this slot yet; replace it when one does.
+
+id = "mage-frost-pvp"
+class = "mage"
+name = "Frost (PvP, model)"
+pair = "mage-frost"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Frost PvP: the report's model pick for this slot. Not a community standard."
+
+[final]
+"Burning Soul" = 3
+"Cold Snap" = 1
+"Fingers of Frost" = 2
+"Frost Channeling" = 2
+"Frost Warding" = 2
+"Frostbite" = 3
+"Ice Barrier" = 1
+"Ice Block" = 1
+"Ice Lance" = 1
+"Ice Shards" = 5
+"Ignite" = 5
+"Improved Flamestrike" = 3
+"Improved Frost Nova" = 2
+"Improved Frostbolt" = 5
+"Incineration" = 5
+"Master of Elements" = 1
+"Permafrost" = 3
+"Precision" = 3
+"Shatter" = 3

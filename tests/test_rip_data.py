@@ -1,5 +1,6 @@
 """Rip's damage per combo point (#397, part A): the aura's EffectPointsPerResource, over every tick.
-Hand values from SpellEffect 9896 (1.60.1.70425): 15 base + 25.5 per combo point per 2 s tick, 12 s (6 ticks)."""
+Hand values from SpellEffect 9896 (1.60.1.70755 with the 3 Nov hotfixes): 19 base + 31.9 per combo point per 2 s tick,
+12 s (6 ticks); 15 + 25.5 on 70425 (the 2 Nov notes: about +25%)."""
 
 from pathlib import Path
 
@@ -15,8 +16,8 @@ DRUID = Dataset.load(latest_dataset_path()).class_data("druid")
 def test_saved_dataset_has_rip_per_combo_point():
     rip = best_rank(DRUID.spells, "Rip", 60)
     assert (rip.spell_id, rip.tick_period, rip.duration) == (9896, 2.0, 12.0)
-    assert rip.periodic_damage == pytest.approx(90.0)                 # 6 x 15
-    assert rip.periodic_per_combo_point == pytest.approx(153.0)       # 6 x 25.5
+    assert rip.periodic_damage == pytest.approx(114.0)                # 6 x 19
+    assert rip.periodic_per_combo_point == pytest.approx(191.4)       # 6 x 31.9
     assert best_rank(DRUID.spells, "Rake", 60).periodic_per_combo_point == 0.0
 
 

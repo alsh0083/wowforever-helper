@@ -1,0 +1,68 @@
+# Leveling version of mage-fire (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "mage-fire-leveling"
+class = "mage"
+name = "Fire (PvE, leveling)"
+pair = "mage-fire-leveling"
+variant = "PvE"
+mode = "leveling"
+levels_into = "mage-fire"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Fire (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Fire (PvE) at 60."
+
+order = [
+  "Accelerant",  # 10
+  "Wand Specialization",  # 11
+  "Accelerant",  # 12
+  "Accelerant",  # 13
+  "Accelerant",  # 14
+  "Accelerant",  # 15
+  "Wand Specialization",  # 16
+  "Improved Channeling",  # 17
+  "Improved Channeling",  # 18
+  "Improved Channeling",  # 19
+  "Missile Barrage",  # 20
+  "Missile Barrage",  # 21
+  "Ignite",  # 22
+  "Precision",  # 23
+  "Ignite",  # 24
+  "Ignite",  # 25
+  "Incineration",  # 26
+  "Ignite",  # 27
+  "Incineration",  # 28
+  "Ignite",  # 29
+  "Incineration",  # 30
+  "Incineration",  # 31
+  "Incineration",  # 32
+  "Master of Elements",  # 33
+  "Master of Elements",  # 34
+  "Master of Elements",  # 35
+  "Improved Fire Blast",  # 36
+  "Improved Fire Blast",  # 37
+  "Critical Mass",  # 38
+  "Critical Mass",  # 39
+  "Critical Mass",  # 40
+  "Flame Throwing",  # 41
+  "Flame Throwing",  # 42
+  "Fire Power",  # 43
+  "Fire Power",  # 44
+  "Fire Power",  # 45
+  "Arcane Concentration",  # 46
+  "Arcane Concentration",  # 47
+  "Arcane Concentration",  # 48
+  "Arcane Concentration",  # 49
+  "Arcane Concentration",  # 50
+  "Improved Scorch",  # 51
+  "Improved Scorch",  # 52
+  "Combustion",  # 53
+  "Improved Scorch",  # 54
+  "Pyroblast",  # 55
+  "Heating Up",  # 56
+  "Blast Wave",  # 57
+  "Improved Fire Ward",  # 58
+  "Improved Fire Ward",  # 59
+  "Arcane Blast",  # 60
+]

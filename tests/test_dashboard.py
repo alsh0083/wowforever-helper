@@ -54,3 +54,68 @@ def test_fetch_icons_caches_and_skips_known(tmp_path):
     calls.clear()
     assert fetch_icons(["a", "b"], http_get_bytes=get_bytes, cache_dir=tmp_path) == icons
     assert calls == []
+
+
+# ---- #463: a notice while the model reads an older build than the newest saved one ----
+
+def test_pin_notice_is_empty_when_the_pin_is_current():
+    from wowforever.dashboard import pin_notice
+
+    assert pin_notice("1.60.1.70755", "1.60.1.70755", "#463") == ""
+    assert pin_notice("1.60.1.70755", "1.60.1.70707", "#463") == ""
+
+
+def test_pin_notice_names_both_builds_and_links_the_issue():
+    from wowforever.dashboard import pin_notice
+
+    notice = pin_notice("1.60.1.70425", "1.60.1.70755", "#463")
+    assert notice == (
+        '<div class="pin-notice" role="status">Scores are from game build 1.60.1.70425. Build 1.60.1.70755 '
+        'is out, and moving the model to it is in progress: <a href="https://github.com/alsh0083/'
+        'wowforever-helper/issues/463" target="_blank" rel="noopener noreferrer">#463</a>.</div>')
+    # build numbers compare as numbers, not text
+    assert pin_notice("1.60.1.9999", "1.60.1.10000", "#1") != ""
+
+
+def test_render_puts_the_notice_under_the_header():
+    from wowforever.dashboard import pin_notice
+
+    notice = pin_notice("1.60.1.70425", "1.60.1.70755", "#463")
+    html = render(PAYLOAD, ICONS, notice=notice)
+    assert html.index(notice) > html.index("</header>")
+    assert ".pin-notice{" in html
+    assert "__NOTICE__" not in render(PAYLOAD, ICONS) and 'class="pin-notice"' not in render(PAYLOAD, ICONS)
+
+
+def test_fetch_icons_leaves_out_an_icon_the_cdn_doesnt_have(tmp_path):
+    # 1.60.1.70755 talents use icons the CDN lacks (ability_rogue_blackjack, inv_sword_32): the page draws those
+    # talents without one instead of failing (#463)
+    import urllib.error
+
+    def get_bytes(url):
+        if "missing" in url:
+            raise urllib.error.HTTPError(url, 404, "Not Found", {}, None)
+        return b"jpeg:" + url.encode()
+
+    icons = fetch_icons(["a", "missing", "b"], http_get_bytes=get_bytes, cache_dir=tmp_path)
+    assert set(icons) == {"a", "b"} and not (tmp_path / "missing.jpg").exists()
+
+
+def test_fetch_icons_still_fails_on_other_errors(tmp_path):
+    import urllib.error
+
+    import pytest
+
+    def get_bytes(url):
+        raise urllib.error.HTTPError(url, 503, "Unavailable", {}, None)
+
+    with pytest.raises(urllib.error.HTTPError):
+        fetch_icons(["a"], http_get_bytes=get_bytes, cache_dir=tmp_path)
+
+
+def test_footer_credits_every_talent_and_build_source():
+    html = render(PAYLOAD, ICONS)
+    footer = html[html.index("<footer>"):html.index("</footer>")]
+    for source in ("wowforevertalents.com", "wowforevertalent.com", "talentsforever.com", "CC BY 4.0",
+                   "wowforeverbuilds.com", "wago.tools"):
+        assert source in footer, source

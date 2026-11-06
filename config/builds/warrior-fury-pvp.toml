@@ -1,4 +1,4 @@
-# Model build for the empty deep Fury PvP slot (owner request, 2026-10-05): popular build #4 without points the client tree doesn't allow, topped up and hill-climbed under the PvP score.
+# Model build for the empty deep Fury PvP slot (owner request, 2026-10-05): hill-climbed from warrior-fury-pve under the PvP score.
 # No community plan with talents exists for this slot yet; replace it when one does.
 
 id = "warrior-fury-pvp"
@@ -9,24 +9,23 @@ variant = "PvP"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Model build for Fury PvP: popular build #4 without points the client tree doesn't allow, topped up and hill-climbed under the PvP score. Not a community standard."
+summary = "Model build for Fury PvP: hill-climbed from warrior-fury-pve under the PvP score. Not a community standard."
 
 [final]
-"Anger Management" = 1
+"Blood Craze" = 3
 "Bloodthirst" = 1
+"Booming Voice" = 5
 "Cruelty" = 5
 "Death Wish" = 1
-"Deep Wounds" = 3
 "Dual Wield Specialization" = 5
-"Flurry" = 4
+"Enrage" = 4
+"Flurry" = 3
 "Furious Precision" = 3
-"Impale" = 2
+"Gore Drinker" = 1
 "Improved Berserker Rage" = 2
 "Improved Execute" = 2
-"Improved Heroic Strike" = 3
 "Improved Rend" = 3
-"Improved Tactical Mastery" = 5
-"Lingering Rage" = 2
-"Raging Blows" = 1
-"Two-Handed Weapon Specialization" = 3
+"Improved Whirlwind" = 2
+"Lingering Rage" = 5
+"Piercing Howl" = 1
 "Unbridled Wrath" = 5

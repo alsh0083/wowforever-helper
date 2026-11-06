@@ -5,7 +5,6 @@ Maelstrom bolt, rogue poisons, the hunter's Serpent Sting and Volley take the sa
 import pytest
 
 from wowforever.assumptions import Assumptions
-from wowforever.builds import load_builds
 from wowforever.calc.ev import level_resist_factor
 from wowforever.classes import class_module
 from wowforever.classes.hunter_rotation import hunter_rotation
@@ -15,6 +14,8 @@ from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import MeleeStatTable
 from wowforever.physical import Target
 from wowforever.schema import Dataset, latest_dataset_path
+
+from _trees import builds_by_id
 
 DS = Dataset.load(latest_dataset_path())
 BOSS = Target(3, 3731)
@@ -44,7 +45,7 @@ def test_factor(resist_off):
 
 def test_enhancement_spells(resist_off):
     cls = loaded("shaman")
-    ranks = next(b for b in load_builds(class_name="shaman") if b.id == "shaman-enhancement").final_ids(cls)
+    ranks = builds_by_id("shaman")["shaman-enhancement"].final_ids(cls)
     stats = MeleeStatTable.load("shaman_melee").at(60)
     on = enhancement_rotation(stats, cls.spells, cls, ranks, BOSS)
     resist_off()

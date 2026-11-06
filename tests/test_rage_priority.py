@@ -4,7 +4,6 @@ Strike spent all of Arms' Rage at 60 against a boss and Overpower and Rend never
 
 import pytest
 
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.warrior_rotation import warrior_rotation
 from wowforever.effects import attach_effects
@@ -13,11 +12,13 @@ from wowforever.physical import Attacker, Target, land_chance
 from wowforever.scenarios import best_rank
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import tree_build
+
 W = class_module("warrior")
 CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("warrior"), W.TALENT_EFFECTS, W.UNMODELED)
 STATS = MeleeStatTable.load("warrior").at(60)
 BOSS = Target(3, 3731)
-ARMS = next(b for b in load_builds(class_name="warrior") if b.id == "warrior-arms").final_ids(CLS)
+ARMS = tree_build(CLS, "Arms", "PvP").final_ids(CLS)   # the PvE seed skips Mortal Strike on 70755 (#463)
 
 
 def total(kind, applies):

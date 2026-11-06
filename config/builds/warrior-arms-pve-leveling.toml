@@ -3,7 +3,7 @@
 
 id = "warrior-arms-pve-leveling"
 class = "warrior"
-name = "Arms (PvE, leveling)"
+name = "Arms (PvE, leveling, model)"
 pair = "warrior-arms-pve-leveling"
 variant = "PvE"
 mode = "leveling"
@@ -11,58 +11,58 @@ levels_into = "warrior-arms-pve"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Arms (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arms (PvE) at 60."
+summary = "Arms (PvE, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Arms (PvE, model) at 60."
 
 order = [
-  "Improved Heroic Strike",  # 10
-  "Improved Heroic Strike",  # 11
-  "Improved Heroic Strike",  # 12
-  "Deflection",  # 13
-  "Deflection",  # 14
-  "Deflection",  # 15
-  "Deflection",  # 16
-  "Deflection",  # 17
-  "Improved Rend",  # 18
-  "Improved Rend",  # 19
-  "Improved Rend",  # 20
-  "Deep Wounds",  # 21
-  "Deep Wounds",  # 22
-  "Deep Wounds",  # 23
-  "Improved Charge",  # 24
-  "Two-Handed Weapon Specialization",  # 25
-  "Two-Handed Weapon Specialization",  # 26
-  "Two-Handed Weapon Specialization",  # 27
-  "Impale",  # 28
-  "Impale",  # 29
-  "Improved Charge",  # 30
-  "Improved Tactical Mastery",  # 31
-  "Improved Tactical Mastery",  # 32
-  "Improved Tactical Mastery",  # 33
-  "Improved Tactical Mastery",  # 34
-  "Improved Tactical Mastery",  # 35
-  "Anger Management",  # 36
-  "Cruelty",  # 37
-  "Cruelty",  # 38
-  "Cruelty",  # 39
-  "Improved Overpower",  # 40
-  "Improved Overpower",  # 41
-  "Spearing Strike",  # 42
-  "Bloodthrill",  # 43
-  "Bloodthrill",  # 44
-  "Bloodthrill",  # 45
-  "Bloodthrill",  # 46
+  "Improved Rend",  # 10
+  "Improved Rend",  # 11
+  "Improved Rend",  # 12
+  "Improved Heroic Strike",  # 13
+  "Cruelty",  # 14
+  "Cruelty",  # 15
+  "Cruelty",  # 16
+  "Cruelty",  # 17
+  "Cruelty",  # 18
+  "Unbridled Wrath",  # 19
+  "Improved Heroic Strike",  # 20
+  "Unbridled Wrath",  # 21
+  "Improved Overpower",  # 22
+  "Improved Overpower",  # 23
+  "Unbridled Wrath",  # 24
+  "Unbridled Wrath",  # 25
+  "Improved Heroic Strike",  # 26
+  "Unbridled Wrath",  # 27
+  "Furious Precision",  # 28
+  "Furious Precision",  # 29
+  "Deflection",  # 30
+  "Deflection",  # 31
+  "Deep Wounds",  # 32
+  "Deep Wounds",  # 33
+  "Furious Precision",  # 34
+  "Deep Wounds",  # 35
+  "Piercing Howl",  # 36
+  "Booming Voice",  # 37
+  "Improved Execute",  # 38
+  "Improved Execute",  # 39
+  "Deflection",  # 40
+  "Deflection",  # 41
+  "Impale",  # 42
+  "Two-Handed Weapon Specialization",  # 43
+  "Two-Handed Weapon Specialization",  # 44
+  "Two-Handed Weapon Specialization",  # 45
+  "Impale",  # 46
   "Bloodthrill",  # 47
-  "Sweeping Strikes",  # 48
-  "Mortal Strike",  # 49
-  "Cruelty",  # 50
-  "Cruelty",  # 51
-  "Improved Hamstring",  # 52
-  "Improved Hamstring",  # 53
-  "Improved Hamstring",  # 54
-  "Weaponmaster",  # 55
-  "Weaponmaster",  # 56
-  "Weaponmaster",  # 57
-  "Weaponmaster",  # 58
-  "Weaponmaster",  # 59
-  "Improved Slam",  # 60
+  "Bloodthrill",  # 48
+  "Weaponmaster",  # 49
+  "Weaponmaster",  # 50
+  "Weaponmaster",  # 51
+  "Weaponmaster",  # 52
+  "Weaponmaster",  # 53
+  "Improved Slam",  # 54
+  "Deflection",  # 55
+  "Improved Charge",  # 56
+  "Improved Charge",  # 57
+  "Improved Tactical Mastery",  # 58
+  "Improved Tactical Mastery",  # 59
+  "Improved Tactical Mastery",  # 60
 ]

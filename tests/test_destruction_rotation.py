@@ -3,7 +3,6 @@ consuming Immolate unless Shadow and Flame keeps it (20% per rank)."""
 
 import pytest
 
-from wowforever.builds import load_builds
 from wowforever.caster import caster_rotation, consumed_period
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
@@ -11,10 +10,12 @@ from wowforever.melee_scenarios import stat_table
 from wowforever.physical import Target
 from wowforever.schema import Dataset, latest_dataset_path
 
+from _trees import builds_by_id
+
 W = class_module("warlock")
 CLS, PROBLEMS = attach_effects(Dataset.load(latest_dataset_path()).class_data("warlock"), W.TALENT_EFFECTS,
                                W.UNMODELED)
-BUILDS = {b.id: b.final_ids(CLS) for b in load_builds(class_name="warlock")}
+BUILDS = {k: b.final_ids(CLS) for k, b in builds_by_id("warlock").items()}
 STATS = stat_table("warlock").at(60)
 BOSS = Target(3, 0)
 
@@ -34,8 +35,8 @@ def test_rotation_plan():
 def test_shadow_and_flame_rules():
     assert PROBLEMS == []
     effects = {(e.kind, e.applies_to): e.values for e in CLS.talent_named("Shadow and Flame").effects}
-    assert effects[("damage_pct", ("shadow",))][-1] == 10
-    assert effects[("damage_pct", ("fire",))][-1] == 10
+    assert effects[("damage_pct", ("shadow",))][-1] == 20          # 10 on 70425; the 2 Nov notes double it
+    assert effects[("damage_pct", ("fire",))][-1] == 20
     assert effects[("proc_chance", ("@keep_Immolate",))] == (20, 40, 60, 80, 100)
 
 
@@ -45,8 +46,9 @@ def test_destruction_casts_shadowburn_and_conflagrate():
 
 
 def test_conflagrate_without_shadow_and_flame_costs_immolate_damage(monkeypatch):
-    ranks = BUILDS["warlock-demonology-pve-model"]
-    assert ranks.get(CLS.talent_named("Shadow and Flame").talent_id, 0) == 0
+    # the Destruction build without Shadow and Flame: Conflagrate then always eats Immolate
+    snf = CLS.talent_named("Shadow and Flame").talent_id
+    ranks = {t: r for t, r in BUILDS["warlock-destruction-pve"].items() if t != snf}
     consumed = caster_rotation("warlock", STATS, CLS.spells, CLS, ranks, BOSS).dps
     monkeypatch.setitem(W.ROTATION, "consumes", {})
     assert caster_rotation("warlock", STATS, CLS.spells, CLS, ranks, BOSS).dps > consumed

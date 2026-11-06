@@ -1,0 +1,34 @@
+# Model pick for the deep Feral Combat PvE slot (owner request, 2026-10-07): the
+# community standard druid-feral-combat hill-climbed under the PvE score, +13.4%.
+# Changes: Naturalist 5->0, Rend and Tear 0->5.
+
+id = "druid-feral-combat-model"
+class = "druid"
+name = "Feral Combat (PvE, model pick)"
+pair = "druid-feral-combat-model"
+variant = "PvE"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "The model's alternative to Feral Combat (PvE): Naturalist 5->0, Rend and Tear 0->5. Scores +13.4% higher; not tried in game."
+
+[final]
+"Blood Frenzy" = 2
+"Feral Charge" = 1
+"Feral Instinct" = 3
+"Feral Swiftness" = 2
+"Ferocity" = 5
+"Genesis" = 5
+"Heart of the Wild" = 5
+"Lacerate" = 1
+"Leader of the Pack" = 1
+"Natural Instinct" = 2
+"Natural Reaction" = 5
+"Nature's Majesty" = 2
+"Nature's Reach" = 2
+"Predatory Strikes" = 3
+"Primal Bite" = 1
+"Rend and Tear" = 5
+"Savage Fury" = 2
+"Sharpened Claws" = 2
+"Thick Hide" = 2

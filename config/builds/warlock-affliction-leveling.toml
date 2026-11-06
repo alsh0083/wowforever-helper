@@ -3,7 +3,7 @@
 
 id = "warlock-affliction-leveling"
 class = "warlock"
-name = "Affliction Siphon Life (PvE, leveling)"
+name = "Affliction (PvE, leveling)"
 pair = "warlock-affliction-leveling"
 variant = "PvE"
 mode = "leveling"
@@ -11,56 +11,56 @@ levels_into = "warlock-affliction"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Affliction Siphon Life (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Affliction Siphon Life (PvE) at 60."
+summary = "Affliction (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Affliction (PvE) at 60."
 
 order = [
   "Improved Corruption",  # 10
   "Suppression",  # 11
-  "Suppression",  # 12
+  "Improved Life Tap",  # 12
   "Suppression",  # 13
-  "Improved Life Tap",  # 14
-  "Improved Life Tap",  # 15
-  "Suppression",  # 16
-  "Improved Corruption",  # 17
+  "Suppression",  # 14
+  "Improved Drains",  # 15
+  "Improved Drains",  # 16
+  "Improved Drains",  # 17
   "Improved Corruption",  # 18
   "Improved Corruption",  # 19
   "Improved Bane of Agony",  # 20
   "Improved Bane of Agony",  # 21
   "Improved Corruption",  # 22
-  "Suppression",  # 23
-  "Grim Reach",  # 24
-  "Grim Reach",  # 25
-  "Malevolence",  # 26
-  "Malevolence",  # 27
-  "Soul Harvest",  # 28
+  "Improved Corruption",  # 23
+  "Improved Life Tap",  # 24
+  "Suppression",  # 25
+  "Suppression",  # 26
+  "Grim Reach",  # 27
+  "Grim Reach",  # 28
   "Soul Harvest",  # 29
-  "Improved Drains",  # 30
-  "Improved Drains",  # 31
-  "Improved Drains",  # 32
-  "Fel Concentration",  # 33
-  "Malevolence",  # 34
+  "Soul Siphon",  # 30
+  "Soul Siphon",  # 31
+  "Siphon Life",  # 32
+  "Soul Siphon",  # 33
+  "Soul Harvest",  # 34
   "Shadow Mastery",  # 35
   "Shadow Mastery",  # 36
   "Shadow Mastery",  # 37
   "Shadow Mastery",  # 38
   "Shadow Mastery",  # 39
-  "Malevolence",  # 40
+  "Wrack",  # 40
   "Malevolence",  # 41
-  "Siphon Life",  # 42
-  "Soul Siphon",  # 43
-  "Soul Siphon",  # 44
-  "Soul Siphon",  # 45
+  "Malevolence",  # 42
+  "Malevolence",  # 43
+  "Malevolence",  # 44
+  "Malevolence",  # 45
   "Nightfall",  # 46
   "Nightfall",  # 47
-  "Fel Concentration",  # 48
-  "Fel Concentration",  # 49
+  "Pandemic",  # 48
+  "Pandemic",  # 49
   "Pandemic",  # 50
-  "Pandemic",  # 51
-  "Wrack",  # 52
-  "Pandemic",  # 53
-  "Amplify Curse",  # 54
-  "Bane",  # 55
-  "Bane",  # 56
+  "Fel Concentration",  # 51
+  "Improved Shadow Bolt",  # 52
+  "Improved Shadow Bolt",  # 53
+  "Improved Shadow Bolt",  # 54
+  "Improved Shadow Bolt",  # 55
+  "Improved Shadow Bolt",  # 56
   "Demonic Embrace",  # 57
   "Demonic Embrace",  # 58
   "Demonic Embrace",  # 59

@@ -192,10 +192,11 @@ def warrior_rotation(stats: MeleeStats, spells: Sequence[SpellRank], cls: ClassD
         name = spell.name
         rate = min(1 / spell.cooldown, rage / cost(spell)) if cost(spell) else 1 / spell.cooldown
         n = targets(spell)
+        closest = 1 + total("damage_pct", f"@closest_{name}") / 100     # Improved Whirlwind's closest enemy (#465)
         rage -= rate * cost(spell)
-        yellow += rate * strike(spell) * n
-        parts.append((name, rate * strike(spell) * n))
-        single, attacks = single + rate * strike(spell), attacks + rate
+        yellow += rate * strike(spell) * (n - 1 + closest)
+        parts.append((name, rate * strike(spell) * (n - 1 + closest)))
+        single, attacks = single + rate * strike(spell) * closest, attacks + rate
         crits += rate * n * land_chance(attacker, target) * yellow_crit_chance(attacker, target,
                                                                                total("crit_chance", name))
         used.append(name)

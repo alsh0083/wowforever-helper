@@ -6,7 +6,6 @@ from pathlib import Path
 import pytest
 
 from wowforever.schema import latest_dataset_path
-from wowforever.builds import load_builds
 from wowforever.caster import caster_rotation, spirit_regen
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
@@ -17,11 +16,13 @@ from wowforever.pvp.class_pvp import class_side
 from wowforever.schema import Dataset
 from wowforever.stats import Stats
 
+from _trees import builds_by_id
+
 ROOT = Path(__file__).resolve().parents[1]
 DATASET = Dataset.load(latest_dataset_path())
 P = class_module("priest")
 CLS, PROBLEMS = attach_effects(DATASET.class_data("priest"), P.TALENT_EFFECTS, P.UNMODELED)
-BUILDS = {b.id: b.final_ids(CLS) for b in load_builds(class_name="priest")}
+BUILDS = {k: b.final_ids(CLS) for k, b in builds_by_id("priest").items()}
 STATS = stat_table("priest").at(60)
 BOSS = Target(3, 0)
 

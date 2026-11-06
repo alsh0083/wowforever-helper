@@ -1,4 +1,4 @@
-# Model build for the empty Assassination/Subtlety PvE slot (owner request, 2026-10-05): the report's model pick for this slot.
+# Model build for the empty Assassination/Subtlety PvE slot (owner request, 2026-10-05): seeded from an empty tree (its talents first, then the rest) and hill-climbed under the PvE score (#463).
 # No community plan with talents exists for this slot yet; replace it when one does.
 
 id = "rogue-assassination-subtlety-pve"
@@ -9,26 +9,24 @@ variant = "PvE"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Model build for Assassination/Subtlety PvE: the report's model pick for this slot. Not a community standard."
+summary = "Model build for Assassination/Subtlety PvE: seeded from an empty tree (its talents first, then the rest) and hill-climbed under the PvE score (#463). Not a community standard."
 
 [final]
-"Camouflage" = 3
+"Blood Splatter" = 1
 "Dirty Deeds" = 2
-"Dirty Tricks" = 2
-"Heightened Senses" = 2
 "Improved Ambush" = 3
-"Improved Eviscerate" = 3
-"Improved Gouge" = 2
-"Improved Sinister Strike" = 2
-"Improved Slice and Dice" = 3
-"Initiative" = 2
-"Lethality" = 5
+"Improved Expose Armor" = 2
+"Improved Poisons" = 5
+"Improved Slice and Dice" = 1
+"Initiative" = 3
+"Lethality" = 2
 "Malice" = 5
-"Master of Deception" = 3
-"Opportunity" = 2
-"Precision" = 3
+"Opportunity" = 5
 "Premeditation" = 1
 "Preparation" = 1
-"Relentless Strikes" = 1
-"Ruthlessness" = 3
+"Relentless Strikes" = 5
+"Remorseless Attacks" = 2
 "Serrated Blades" = 3
+"Setup" = 3
+"Vigor" = 2
+"Vile Poisons" = 5

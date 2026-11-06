@@ -91,11 +91,14 @@ def class_spells(tables: Tables, *, skill_lines: Sequence[int],
             raise ValueError(f"skill line {row['SkillLine']}: no SpellName for spell {spell_id}")
         trainable.append((name, level, spell_id))
 
+    kept = {spell_id for _, _, spell_id in trainable}
     for spell_id, name in extra_spells.items():
         level_row = levels.get(spell_id)
-        if spell_id not in seen and level_row is not None and int(_f(level_row["BaseLevel"])) > 0:
-            seen.add(spell_id)
-            trainable.append((name, int(_f(level_row["BaseLevel"])), spell_id))
+        # BaseLevel, or SpellLevel when BaseLevel is 0: Shank is on a skill line with BaseLevel 0 (#470)
+        level = int(_f(level_row["BaseLevel"])) or int(_f(level_row["SpellLevel"])) if level_row is not None else 0
+        if spell_id not in kept and level > 0:
+            kept.add(spell_id)
+            trainable.append((name, level, spell_id))
 
     trainable.sort()
     indexes = _index_tables(tables)
@@ -342,6 +345,9 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
     combo_row = next((e for e in effects
                       if e["Effect"] == str(EFFECT_COMBO_POINTS) and e["EffectMiscValue_0"] == "4"), None)
     combo_points = int(_f(combo_row["EffectBasePointsF"])) if combo_row is not None else 0
+    energy_row = next((e for e in effects
+                       if e["Effect"] == str(EFFECT_COMBO_POINTS) and e["EffectMiscValue_0"] == "3"), None)   # energize Energy
+    energy_gain = int(_f(energy_row["EffectBasePointsF"])) if energy_row is not None else 0
     per_combo_point = _f(damage["EffectPointsPerResource"]) if damage is not None else 0.0
     haste_row = next((e for e in effects
                       if e["Effect"] == str(EFFECT_AURA) and int(e["EffectAura"]) == AURA_MELEE_HASTE), None)
@@ -420,7 +426,7 @@ def _build_rank(spell_id: int, name: str, rank: int, level: int, indexes: _Index
         absorb=absorb, root=root, stun=stun, immunity=immunity, incapacitate=incapacitate,
         interrupt_lockout=interrupt_lockout, fear=fear, disorient=disorient,
         per_combo_point=per_combo_point, periodic_per_combo_point=periodic_per_combo_point,
-        combo_points=combo_points, haste_pct=haste_pct,
+        combo_points=combo_points, energy_gain=energy_gain, haste_pct=haste_pct,
         ranged_attack_power=ranged_attack_power,
         weapon_bonus=weapon_bonus, weapon_normalized=weapon_normalized, weapon_pct=weapon_pct,
         weapon_hits=weapon_hits, damage_shield=damage_shield, damage_shield_coefficient=damage_shield_coefficient,
@@ -475,7 +481,9 @@ def _weapon_strike(indexes: _Indexes, effects: list[dict[str, str]]) -> tuple[in
                 strike = next(r for r in rows
                               if r["Effect"] in _STRIKES)
     if strike is None:
-        return 0, 0.0, False, 0.0
+        # a percent-weapon effect alone is a strike too: Shank, 50% of the off-hand weapon (#470)
+        pct_only = next((e for e in effects if e["Effect"] == str(EFFECT_WEAPON_PCT)), None)
+        return (1, 0.0, False, _f(pct_only["EffectBasePointsF"])) if pct_only is not None else (0, 0.0, False, 0.0)
     pct_row = next((e for e in strike_rows if e["Effect"] == str(EFFECT_WEAPON_PCT)), None)
     return (hits, _f(strike["EffectBasePointsF"]), strike["Effect"] == str(EFFECT_NORMALIZED_WEAPON),
             _f(pct_row["EffectBasePointsF"]) if pct_row is not None else 0.0)

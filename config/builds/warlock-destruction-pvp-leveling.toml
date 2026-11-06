@@ -1,0 +1,68 @@
+# Leveling version of warlock-destruction-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "warlock-destruction-pvp-leveling"
+class = "warlock"
+name = "Destruction (PvP, leveling, model)"
+pair = "warlock-destruction-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "warlock-destruction-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Destruction (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Destruction (PvP, model) at 60."
+
+order = [
+  "Improved Shadow Bolt",  # 10
+  "Improved Shadow Bolt",  # 11
+  "Improved Shadow Bolt",  # 12
+  "Improved Shadow Bolt",  # 13
+  "Bane",  # 14
+  "Aftermath",  # 15
+  "Improved Corruption",  # 16
+  "Aftermath",  # 17
+  "Aftermath",  # 18
+  "Aftermath",  # 19
+  "Aftermath",  # 20
+  "Shadowburn",  # 21
+  "Cataclysm",  # 22
+  "Bane",  # 23
+  "Improved Life Tap",  # 24
+  "Cataclysm",  # 25
+  "Bane",  # 26
+  "Conflagrate",  # 27
+  "Intensity",  # 28
+  "Intensity",  # 29
+  "Intensity",  # 30
+  "Cataclysm",  # 31
+  "Agonizing Flames",  # 32
+  "Agonizing Flames",  # 33
+  "Agonizing Flames",  # 34
+  "Fire and Brimstone",  # 35
+  "Fire and Brimstone",  # 36
+  "Shadow and Flame",  # 37
+  "Shadow and Flame",  # 38
+  "Shadow and Flame",  # 39
+  "Shadow and Flame",  # 40
+  "Shadow and Flame",  # 41
+  "Fire and Brimstone",  # 42
+  "Ruin",  # 43
+  "Ruin",  # 44
+  "Ruin",  # 45
+  "Ruin",  # 46
+  "Ruin",  # 47
+  "Bane",  # 48
+  "Bane",  # 49
+  "Improved Shadow Bolt",  # 50
+  "Suppression",  # 51
+  "Pyroclasm",  # 52
+  "Suppression",  # 53
+  "Suppression",  # 54
+  "Suppression",  # 55
+  "Suppression",  # 56
+  "Demonic Embrace",  # 57
+  "Demonic Embrace",  # 58
+  "Demonic Embrace",  # 59
+  "Demonic Embrace",  # 60
+]

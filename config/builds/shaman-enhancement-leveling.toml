@@ -3,15 +3,15 @@
 
 id = "shaman-enhancement-leveling"
 class = "shaman"
-name = "Enhancement Stormstrike (PvP, leveling)"
+name = "Enhancement (PvE, leveling)"
 pair = "shaman-enhancement-leveling"
-variant = "PvP"
+variant = "PvE"
 mode = "leveling"
 levels_into = "shaman-enhancement"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Enhancement Stormstrike (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Enhancement Stormstrike (PvP) at 60."
+summary = "Enhancement (PvE) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Enhancement (PvE) at 60."
 
 order = [
   "Thundering Strikes",  # 10
@@ -22,47 +22,47 @@ order = [
   "Mental Dexterity",  # 15
   "Mental Dexterity",  # 16
   "Mental Dexterity",  # 17
-  "Earth's Grasp",  # 18
-  "Earth's Grasp",  # 19
-  "Elemental Weapons",  # 20
-  "Elemental Weapons",  # 21
-  "Elemental Weapons",  # 22
+  "Ancestral Knowledge",  # 18
+  "Ancestral Knowledge",  # 19
+  "Shamanistic Focus",  # 20
+  "Ancestral Knowledge",  # 21
+  "Ancestral Knowledge",  # 22
   "Ancestral Knowledge",  # 23
-  "Ancestral Knowledge",  # 24
+  "Elemental Weapons",  # 24
   "Flurry",  # 25
   "Flurry",  # 26
   "Flurry",  # 27
   "Flurry",  # 28
   "Flurry",  # 29
-  "Stormstrike",  # 30
-  "Spirit Weapons",  # 31
-  "Mental Quickness",  # 32
-  "Mental Quickness",  # 33
-  "Ancestral Knowledge",  # 34
-  "Ancestral Knowledge",  # 35
-  "Ancestral Knowledge",  # 36
-  "Guardian Totems",  # 37
-  "Guardian Totems",  # 38
-  "Improved Ghost Wolf",  # 39
+  "Mental Quickness",  # 30
+  "Mental Quickness",  # 31
+  "Elemental Weapons",  # 32
+  "Elemental Weapons",  # 33
+  "Stormstrike",  # 34
+  "Maelstrom Weapon",  # 35
+  "Maelstrom Weapon",  # 36
+  "Maelstrom Weapon",  # 37
+  "Maelstrom Weapon",  # 38
+  "Maelstrom Weapon",  # 39
   "Rage of the Farseer",  # 40
-  "Maelstrom Weapon",  # 41
-  "Maelstrom Weapon",  # 42
-  "Maelstrom Weapon",  # 43
-  "Maelstrom Weapon",  # 44
-  "Maelstrom Weapon",  # 45
-  "Improved Stormstrike",  # 46
-  "Improved Stormstrike",  # 47
-  "Shamanistic Focus",  # 48
+  "Spirit Weapons",  # 41
+  "Improved Stormstrike",  # 42
+  "Improved Stormstrike",  # 43
+  "Toughness",  # 44
+  "Toughness",  # 45
+  "Toughness",  # 46
+  "Toughness",  # 47
+  "Toughness",  # 48
   "Improved Ghost Wolf",  # 49
-  "Concussion",  # 50
-  "Concussion",  # 51
-  "Concussion",  # 52
+  "Improved Ghost Wolf",  # 50
+  "Tidal Focus",  # 51
+  "Tidal Focus",  # 52
   "Concussion",  # 53
   "Concussion",  # 54
-  "Reverberation",  # 55
-  "Reverberation",  # 56
-  "Reverberation",  # 57
-  "Reverberation",  # 58
-  "Reverberation",  # 59
-  "Call of Flame",  # 60
+  "Concussion",  # 55
+  "Concussion",  # 56
+  "Concussion",  # 57
+  "Elemental Devastation",  # 58
+  "Elemental Devastation",  # 59
+  "Elemental Devastation",  # 60
 ]

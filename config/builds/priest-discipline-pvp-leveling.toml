@@ -1,0 +1,68 @@
+# Leveling version of priest-discipline-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "priest-discipline-pvp-leveling"
+class = "priest"
+name = "Discipline (PvP, leveling, model)"
+pair = "priest-discipline-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "priest-discipline-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Discipline (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Discipline (PvP, model) at 60."
+
+order = [
+  "Power in Light",  # 10
+  "Power in Light",  # 11
+  "Power in Light",  # 12
+  "Power in Light",  # 13
+  "Shadow Focus",  # 14
+  "Blackout",  # 15
+  "Power in Light",  # 16
+  "Holy Precision",  # 17
+  "Twin Disciplines",  # 18
+  "Twin Disciplines",  # 19
+  "Twin Disciplines",  # 20
+  "Twin Disciplines",  # 21
+  "Meditation",  # 22
+  "Meditation",  # 23
+  "Meditation",  # 24
+  "Mental Agility",  # 25
+  "Mental Agility",  # 26
+  "Mental Agility",  # 27
+  "Twin Disciplines",  # 28
+  "Mental Strength",  # 29
+  "Mental Strength",  # 30
+  "Mental Strength",  # 31
+  "Mental Strength",  # 32
+  "Mental Strength",  # 33
+  "Penance",  # 34
+  "Inner Focus",  # 35
+  "Silent Resolve",  # 36
+  "Silent Resolve",  # 37
+  "Silent Resolve",  # 38
+  "Holy Precision",  # 39
+  "Holy Precision",  # 40
+  "Wand Specialization",  # 41
+  "Wand Specialization",  # 42
+  "Power Infusion",  # 43
+  "Divine Aegis",  # 44
+  "Divine Aegis",  # 45
+  "Divine Aegis",  # 46
+  "Improved Inner Fire",  # 47
+  "Improved Inner Fire",  # 48
+  "Improved Inner Fire",  # 49
+  "Holy Specialization",  # 50
+  "Holy Specialization",  # 51
+  "Holy Specialization",  # 52
+  "Holy Specialization",  # 53
+  "Holy Specialization",  # 54
+  "Divine Fury",  # 55
+  "Divine Fury",  # 56
+  "Divine Fury",  # 57
+  "Divine Fury",  # 58
+  "Divine Fury",  # 59
+  "Holy Nova",  # 60
+]

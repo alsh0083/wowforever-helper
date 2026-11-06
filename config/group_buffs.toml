@@ -81,18 +81,18 @@ reach = "physical"
 id = "leader_of_the_pack"
 spell = "Leader of the Pack"
 spell_id = 24932
-aura = 52           # melee and ranged crit since 1.60.1.70425 (was 290, all crit; #359)
+aura = 290          # all crit again since 1.60.1.70755 (52, melee and ranged, on 70425-70707; #359, #463)
 provider = { class = "druid", talent = "Leader of the Pack", tree = "Feral Combat" }
-stack = "leader_of_the_pack"
-reach = "physical"
+stack = "druid_form_crit"     # exclusive with Moonkin Aura since 70755 (#463)
+reach = "party"
 
 [[buff]]
 id = "moonkin_aura"
 spell = "Moonkin Aura"
-aura = 57           # spell crit since 1.60.1.70425 (was 290, all crit; #359)
+aura = 290          # all crit again since 1.60.1.70755 (57, spell, on 70425-70707; #359, #463)
 provider = { class = "druid", talent = "Moonkin Form", tree = "Balance" }
-stack = "moonkin_aura"
-reach = "casters"
+stack = "druid_form_crit"     # exclusive with Leader of the Pack since 70755 (#463)
+reach = "party"
 
 [[buff]]
 id = "strength_of_earth"

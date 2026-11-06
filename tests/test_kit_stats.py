@@ -5,21 +5,25 @@ from pathlib import Path
 
 import pytest
 
-from wowforever.pvp.kit_stats import KIT_BUILDS, engine_at_60
+from wowforever.pvp.kit_stats import KIT_TREES, engine_at_60, kit_build
+from wowforever.schema import Dataset, latest_dataset_path
 
 ROOT = Path(__file__).resolve().parents[1]
+DS = Dataset.load(latest_dataset_path())
 
 
-def test_every_rogue_and_hunter_kit_has_a_build():
-    # every kit of a scored spec maps to its build; melee hybrids (druid-feral, shaman-enhancement,
-    # #175) keep their estimates until they're scored
-    kits = {p.stem for p in (ROOT / "config" / "opponents").glob("*.toml")}
-    assert set(KIT_BUILDS) <= kits
-    builds = {p.stem for p in (ROOT / "config" / "builds").glob("*.toml")}
-    assert set(KIT_BUILDS.values()) <= builds
+@pytest.mark.parametrize("kit_id", sorted(KIT_TREES))
+def test_every_kit_plays_an_endgame_build_of_its_tree(kit_id):
+    # build ids change when the standards are re-imported (#460); a kit follows its tree (#463)
+    assert kit_id in {p.stem for p in (ROOT / "config" / "opponents").glob("*.toml")}
+    cls = DS.class_data(kit_id.split("-", 1)[0])
+    build = kit_build(kit_id, cls)
+    ids = build.final_ids(cls)
+    main = max(cls.trees, key=lambda tr: (sum(ids.get(t, 0) for t in tr.talent_ids), -tr.tree_id))
+    assert main.name == KIT_TREES[kit_id] and build.mode != "leveling"
 
 
-@pytest.mark.parametrize("kit_id", sorted(KIT_BUILDS))
+@pytest.mark.parametrize("kit_id", sorted(KIT_TREES))
 def test_kit_matches_the_engine(kit_id):
     health, dps = engine_at_60(kit_id)
     kit = tomllib.loads((ROOT / "config" / "opponents" / f"{kit_id}.toml").read_text(encoding="utf-8"))
@@ -29,6 +33,6 @@ def test_kit_matches_the_engine(kit_id):
 
 def test_engine_values_are_plausible():
     health, dps = engine_at_60("rogue-combat")
-    assert 2500 < health < 4500 and 150 < dps < 400
+    assert 2500 < health < 4500 and 150 < dps < 450          # Shank lifts the rogue ~25% (#470)
     # Subtlety's PvP build gives up damage for control
     assert engine_at_60("rogue-subtlety")[1] < dps

@@ -1,26 +1,23 @@
-# Priest community standard (#158) from wowforevertalent.com's popularity data: #1 of the most
-# popular complete priest builds (Sep 13 to Oct 4, 2026, updated daily), points 14/3/34, shared 70,
-# saved 175, opened 1416, 128 close variants. Focus label is Claude's judgment.
+# Community standard (#460) from talentsforever.com, saved 2026-11-04: top build #1 since the Oct 30 hotfixes to build 70685, saved 170. Data (c) Talents Forever, https://talentsforever.com, CC BY 4.0.
+# https://talentsforever.com/priest/60/00500500103--50052201251312251-11
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "priest-shadow"
 class = "priest"
-name = "Shadowform (PvP)"
+name = "Shadow (PvE)"
 pair = "priest-shadow"
-variant = "PvP"
+variant = "PvE"
 origin = "community"
-sources = ["wft_popular_priest"]
+sources = ["talentsforever_top"]
 confidence = "medium"
-summary = "Shadow with Shadowform, Vampiric Embrace, Shadow Weaving, Darkness and Improved Mind Flay; Twin Disciplines, Inner Focus and Meditation from Discipline. The most saved priest build and the community's PvP and leveling standard."
+summary = "Shadow Priest 14/0/37 (talentsforever.com, top build #1 since the Oct 30 hotfixes to build 70685, saved 170)."
 
-refreshed = "2:Dark Inspiration=3,Darkness=5,Devouring Contagion=2,Early Demise=2,Improved Mind Blast=4,Improved Mind Flay=2,Improved Shadow Word: Pain=2,Inner Focus=1,Meditation=3,Mental Strength=5,Mind Flay=1,Shadow Focus=5,Shadow Reach=2,Shadow Weaving=3,Shadowform=1,Silence=1,Twilight Focus=3,Twin Disciplines=5,Vampiric Embrace=1"
-provisional = "5 saves, 2026-10-16"
-# refreshed from wowforevertalent.com popularity (since the Oct 15 patch (build 70425), updated daily): rank 2, saved 5, points 14/3/34 (#369)
 [final]
-"Dark Inspiration" = 3
+"Dark Inspiration" = 5
 "Darkness" = 5
 "Devouring Contagion" = 2
 "Early Demise" = 2
-"Improved Mind Blast" = 4
+"Improved Mind Blast" = 5
 "Improved Mind Flay" = 2
 "Improved Shadow Word: Pain" = 2
 "Inner Focus" = 1
@@ -32,6 +29,5 @@ provisional = "5 saves, 2026-10-16"
 "Shadow Weaving" = 3
 "Shadowform" = 1
 "Silence" = 1
-"Twilight Focus" = 3
 "Twin Disciplines" = 5
 "Vampiric Embrace" = 1

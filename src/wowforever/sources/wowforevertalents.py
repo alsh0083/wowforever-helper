@@ -6,6 +6,7 @@ use it and credit it).
 
 from __future__ import annotations
 
+import gzip
 import hashlib
 import html
 import json
@@ -76,7 +77,7 @@ def class_trees(class_html: str) -> list[dict[str, Any]]:
     for article in re.findall(r'<article class="tree"[^>]*>(.*?)</article>', class_html, re.S):
         name = _text(re.search(r"<h2[^>]*>(.*?)</h2>", article, re.S).group(1))
         talents = []
-        for cell in re.split(r'(?=<div class="node" )', article)[1:]:
+        for cell in re.split(r'(?=<div class="node[ "])', article)[1:]:
             where = re.search(r'grid-row:(\d+);grid-column:(\d+)', cell)
             label = re.search(r'aria-label="([^"]+), rank \d+ of (\d+)', cell)
             icon = re.search(r'/icons/large/([^."/]+)\.jpg', cell)
@@ -91,12 +92,17 @@ def class_trees(class_html: str) -> list[dict[str, Any]]:
 
 
 def as_page(class_slug: str, class_html: str, talents: dict[str, TalentPage], *, game_build: str,
-            data_version: str) -> WftPage:
-    """The class page's grid with every talent's rank text, in the shape normalize and crosscheck read."""
+            data_version: str, fallback: Callable[[str], tuple[str, ...] | None] | None = None) -> WftPage:
+    """The class page's grid with every talent's rank text, in the shape normalize and crosscheck read. A talent
+    the site has no page for takes `fallback`'s rank text (the client tooltip, #466) when it has as many ranks."""
     trees = class_trees(class_html)
     for tree in trees:
         for talent in tree["talents"]:
             found = talents.get(talent["name"])
+            texts = fallback(talent["name"]) if found is None and fallback is not None else None
+            if found is None and texts is not None and len(texts) == talent["maxRank"]:
+                found = TalentPage(talent["name"], class_slug.title(), tree["name"], talent["maxRank"], texts,
+                                   ("Forever client tooltip: wowforevertalents.com serves no page for it",))
             if found is None:
                 raise ValueError(f"no talent page for {talent['name']}")
             if found.max_rank != talent["maxRank"]:
@@ -109,35 +115,54 @@ def as_page(class_slug: str, class_html: str, talents: dict[str, TalentPage], *,
 CLIENT_BUILD = re.compile(r"Forever client build (1\.60\.\d+\.\d+)")
 
 
+def _page(path: Path) -> Path:
+    """A saved page: `<name>.html.gz` (since #458), else the plain `<name>.html` of older snapshots."""
+    gz = path.with_name(path.name + ".gz")
+    return gz if gz.exists() or not path.exists() else path
+
+
+def _bytes(path: Path) -> bytes:
+    return gzip.decompress(path.read_bytes()) if path.suffix == ".gz" else path.read_bytes()
+
+
+def _read(path: Path) -> str:
+    return _bytes(_page(path)).decode("utf-8")
+
 def fetch(class_slug: str, *, http_get: Callable[[str], str], raw_dir: Path, delay: float = 1.5,
-          sleep: Callable[[float], None] = time.sleep) -> tuple[Path, WftPage]:
+          sleep: Callable[[float], None] = time.sleep,
+          fallback: Callable[[str], tuple[str, ...] | None] | None = None) -> tuple[Path, WftPage]:
     """A class page and every talent page it links, saved under `raw_dir/<class>/` (immutable: a saved snapshot is
     read back instead of fetched again), as the page normalize reads. `raw_dir`'s name is the data version."""
     folder = raw_dir / class_slug
-    class_path = folder / "class.html"
-    if not class_path.exists():
+    if not _page(folder / "class.html").exists():
         class_html = http_get(f"{BASE_URL}/{class_slug}/")
         pages = {}
         for slug in talent_slugs(class_html, class_slug):
             sleep(delay)
             pages[slug] = http_get(talent_url(class_slug, slug))
         (folder / "talents").mkdir(parents=True, exist_ok=True)
-        for slug, text in pages.items():
-            (folder / "talents" / f"{slug}.html").write_text(text, encoding="utf-8", newline="")
-        class_path.write_text(class_html, encoding="utf-8", newline="")
-    class_html = class_path.read_text(encoding="utf-8")
+        for slug, text in pages.items():       # gzipped since #458 (a class's pages are about 2 MB of HTML)
+            (folder / "talents" / f"{slug}.html.gz").write_bytes(gzip.compress(text.encode("utf-8"), mtime=0))
+        (folder / "class.html.gz").write_bytes(gzip.compress(class_html.encode("utf-8"), mtime=0))
+    class_html = _read(folder / "class.html")
     talents = {}
     builds = []
     for slug in talent_slugs(class_html, class_slug):
-        talent = parse_talent((folder / "talents" / f"{slug}.html").read_text(encoding="utf-8"))
+        try:
+            talent = parse_talent(_read(folder / "talents" / f"{slug}.html"))
+        except ValueError:
+            if fallback is None:
+                raise
+            continue                   # the site linked it but served another page (#466): `fallback` fills it in
         talents[talent.name] = talent
         builds += [m.group(1) for line in talent.sources for m in [CLIENT_BUILD.search(line)] if m]
     if not builds:
         raise ValueError(f"{class_slug}: no client build on any talent page")
     game_build = max(set(builds), key=builds.count)
-    result = as_page(class_slug, class_html, talents, game_build=game_build, data_version=raw_dir.name)
-    files = sorted(folder.rglob("*.html"))
-    digest = hashlib.sha256(b"".join(p.read_bytes() for p in files)).hexdigest()
+    result = as_page(class_slug, class_html, talents, game_build=game_build, data_version=raw_dir.name,
+                     fallback=fallback)
+    files = sorted(folder.rglob("*.html")) or sorted(folder.rglob("*.html.gz"))
+    digest = hashlib.sha256(b"".join(_bytes(p) for p in files)).hexdigest()
     manifest_path = folder / "manifest.json"
     if not manifest_path.exists():
         manifest_path.write_text(json.dumps({

@@ -1,16 +1,16 @@
-# Shaman community standard (#159) from wowforevertalent.com's popularity data: #2 of the most
-# popular complete shaman builds (since the Sep 24 patch (build 70009), updated daily), points 0/10/41, shared 70,
-# saved 197, opened 1123, 66 close variants. Focus label is Claude's judgment.
+# Community standard (#460) from talentsforever.com, saved 2026-11-04: top build #3 since the Nov 2 hotfixes to build 70753, saved 283. Data (c) Talents Forever, https://talentsforever.com, CC BY 4.0.
+# https://talentsforever.com/shaman/60/-055-5530003315513151-11
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "shaman-restoration"
 class = "shaman"
-name = "Restoration Riptide (PvE)"
+name = "Restoration (PvE)"
 pair = "shaman-restoration"
 variant = "PvE"
 origin = "community"
-sources = ["wft_popular_shaman"]
+sources = ["talentsforever_top"]
 confidence = "medium"
-summary = "Restoration with Riptide, Mana Tide Totem, Nature's Swiftness and Purification; Thundering Strikes and Ancestral Knowledge from Enhancement. The most saved shaman build: the community's healer standard (routes only, unscored)."
+summary = "Restoration Shaman 0/10/41 (talentsforever.com, top build #3 since the Nov 2 hotfixes to build 70753, saved 283)."
 
 [final]
 "Ancestral Healing" = 3

@@ -50,12 +50,10 @@ def test_every_build_has_a_legal_order_meeting_its_deadlines(payload):
             assert ranks_at(b["order"], level, cls).get(t.talent_id, 0) == t.max_rank, (b["id"], name)
 
 
-def test_elementalist_variants_keep_their_hand_written_orders(payload):
+def test_every_build_has_an_optimized_order(payload):
+    # the Elementalist's hand-written order left with the 70755 re-import (#460, #463)
     _, report = payload
-    hand = [b for b in report["builds"] if b["id"].startswith("elementalist")]
-    assert len(hand) == 1 and all(b["order_source"] == "hand-written" and b["open_points"] == 0 for b in hand)
-    others = [b for b in report["builds"] if not b["id"].startswith("elementalist")]
-    assert all(b["order_source"].startswith("optimized") and b["open_points"] == 0 for b in others)
+    assert all(b["order_source"].startswith("optimized") and b["open_points"] == 0 for b in report["builds"])
 
 
 def test_scores_at_each_checkpoint(payload):
@@ -74,7 +72,7 @@ def test_scores_at_each_checkpoint(payload):
 
 def test_talents_and_milestones_for_the_dashboard(payload):
     _, report = payload
-    assert len(report["talents"]) == 55   # Arcane Wrath added in 1.60.1.70425
+    assert len(report["talents"]) == 53   # 70425 added Arcane Wrath; 70707 removed Arcane Focus and Piercing Ice
     ignite = next(t for t in report["talents"].values() if t["name"] == "Ignite")
     assert ignite["icon"] == "spell_fire_incinerate" and len(ignite["rank_text"]) == 5
     assert {"level": 40, "spell": "Frostfire Bolt", "rank": 1} in report["spell_milestones"]
@@ -99,7 +97,7 @@ def test_shortlist_in_payload(payload):
     slots = {(s["archetype"], s["focus"]): s for s in report["shortlist"]}
     assert len(slots) == 10                                  # 3 deep + 2 hybrids, x PvP/PvE
     ff = slots[("Fire/Frost", "PvE")]
-    assert ff["standard"] == "fire-frost-shatter" and "elementalist-pve-v2" in ff["candidates"]
+    assert ff["standard"] == "mage-fire-frost-pve" and "mage-fire-frost-pve" in ff["candidates"]   # seeded (#463)
     for s in report["shortlist"]:
         if s["model_pick"]:
             assert s["model_pick_changes"] and sum(s["model_pick"].values()) == 51

@@ -96,6 +96,24 @@ def test_unflagged_talents_are_the_same_as_classic_and_tree_names_follow_our_lay
     assert statuses == {"same", "changed", "new"}
 
 
+def test_announced_and_latest_nodes_are_read_like_the_rest():
+    # 2026-11-03: the site marks talents from Blizzard's 2 Nov notes `node is-announced` and recent ones `node is-latest`
+    article = ('<div class="trees"><article class="tree" aria-label="Assassination tree"><h2>Assassination</h2>'
+               '<div class="node" style="grid-row:1;grid-column:2"><div class="node-inner"><button type="button" '
+               'class="node-btn locked" aria-label="Malice, rank 0 of 5"></button></div></div>'
+               '<div class="node is-announced" style="grid-row:3;grid-column:3"><div class="node-inner"><button '
+               'type="button" class="node-btn locked" aria-label="Lethality, rank 0 of 2. Announced by Blizzard on 2 '
+               'November, not in the game client yet."><img src="https://wow.zamimg.com/images/wow/icons/large/'
+               'ability_criticalstrike.jpg"/></button></div><span class="flag new" title="New in Forever">★</span></div>'
+               '<div class="node is-latest" style="grid-row:5;grid-column:3"><div class="node-inner"><button '
+               'type="button" class="node-btn locked" aria-label="Seal Fate, rank 0 of 3"></button></div></div>'
+               '</article></div>')
+    [tree] = class_trees(article)
+    assert [(t["name"], t["row"], t["col"], t["maxRank"]) for t in tree["talents"]] == [
+        ("Malice", 1, 2, 5), ("Lethality", 3, 3, 2), ("Seal Fate", 5, 3, 3)]
+    assert tree["talents"][1]["icon"] == "ability_criticalstrike" and tree["talents"][1]["classic"] == {"status": "new"}
+
+
 def fake(name, max_rank, tree="Balance"):
     return TalentPage(name, "Druid", tree, max_rank, tuple(f"{name} rank {r}" for r in range(1, max_rank + 1)), ())
 
@@ -168,8 +186,8 @@ def test_fetch_snapshots_the_class_and_returns_the_page(tmp_path):
     assert result.trees[0]["talents"][0]["ranks"][4]["text"].endswith("by 10%.")
     folder = tmp_path / "20261031" / "druid"
     assert manifest_path == folder / "manifest.json"
-    assert sorted(p.relative_to(folder).as_posix() for p in folder.rglob("*.html")) == [
-        "class.html", "talents/genesis.html", "talents/lacerate.html"]
+    assert sorted(p.relative_to(folder).as_posix() for p in folder.rglob("*.html.gz")) == [     # gzipped (#458)
+        "class.html.gz", "talents/genesis.html.gz", "talents/lacerate.html.gz"]
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     assert manifest["source"] == "wowforevertalents.com" and manifest["game_build"] == "1.60.1.70707"
     assert manifest["url"] == "https://wowforevertalents.com/druid/" and manifest["pages"] == 3
@@ -194,3 +212,47 @@ def test_fetch_needs_a_client_build_on_the_talent_pages(tmp_path):
         site.pages[url] = site.pages[url].replace("Forever client build 1.60.1.70707", "transcribed from footage")
     with pytest.raises(ValueError, match="no client build"):
         fetch("druid", http_get=site, raw_dir=tmp_path / "20261031", sleep=lambda s: None)
+
+
+def test_a_plain_html_snapshot_from_before_458_still_reads_offline(tmp_path):
+    import gzip
+
+    from wowforever.sources.wowforevertalents import fetch
+    first_manifest, first = fetch("druid", http_get=FakeSite(), raw_dir=tmp_path / "new" / "20261031", sleep=lambda s: None)
+    old = tmp_path / "old" / "20261031" / "druid"
+    new = tmp_path / "new" / "20261031" / "druid"
+    for gz in new.rglob("*.html.gz"):                                   # the same pages, saved the old way
+        plain = old / gz.relative_to(new).with_suffix("")
+        plain.parent.mkdir(parents=True, exist_ok=True)
+        plain.write_bytes(gzip.decompress(gz.read_bytes()))
+
+    def offline(url):
+        raise AssertionError(f"fetched {url}")
+
+    manifest, again = fetch("druid", http_get=offline, raw_dir=tmp_path / "old" / "20261031", sleep=lambda s: None)
+    assert again == first
+    assert json.loads(manifest.read_text(encoding="utf-8"))["sha256"] == \
+        json.loads(first_manifest.read_text(encoding="utf-8"))["sha256"]      # checksum of the pages, not the files
+
+def test_a_talent_the_site_serves_no_page_for_takes_the_fallback(tmp_path):
+    # 4 Nov 2026: the shaman page links /talents/call-of-thunder/ and the site serves the class page there (#466)
+    from wowforever.sources.wowforevertalents import fetch
+    site = FakeSite()
+    site.pages[talent_url("druid", "lacerate")] = MINI_CLASS
+    _, result = fetch("druid", http_get=site, raw_dir=tmp_path / "20261104", sleep=lambda s: None,
+                      fallback=lambda name: ("Lacerate from the client.",) if name == "Lacerate" else None)
+    lacerate = next(t for tree in result.trees for t in tree["talents"] if t["name"] == "Lacerate")
+    assert lacerate["ranks"] == [{"rank": 1, "text": "Lacerate from the client."}]
+    genesis = next(t for tree in result.trees for t in tree["talents"] if t["name"] == "Genesis")
+    assert genesis["ranks"][4]["text"].endswith("by 10%.")                       # the site's pages still count
+
+
+def test_without_a_fallback_or_with_the_wrong_rank_count_the_update_stops(tmp_path):
+    from wowforever.sources.wowforevertalents import fetch
+    site = FakeSite()
+    site.pages[talent_url("druid", "lacerate")] = MINI_CLASS
+    with pytest.raises(ValueError, match="not a wowforevertalents.com talent page"):
+        fetch("druid", http_get=site, raw_dir=tmp_path / "a", sleep=lambda s: None)
+    with pytest.raises(ValueError, match="no talent page for Lacerate"):
+        fetch("druid", http_get=site, raw_dir=tmp_path / "b", sleep=lambda s: None,
+              fallback=lambda name: ("one", "two"))

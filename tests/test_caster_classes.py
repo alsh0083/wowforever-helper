@@ -6,7 +6,6 @@ from pathlib import Path
 import pytest
 
 from wowforever.schema import latest_dataset_path
-from wowforever.builds import load_builds
 from wowforever.caster import caster_rotation
 from wowforever.classes import class_module
 from wowforever.effects import attach_effects
@@ -14,6 +13,8 @@ from wowforever.melee_scenarios import stat_table
 from wowforever.physical import Target
 from wowforever.pvp.class_pvp import class_side
 from wowforever.schema import Dataset
+
+from _trees import builds_by_id
 
 ROOT = Path(__file__).resolve().parents[1]
 DATASET = Dataset.load(latest_dataset_path())
@@ -23,7 +24,7 @@ BOSS = Target(3, 0)
 def loaded(name):
     m = class_module(name)
     cls, problems = attach_effects(DATASET.class_data(name), m.TALENT_EFFECTS, m.UNMODELED)
-    return cls, problems, {b.id: b.final_ids(cls) for b in load_builds(class_name=name)}
+    return cls, problems, {k: b.final_ids(cls) for k, b in builds_by_id(name).items()}
 
 
 def rotation(name, build):
@@ -41,7 +42,7 @@ def test_spells_taught_by_talents_need_the_talent():
     assert "Conflagrate" not in rotation("warlock", "warlock-affliction").spells
     assert "Conflagrate" in rotation("warlock", "warlock-destruction").spells
     assert "Insect Swarm" in rotation("druid", "druid-balance").spells
-    assert "Lava Burst" in rotation("shaman", "shaman-elemental").spells
+    assert "Lava Burst" not in rotation("shaman", "shaman-elemental").spells    # removed on 70755 (#466)
 
 
 def test_life_tap_pays_part_of_the_warlocks_mana():

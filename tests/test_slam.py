@@ -22,7 +22,7 @@ SLAM = {CLS.talent_named("Improved Slam").talent_id: 2}
 def test_rule():
     assert PROBLEMS == []
     (rule,) = CLS.talent_named("Improved Slam").effects
-    assert (rule.kind, rule.applies_to, rule.values) == ("cooldown", ("Slam",), (-3.0, -3.0))
+    assert (rule.kind, rule.applies_to, rule.values) == ("cooldown", ("Slam",), (-2.5, -5.0))     # 2 Nov notes: 3.0/3.0 -> 2.5/5
 
 
 def test_slam_needs_improved_slam():

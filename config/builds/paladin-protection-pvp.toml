@@ -1,6 +1,6 @@
-# Protection Paladin · Endgame · PvP · level 60: from wowforevertalent.com's build catalog (/builds/pub-protection-paladin-pvp-guide/),
-# verified final ranks, public source, checked 2026-10-05. Not playtested.
-# Imported to fill an empty spec-matrix slot (owner request, 2026-10-05).
+# Community standard (#460) from wowforeverbuilds.com, saved 2026-11-04: spec guide.
+# https://wowforeverbuilds.com/guide/protection-paladin-pvp-guide
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "paladin-protection-pvp"
 class = "paladin"
@@ -8,27 +8,27 @@ name = "Protection (PvP)"
 pair = "paladin-protection"
 variant = "PvP"
 origin = "community"
-sources = ["wft_builds_paladin"]
+sources = ["wowforeverbuilds_guides"]
 confidence = "medium"
-summary = "51 points (Holy 14 / Protection 37 / Retribution 0). Divine Strength is one of the spent talents. From the site's Protection Paladin · Endgame · PvP · level 60 plan."
+summary = "Protection Paladin PvP guide: flag defense with Templar's Bulwark and Hammer of Justice (wowforeverbuilds.com, spec guide)."
 
 [final]
 "Divine Strength" = 5
 "Guardian's Favor" = 2
-"Healing Light" = 1
+"Healing Light" = 3
 "Holy Shield" = 1
 "Improved Hammer of Justice" = 3
 "Improved Righteous Fury" = 3
-"Improved Seal of Fury" = 1
-"Iron Creed" = 5
+"Iron Creed" = 3
+"Precision" = 1
 "Reckoning" = 5
 "Redoubt" = 5
-"Reverence" = 3
+"Reverence" = 2
 "Sacred Duty" = 2
-"Shield Specialization" = 3
-"Spiritual Focus" = 2
+"Shield Specialization" = 2
+"Shieldsworn" = 1
+"Spiritual Focus" = 4
+"Stoicism" = 2
 "Swift Judgement" = 1
 "Templar's Bulwark" = 1
 "Toughness" = 5
-"Unyielding Faith" = 2
-"Voice of Truth" = 1

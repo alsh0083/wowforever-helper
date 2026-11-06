@@ -11,6 +11,8 @@ from wowforever.report import report_from_dataset, route_report
 from wowforever.rules import check_order
 from wowforever.schema import Dataset
 
+from _trees import builds_by_id
+
 DATASET = latest_dataset_path()
 _ROGUE = class_module("rogue")
 _CLS, _ = attach_effects(Dataset.load(DATASET).class_data("rogue"), _ROGUE.TALENT_EFFECTS, _ROGUE.UNMODELED)
@@ -37,7 +39,7 @@ def test_rogue_report_is_routes_only():
 def test_route_orders_are_legal_and_spend_the_build():
     ds = Dataset.load(DATASET)
     cls = ds.class_data("rogue")
-    builds = {b.id: b for b in load_builds(class_name="rogue")}
+    builds = builds_by_id("rogue")
     for b in REPORT["builds"]:
         assert check_order(cls, b["order"]) == [], b["id"]
         assert sorted(b["order"]) == sorted(t for t, r in builds[b["id"]].final_ids(cls).items() for _ in range(r))
@@ -52,10 +54,10 @@ def test_matrix_slots_cover_every_tree_and_recognized_hybrid():
     by_slot = {(s["archetype"], s["focus"]): s for s in REPORT["shortlist"]}
     assert by_slot[("deep Combat", "PvE")]["standard"] == "rogue-combat"
     assert by_slot[("deep Combat", "PvP")]["standard"] == "rogue-combat-pvp"
-    assert by_slot[("deep Assassination", "PvE")]["standard"] == "rogue-mutilate"
-    assert by_slot[("Assassination/Subtlety", "PvP")]["standard"] == "rogue-subtlety"
+    assert by_slot[("deep Assassination", "PvE")]["standard"] == "rogue-assassination"
+    assert by_slot[("Assassination/Subtlety", "PvP")]["standard"] == "rogue-assassination-subtlety-pvp"
     # every slot has a build since the matrix fill (owner request, 2026-10-05)
-    assert by_slot[("deep Subtlety", "PvE")]["standard"] == "rogue-subtlety-pve"
+    assert by_slot[("deep Subtlety", "PvE")]["standard"] == "rogue-subtlety"
     assert all(s["standard_score"] is None and s["model_pick"] is None for s in REPORT["shortlist"])
 
 

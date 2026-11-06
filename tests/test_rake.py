@@ -3,13 +3,14 @@ instead of the builder's damage, and the Energy it saves (or costs) is worth the
 
 import pytest
 
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.druid_rotation import cat_rotation, rake_gain
 from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import stat_table
 from wowforever.physical import Target
 from wowforever.schema import Dataset, latest_dataset_path
+
+from _trees import builds_by_id
 
 D = class_module("druid")
 CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("druid"), D.TALENT_EFFECTS, D.UNMODELED)
@@ -23,7 +24,7 @@ def test_rake_gain_by_hand():
 
 
 def test_feral_rotation_with_rake():
-    ranks = {b.id: b.final_ids(CLS) for b in load_builds(class_name="druid")}["druid-feral"]
+    ranks = {k: b.final_ids(CLS) for k, b in builds_by_id("druid").items()}["druid-feral"]
     stats = stat_table("druid").at(60).melee
     with_rake = cat_rotation(stats, CLS.spells, CLS, ranks, Target(3, 0))
     no_rake = cat_rotation(stats, [s for s in CLS.spells if s.name != "Rake"], CLS, ranks, Target(3, 0))

@@ -36,16 +36,20 @@ def test_pvp_core_talents_come_from_consensus_tiers():
     assert {"Ice Barrier", "Ice Block", "Cold Snap"} <= pvp_core_talents(Consensus.load())
 
 
+# each deep tree's PvP and PvE builds on 1.60.1.70755 (#460, #463); the Elementalist pair left with 70425
+PAIRS = [("mage-arcane-pvp", "mage-arcane"), ("mage-fire-pvp", "mage-fire"), ("mage-frost-pvp", "mage-frost-pve")]
+
+
 def test_pvp_score_prefers_the_pvp_variant_and_deep_frost():
     kits, consensus = load_kits(), Consensus.load()
     pvp = lambda ranks: class_pvp_score("mage", STATS, CLS, ranks, kits, consensus)
-    assert pvp(B["elementalist-v4"]) > pvp(B["elementalist-pve"])
-    assert pvp(B["deep-frost"]) > pvp(B["deep-fire"])
+    assert all(pvp(B[p]) > pvp(B[e]) for p, e in PAIRS)
+    assert pvp(B["mage-frost-pvp"]) > pvp(B["mage-fire-pvp"])
 
 
 def test_pve_score_prefers_the_pve_variant():
     pve = lambda ranks: ms.pve_score("mage", STATS, CLS.spells, CLS, ranks)
-    assert pve(B["elementalist-pve"]) > pve(B["elementalist-v4"])
+    assert all(pve(B[e]) > pve(B[p]) for p, e in PAIRS)
 
 
 def test_pvp_core_talents_are_the_class_s_own():

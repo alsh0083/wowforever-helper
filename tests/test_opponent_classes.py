@@ -26,7 +26,7 @@ CLASSES = {
     "paladin": (1100, (594, 267, 184), {"Holy": 17, "Protection": 16, "Retribution": 17},
                 {"Divine Favor", "Holy Shock", "Templar's Bulwark", "Seal of Command", "Repentance"}),
     "priest": (1114, (613, 56, 78), {"Discipline": 18, "Holy": 17, "Shadow": 18},
-               {"Inner Focus", "Holy Nova", "Binding Heal", "Prayer of Mending", "Mind Flay", "Silence",
+               {"Inner Focus", "Holy Nova", "Prayer of Mending", "Mind Flay", "Silence",
                 "Vampiric Embrace", "Shadowform"}),
     "shaman": (1082, (375, 373, 374), {"Elemental": 16, "Enhancement": 18, "Restoration": 16},
                {"Stormstrike", "Water Shield", "Mana Tide Totem", "Nature's Swiftness", "Riptide"}),

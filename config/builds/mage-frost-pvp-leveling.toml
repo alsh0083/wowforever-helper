@@ -1,0 +1,68 @@
+# Leveling version of mage-frost-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "mage-frost-pvp-leveling"
+class = "mage"
+name = "Frost (PvP, leveling, model)"
+pair = "mage-frost-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "mage-frost-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Frost (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Frost (PvP, model) at 60."
+
+order = [
+  "Precision",  # 10
+  "Improved Frostbolt",  # 11
+  "Improved Frostbolt",  # 12
+  "Improved Frostbolt",  # 13
+  "Improved Frostbolt",  # 14
+  "Improved Frost Nova",  # 15
+  "Improved Frost Nova",  # 16
+  "Permafrost",  # 17
+  "Permafrost",  # 18
+  "Permafrost",  # 19
+  "Frost Channeling",  # 20
+  "Frost Channeling",  # 21
+  "Frost Channeling",  # 22
+  "Improved Frostbolt",  # 23
+  "Wand Specialization",  # 24
+  "Wand Specialization",  # 25
+  "Improved Channeling",  # 26
+  "Improved Channeling",  # 27
+  "Improved Channeling",  # 28
+  "Missile Barrage",  # 29
+  "Precision",  # 30
+  "Ice Block",  # 31
+  "Ice Shards",  # 32
+  "Ice Shards",  # 33
+  "Ice Shards",  # 34
+  "Ice Shards",  # 35
+  "Cold Snap",  # 36
+  "Ice Shards",  # 37
+  "Frost Warding",  # 38
+  "Frost Warding",  # 39
+  "Precision",  # 40
+  "Frostbite",  # 41
+  "Ice Lance",  # 42
+  "Fingers of Frost",  # 43
+  "Fingers of Frost",  # 44
+  "Shatter",  # 45
+  "Shatter",  # 46
+  "Shatter",  # 47
+  "Frostbite",  # 48
+  "Frostbite",  # 49
+  "Ice Barrier",  # 50
+  "Incineration",  # 51
+  "Incineration",  # 52
+  "Incineration",  # 53
+  "Incineration",  # 54
+  "Incineration",  # 55
+  "Ignite",  # 56
+  "Ignite",  # 57
+  "Ignite",  # 58
+  "Ignite",  # 59
+  "Ignite",  # 60
+]

@@ -1,22 +1,24 @@
-# Paladin community standard (#157) from wowforevertalent.com's popularity data: #4 of the most
-# popular complete paladin builds (since the Sep 24 patch (build 70009), updated daily), points 36/10/5, shared 37,
-# saved 88, opened 583, 44 close variants. Focus label is Claude's judgment.
+# Community standard (#460) from talentsforever.com, saved 2026-11-04: top build #4 since the Oct 30 hotfixes to build 70685, saved 76. Data (c) Talents Forever, https://talentsforever.com, CC BY 4.0.
+# https://talentsforever.com/paladin/60/50320215022101251-501221-0503-11
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "paladin-holy"
 class = "paladin"
-name = "Holy Shock (PvE)"
+name = "Holy (PvE)"
 pair = "paladin-holy"
 variant = "PvE"
 origin = "community"
-sources = ["wft_popular_paladin"]
+sources = ["talentsforever_top"]
 confidence = "medium"
-summary = "Holy with Holy Shock, Light's Vigil, Divine Favor and Illumination; Toughness and Precision from Protection, Benediction from Retribution. The community's healer standard (routes only, unscored)."
+summary = "Holy Paladin 32/11/8 (talentsforever.com, top build #4 since the Oct 30 hotfixes to build 70685, saved 76)."
 
 [final]
 "Benediction" = 5
+"Boundless Light" = 2
+"Conviction" = 3
 "Divine Favor" = 1
 "Divine Intellect" = 5
-"Divine Precision" = 3
+"Divine Precision" = 2
 "Guardian's Favor" = 2
 "Healing Light" = 3
 "Holy Power" = 5
@@ -24,10 +26,10 @@ summary = "Holy with Holy Shock, Light's Vigil, Divine Favor and Illumination; T
 "Illumination" = 5
 "Infusion of Light" = 2
 "Light's Vigil" = 1
-"Precision" = 3
+"Oath of Light" = 1
+"Precision" = 1
 "Purifying Power" = 2
-"Reverence" = 3
-"Spiritual Focus" = 2
-"Toughness" = 5
-"Unyielding Faith" = 2
-"Voice of Truth" = 1
+"Reverence" = 2
+"Sacred Duty" = 2
+"Spiritual Focus" = 5
+"Templar's Bulwark" = 1

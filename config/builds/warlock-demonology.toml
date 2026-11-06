@@ -1,16 +1,16 @@
-# Warlock community standard (#160) from wowforevertalent.com's popularity data: #3 of the most
-# popular complete warlock builds (since the Oct 1 patch (build 70170), updated daily), points 5/33/13, shared 16,
-# saved 55, opened 577, 17 close variants. Focus label is Claude's judgment.
+# Community standard (#460) from talentsforever.com, saved 2026-11-04: top build #5, saved 91. Data (c) Talents Forever, https://talentsforever.com, CC BY 4.0.
+# https://talentsforever.com/warlock/60/005-0050233201211031351-20550001-11
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "warlock-demonology"
 class = "warlock"
-name = "Demonology Soul Link (PvP)"
+name = "Demonology (PvE)"
 pair = "warlock-demonology"
-variant = "PvP"
+variant = "PvE"
 origin = "community"
-sources = ["wft_popular_warlock"]
+sources = ["talentsforever_top"]
 confidence = "medium"
-summary = "Demonology with Soul Link, Master Demonologist, Demonic Knowledge and Demonic Pact; Bane, Molten Skin and Shadowburn from Destruction. Durable pet play: the community's Demonology build."
+summary = "Demonology Warlock 5/33/13, Demonic Sacrifice, Soul Link and Demonic Pact (talentsforever.com, top build #5, saved 91)."
 
 [final]
 "Bane" = 5

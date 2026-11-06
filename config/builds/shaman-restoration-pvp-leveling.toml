@@ -3,7 +3,7 @@
 
 id = "shaman-restoration-pvp-leveling"
 class = "shaman"
-name = "Restoration (PvP, leveling)"
+name = "Restoration (PvP, leveling, model)"
 pair = "shaman-restoration-pvp-leveling"
 variant = "PvP"
 mode = "leveling"
@@ -11,7 +11,7 @@ levels_into = "shaman-restoration-pvp"
 origin = "model"
 sources = []
 confidence = "low"
-summary = "Restoration (PvP) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Restoration (PvP) at 60."
+summary = "Restoration (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Restoration (PvP, model) at 60."
 
 order = [
   "Tidal Focus",  # 10
@@ -22,47 +22,47 @@ order = [
   "Mindfulness",  # 15
   "Mindfulness",  # 16
   "Mindfulness",  # 17
-  "Totemic Focus",  # 18
-  "Totemic Focus",  # 19
-  "Totemic Focus",  # 20
-  "Convection",  # 21
-  "Ancestral Healing",  # 22
-  "Convection",  # 23
-  "Convection",  # 24
-  "Convection",  # 25
-  "Convection",  # 26
-  "Ancestral Healing",  # 27
-  "Elemental Alacrity",  # 28
-  "Elemental Alacrity",  # 29
-  "Earth's Grasp",  # 30
-  "Earth's Grasp",  # 31
-  "Healing Focus",  # 32
-  "Healing Focus",  # 33
-  "Tidal Mastery",  # 34
-  "Tidal Mastery",  # 35
-  "Tidal Mastery",  # 36
-  "Tidal Mastery",  # 37
-  "Tidal Mastery",  # 38
-  "Healing Way",  # 39
-  "Healing Way",  # 40
-  "Healing Way",  # 41
-  "Nature's Swiftness",  # 42
-  "Mana Tide Totem",  # 43
-  "Purification",  # 44
-  "Purification",  # 45
-  "Purification",  # 46
-  "Purification",  # 47
-  "Purification",  # 48
-  "Riptide",  # 49
-  "Healing Focus",  # 50
-  "Water Shield",  # 51
-  "Improved Healing Wave",  # 52
-  "Tidal Focus",  # 53
-  "Tidal Focus",  # 54
-  "Ancestral Knowledge",  # 55
-  "Ancestral Knowledge",  # 56
-  "Ancestral Knowledge",  # 57
-  "Guardian Totems",  # 58
-  "Guardian Totems",  # 59
-  "Improved Ghost Wolf",  # 60
+  "Concussion",  # 18
+  "Concussion",  # 19
+  "Concussion",  # 20
+  "Concussion",  # 21
+  "Concussion",  # 22
+  "Elemental Alacrity",  # 23
+  "Elemental Alacrity",  # 24
+  "Elemental Alacrity",  # 25
+  "Call of Flame",  # 26
+  "Call of Flame",  # 27
+  "Elemental Focus",  # 28
+  "Call of Flame",  # 29
+  "Convection",  # 30
+  "Convection",  # 31
+  "Convection",  # 32
+  "Convection",  # 33
+  "Convection",  # 34
+  "Improved Healing Wave",  # 35
+  "Improved Healing Wave",  # 36
+  "Ancestral Healing",  # 37
+  "Ancestral Healing",  # 38
+  "Ancestral Healing",  # 39
+  "Healing Focus",  # 40
+  "Healing Focus",  # 41
+  "Tidal Mastery",  # 42
+  "Tidal Mastery",  # 43
+  "Tidal Mastery",  # 44
+  "Tidal Mastery",  # 45
+  "Tidal Mastery",  # 46
+  "Restorative Totems",  # 47
+  "Restorative Totems",  # 48
+  "Restorative Totems",  # 49
+  "Restorative Totems",  # 50
+  "Restorative Totems",  # 51
+  "Mana Tide Totem",  # 52
+  "Healing Focus",  # 53
+  "Water Shield",  # 54
+  "Improved Healing Wave",  # 55
+  "Tidal Focus",  # 56
+  "Tidal Focus",  # 57
+  "Purification",  # 58
+  "Thundering Strikes",  # 59
+  "Thundering Strikes",  # 60
 ]

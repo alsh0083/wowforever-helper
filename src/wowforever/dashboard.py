@@ -5,6 +5,7 @@ from __future__ import annotations
 import base64
 import html
 import json
+import urllib.error
 from collections.abc import Mapping, Sequence
 from pathlib import Path
 
@@ -190,8 +191,21 @@ def compact_gear(gear: Mapping | None) -> dict | None:
             "dungeons": {k: {"name": v["name"]} for k, v in gear["dungeons"].items()}}
 
 
+ISSUES_URL = "https://github.com/alsh0083/wowforever-helper/issues/"
+
+
+def pin_notice(pinned: str, newest: str, issue: str) -> str:
+    """A notice for the top of the page while the model reads an older build than the newest saved one (#463)."""
+    if tuple(map(int, pinned.split("."))) >= tuple(map(int, newest.split("."))):
+        return ""
+    link = (f'<a href="{ISSUES_URL}{issue.lstrip("#")}" target="_blank" rel="noopener noreferrer">'
+            f'{html.escape(issue)}</a>')
+    return (f'<div class="pin-notice" role="status">Scores are from game build {html.escape(pinned)}. '
+            f'Build {html.escape(newest)} is out, and moving the model to it is in progress: {link}.</div>')
+
+
 def render(payload: dict | Sequence[dict], icons: Mapping[str, bytes], *, gear: Mapping | None = None,
-           gear_rules: Mapping | None = None, favicon: bytes | None = None) -> str:
+           gear_rules: Mapping | None = None, favicon: bytes | None = None, notice: str = "") -> str:
     """Fill the template placeholders and return the complete HTML page.
 
     `payload` is one class's report or a list of them (#102): the first is the page's default
@@ -201,7 +215,7 @@ def render(payload: dict | Sequence[dict], icons: Mapping[str, bytes], *, gear: 
     template = TEMPLATE.read_text(encoding="utf-8")
     for placeholder in ("/*__PAYLOAD__*/null", "/*__ICONS__*/{}", "<!--__BUILD_BUTTONS__-->",
                         "/*__OTHERS__*/{}", "/*__THEMES__*/{}", "/*__THEME_CSS__*/", "<!--__CLASS_TABS__-->",
-                        "<!--__FAVICON__-->"):
+                        "<!--__FAVICON__-->", "<!--__NOTICE__-->"):
         if placeholder not in template:
             raise ValueError(f"dashboard template is missing {placeholder}")
     icon_map = {
@@ -227,7 +241,8 @@ def render(payload: dict | Sequence[dict], icons: Mapping[str, bytes], *, gear: 
             .replace("<!--__CLASS_TABS__-->", tabs)
             .replace("/*__ICONS__*/{}", json.dumps(icon_map))
             .replace("<!--__BUILD_BUTTONS__-->", matrices)
-            .replace("<!--__FAVICON__-->", favicon_html))
+            .replace("<!--__FAVICON__-->", favicon_html)
+            .replace("<!--__NOTICE__-->", notice))
 
 
 def build_buttons(builds: Sequence[Mapping]) -> str:
@@ -438,7 +453,12 @@ def fetch_icons(names: Sequence[str], *, http_get_bytes, cache_dir: Path) -> dic
         if path.is_file():
             icons[name] = path.read_bytes()
             continue
-        data = http_get_bytes(ICON_URL.format(name))
+        try:
+            data = http_get_bytes(ICON_URL.format(name))
+        except urllib.error.HTTPError as e:
+            if e.code != 404:
+                raise
+            continue                 # the CDN has no such icon: the talent is drawn without one (#463)
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(data)
         icons[name] = data

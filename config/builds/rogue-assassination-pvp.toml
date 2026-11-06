@@ -1,35 +1,30 @@
-# Assassination Rogue · Endgame · PvP · level 60: from wowforevertalent.com's build catalog (/builds/pub-assassination-rogue-pvp-guide/),
-# verified final ranks, public source, checked 2026-10-05. Not playtested.
-# Imported to fill an empty spec-matrix slot (owner request, 2026-10-05).
+# Model build for the empty deep Assassination PvP slot (owner request, 2026-10-05): hill-climbed from rogue-assassination under the PvP score.
+# No community plan with talents exists for this slot yet; replace it when one does.
 
 id = "rogue-assassination-pvp"
 class = "rogue"
-name = "Assassination (PvP)"
+name = "Assassination (PvP, model)"
 pair = "rogue-assassination"
 variant = "PvP"
-origin = "community"
-sources = ["wft_builds_rogue"]
-confidence = "medium"
-summary = "51 points (Assassination 34 / Combat 17 / Subtlety 0). Malice is one of the spent talents. From the site's Assassination Rogue · Endgame · PvP · level 60 plan."
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Assassination PvP: hill-climbed from rogue-assassination under the PvP score. Not a community standard."
 
 [final]
-"Cold Blood" = 1
-"Deflection" = 3
-"Endurance" = 2
-"Improved Eviscerate" = 3
-"Improved Gouge" = 3
-"Improved Kick" = 2
-"Improved Kidney Shot" = 2
-"Improved Sprint" = 2
-"Lethality" = 5
-"Lightning Reflexes" = 2
+"Coup de Grace" = 3
+"Efficient Strikes" = 2
+"Improved Poisons" = 5
+"Improved Slice and Dice" = 3
+"Lethality" = 2
 "Malice" = 5
-"Murder" = 2
 "Mutilate" = 1
-"Precision" = 2
-"Relentless Strikes" = 1
-"Riposte" = 1
+"Opportunity" = 5
+"Precision" = 3
+"Puncturing Wounds" = 3
+"Relentless Strikes" = 5
 "Ruthlessness" = 3
-"Seal Fate" = 5
+"Seal Fate" = 3
 "Venom" = 1
+"Vigor" = 2
 "Vile Poisons" = 5

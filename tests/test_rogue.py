@@ -17,7 +17,7 @@ RAW, _ = normalize_class(TABLES, ROGUE.LAYOUT, PAGE, wago_build="1.60.1.70205")
 CLS, REPORT = attach_effects(RAW, ROGUE.TALENT_EFFECTS, ROGUE.UNMODELED)
 
 CATEGORIES = ("melee damage", "resource", "defensive", "control", "stealth", "mobility", "utility",
-              "poison", "proc")
+              "poison", "proc", "dot")
 
 
 def test_rogue_is_registered_with_its_trait_tree_and_skill_lines():
@@ -35,7 +35,12 @@ def test_three_trees_load_with_every_talent():
 
 
 def test_every_talent_is_classified_exactly_once():
-    assert REPORT == []
+    # the rules follow the pinned build (1.60.1.70755, #464); this 70205 fixture checks the tree shape only
+    from wowforever.schema import Dataset, latest_dataset_path
+
+    _, problems = attach_effects(Dataset.load(latest_dataset_path()).class_data("rogue"), ROGUE.TALENT_EFFECTS,
+                                 ROGUE.UNMODELED)
+    assert problems == []
 
 
 def test_unmodeled_reasons_name_a_category():

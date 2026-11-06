@@ -3,13 +3,14 @@ often as energy allows, at most once per its duration) and bites with the rest; 
 
 import pytest
 
-from wowforever.builds import load_builds
 from wowforever.classes import class_module
 from wowforever.classes.druid_rotation import cat_rotation, finisher_dps
 from wowforever.effects import attach_effects
 from wowforever.melee_scenarios import stat_table
 from wowforever.physical import Target
 from wowforever.schema import Dataset, latest_dataset_path
+
+from _trees import builds_by_id
 
 D = class_module("druid")
 CLS, _ = attach_effects(Dataset.load(latest_dataset_path()).class_data("druid"), D.TALENT_EFFECTS, D.UNMODELED)
@@ -33,7 +34,7 @@ def test_rip_kept_up_and_bite_with_the_rest():
 
 
 def test_feral_rotation_uses_the_better_plan():
-    ranks = {b.id: b.final_ids(CLS) for b in load_builds(class_name="druid")}["druid-feral"]
+    ranks = {k: b.final_ids(CLS) for k, b in builds_by_id("druid").items()}["druid-feral"]
     stats = stat_table("druid").at(60).melee
     with_rip = cat_rotation(stats, CLS.spells, CLS, ranks, Target(3, 0))
     no_rip = cat_rotation(stats, [s for s in CLS.spells if s.name != "Rip"], CLS, ranks, Target(3, 0))

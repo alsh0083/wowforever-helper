@@ -1,0 +1,34 @@
+# Model pick for the deep Demonology PvE slot (owner request, 2026-10-07): the
+# community standard warlock-demonology hill-climbed under the PvE score, +11.8%.
+# Changes: Destructive Reach 2->0, Shadowburn 1->0, Molten Skin 5->0, Cataclysm 0->3, Improved Shadow Bolt 0->5, Demonic Pact 1->0, Master Demonologist 5->3, Decimation 1->2, Improved Life Tap 0->2, Improved Corruption 5->4, Suppression 0->1.
+
+id = "warlock-demonology-model"
+class = "warlock"
+name = "Demonology (PvE, model pick)"
+pair = "warlock-demonology-model"
+variant = "PvE"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "The model's alternative to Demonology (PvE): Destructive Reach 2->0, Shadowburn 1->0, Molten Skin 5->0, Cataclysm 0->3, Improved Shadow Bolt 0->5, Demonic Pact 1->0, Master Demonologist 5->3, Decimation 1->2, Improved Life Tap 0->2, Improved Corruption 5->4, Suppression 0->1. Scores +11.8% higher; not tried in game."
+
+[final]
+"Bane" = 5
+"Cataclysm" = 3
+"Decimation" = 2
+"Demonic Aegis" = 2
+"Demonic Embrace" = 5
+"Demonic Energies" = 2
+"Demonic Knowledge" = 3
+"Demonic Sacrifice" = 1
+"Fel Domination" = 1
+"Fel Vitality" = 3
+"Improved Corruption" = 4
+"Improved Felhunter" = 3
+"Improved Life Tap" = 2
+"Improved Shadow Bolt" = 5
+"Improved Voidwalker" = 3
+"Master Demonologist" = 3
+"Master Summoner" = 2
+"Soul Link" = 1
+"Suppression" = 1

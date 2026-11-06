@@ -1,30 +1,26 @@
-# Warlock community standard (#160) from wowforevertalent.com's popularity data: #1 of the most
-# popular complete warlock builds (since the Oct 1 patch (build 70170), updated daily), points 40/11/0, shared 113,
-# saved 315, opened 2382, 63 close variants. Focus label is Claude's judgment.
+# Community standard (#460) from talentsforever.com, saved 2026-11-04: top build #2, saved 177. Data (c) Talents Forever, https://talentsforever.com, CC BY 4.0.
+# https://talentsforever.com/warlock/60/05500320035201351-0050203001-05-11
+# Taken as published: tools/import_sourced_builds.py replaces it, never adjusts it.
 
 id = "warlock-affliction"
 class = "warlock"
-name = "Affliction Siphon Life (PvE)"
+name = "Affliction (PvE)"
 pair = "warlock-affliction"
 variant = "PvE"
 origin = "community"
-sources = ["wft_popular_warlock"]
+sources = ["talentsforever_top"]
 confidence = "medium"
-summary = "Affliction with Siphon Life, Wrack, Nightfall, Pandemic and Shadow Mastery; Demonic Embrace, Fel Vitality and Demonic Sacrifice from Demonology. The most saved warlock build: the community's leveling and damage standard."
+summary = "Affliction Warlock 35/11/5, Shadow Mastery, Wrack and Demonic Sacrifice (talentsforever.com, top build #2, saved 177)."
 
-refreshed = "3:Demonic Aegis=2,Demonic Embrace=5,Demonic Sacrifice=1,Fel Concentration=3,Fel Vitality=3,Grim Reach=2,Improved Bane of Agony=2,Improved Corruption=5,Improved Drains=3,Malevolence=5,Nightfall=2,Pandemic=3,Shadow Mastery=5,Siphon Life=1,Soul Siphon=3,Suppression=5,Wrack=1"
-provisional = "9 saves, 2026-10-16"
-# refreshed from wowforevertalent.com popularity (since the Oct 15 patch (build 70425), updated daily): rank 3, saved 9, points 40/11/0 (#369)
 [final]
 "Demonic Aegis" = 2
 "Demonic Embrace" = 5
 "Demonic Sacrifice" = 1
-"Fel Concentration" = 3
 "Fel Vitality" = 3
-"Grim Reach" = 2
 "Improved Bane of Agony" = 2
 "Improved Corruption" = 5
 "Improved Drains" = 3
+"Improved Shadow Bolt" = 5
 "Malevolence" = 5
 "Nightfall" = 2
 "Pandemic" = 3

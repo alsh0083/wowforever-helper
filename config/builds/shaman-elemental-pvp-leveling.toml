@@ -1,0 +1,68 @@
+# Leveling version of shaman-elemental-pvp (owner feedback, 2026-10-07): tools/derive_leveling_builds.py.
+# Its talents in a questing-pace order, with up to 7 leveling-only points respecced at 60.
+
+id = "shaman-elemental-pvp-leveling"
+class = "shaman"
+name = "Elemental (PvP, leveling, model)"
+pair = "shaman-elemental-pvp-leveling"
+variant = "PvP"
+mode = "leveling"
+levels_into = "shaman-elemental-pvp"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Elemental (PvP, model) for leveling: its talents in an order chosen for questing pace, with a few leveling talents along the way. Respec into Elemental (PvP, model) at 60."
+
+order = [
+  "Convection",  # 10
+  "Convection",  # 11
+  "Convection",  # 12
+  "Convection",  # 13
+  "Convection",  # 14
+  "Elemental Alacrity",  # 15
+  "Elemental Alacrity",  # 16
+  "Elemental Alacrity",  # 17
+  "Call of Flame",  # 18
+  "Call of Flame",  # 19
+  "Elemental Focus",  # 20
+  "Call of Flame",  # 21
+  "Concussion",  # 22
+  "Ancestral Knowledge",  # 23
+  "Ancestral Knowledge",  # 24
+  "Ancestral Knowledge",  # 25
+  "Ancestral Knowledge",  # 26
+  "Ancestral Knowledge",  # 27
+  "Concussion",  # 28
+  "Concussion",  # 29
+  "Concussion",  # 30
+  "Concussion",  # 31
+  "Elemental Devastation",  # 32
+  "Elemental Devastation",  # 33
+  "Elemental Devastation",  # 34
+  "Lightning Overload",  # 35
+  "Lightning Overload",  # 36
+  "Lightning Overload",  # 37
+  "Call of Thunder",  # 38
+  "Reverberation",  # 39
+  "Elemental Fury",  # 40
+  "Elemental Fury",  # 41
+  "Elemental Fury",  # 42
+  "Elemental Fury",  # 43
+  "Elemental Fury",  # 44
+  "Thundering Strikes",  # 45
+  "Lightning Mastery",  # 46
+  "Thundering Strikes",  # 47
+  "Thundering Strikes",  # 48
+  "Thundering Strikes",  # 49
+  "Thundering Strikes",  # 50
+  "Shamanistic Focus",  # 51
+  "Tidal Focus",  # 52
+  "Trial by Fire",  # 53
+  "Eye of the Storm",  # 54
+  "Eye of the Storm",  # 55
+  "Eye of the Storm",  # 56
+  "Earthbound",  # 57
+  "Elemental Reach",  # 58
+  "Elemental Reach",  # 59
+  "Trial by Fire",  # 60
+]

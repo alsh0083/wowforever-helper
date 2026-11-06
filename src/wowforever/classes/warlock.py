@@ -83,8 +83,8 @@ TALENT_EFFECTS: dict[str, tuple[EffectRule, ...]] = {
         EffectRule("stat_pct", r"increases your maximum Mana by (\d+(?:\.\d+)?)%", ("mana",)),
     ),
     "Improved Drains": (
-        EffectRule("damage_pct", r"Drain Life, Drain Soul, and Wrack spells by (\d+(?:\.\d+)?)%",
-                   ("Drain Life", "Drain Soul", "Wrack")),
+        EffectRule("damage_pct", r"Drain Life, Drain Soul, and Drain Mana spells by (\d+(?:\.\d+)?)%",
+                   ("Drain Life", "Drain Soul")),
     ),
     # the model's warlock keeps a demon out (#396)
     "Demonic Knowledge": (

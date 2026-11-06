@@ -1,0 +1,33 @@
+# Model build for the empty deep Arms PvP slot (owner request, 2026-10-05): the report's model pick for this slot.
+# No community plan with talents exists for this slot yet; replace it when one does.
+
+id = "warrior-arms-pvp"
+class = "warrior"
+name = "Arms (PvP, model)"
+pair = "warrior-arms"
+variant = "PvP"
+origin = "model"
+sources = []
+confidence = "low"
+summary = "Model build for Arms PvP: the report's model pick for this slot. Not a community standard."
+
+[final]
+"Anger Management" = 1
+"Bloodthrill" = 2
+"Cruelty" = 5
+"Deep Wounds" = 3
+"Deflection" = 5
+"Impale" = 2
+"Improved Charge" = 2
+"Improved Hamstring" = 2
+"Improved Heroic Strike" = 3
+"Improved Overpower" = 2
+"Improved Rend" = 3
+"Improved Slam" = 2
+"Improved Tactical Mastery" = 3
+"Mortal Strike" = 1
+"Spearing Strike" = 1
+"Sweeping Strikes" = 1
+"Two-Handed Weapon Specialization" = 3
+"Unbridled Wrath" = 5
+"Weaponmaster" = 5
